@@ -181,6 +181,65 @@ h1 {
   cursor: default;
 }
 
+/* === Language switcher === */
+.lang-switcher {
+  display: flex;
+  padding: 4px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  gap: 3px;
+}
+
+.lang-btn {
+  padding: 6px 13px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  border: none;
+  background: none;
+  color: var(--muted);
+  -webkit-text-fill-color: var(--muted);
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  cursor: pointer;
+  animation: none;
+  box-shadow: none;
+  filter: none;
+  transition: background 0.15s;
+}
+
+.lang-btn.active,
+.lang-btn[aria-pressed="true"] {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    to right,
+    #f472b6, #a855f7, #38bdf8, #22c55e, #f59e0b, #ef4444, #f472b6
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: tieDyeShift 8s linear infinite;
+}
+
+.lang-btn.active::before,
+.lang-btn[aria-pressed="true"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.14);
+  z-index: -1;
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.07);
+  -webkit-text-fill-color: var(--text);
+}
+
 /* === Mode tabs === */
 .mode-tabs {
   display: flex;

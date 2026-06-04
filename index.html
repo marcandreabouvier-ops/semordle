@@ -15,7 +15,13 @@
           <div class="subtitle">A daily word hunt through meaning and letters.</div>
         </div>
       </div>
-      <div class="pill" id="puzzle-pill" aria-live="polite">Loading…</div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
+        </div>
+        <div class="pill" id="puzzle-pill" aria-live="polite">Loading…</div>
+      </div>
     </header>
 
     <main class="hero" id="game-root">

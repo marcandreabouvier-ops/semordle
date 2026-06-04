@@ -9,6 +9,96 @@
 const STORAGE_PREFIX = 'semordle:';
 const WORDLE_MAX_ATTEMPTS = 6;
 
+// ─── i18n ─────────────────────────────────────────────────
+const I18N = {
+  en: {
+    subtitle:        'A daily word hunt through meaning and letters.',
+    inputPlaceholder:'Type a word…',
+    guessBtn:        'Guess',
+    journeyTitle:    'Your journey',
+    emptyState:      'Your guesses will appear here. Try a word that might be semantically related to the secret!',
+    tabSemantic:     'Semantic',
+    tabWordle:       'Wordle',
+    startTitle:      'Unlock a clue word',
+    startBestRank:   (r) => `Your current best rank is <strong style="color:var(--text)">#${r}</strong> — the clue word will be closer than that.`,
+    startNoRank:     'Make a semantic guess first to get a better starting clue.',
+    startBtn:        'Start challenge',
+    wordleHeader:    'Letter world',
+    wordleTitle:     'Unlock target',
+    wordleDesc:      "Guess this hidden semantic clue — it's closer to the answer than your best word so far.",
+    wordleLength:    (n, r) => `Word length: <strong style="color:var(--text)">${n} letters</strong> · ${r} attempts left`,
+    wonTitle:        '🎉 You got it!',
+    wonBody:         (w) => `"${w}" has been added to your semantic history.`,
+    lostTitle:       'Not this time',
+    lostBody:        (w, r) => `The word was <strong>${w}</strong> (rank #${r}).`,
+    lostHint:        'Green-position letters saved as a clue.',
+    backBtn:         '← Back',
+    anotherBtn:      'Another Wordle',
+    partialTitle:    'Partial clues from lost challenges',
+    shareCaption:    'Share your result',
+    copyBtn:         '📋 Copy to clipboard',
+    copiedOk:        '✓ Copied to clipboard!',
+    copiedFail:      'Could not copy — try manually',
+    alreadyGuessed:  (w) => `You already guessed "${w}"`,
+    alreadySolved:   "You already solved today's puzzle!",
+    noClue:          'No stronger clue available — keep guessing!',
+    needLetters:     (n) => `Need ${n} letters`,
+    lettersOnly:     'Letters only please',
+    alreadyTried:    'Already tried that word',
+    outsideTop:      'outside top 1000',
+    youFoundIt:      "You found it!",
+    solved:          '🎯 Solved',
+    inProgress:      '🕹 In progress',
+    shareUrl:        'Play at https://semordle.game',
+    winTitle:        'You solved it!',
+    winSubtitle:     (n) => `You found the word in ${n} guess${n !== 1 ? 'es' : ''}!`,
+    keepPlaying:     'Keep playing',
+  },
+  fr: {
+    subtitle:        'Une chasse aux mots quotidienne entre sens et lettres.',
+    inputPlaceholder:'Entrez un mot…',
+    guessBtn:        'Deviner',
+    journeyTitle:    'Votre parcours',
+    emptyState:      'Vos propositions apparaîtront ici. Essayez un mot sémantiquement proche du secret !',
+    tabSemantic:     'Sémantique',
+    tabWordle:       'Wordle',
+    startTitle:      'Débloquer un indice',
+    startBestRank:   (r) => `Votre meilleur rang actuel est <strong style="color:var(--text)">#${r}</strong> — le mot indice sera plus proche que ça.`,
+    startNoRank:     'Faites d\'abord une proposition sémantique pour obtenir un meilleur indice.',
+    startBtn:        'Lancer le défi',
+    wordleHeader:    'Monde des lettres',
+    wordleTitle:     'Débloquer la cible',
+    wordleDesc:      'Devinez cet indice caché — il est plus proche de la réponse que votre meilleur mot.',
+    wordleLength:    (n, r) => `Longueur : <strong style="color:var(--text)">${n} lettres</strong> · ${r} essais restants`,
+    wonTitle:        '🎉 Trouvé !',
+    wonBody:         (w) => `"${w}" a été ajouté à votre historique sémantique.`,
+    lostTitle:       'Pas cette fois',
+    lostBody:        (w, r) => `Le mot était <strong>${w}</strong> (rang #${r}).`,
+    lostHint:        'Les lettres bien placées sont sauvegardées comme indice.',
+    backBtn:         '← Retour',
+    anotherBtn:      'Autre Wordle',
+    partialTitle:    'Indices partiels des défis perdus',
+    shareCaption:    'Partager votre résultat',
+    copyBtn:         '📋 Copier dans le presse-papier',
+    copiedOk:        '✓ Copié !',
+    copiedFail:      'Impossible de copier — essayez manuellement',
+    alreadyGuessed:  (w) => `Vous avez déjà proposé "${w}"`,
+    alreadySolved:   'Vous avez déjà résolu le puzzle du jour !',
+    noClue:          'Pas d\'indice plus fort disponible — continuez à deviner !',
+    needLetters:     (n) => `${n} lettres requises`,
+    lettersOnly:     'Lettres uniquement',
+    alreadyTried:    'Mot déjà essayé',
+    outsideTop:      'hors du top 1000',
+    youFoundIt:      'Vous l\'avez trouvé !',
+    solved:          '🎯 Résolu',
+    inProgress:      '🕹 En cours',
+    shareUrl:        'Jouez sur https://semordle.game',
+    winTitle:        'Résolu !',
+    winSubtitle:     (n) => `Vous avez trouvé le mot en ${n} proposition${n !== 1 ? 's' : ''} !`,
+    keepPlaying:     'Continuer à jouer',
+  },
+};
+
 // Temperature band definitions
 const TEMP = {
   SCORCH:   { min: 1,    max: 10,   label: 'Scorching', icon: '🔥', cssClass: 'scorch', color: '#ef4444' },
@@ -22,6 +112,13 @@ const TEMP = {
 let puzzle = null;          // loaded puzzle JSON
 let gameState = null;       // persisted state object
 let wordleState = null;     // active wordle challenge (in-memory)
+let currentLang = localStorage.getItem('semordle:lang') || 'en';
+let _initialized = false;
+
+function t(key, ...args) {
+  const val = I18N[currentLang]?.[key] ?? I18N.en[key];
+  return typeof val === 'function' ? val(...args) : val;
+}
 
 // ─── Utility functions ───────────────────────────────────
 
@@ -34,7 +131,7 @@ function getTodayDate() {
 }
 
 function storageKey(puzzleDate) {
-  return `${STORAGE_PREFIX}${puzzleDate}`;
+  return `${STORAGE_PREFIX}${currentLang}:${puzzleDate}`;
 }
 
 /**
@@ -111,23 +208,25 @@ async function loadPuzzle() {
   const today = getTodayDate();
   let loaded = null;
 
-  // Try today's date file first
+  // Try today's date file for current language
   try {
-    const res = await fetch(`data/${today}.json`);
-    if (res.ok) {
-      loaded = await res.json();
-    }
-  } catch (e) {
-    // swallow
-  }
+    const res = await fetch(`data/${currentLang}/${today}.json`);
+    if (res.ok) loaded = await res.json();
+  } catch (e) { /* swallow */ }
 
-  // Fallback to sample
+  // Fallback to language sample
   if (!loaded) {
     try {
-      const res = await fetch('data/sample.json');
-      if (res.ok) {
-        loaded = await res.json();
-      }
+      const res = await fetch(`data/${currentLang}/sample.json`);
+      if (res.ok) loaded = await res.json();
+    } catch (e) { /* swallow */ }
+  }
+
+  // Last resort: English sample
+  if (!loaded) {
+    try {
+      const res = await fetch('data/en/sample.json');
+      if (res.ok) loaded = await res.json();
     } catch (e) {
       console.error('Failed to load any puzzle data:', e);
     }
@@ -166,7 +265,7 @@ function submitSemanticGuess(rawWord) {
     g => g.word.toLowerCase() === word
   );
   if (alreadyGuessed) {
-    showSemanticMessage(`You already guessed "${word}"`, 'error');
+    showSemanticMessage(t('alreadyGuessed', word), 'error');
     return;
   }
 
@@ -358,6 +457,30 @@ function launchFireworks() {
 
 // ─── Semantic message ─────────────────────────────────────
 
+function applyI18n() {
+  document.querySelector('.subtitle').textContent      = t('subtitle');
+  document.getElementById('semantic-input').placeholder = t('inputPlaceholder');
+  document.getElementById('semantic-submit').textContent = t('guessBtn');
+  document.querySelector('#semantic-panel .section-title span:first-child').textContent = t('journeyTitle');
+  document.getElementById('tab-semantic').textContent  = t('tabSemantic');
+  document.getElementById('tab-wordle').textContent    = t('tabWordle');
+  document.getElementById('guess-empty-state').querySelector('p').textContent = t('emptyState');
+  // Win modal
+  document.querySelector('.win-header h2').textContent = t('winTitle');
+  document.getElementById('close-win-btn').textContent = t('keepPlaying');
+  document.getElementById('copy-share-btn').textContent = t('copyBtn');
+  document.getElementById('win-copy-btn').textContent  = t('copyBtn');
+  // Share section caption
+  const shareCaption = document.querySelector('.share-section .caption');
+  if (shareCaption) shareCaption.textContent = t('shareCaption');
+  // Language buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const active = btn.dataset.lang === currentLang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+}
+
 function showSemanticMessage(msg, type = '') {
   const el = document.getElementById('semantic-message');
   el.textContent = msg;
@@ -391,8 +514,8 @@ function renderGuessCard(entry, prepend = false) {
   }
 
   const rankLabel = entry.isWin ? '🎯 Solved!' :
-                    entry.rank ? `#${entry.rank}` : 'Outside top 1000';
-  const tempLabel = entry.isWin ? 'You found it!' : temp.label;
+                    entry.rank ? `#${entry.rank}` : t('outsideTop');
+  const tempLabel = entry.isWin ? t('youFoundIt') : temp.label;
   const scoreLabel = entry.isWin ? '100.0' :
                      (entry.displayScore > 0 ? entry.displayScore.toFixed(1) : null);
 
@@ -404,7 +527,7 @@ function renderGuessCard(entry, prepend = false) {
     ? `${tempLabel}`
     : scoreLabel
       ? `${temp.icon} ${tempLabel} · similarity ${scoreLabel} ${unlockBadge}`
-      : `${temp.icon} ${tempLabel} · outside top 1000`;
+      : `${temp.icon} ${tempLabel} · ${t('outsideTop')}`;
 
   const barFill = entry.displayScore > 0 ? entry.displayScore : 0;
 
@@ -1051,22 +1174,20 @@ function selectUnlockTarget() {
 function showWordleStartPrompt(container) {
   if (!container) return;
   const best = gameState && gameState.stats.bestRank;
-  const bestLine = best
-    ? `<p style="font-size:13px;color:var(--muted);margin:0 0 24px;">Your current best rank is <strong style="color:var(--text)">#${best}</strong> — the clue word will be closer than that.</p>`
-    : `<p style="font-size:13px;color:var(--muted);margin:0 0 24px;">Make a semantic guess first to get a better starting clue.</p>`;
+  const bestLine = best ? t('startBestRank', best) : t('startNoRank');
   container.innerHTML = `
     <div style="text-align:center;padding:40px 20px 32px;">
       <div style="font-size:38px;margin-bottom:14px;">🔐</div>
-      <p style="margin:0 0 8px;font-size:18px;font-weight:900;letter-spacing:-0.03em;color:var(--text);">Unlock a clue word</p>
-      ${bestLine}
-      <button id="wordle-start-btn" style="width:100%;height:52px;font-size:16px;border-radius:8px;" aria-label="Start Wordle challenge">Start challenge</button>
+      <p style="margin:0 0 8px;font-size:18px;font-weight:900;letter-spacing:-0.03em;color:var(--text);">${t('startTitle')}</p>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 24px;">${bestLine}</p>
+      <button id="wordle-start-btn" style="width:100%;height:52px;font-size:16px;border-radius:8px;" aria-label="${t('startBtn')}">${t('startBtn')}</button>
     </div>`;
   document.getElementById('wordle-start-btn')?.addEventListener('click', startWordleChallenge);
 }
 
 function startWordleChallenge() {
   if (gameState.solved) {
-    showSemanticMessage('You already solved today\'s puzzle!', 'info');
+    showSemanticMessage(t('alreadySolved'), 'info');
     closeWordlePanel();
     return;
   }
@@ -1075,7 +1196,7 @@ function startWordleChallenge() {
   if (!target) {
     const c = document.getElementById('wordle-inline-content');
     if (c) showWordleStartPrompt(c);
-    showSemanticMessage('No stronger clue available — keep guessing!', 'info');
+    showSemanticMessage(t('noClue'), 'info');
     closeWordlePanel();
     return;
   }
@@ -1170,25 +1291,25 @@ function buildWordleHTML() {
   // Result section
   const resultBtns = `
     <div style="display:flex;gap:8px;margin-top:12px;">
-      <button class="close-wordle-btn" style="flex:1;height:44px;font-size:14px;" aria-label="Return to semantic game">← Back</button>
-      <button class="new-wordle-btn" style="flex:1;height:44px;font-size:14px;" aria-label="Start another Wordle challenge">Another Wordle</button>
+      <button class="close-wordle-btn" style="flex:1;height:44px;font-size:14px;">${t('backBtn')}</button>
+      <button class="new-wordle-btn" style="flex:1;height:44px;font-size:14px;">${t('anotherBtn')}</button>
     </div>`;
   let resultSection = '';
   if (solved) {
     resultSection = `
       <div class="wordle-result won" role="status" aria-live="polite">
-        <h4>🎉 You got it!</h4>
-        <p>"${escapeHtml(target.word)}" has been added to your semantic history.</p>
+        <h4>${t('wonTitle')}</h4>
+        <p>${t('wonBody', escapeHtml(target.word))}</p>
         ${resultBtns}
       </div>`;
   } else if (failed) {
     const mask = buildPartialMask(target.word, attempts);
     resultSection = `
       <div class="wordle-result lost" role="status" aria-live="polite">
-        <h4>Not this time</h4>
-        <p>The word was <strong>${escapeHtml(target.word)}</strong> (rank #${target.rank}).</p>
+        <h4>${t('lostTitle')}</h4>
+        <p>${t('lostBody', escapeHtml(target.word), target.rank)}</p>
         <div class="revealed-word" aria-label="Partial clue: ${mask}">${mask}</div>
-        <p>Green-position letters saved as a clue.</p>
+        <p>${t('lostHint')}</p>
         ${resultBtns}
       </div>`;
   }
@@ -1201,10 +1322,10 @@ function buildWordleHTML() {
 
   return `
     <div class="wordle-header">
-      <div class="caption">Letter world</div>
-      <h3>🗝 Unlock target</h3>
-      <p>Guess this hidden semantic clue — it's closer to the answer than your best word so far.</p>
-      <p style="font-size:12px;color:var(--muted)">Word length: <strong style="color:var(--text)">${wordLen} letters</strong> · ${WORDLE_MAX_ATTEMPTS - attempts.length} attempts left</p>
+      <div class="caption">${t('wordleHeader')}</div>
+      <h3>${t('wordleTitle')}</h3>
+      <p>${t('wordleDesc')}</p>
+      <p style="font-size:12px;color:var(--muted)">${t('wordleLength', wordLen, WORDLE_MAX_ATTEMPTS - attempts.length)}</p>
     </div>
     <div class="wordle-board" role="grid" aria-label="Wordle guess board">
       ${boardRows}
@@ -1231,7 +1352,11 @@ function buildPartialMask(word, attempts) {
 }
 
 function buildKeyboardHTML() {
-  const rows = [
+  const rows = currentLang === 'fr' ? [
+    ['A','Z','E','R','T','Y','U','I','O','P'],
+    ['Q','S','D','F','G','H','J','K','L','M'],
+    ['ENTER','W','X','C','V','B','N','⌫'],
+  ] : [
     ['Q','W','E','R','T','Y','U','I','O','P'],
     ['A','S','D','F','G','H','J','K','L'],
     ['ENTER','Z','X','C','V','B','N','M','⌫'],
@@ -1290,7 +1415,7 @@ function handleWordleKey(key) {
     updateActiveTiles();
   } else if (key === 'ENTER' || key === 'Enter') {
     submitWordleGuess();
-  } else if (/^[A-Za-z]$/.test(key)) {
+  } else if (/^[A-Za-zÀ-ÿ]$/.test(key)) {
     if (wordleState.currentGuess.length < maxLen) {
       wordleState.currentGuess += key.toUpperCase();
       updateActiveTiles();
@@ -1344,19 +1469,19 @@ function submitWordleGuess() {
   if (!rawGuess) return;
 
   if (rawGuess.length !== targetWord.length) {
-    showWordleMessage(`Need ${targetWord.length} letters`, 'error');
+    showWordleMessage(t('needLetters', targetWord.length), 'error');
     shakeActiveRow();
     return;
   }
 
-  if (!/^[A-Z]+$/.test(rawGuess)) {
-    showWordleMessage('Letters only please', 'error');
+  if (!/^[A-Za-zÀ-ÿ]+$/.test(rawGuess)) {
+    showWordleMessage(t('lettersOnly'), 'error');
     return;
   }
 
   const alreadyGuessed = wordleState.attempts.some(a => a.guess === rawGuess);
   if (alreadyGuessed) {
-    showWordleMessage('Already tried that word', 'error');
+    showWordleMessage(t('alreadyTried'), 'error');
     shakeActiveRow();
     return;
   }
@@ -1491,7 +1616,7 @@ function renderPartialClues() {
 
   const title = document.createElement('div');
   title.style.cssText = 'font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;';
-  title.textContent = 'Partial clues from lost challenges';
+  title.textContent = t('partialTitle');
   container.appendChild(title);
 
   gameState.partialUnlockClues.forEach(clue => {
@@ -1525,10 +1650,10 @@ function buildShareText() {
     `Semordle #${num}`,
     `🧠 ${stats.semanticGuessCount} semantic guess${stats.semanticGuessCount !== 1 ? 'es' : ''}`,
     `🔓 ${stats.unlockCount} unlock${stats.unlockCount !== 1 ? 's' : ''}`,
-    gameState.solved ? '🎯 Solved' : '🕹 In progress',
+    gameState.solved ? t('solved') : t('inProgress'),
     journey,
     '',
-    'Play at https://semordle.game',
+    t('shareUrl'),
   ];
 
   return lines.join('\n');
@@ -1549,7 +1674,7 @@ function buildShareCardHTML() {
     <strong>Semordle #${num}</strong>
     <div>🧠 ${stats.semanticGuessCount} semantic guess${stats.semanticGuessCount !== 1 ? 'es' : ''}</div>
     <div>🔓 ${stats.unlockCount} unlock${stats.unlockCount !== 1 ? 's' : ''}</div>
-    <div>${gameState.solved ? '🎯 Solved' : '🕹 In progress'}</div>
+    <div>${gameState.solved ? t('solved') : t('inProgress')}</div>
     <div class="journey" aria-label="Your guessing journey">${journey.join('')}</div>
   `;
 }
@@ -1584,7 +1709,7 @@ function showWinModal() {
 
   const subtitle = document.getElementById('win-subtitle');
   if (subtitle) {
-    subtitle.textContent = `You found the word in ${gameState.stats.semanticGuessCount} guess${gameState.stats.semanticGuessCount !== 1 ? 'es' : ''}!`;
+    subtitle.textContent = t('winSubtitle', gameState.stats.semanticGuessCount);
   }
 
   const card = document.getElementById('win-share-card');
@@ -1720,15 +1845,19 @@ async function init() {
   document.getElementById('puzzle-pill').textContent = `Daily #${puzzle.puzzleNumber} · ${puzzle.wordLength} letters`;
   document.title = `Semordle #${puzzle.puzzleNumber} – Daily semantic word hunt`;
 
-  // Setup UI bindings
+  // Apply translations and setup UI bindings
+  applyI18n();
+  if (!_initialized) {
+    setupLangSwitcher();
+    setupModeTabs();
+    setupKeyboardHandler();
+    setupModalCloseButtons();
+    setupShareButtons();
+    setupLandscapeInteraction();
+    document.getElementById('landscape-reset-btn')?.addEventListener('click', resetView);
+    _initialized = true;
+  }
   setupSemanticInput();
-
-  setupModeTabs();
-  setupKeyboardHandler();
-  setupModalCloseButtons();
-  setupShareButtons();
-  setupLandscapeInteraction();
-  document.getElementById('landscape-reset-btn')?.addEventListener('click', resetView);
 
   // Restore previous session
   restoreState();
@@ -1795,7 +1924,7 @@ function setupShareButtons() {
     const ok = await copyShareText();
     const confirm = document.getElementById('copy-confirm');
     if (confirm) {
-      confirm.textContent = ok ? '✓ Copied to clipboard!' : 'Could not copy — try manually';
+      confirm.textContent = ok ? t('copiedOk') : t('copiedFail');
       clearTimeout(confirm._timer);
       confirm._timer = setTimeout(() => { confirm.textContent = ''; }, 3000);
     }
@@ -1806,10 +1935,36 @@ function setupShareButtons() {
     const ok = await copyShareText();
     const confirm = document.getElementById('win-copy-confirm');
     if (confirm) {
-      confirm.textContent = ok ? '✓ Copied to clipboard!' : 'Could not copy — try manually';
+      confirm.textContent = ok ? t('copiedOk') : t('copiedFail');
       clearTimeout(confirm._timer);
       confirm._timer = setTimeout(() => { confirm.textContent = ''; }, 3000);
     }
+  });
+}
+
+function setupLangSwitcher() {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn._langBound) return;
+    btn._langBound = true;
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      if (lang === currentLang) return;
+      currentLang = lang;
+      localStorage.setItem('semordle:lang', lang);
+      // Full reinit: clear UI and reload puzzle
+      wordleState = null;
+      gameState   = null;
+      puzzle      = null;
+      document.getElementById('guess-list').innerHTML =
+        '<div class="guess-list-empty" id="guess-empty-state"><p></p></div>';
+      document.getElementById('wordle-inline-content').innerHTML = '';
+      document.getElementById('partial-clues').innerHTML = '';
+      document.getElementById('share-section').style.display = 'none';
+      document.getElementById('best-rank-label').textContent = '';
+      // Switch back to semantic tab
+      document.getElementById('tab-semantic').click();
+      init();
+    });
   });
 }
 
