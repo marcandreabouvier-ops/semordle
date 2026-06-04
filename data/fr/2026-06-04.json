@@ -5,80 +5,5010 @@
   "secret": "marché",
   "wordLength": 6,
   "hints": {
-    "top1": 0.7934,
-    "top10": 0.6612,
-    "top1000": 0.1023
+    "top1": 0.9489,
+    "top10": 0.807,
+    "top1000": 0.6247
   },
   "words": [
-    { "word": "commerce", "score": 0.7934, "rank": 1 },
-    { "word": "bazar", "score": 0.7701, "rank": 2 },
-    { "word": "échange", "score": 0.7489, "rank": 3 },
-    { "word": "vente", "score": 0.7312, "rank": 4 },
-    { "word": "foire", "score": 0.7145, "rank": 5 },
-    { "word": "boutique", "score": 0.6987, "rank": 6 },
-    { "word": "vendeur", "score": 0.6834, "rank": 7 },
-    { "word": "achat", "score": 0.6712, "rank": 8 },
-    { "word": "négoce", "score": 0.6623, "rank": 9 },
-    { "word": "troc", "score": 0.6612, "rank": 10 },
-    { "word": "magasin", "score": 0.6501, "rank": 11 },
-    { "word": "épicerie", "score": 0.6389, "rank": 12 },
-    { "word": "chaland", "score": 0.6278, "rank": 13 },
-    { "word": "solde", "score": 0.6167, "rank": 14 },
-    { "word": "prix", "score": 0.6056, "rank": 15 },
-    { "word": "offre", "score": 0.5945, "rank": 16 },
-    { "word": "demande", "score": 0.5834, "rank": 17 },
-    { "word": "produit", "score": 0.5723, "rank": 18 },
-    { "word": "marchand", "score": 0.5612, "rank": 19 },
-    { "word": "client", "score": 0.5501, "rank": 20 },
-    { "word": "enseigne", "score": 0.5390, "rank": 21 },
-    { "word": "rayon", "score": 0.5279, "rank": 22 },
-    { "word": "caisse", "score": 0.5168, "rank": 23 },
-    { "word": "supermarché", "score": 0.5057, "rank": 24 },
-    { "word": "galerie", "score": 0.4946, "rank": 25 },
-    { "word": "grande", "score": 0.4835, "rank": 26 },
-    { "word": "surface", "score": 0.4724, "rank": 27 },
-    { "word": "halles", "score": 0.4613, "rank": 28 },
-    { "word": "stand", "score": 0.4502, "rank": 29 },
-    { "word": "étalage", "score": 0.4391, "rank": 30 },
-    { "word": "ticket", "score": 0.4280, "rank": 31 },
-    { "word": "remise", "score": 0.4169, "rank": 32 },
-    { "word": "rabais", "score": 0.4058, "rank": 33 },
-    { "word": "promo", "score": 0.3947, "rank": 34 },
-    { "word": "stock", "score": 0.3836, "rank": 35 },
-    { "word": "inventaire", "score": 0.3725, "rank": 36 },
-    { "word": "fournisseur", "score": 0.3614, "rank": 37 },
-    { "word": "livraison", "score": 0.3503, "rank": 38 },
-    { "word": "commande", "score": 0.3392, "rank": 39 },
-    { "word": "facture", "score": 0.3281, "rank": 40 },
-    { "word": "monnaie", "score": 0.3170, "rank": 41 },
-    { "word": "paiement", "score": 0.3059, "rank": 42 },
-    { "word": "économie", "score": 0.2948, "rank": 43 },
-    { "word": "finance", "score": 0.2837, "rank": 44 },
-    { "word": "capital", "score": 0.2726, "rank": 45 },
-    { "word": "profit", "score": 0.2615, "rank": 46 },
-    { "word": "bénéfice", "score": 0.2504, "rank": 47 },
-    { "word": "revenu", "score": 0.2393, "rank": 48 },
-    { "word": "budget", "score": 0.2282, "rank": 49 },
-    { "word": "industrie", "score": 0.2171, "rank": 50 },
-    { "word": "entreprise", "score": 0.2060, "rank": 51 },
-    { "word": "affaire", "score": 0.1949, "rank": 52 },
-    { "word": "secteur", "score": 0.1838, "rank": 53 },
-    { "word": "marque", "score": 0.1727, "rank": 54 },
-    { "word": "publicité", "score": 0.1616, "rank": 55 },
-    { "word": "promotion", "score": 0.1505, "rank": 56 },
-    { "word": "ville", "score": 0.1394, "rank": 57 },
-    { "word": "quartier", "score": 0.1283, "rank": 58 },
-    { "word": "place", "score": 0.1240, "rank": 59 },
-    { "word": "rue", "score": 0.1210, "rank": 60 },
-    { "word": "centre", "score": 0.1190, "rank": 65 },
-    { "word": "local", "score": 0.1170, "rank": 75 },
-    { "word": "région", "score": 0.1150, "rank": 100 },
-    { "word": "global", "score": 0.1130, "rank": 150 },
-    { "word": "monde", "score": 0.1110, "rank": 200 },
-    { "word": "réseau", "score": 0.1090, "rank": 250 },
-    { "word": "chaîne", "score": 0.1070, "rank": 300 },
-    { "word": "transport", "score": 0.1050, "rank": 400 },
-    { "word": "route", "score": 0.1030, "rank": 500 },
-    { "word": "chemin", "score": 0.1023, "rank": 1000 }
+    {
+      "word": "market",
+      "score": 0.9489,
+      "rank": 1
+    },
+    {
+      "word": "commerciales",
+      "score": 0.8735,
+      "rank": 2
+    },
+    {
+      "word": "boursière",
+      "score": 0.8552,
+      "rank": 3
+    },
+    {
+      "word": "commerciale",
+      "score": 0.8499,
+      "rank": 4
+    },
+    {
+      "word": "vendent",
+      "score": 0.8329,
+      "rank": 5
+    },
+    {
+      "word": "boursiers",
+      "score": 0.8323,
+      "rank": 6
+    },
+    {
+      "word": "revendre",
+      "score": 0.8269,
+      "rank": 7
+    },
+    {
+      "word": "achetant",
+      "score": 0.8161,
+      "rank": 8
+    },
+    {
+      "word": "vendre",
+      "score": 0.8117,
+      "rank": 9
+    },
+    {
+      "word": "sale",
+      "score": 0.807,
+      "rank": 10
+    },
+    {
+      "word": "sales",
+      "score": 0.8009,
+      "rank": 11
+    },
+    {
+      "word": "commodité",
+      "score": 0.7956,
+      "rank": 12
+    },
+    {
+      "word": "achetez",
+      "score": 0.7956,
+      "rank": 13
+    },
+    {
+      "word": "acheteurs",
+      "score": 0.7939,
+      "rank": 14
+    },
+    {
+      "word": "commerciaux",
+      "score": 0.7933,
+      "rank": 15
+    },
+    {
+      "word": "achat",
+      "score": 0.7924,
+      "rank": 16
+    },
+    {
+      "word": "pris",
+      "score": 0.7918,
+      "rank": 17
+    },
+    {
+      "word": "vendeuses",
+      "score": 0.7912,
+      "rank": 18
+    },
+    {
+      "word": "achètent",
+      "score": 0.7878,
+      "rank": 19
+    },
+    {
+      "word": "vendue",
+      "score": 0.7864,
+      "rank": 20
+    },
+    {
+      "word": "vendues",
+      "score": 0.7817,
+      "rank": 21
+    },
+    {
+      "word": "vendant",
+      "score": 0.7805,
+      "rank": 22
+    },
+    {
+      "word": "offertes",
+      "score": 0.7801,
+      "rank": 23
+    },
+    {
+      "word": "achats",
+      "score": 0.7768,
+      "rank": 24
+    },
+    {
+      "word": "échangeur",
+      "score": 0.7747,
+      "rank": 25
+    },
+    {
+      "word": "vendrait",
+      "score": 0.7739,
+      "rank": 26
+    },
+    {
+      "word": "vendu",
+      "score": 0.7737,
+      "rank": 27
+    },
+    {
+      "word": "vendus",
+      "score": 0.7726,
+      "rank": 28
+    },
+    {
+      "word": "revendeurs",
+      "score": 0.7723,
+      "rank": 29
+    },
+    {
+      "word": "rachète",
+      "score": 0.7709,
+      "rank": 30
+    },
+    {
+      "word": "commodités",
+      "score": 0.7708,
+      "rank": 31
+    },
+    {
+      "word": "ebay",
+      "score": 0.7693,
+      "rank": 32
+    },
+    {
+      "word": "commerce",
+      "score": 0.7691,
+      "rank": 33
+    },
+    {
+      "word": "prix",
+      "score": 0.7689,
+      "rank": 34
+    },
+    {
+      "word": "portefeuille",
+      "score": 0.7685,
+      "rank": 35
+    },
+    {
+      "word": "mercerie",
+      "score": 0.7683,
+      "rank": 36
+    },
+    {
+      "word": "échanges",
+      "score": 0.7674,
+      "rank": 37
+    },
+    {
+      "word": "achètes",
+      "score": 0.764,
+      "rank": 38
+    },
+    {
+      "word": "stocké",
+      "score": 0.7639,
+      "rank": 39
+    },
+    {
+      "word": "stockés",
+      "score": 0.7628,
+      "rank": 40
+    },
+    {
+      "word": "demanda",
+      "score": 0.7614,
+      "rank": 41
+    },
+    {
+      "word": "commerçant",
+      "score": 0.7602,
+      "rank": 42
+    },
+    {
+      "word": "osti",
+      "score": 0.7597,
+      "rank": 43
+    },
+    {
+      "word": "consommateur",
+      "score": 0.7587,
+      "rank": 44
+    },
+    {
+      "word": "revend",
+      "score": 0.7568,
+      "rank": 45
+    },
+    {
+      "word": "consumer",
+      "score": 0.7563,
+      "rank": 46
+    },
+    {
+      "word": "stockées",
+      "score": 0.7549,
+      "rank": 47
+    },
+    {
+      "word": "vendiez",
+      "score": 0.7547,
+      "rank": 48
+    },
+    {
+      "word": "offerte",
+      "score": 0.7546,
+      "rank": 49
+    },
+    {
+      "word": "échange",
+      "score": 0.7543,
+      "rank": 50
+    },
+    {
+      "word": "vendrez",
+      "score": 0.7536,
+      "rank": 51
+    },
+    {
+      "word": "vende",
+      "score": 0.7524,
+      "rank": 52
+    },
+    {
+      "word": "tarif",
+      "score": 0.75,
+      "rank": 53
+    },
+    {
+      "word": "économiques",
+      "score": 0.7493,
+      "rank": 54
+    },
+    {
+      "word": "échangera",
+      "score": 0.749,
+      "rank": 55
+    },
+    {
+      "word": "offrandes",
+      "score": 0.7482,
+      "rank": 56
+    },
+    {
+      "word": "répartis",
+      "score": 0.7475,
+      "rank": 57
+    },
+    {
+      "word": "acheteur",
+      "score": 0.7457,
+      "rank": 58
+    },
+    {
+      "word": "achète",
+      "score": 0.7456,
+      "rank": 59
+    },
+    {
+      "word": "offrais",
+      "score": 0.7452,
+      "rank": 60
+    },
+    {
+      "word": "seller",
+      "score": 0.7436,
+      "rank": 61
+    },
+    {
+      "word": "marketing",
+      "score": 0.7422,
+      "rank": 62
+    },
+    {
+      "word": "économique",
+      "score": 0.7412,
+      "rank": 63
+    },
+    {
+      "word": "financer",
+      "score": 0.7406,
+      "rank": 64
+    },
+    {
+      "word": "vendaient",
+      "score": 0.74,
+      "rank": 65
+    },
+    {
+      "word": "rationnement",
+      "score": 0.7398,
+      "rank": 66
+    },
+    {
+      "word": "magasins",
+      "score": 0.7351,
+      "rank": 67
+    },
+    {
+      "word": "taux",
+      "score": 0.7345,
+      "rank": 68
+    },
+    {
+      "word": "firme",
+      "score": 0.7334,
+      "rank": 69
+    },
+    {
+      "word": "raterais",
+      "score": 0.7332,
+      "rank": 70
+    },
+    {
+      "word": "échanger",
+      "score": 0.7329,
+      "rank": 71
+    },
+    {
+      "word": "montant",
+      "score": 0.7322,
+      "rank": 72
+    },
+    {
+      "word": "deals",
+      "score": 0.7315,
+      "rank": 73
+    },
+    {
+      "word": "revendeur",
+      "score": 0.7293,
+      "rank": 74
+    },
+    {
+      "word": "économies",
+      "score": 0.7292,
+      "rank": 75
+    },
+    {
+      "word": "magasin",
+      "score": 0.7289,
+      "rank": 76
+    },
+    {
+      "word": "montante",
+      "score": 0.7287,
+      "rank": 77
+    },
+    {
+      "word": "acheter",
+      "score": 0.7282,
+      "rank": 78
+    },
+    {
+      "word": "firmes",
+      "score": 0.7281,
+      "rank": 79
+    },
+    {
+      "word": "produit",
+      "score": 0.7278,
+      "rank": 80
+    },
+    {
+      "word": "revendiquer",
+      "score": 0.7276,
+      "rank": 81
+    },
+    {
+      "word": "rentabilité",
+      "score": 0.7265,
+      "rank": 82
+    },
+    {
+      "word": "commerces",
+      "score": 0.7264,
+      "rank": 83
+    },
+    {
+      "word": "shopping",
+      "score": 0.7263,
+      "rank": 84
+    },
+    {
+      "word": "profiteurs",
+      "score": 0.7261,
+      "rank": 85
+    },
+    {
+      "word": "importe",
+      "score": 0.7242,
+      "rank": 86
+    },
+    {
+      "word": "compteurs",
+      "score": 0.7239,
+      "rank": 87
+    },
+    {
+      "word": "possédés",
+      "score": 0.7237,
+      "rank": 88
+    },
+    {
+      "word": "acquises",
+      "score": 0.7232,
+      "rank": 89
+    },
+    {
+      "word": "ulairi",
+      "score": 0.7231,
+      "rank": 90
+    },
+    {
+      "word": "montants",
+      "score": 0.723,
+      "rank": 91
+    },
+    {
+      "word": "emportes",
+      "score": 0.722,
+      "rank": 92
+    },
+    {
+      "word": "lucratif",
+      "score": 0.7219,
+      "rank": 93
+    },
+    {
+      "word": "répartie",
+      "score": 0.7213,
+      "rank": 94
+    },
+    {
+      "word": "dépensons",
+      "score": 0.7206,
+      "rank": 95
+    },
+    {
+      "word": "prélèvements",
+      "score": 0.7196,
+      "rank": 96
+    },
+    {
+      "word": "bilans",
+      "score": 0.719,
+      "rank": 97
+    },
+    {
+      "word": "magasine",
+      "score": 0.7183,
+      "rank": 98
+    },
+    {
+      "word": "supplierai",
+      "score": 0.7181,
+      "rank": 99
+    },
+    {
+      "word": "stockée",
+      "score": 0.7176,
+      "rank": 100
+    },
+    {
+      "word": "achetons",
+      "score": 0.7175,
+      "rank": 101
+    },
+    {
+      "word": "pays",
+      "score": 0.7164,
+      "rank": 102
+    },
+    {
+      "word": "biens",
+      "score": 0.7163,
+      "rank": 103
+    },
+    {
+      "word": "échangerais",
+      "score": 0.7157,
+      "rank": 104
+    },
+    {
+      "word": "échangez",
+      "score": 0.7156,
+      "rank": 105
+    },
+    {
+      "word": "réparti",
+      "score": 0.7153,
+      "rank": 106
+    },
+    {
+      "word": "bénéfice",
+      "score": 0.7146,
+      "rank": 107
+    },
+    {
+      "word": "compense",
+      "score": 0.7146,
+      "rank": 108
+    },
+    {
+      "word": "censé",
+      "score": 0.7126,
+      "rank": 109
+    },
+    {
+      "word": "revendique",
+      "score": 0.7116,
+      "rank": 110
+    },
+    {
+      "word": "supermarché",
+      "score": 0.7115,
+      "rank": 111
+    },
+    {
+      "word": "achètera",
+      "score": 0.7115,
+      "rank": 112
+    },
+    {
+      "word": "magasiner",
+      "score": 0.7114,
+      "rank": 113
+    },
+    {
+      "word": "vendeur",
+      "score": 0.7112,
+      "rank": 114
+    },
+    {
+      "word": "achèteras",
+      "score": 0.7107,
+      "rank": 115
+    },
+    {
+      "word": "trafiques",
+      "score": 0.7103,
+      "rank": 116
+    },
+    {
+      "word": "fonds",
+      "score": 0.7089,
+      "rank": 117
+    },
+    {
+      "word": "dépense",
+      "score": 0.7087,
+      "rank": 118
+    },
+    {
+      "word": "gourmande",
+      "score": 0.7081,
+      "rank": 119
+    },
+    {
+      "word": "assortiment",
+      "score": 0.7079,
+      "rank": 120
+    },
+    {
+      "word": "economie",
+      "score": 0.7078,
+      "rank": 121
+    },
+    {
+      "word": "compère",
+      "score": 0.7077,
+      "rank": 122
+    },
+    {
+      "word": "coûtent",
+      "score": 0.7066,
+      "rank": 123
+    },
+    {
+      "word": "financier",
+      "score": 0.7064,
+      "rank": 124
+    },
+    {
+      "word": "kaufman",
+      "score": 0.7059,
+      "rank": 125
+    },
+    {
+      "word": "bazar",
+      "score": 0.7056,
+      "rank": 126
+    },
+    {
+      "word": "wang",
+      "score": 0.7055,
+      "rank": 127
+    },
+    {
+      "word": "argent",
+      "score": 0.7053,
+      "rank": 128
+    },
+    {
+      "word": "acquise",
+      "score": 0.7051,
+      "rank": 129
+    },
+    {
+      "word": "prélèvement",
+      "score": 0.7046,
+      "rank": 130
+    },
+    {
+      "word": "kasumi",
+      "score": 0.7041,
+      "rank": 131
+    },
+    {
+      "word": "échangeant",
+      "score": 0.7039,
+      "rank": 132
+    },
+    {
+      "word": "affaire",
+      "score": 0.703,
+      "rank": 133
+    },
+    {
+      "word": "supermarchés",
+      "score": 0.703,
+      "rank": 134
+    },
+    {
+      "word": "bilan",
+      "score": 0.7028,
+      "rank": 135
+    },
+    {
+      "word": "buy",
+      "score": 0.7023,
+      "rank": 136
+    },
+    {
+      "word": "financières",
+      "score": 0.7023,
+      "rank": 137
+    },
+    {
+      "word": "profites",
+      "score": 0.7023,
+      "rank": 138
+    },
+    {
+      "word": "marque",
+      "score": 0.7022,
+      "rank": 139
+    },
+    {
+      "word": "économie",
+      "score": 0.7019,
+      "rank": 140
+    },
+    {
+      "word": "quantité",
+      "score": 0.7016,
+      "rank": 141
+    },
+    {
+      "word": "eko",
+      "score": 0.7014,
+      "rank": 142
+    },
+    {
+      "word": "économe",
+      "score": 0.7014,
+      "rank": 143
+    },
+    {
+      "word": "trafiquée",
+      "score": 0.7012,
+      "rank": 144
+    },
+    {
+      "word": "dépensé",
+      "score": 0.7004,
+      "rank": 145
+    },
+    {
+      "word": "revendiqué",
+      "score": 0.7003,
+      "rank": 146
+    },
+    {
+      "word": "trafique",
+      "score": 0.7003,
+      "rank": 147
+    },
+    {
+      "word": "coûté",
+      "score": 0.7002,
+      "rank": 148
+    },
+    {
+      "word": "comptés",
+      "score": 0.6997,
+      "rank": 149
+    },
+    {
+      "word": "sociétés",
+      "score": 0.6994,
+      "rank": 150
+    },
+    {
+      "word": "excédent",
+      "score": 0.6989,
+      "rank": 151
+    },
+    {
+      "word": "échangent",
+      "score": 0.6981,
+      "rank": 152
+    },
+    {
+      "word": "stockage",
+      "score": 0.698,
+      "rank": 153
+    },
+    {
+      "word": "indice",
+      "score": 0.6972,
+      "rank": 154
+    },
+    {
+      "word": "produits",
+      "score": 0.6969,
+      "rank": 155
+    },
+    {
+      "word": "produis",
+      "score": 0.6965,
+      "rank": 156
+    },
+    {
+      "word": "vendons",
+      "score": 0.6963,
+      "rank": 157
+    },
+    {
+      "word": "ware",
+      "score": 0.6961,
+      "rank": 158
+    },
+    {
+      "word": "distribuait",
+      "score": 0.6958,
+      "rank": 159
+    },
+    {
+      "word": "compresse",
+      "score": 0.6953,
+      "rank": 160
+    },
+    {
+      "word": "financière",
+      "score": 0.6948,
+      "rank": 161
+    },
+    {
+      "word": "annoncez",
+      "score": 0.6947,
+      "rank": 162
+    },
+    {
+      "word": "achèterez",
+      "score": 0.6945,
+      "rank": 163
+    },
+    {
+      "word": "risquais",
+      "score": 0.6944,
+      "rank": 164
+    },
+    {
+      "word": "profitons",
+      "score": 0.6943,
+      "rank": 165
+    },
+    {
+      "word": "pourchasser",
+      "score": 0.6939,
+      "rank": 166
+    },
+    {
+      "word": "évalue",
+      "score": 0.6939,
+      "rank": 167
+    },
+    {
+      "word": "répandue",
+      "score": 0.6936,
+      "rank": 168
+    },
+    {
+      "word": "facturation",
+      "score": 0.693,
+      "rank": 169
+    },
+    {
+      "word": "plata",
+      "score": 0.6923,
+      "rank": 170
+    },
+    {
+      "word": "revends",
+      "score": 0.6923,
+      "rank": 171
+    },
+    {
+      "word": "seo",
+      "score": 0.692,
+      "rank": 172
+    },
+    {
+      "word": "dépensent",
+      "score": 0.6919,
+      "rank": 173
+    },
+    {
+      "word": "profite",
+      "score": 0.6914,
+      "rank": 174
+    },
+    {
+      "word": "investissent",
+      "score": 0.6909,
+      "rank": 175
+    },
+    {
+      "word": "price",
+      "score": 0.6909,
+      "rank": 176
+    },
+    {
+      "word": "rebuts",
+      "score": 0.6908,
+      "rank": 177
+    },
+    {
+      "word": "censés",
+      "score": 0.6907,
+      "rank": 178
+    },
+    {
+      "word": "achetées",
+      "score": 0.6906,
+      "rank": 179
+    },
+    {
+      "word": "mart",
+      "score": 0.6902,
+      "rank": 180
+    },
+    {
+      "word": "produites",
+      "score": 0.6897,
+      "rank": 181
+    },
+    {
+      "word": "clientèle",
+      "score": 0.6894,
+      "rank": 182
+    },
+    {
+      "word": "rendement",
+      "score": 0.6892,
+      "rank": 183
+    },
+    {
+      "word": "vendeurs",
+      "score": 0.689,
+      "rank": 184
+    },
+    {
+      "word": "offrande",
+      "score": 0.6888,
+      "rank": 185
+    },
+    {
+      "word": "répartir",
+      "score": 0.6888,
+      "rank": 186
+    },
+    {
+      "word": "dépensés",
+      "score": 0.6888,
+      "rank": 187
+    },
+    {
+      "word": "sud",
+      "score": 0.6887,
+      "rank": 188
+    },
+    {
+      "word": "produite",
+      "score": 0.6883,
+      "rank": 189
+    },
+    {
+      "word": "reich",
+      "score": 0.6883,
+      "rank": 190
+    },
+    {
+      "word": "sortes",
+      "score": 0.6881,
+      "rank": 191
+    },
+    {
+      "word": "résine",
+      "score": 0.6879,
+      "rank": 192
+    },
+    {
+      "word": "offerts",
+      "score": 0.6879,
+      "rank": 193
+    },
+    {
+      "word": "achetée",
+      "score": 0.687,
+      "rank": 194
+    },
+    {
+      "word": "interessé",
+      "score": 0.6868,
+      "rank": 195
+    },
+    {
+      "word": "gourmand",
+      "score": 0.6866,
+      "rank": 196
+    },
+    {
+      "word": "coûteux",
+      "score": 0.6862,
+      "rank": 197
+    },
+    {
+      "word": "annonces",
+      "score": 0.6859,
+      "rank": 198
+    },
+    {
+      "word": "bizness",
+      "score": 0.6856,
+      "rank": 199
+    },
+    {
+      "word": "présages",
+      "score": 0.6856,
+      "rank": 200
+    },
+    {
+      "word": "lucrative",
+      "score": 0.6852,
+      "rank": 201
+    },
+    {
+      "word": "échangées",
+      "score": 0.6848,
+      "rank": 202
+    },
+    {
+      "word": "répandues",
+      "score": 0.6847,
+      "rank": 203
+    },
+    {
+      "word": "charcuterie",
+      "score": 0.6845,
+      "rank": 204
+    },
+    {
+      "word": "échangeons",
+      "score": 0.6844,
+      "rank": 205
+    },
+    {
+      "word": "donnée",
+      "score": 0.6843,
+      "rank": 206
+    },
+    {
+      "word": "promet",
+      "score": 0.6842,
+      "rank": 207
+    },
+    {
+      "word": "vend",
+      "score": 0.6833,
+      "rank": 208
+    },
+    {
+      "word": "tendance",
+      "score": 0.6831,
+      "rank": 209
+    },
+    {
+      "word": "courbatures",
+      "score": 0.6829,
+      "rank": 210
+    },
+    {
+      "word": "profitais",
+      "score": 0.6827,
+      "rank": 211
+    },
+    {
+      "word": "profitez",
+      "score": 0.6822,
+      "rank": 212
+    },
+    {
+      "word": "répandus",
+      "score": 0.6821,
+      "rank": 213
+    },
+    {
+      "word": "termines",
+      "score": 0.6821,
+      "rank": 214
+    },
+    {
+      "word": "chers",
+      "score": 0.682,
+      "rank": 215
+    },
+    {
+      "word": "achetés",
+      "score": 0.6817,
+      "rank": 216
+    },
+    {
+      "word": "costco",
+      "score": 0.6816,
+      "rank": 217
+    },
+    {
+      "word": "donnés",
+      "score": 0.6815,
+      "rank": 218
+    },
+    {
+      "word": "secteur",
+      "score": 0.6815,
+      "rank": 219
+    },
+    {
+      "word": "comptées",
+      "score": 0.6813,
+      "rank": 220
+    },
+    {
+      "word": "rica",
+      "score": 0.6812,
+      "rank": 221
+    },
+    {
+      "word": "chéries",
+      "score": 0.681,
+      "rank": 222
+    },
+    {
+      "word": "plat",
+      "score": 0.6807,
+      "rank": 223
+    },
+    {
+      "word": "billet",
+      "score": 0.6803,
+      "rank": 224
+    },
+    {
+      "word": "enflées",
+      "score": 0.68,
+      "rank": 225
+    },
+    {
+      "word": "fonçant",
+      "score": 0.6795,
+      "rank": 226
+    },
+    {
+      "word": "transaction",
+      "score": 0.6794,
+      "rank": 227
+    },
+    {
+      "word": "commerçants",
+      "score": 0.6792,
+      "rank": 228
+    },
+    {
+      "word": "rendit",
+      "score": 0.6788,
+      "rank": 229
+    },
+    {
+      "word": "capitaux",
+      "score": 0.6785,
+      "rank": 230
+    },
+    {
+      "word": "ronronnement",
+      "score": 0.6779,
+      "rank": 231
+    },
+    {
+      "word": "promoteurs",
+      "score": 0.6777,
+      "rank": 232
+    },
+    {
+      "word": "distribuées",
+      "score": 0.6777,
+      "rank": 233
+    },
+    {
+      "word": "assuré",
+      "score": 0.6775,
+      "rank": 234
+    },
+    {
+      "word": "rok",
+      "score": 0.6774,
+      "rank": 235
+    },
+    {
+      "word": "restaurer",
+      "score": 0.6771,
+      "rank": 236
+    },
+    {
+      "word": "quantités",
+      "score": 0.6771,
+      "rank": 237
+    },
+    {
+      "word": "formulé",
+      "score": 0.677,
+      "rank": 238
+    },
+    {
+      "word": "traders",
+      "score": 0.677,
+      "rank": 239
+    },
+    {
+      "word": "apport",
+      "score": 0.6767,
+      "rank": 240
+    },
+    {
+      "word": "mensuels",
+      "score": 0.6766,
+      "rank": 241
+    },
+    {
+      "word": "affût",
+      "score": 0.6766,
+      "rank": 242
+    },
+    {
+      "word": "dépensez",
+      "score": 0.6764,
+      "rank": 243
+    },
+    {
+      "word": "possédez",
+      "score": 0.6764,
+      "rank": 244
+    },
+    {
+      "word": "blés",
+      "score": 0.6763,
+      "rank": 245
+    },
+    {
+      "word": "trafiqué",
+      "score": 0.6759,
+      "rank": 246
+    },
+    {
+      "word": "recevrai",
+      "score": 0.6756,
+      "rank": 247
+    },
+    {
+      "word": "fabrique",
+      "score": 0.6754,
+      "rank": 248
+    },
+    {
+      "word": "costanza",
+      "score": 0.675,
+      "rank": 249
+    },
+    {
+      "word": "intérêt",
+      "score": 0.6749,
+      "rank": 250
+    },
+    {
+      "word": "rente",
+      "score": 0.6745,
+      "rank": 251
+    },
+    {
+      "word": "interesse",
+      "score": 0.6745,
+      "rank": 252
+    },
+    {
+      "word": "marques",
+      "score": 0.6744,
+      "rank": 253
+    },
+    {
+      "word": "financée",
+      "score": 0.6744,
+      "rank": 254
+    },
+    {
+      "word": "penchants",
+      "score": 0.674,
+      "rank": 255
+    },
+    {
+      "word": "vendrais",
+      "score": 0.6739,
+      "rank": 256
+    },
+    {
+      "word": "stocke",
+      "score": 0.6736,
+      "rank": 257
+    },
+    {
+      "word": "coûter",
+      "score": 0.6732,
+      "rank": 258
+    },
+    {
+      "word": "deales",
+      "score": 0.6732,
+      "rank": 259
+    },
+    {
+      "word": "annonce",
+      "score": 0.6731,
+      "rank": 260
+    },
+    {
+      "word": "arrangés",
+      "score": 0.673,
+      "rank": 261
+    },
+    {
+      "word": "magasines",
+      "score": 0.6727,
+      "rank": 262
+    },
+    {
+      "word": "cher",
+      "score": 0.6724,
+      "rank": 263
+    },
+    {
+      "word": "restaure",
+      "score": 0.6723,
+      "rank": 264
+    },
+    {
+      "word": "société",
+      "score": 0.6723,
+      "rank": 265
+    },
+    {
+      "word": "fresques",
+      "score": 0.6721,
+      "rank": 266
+    },
+    {
+      "word": "moyens",
+      "score": 0.6717,
+      "rank": 267
+    },
+    {
+      "word": "emportons",
+      "score": 0.6713,
+      "rank": 268
+    },
+    {
+      "word": "transactions",
+      "score": 0.671,
+      "rank": 269
+    },
+    {
+      "word": "acheté",
+      "score": 0.671,
+      "rank": 270
+    },
+    {
+      "word": "finance",
+      "score": 0.6709,
+      "rank": 271
+    },
+    {
+      "word": "informations",
+      "score": 0.6708,
+      "rank": 272
+    },
+    {
+      "word": "procédez",
+      "score": 0.6707,
+      "rank": 273
+    },
+    {
+      "word": "échangeait",
+      "score": 0.6707,
+      "rank": 274
+    },
+    {
+      "word": "vendez",
+      "score": 0.6707,
+      "rank": 275
+    },
+    {
+      "word": "annoncent",
+      "score": 0.6707,
+      "rank": 276
+    },
+    {
+      "word": "peng",
+      "score": 0.6702,
+      "rank": 277
+    },
+    {
+      "word": "subvenir",
+      "score": 0.6698,
+      "rank": 278
+    },
+    {
+      "word": "sellers",
+      "score": 0.6696,
+      "rank": 279
+    },
+    {
+      "word": "calculée",
+      "score": 0.6695,
+      "rank": 280
+    },
+    {
+      "word": "valeur",
+      "score": 0.6692,
+      "rank": 281
+    },
+    {
+      "word": "recherche",
+      "score": 0.6691,
+      "rank": 282
+    },
+    {
+      "word": "fournier",
+      "score": 0.6688,
+      "rank": 283
+    },
+    {
+      "word": "mensuel",
+      "score": 0.6688,
+      "rank": 284
+    },
+    {
+      "word": "trafics",
+      "score": 0.6688,
+      "rank": 285
+    },
+    {
+      "word": "consommé",
+      "score": 0.6688,
+      "rank": 286
+    },
+    {
+      "word": "mahal",
+      "score": 0.6687,
+      "rank": 287
+    },
+    {
+      "word": "commis",
+      "score": 0.6687,
+      "rank": 288
+    },
+    {
+      "word": "demande",
+      "score": 0.6685,
+      "rank": 289
+    },
+    {
+      "word": "produisant",
+      "score": 0.6684,
+      "rank": 290
+    },
+    {
+      "word": "entreprises",
+      "score": 0.6682,
+      "rank": 291
+    },
+    {
+      "word": "possédais",
+      "score": 0.6679,
+      "rank": 292
+    },
+    {
+      "word": "éco",
+      "score": 0.6679,
+      "rank": 293
+    },
+    {
+      "word": "usées",
+      "score": 0.6677,
+      "rank": 294
+    },
+    {
+      "word": "clientes",
+      "score": 0.6675,
+      "rank": 295
+    },
+    {
+      "word": "dancing",
+      "score": 0.6675,
+      "rank": 296
+    },
+    {
+      "word": "pla",
+      "score": 0.6673,
+      "rank": 297
+    },
+    {
+      "word": "fournies",
+      "score": 0.6673,
+      "rank": 298
+    },
+    {
+      "word": "trader",
+      "score": 0.667,
+      "rank": 299
+    },
+    {
+      "word": "dane",
+      "score": 0.6665,
+      "rank": 300
+    },
+    {
+      "word": "vit",
+      "score": 0.6663,
+      "rank": 301
+    },
+    {
+      "word": "redonner",
+      "score": 0.6663,
+      "rank": 302
+    },
+    {
+      "word": "listé",
+      "score": 0.6663,
+      "rank": 303
+    },
+    {
+      "word": "enculés",
+      "score": 0.6662,
+      "rank": 304
+    },
+    {
+      "word": "financiers",
+      "score": 0.6659,
+      "rank": 305
+    },
+    {
+      "word": "financial",
+      "score": 0.6658,
+      "rank": 306
+    },
+    {
+      "word": "fournissant",
+      "score": 0.6657,
+      "rank": 307
+    },
+    {
+      "word": "arrangera",
+      "score": 0.6653,
+      "rank": 308
+    },
+    {
+      "word": "demandai",
+      "score": 0.665,
+      "rank": 309
+    },
+    {
+      "word": "marquette",
+      "score": 0.6649,
+      "rank": 310
+    },
+    {
+      "word": "expo",
+      "score": 0.6648,
+      "rank": 311
+    },
+    {
+      "word": "coûteuse",
+      "score": 0.6647,
+      "rank": 312
+    },
+    {
+      "word": "kent",
+      "score": 0.6647,
+      "rank": 313
+    },
+    {
+      "word": "brandissant",
+      "score": 0.6645,
+      "rank": 314
+    },
+    {
+      "word": "coûte",
+      "score": 0.6641,
+      "rank": 315
+    },
+    {
+      "word": "discount",
+      "score": 0.6639,
+      "rank": 316
+    },
+    {
+      "word": "fournie",
+      "score": 0.6638,
+      "rank": 317
+    },
+    {
+      "word": "milieu",
+      "score": 0.6638,
+      "rank": 318
+    },
+    {
+      "word": "combien",
+      "score": 0.6637,
+      "rank": 319
+    },
+    {
+      "word": "pleine",
+      "score": 0.6636,
+      "rank": 320
+    },
+    {
+      "word": "stat",
+      "score": 0.6634,
+      "rank": 321
+    },
+    {
+      "word": "contrepartie",
+      "score": 0.6629,
+      "rank": 322
+    },
+    {
+      "word": "investir",
+      "score": 0.6627,
+      "rank": 323
+    },
+    {
+      "word": "répugne",
+      "score": 0.6627,
+      "rank": 324
+    },
+    {
+      "word": "lieux",
+      "score": 0.6623,
+      "rank": 325
+    },
+    {
+      "word": "scrutin",
+      "score": 0.6622,
+      "rank": 326
+    },
+    {
+      "word": "produire",
+      "score": 0.662,
+      "rank": 327
+    },
+    {
+      "word": "propres",
+      "score": 0.6616,
+      "rank": 328
+    },
+    {
+      "word": "enchères",
+      "score": 0.6616,
+      "rank": 329
+    },
+    {
+      "word": "industrie",
+      "score": 0.6614,
+      "rank": 330
+    },
+    {
+      "word": "classement",
+      "score": 0.6613,
+      "rank": 331
+    },
+    {
+      "word": "dépens",
+      "score": 0.6612,
+      "rank": 332
+    },
+    {
+      "word": "admet",
+      "score": 0.661,
+      "rank": 333
+    },
+    {
+      "word": "mat",
+      "score": 0.6609,
+      "rank": 334
+    },
+    {
+      "word": "cas",
+      "score": 0.6608,
+      "rank": 335
+    },
+    {
+      "word": "offert",
+      "score": 0.6606,
+      "rank": 336
+    },
+    {
+      "word": "industrielle",
+      "score": 0.6605,
+      "rank": 337
+    },
+    {
+      "word": "redonné",
+      "score": 0.6604,
+      "rank": 338
+    },
+    {
+      "word": "distribué",
+      "score": 0.6603,
+      "rank": 339
+    },
+    {
+      "word": "friandises",
+      "score": 0.6602,
+      "rank": 340
+    },
+    {
+      "word": "monet",
+      "score": 0.6602,
+      "rank": 341
+    },
+    {
+      "word": "brandt",
+      "score": 0.6602,
+      "rank": 342
+    },
+    {
+      "word": "gamme",
+      "score": 0.6596,
+      "rank": 343
+    },
+    {
+      "word": "financé",
+      "score": 0.6596,
+      "rank": 344
+    },
+    {
+      "word": "billets",
+      "score": 0.6595,
+      "rank": 345
+    },
+    {
+      "word": "che",
+      "score": 0.6594,
+      "rank": 346
+    },
+    {
+      "word": "biensur",
+      "score": 0.6593,
+      "rank": 347
+    },
+    {
+      "word": "gourmands",
+      "score": 0.6593,
+      "rank": 348
+    },
+    {
+      "word": "publiques",
+      "score": 0.6592,
+      "rank": 349
+    },
+    {
+      "word": "repartons",
+      "score": 0.6592,
+      "rank": 350
+    },
+    {
+      "word": "calculé",
+      "score": 0.6591,
+      "rank": 351
+    },
+    {
+      "word": "midas",
+      "score": 0.6591,
+      "rank": 352
+    },
+    {
+      "word": "sep",
+      "score": 0.659,
+      "rank": 353
+    },
+    {
+      "word": "développé",
+      "score": 0.659,
+      "rank": 354
+    },
+    {
+      "word": "dépenser",
+      "score": 0.659,
+      "rank": 355
+    },
+    {
+      "word": "bourses",
+      "score": 0.6588,
+      "rank": 356
+    },
+    {
+      "word": "risquant",
+      "score": 0.6588,
+      "rank": 357
+    },
+    {
+      "word": "offrir",
+      "score": 0.6587,
+      "rank": 358
+    },
+    {
+      "word": "fonda",
+      "score": 0.6587,
+      "rank": 359
+    },
+    {
+      "word": "trade",
+      "score": 0.6585,
+      "rank": 360
+    },
+    {
+      "word": "reiko",
+      "score": 0.6583,
+      "rank": 361
+    },
+    {
+      "word": "revendu",
+      "score": 0.6581,
+      "rank": 362
+    },
+    {
+      "word": "considérés",
+      "score": 0.658,
+      "rank": 363
+    },
+    {
+      "word": "store",
+      "score": 0.6579,
+      "rank": 364
+    },
+    {
+      "word": "rabat",
+      "score": 0.6578,
+      "rank": 365
+    },
+    {
+      "word": "arrangé",
+      "score": 0.6575,
+      "rank": 366
+    },
+    {
+      "word": "quant",
+      "score": 0.6575,
+      "rank": 367
+    },
+    {
+      "word": "consommation",
+      "score": 0.6575,
+      "rank": 368
+    },
+    {
+      "word": "propagée",
+      "score": 0.6575,
+      "rank": 369
+    },
+    {
+      "word": "devises",
+      "score": 0.6573,
+      "rank": 370
+    },
+    {
+      "word": "coincé",
+      "score": 0.6572,
+      "rank": 371
+    },
+    {
+      "word": "fabriques",
+      "score": 0.6569,
+      "rank": 372
+    },
+    {
+      "word": "leto",
+      "score": 0.6568,
+      "rank": 373
+    },
+    {
+      "word": "filière",
+      "score": 0.6568,
+      "rank": 374
+    },
+    {
+      "word": "comptez",
+      "score": 0.6567,
+      "rank": 375
+    },
+    {
+      "word": "fournis",
+      "score": 0.6565,
+      "rank": 376
+    },
+    {
+      "word": "avoirs",
+      "score": 0.6564,
+      "rank": 377
+    },
+    {
+      "word": "disions",
+      "score": 0.6564,
+      "rank": 378
+    },
+    {
+      "word": "money",
+      "score": 0.6564,
+      "rank": 379
+    },
+    {
+      "word": "compté",
+      "score": 0.6563,
+      "rank": 380
+    },
+    {
+      "word": "industries",
+      "score": 0.6562,
+      "rank": 381
+    },
+    {
+      "word": "den",
+      "score": 0.6561,
+      "rank": 382
+    },
+    {
+      "word": "mére",
+      "score": 0.656,
+      "rank": 383
+    },
+    {
+      "word": "décompte",
+      "score": 0.656,
+      "rank": 384
+    },
+    {
+      "word": "liquidé",
+      "score": 0.6559,
+      "rank": 385
+    },
+    {
+      "word": "usé",
+      "score": 0.6559,
+      "rank": 386
+    },
+    {
+      "word": "monique",
+      "score": 0.6557,
+      "rank": 387
+    },
+    {
+      "word": "utilisais",
+      "score": 0.6556,
+      "rank": 388
+    },
+    {
+      "word": "écoule",
+      "score": 0.6553,
+      "rank": 389
+    },
+    {
+      "word": "appliquée",
+      "score": 0.6553,
+      "rank": 390
+    },
+    {
+      "word": "cession",
+      "score": 0.6553,
+      "rank": 391
+    },
+    {
+      "word": "considérées",
+      "score": 0.6552,
+      "rank": 392
+    },
+    {
+      "word": "rajouté",
+      "score": 0.6552,
+      "rank": 393
+    },
+    {
+      "word": "contrée",
+      "score": 0.6552,
+      "rank": 394
+    },
+    {
+      "word": "accros",
+      "score": 0.6551,
+      "rank": 395
+    },
+    {
+      "word": "rendez",
+      "score": 0.655,
+      "rank": 396
+    },
+    {
+      "word": "totale",
+      "score": 0.655,
+      "rank": 397
+    },
+    {
+      "word": "liés",
+      "score": 0.6549,
+      "rank": 398
+    },
+    {
+      "word": "business",
+      "score": 0.6548,
+      "rank": 399
+    },
+    {
+      "word": "eldon",
+      "score": 0.6548,
+      "rank": 400
+    },
+    {
+      "word": "livrées",
+      "score": 0.6548,
+      "rank": 401
+    },
+    {
+      "word": "compte",
+      "score": 0.6548,
+      "rank": 402
+    },
+    {
+      "word": "chéquier",
+      "score": 0.6547,
+      "rank": 403
+    },
+    {
+      "word": "terra",
+      "score": 0.6547,
+      "rank": 404
+    },
+    {
+      "word": "supplieras",
+      "score": 0.6546,
+      "rank": 405
+    },
+    {
+      "word": "dépositions",
+      "score": 0.6545,
+      "rank": 406
+    },
+    {
+      "word": "conséquente",
+      "score": 0.6542,
+      "rank": 407
+    },
+    {
+      "word": "caspere",
+      "score": 0.6542,
+      "rank": 408
+    },
+    {
+      "word": "confonds",
+      "score": 0.6542,
+      "rank": 409
+    },
+    {
+      "word": "utérus",
+      "score": 0.6542,
+      "rank": 410
+    },
+    {
+      "word": "fraîche",
+      "score": 0.6541,
+      "rank": 411
+    },
+    {
+      "word": "demandées",
+      "score": 0.6541,
+      "rank": 412
+    },
+    {
+      "word": "paieraient",
+      "score": 0.6541,
+      "rank": 413
+    },
+    {
+      "word": "pleines",
+      "score": 0.654,
+      "rank": 414
+    },
+    {
+      "word": "gais",
+      "score": 0.6539,
+      "rank": 415
+    },
+    {
+      "word": "dice",
+      "score": 0.6539,
+      "rank": 416
+    },
+    {
+      "word": "portées",
+      "score": 0.6535,
+      "rank": 417
+    },
+    {
+      "word": "fresque",
+      "score": 0.6535,
+      "rank": 418
+    },
+    {
+      "word": "ressource",
+      "score": 0.6534,
+      "rank": 419
+    },
+    {
+      "word": "sollicité",
+      "score": 0.6533,
+      "rank": 420
+    },
+    {
+      "word": "recherchais",
+      "score": 0.6533,
+      "rank": 421
+    },
+    {
+      "word": "rembourseras",
+      "score": 0.6533,
+      "rank": 422
+    },
+    {
+      "word": "richter",
+      "score": 0.6532,
+      "rank": 423
+    },
+    {
+      "word": "possédaient",
+      "score": 0.6531,
+      "rank": 424
+    },
+    {
+      "word": "empreintes",
+      "score": 0.6528,
+      "rank": 425
+    },
+    {
+      "word": "deal",
+      "score": 0.6528,
+      "rank": 426
+    },
+    {
+      "word": "earth",
+      "score": 0.6527,
+      "rank": 427
+    },
+    {
+      "word": "dest",
+      "score": 0.6526,
+      "rank": 428
+    },
+    {
+      "word": "circonstance",
+      "score": 0.6524,
+      "rank": 429
+    },
+    {
+      "word": "compète",
+      "score": 0.6524,
+      "rank": 430
+    },
+    {
+      "word": "information",
+      "score": 0.6523,
+      "rank": 431
+    },
+    {
+      "word": "demandée",
+      "score": 0.6523,
+      "rank": 432
+    },
+    {
+      "word": "brandit",
+      "score": 0.652,
+      "rank": 433
+    },
+    {
+      "word": "demandés",
+      "score": 0.652,
+      "rank": 434
+    },
+    {
+      "word": "nakajima",
+      "score": 0.652,
+      "rank": 435
+    },
+    {
+      "word": "plats",
+      "score": 0.6518,
+      "rank": 436
+    },
+    {
+      "word": "produise",
+      "score": 0.6517,
+      "rank": 437
+    },
+    {
+      "word": "vendraient",
+      "score": 0.6516,
+      "rank": 438
+    },
+    {
+      "word": "revenue",
+      "score": 0.6516,
+      "rank": 439
+    },
+    {
+      "word": "considérais",
+      "score": 0.6515,
+      "rank": 440
+    },
+    {
+      "word": "industriel",
+      "score": 0.6515,
+      "rank": 441
+    },
+    {
+      "word": "sorties",
+      "score": 0.6514,
+      "rank": 442
+    },
+    {
+      "word": "faits",
+      "score": 0.6514,
+      "rank": 443
+    },
+    {
+      "word": "exposition",
+      "score": 0.6512,
+      "rank": 444
+    },
+    {
+      "word": "aplati",
+      "score": 0.6511,
+      "rank": 445
+    },
+    {
+      "word": "rika",
+      "score": 0.651,
+      "rank": 446
+    },
+    {
+      "word": "contrat",
+      "score": 0.6507,
+      "rank": 447
+    },
+    {
+      "word": "diners",
+      "score": 0.6507,
+      "rank": 448
+    },
+    {
+      "word": "caisse",
+      "score": 0.6507,
+      "rank": 449
+    },
+    {
+      "word": "fourni",
+      "score": 0.6506,
+      "rank": 450
+    },
+    {
+      "word": "consomme",
+      "score": 0.6505,
+      "rank": 451
+    },
+    {
+      "word": "publicité",
+      "score": 0.6504,
+      "rank": 452
+    },
+    {
+      "word": "lieu",
+      "score": 0.6504,
+      "rank": 453
+    },
+    {
+      "word": "produisent",
+      "score": 0.6503,
+      "rank": 454
+    },
+    {
+      "word": "compensé",
+      "score": 0.6503,
+      "rank": 455
+    },
+    {
+      "word": "recevra",
+      "score": 0.6502,
+      "rank": 456
+    },
+    {
+      "word": "réservés",
+      "score": 0.6501,
+      "rank": 457
+    },
+    {
+      "word": "societe",
+      "score": 0.6501,
+      "rank": 458
+    },
+    {
+      "word": "sig",
+      "score": 0.6501,
+      "rank": 459
+    },
+    {
+      "word": "écuries",
+      "score": 0.6501,
+      "rank": 460
+    },
+    {
+      "word": "industriels",
+      "score": 0.6499,
+      "rank": 461
+    },
+    {
+      "word": "développés",
+      "score": 0.6499,
+      "rank": 462
+    },
+    {
+      "word": "coûts",
+      "score": 0.6499,
+      "rank": 463
+    },
+    {
+      "word": "méritait",
+      "score": 0.6497,
+      "rank": 464
+    },
+    {
+      "word": "soumises",
+      "score": 0.6497,
+      "rank": 465
+    },
+    {
+      "word": "plein",
+      "score": 0.6496,
+      "rank": 466
+    },
+    {
+      "word": "légaux",
+      "score": 0.6496,
+      "rank": 467
+    },
+    {
+      "word": "lucía",
+      "score": 0.6495,
+      "rank": 468
+    },
+    {
+      "word": "bénéfices",
+      "score": 0.6493,
+      "rank": 469
+    },
+    {
+      "word": "fournissent",
+      "score": 0.6492,
+      "rank": 470
+    },
+    {
+      "word": "inès",
+      "score": 0.6489,
+      "rank": 471
+    },
+    {
+      "word": "cour",
+      "score": 0.6489,
+      "rank": 472
+    },
+    {
+      "word": "réservées",
+      "score": 0.6489,
+      "rank": 473
+    },
+    {
+      "word": "richissime",
+      "score": 0.6488,
+      "rank": 474
+    },
+    {
+      "word": "quartiers",
+      "score": 0.6486,
+      "rank": 475
+    },
+    {
+      "word": "entreprise",
+      "score": 0.6486,
+      "rank": 476
+    },
+    {
+      "word": "pétale",
+      "score": 0.6484,
+      "rank": 477
+    },
+    {
+      "word": "appliquées",
+      "score": 0.6484,
+      "rank": 478
+    },
+    {
+      "word": "percés",
+      "score": 0.6484,
+      "rank": 479
+    },
+    {
+      "word": "pareil",
+      "score": 0.6483,
+      "rank": 480
+    },
+    {
+      "word": "renom",
+      "score": 0.6481,
+      "rank": 481
+    },
+    {
+      "word": "réservé",
+      "score": 0.6481,
+      "rank": 482
+    },
+    {
+      "word": "réglés",
+      "score": 0.6479,
+      "rank": 483
+    },
+    {
+      "word": "dépenses",
+      "score": 0.6479,
+      "rank": 484
+    },
+    {
+      "word": "conglomérat",
+      "score": 0.6478,
+      "rank": 485
+    },
+    {
+      "word": "déposées",
+      "score": 0.6478,
+      "rank": 486
+    },
+    {
+      "word": "considérée",
+      "score": 0.6478,
+      "rank": 487
+    },
+    {
+      "word": "précieuse",
+      "score": 0.6477,
+      "rank": 488
+    },
+    {
+      "word": "mil",
+      "score": 0.6477,
+      "rank": 489
+    },
+    {
+      "word": "rassemblée",
+      "score": 0.6475,
+      "rank": 490
+    },
+    {
+      "word": "emporte",
+      "score": 0.6474,
+      "rank": 491
+    },
+    {
+      "word": "usent",
+      "score": 0.6474,
+      "rank": 492
+    },
+    {
+      "word": "vendes",
+      "score": 0.6472,
+      "rank": 493
+    },
+    {
+      "word": "offraient",
+      "score": 0.6472,
+      "rank": 494
+    },
+    {
+      "word": "aux",
+      "score": 0.6469,
+      "rank": 495
+    },
+    {
+      "word": "contrainte",
+      "score": 0.6468,
+      "rank": 496
+    },
+    {
+      "word": "développées",
+      "score": 0.6468,
+      "rank": 497
+    },
+    {
+      "word": "eus",
+      "score": 0.6467,
+      "rank": 498
+    },
+    {
+      "word": "valeureux",
+      "score": 0.6467,
+      "rank": 499
+    },
+    {
+      "word": "soc",
+      "score": 0.6466,
+      "rank": 500
+    },
+    {
+      "word": "offrit",
+      "score": 0.6466,
+      "rank": 501
+    },
+    {
+      "word": "recherchez",
+      "score": 0.6465,
+      "rank": 502
+    },
+    {
+      "word": "procurer",
+      "score": 0.6465,
+      "rank": 503
+    },
+    {
+      "word": "sollicite",
+      "score": 0.6462,
+      "rank": 504
+    },
+    {
+      "word": "tasse",
+      "score": 0.6461,
+      "rank": 505
+    },
+    {
+      "word": "comptent",
+      "score": 0.6461,
+      "rank": 506
+    },
+    {
+      "word": "réservée",
+      "score": 0.6461,
+      "rank": 507
+    },
+    {
+      "word": "réglage",
+      "score": 0.646,
+      "rank": 508
+    },
+    {
+      "word": "kira",
+      "score": 0.646,
+      "rank": 509
+    },
+    {
+      "word": "cerné",
+      "score": 0.6458,
+      "rank": 510
+    },
+    {
+      "word": "soumise",
+      "score": 0.6458,
+      "rank": 511
+    },
+    {
+      "word": "évalué",
+      "score": 0.6457,
+      "rank": 512
+    },
+    {
+      "word": "ist",
+      "score": 0.6456,
+      "rank": 513
+    },
+    {
+      "word": "considéré",
+      "score": 0.6456,
+      "rank": 514
+    },
+    {
+      "word": "cherchant",
+      "score": 0.6456,
+      "rank": 515
+    },
+    {
+      "word": "das",
+      "score": 0.6455,
+      "rank": 516
+    },
+    {
+      "word": "organisé",
+      "score": 0.6454,
+      "rank": 517
+    },
+    {
+      "word": "apr",
+      "score": 0.6453,
+      "rank": 518
+    },
+    {
+      "word": "mégot",
+      "score": 0.6452,
+      "rank": 519
+    },
+    {
+      "word": "débordé",
+      "score": 0.6452,
+      "rank": 520
+    },
+    {
+      "word": "pourchassés",
+      "score": 0.6451,
+      "rank": 521
+    },
+    {
+      "word": "maquilleuse",
+      "score": 0.645,
+      "rank": 522
+    },
+    {
+      "word": "los",
+      "score": 0.645,
+      "rank": 523
+    },
+    {
+      "word": "répandu",
+      "score": 0.645,
+      "rank": 524
+    },
+    {
+      "word": "conquérants",
+      "score": 0.6448,
+      "rank": 525
+    },
+    {
+      "word": "levy",
+      "score": 0.6448,
+      "rank": 526
+    },
+    {
+      "word": "bancs",
+      "score": 0.6448,
+      "rank": 527
+    },
+    {
+      "word": "per",
+      "score": 0.6448,
+      "rank": 528
+    },
+    {
+      "word": "recherches",
+      "score": 0.6448,
+      "rank": 529
+    },
+    {
+      "word": "enrichissent",
+      "score": 0.6447,
+      "rank": 530
+    },
+    {
+      "word": "affichée",
+      "score": 0.6446,
+      "rank": 531
+    },
+    {
+      "word": "dib",
+      "score": 0.6446,
+      "rank": 532
+    },
+    {
+      "word": "advient",
+      "score": 0.6445,
+      "rank": 533
+    },
+    {
+      "word": "fondées",
+      "score": 0.6445,
+      "rank": 534
+    },
+    {
+      "word": "bourge",
+      "score": 0.6445,
+      "rank": 535
+    },
+    {
+      "word": "suppliais",
+      "score": 0.6444,
+      "rank": 536
+    },
+    {
+      "word": "grossièretés",
+      "score": 0.6443,
+      "rank": 537
+    },
+    {
+      "word": "décence",
+      "score": 0.6442,
+      "rank": 538
+    },
+    {
+      "word": "dotée",
+      "score": 0.6442,
+      "rank": 539
+    },
+    {
+      "word": "profiteur",
+      "score": 0.6442,
+      "rank": 540
+    },
+    {
+      "word": "sucent",
+      "score": 0.6441,
+      "rank": 541
+    },
+    {
+      "word": "méritais",
+      "score": 0.6439,
+      "rank": 542
+    },
+    {
+      "word": "médaillons",
+      "score": 0.6438,
+      "rank": 543
+    },
+    {
+      "word": "rangées",
+      "score": 0.6436,
+      "rank": 544
+    },
+    {
+      "word": "publie",
+      "score": 0.6436,
+      "rank": 545
+    },
+    {
+      "word": "crachat",
+      "score": 0.6436,
+      "rank": 546
+    },
+    {
+      "word": "freins",
+      "score": 0.6436,
+      "rank": 547
+    },
+    {
+      "word": "révise",
+      "score": 0.6436,
+      "rank": 548
+    },
+    {
+      "word": "remplissage",
+      "score": 0.6434,
+      "rank": 549
+    },
+    {
+      "word": "percuté",
+      "score": 0.6434,
+      "rank": 550
+    },
+    {
+      "word": "pût",
+      "score": 0.6433,
+      "rank": 551
+    },
+    {
+      "word": "déposés",
+      "score": 0.6433,
+      "rank": 552
+    },
+    {
+      "word": "loi",
+      "score": 0.6433,
+      "rank": 553
+    },
+    {
+      "word": "livrer",
+      "score": 0.6432,
+      "rank": 554
+    },
+    {
+      "word": "dôme",
+      "score": 0.6431,
+      "rank": 555
+    },
+    {
+      "word": "enquérir",
+      "score": 0.643,
+      "rank": 556
+    },
+    {
+      "word": "investit",
+      "score": 0.643,
+      "rank": 557
+    },
+    {
+      "word": "friandise",
+      "score": 0.6429,
+      "rank": 558
+    },
+    {
+      "word": "fournit",
+      "score": 0.6429,
+      "rank": 559
+    },
+    {
+      "word": "élimine",
+      "score": 0.6428,
+      "rank": 560
+    },
+    {
+      "word": "compagne",
+      "score": 0.6428,
+      "rank": 561
+    },
+    {
+      "word": "finances",
+      "score": 0.6428,
+      "rank": 562
+    },
+    {
+      "word": "dépanneuse",
+      "score": 0.6426,
+      "rank": 563
+    },
+    {
+      "word": "convoité",
+      "score": 0.6426,
+      "rank": 564
+    },
+    {
+      "word": "annoncer",
+      "score": 0.6424,
+      "rank": 565
+    },
+    {
+      "word": "prã",
+      "score": 0.6424,
+      "rank": 566
+    },
+    {
+      "word": "intéret",
+      "score": 0.6423,
+      "rank": 567
+    },
+    {
+      "word": "mûre",
+      "score": 0.6422,
+      "rank": 568
+    },
+    {
+      "word": "comptiez",
+      "score": 0.6421,
+      "rank": 569
+    },
+    {
+      "word": "devenez",
+      "score": 0.6421,
+      "rank": 570
+    },
+    {
+      "word": "étables",
+      "score": 0.642,
+      "rank": 571
+    },
+    {
+      "word": "del",
+      "score": 0.642,
+      "rank": 572
+    },
+    {
+      "word": "ein",
+      "score": 0.6419,
+      "rank": 573
+    },
+    {
+      "word": "perce",
+      "score": 0.6419,
+      "rank": 574
+    },
+    {
+      "word": "exhibe",
+      "score": 0.6419,
+      "rank": 575
+    },
+    {
+      "word": "rad",
+      "score": 0.6419,
+      "rank": 576
+    },
+    {
+      "word": "montés",
+      "score": 0.6419,
+      "rank": 577
+    },
+    {
+      "word": "stores",
+      "score": 0.6418,
+      "rank": 578
+    },
+    {
+      "word": "messe",
+      "score": 0.6418,
+      "rank": 579
+    },
+    {
+      "word": "soutifs",
+      "score": 0.6417,
+      "rank": 580
+    },
+    {
+      "word": "inn",
+      "score": 0.6417,
+      "rank": 581
+    },
+    {
+      "word": "frais",
+      "score": 0.6416,
+      "rank": 582
+    },
+    {
+      "word": "désigner",
+      "score": 0.6416,
+      "rank": 583
+    },
+    {
+      "word": "envisagé",
+      "score": 0.6416,
+      "rank": 584
+    },
+    {
+      "word": "horaires",
+      "score": 0.6414,
+      "rank": 585
+    },
+    {
+      "word": "propagé",
+      "score": 0.6412,
+      "rank": 586
+    },
+    {
+      "word": "villes",
+      "score": 0.6412,
+      "rank": 587
+    },
+    {
+      "word": "concernent",
+      "score": 0.6412,
+      "rank": 588
+    },
+    {
+      "word": "détiennent",
+      "score": 0.6412,
+      "rank": 589
+    },
+    {
+      "word": "fond",
+      "score": 0.6411,
+      "rank": 590
+    },
+    {
+      "word": "fondés",
+      "score": 0.641,
+      "rank": 591
+    },
+    {
+      "word": "freine",
+      "score": 0.641,
+      "rank": 592
+    },
+    {
+      "word": "délivrée",
+      "score": 0.6407,
+      "rank": 593
+    },
+    {
+      "word": "loutre",
+      "score": 0.6407,
+      "rank": 594
+    },
+    {
+      "word": "aine",
+      "score": 0.6406,
+      "rank": 595
+    },
+    {
+      "word": "égales",
+      "score": 0.6406,
+      "rank": 596
+    },
+    {
+      "word": "noboru",
+      "score": 0.6406,
+      "rank": 597
+    },
+    {
+      "word": "cla",
+      "score": 0.6406,
+      "rank": 598
+    },
+    {
+      "word": "censées",
+      "score": 0.6404,
+      "rank": 599
+    },
+    {
+      "word": "générée",
+      "score": 0.6404,
+      "rank": 600
+    },
+    {
+      "word": "tania",
+      "score": 0.6402,
+      "rank": 601
+    },
+    {
+      "word": "conforme",
+      "score": 0.6401,
+      "rank": 602
+    },
+    {
+      "word": "recherchés",
+      "score": 0.6401,
+      "rank": 603
+    },
+    {
+      "word": "couverts",
+      "score": 0.64,
+      "rank": 604
+    },
+    {
+      "word": "paroi",
+      "score": 0.64,
+      "rank": 605
+    },
+    {
+      "word": "exhiber",
+      "score": 0.6399,
+      "rank": 606
+    },
+    {
+      "word": "revue",
+      "score": 0.6399,
+      "rank": 607
+    },
+    {
+      "word": "réclamée",
+      "score": 0.6398,
+      "rank": 608
+    },
+    {
+      "word": "facteur",
+      "score": 0.6398,
+      "rank": 609
+    },
+    {
+      "word": "modalités",
+      "score": 0.6397,
+      "rank": 610
+    },
+    {
+      "word": "démener",
+      "score": 0.6397,
+      "rank": 611
+    },
+    {
+      "word": "sobres",
+      "score": 0.6396,
+      "rank": 612
+    },
+    {
+      "word": "rends",
+      "score": 0.6396,
+      "rank": 613
+    },
+    {
+      "word": "échantillon",
+      "score": 0.6396,
+      "rank": 614
+    },
+    {
+      "word": "recevras",
+      "score": 0.6395,
+      "rank": 615
+    },
+    {
+      "word": "intérêts",
+      "score": 0.6395,
+      "rank": 616
+    },
+    {
+      "word": "boutique",
+      "score": 0.6395,
+      "rank": 617
+    },
+    {
+      "word": "pleins",
+      "score": 0.6393,
+      "rank": 618
+    },
+    {
+      "word": "décents",
+      "score": 0.6393,
+      "rank": 619
+    },
+    {
+      "word": "fraîches",
+      "score": 0.6393,
+      "rank": 620
+    },
+    {
+      "word": "déposée",
+      "score": 0.6392,
+      "rank": 621
+    },
+    {
+      "word": "débordés",
+      "score": 0.6392,
+      "rank": 622
+    },
+    {
+      "word": "généralisée",
+      "score": 0.6391,
+      "rank": 623
+    },
+    {
+      "word": "ces",
+      "score": 0.6391,
+      "rank": 624
+    },
+    {
+      "word": "soutif",
+      "score": 0.6391,
+      "rank": 625
+    },
+    {
+      "word": "traités",
+      "score": 0.639,
+      "rank": 626
+    },
+    {
+      "word": "orden",
+      "score": 0.639,
+      "rank": 627
+    },
+    {
+      "word": "fondé",
+      "score": 0.6389,
+      "rank": 628
+    },
+    {
+      "word": "profité",
+      "score": 0.6389,
+      "rank": 629
+    },
+    {
+      "word": "concerne",
+      "score": 0.6388,
+      "rank": 630
+    },
+    {
+      "word": "droit",
+      "score": 0.6388,
+      "rank": 631
+    },
+    {
+      "word": "sida",
+      "score": 0.6388,
+      "rank": 632
+    },
+    {
+      "word": "commérages",
+      "score": 0.6388,
+      "rank": 633
+    },
+    {
+      "word": "diné",
+      "score": 0.6385,
+      "rank": 634
+    },
+    {
+      "word": "leann",
+      "score": 0.6385,
+      "rank": 635
+    },
+    {
+      "word": "lux",
+      "score": 0.6384,
+      "rank": 636
+    },
+    {
+      "word": "bénéficie",
+      "score": 0.6384,
+      "rank": 637
+    },
+    {
+      "word": "recueillies",
+      "score": 0.6384,
+      "rank": 638
+    },
+    {
+      "word": "fournissait",
+      "score": 0.6383,
+      "rank": 639
+    },
+    {
+      "word": "adios",
+      "score": 0.6383,
+      "rank": 640
+    },
+    {
+      "word": "prédis",
+      "score": 0.6383,
+      "rank": 641
+    },
+    {
+      "word": "largo",
+      "score": 0.6382,
+      "rank": 642
+    },
+    {
+      "word": "disposée",
+      "score": 0.6382,
+      "rank": 643
+    },
+    {
+      "word": "arrangerait",
+      "score": 0.638,
+      "rank": 644
+    },
+    {
+      "word": "sac",
+      "score": 0.638,
+      "rank": 645
+    },
+    {
+      "word": "cec",
+      "score": 0.638,
+      "rank": 646
+    },
+    {
+      "word": "logistique",
+      "score": 0.638,
+      "rank": 647
+    },
+    {
+      "word": "compagnes",
+      "score": 0.638,
+      "rank": 648
+    },
+    {
+      "word": "préfere",
+      "score": 0.638,
+      "rank": 649
+    },
+    {
+      "word": "embauchés",
+      "score": 0.6379,
+      "rank": 650
+    },
+    {
+      "word": "fournissons",
+      "score": 0.6379,
+      "rank": 651
+    },
+    {
+      "word": "censée",
+      "score": 0.6378,
+      "rank": 652
+    },
+    {
+      "word": "sil",
+      "score": 0.6378,
+      "rank": 653
+    },
+    {
+      "word": "enjeux",
+      "score": 0.6378,
+      "rank": 654
+    },
+    {
+      "word": "appliqué",
+      "score": 0.6377,
+      "rank": 655
+    },
+    {
+      "word": "courra",
+      "score": 0.6375,
+      "rank": 656
+    },
+    {
+      "word": "tamise",
+      "score": 0.6375,
+      "rank": 657
+    },
+    {
+      "word": "acuité",
+      "score": 0.6373,
+      "rank": 658
+    },
+    {
+      "word": "prépayé",
+      "score": 0.6373,
+      "rank": 659
+    },
+    {
+      "word": "raté",
+      "score": 0.6372,
+      "rank": 660
+    },
+    {
+      "word": "exposant",
+      "score": 0.6372,
+      "rank": 661
+    },
+    {
+      "word": "récurer",
+      "score": 0.6371,
+      "rank": 662
+    },
+    {
+      "word": "preneurs",
+      "score": 0.637,
+      "rank": 663
+    },
+    {
+      "word": "milieux",
+      "score": 0.6369,
+      "rank": 664
+    },
+    {
+      "word": "abordée",
+      "score": 0.6369,
+      "rank": 665
+    },
+    {
+      "word": "constat",
+      "score": 0.6368,
+      "rank": 666
+    },
+    {
+      "word": "possédons",
+      "score": 0.6368,
+      "rank": 667
+    },
+    {
+      "word": "coût",
+      "score": 0.6368,
+      "rank": 668
+    },
+    {
+      "word": "courrez",
+      "score": 0.6368,
+      "rank": 669
+    },
+    {
+      "word": "rend",
+      "score": 0.6367,
+      "rank": 670
+    },
+    {
+      "word": "que",
+      "score": 0.6366,
+      "rank": 671
+    },
+    {
+      "word": "prends",
+      "score": 0.6365,
+      "rank": 672
+    },
+    {
+      "word": "rebut",
+      "score": 0.6365,
+      "rank": 673
+    },
+    {
+      "word": "mille",
+      "score": 0.6364,
+      "rank": 674
+    },
+    {
+      "word": "annuaires",
+      "score": 0.6364,
+      "rank": 675
+    },
+    {
+      "word": "dégage",
+      "score": 0.6363,
+      "rank": 676
+    },
+    {
+      "word": "enquêtant",
+      "score": 0.6363,
+      "rank": 677
+    },
+    {
+      "word": "agrément",
+      "score": 0.6362,
+      "rank": 678
+    },
+    {
+      "word": "usa",
+      "score": 0.6361,
+      "rank": 679
+    },
+    {
+      "word": "déposition",
+      "score": 0.6361,
+      "rank": 680
+    },
+    {
+      "word": "pare",
+      "score": 0.636,
+      "rank": 681
+    },
+    {
+      "word": "exploitée",
+      "score": 0.636,
+      "rank": 682
+    },
+    {
+      "word": "emballent",
+      "score": 0.6359,
+      "rank": 683
+    },
+    {
+      "word": "monnaie",
+      "score": 0.6359,
+      "rank": 684
+    },
+    {
+      "word": "apparue",
+      "score": 0.6359,
+      "rank": 685
+    },
+    {
+      "word": "courrais",
+      "score": 0.6359,
+      "rank": 686
+    },
+    {
+      "word": "plait",
+      "score": 0.6358,
+      "rank": 687
+    },
+    {
+      "word": "lci",
+      "score": 0.6358,
+      "rank": 688
+    },
+    {
+      "word": "développée",
+      "score": 0.6357,
+      "rank": 689
+    },
+    {
+      "word": "solliciter",
+      "score": 0.6357,
+      "rank": 690
+    },
+    {
+      "word": "soude",
+      "score": 0.6357,
+      "rank": 691
+    },
+    {
+      "word": "coursiers",
+      "score": 0.6357,
+      "rank": 692
+    },
+    {
+      "word": "cartonné",
+      "score": 0.6356,
+      "rank": 693
+    },
+    {
+      "word": "ados",
+      "score": 0.6355,
+      "rank": 694
+    },
+    {
+      "word": "gente",
+      "score": 0.6355,
+      "rank": 695
+    },
+    {
+      "word": "échangés",
+      "score": 0.6354,
+      "rank": 696
+    },
+    {
+      "word": "congélation",
+      "score": 0.6353,
+      "rank": 697
+    },
+    {
+      "word": "usés",
+      "score": 0.6353,
+      "rank": 698
+    },
+    {
+      "word": "liées",
+      "score": 0.6353,
+      "rank": 699
+    },
+    {
+      "word": "dattes",
+      "score": 0.6352,
+      "rank": 700
+    },
+    {
+      "word": "offre",
+      "score": 0.6352,
+      "rank": 701
+    },
+    {
+      "word": "remplace",
+      "score": 0.6352,
+      "rank": 702
+    },
+    {
+      "word": "plaçons",
+      "score": 0.6351,
+      "rank": 703
+    },
+    {
+      "word": "dealer",
+      "score": 0.6351,
+      "rank": 704
+    },
+    {
+      "word": "paras",
+      "score": 0.635,
+      "rank": 705
+    },
+    {
+      "word": "conférés",
+      "score": 0.6349,
+      "rank": 706
+    },
+    {
+      "word": "décente",
+      "score": 0.6349,
+      "rank": 707
+    },
+    {
+      "word": "subvention",
+      "score": 0.6348,
+      "rank": 708
+    },
+    {
+      "word": "déroulement",
+      "score": 0.6347,
+      "rank": 709
+    },
+    {
+      "word": "nelle",
+      "score": 0.6346,
+      "rank": 710
+    },
+    {
+      "word": "diverses",
+      "score": 0.6346,
+      "rank": 711
+    },
+    {
+      "word": "usagé",
+      "score": 0.6346,
+      "rank": 712
+    },
+    {
+      "word": "abordés",
+      "score": 0.6345,
+      "rank": 713
+    },
+    {
+      "word": "att",
+      "score": 0.6344,
+      "rank": 714
+    },
+    {
+      "word": "intéressais",
+      "score": 0.6343,
+      "rank": 715
+    },
+    {
+      "word": "antécédents",
+      "score": 0.6343,
+      "rank": 716
+    },
+    {
+      "word": "acquis",
+      "score": 0.6343,
+      "rank": 717
+    },
+    {
+      "word": "faite",
+      "score": 0.6343,
+      "rank": 718
+    },
+    {
+      "word": "mûri",
+      "score": 0.6342,
+      "rank": 719
+    },
+    {
+      "word": "suivais",
+      "score": 0.6342,
+      "rank": 720
+    },
+    {
+      "word": "livreurs",
+      "score": 0.6341,
+      "rank": 721
+    },
+    {
+      "word": "populaires",
+      "score": 0.6341,
+      "rank": 722
+    },
+    {
+      "word": "détail",
+      "score": 0.6341,
+      "rank": 723
+    },
+    {
+      "word": "varient",
+      "score": 0.6341,
+      "rank": 724
+    },
+    {
+      "word": "conquérant",
+      "score": 0.634,
+      "rank": 725
+    },
+    {
+      "word": "rechercher",
+      "score": 0.634,
+      "rank": 726
+    },
+    {
+      "word": "quelles",
+      "score": 0.634,
+      "rank": 727
+    },
+    {
+      "word": "latéral",
+      "score": 0.6339,
+      "rank": 728
+    },
+    {
+      "word": "coques",
+      "score": 0.6339,
+      "rank": 729
+    },
+    {
+      "word": "particulier",
+      "score": 0.6339,
+      "rank": 730
+    },
+    {
+      "word": "alana",
+      "score": 0.6338,
+      "rank": 731
+    },
+    {
+      "word": "londres",
+      "score": 0.6338,
+      "rank": 732
+    },
+    {
+      "word": "graeme",
+      "score": 0.6338,
+      "rank": 733
+    },
+    {
+      "word": "celles",
+      "score": 0.6337,
+      "rank": 734
+    },
+    {
+      "word": "mar",
+      "score": 0.6337,
+      "rank": 735
+    },
+    {
+      "word": "collés",
+      "score": 0.6337,
+      "rank": 736
+    },
+    {
+      "word": "déc",
+      "score": 0.6337,
+      "rank": 737
+    },
+    {
+      "word": "terrestre",
+      "score": 0.6337,
+      "rank": 738
+    },
+    {
+      "word": "consumé",
+      "score": 0.6336,
+      "rank": 739
+    },
+    {
+      "word": "profitent",
+      "score": 0.6336,
+      "rank": 740
+    },
+    {
+      "word": "compétitive",
+      "score": 0.6335,
+      "rank": 741
+    },
+    {
+      "word": "disposé",
+      "score": 0.6334,
+      "rank": 742
+    },
+    {
+      "word": "plaqué",
+      "score": 0.6334,
+      "rank": 743
+    },
+    {
+      "word": "débordée",
+      "score": 0.6334,
+      "rank": 744
+    },
+    {
+      "word": "mûrs",
+      "score": 0.6333,
+      "rank": 745
+    },
+    {
+      "word": "pli",
+      "score": 0.6332,
+      "rank": 746
+    },
+    {
+      "word": "fair",
+      "score": 0.6332,
+      "rank": 747
+    },
+    {
+      "word": "der",
+      "score": 0.6332,
+      "rank": 748
+    },
+    {
+      "word": "gaston",
+      "score": 0.6331,
+      "rank": 749
+    },
+    {
+      "word": "carnet",
+      "score": 0.6331,
+      "rank": 750
+    },
+    {
+      "word": "présumer",
+      "score": 0.633,
+      "rank": 751
+    },
+    {
+      "word": "pécan",
+      "score": 0.6329,
+      "rank": 752
+    },
+    {
+      "word": "liée",
+      "score": 0.6329,
+      "rank": 753
+    },
+    {
+      "word": "monté",
+      "score": 0.6329,
+      "rank": 754
+    },
+    {
+      "word": "lesquelles",
+      "score": 0.6328,
+      "rank": 755
+    },
+    {
+      "word": "profitant",
+      "score": 0.6328,
+      "rank": 756
+    },
+    {
+      "word": "cherché",
+      "score": 0.6327,
+      "rank": 757
+    },
+    {
+      "word": "ligue",
+      "score": 0.6326,
+      "rank": 758
+    },
+    {
+      "word": "massimo",
+      "score": 0.6325,
+      "rank": 759
+    },
+    {
+      "word": "maintes",
+      "score": 0.6325,
+      "rank": 760
+    },
+    {
+      "word": "déficient",
+      "score": 0.6325,
+      "rank": 761
+    },
+    {
+      "word": "avis",
+      "score": 0.6325,
+      "rank": 762
+    },
+    {
+      "word": "écoulées",
+      "score": 0.6325,
+      "rank": 763
+    },
+    {
+      "word": "supporté",
+      "score": 0.6324,
+      "rank": 764
+    },
+    {
+      "word": "abordé",
+      "score": 0.6324,
+      "rank": 765
+    },
+    {
+      "word": "amériques",
+      "score": 0.6324,
+      "rank": 766
+    },
+    {
+      "word": "populaire",
+      "score": 0.6324,
+      "rank": 767
+    },
+    {
+      "word": "chiffres",
+      "score": 0.6322,
+      "rank": 768
+    },
+    {
+      "word": "dio",
+      "score": 0.6322,
+      "rank": 769
+    },
+    {
+      "word": "cetera",
+      "score": 0.6322,
+      "rank": 770
+    },
+    {
+      "word": "classée",
+      "score": 0.6321,
+      "rank": 771
+    },
+    {
+      "word": "œuvre",
+      "score": 0.6321,
+      "rank": 772
+    },
+    {
+      "word": "reçus",
+      "score": 0.6319,
+      "rank": 773
+    },
+    {
+      "word": "financés",
+      "score": 0.6319,
+      "rank": 774
+    },
+    {
+      "word": "kunta",
+      "score": 0.6319,
+      "rank": 775
+    },
+    {
+      "word": "gratuites",
+      "score": 0.6318,
+      "rank": 776
+    },
+    {
+      "word": "exploitation",
+      "score": 0.6318,
+      "rank": 777
+    },
+    {
+      "word": "empreinte",
+      "score": 0.6318,
+      "rank": 778
+    },
+    {
+      "word": "subis",
+      "score": 0.6317,
+      "rank": 779
+    },
+    {
+      "word": "détaillant",
+      "score": 0.6317,
+      "rank": 780
+    },
+    {
+      "word": "emménagement",
+      "score": 0.6317,
+      "rank": 781
+    },
+    {
+      "word": "biais",
+      "score": 0.6316,
+      "rank": 782
+    },
+    {
+      "word": "auxquelles",
+      "score": 0.6316,
+      "rank": 783
+    },
+    {
+      "word": "mûr",
+      "score": 0.6316,
+      "rank": 784
+    },
+    {
+      "word": "évaluer",
+      "score": 0.6316,
+      "rank": 785
+    },
+    {
+      "word": "lande",
+      "score": 0.6315,
+      "rank": 786
+    },
+    {
+      "word": "coliques",
+      "score": 0.6315,
+      "rank": 787
+    },
+    {
+      "word": "usée",
+      "score": 0.6315,
+      "rank": 788
+    },
+    {
+      "word": "arrangerai",
+      "score": 0.6315,
+      "rank": 789
+    },
+    {
+      "word": "acérées",
+      "score": 0.6315,
+      "rank": 790
+    },
+    {
+      "word": "décris",
+      "score": 0.6315,
+      "rank": 791
+    },
+    {
+      "word": "produira",
+      "score": 0.6314,
+      "rank": 792
+    },
+    {
+      "word": "merchant",
+      "score": 0.6314,
+      "rank": 793
+    },
+    {
+      "word": "délivrance",
+      "score": 0.6314,
+      "rank": 794
+    },
+    {
+      "word": "premium",
+      "score": 0.6314,
+      "rank": 795
+    },
+    {
+      "word": "livrés",
+      "score": 0.6314,
+      "rank": 796
+    },
+    {
+      "word": "saveurs",
+      "score": 0.6313,
+      "rank": 797
+    },
+    {
+      "word": "coque",
+      "score": 0.6313,
+      "rank": 798
+    },
+    {
+      "word": "tendus",
+      "score": 0.6313,
+      "rank": 799
+    },
+    {
+      "word": "organisés",
+      "score": 0.6312,
+      "rank": 800
+    },
+    {
+      "word": "gavin",
+      "score": 0.6311,
+      "rank": 801
+    },
+    {
+      "word": "payiez",
+      "score": 0.6311,
+      "rank": 802
+    },
+    {
+      "word": "ratées",
+      "score": 0.631,
+      "rank": 803
+    },
+    {
+      "word": "condé",
+      "score": 0.631,
+      "rank": 804
+    },
+    {
+      "word": "coûtera",
+      "score": 0.631,
+      "rank": 805
+    },
+    {
+      "word": "recherchée",
+      "score": 0.6309,
+      "rank": 806
+    },
+    {
+      "word": "quais",
+      "score": 0.6309,
+      "rank": 807
+    },
+    {
+      "word": "prestigieux",
+      "score": 0.6309,
+      "rank": 808
+    },
+    {
+      "word": "raza",
+      "score": 0.6308,
+      "rank": 809
+    },
+    {
+      "word": "motus",
+      "score": 0.6308,
+      "rank": 810
+    },
+    {
+      "word": "adressée",
+      "score": 0.6307,
+      "rank": 811
+    },
+    {
+      "word": "richards",
+      "score": 0.6307,
+      "rank": 812
+    },
+    {
+      "word": "requises",
+      "score": 0.6307,
+      "rank": 813
+    },
+    {
+      "word": "haller",
+      "score": 0.6307,
+      "rank": 814
+    },
+    {
+      "word": "émérite",
+      "score": 0.6307,
+      "rank": 815
+    },
+    {
+      "word": "ombrage",
+      "score": 0.6307,
+      "rank": 816
+    },
+    {
+      "word": "catalogué",
+      "score": 0.6306,
+      "rank": 817
+    },
+    {
+      "word": "tampa",
+      "score": 0.6306,
+      "rank": 818
+    },
+    {
+      "word": "pété",
+      "score": 0.6306,
+      "rank": 819
+    },
+    {
+      "word": "suraj",
+      "score": 0.6305,
+      "rank": 820
+    },
+    {
+      "word": "annonçant",
+      "score": 0.6305,
+      "rank": 821
+    },
+    {
+      "word": "fondée",
+      "score": 0.6305,
+      "rank": 822
+    },
+    {
+      "word": "raffinée",
+      "score": 0.6305,
+      "rank": 823
+    },
+    {
+      "word": "les",
+      "score": 0.6305,
+      "rank": 824
+    },
+    {
+      "word": "banqueroute",
+      "score": 0.6304,
+      "rank": 825
+    },
+    {
+      "word": "cece",
+      "score": 0.6304,
+      "rank": 826
+    },
+    {
+      "word": "krav",
+      "score": 0.6304,
+      "rank": 827
+    },
+    {
+      "word": "gens",
+      "score": 0.6304,
+      "rank": 828
+    },
+    {
+      "word": "marginaux",
+      "score": 0.6304,
+      "rank": 829
+    },
+    {
+      "word": "égaux",
+      "score": 0.6304,
+      "rank": 830
+    },
+    {
+      "word": "mensualités",
+      "score": 0.6303,
+      "rank": 831
+    },
+    {
+      "word": "manche",
+      "score": 0.6303,
+      "rank": 832
+    },
+    {
+      "word": "parti",
+      "score": 0.6303,
+      "rank": 833
+    },
+    {
+      "word": "procuré",
+      "score": 0.6303,
+      "rank": 834
+    },
+    {
+      "word": "visas",
+      "score": 0.6302,
+      "rank": 835
+    },
+    {
+      "word": "plaidé",
+      "score": 0.6302,
+      "rank": 836
+    },
+    {
+      "word": "gammes",
+      "score": 0.6302,
+      "rank": 837
+    },
+    {
+      "word": "mit",
+      "score": 0.6302,
+      "rank": 838
+    },
+    {
+      "word": "enflamme",
+      "score": 0.6302,
+      "rank": 839
+    },
+    {
+      "word": "campo",
+      "score": 0.6302,
+      "rank": 840
+    },
+    {
+      "word": "sensées",
+      "score": 0.6302,
+      "rank": 841
+    },
+    {
+      "word": "banc",
+      "score": 0.6301,
+      "rank": 842
+    },
+    {
+      "word": "intérimaire",
+      "score": 0.6301,
+      "rank": 843
+    },
+    {
+      "word": "parois",
+      "score": 0.63,
+      "rank": 844
+    },
+    {
+      "word": "intérieures",
+      "score": 0.63,
+      "rank": 845
+    },
+    {
+      "word": "vetements",
+      "score": 0.63,
+      "rank": 846
+    },
+    {
+      "word": "infime",
+      "score": 0.63,
+      "rank": 847
+    },
+    {
+      "word": "pareils",
+      "score": 0.6299,
+      "rank": 848
+    },
+    {
+      "word": "détaillés",
+      "score": 0.6299,
+      "rank": 849
+    },
+    {
+      "word": "livrera",
+      "score": 0.6298,
+      "rank": 850
+    },
+    {
+      "word": "epargne",
+      "score": 0.6298,
+      "rank": 851
+    },
+    {
+      "word": "répulsion",
+      "score": 0.6297,
+      "rank": 852
+    },
+    {
+      "word": "envergure",
+      "score": 0.6296,
+      "rank": 853
+    },
+    {
+      "word": "écurie",
+      "score": 0.6295,
+      "rank": 854
+    },
+    {
+      "word": "fabriquent",
+      "score": 0.6295,
+      "rank": 855
+    },
+    {
+      "word": "fois",
+      "score": 0.6295,
+      "rank": 856
+    },
+    {
+      "word": "élabore",
+      "score": 0.6295,
+      "rank": 857
+    },
+    {
+      "word": "espêce",
+      "score": 0.6295,
+      "rank": 858
+    },
+    {
+      "word": "info",
+      "score": 0.6295,
+      "rank": 859
+    },
+    {
+      "word": "combles",
+      "score": 0.6295,
+      "rank": 860
+    },
+    {
+      "word": "bourg",
+      "score": 0.6295,
+      "rank": 861
+    },
+    {
+      "word": "göring",
+      "score": 0.6294,
+      "rank": 862
+    },
+    {
+      "word": "concernait",
+      "score": 0.6294,
+      "rank": 863
+    },
+    {
+      "word": "valda",
+      "score": 0.6294,
+      "rank": 864
+    },
+    {
+      "word": "leur",
+      "score": 0.6294,
+      "rank": 865
+    },
+    {
+      "word": "soutiens",
+      "score": 0.6293,
+      "rank": 866
+    },
+    {
+      "word": "dégager",
+      "score": 0.6292,
+      "rank": 867
+    },
+    {
+      "word": "rigole",
+      "score": 0.6291,
+      "rank": 868
+    },
+    {
+      "word": "dites",
+      "score": 0.6291,
+      "rank": 869
+    },
+    {
+      "word": "présumés",
+      "score": 0.629,
+      "rank": 870
+    },
+    {
+      "word": "fréquente",
+      "score": 0.629,
+      "rank": 871
+    },
+    {
+      "word": "emprunt",
+      "score": 0.629,
+      "rank": 872
+    },
+    {
+      "word": "fédés",
+      "score": 0.629,
+      "rank": 873
+    },
+    {
+      "word": "stade",
+      "score": 0.629,
+      "rank": 874
+    },
+    {
+      "word": "comptera",
+      "score": 0.629,
+      "rank": 875
+    },
+    {
+      "word": "fournisseurs",
+      "score": 0.629,
+      "rank": 876
+    },
+    {
+      "word": "recueillis",
+      "score": 0.6289,
+      "rank": 877
+    },
+    {
+      "word": "jun",
+      "score": 0.6289,
+      "rank": 878
+    },
+    {
+      "word": "embauchée",
+      "score": 0.6288,
+      "rank": 879
+    },
+    {
+      "word": "égarement",
+      "score": 0.6288,
+      "rank": 880
+    },
+    {
+      "word": "desquelles",
+      "score": 0.6288,
+      "rank": 881
+    },
+    {
+      "word": "remplis",
+      "score": 0.6287,
+      "rank": 882
+    },
+    {
+      "word": "mars",
+      "score": 0.6286,
+      "rank": 883
+    },
+    {
+      "word": "renommé",
+      "score": 0.6286,
+      "rank": 884
+    },
+    {
+      "word": "varier",
+      "score": 0.6286,
+      "rank": 885
+    },
+    {
+      "word": "consécutifs",
+      "score": 0.6286,
+      "rank": 886
+    },
+    {
+      "word": "entrepôt",
+      "score": 0.6285,
+      "rank": 887
+    },
+    {
+      "word": "auprès",
+      "score": 0.6285,
+      "rank": 888
+    },
+    {
+      "word": "distribuez",
+      "score": 0.6284,
+      "rank": 889
+    },
+    {
+      "word": "délivrés",
+      "score": 0.6284,
+      "rank": 890
+    },
+    {
+      "word": "julio",
+      "score": 0.6284,
+      "rank": 891
+    },
+    {
+      "word": "raclure",
+      "score": 0.6283,
+      "rank": 892
+    },
+    {
+      "word": "balancés",
+      "score": 0.6283,
+      "rank": 893
+    },
+    {
+      "word": "ishval",
+      "score": 0.6283,
+      "rank": 894
+    },
+    {
+      "word": "apparues",
+      "score": 0.6283,
+      "rank": 895
+    },
+    {
+      "word": "emménages",
+      "score": 0.6283,
+      "rank": 896
+    },
+    {
+      "word": "tendances",
+      "score": 0.6282,
+      "rank": 897
+    },
+    {
+      "word": "distribués",
+      "score": 0.6281,
+      "rank": 898
+    },
+    {
+      "word": "mûres",
+      "score": 0.6281,
+      "rank": 899
+    },
+    {
+      "word": "délibération",
+      "score": 0.6281,
+      "rank": 900
+    },
+    {
+      "word": "gru",
+      "score": 0.6281,
+      "rank": 901
+    },
+    {
+      "word": "pertes",
+      "score": 0.6281,
+      "rank": 902
+    },
+    {
+      "word": "adressé",
+      "score": 0.628,
+      "rank": 903
+    },
+    {
+      "word": "présentés",
+      "score": 0.6279,
+      "rank": 904
+    },
+    {
+      "word": "basé",
+      "score": 0.6279,
+      "rank": 905
+    },
+    {
+      "word": "terre",
+      "score": 0.6278,
+      "rank": 906
+    },
+    {
+      "word": "prestes",
+      "score": 0.6278,
+      "rank": 907
+    },
+    {
+      "word": "douvres",
+      "score": 0.6277,
+      "rank": 908
+    },
+    {
+      "word": "vedek",
+      "score": 0.6276,
+      "rank": 909
+    },
+    {
+      "word": "marquent",
+      "score": 0.6275,
+      "rank": 910
+    },
+    {
+      "word": "zarbi",
+      "score": 0.6275,
+      "rank": 911
+    },
+    {
+      "word": "soumis",
+      "score": 0.6275,
+      "rank": 912
+    },
+    {
+      "word": "comtés",
+      "score": 0.6274,
+      "rank": 913
+    },
+    {
+      "word": "soutiennes",
+      "score": 0.6274,
+      "rank": 914
+    },
+    {
+      "word": "revenues",
+      "score": 0.6274,
+      "rank": 915
+    },
+    {
+      "word": "médaillon",
+      "score": 0.6274,
+      "rank": 916
+    },
+    {
+      "word": "monnaies",
+      "score": 0.6273,
+      "rank": 917
+    },
+    {
+      "word": "baz",
+      "score": 0.6273,
+      "rank": 918
+    },
+    {
+      "word": "réside",
+      "score": 0.6273,
+      "rank": 919
+    },
+    {
+      "word": "recueillir",
+      "score": 0.6272,
+      "rank": 920
+    },
+    {
+      "word": "luxe",
+      "score": 0.6272,
+      "rank": 921
+    },
+    {
+      "word": "ordinaire",
+      "score": 0.6272,
+      "rank": 922
+    },
+    {
+      "word": "fériés",
+      "score": 0.6271,
+      "rank": 923
+    },
+    {
+      "word": "shop",
+      "score": 0.6271,
+      "rank": 924
+    },
+    {
+      "word": "portent",
+      "score": 0.6271,
+      "rank": 925
+    },
+    {
+      "word": "intéressait",
+      "score": 0.6271,
+      "rank": 926
+    },
+    {
+      "word": "trié",
+      "score": 0.627,
+      "rank": 927
+    },
+    {
+      "word": "rassemblées",
+      "score": 0.627,
+      "rank": 928
+    },
+    {
+      "word": "ganga",
+      "score": 0.6269,
+      "rank": 929
+    },
+    {
+      "word": "remplies",
+      "score": 0.6269,
+      "rank": 930
+    },
+    {
+      "word": "insère",
+      "score": 0.6269,
+      "rank": 931
+    },
+    {
+      "word": "débiter",
+      "score": 0.6268,
+      "rank": 932
+    },
+    {
+      "word": "prierais",
+      "score": 0.6267,
+      "rank": 933
+    },
+    {
+      "word": "véreux",
+      "score": 0.6267,
+      "rank": 934
+    },
+    {
+      "word": "accordée",
+      "score": 0.6267,
+      "rank": 935
+    },
+    {
+      "word": "courir",
+      "score": 0.6266,
+      "rank": 936
+    },
+    {
+      "word": "juillet",
+      "score": 0.6266,
+      "rank": 937
+    },
+    {
+      "word": "enquêtait",
+      "score": 0.6266,
+      "rank": 938
+    },
+    {
+      "word": "vise",
+      "score": 0.6266,
+      "rank": 939
+    },
+    {
+      "word": "élégance",
+      "score": 0.6266,
+      "rank": 940
+    },
+    {
+      "word": "gagnes",
+      "score": 0.6265,
+      "rank": 941
+    },
+    {
+      "word": "avise",
+      "score": 0.6265,
+      "rank": 942
+    },
+    {
+      "word": "enquêté",
+      "score": 0.6265,
+      "rank": 943
+    },
+    {
+      "word": "stock",
+      "score": 0.6265,
+      "rank": 944
+    },
+    {
+      "word": "méritiez",
+      "score": 0.6265,
+      "rank": 945
+    },
+    {
+      "word": "prem",
+      "score": 0.6264,
+      "rank": 946
+    },
+    {
+      "word": "emballés",
+      "score": 0.6264,
+      "rank": 947
+    },
+    {
+      "word": "comprise",
+      "score": 0.6264,
+      "rank": 948
+    },
+    {
+      "word": "remises",
+      "score": 0.6263,
+      "rank": 949
+    },
+    {
+      "word": "antre",
+      "score": 0.6263,
+      "rank": 950
+    },
+    {
+      "word": "déposé",
+      "score": 0.6262,
+      "rank": 951
+    },
+    {
+      "word": "répertoire",
+      "score": 0.6262,
+      "rank": 952
+    },
+    {
+      "word": "millar",
+      "score": 0.6261,
+      "rank": 953
+    },
+    {
+      "word": "éventail",
+      "score": 0.6261,
+      "rank": 954
+    },
+    {
+      "word": "sen",
+      "score": 0.6261,
+      "rank": 955
+    },
+    {
+      "word": "ting",
+      "score": 0.6261,
+      "rank": 956
+    },
+    {
+      "word": "reliés",
+      "score": 0.6261,
+      "rank": 957
+    },
+    {
+      "word": "compil",
+      "score": 0.626,
+      "rank": 958
+    },
+    {
+      "word": "bec",
+      "score": 0.626,
+      "rank": 959
+    },
+    {
+      "word": "gemme",
+      "score": 0.626,
+      "rank": 960
+    },
+    {
+      "word": "échantillons",
+      "score": 0.626,
+      "rank": 961
+    },
+    {
+      "word": "adressées",
+      "score": 0.626,
+      "rank": 962
+    },
+    {
+      "word": "secrètes",
+      "score": 0.626,
+      "rank": 963
+    },
+    {
+      "word": "frein",
+      "score": 0.6259,
+      "rank": 964
+    },
+    {
+      "word": "contenues",
+      "score": 0.6259,
+      "rank": 965
+    },
+    {
+      "word": "ctu",
+      "score": 0.6258,
+      "rank": 966
+    },
+    {
+      "word": "curés",
+      "score": 0.6258,
+      "rank": 967
+    },
+    {
+      "word": "parvenue",
+      "score": 0.6258,
+      "rank": 968
+    },
+    {
+      "word": "fermes",
+      "score": 0.6258,
+      "rank": 969
+    },
+    {
+      "word": "disponibles",
+      "score": 0.6257,
+      "rank": 970
+    },
+    {
+      "word": "demandais",
+      "score": 0.6257,
+      "rank": 971
+    },
+    {
+      "word": "piaule",
+      "score": 0.6256,
+      "rank": 972
+    },
+    {
+      "word": "détaillées",
+      "score": 0.6255,
+      "rank": 973
+    },
+    {
+      "word": "fiat",
+      "score": 0.6255,
+      "rank": 974
+    },
+    {
+      "word": "ruan",
+      "score": 0.6255,
+      "rank": 975
+    },
+    {
+      "word": "recherchées",
+      "score": 0.6255,
+      "rank": 976
+    },
+    {
+      "word": "pétée",
+      "score": 0.6255,
+      "rank": 977
+    },
+    {
+      "word": "sortent",
+      "score": 0.6254,
+      "rank": 978
+    },
+    {
+      "word": "évaluée",
+      "score": 0.6254,
+      "rank": 979
+    },
+    {
+      "word": "environs",
+      "score": 0.6254,
+      "rank": 980
+    },
+    {
+      "word": "détaillée",
+      "score": 0.6254,
+      "rank": 981
+    },
+    {
+      "word": "carreau",
+      "score": 0.6254,
+      "rank": 982
+    },
+    {
+      "word": "désignent",
+      "score": 0.6253,
+      "rank": 983
+    },
+    {
+      "word": "judicieux",
+      "score": 0.6253,
+      "rank": 984
+    },
+    {
+      "word": "traité",
+      "score": 0.6253,
+      "rank": 985
+    },
+    {
+      "word": "écoulés",
+      "score": 0.6252,
+      "rank": 986
+    },
+    {
+      "word": "remplissant",
+      "score": 0.6252,
+      "rank": 987
+    },
+    {
+      "word": "affiché",
+      "score": 0.6251,
+      "rank": 988
+    },
+    {
+      "word": "secteurs",
+      "score": 0.625,
+      "rank": 989
+    },
+    {
+      "word": "con",
+      "score": 0.625,
+      "rank": 990
+    },
+    {
+      "word": "proposons",
+      "score": 0.625,
+      "rank": 991
+    },
+    {
+      "word": "ilan",
+      "score": 0.625,
+      "rank": 992
+    },
+    {
+      "word": "ecrit",
+      "score": 0.6249,
+      "rank": 993
+    },
+    {
+      "word": "marti",
+      "score": 0.6249,
+      "rank": 994
+    },
+    {
+      "word": "profitable",
+      "score": 0.6249,
+      "rank": 995
+    },
+    {
+      "word": "représentée",
+      "score": 0.6249,
+      "rank": 996
+    },
+    {
+      "word": "linz",
+      "score": 0.6248,
+      "rank": 997
+    },
+    {
+      "word": "sollicitude",
+      "score": 0.6247,
+      "rank": 998
+    },
+    {
+      "word": "couvertes",
+      "score": 0.6247,
+      "rank": 999
+    },
+    {
+      "word": "alistair",
+      "score": 0.6247,
+      "rank": 1000
+    }
   ]
 }
