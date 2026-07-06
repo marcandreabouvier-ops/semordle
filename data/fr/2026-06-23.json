@@ -1,0 +1,5014 @@
+{
+  "date": "2026-06-23",
+  "puzzleNumber": 171,
+  "lang": "fr",
+  "secret": "cheval",
+  "wordLength": 6,
+  "hints": {
+    "top1": 0.9275,
+    "top10": 0.9005,
+    "top1000": 0.8392
+  },
+  "words": [
+    {
+      "word": "corsaire",
+      "score": 0.9275,
+      "rank": 1
+    },
+    {
+      "word": "kovacs",
+      "score": 0.9241,
+      "rank": 2
+    },
+    {
+      "word": "heston",
+      "score": 0.9135,
+      "rank": 3
+    },
+    {
+      "word": "picole",
+      "score": 0.9104,
+      "rank": 4
+    },
+    {
+      "word": "vénérait",
+      "score": 0.9033,
+      "rank": 5
+    },
+    {
+      "word": "pondu",
+      "score": 0.9024,
+      "rank": 6
+    },
+    {
+      "word": "kovac",
+      "score": 0.9012,
+      "rank": 7
+    },
+    {
+      "word": "cabale",
+      "score": 0.9012,
+      "rank": 8
+    },
+    {
+      "word": "kaspar",
+      "score": 0.9009,
+      "rank": 9
+    },
+    {
+      "word": "caplan",
+      "score": 0.9005,
+      "rank": 10
+    },
+    {
+      "word": "pieux",
+      "score": 0.8979,
+      "rank": 11
+    },
+    {
+      "word": "pavane",
+      "score": 0.8969,
+      "rank": 12
+    },
+    {
+      "word": "puérile",
+      "score": 0.8932,
+      "rank": 13
+    },
+    {
+      "word": "hervé",
+      "score": 0.8929,
+      "rank": 14
+    },
+    {
+      "word": "trã",
+      "score": 0.8917,
+      "rank": 15
+    },
+    {
+      "word": "castro",
+      "score": 0.8909,
+      "rank": 16
+    },
+    {
+      "word": "carrosse",
+      "score": 0.8905,
+      "rank": 17
+    },
+    {
+      "word": "cailles",
+      "score": 0.8891,
+      "rank": 18
+    },
+    {
+      "word": "paquin",
+      "score": 0.8888,
+      "rank": 19
+    },
+    {
+      "word": "couille",
+      "score": 0.8883,
+      "rank": 20
+    },
+    {
+      "word": "kaplan",
+      "score": 0.8883,
+      "rank": 21
+    },
+    {
+      "word": "chérit",
+      "score": 0.8878,
+      "rank": 22
+    },
+    {
+      "word": "carnegie",
+      "score": 0.8874,
+      "rank": 23
+    },
+    {
+      "word": "rongé",
+      "score": 0.8863,
+      "rank": 24
+    },
+    {
+      "word": "caza",
+      "score": 0.8863,
+      "rank": 25
+    },
+    {
+      "word": "couru",
+      "score": 0.8852,
+      "rank": 26
+    },
+    {
+      "word": "steven",
+      "score": 0.8851,
+      "rank": 27
+    },
+    {
+      "word": "gaché",
+      "score": 0.8846,
+      "rank": 28
+    },
+    {
+      "word": "couilles",
+      "score": 0.8844,
+      "rank": 29
+    },
+    {
+      "word": "stewie",
+      "score": 0.8843,
+      "rank": 30
+    },
+    {
+      "word": "citrouille",
+      "score": 0.8838,
+      "rank": 31
+    },
+    {
+      "word": "troué",
+      "score": 0.8836,
+      "rank": 32
+    },
+    {
+      "word": "pêché",
+      "score": 0.8833,
+      "rank": 33
+    },
+    {
+      "word": "bizuts",
+      "score": 0.8833,
+      "rank": 34
+    },
+    {
+      "word": "pissant",
+      "score": 0.883,
+      "rank": 35
+    },
+    {
+      "word": "cheveu",
+      "score": 0.8828,
+      "rank": 36
+    },
+    {
+      "word": "torero",
+      "score": 0.8818,
+      "rank": 37
+    },
+    {
+      "word": "montait",
+      "score": 0.8817,
+      "rank": 38
+    },
+    {
+      "word": "terreau",
+      "score": 0.8817,
+      "rank": 39
+    },
+    {
+      "word": "petrov",
+      "score": 0.8811,
+      "rank": 40
+    },
+    {
+      "word": "rongeur",
+      "score": 0.8811,
+      "rank": 41
+    },
+    {
+      "word": "corrado",
+      "score": 0.881,
+      "rank": 42
+    },
+    {
+      "word": "piètre",
+      "score": 0.8804,
+      "rank": 43
+    },
+    {
+      "word": "traînais",
+      "score": 0.8803,
+      "rank": 44
+    },
+    {
+      "word": "courent",
+      "score": 0.8802,
+      "rank": 45
+    },
+    {
+      "word": "troi",
+      "score": 0.8796,
+      "rank": 46
+    },
+    {
+      "word": "cobayes",
+      "score": 0.8795,
+      "rank": 47
+    },
+    {
+      "word": "brody",
+      "score": 0.8792,
+      "rank": 48
+    },
+    {
+      "word": "kallen",
+      "score": 0.8786,
+      "rank": 49
+    },
+    {
+      "word": "mustang",
+      "score": 0.8784,
+      "rank": 50
+    },
+    {
+      "word": "cognait",
+      "score": 0.878,
+      "rank": 51
+    },
+    {
+      "word": "livide",
+      "score": 0.8779,
+      "rank": 52
+    },
+    {
+      "word": "balais",
+      "score": 0.8778,
+      "rank": 53
+    },
+    {
+      "word": "ravn",
+      "score": 0.8777,
+      "rank": 54
+    },
+    {
+      "word": "versailles",
+      "score": 0.8776,
+      "rank": 55
+    },
+    {
+      "word": "pelt",
+      "score": 0.8773,
+      "rank": 56
+    },
+    {
+      "word": "cernée",
+      "score": 0.877,
+      "rank": 57
+    },
+    {
+      "word": "volvo",
+      "score": 0.877,
+      "rank": 58
+    },
+    {
+      "word": "cuire",
+      "score": 0.8764,
+      "rank": 59
+    },
+    {
+      "word": "nelly",
+      "score": 0.8763,
+      "rank": 60
+    },
+    {
+      "word": "pioche",
+      "score": 0.8762,
+      "rank": 61
+    },
+    {
+      "word": "louve",
+      "score": 0.8761,
+      "rank": 62
+    },
+    {
+      "word": "gurren",
+      "score": 0.876,
+      "rank": 63
+    },
+    {
+      "word": "puéril",
+      "score": 0.876,
+      "rank": 64
+    },
+    {
+      "word": "ronchon",
+      "score": 0.8755,
+      "rank": 65
+    },
+    {
+      "word": "jouis",
+      "score": 0.8752,
+      "rank": 66
+    },
+    {
+      "word": "pèle",
+      "score": 0.8751,
+      "rank": 67
+    },
+    {
+      "word": "chtouille",
+      "score": 0.875,
+      "rank": 68
+    },
+    {
+      "word": "cicero",
+      "score": 0.8749,
+      "rank": 69
+    },
+    {
+      "word": "patsy",
+      "score": 0.8747,
+      "rank": 70
+    },
+    {
+      "word": "bistro",
+      "score": 0.8747,
+      "rank": 71
+    },
+    {
+      "word": "corrie",
+      "score": 0.8745,
+      "rank": 72
+    },
+    {
+      "word": "penelope",
+      "score": 0.8745,
+      "rank": 73
+    },
+    {
+      "word": "tueries",
+      "score": 0.8743,
+      "rank": 74
+    },
+    {
+      "word": "péniche",
+      "score": 0.8743,
+      "rank": 75
+    },
+    {
+      "word": "peureux",
+      "score": 0.8741,
+      "rank": 76
+    },
+    {
+      "word": "félins",
+      "score": 0.8739,
+      "rank": 77
+    },
+    {
+      "word": "galette",
+      "score": 0.8736,
+      "rank": 78
+    },
+    {
+      "word": "tirerais",
+      "score": 0.8736,
+      "rank": 79
+    },
+    {
+      "word": "courais",
+      "score": 0.8731,
+      "rank": 80
+    },
+    {
+      "word": "abricot",
+      "score": 0.8731,
+      "rank": 81
+    },
+    {
+      "word": "zoltan",
+      "score": 0.8729,
+      "rank": 82
+    },
+    {
+      "word": "chieuse",
+      "score": 0.8728,
+      "rank": 83
+    },
+    {
+      "word": "rudolf",
+      "score": 0.8726,
+      "rank": 84
+    },
+    {
+      "word": "caniche",
+      "score": 0.8725,
+      "rank": 85
+    },
+    {
+      "word": "joséphine",
+      "score": 0.8724,
+      "rank": 86
+    },
+    {
+      "word": "couronnée",
+      "score": 0.872,
+      "rank": 87
+    },
+    {
+      "word": "phelan",
+      "score": 0.8719,
+      "rank": 88
+    },
+    {
+      "word": "caché",
+      "score": 0.8718,
+      "rank": 89
+    },
+    {
+      "word": "borné",
+      "score": 0.8718,
+      "rank": 90
+    },
+    {
+      "word": "corsage",
+      "score": 0.8717,
+      "rank": 91
+    },
+    {
+      "word": "orné",
+      "score": 0.8717,
+      "rank": 92
+    },
+    {
+      "word": "volaille",
+      "score": 0.8713,
+      "rank": 93
+    },
+    {
+      "word": "courbé",
+      "score": 0.8711,
+      "rank": 94
+    },
+    {
+      "word": "trouille",
+      "score": 0.8708,
+      "rank": 95
+    },
+    {
+      "word": "raki",
+      "score": 0.8704,
+      "rank": 96
+    },
+    {
+      "word": "livret",
+      "score": 0.8704,
+      "rank": 97
+    },
+    {
+      "word": "gris",
+      "score": 0.8702,
+      "rank": 98
+    },
+    {
+      "word": "pastèques",
+      "score": 0.8702,
+      "rank": 99
+    },
+    {
+      "word": "bouler",
+      "score": 0.8701,
+      "rank": 100
+    },
+    {
+      "word": "pâris",
+      "score": 0.87,
+      "rank": 101
+    },
+    {
+      "word": "joug",
+      "score": 0.8698,
+      "rank": 102
+    },
+    {
+      "word": "borne",
+      "score": 0.8696,
+      "rank": 103
+    },
+    {
+      "word": "rove",
+      "score": 0.8692,
+      "rank": 104
+    },
+    {
+      "word": "kovak",
+      "score": 0.8692,
+      "rank": 105
+    },
+    {
+      "word": "wilden",
+      "score": 0.8691,
+      "rank": 106
+    },
+    {
+      "word": "preston",
+      "score": 0.8688,
+      "rank": 107
+    },
+    {
+      "word": "raclée",
+      "score": 0.8687,
+      "rank": 108
+    },
+    {
+      "word": "écharde",
+      "score": 0.8685,
+      "rank": 109
+    },
+    {
+      "word": "scavo",
+      "score": 0.8685,
+      "rank": 110
+    },
+    {
+      "word": "patelin",
+      "score": 0.8684,
+      "rank": 111
+    },
+    {
+      "word": "calepin",
+      "score": 0.8682,
+      "rank": 112
+    },
+    {
+      "word": "pétard",
+      "score": 0.8681,
+      "rank": 113
+    },
+    {
+      "word": "pingre",
+      "score": 0.8679,
+      "rank": 114
+    },
+    {
+      "word": "pétri",
+      "score": 0.8675,
+      "rank": 115
+    },
+    {
+      "word": "poilu",
+      "score": 0.8674,
+      "rank": 116
+    },
+    {
+      "word": "montaient",
+      "score": 0.8673,
+      "rank": 117
+    },
+    {
+      "word": "bale",
+      "score": 0.8672,
+      "rank": 118
+    },
+    {
+      "word": "taré",
+      "score": 0.8672,
+      "rank": 119
+    },
+    {
+      "word": "traînait",
+      "score": 0.867,
+      "rank": 120
+    },
+    {
+      "word": "châtie",
+      "score": 0.8669,
+      "rank": 121
+    },
+    {
+      "word": "souillon",
+      "score": 0.8669,
+      "rank": 122
+    },
+    {
+      "word": "crain",
+      "score": 0.8667,
+      "rank": 123
+    },
+    {
+      "word": "grouille",
+      "score": 0.8666,
+      "rank": 124
+    },
+    {
+      "word": "jacs",
+      "score": 0.8664,
+      "rank": 125
+    },
+    {
+      "word": "gus",
+      "score": 0.8663,
+      "rank": 126
+    },
+    {
+      "word": "trouilles",
+      "score": 0.8661,
+      "rank": 127
+    },
+    {
+      "word": "treillis",
+      "score": 0.8661,
+      "rank": 128
+    },
+    {
+      "word": "ravoir",
+      "score": 0.8659,
+      "rank": 129
+    },
+    {
+      "word": "calice",
+      "score": 0.8659,
+      "rank": 130
+    },
+    {
+      "word": "pétasses",
+      "score": 0.8658,
+      "rank": 131
+    },
+    {
+      "word": "buvons",
+      "score": 0.8658,
+      "rank": 132
+    },
+    {
+      "word": "lugubre",
+      "score": 0.8658,
+      "rank": 133
+    },
+    {
+      "word": "paieras",
+      "score": 0.8658,
+      "rank": 134
+    },
+    {
+      "word": "crinière",
+      "score": 0.8657,
+      "rank": 135
+    },
+    {
+      "word": "îlot",
+      "score": 0.8657,
+      "rank": 136
+    },
+    {
+      "word": "échasses",
+      "score": 0.8656,
+      "rank": 137
+    },
+    {
+      "word": "péninsule",
+      "score": 0.8655,
+      "rank": 138
+    },
+    {
+      "word": "pâque",
+      "score": 0.8655,
+      "rank": 139
+    },
+    {
+      "word": "lev",
+      "score": 0.8653,
+      "rank": 140
+    },
+    {
+      "word": "bégaie",
+      "score": 0.865,
+      "rank": 141
+    },
+    {
+      "word": "bavures",
+      "score": 0.865,
+      "rank": 142
+    },
+    {
+      "word": "peloter",
+      "score": 0.8649,
+      "rank": 143
+    },
+    {
+      "word": "pavés",
+      "score": 0.8648,
+      "rank": 144
+    },
+    {
+      "word": "voiturette",
+      "score": 0.8647,
+      "rank": 145
+    },
+    {
+      "word": "valais",
+      "score": 0.8647,
+      "rank": 146
+    },
+    {
+      "word": "échardes",
+      "score": 0.8647,
+      "rank": 147
+    },
+    {
+      "word": "tarek",
+      "score": 0.8647,
+      "rank": 148
+    },
+    {
+      "word": "brouille",
+      "score": 0.8646,
+      "rank": 149
+    },
+    {
+      "word": "chaux",
+      "score": 0.8645,
+      "rank": 150
+    },
+    {
+      "word": "dorrit",
+      "score": 0.8645,
+      "rank": 151
+    },
+    {
+      "word": "rongée",
+      "score": 0.8644,
+      "rank": 152
+    },
+    {
+      "word": "roué",
+      "score": 0.8642,
+      "rank": 153
+    },
+    {
+      "word": "galope",
+      "score": 0.864,
+      "rank": 154
+    },
+    {
+      "word": "cassés",
+      "score": 0.864,
+      "rank": 155
+    },
+    {
+      "word": "chypre",
+      "score": 0.8639,
+      "rank": 156
+    },
+    {
+      "word": "pedrosa",
+      "score": 0.8639,
+      "rank": 157
+    },
+    {
+      "word": "ferrée",
+      "score": 0.8638,
+      "rank": 158
+    },
+    {
+      "word": "rôdait",
+      "score": 0.8638,
+      "rank": 159
+    },
+    {
+      "word": "loque",
+      "score": 0.8638,
+      "rank": 160
+    },
+    {
+      "word": "vinnie",
+      "score": 0.8638,
+      "rank": 161
+    },
+    {
+      "word": "pascale",
+      "score": 0.8638,
+      "rank": 162
+    },
+    {
+      "word": "jouir",
+      "score": 0.8637,
+      "rank": 163
+    },
+    {
+      "word": "stries",
+      "score": 0.8637,
+      "rank": 164
+    },
+    {
+      "word": "arret",
+      "score": 0.8636,
+      "rank": 165
+    },
+    {
+      "word": "pèche",
+      "score": 0.8636,
+      "rank": 166
+    },
+    {
+      "word": "pédale",
+      "score": 0.8636,
+      "rank": 167
+    },
+    {
+      "word": "bouché",
+      "score": 0.8636,
+      "rank": 168
+    },
+    {
+      "word": "bénite",
+      "score": 0.8634,
+      "rank": 169
+    },
+    {
+      "word": "scelle",
+      "score": 0.8634,
+      "rank": 170
+    },
+    {
+      "word": "kubilai",
+      "score": 0.8633,
+      "rank": 171
+    },
+    {
+      "word": "poussais",
+      "score": 0.8631,
+      "rank": 172
+    },
+    {
+      "word": "wilde",
+      "score": 0.8631,
+      "rank": 173
+    },
+    {
+      "word": "clavo",
+      "score": 0.8631,
+      "rank": 174
+    },
+    {
+      "word": "vogler",
+      "score": 0.863,
+      "rank": 175
+    },
+    {
+      "word": "givre",
+      "score": 0.8629,
+      "rank": 176
+    },
+    {
+      "word": "mustafa",
+      "score": 0.8629,
+      "rank": 177
+    },
+    {
+      "word": "rowan",
+      "score": 0.8628,
+      "rank": 178
+    },
+    {
+      "word": "palourde",
+      "score": 0.8628,
+      "rank": 179
+    },
+    {
+      "word": "vaurien",
+      "score": 0.8628,
+      "rank": 180
+    },
+    {
+      "word": "trousse",
+      "score": 0.8628,
+      "rank": 181
+    },
+    {
+      "word": "parut",
+      "score": 0.8628,
+      "rank": 182
+    },
+    {
+      "word": "zac",
+      "score": 0.8627,
+      "rank": 183
+    },
+    {
+      "word": "bredouille",
+      "score": 0.8626,
+      "rank": 184
+    },
+    {
+      "word": "peser",
+      "score": 0.8625,
+      "rank": 185
+    },
+    {
+      "word": "pérou",
+      "score": 0.8624,
+      "rank": 186
+    },
+    {
+      "word": "échos",
+      "score": 0.8623,
+      "rank": 187
+    },
+    {
+      "word": "gouté",
+      "score": 0.8622,
+      "rank": 188
+    },
+    {
+      "word": "pouvions",
+      "score": 0.862,
+      "rank": 189
+    },
+    {
+      "word": "dindes",
+      "score": 0.862,
+      "rank": 190
+    },
+    {
+      "word": "bretagne",
+      "score": 0.862,
+      "rank": 191
+    },
+    {
+      "word": "poire",
+      "score": 0.8619,
+      "rank": 192
+    },
+    {
+      "word": "bousillé",
+      "score": 0.8619,
+      "rank": 193
+    },
+    {
+      "word": "maltais",
+      "score": 0.8619,
+      "rank": 194
+    },
+    {
+      "word": "stuart",
+      "score": 0.8619,
+      "rank": 195
+    },
+    {
+      "word": "tierce",
+      "score": 0.8618,
+      "rank": 196
+    },
+    {
+      "word": "avèrent",
+      "score": 0.8617,
+      "rank": 197
+    },
+    {
+      "word": "goupille",
+      "score": 0.8617,
+      "rank": 198
+    },
+    {
+      "word": "loques",
+      "score": 0.8616,
+      "rank": 199
+    },
+    {
+      "word": "rondins",
+      "score": 0.8616,
+      "rank": 200
+    },
+    {
+      "word": "susie",
+      "score": 0.8616,
+      "rank": 201
+    },
+    {
+      "word": "pagne",
+      "score": 0.8615,
+      "rank": 202
+    },
+    {
+      "word": "chatouilles",
+      "score": 0.8615,
+      "rank": 203
+    },
+    {
+      "word": "tyr",
+      "score": 0.8615,
+      "rank": 204
+    },
+    {
+      "word": "péter",
+      "score": 0.8614,
+      "rank": 205
+    },
+    {
+      "word": "rigolo",
+      "score": 0.8613,
+      "rank": 206
+    },
+    {
+      "word": "pochés",
+      "score": 0.8613,
+      "rank": 207
+    },
+    {
+      "word": "niki",
+      "score": 0.8613,
+      "rank": 208
+    },
+    {
+      "word": "antre",
+      "score": 0.8613,
+      "rank": 209
+    },
+    {
+      "word": "boirais",
+      "score": 0.8613,
+      "rank": 210
+    },
+    {
+      "word": "parrain",
+      "score": 0.8612,
+      "rank": 211
+    },
+    {
+      "word": "petrie",
+      "score": 0.8611,
+      "rank": 212
+    },
+    {
+      "word": "rôdent",
+      "score": 0.8611,
+      "rank": 213
+    },
+    {
+      "word": "barrés",
+      "score": 0.861,
+      "rank": 214
+    },
+    {
+      "word": "ricci",
+      "score": 0.861,
+      "rank": 215
+    },
+    {
+      "word": "coulaient",
+      "score": 0.861,
+      "rank": 216
+    },
+    {
+      "word": "kirk",
+      "score": 0.861,
+      "rank": 217
+    },
+    {
+      "word": "couperais",
+      "score": 0.861,
+      "rank": 218
+    },
+    {
+      "word": "pêchés",
+      "score": 0.8609,
+      "rank": 219
+    },
+    {
+      "word": "larsen",
+      "score": 0.8609,
+      "rank": 220
+    },
+    {
+      "word": "balafré",
+      "score": 0.8609,
+      "rank": 221
+    },
+    {
+      "word": "stavros",
+      "score": 0.8608,
+      "rank": 222
+    },
+    {
+      "word": "cassant",
+      "score": 0.8607,
+      "rank": 223
+    },
+    {
+      "word": "crabb",
+      "score": 0.8607,
+      "rank": 224
+    },
+    {
+      "word": "garcía",
+      "score": 0.8606,
+      "rank": 225
+    },
+    {
+      "word": "meubler",
+      "score": 0.8605,
+      "rank": 226
+    },
+    {
+      "word": "agrafer",
+      "score": 0.8605,
+      "rank": 227
+    },
+    {
+      "word": "nogales",
+      "score": 0.8605,
+      "rank": 228
+    },
+    {
+      "word": "plaider",
+      "score": 0.8604,
+      "rank": 229
+    },
+    {
+      "word": "macleod",
+      "score": 0.8604,
+      "rank": 230
+    },
+    {
+      "word": "coté",
+      "score": 0.8604,
+      "rank": 231
+    },
+    {
+      "word": "patagonie",
+      "score": 0.8603,
+      "rank": 232
+    },
+    {
+      "word": "chiasse",
+      "score": 0.8603,
+      "rank": 233
+    },
+    {
+      "word": "poché",
+      "score": 0.8603,
+      "rank": 234
+    },
+    {
+      "word": "bryant",
+      "score": 0.8602,
+      "rank": 235
+    },
+    {
+      "word": "carafe",
+      "score": 0.8601,
+      "rank": 236
+    },
+    {
+      "word": "peche",
+      "score": 0.8601,
+      "rank": 237
+    },
+    {
+      "word": "jouais",
+      "score": 0.86,
+      "rank": 238
+    },
+    {
+      "word": "valait",
+      "score": 0.86,
+      "rank": 239
+    },
+    {
+      "word": "vends",
+      "score": 0.86,
+      "rank": 240
+    },
+    {
+      "word": "rapelle",
+      "score": 0.8599,
+      "rank": 241
+    },
+    {
+      "word": "rasage",
+      "score": 0.8599,
+      "rank": 242
+    },
+    {
+      "word": "suzanne",
+      "score": 0.8599,
+      "rank": 243
+    },
+    {
+      "word": "calderon",
+      "score": 0.8598,
+      "rank": 244
+    },
+    {
+      "word": "konrad",
+      "score": 0.8598,
+      "rank": 245
+    },
+    {
+      "word": "korsak",
+      "score": 0.8597,
+      "rank": 246
+    },
+    {
+      "word": "barreau",
+      "score": 0.8597,
+      "rank": 247
+    },
+    {
+      "word": "gaius",
+      "score": 0.8596,
+      "rank": 248
+    },
+    {
+      "word": "vaincu",
+      "score": 0.8596,
+      "rank": 249
+    },
+    {
+      "word": "koyuki",
+      "score": 0.8595,
+      "rank": 250
+    },
+    {
+      "word": "sextape",
+      "score": 0.8595,
+      "rank": 251
+    },
+    {
+      "word": "pencherais",
+      "score": 0.8594,
+      "rank": 252
+    },
+    {
+      "word": "pike",
+      "score": 0.8594,
+      "rank": 253
+    },
+    {
+      "word": "aramis",
+      "score": 0.8594,
+      "rank": 254
+    },
+    {
+      "word": "bethléem",
+      "score": 0.8594,
+      "rank": 255
+    },
+    {
+      "word": "caster",
+      "score": 0.8593,
+      "rank": 256
+    },
+    {
+      "word": "galeux",
+      "score": 0.8593,
+      "rank": 257
+    },
+    {
+      "word": "turell",
+      "score": 0.8592,
+      "rank": 258
+    },
+    {
+      "word": "rallo",
+      "score": 0.8592,
+      "rank": 259
+    },
+    {
+      "word": "karan",
+      "score": 0.8592,
+      "rank": 260
+    },
+    {
+      "word": "véto",
+      "score": 0.8592,
+      "rank": 261
+    },
+    {
+      "word": "rouillé",
+      "score": 0.8591,
+      "rank": 262
+    },
+    {
+      "word": "pietro",
+      "score": 0.859,
+      "rank": 263
+    },
+    {
+      "word": "trouvai",
+      "score": 0.859,
+      "rank": 264
+    },
+    {
+      "word": "tudor",
+      "score": 0.859,
+      "rank": 265
+    },
+    {
+      "word": "vielles",
+      "score": 0.859,
+      "rank": 266
+    },
+    {
+      "word": "caveau",
+      "score": 0.859,
+      "rank": 267
+    },
+    {
+      "word": "jacques",
+      "score": 0.8588,
+      "rank": 268
+    },
+    {
+      "word": "kendall",
+      "score": 0.8587,
+      "rank": 269
+    },
+    {
+      "word": "kass",
+      "score": 0.8586,
+      "rank": 270
+    },
+    {
+      "word": "reynard",
+      "score": 0.8585,
+      "rank": 271
+    },
+    {
+      "word": "prue",
+      "score": 0.8585,
+      "rank": 272
+    },
+    {
+      "word": "garret",
+      "score": 0.8584,
+      "rank": 273
+    },
+    {
+      "word": "coure",
+      "score": 0.8584,
+      "rank": 274
+    },
+    {
+      "word": "gallo",
+      "score": 0.8582,
+      "rank": 275
+    },
+    {
+      "word": "ralentis",
+      "score": 0.8582,
+      "rank": 276
+    },
+    {
+      "word": "calvaire",
+      "score": 0.8582,
+      "rank": 277
+    },
+    {
+      "word": "bidule",
+      "score": 0.8582,
+      "rank": 278
+    },
+    {
+      "word": "bisou",
+      "score": 0.8581,
+      "rank": 279
+    },
+    {
+      "word": "golan",
+      "score": 0.8581,
+      "rank": 280
+    },
+    {
+      "word": "katja",
+      "score": 0.8581,
+      "rank": 281
+    },
+    {
+      "word": "vernissage",
+      "score": 0.8581,
+      "rank": 282
+    },
+    {
+      "word": "kady",
+      "score": 0.8581,
+      "rank": 283
+    },
+    {
+      "word": "malkovich",
+      "score": 0.858,
+      "rank": 284
+    },
+    {
+      "word": "poutre",
+      "score": 0.858,
+      "rank": 285
+    },
+    {
+      "word": "poilue",
+      "score": 0.858,
+      "rank": 286
+    },
+    {
+      "word": "souche",
+      "score": 0.858,
+      "rank": 287
+    },
+    {
+      "word": "pearce",
+      "score": 0.8578,
+      "rank": 288
+    },
+    {
+      "word": "traci",
+      "score": 0.8578,
+      "rank": 289
+    },
+    {
+      "word": "tullius",
+      "score": 0.8577,
+      "rank": 290
+    },
+    {
+      "word": "béni",
+      "score": 0.8577,
+      "rank": 291
+    },
+    {
+      "word": "écuries",
+      "score": 0.8577,
+      "rank": 292
+    },
+    {
+      "word": "taillé",
+      "score": 0.8576,
+      "rank": 293
+    },
+    {
+      "word": "léché",
+      "score": 0.8576,
+      "rank": 294
+    },
+    {
+      "word": "pére",
+      "score": 0.8575,
+      "rank": 295
+    },
+    {
+      "word": "barré",
+      "score": 0.8575,
+      "rank": 296
+    },
+    {
+      "word": "souille",
+      "score": 0.8575,
+      "rank": 297
+    },
+    {
+      "word": "rolo",
+      "score": 0.8574,
+      "rank": 298
+    },
+    {
+      "word": "pieuse",
+      "score": 0.8574,
+      "rank": 299
+    },
+    {
+      "word": "gavé",
+      "score": 0.8574,
+      "rank": 300
+    },
+    {
+      "word": "piéces",
+      "score": 0.8573,
+      "rank": 301
+    },
+    {
+      "word": "pétales",
+      "score": 0.8571,
+      "rank": 302
+    },
+    {
+      "word": "fourrés",
+      "score": 0.8571,
+      "rank": 303
+    },
+    {
+      "word": "kaye",
+      "score": 0.8571,
+      "rank": 304
+    },
+    {
+      "word": "piéce",
+      "score": 0.857,
+      "rank": 305
+    },
+    {
+      "word": "pécan",
+      "score": 0.857,
+      "rank": 306
+    },
+    {
+      "word": "keuf",
+      "score": 0.8569,
+      "rank": 307
+    },
+    {
+      "word": "barbante",
+      "score": 0.8569,
+      "rank": 308
+    },
+    {
+      "word": "rodrigo",
+      "score": 0.8569,
+      "rank": 309
+    },
+    {
+      "word": "arréte",
+      "score": 0.8569,
+      "rank": 310
+    },
+    {
+      "word": "picolé",
+      "score": 0.8569,
+      "rank": 311
+    },
+    {
+      "word": "hoche",
+      "score": 0.8568,
+      "rank": 312
+    },
+    {
+      "word": "schuester",
+      "score": 0.8568,
+      "rank": 313
+    },
+    {
+      "word": "matou",
+      "score": 0.8568,
+      "rank": 314
+    },
+    {
+      "word": "trèfle",
+      "score": 0.8568,
+      "rank": 315
+    },
+    {
+      "word": "rongeait",
+      "score": 0.8567,
+      "rank": 316
+    },
+    {
+      "word": "plaisais",
+      "score": 0.8567,
+      "rank": 317
+    },
+    {
+      "word": "cicéron",
+      "score": 0.8567,
+      "rank": 318
+    },
+    {
+      "word": "pâques",
+      "score": 0.8567,
+      "rank": 319
+    },
+    {
+      "word": "chevet",
+      "score": 0.8567,
+      "rank": 320
+    },
+    {
+      "word": "manivelle",
+      "score": 0.8566,
+      "rank": 321
+    },
+    {
+      "word": "épluche",
+      "score": 0.8566,
+      "rank": 322
+    },
+    {
+      "word": "courons",
+      "score": 0.8565,
+      "rank": 323
+    },
+    {
+      "word": "corrine",
+      "score": 0.8564,
+      "rank": 324
+    },
+    {
+      "word": "corsé",
+      "score": 0.8564,
+      "rank": 325
+    },
+    {
+      "word": "égards",
+      "score": 0.8563,
+      "rank": 326
+    },
+    {
+      "word": "perche",
+      "score": 0.8563,
+      "rank": 327
+    },
+    {
+      "word": "rentrait",
+      "score": 0.8563,
+      "rank": 328
+    },
+    {
+      "word": "virgil",
+      "score": 0.8562,
+      "rank": 329
+    },
+    {
+      "word": "serrée",
+      "score": 0.8562,
+      "rank": 330
+    },
+    {
+      "word": "kamal",
+      "score": 0.8562,
+      "rank": 331
+    },
+    {
+      "word": "pénal",
+      "score": 0.8561,
+      "rank": 332
+    },
+    {
+      "word": "vulgaire",
+      "score": 0.8561,
+      "rank": 333
+    },
+    {
+      "word": "rajeunit",
+      "score": 0.8561,
+      "rank": 334
+    },
+    {
+      "word": "valpi",
+      "score": 0.8561,
+      "rank": 335
+    },
+    {
+      "word": "seaux",
+      "score": 0.856,
+      "rank": 336
+    },
+    {
+      "word": "taupes",
+      "score": 0.856,
+      "rank": 337
+    },
+    {
+      "word": "piqué",
+      "score": 0.856,
+      "rank": 338
+    },
+    {
+      "word": "sugata",
+      "score": 0.8559,
+      "rank": 339
+    },
+    {
+      "word": "gonzesses",
+      "score": 0.8557,
+      "rank": 340
+    },
+    {
+      "word": "écailles",
+      "score": 0.8557,
+      "rank": 341
+    },
+    {
+      "word": "sparte",
+      "score": 0.8557,
+      "rank": 342
+    },
+    {
+      "word": "poignée",
+      "score": 0.8557,
+      "rank": 343
+    },
+    {
+      "word": "coulée",
+      "score": 0.8556,
+      "rank": 344
+    },
+    {
+      "word": "écorce",
+      "score": 0.8556,
+      "rank": 345
+    },
+    {
+      "word": "vitrée",
+      "score": 0.8556,
+      "rank": 346
+    },
+    {
+      "word": "bavé",
+      "score": 0.8556,
+      "rank": 347
+    },
+    {
+      "word": "barbouillé",
+      "score": 0.8555,
+      "rank": 348
+    },
+    {
+      "word": "gèle",
+      "score": 0.8554,
+      "rank": 349
+    },
+    {
+      "word": "pailles",
+      "score": 0.8554,
+      "rank": 350
+    },
+    {
+      "word": "châle",
+      "score": 0.8553,
+      "rank": 351
+    },
+    {
+      "word": "holt",
+      "score": 0.8552,
+      "rank": 352
+    },
+    {
+      "word": "langouste",
+      "score": 0.8551,
+      "rank": 353
+    },
+    {
+      "word": "parjure",
+      "score": 0.855,
+      "rank": 354
+    },
+    {
+      "word": "kalinda",
+      "score": 0.855,
+      "rank": 355
+    },
+    {
+      "word": "terri",
+      "score": 0.8549,
+      "rank": 356
+    },
+    {
+      "word": "chanvre",
+      "score": 0.8549,
+      "rank": 357
+    },
+    {
+      "word": "panse",
+      "score": 0.8549,
+      "rank": 358
+    },
+    {
+      "word": "passã",
+      "score": 0.8547,
+      "rank": 359
+    },
+    {
+      "word": "roulé",
+      "score": 0.8547,
+      "rank": 360
+    },
+    {
+      "word": "verseau",
+      "score": 0.8547,
+      "rank": 361
+    },
+    {
+      "word": "bénis",
+      "score": 0.8547,
+      "rank": 362
+    },
+    {
+      "word": "zane",
+      "score": 0.8546,
+      "rank": 363
+    },
+    {
+      "word": "levait",
+      "score": 0.8546,
+      "rank": 364
+    },
+    {
+      "word": "fourrée",
+      "score": 0.8546,
+      "rank": 365
+    },
+    {
+      "word": "crais",
+      "score": 0.8545,
+      "rank": 366
+    },
+    {
+      "word": "pieuvre",
+      "score": 0.8545,
+      "rank": 367
+    },
+    {
+      "word": "mouais",
+      "score": 0.8545,
+      "rank": 368
+    },
+    {
+      "word": "cogne",
+      "score": 0.8545,
+      "rank": 369
+    },
+    {
+      "word": "chapera",
+      "score": 0.8545,
+      "rank": 370
+    },
+    {
+      "word": "taels",
+      "score": 0.8544,
+      "rank": 371
+    },
+    {
+      "word": "corvées",
+      "score": 0.8544,
+      "rank": 372
+    },
+    {
+      "word": "ramollit",
+      "score": 0.8544,
+      "rank": 373
+    },
+    {
+      "word": "pierrafeu",
+      "score": 0.8544,
+      "rank": 374
+    },
+    {
+      "word": "gobé",
+      "score": 0.8544,
+      "rank": 375
+    },
+    {
+      "word": "pogné",
+      "score": 0.8544,
+      "rank": 376
+    },
+    {
+      "word": "tapas",
+      "score": 0.8544,
+      "rank": 377
+    },
+    {
+      "word": "holst",
+      "score": 0.8543,
+      "rank": 378
+    },
+    {
+      "word": "schaefer",
+      "score": 0.8543,
+      "rank": 379
+    },
+    {
+      "word": "sombrer",
+      "score": 0.8542,
+      "rank": 380
+    },
+    {
+      "word": "tyno",
+      "score": 0.8542,
+      "rank": 381
+    },
+    {
+      "word": "joua",
+      "score": 0.8541,
+      "rank": 382
+    },
+    {
+      "word": "tuait",
+      "score": 0.8541,
+      "rank": 383
+    },
+    {
+      "word": "cinoche",
+      "score": 0.8541,
+      "rank": 384
+    },
+    {
+      "word": "logeait",
+      "score": 0.8541,
+      "rank": 385
+    },
+    {
+      "word": "haricot",
+      "score": 0.854,
+      "rank": 386
+    },
+    {
+      "word": "scêne",
+      "score": 0.854,
+      "rank": 387
+    },
+    {
+      "word": "coulés",
+      "score": 0.854,
+      "rank": 388
+    },
+    {
+      "word": "fredonne",
+      "score": 0.8539,
+      "rank": 389
+    },
+    {
+      "word": "terrine",
+      "score": 0.8538,
+      "rank": 390
+    },
+    {
+      "word": "jetons",
+      "score": 0.8538,
+      "rank": 391
+    },
+    {
+      "word": "odile",
+      "score": 0.8538,
+      "rank": 392
+    },
+    {
+      "word": "galvin",
+      "score": 0.8538,
+      "rank": 393
+    },
+    {
+      "word": "poussait",
+      "score": 0.8536,
+      "rank": 394
+    },
+    {
+      "word": "cersei",
+      "score": 0.8536,
+      "rank": 395
+    },
+    {
+      "word": "avin",
+      "score": 0.8536,
+      "rank": 396
+    },
+    {
+      "word": "chevreau",
+      "score": 0.8535,
+      "rank": 397
+    },
+    {
+      "word": "nouille",
+      "score": 0.8535,
+      "rank": 398
+    },
+    {
+      "word": "garza",
+      "score": 0.8535,
+      "rank": 399
+    },
+    {
+      "word": "raccourci",
+      "score": 0.8535,
+      "rank": 400
+    },
+    {
+      "word": "guépard",
+      "score": 0.8535,
+      "rank": 401
+    },
+    {
+      "word": "carrousel",
+      "score": 0.8535,
+      "rank": 402
+    },
+    {
+      "word": "tapoter",
+      "score": 0.8534,
+      "rank": 403
+    },
+    {
+      "word": "siens",
+      "score": 0.8534,
+      "rank": 404
+    },
+    {
+      "word": "pelote",
+      "score": 0.8534,
+      "rank": 405
+    },
+    {
+      "word": "brulée",
+      "score": 0.8534,
+      "rank": 406
+    },
+    {
+      "word": "égare",
+      "score": 0.8533,
+      "rank": 407
+    },
+    {
+      "word": "âneries",
+      "score": 0.8533,
+      "rank": 408
+    },
+    {
+      "word": "salement",
+      "score": 0.8533,
+      "rank": 409
+    },
+    {
+      "word": "joues",
+      "score": 0.8533,
+      "rank": 410
+    },
+    {
+      "word": "yonkers",
+      "score": 0.8533,
+      "rank": 411
+    },
+    {
+      "word": "châtier",
+      "score": 0.8533,
+      "rank": 412
+    },
+    {
+      "word": "barrée",
+      "score": 0.8533,
+      "rank": 413
+    },
+    {
+      "word": "chatouille",
+      "score": 0.8532,
+      "rank": 414
+    },
+    {
+      "word": "vendes",
+      "score": 0.8532,
+      "rank": 415
+    },
+    {
+      "word": "mène",
+      "score": 0.8532,
+      "rank": 416
+    },
+    {
+      "word": "tombant",
+      "score": 0.8532,
+      "rank": 417
+    },
+    {
+      "word": "limace",
+      "score": 0.8531,
+      "rank": 418
+    },
+    {
+      "word": "rôde",
+      "score": 0.8531,
+      "rank": 419
+    },
+    {
+      "word": "ramez",
+      "score": 0.8531,
+      "rank": 420
+    },
+    {
+      "word": "piétons",
+      "score": 0.8531,
+      "rank": 421
+    },
+    {
+      "word": "repu",
+      "score": 0.853,
+      "rank": 422
+    },
+    {
+      "word": "balayés",
+      "score": 0.853,
+      "rank": 423
+    },
+    {
+      "word": "céline",
+      "score": 0.8528,
+      "rank": 424
+    },
+    {
+      "word": "chambrée",
+      "score": 0.8528,
+      "rank": 425
+    },
+    {
+      "word": "vielle",
+      "score": 0.8526,
+      "rank": 426
+    },
+    {
+      "word": "plaisait",
+      "score": 0.8526,
+      "rank": 427
+    },
+    {
+      "word": "joão",
+      "score": 0.8526,
+      "rank": 428
+    },
+    {
+      "word": "paumée",
+      "score": 0.8526,
+      "rank": 429
+    },
+    {
+      "word": "tulsa",
+      "score": 0.8526,
+      "rank": 430
+    },
+    {
+      "word": "plaides",
+      "score": 0.8526,
+      "rank": 431
+    },
+    {
+      "word": "pissent",
+      "score": 0.8525,
+      "rank": 432
+    },
+    {
+      "word": "vincent",
+      "score": 0.8525,
+      "rank": 433
+    },
+    {
+      "word": "virgule",
+      "score": 0.8524,
+      "rank": 434
+    },
+    {
+      "word": "carje",
+      "score": 0.8524,
+      "rank": 435
+    },
+    {
+      "word": "soldé",
+      "score": 0.8524,
+      "rank": 436
+    },
+    {
+      "word": "steve",
+      "score": 0.8523,
+      "rank": 437
+    },
+    {
+      "word": "cogneur",
+      "score": 0.8523,
+      "rank": 438
+    },
+    {
+      "word": "ressortis",
+      "score": 0.8523,
+      "rank": 439
+    },
+    {
+      "word": "bizzare",
+      "score": 0.8522,
+      "rank": 440
+    },
+    {
+      "word": "pucelle",
+      "score": 0.8522,
+      "rank": 441
+    },
+    {
+      "word": "chamboule",
+      "score": 0.8522,
+      "rank": 442
+    },
+    {
+      "word": "gueule",
+      "score": 0.8522,
+      "rank": 443
+    },
+    {
+      "word": "paupière",
+      "score": 0.8522,
+      "rank": 444
+    },
+    {
+      "word": "bavure",
+      "score": 0.8521,
+      "rank": 445
+    },
+    {
+      "word": "joui",
+      "score": 0.852,
+      "rank": 446
+    },
+    {
+      "word": "pénis",
+      "score": 0.852,
+      "rank": 447
+    },
+    {
+      "word": "fiait",
+      "score": 0.852,
+      "rank": 448
+    },
+    {
+      "word": "pendu",
+      "score": 0.852,
+      "rank": 449
+    },
+    {
+      "word": "kline",
+      "score": 0.852,
+      "rank": 450
+    },
+    {
+      "word": "rodéo",
+      "score": 0.8519,
+      "rank": 451
+    },
+    {
+      "word": "lièvre",
+      "score": 0.8518,
+      "rank": 452
+    },
+    {
+      "word": "caspere",
+      "score": 0.8518,
+      "rank": 453
+    },
+    {
+      "word": "voiler",
+      "score": 0.8518,
+      "rank": 454
+    },
+    {
+      "word": "cinglés",
+      "score": 0.8518,
+      "rank": 455
+    },
+    {
+      "word": "souches",
+      "score": 0.8517,
+      "rank": 456
+    },
+    {
+      "word": "pois",
+      "score": 0.8517,
+      "rank": 457
+    },
+    {
+      "word": "tourmentez",
+      "score": 0.8517,
+      "rank": 458
+    },
+    {
+      "word": "gazé",
+      "score": 0.8517,
+      "rank": 459
+    },
+    {
+      "word": "pagaille",
+      "score": 0.8517,
+      "rank": 460
+    },
+    {
+      "word": "pègre",
+      "score": 0.8517,
+      "rank": 461
+    },
+    {
+      "word": "châtié",
+      "score": 0.8517,
+      "rank": 462
+    },
+    {
+      "word": "kaylee",
+      "score": 0.8516,
+      "rank": 463
+    },
+    {
+      "word": "lope",
+      "score": 0.8516,
+      "rank": 464
+    },
+    {
+      "word": "pacotille",
+      "score": 0.8516,
+      "rank": 465
+    },
+    {
+      "word": "piédestal",
+      "score": 0.8515,
+      "rank": 466
+    },
+    {
+      "word": "pattes",
+      "score": 0.8515,
+      "rank": 467
+    },
+    {
+      "word": "plaie",
+      "score": 0.8514,
+      "rank": 468
+    },
+    {
+      "word": "houx",
+      "score": 0.8513,
+      "rank": 469
+    },
+    {
+      "word": "arnaquer",
+      "score": 0.8513,
+      "rank": 470
+    },
+    {
+      "word": "bouille",
+      "score": 0.8513,
+      "rank": 471
+    },
+    {
+      "word": "annule",
+      "score": 0.8512,
+      "rank": 472
+    },
+    {
+      "word": "paies",
+      "score": 0.8511,
+      "rank": 473
+    },
+    {
+      "word": "duché",
+      "score": 0.8511,
+      "rank": 474
+    },
+    {
+      "word": "poussaient",
+      "score": 0.8511,
+      "rank": 475
+    },
+    {
+      "word": "orée",
+      "score": 0.8511,
+      "rank": 476
+    },
+    {
+      "word": "vilaine",
+      "score": 0.851,
+      "rank": 477
+    },
+    {
+      "word": "bolin",
+      "score": 0.851,
+      "rank": 478
+    },
+    {
+      "word": "jolis",
+      "score": 0.851,
+      "rank": 479
+    },
+    {
+      "word": "vadrouille",
+      "score": 0.851,
+      "rank": 480
+    },
+    {
+      "word": "cèdent",
+      "score": 0.851,
+      "rank": 481
+    },
+    {
+      "word": "patauge",
+      "score": 0.8509,
+      "rank": 482
+    },
+    {
+      "word": "chenilles",
+      "score": 0.8509,
+      "rank": 483
+    },
+    {
+      "word": "battante",
+      "score": 0.8508,
+      "rank": 484
+    },
+    {
+      "word": "stef",
+      "score": 0.8508,
+      "rank": 485
+    },
+    {
+      "word": "bijou",
+      "score": 0.8507,
+      "rank": 486
+    },
+    {
+      "word": "hériter",
+      "score": 0.8507,
+      "rank": 487
+    },
+    {
+      "word": "hurlais",
+      "score": 0.8507,
+      "rank": 488
+    },
+    {
+      "word": "faisan",
+      "score": 0.8507,
+      "rank": 489
+    },
+    {
+      "word": "baille",
+      "score": 0.8507,
+      "rank": 490
+    },
+    {
+      "word": "délirait",
+      "score": 0.8506,
+      "rank": 491
+    },
+    {
+      "word": "palais",
+      "score": 0.8506,
+      "rank": 492
+    },
+    {
+      "word": "douane",
+      "score": 0.8506,
+      "rank": 493
+    },
+    {
+      "word": "rôtir",
+      "score": 0.8505,
+      "rank": 494
+    },
+    {
+      "word": "bénit",
+      "score": 0.8505,
+      "rank": 495
+    },
+    {
+      "word": "aveux",
+      "score": 0.8505,
+      "rank": 496
+    },
+    {
+      "word": "navrée",
+      "score": 0.8505,
+      "rank": 497
+    },
+    {
+      "word": "épelé",
+      "score": 0.8504,
+      "rank": 498
+    },
+    {
+      "word": "pèsent",
+      "score": 0.8504,
+      "rank": 499
+    },
+    {
+      "word": "pries",
+      "score": 0.8504,
+      "rank": 500
+    },
+    {
+      "word": "saïd",
+      "score": 0.8504,
+      "rank": 501
+    },
+    {
+      "word": "sauve",
+      "score": 0.8503,
+      "rank": 502
+    },
+    {
+      "word": "gonzesse",
+      "score": 0.8502,
+      "rank": 503
+    },
+    {
+      "word": "traîner",
+      "score": 0.8502,
+      "rank": 504
+    },
+    {
+      "word": "savoure",
+      "score": 0.8502,
+      "rank": 505
+    },
+    {
+      "word": "bouclé",
+      "score": 0.8502,
+      "rank": 506
+    },
+    {
+      "word": "bourg",
+      "score": 0.8502,
+      "rank": 507
+    },
+    {
+      "word": "bérets",
+      "score": 0.8501,
+      "rank": 508
+    },
+    {
+      "word": "veillé",
+      "score": 0.8501,
+      "rank": 509
+    },
+    {
+      "word": "anguille",
+      "score": 0.85,
+      "rank": 510
+    },
+    {
+      "word": "mêlés",
+      "score": 0.85,
+      "rank": 511
+    },
+    {
+      "word": "charpie",
+      "score": 0.85,
+      "rank": 512
+    },
+    {
+      "word": "frêres",
+      "score": 0.85,
+      "rank": 513
+    },
+    {
+      "word": "veus",
+      "score": 0.85,
+      "rank": 514
+    },
+    {
+      "word": "vésuve",
+      "score": 0.8499,
+      "rank": 515
+    },
+    {
+      "word": "piégés",
+      "score": 0.8499,
+      "rank": 516
+    },
+    {
+      "word": "pigé",
+      "score": 0.8499,
+      "rank": 517
+    },
+    {
+      "word": "kaboul",
+      "score": 0.8499,
+      "rank": 518
+    },
+    {
+      "word": "paley",
+      "score": 0.8499,
+      "rank": 519
+    },
+    {
+      "word": "veuilles",
+      "score": 0.8499,
+      "rank": 520
+    },
+    {
+      "word": "étrangleur",
+      "score": 0.8498,
+      "rank": 521
+    },
+    {
+      "word": "ondes",
+      "score": 0.8497,
+      "rank": 522
+    },
+    {
+      "word": "tori",
+      "score": 0.8497,
+      "rank": 523
+    },
+    {
+      "word": "siestes",
+      "score": 0.8496,
+      "rank": 524
+    },
+    {
+      "word": "branlé",
+      "score": 0.8496,
+      "rank": 525
+    },
+    {
+      "word": "coutume",
+      "score": 0.8496,
+      "rank": 526
+    },
+    {
+      "word": "plaqué",
+      "score": 0.8496,
+      "rank": 527
+    },
+    {
+      "word": "quiétude",
+      "score": 0.8495,
+      "rank": 528
+    },
+    {
+      "word": "tirer",
+      "score": 0.8495,
+      "rank": 529
+    },
+    {
+      "word": "épineux",
+      "score": 0.8495,
+      "rank": 530
+    },
+    {
+      "word": "colloque",
+      "score": 0.8495,
+      "rank": 531
+    },
+    {
+      "word": "pétards",
+      "score": 0.8494,
+      "rank": 532
+    },
+    {
+      "word": "scellés",
+      "score": 0.8494,
+      "rank": 533
+    },
+    {
+      "word": "survole",
+      "score": 0.8494,
+      "rank": 534
+    },
+    {
+      "word": "puce",
+      "score": 0.8493,
+      "rank": 535
+    },
+    {
+      "word": "terrienne",
+      "score": 0.8493,
+      "rank": 536
+    },
+    {
+      "word": "brioche",
+      "score": 0.8493,
+      "rank": 537
+    },
+    {
+      "word": "apparut",
+      "score": 0.8493,
+      "rank": 538
+    },
+    {
+      "word": "parcouru",
+      "score": 0.8492,
+      "rank": 539
+    },
+    {
+      "word": "veilleur",
+      "score": 0.8492,
+      "rank": 540
+    },
+    {
+      "word": "vicieux",
+      "score": 0.8492,
+      "rank": 541
+    },
+    {
+      "word": "souiller",
+      "score": 0.8491,
+      "rank": 542
+    },
+    {
+      "word": "cannelle",
+      "score": 0.8491,
+      "rank": 543
+    },
+    {
+      "word": "wynn",
+      "score": 0.8491,
+      "rank": 544
+    },
+    {
+      "word": "rondelles",
+      "score": 0.849,
+      "rank": 545
+    },
+    {
+      "word": "quilles",
+      "score": 0.849,
+      "rank": 546
+    },
+    {
+      "word": "pochette",
+      "score": 0.849,
+      "rank": 547
+    },
+    {
+      "word": "peste",
+      "score": 0.849,
+      "rank": 548
+    },
+    {
+      "word": "bonniche",
+      "score": 0.8489,
+      "rank": 549
+    },
+    {
+      "word": "corniche",
+      "score": 0.8489,
+      "rank": 550
+    },
+    {
+      "word": "scellé",
+      "score": 0.8488,
+      "rank": 551
+    },
+    {
+      "word": "bouledogue",
+      "score": 0.8488,
+      "rank": 552
+    },
+    {
+      "word": "trouée",
+      "score": 0.8488,
+      "rank": 553
+    },
+    {
+      "word": "barrès",
+      "score": 0.8488,
+      "rank": 554
+    },
+    {
+      "word": "bénies",
+      "score": 0.8488,
+      "rank": 555
+    },
+    {
+      "word": "berceau",
+      "score": 0.8487,
+      "rank": 556
+    },
+    {
+      "word": "cagliostro",
+      "score": 0.8487,
+      "rank": 557
+    },
+    {
+      "word": "karel",
+      "score": 0.8487,
+      "rank": 558
+    },
+    {
+      "word": "barjos",
+      "score": 0.8487,
+      "rank": 559
+    },
+    {
+      "word": "porté",
+      "score": 0.8487,
+      "rank": 560
+    },
+    {
+      "word": "kérosène",
+      "score": 0.8485,
+      "rank": 561
+    },
+    {
+      "word": "poires",
+      "score": 0.8484,
+      "rank": 562
+    },
+    {
+      "word": "anguilles",
+      "score": 0.8484,
+      "rank": 563
+    },
+    {
+      "word": "spencer",
+      "score": 0.8484,
+      "rank": 564
+    },
+    {
+      "word": "kyste",
+      "score": 0.8484,
+      "rank": 565
+    },
+    {
+      "word": "tétons",
+      "score": 0.8483,
+      "rank": 566
+    },
+    {
+      "word": "paille",
+      "score": 0.8483,
+      "rank": 567
+    },
+    {
+      "word": "épluché",
+      "score": 0.8483,
+      "rank": 568
+    },
+    {
+      "word": "piétinée",
+      "score": 0.8482,
+      "rank": 569
+    },
+    {
+      "word": "tresser",
+      "score": 0.8482,
+      "rank": 570
+    },
+    {
+      "word": "pétillante",
+      "score": 0.8482,
+      "rank": 571
+    },
+    {
+      "word": "vouée",
+      "score": 0.8482,
+      "rank": 572
+    },
+    {
+      "word": "matent",
+      "score": 0.8481,
+      "rank": 573
+    },
+    {
+      "word": "païen",
+      "score": 0.8481,
+      "rank": 574
+    },
+    {
+      "word": "gênante",
+      "score": 0.8481,
+      "rank": 575
+    },
+    {
+      "word": "pilates",
+      "score": 0.8481,
+      "rank": 576
+    },
+    {
+      "word": "pote",
+      "score": 0.8481,
+      "rank": 577
+    },
+    {
+      "word": "revenais",
+      "score": 0.8481,
+      "rank": 578
+    },
+    {
+      "word": "nid",
+      "score": 0.848,
+      "rank": 579
+    },
+    {
+      "word": "valenti",
+      "score": 0.848,
+      "rank": 580
+    },
+    {
+      "word": "serpillère",
+      "score": 0.848,
+      "rank": 581
+    },
+    {
+      "word": "bâche",
+      "score": 0.8479,
+      "rank": 582
+    },
+    {
+      "word": "écope",
+      "score": 0.8479,
+      "rank": 583
+    },
+    {
+      "word": "gibet",
+      "score": 0.8479,
+      "rank": 584
+    },
+    {
+      "word": "kuroda",
+      "score": 0.8478,
+      "rank": 585
+    },
+    {
+      "word": "fevrier",
+      "score": 0.8478,
+      "rank": 586
+    },
+    {
+      "word": "caille",
+      "score": 0.8478,
+      "rank": 587
+    },
+    {
+      "word": "ratisse",
+      "score": 0.8477,
+      "rank": 588
+    },
+    {
+      "word": "bornés",
+      "score": 0.8477,
+      "rank": 589
+    },
+    {
+      "word": "taule",
+      "score": 0.8477,
+      "rank": 590
+    },
+    {
+      "word": "pondre",
+      "score": 0.8477,
+      "rank": 591
+    },
+    {
+      "word": "batista",
+      "score": 0.8477,
+      "rank": 592
+    },
+    {
+      "word": "belette",
+      "score": 0.8476,
+      "rank": 593
+    },
+    {
+      "word": "tirerait",
+      "score": 0.8476,
+      "rank": 594
+    },
+    {
+      "word": "caressé",
+      "score": 0.8476,
+      "rank": 595
+    },
+    {
+      "word": "zarek",
+      "score": 0.8476,
+      "rank": 596
+    },
+    {
+      "word": "joindre",
+      "score": 0.8475,
+      "rank": 597
+    },
+    {
+      "word": "scintille",
+      "score": 0.8475,
+      "rank": 598
+    },
+    {
+      "word": "pèlerin",
+      "score": 0.8475,
+      "rank": 599
+    },
+    {
+      "word": "pascal",
+      "score": 0.8474,
+      "rank": 600
+    },
+    {
+      "word": "largués",
+      "score": 0.8474,
+      "rank": 601
+    },
+    {
+      "word": "ratatouille",
+      "score": 0.8474,
+      "rank": 602
+    },
+    {
+      "word": "vantent",
+      "score": 0.8474,
+      "rank": 603
+    },
+    {
+      "word": "leva",
+      "score": 0.8474,
+      "rank": 604
+    },
+    {
+      "word": "tutelle",
+      "score": 0.8473,
+      "rank": 605
+    },
+    {
+      "word": "apparus",
+      "score": 0.8473,
+      "rank": 606
+    },
+    {
+      "word": "boulet",
+      "score": 0.8473,
+      "rank": 607
+    },
+    {
+      "word": "tordu",
+      "score": 0.8473,
+      "rank": 608
+    },
+    {
+      "word": "broutille",
+      "score": 0.8473,
+      "rank": 609
+    },
+    {
+      "word": "marrante",
+      "score": 0.8473,
+      "rank": 610
+    },
+    {
+      "word": "bandante",
+      "score": 0.8471,
+      "rank": 611
+    },
+    {
+      "word": "arun",
+      "score": 0.847,
+      "rank": 612
+    },
+    {
+      "word": "feutre",
+      "score": 0.847,
+      "rank": 613
+    },
+    {
+      "word": "siege",
+      "score": 0.847,
+      "rank": 614
+    },
+    {
+      "word": "brouillé",
+      "score": 0.847,
+      "rank": 615
+    },
+    {
+      "word": "balai",
+      "score": 0.847,
+      "rank": 616
+    },
+    {
+      "word": "piquée",
+      "score": 0.847,
+      "rank": 617
+    },
+    {
+      "word": "pur",
+      "score": 0.8469,
+      "rank": 618
+    },
+    {
+      "word": "lupo",
+      "score": 0.8469,
+      "rank": 619
+    },
+    {
+      "word": "chéris",
+      "score": 0.8469,
+      "rank": 620
+    },
+    {
+      "word": "tarés",
+      "score": 0.8468,
+      "rank": 621
+    },
+    {
+      "word": "achille",
+      "score": 0.8468,
+      "rank": 622
+    },
+    {
+      "word": "curé",
+      "score": 0.8468,
+      "rank": 623
+    },
+    {
+      "word": "sourie",
+      "score": 0.8467,
+      "rank": 624
+    },
+    {
+      "word": "empaillé",
+      "score": 0.8467,
+      "rank": 625
+    },
+    {
+      "word": "casserais",
+      "score": 0.8467,
+      "rank": 626
+    },
+    {
+      "word": "vizir",
+      "score": 0.8467,
+      "rank": 627
+    },
+    {
+      "word": "dresde",
+      "score": 0.8466,
+      "rank": 628
+    },
+    {
+      "word": "levais",
+      "score": 0.8466,
+      "rank": 629
+    },
+    {
+      "word": "tracas",
+      "score": 0.8466,
+      "rank": 630
+    },
+    {
+      "word": "escouade",
+      "score": 0.8466,
+      "rank": 631
+    },
+    {
+      "word": "larcin",
+      "score": 0.8465,
+      "rank": 632
+    },
+    {
+      "word": "machado",
+      "score": 0.8464,
+      "rank": 633
+    },
+    {
+      "word": "luisant",
+      "score": 0.8464,
+      "rank": 634
+    },
+    {
+      "word": "réglait",
+      "score": 0.8464,
+      "rank": 635
+    },
+    {
+      "word": "nuisette",
+      "score": 0.8464,
+      "rank": 636
+    },
+    {
+      "word": "roulés",
+      "score": 0.8464,
+      "rank": 637
+    },
+    {
+      "word": "quiconque",
+      "score": 0.8463,
+      "rank": 638
+    },
+    {
+      "word": "paumés",
+      "score": 0.8463,
+      "rank": 639
+    },
+    {
+      "word": "sondé",
+      "score": 0.8463,
+      "rank": 640
+    },
+    {
+      "word": "kuro",
+      "score": 0.8463,
+      "rank": 641
+    },
+    {
+      "word": "brusques",
+      "score": 0.8463,
+      "rank": 642
+    },
+    {
+      "word": "gît",
+      "score": 0.8462,
+      "rank": 643
+    },
+    {
+      "word": "caracas",
+      "score": 0.8462,
+      "rank": 644
+    },
+    {
+      "word": "séoul",
+      "score": 0.8462,
+      "rank": 645
+    },
+    {
+      "word": "cachée",
+      "score": 0.8461,
+      "rank": 646
+    },
+    {
+      "word": "étrangler",
+      "score": 0.8461,
+      "rank": 647
+    },
+    {
+      "word": "kali",
+      "score": 0.8461,
+      "rank": 648
+    },
+    {
+      "word": "miaule",
+      "score": 0.8461,
+      "rank": 649
+    },
+    {
+      "word": "feinte",
+      "score": 0.8461,
+      "rank": 650
+    },
+    {
+      "word": "voiturier",
+      "score": 0.846,
+      "rank": 651
+    },
+    {
+      "word": "parez",
+      "score": 0.846,
+      "rank": 652
+    },
+    {
+      "word": "châtelain",
+      "score": 0.846,
+      "rank": 653
+    },
+    {
+      "word": "pogner",
+      "score": 0.846,
+      "rank": 654
+    },
+    {
+      "word": "castor",
+      "score": 0.8459,
+      "rank": 655
+    },
+    {
+      "word": "tôle",
+      "score": 0.8459,
+      "rank": 656
+    },
+    {
+      "word": "pavot",
+      "score": 0.8459,
+      "rank": 657
+    },
+    {
+      "word": "ciera",
+      "score": 0.8459,
+      "rank": 658
+    },
+    {
+      "word": "tiraient",
+      "score": 0.8459,
+      "rank": 659
+    },
+    {
+      "word": "danson",
+      "score": 0.8459,
+      "rank": 660
+    },
+    {
+      "word": "saturé",
+      "score": 0.8458,
+      "rank": 661
+    },
+    {
+      "word": "baines",
+      "score": 0.8458,
+      "rank": 662
+    },
+    {
+      "word": "ramone",
+      "score": 0.8458,
+      "rank": 663
+    },
+    {
+      "word": "côtelettes",
+      "score": 0.8457,
+      "rank": 664
+    },
+    {
+      "word": "veillent",
+      "score": 0.8457,
+      "rank": 665
+    },
+    {
+      "word": "calciné",
+      "score": 0.8457,
+      "rank": 666
+    },
+    {
+      "word": "panne",
+      "score": 0.8457,
+      "rank": 667
+    },
+    {
+      "word": "prône",
+      "score": 0.8457,
+      "rank": 668
+    },
+    {
+      "word": "tâché",
+      "score": 0.8457,
+      "rank": 669
+    },
+    {
+      "word": "bériot",
+      "score": 0.8457,
+      "rank": 670
+    },
+    {
+      "word": "peloté",
+      "score": 0.8457,
+      "rank": 671
+    },
+    {
+      "word": "arrãªte",
+      "score": 0.8456,
+      "rank": 672
+    },
+    {
+      "word": "courrir",
+      "score": 0.8456,
+      "rank": 673
+    },
+    {
+      "word": "garson",
+      "score": 0.8456,
+      "rank": 674
+    },
+    {
+      "word": "cogné",
+      "score": 0.8456,
+      "rank": 675
+    },
+    {
+      "word": "fourré",
+      "score": 0.8456,
+      "rank": 676
+    },
+    {
+      "word": "penché",
+      "score": 0.8456,
+      "rank": 677
+    },
+    {
+      "word": "nourrissais",
+      "score": 0.8456,
+      "rank": 678
+    },
+    {
+      "word": "baisée",
+      "score": 0.8455,
+      "rank": 679
+    },
+    {
+      "word": "joue",
+      "score": 0.8455,
+      "rank": 680
+    },
+    {
+      "word": "bousillée",
+      "score": 0.8454,
+      "rank": 681
+    },
+    {
+      "word": "pablo",
+      "score": 0.8454,
+      "rank": 682
+    },
+    {
+      "word": "poux",
+      "score": 0.8454,
+      "rank": 683
+    },
+    {
+      "word": "rentrais",
+      "score": 0.8453,
+      "rank": 684
+    },
+    {
+      "word": "rongés",
+      "score": 0.8453,
+      "rank": 685
+    },
+    {
+      "word": "languis",
+      "score": 0.8453,
+      "rank": 686
+    },
+    {
+      "word": "planais",
+      "score": 0.8453,
+      "rank": 687
+    },
+    {
+      "word": "bruyère",
+      "score": 0.8453,
+      "rank": 688
+    },
+    {
+      "word": "lançais",
+      "score": 0.8453,
+      "rank": 689
+    },
+    {
+      "word": "ferons",
+      "score": 0.8452,
+      "rank": 690
+    },
+    {
+      "word": "relou",
+      "score": 0.8452,
+      "rank": 691
+    },
+    {
+      "word": "tantine",
+      "score": 0.8452,
+      "rank": 692
+    },
+    {
+      "word": "coursier",
+      "score": 0.8452,
+      "rank": 693
+    },
+    {
+      "word": "plaquée",
+      "score": 0.8451,
+      "rank": 694
+    },
+    {
+      "word": "cloîtré",
+      "score": 0.8451,
+      "rank": 695
+    },
+    {
+      "word": "énoncer",
+      "score": 0.845,
+      "rank": 696
+    },
+    {
+      "word": "niaiseries",
+      "score": 0.845,
+      "rank": 697
+    },
+    {
+      "word": "sauves",
+      "score": 0.845,
+      "rank": 698
+    },
+    {
+      "word": "murnau",
+      "score": 0.845,
+      "rank": 699
+    },
+    {
+      "word": "malsain",
+      "score": 0.8449,
+      "rank": 700
+    },
+    {
+      "word": "plaisez",
+      "score": 0.8449,
+      "rank": 701
+    },
+    {
+      "word": "foncés",
+      "score": 0.8449,
+      "rank": 702
+    },
+    {
+      "word": "étranglée",
+      "score": 0.8447,
+      "rank": 703
+    },
+    {
+      "word": "caniches",
+      "score": 0.8447,
+      "rank": 704
+    },
+    {
+      "word": "quille",
+      "score": 0.8447,
+      "rank": 705
+    },
+    {
+      "word": "reprit",
+      "score": 0.8447,
+      "rank": 706
+    },
+    {
+      "word": "torchon",
+      "score": 0.8447,
+      "rank": 707
+    },
+    {
+      "word": "livrez",
+      "score": 0.8446,
+      "rank": 708
+    },
+    {
+      "word": "trouvaille",
+      "score": 0.8446,
+      "rank": 709
+    },
+    {
+      "word": "sillage",
+      "score": 0.8446,
+      "rank": 710
+    },
+    {
+      "word": "nguyen",
+      "score": 0.8445,
+      "rank": 711
+    },
+    {
+      "word": "missouri",
+      "score": 0.8445,
+      "rank": 712
+    },
+    {
+      "word": "cagoule",
+      "score": 0.8445,
+      "rank": 713
+    },
+    {
+      "word": "arliss",
+      "score": 0.8445,
+      "rank": 714
+    },
+    {
+      "word": "rasant",
+      "score": 0.8445,
+      "rank": 715
+    },
+    {
+      "word": "maux",
+      "score": 0.8445,
+      "rank": 716
+    },
+    {
+      "word": "pei",
+      "score": 0.8444,
+      "rank": 717
+    },
+    {
+      "word": "rancœur",
+      "score": 0.8444,
+      "rank": 718
+    },
+    {
+      "word": "grouillent",
+      "score": 0.8444,
+      "rank": 719
+    },
+    {
+      "word": "samcro",
+      "score": 0.8444,
+      "rank": 720
+    },
+    {
+      "word": "volait",
+      "score": 0.8443,
+      "rank": 721
+    },
+    {
+      "word": "fiez",
+      "score": 0.8443,
+      "rank": 722
+    },
+    {
+      "word": "saignée",
+      "score": 0.8443,
+      "rank": 723
+    },
+    {
+      "word": "pan",
+      "score": 0.8443,
+      "rank": 724
+    },
+    {
+      "word": "bousilles",
+      "score": 0.8442,
+      "rank": 725
+    },
+    {
+      "word": "tueriez",
+      "score": 0.8442,
+      "rank": 726
+    },
+    {
+      "word": "cognée",
+      "score": 0.8442,
+      "rank": 727
+    },
+    {
+      "word": "trou",
+      "score": 0.8442,
+      "rank": 728
+    },
+    {
+      "word": "jurgen",
+      "score": 0.8442,
+      "rank": 729
+    },
+    {
+      "word": "attraperont",
+      "score": 0.8442,
+      "rank": 730
+    },
+    {
+      "word": "sillon",
+      "score": 0.8442,
+      "rank": 731
+    },
+    {
+      "word": "rasgotra",
+      "score": 0.8442,
+      "rank": 732
+    },
+    {
+      "word": "contreras",
+      "score": 0.8441,
+      "rank": 733
+    },
+    {
+      "word": "égard",
+      "score": 0.8441,
+      "rank": 734
+    },
+    {
+      "word": "énervée",
+      "score": 0.8441,
+      "rank": 735
+    },
+    {
+      "word": "sautais",
+      "score": 0.844,
+      "rank": 736
+    },
+    {
+      "word": "ëtes",
+      "score": 0.844,
+      "rank": 737
+    },
+    {
+      "word": "pouliche",
+      "score": 0.844,
+      "rank": 738
+    },
+    {
+      "word": "écorche",
+      "score": 0.8439,
+      "rank": 739
+    },
+    {
+      "word": "parias",
+      "score": 0.8439,
+      "rank": 740
+    },
+    {
+      "word": "piétiné",
+      "score": 0.8439,
+      "rank": 741
+    },
+    {
+      "word": "escalope",
+      "score": 0.8438,
+      "rank": 742
+    },
+    {
+      "word": "frivole",
+      "score": 0.8438,
+      "rank": 743
+    },
+    {
+      "word": "vinci",
+      "score": 0.8438,
+      "rank": 744
+    },
+    {
+      "word": "enchaîne",
+      "score": 0.8438,
+      "rank": 745
+    },
+    {
+      "word": "traînera",
+      "score": 0.8437,
+      "rank": 746
+    },
+    {
+      "word": "léguer",
+      "score": 0.8437,
+      "rank": 747
+    },
+    {
+      "word": "dorset",
+      "score": 0.8436,
+      "rank": 748
+    },
+    {
+      "word": "chérir",
+      "score": 0.8436,
+      "rank": 749
+    },
+    {
+      "word": "rouleaux",
+      "score": 0.8436,
+      "rank": 750
+    },
+    {
+      "word": "tisane",
+      "score": 0.8436,
+      "rank": 751
+    },
+    {
+      "word": "sténo",
+      "score": 0.8436,
+      "rank": 752
+    },
+    {
+      "word": "montrais",
+      "score": 0.8435,
+      "rank": 753
+    },
+    {
+      "word": "buviez",
+      "score": 0.8435,
+      "rank": 754
+    },
+    {
+      "word": "carlisle",
+      "score": 0.8435,
+      "rank": 755
+    },
+    {
+      "word": "fiché",
+      "score": 0.8435,
+      "rank": 756
+    },
+    {
+      "word": "garcia",
+      "score": 0.8435,
+      "rank": 757
+    },
+    {
+      "word": "bâillonnée",
+      "score": 0.8435,
+      "rank": 758
+    },
+    {
+      "word": "nacelle",
+      "score": 0.8434,
+      "rank": 759
+    },
+    {
+      "word": "pénurie",
+      "score": 0.8434,
+      "rank": 760
+    },
+    {
+      "word": "arreté",
+      "score": 0.8434,
+      "rank": 761
+    },
+    {
+      "word": "vicieuses",
+      "score": 0.8434,
+      "rank": 762
+    },
+    {
+      "word": "trompe",
+      "score": 0.8433,
+      "rank": 763
+    },
+    {
+      "word": "boris",
+      "score": 0.8433,
+      "rank": 764
+    },
+    {
+      "word": "souris",
+      "score": 0.8433,
+      "rank": 765
+    },
+    {
+      "word": "frêre",
+      "score": 0.8432,
+      "rank": 766
+    },
+    {
+      "word": "égaré",
+      "score": 0.8432,
+      "rank": 767
+    },
+    {
+      "word": "piqués",
+      "score": 0.8432,
+      "rank": 768
+    },
+    {
+      "word": "glenda",
+      "score": 0.8432,
+      "rank": 769
+    },
+    {
+      "word": "livrent",
+      "score": 0.8432,
+      "rank": 770
+    },
+    {
+      "word": "filant",
+      "score": 0.8432,
+      "rank": 771
+    },
+    {
+      "word": "gueules",
+      "score": 0.8432,
+      "rank": 772
+    },
+    {
+      "word": "pénètrent",
+      "score": 0.8432,
+      "rank": 773
+    },
+    {
+      "word": "copeaux",
+      "score": 0.8432,
+      "rank": 774
+    },
+    {
+      "word": "osait",
+      "score": 0.8432,
+      "rank": 775
+    },
+    {
+      "word": "viande",
+      "score": 0.8431,
+      "rank": 776
+    },
+    {
+      "word": "virerais",
+      "score": 0.8431,
+      "rank": 777
+    },
+    {
+      "word": "cheik",
+      "score": 0.843,
+      "rank": 778
+    },
+    {
+      "word": "ferais",
+      "score": 0.843,
+      "rank": 779
+    },
+    {
+      "word": "paolo",
+      "score": 0.843,
+      "rank": 780
+    },
+    {
+      "word": "troels",
+      "score": 0.843,
+      "rank": 781
+    },
+    {
+      "word": "équestre",
+      "score": 0.843,
+      "rank": 782
+    },
+    {
+      "word": "hommage",
+      "score": 0.8429,
+      "rank": 783
+    },
+    {
+      "word": "harken",
+      "score": 0.8429,
+      "rank": 784
+    },
+    {
+      "word": "méchante",
+      "score": 0.8429,
+      "rank": 785
+    },
+    {
+      "word": "levres",
+      "score": 0.8429,
+      "rank": 786
+    },
+    {
+      "word": "navrés",
+      "score": 0.8429,
+      "rank": 787
+    },
+    {
+      "word": "feint",
+      "score": 0.8429,
+      "rank": 788
+    },
+    {
+      "word": "craig",
+      "score": 0.8429,
+      "rank": 789
+    },
+    {
+      "word": "cece",
+      "score": 0.8429,
+      "rank": 790
+    },
+    {
+      "word": "causée",
+      "score": 0.8429,
+      "rank": 791
+    },
+    {
+      "word": "dorsale",
+      "score": 0.8428,
+      "rank": 792
+    },
+    {
+      "word": "picasso",
+      "score": 0.8428,
+      "rank": 793
+    },
+    {
+      "word": "créole",
+      "score": 0.8428,
+      "rank": 794
+    },
+    {
+      "word": "bester",
+      "score": 0.8428,
+      "rank": 795
+    },
+    {
+      "word": "limier",
+      "score": 0.8428,
+      "rank": 796
+    },
+    {
+      "word": "râler",
+      "score": 0.8427,
+      "rank": 797
+    },
+    {
+      "word": "causées",
+      "score": 0.8426,
+      "rank": 798
+    },
+    {
+      "word": "suivrons",
+      "score": 0.8426,
+      "rank": 799
+    },
+    {
+      "word": "écoeure",
+      "score": 0.8426,
+      "rank": 800
+    },
+    {
+      "word": "icône",
+      "score": 0.8426,
+      "rank": 801
+    },
+    {
+      "word": "tâchons",
+      "score": 0.8426,
+      "rank": 802
+    },
+    {
+      "word": "ressorts",
+      "score": 0.8426,
+      "rank": 803
+    },
+    {
+      "word": "ebenezer",
+      "score": 0.8426,
+      "rank": 804
+    },
+    {
+      "word": "évincer",
+      "score": 0.8426,
+      "rank": 805
+    },
+    {
+      "word": "bonn",
+      "score": 0.8426,
+      "rank": 806
+    },
+    {
+      "word": "ratera",
+      "score": 0.8426,
+      "rank": 807
+    },
+    {
+      "word": "rapprochée",
+      "score": 0.8426,
+      "rank": 808
+    },
+    {
+      "word": "traînée",
+      "score": 0.8425,
+      "rank": 809
+    },
+    {
+      "word": "prout",
+      "score": 0.8425,
+      "rank": 810
+    },
+    {
+      "word": "crevé",
+      "score": 0.8425,
+      "rank": 811
+    },
+    {
+      "word": "monture",
+      "score": 0.8425,
+      "rank": 812
+    },
+    {
+      "word": "ringards",
+      "score": 0.8425,
+      "rank": 813
+    },
+    {
+      "word": "trouvailles",
+      "score": 0.8425,
+      "rank": 814
+    },
+    {
+      "word": "sabres",
+      "score": 0.8424,
+      "rank": 815
+    },
+    {
+      "word": "trébuche",
+      "score": 0.8424,
+      "rank": 816
+    },
+    {
+      "word": "zale",
+      "score": 0.8423,
+      "rank": 817
+    },
+    {
+      "word": "rentre",
+      "score": 0.8423,
+      "rank": 818
+    },
+    {
+      "word": "plais",
+      "score": 0.8423,
+      "rank": 819
+    },
+    {
+      "word": "odum",
+      "score": 0.8423,
+      "rank": 820
+    },
+    {
+      "word": "cotés",
+      "score": 0.8423,
+      "rank": 821
+    },
+    {
+      "word": "frêne",
+      "score": 0.8423,
+      "rank": 822
+    },
+    {
+      "word": "clame",
+      "score": 0.8422,
+      "rank": 823
+    },
+    {
+      "word": "écouler",
+      "score": 0.8422,
+      "rank": 824
+    },
+    {
+      "word": "mahalo",
+      "score": 0.8422,
+      "rank": 825
+    },
+    {
+      "word": "poignardé",
+      "score": 0.8422,
+      "rank": 826
+    },
+    {
+      "word": "écopé",
+      "score": 0.8422,
+      "rank": 827
+    },
+    {
+      "word": "akiko",
+      "score": 0.8421,
+      "rank": 828
+    },
+    {
+      "word": "tréfonds",
+      "score": 0.8421,
+      "rank": 829
+    },
+    {
+      "word": "voguer",
+      "score": 0.842,
+      "rank": 830
+    },
+    {
+      "word": "bernardino",
+      "score": 0.842,
+      "rank": 831
+    },
+    {
+      "word": "auxquels",
+      "score": 0.842,
+      "rank": 832
+    },
+    {
+      "word": "abu",
+      "score": 0.8419,
+      "rank": 833
+    },
+    {
+      "word": "acheteuse",
+      "score": 0.8419,
+      "rank": 834
+    },
+    {
+      "word": "trébuché",
+      "score": 0.8419,
+      "rank": 835
+    },
+    {
+      "word": "marconi",
+      "score": 0.8419,
+      "rank": 836
+    },
+    {
+      "word": "gazon",
+      "score": 0.8419,
+      "rank": 837
+    },
+    {
+      "word": "arracherais",
+      "score": 0.8419,
+      "rank": 838
+    },
+    {
+      "word": "levure",
+      "score": 0.8419,
+      "rank": 839
+    },
+    {
+      "word": "miaulement",
+      "score": 0.8419,
+      "rank": 840
+    },
+    {
+      "word": "pareille",
+      "score": 0.8419,
+      "rank": 841
+    },
+    {
+      "word": "vint",
+      "score": 0.8418,
+      "rank": 842
+    },
+    {
+      "word": "entiché",
+      "score": 0.8418,
+      "rank": 843
+    },
+    {
+      "word": "tivo",
+      "score": 0.8418,
+      "rank": 844
+    },
+    {
+      "word": "puiser",
+      "score": 0.8418,
+      "rank": 845
+    },
+    {
+      "word": "paulo",
+      "score": 0.8418,
+      "rank": 846
+    },
+    {
+      "word": "pénombre",
+      "score": 0.8417,
+      "rank": 847
+    },
+    {
+      "word": "plaisante",
+      "score": 0.8417,
+      "rank": 848
+    },
+    {
+      "word": "sieg",
+      "score": 0.8417,
+      "rank": 849
+    },
+    {
+      "word": "épicé",
+      "score": 0.8417,
+      "rank": 850
+    },
+    {
+      "word": "zahra",
+      "score": 0.8417,
+      "rank": 851
+    },
+    {
+      "word": "emplis",
+      "score": 0.8417,
+      "rank": 852
+    },
+    {
+      "word": "viens",
+      "score": 0.8417,
+      "rank": 853
+    },
+    {
+      "word": "cravat",
+      "score": 0.8417,
+      "rank": 854
+    },
+    {
+      "word": "graeme",
+      "score": 0.8417,
+      "rank": 855
+    },
+    {
+      "word": "dorées",
+      "score": 0.8416,
+      "rank": 856
+    },
+    {
+      "word": "courra",
+      "score": 0.8416,
+      "rank": 857
+    },
+    {
+      "word": "tourelles",
+      "score": 0.8416,
+      "rank": 858
+    },
+    {
+      "word": "clou",
+      "score": 0.8416,
+      "rank": 859
+    },
+    {
+      "word": "kiryu",
+      "score": 0.8416,
+      "rank": 860
+    },
+    {
+      "word": "égaler",
+      "score": 0.8415,
+      "rank": 861
+    },
+    {
+      "word": "littardi",
+      "score": 0.8415,
+      "rank": 862
+    },
+    {
+      "word": "turlupine",
+      "score": 0.8415,
+      "rank": 863
+    },
+    {
+      "word": "égorge",
+      "score": 0.8415,
+      "rank": 864
+    },
+    {
+      "word": "frã",
+      "score": 0.8415,
+      "rank": 865
+    },
+    {
+      "word": "baissait",
+      "score": 0.8415,
+      "rank": 866
+    },
+    {
+      "word": "bouffée",
+      "score": 0.8414,
+      "rank": 867
+    },
+    {
+      "word": "cui",
+      "score": 0.8414,
+      "rank": 868
+    },
+    {
+      "word": "hocher",
+      "score": 0.8414,
+      "rank": 869
+    },
+    {
+      "word": "veille",
+      "score": 0.8414,
+      "rank": 870
+    },
+    {
+      "word": "chiale",
+      "score": 0.8414,
+      "rank": 871
+    },
+    {
+      "word": "bancal",
+      "score": 0.8414,
+      "rank": 872
+    },
+    {
+      "word": "guido",
+      "score": 0.8414,
+      "rank": 873
+    },
+    {
+      "word": "nagus",
+      "score": 0.8414,
+      "rank": 874
+    },
+    {
+      "word": "hayden",
+      "score": 0.8414,
+      "rank": 875
+    },
+    {
+      "word": "bénin",
+      "score": 0.8414,
+      "rank": 876
+    },
+    {
+      "word": "reiko",
+      "score": 0.8413,
+      "rank": 877
+    },
+    {
+      "word": "alloué",
+      "score": 0.8413,
+      "rank": 878
+    },
+    {
+      "word": "voués",
+      "score": 0.8413,
+      "rank": 879
+    },
+    {
+      "word": "nouilles",
+      "score": 0.8413,
+      "rank": 880
+    },
+    {
+      "word": "jurassic",
+      "score": 0.8413,
+      "rank": 881
+    },
+    {
+      "word": "vautrer",
+      "score": 0.8413,
+      "rank": 882
+    },
+    {
+      "word": "grouillait",
+      "score": 0.8413,
+      "rank": 883
+    },
+    {
+      "word": "écoulée",
+      "score": 0.8412,
+      "rank": 884
+    },
+    {
+      "word": "terriens",
+      "score": 0.8412,
+      "rank": 885
+    },
+    {
+      "word": "ôtes",
+      "score": 0.8412,
+      "rank": 886
+    },
+    {
+      "word": "aprã",
+      "score": 0.8412,
+      "rank": 887
+    },
+    {
+      "word": "brouillent",
+      "score": 0.8412,
+      "rank": 888
+    },
+    {
+      "word": "lézard",
+      "score": 0.8412,
+      "rank": 889
+    },
+    {
+      "word": "navets",
+      "score": 0.8411,
+      "rank": 890
+    },
+    {
+      "word": "fin",
+      "score": 0.8411,
+      "rank": 891
+    },
+    {
+      "word": "attraperai",
+      "score": 0.841,
+      "rank": 892
+    },
+    {
+      "word": "habillez",
+      "score": 0.841,
+      "rank": 893
+    },
+    {
+      "word": "rene",
+      "score": 0.841,
+      "rank": 894
+    },
+    {
+      "word": "énervé",
+      "score": 0.841,
+      "rank": 895
+    },
+    {
+      "word": "molle",
+      "score": 0.841,
+      "rank": 896
+    },
+    {
+      "word": "légalité",
+      "score": 0.841,
+      "rank": 897
+    },
+    {
+      "word": "peiné",
+      "score": 0.841,
+      "rank": 898
+    },
+    {
+      "word": "argos",
+      "score": 0.841,
+      "rank": 899
+    },
+    {
+      "word": "célibat",
+      "score": 0.8409,
+      "rank": 900
+    },
+    {
+      "word": "gaélique",
+      "score": 0.8409,
+      "rank": 901
+    },
+    {
+      "word": "raméne",
+      "score": 0.8409,
+      "rank": 902
+    },
+    {
+      "word": "esquisses",
+      "score": 0.8408,
+      "rank": 903
+    },
+    {
+      "word": "kurt",
+      "score": 0.8408,
+      "rank": 904
+    },
+    {
+      "word": "sayaka",
+      "score": 0.8408,
+      "rank": 905
+    },
+    {
+      "word": "trépas",
+      "score": 0.8408,
+      "rank": 906
+    },
+    {
+      "word": "roquette",
+      "score": 0.8408,
+      "rank": 907
+    },
+    {
+      "word": "ciré",
+      "score": 0.8408,
+      "rank": 908
+    },
+    {
+      "word": "palourdes",
+      "score": 0.8407,
+      "rank": 909
+    },
+    {
+      "word": "galavan",
+      "score": 0.8407,
+      "rank": 910
+    },
+    {
+      "word": "suivrais",
+      "score": 0.8407,
+      "rank": 911
+    },
+    {
+      "word": "tarmac",
+      "score": 0.8407,
+      "rank": 912
+    },
+    {
+      "word": "bridés",
+      "score": 0.8407,
+      "rank": 913
+    },
+    {
+      "word": "vaillant",
+      "score": 0.8407,
+      "rank": 914
+    },
+    {
+      "word": "crabe",
+      "score": 0.8407,
+      "rank": 915
+    },
+    {
+      "word": "puisé",
+      "score": 0.8407,
+      "rank": 916
+    },
+    {
+      "word": "brodeur",
+      "score": 0.8406,
+      "rank": 917
+    },
+    {
+      "word": "patte",
+      "score": 0.8406,
+      "rank": 918
+    },
+    {
+      "word": "blaise",
+      "score": 0.8406,
+      "rank": 919
+    },
+    {
+      "word": "serrez",
+      "score": 0.8406,
+      "rank": 920
+    },
+    {
+      "word": "rouillés",
+      "score": 0.8406,
+      "rank": 921
+    },
+    {
+      "word": "radha",
+      "score": 0.8406,
+      "rank": 922
+    },
+    {
+      "word": "boirez",
+      "score": 0.8406,
+      "rank": 923
+    },
+    {
+      "word": "énerve",
+      "score": 0.8406,
+      "rank": 924
+    },
+    {
+      "word": "gabarit",
+      "score": 0.8405,
+      "rank": 925
+    },
+    {
+      "word": "cire",
+      "score": 0.8405,
+      "rank": 926
+    },
+    {
+      "word": "ãªtre",
+      "score": 0.8405,
+      "rank": 927
+    },
+    {
+      "word": "giacomo",
+      "score": 0.8405,
+      "rank": 928
+    },
+    {
+      "word": "tireuse",
+      "score": 0.8405,
+      "rank": 929
+    },
+    {
+      "word": "sévère",
+      "score": 0.8404,
+      "rank": 930
+    },
+    {
+      "word": "grimpait",
+      "score": 0.8404,
+      "rank": 931
+    },
+    {
+      "word": "louait",
+      "score": 0.8404,
+      "rank": 932
+    },
+    {
+      "word": "fermais",
+      "score": 0.8404,
+      "rank": 933
+    },
+    {
+      "word": "coincés",
+      "score": 0.8404,
+      "rank": 934
+    },
+    {
+      "word": "spenser",
+      "score": 0.8404,
+      "rank": 935
+    },
+    {
+      "word": "motard",
+      "score": 0.8404,
+      "rank": 936
+    },
+    {
+      "word": "karla",
+      "score": 0.8404,
+      "rank": 937
+    },
+    {
+      "word": "plaã",
+      "score": 0.8404,
+      "rank": 938
+    },
+    {
+      "word": "appâter",
+      "score": 0.8403,
+      "rank": 939
+    },
+    {
+      "word": "naufrage",
+      "score": 0.8403,
+      "rank": 940
+    },
+    {
+      "word": "manchette",
+      "score": 0.8403,
+      "rank": 941
+    },
+    {
+      "word": "cassent",
+      "score": 0.8403,
+      "rank": 942
+    },
+    {
+      "word": "rejet",
+      "score": 0.8403,
+      "rank": 943
+    },
+    {
+      "word": "fesse",
+      "score": 0.8402,
+      "rank": 944
+    },
+    {
+      "word": "couperet",
+      "score": 0.8402,
+      "rank": 945
+    },
+    {
+      "word": "élance",
+      "score": 0.8402,
+      "rank": 946
+    },
+    {
+      "word": "raben",
+      "score": 0.8402,
+      "rank": 947
+    },
+    {
+      "word": "laiton",
+      "score": 0.8402,
+      "rank": 948
+    },
+    {
+      "word": "copain",
+      "score": 0.8401,
+      "rank": 949
+    },
+    {
+      "word": "ivre",
+      "score": 0.8401,
+      "rank": 950
+    },
+    {
+      "word": "lecon",
+      "score": 0.8401,
+      "rank": 951
+    },
+    {
+      "word": "matelot",
+      "score": 0.8401,
+      "rank": 952
+    },
+    {
+      "word": "rabattre",
+      "score": 0.84,
+      "rank": 953
+    },
+    {
+      "word": "ébranle",
+      "score": 0.84,
+      "rank": 954
+    },
+    {
+      "word": "rappelles",
+      "score": 0.8399,
+      "rank": 955
+    },
+    {
+      "word": "paire",
+      "score": 0.8399,
+      "rank": 956
+    },
+    {
+      "word": "carlo",
+      "score": 0.8399,
+      "rank": 957
+    },
+    {
+      "word": "joignent",
+      "score": 0.8399,
+      "rank": 958
+    },
+    {
+      "word": "boucs",
+      "score": 0.8399,
+      "rank": 959
+    },
+    {
+      "word": "tourelle",
+      "score": 0.8399,
+      "rank": 960
+    },
+    {
+      "word": "rugir",
+      "score": 0.8399,
+      "rank": 961
+    },
+    {
+      "word": "cecil",
+      "score": 0.8399,
+      "rank": 962
+    },
+    {
+      "word": "vouer",
+      "score": 0.8398,
+      "rank": 963
+    },
+    {
+      "word": "ulong",
+      "score": 0.8398,
+      "rank": 964
+    },
+    {
+      "word": "vale",
+      "score": 0.8398,
+      "rank": 965
+    },
+    {
+      "word": "suiveur",
+      "score": 0.8398,
+      "rank": 966
+    },
+    {
+      "word": "obtiennes",
+      "score": 0.8397,
+      "rank": 967
+    },
+    {
+      "word": "traînés",
+      "score": 0.8397,
+      "rank": 968
+    },
+    {
+      "word": "deteste",
+      "score": 0.8397,
+      "rank": 969
+    },
+    {
+      "word": "frôle",
+      "score": 0.8397,
+      "rank": 970
+    },
+    {
+      "word": "zobelle",
+      "score": 0.8396,
+      "rank": 971
+    },
+    {
+      "word": "vendeuse",
+      "score": 0.8396,
+      "rank": 972
+    },
+    {
+      "word": "poulette",
+      "score": 0.8396,
+      "rank": 973
+    },
+    {
+      "word": "tue",
+      "score": 0.8396,
+      "rank": 974
+    },
+    {
+      "word": "allai",
+      "score": 0.8396,
+      "rank": 975
+    },
+    {
+      "word": "rejette",
+      "score": 0.8396,
+      "rank": 976
+    },
+    {
+      "word": "valise",
+      "score": 0.8395,
+      "rank": 977
+    },
+    {
+      "word": "poivrons",
+      "score": 0.8395,
+      "rank": 978
+    },
+    {
+      "word": "mecque",
+      "score": 0.8395,
+      "rank": 979
+    },
+    {
+      "word": "nellie",
+      "score": 0.8395,
+      "rank": 980
+    },
+    {
+      "word": "cour",
+      "score": 0.8395,
+      "rank": 981
+    },
+    {
+      "word": "cedra",
+      "score": 0.8395,
+      "rank": 982
+    },
+    {
+      "word": "fouiner",
+      "score": 0.8394,
+      "rank": 983
+    },
+    {
+      "word": "habille",
+      "score": 0.8394,
+      "rank": 984
+    },
+    {
+      "word": "épicés",
+      "score": 0.8394,
+      "rank": 985
+    },
+    {
+      "word": "débine",
+      "score": 0.8394,
+      "rank": 986
+    },
+    {
+      "word": "pisteur",
+      "score": 0.8394,
+      "rank": 987
+    },
+    {
+      "word": "hodge",
+      "score": 0.8394,
+      "rank": 988
+    },
+    {
+      "word": "halle",
+      "score": 0.8393,
+      "rank": 989
+    },
+    {
+      "word": "guigne",
+      "score": 0.8393,
+      "rank": 990
+    },
+    {
+      "word": "luigi",
+      "score": 0.8393,
+      "rank": 991
+    },
+    {
+      "word": "lopez",
+      "score": 0.8393,
+      "rank": 992
+    },
+    {
+      "word": "peloton",
+      "score": 0.8393,
+      "rank": 993
+    },
+    {
+      "word": "voles",
+      "score": 0.8392,
+      "rank": 994
+    },
+    {
+      "word": "medellín",
+      "score": 0.8392,
+      "rank": 995
+    },
+    {
+      "word": "duras",
+      "score": 0.8392,
+      "rank": 996
+    },
+    {
+      "word": "gatorade",
+      "score": 0.8392,
+      "rank": 997
+    },
+    {
+      "word": "visant",
+      "score": 0.8392,
+      "rank": 998
+    },
+    {
+      "word": "pendait",
+      "score": 0.8392,
+      "rank": 999
+    },
+    {
+      "word": "écoulé",
+      "score": 0.8392,
+      "rank": 1000
+    }
+  ]
+}

@@ -1,0 +1,5014 @@
+{
+  "date": "2026-06-24",
+  "puzzleNumber": 172,
+  "lang": "en",
+  "secret": "victory",
+  "wordLength": 7,
+  "hints": {
+    "top1": 0.9889,
+    "top10": 0.8382,
+    "top1000": 0.5283
+  },
+  "words": [
+    {
+      "word": "vittoria",
+      "score": 0.9889,
+      "rank": 1
+    },
+    {
+      "word": "win",
+      "score": 0.9294,
+      "rank": 2
+    },
+    {
+      "word": "winning",
+      "score": 0.9276,
+      "rank": 3
+    },
+    {
+      "word": "won",
+      "score": 0.8951,
+      "rank": 4
+    },
+    {
+      "word": "triumph",
+      "score": 0.8944,
+      "rank": 5
+    },
+    {
+      "word": "wins",
+      "score": 0.8885,
+      "rank": 6
+    },
+    {
+      "word": "winnings",
+      "score": 0.8709,
+      "rank": 7
+    },
+    {
+      "word": "triumphed",
+      "score": 0.8533,
+      "rank": 8
+    },
+    {
+      "word": "vincenzo",
+      "score": 0.8411,
+      "rank": 9
+    },
+    {
+      "word": "winner",
+      "score": 0.8382,
+      "rank": 10
+    },
+    {
+      "word": "triumphs",
+      "score": 0.8369,
+      "rank": 11
+    },
+    {
+      "word": "triumphal",
+      "score": 0.8268,
+      "rank": 12
+    },
+    {
+      "word": "triumphant",
+      "score": 0.8168,
+      "rank": 13
+    },
+    {
+      "word": "winners",
+      "score": 0.8148,
+      "rank": 14
+    },
+    {
+      "word": "vincente",
+      "score": 0.7973,
+      "rank": 15
+    },
+    {
+      "word": "defeating",
+      "score": 0.7883,
+      "rank": 16
+    },
+    {
+      "word": "successes",
+      "score": 0.7862,
+      "rank": 17
+    },
+    {
+      "word": "defeated",
+      "score": 0.7666,
+      "rank": 18
+    },
+    {
+      "word": "prevailed",
+      "score": 0.7621,
+      "rank": 19
+    },
+    {
+      "word": "campion",
+      "score": 0.7493,
+      "rank": 20
+    },
+    {
+      "word": "triumphantly",
+      "score": 0.746,
+      "rank": 21
+    },
+    {
+      "word": "success",
+      "score": 0.7252,
+      "rank": 22
+    },
+    {
+      "word": "gagnon",
+      "score": 0.7251,
+      "rank": 23
+    },
+    {
+      "word": "defeat",
+      "score": 0.7198,
+      "rank": 24
+    },
+    {
+      "word": "scored",
+      "score": 0.7079,
+      "rank": 25
+    },
+    {
+      "word": "defeats",
+      "score": 0.7072,
+      "rank": 26
+    },
+    {
+      "word": "championship",
+      "score": 0.7024,
+      "rank": 27
+    },
+    {
+      "word": "edu",
+      "score": 0.6989,
+      "rank": 28
+    },
+    {
+      "word": "contest",
+      "score": 0.697,
+      "rank": 29
+    },
+    {
+      "word": "semifinal",
+      "score": 0.6956,
+      "rank": 30
+    },
+    {
+      "word": "succeeds",
+      "score": 0.6953,
+      "rank": 31
+    },
+    {
+      "word": "score",
+      "score": 0.6948,
+      "rank": 32
+    },
+    {
+      "word": "gare",
+      "score": 0.6943,
+      "rank": 33
+    },
+    {
+      "word": "outcome",
+      "score": 0.694,
+      "rank": 34
+    },
+    {
+      "word": "champion",
+      "score": 0.693,
+      "rank": 35
+    },
+    {
+      "word": "contesting",
+      "score": 0.6926,
+      "rank": 36
+    },
+    {
+      "word": "crowned",
+      "score": 0.6906,
+      "rank": 37
+    },
+    {
+      "word": "achievement",
+      "score": 0.6837,
+      "rank": 38
+    },
+    {
+      "word": "scoring",
+      "score": 0.6799,
+      "rank": 39
+    },
+    {
+      "word": "champions",
+      "score": 0.6769,
+      "rank": 40
+    },
+    {
+      "word": "contestant",
+      "score": 0.6688,
+      "rank": 41
+    },
+    {
+      "word": "ovation",
+      "score": 0.6685,
+      "rank": 42
+    },
+    {
+      "word": "gained",
+      "score": 0.6676,
+      "rank": 43
+    },
+    {
+      "word": "successful",
+      "score": 0.6668,
+      "rank": 44
+    },
+    {
+      "word": "succeed",
+      "score": 0.6663,
+      "rank": 45
+    },
+    {
+      "word": "result",
+      "score": 0.6656,
+      "rank": 46
+    },
+    {
+      "word": "recompense",
+      "score": 0.6642,
+      "rank": 47
+    },
+    {
+      "word": "acclaimed",
+      "score": 0.6634,
+      "rank": 48
+    },
+    {
+      "word": "adulation",
+      "score": 0.6619,
+      "rank": 49
+    },
+    {
+      "word": "conquer",
+      "score": 0.6608,
+      "rank": 50
+    },
+    {
+      "word": "gaining",
+      "score": 0.6601,
+      "rank": 51
+    },
+    {
+      "word": "gaines",
+      "score": 0.6593,
+      "rank": 52
+    },
+    {
+      "word": "decomp",
+      "score": 0.6584,
+      "rank": 53
+    },
+    {
+      "word": "gol",
+      "score": 0.6577,
+      "rank": 54
+    },
+    {
+      "word": "semifinals",
+      "score": 0.6573,
+      "rank": 55
+    },
+    {
+      "word": "accolades",
+      "score": 0.6565,
+      "rank": 56
+    },
+    {
+      "word": "conquering",
+      "score": 0.6557,
+      "rank": 57
+    },
+    {
+      "word": "knockoff",
+      "score": 0.6527,
+      "rank": 58
+    },
+    {
+      "word": "champs",
+      "score": 0.6514,
+      "rank": 59
+    },
+    {
+      "word": "champ",
+      "score": 0.6512,
+      "rank": 60
+    },
+    {
+      "word": "successfully",
+      "score": 0.6506,
+      "rank": 61
+    },
+    {
+      "word": "gain",
+      "score": 0.6502,
+      "rank": 62
+    },
+    {
+      "word": "succeeded",
+      "score": 0.6498,
+      "rank": 63
+    },
+    {
+      "word": "competed",
+      "score": 0.6489,
+      "rank": 64
+    },
+    {
+      "word": "succeeding",
+      "score": 0.6456,
+      "rank": 65
+    },
+    {
+      "word": "turnout",
+      "score": 0.6454,
+      "rank": 66
+    },
+    {
+      "word": "medal",
+      "score": 0.6444,
+      "rank": 67
+    },
+    {
+      "word": "rewarded",
+      "score": 0.644,
+      "rank": 68
+    },
+    {
+      "word": "knockout",
+      "score": 0.6439,
+      "rank": 69
+    },
+    {
+      "word": "prize",
+      "score": 0.6432,
+      "rank": 70
+    },
+    {
+      "word": "trophy",
+      "score": 0.64,
+      "rank": 71
+    },
+    {
+      "word": "scores",
+      "score": 0.6398,
+      "rank": 72
+    },
+    {
+      "word": "competition",
+      "score": 0.638,
+      "rank": 73
+    },
+    {
+      "word": "cheered",
+      "score": 0.6377,
+      "rank": 74
+    },
+    {
+      "word": "overtook",
+      "score": 0.6373,
+      "rank": 75
+    },
+    {
+      "word": "event",
+      "score": 0.6365,
+      "rank": 76
+    },
+    {
+      "word": "competing",
+      "score": 0.6351,
+      "rank": 77
+    },
+    {
+      "word": "compete",
+      "score": 0.6349,
+      "rank": 78
+    },
+    {
+      "word": "medalist",
+      "score": 0.6343,
+      "rank": 79
+    },
+    {
+      "word": "undefeated",
+      "score": 0.6341,
+      "rank": 80
+    },
+    {
+      "word": "positive",
+      "score": 0.6336,
+      "rank": 81
+    },
+    {
+      "word": "shindig",
+      "score": 0.6329,
+      "rank": 82
+    },
+    {
+      "word": "contests",
+      "score": 0.6324,
+      "rank": 83
+    },
+    {
+      "word": "heroically",
+      "score": 0.6323,
+      "rank": 84
+    },
+    {
+      "word": "opponents",
+      "score": 0.6322,
+      "rank": 85
+    },
+    {
+      "word": "reward",
+      "score": 0.6311,
+      "rank": 86
+    },
+    {
+      "word": "competitions",
+      "score": 0.6289,
+      "rank": 87
+    },
+    {
+      "word": "defeatist",
+      "score": 0.6285,
+      "rank": 88
+    },
+    {
+      "word": "applaud",
+      "score": 0.6282,
+      "rank": 89
+    },
+    {
+      "word": "tournament",
+      "score": 0.6277,
+      "rank": 90
+    },
+    {
+      "word": "prevails",
+      "score": 0.627,
+      "rank": 91
+    },
+    {
+      "word": "gains",
+      "score": 0.6269,
+      "rank": 92
+    },
+    {
+      "word": "challengers",
+      "score": 0.6258,
+      "rank": 93
+    },
+    {
+      "word": "verdict",
+      "score": 0.6246,
+      "rank": 94
+    },
+    {
+      "word": "participants",
+      "score": 0.6246,
+      "rank": 95
+    },
+    {
+      "word": "bragg",
+      "score": 0.6236,
+      "rank": 96
+    },
+    {
+      "word": "feat",
+      "score": 0.6232,
+      "rank": 97
+    },
+    {
+      "word": "supremacy",
+      "score": 0.6227,
+      "rank": 98
+    },
+    {
+      "word": "participated",
+      "score": 0.6223,
+      "rank": 99
+    },
+    {
+      "word": "contestants",
+      "score": 0.6223,
+      "rank": 100
+    },
+    {
+      "word": "rewarding",
+      "score": 0.6219,
+      "rank": 101
+    },
+    {
+      "word": "patriotic",
+      "score": 0.6197,
+      "rank": 102
+    },
+    {
+      "word": "attained",
+      "score": 0.6192,
+      "rank": 103
+    },
+    {
+      "word": "impressive",
+      "score": 0.6185,
+      "rank": 104
+    },
+    {
+      "word": "contested",
+      "score": 0.618,
+      "rank": 105
+    },
+    {
+      "word": "finals",
+      "score": 0.6178,
+      "rank": 106
+    },
+    {
+      "word": "excitement",
+      "score": 0.6177,
+      "rank": 107
+    },
+    {
+      "word": "wondrous",
+      "score": 0.6175,
+      "rank": 108
+    },
+    {
+      "word": "finalist",
+      "score": 0.6173,
+      "rank": 109
+    },
+    {
+      "word": "winnebago",
+      "score": 0.616,
+      "rank": 110
+    },
+    {
+      "word": "achievements",
+      "score": 0.6143,
+      "rank": 111
+    },
+    {
+      "word": "acclaim",
+      "score": 0.6141,
+      "rank": 112
+    },
+    {
+      "word": "contender",
+      "score": 0.614,
+      "rank": 113
+    },
+    {
+      "word": "outshine",
+      "score": 0.6137,
+      "rank": 114
+    },
+    {
+      "word": "valiant",
+      "score": 0.6135,
+      "rank": 115
+    },
+    {
+      "word": "vali",
+      "score": 0.6134,
+      "rank": 116
+    },
+    {
+      "word": "sieg",
+      "score": 0.6132,
+      "rank": 117
+    },
+    {
+      "word": "conquers",
+      "score": 0.6124,
+      "rank": 118
+    },
+    {
+      "word": "reelected",
+      "score": 0.6124,
+      "rank": 119
+    },
+    {
+      "word": "accomplished",
+      "score": 0.6114,
+      "rank": 120
+    },
+    {
+      "word": "valdes",
+      "score": 0.6112,
+      "rank": 121
+    },
+    {
+      "word": "cheering",
+      "score": 0.6111,
+      "rank": 122
+    },
+    {
+      "word": "menelaus",
+      "score": 0.6111,
+      "rank": 123
+    },
+    {
+      "word": "avenge",
+      "score": 0.6108,
+      "rank": 124
+    },
+    {
+      "word": "finalists",
+      "score": 0.6101,
+      "rank": 125
+    },
+    {
+      "word": "coronation",
+      "score": 0.6098,
+      "rank": 126
+    },
+    {
+      "word": "positives",
+      "score": 0.6093,
+      "rank": 127
+    },
+    {
+      "word": "conquered",
+      "score": 0.6085,
+      "rank": 128
+    },
+    {
+      "word": "louts",
+      "score": 0.6078,
+      "rank": 129
+    },
+    {
+      "word": "advantage",
+      "score": 0.6076,
+      "rank": 130
+    },
+    {
+      "word": "rahul",
+      "score": 0.6063,
+      "rank": 131
+    },
+    {
+      "word": "olympus",
+      "score": 0.6056,
+      "rank": 132
+    },
+    {
+      "word": "juicing",
+      "score": 0.6055,
+      "rank": 133
+    },
+    {
+      "word": "hailed",
+      "score": 0.6044,
+      "rank": 134
+    },
+    {
+      "word": "slag",
+      "score": 0.604,
+      "rank": 135
+    },
+    {
+      "word": "nomination",
+      "score": 0.6033,
+      "rank": 136
+    },
+    {
+      "word": "winton",
+      "score": 0.6022,
+      "rank": 137
+    },
+    {
+      "word": "participates",
+      "score": 0.6012,
+      "rank": 138
+    },
+    {
+      "word": "rewards",
+      "score": 0.6012,
+      "rank": 139
+    },
+    {
+      "word": "elect",
+      "score": 0.6011,
+      "rank": 140
+    },
+    {
+      "word": "glory",
+      "score": 0.6009,
+      "rank": 141
+    },
+    {
+      "word": "applauds",
+      "score": 0.6004,
+      "rank": 142
+    },
+    {
+      "word": "battlefield",
+      "score": 0.6004,
+      "rank": 143
+    },
+    {
+      "word": "performance",
+      "score": 0.5998,
+      "rank": 144
+    },
+    {
+      "word": "heroic",
+      "score": 0.5995,
+      "rank": 145
+    },
+    {
+      "word": "elation",
+      "score": 0.5993,
+      "rank": 146
+    },
+    {
+      "word": "results",
+      "score": 0.5993,
+      "rank": 147
+    },
+    {
+      "word": "metas",
+      "score": 0.5978,
+      "rank": 148
+    },
+    {
+      "word": "applause",
+      "score": 0.5973,
+      "rank": 149
+    },
+    {
+      "word": "salutes",
+      "score": 0.597,
+      "rank": 150
+    },
+    {
+      "word": "emmy",
+      "score": 0.5969,
+      "rank": 151
+    },
+    {
+      "word": "praising",
+      "score": 0.5969,
+      "rank": 152
+    },
+    {
+      "word": "participant",
+      "score": 0.5967,
+      "rank": 153
+    },
+    {
+      "word": "applauding",
+      "score": 0.5963,
+      "rank": 154
+    },
+    {
+      "word": "trophies",
+      "score": 0.5961,
+      "rank": 155
+    },
+    {
+      "word": "olympia",
+      "score": 0.596,
+      "rank": 156
+    },
+    {
+      "word": "competitor",
+      "score": 0.5959,
+      "rank": 157
+    },
+    {
+      "word": "goda",
+      "score": 0.595,
+      "rank": 158
+    },
+    {
+      "word": "buon",
+      "score": 0.5948,
+      "rank": 159
+    },
+    {
+      "word": "recapture",
+      "score": 0.5946,
+      "rank": 160
+    },
+    {
+      "word": "ruled",
+      "score": 0.5946,
+      "rank": 161
+    },
+    {
+      "word": "celebrating",
+      "score": 0.5944,
+      "rank": 162
+    },
+    {
+      "word": "contenders",
+      "score": 0.5935,
+      "rank": 163
+    },
+    {
+      "word": "olympiad",
+      "score": 0.5933,
+      "rank": 164
+    },
+    {
+      "word": "clinch",
+      "score": 0.5932,
+      "rank": 165
+    },
+    {
+      "word": "challenger",
+      "score": 0.5931,
+      "rank": 166
+    },
+    {
+      "word": "resulted",
+      "score": 0.593,
+      "rank": 167
+    },
+    {
+      "word": "outcomes",
+      "score": 0.5925,
+      "rank": 168
+    },
+    {
+      "word": "prowess",
+      "score": 0.5922,
+      "rank": 169
+    },
+    {
+      "word": "guten",
+      "score": 0.5918,
+      "rank": 170
+    },
+    {
+      "word": "boasts",
+      "score": 0.5917,
+      "rank": 171
+    },
+    {
+      "word": "applauded",
+      "score": 0.5916,
+      "rank": 172
+    },
+    {
+      "word": "electing",
+      "score": 0.5914,
+      "rank": 173
+    },
+    {
+      "word": "prevail",
+      "score": 0.5913,
+      "rank": 174
+    },
+    {
+      "word": "buona",
+      "score": 0.5909,
+      "rank": 175
+    },
+    {
+      "word": "bravo",
+      "score": 0.5904,
+      "rank": 176
+    },
+    {
+      "word": "touchdown",
+      "score": 0.5904,
+      "rank": 177
+    },
+    {
+      "word": "hailing",
+      "score": 0.5903,
+      "rank": 178
+    },
+    {
+      "word": "ufc",
+      "score": 0.5901,
+      "rank": 179
+    },
+    {
+      "word": "battle",
+      "score": 0.5899,
+      "rank": 180
+    },
+    {
+      "word": "vic",
+      "score": 0.5896,
+      "rank": 181
+    },
+    {
+      "word": "consolation",
+      "score": 0.5894,
+      "rank": 182
+    },
+    {
+      "word": "avail",
+      "score": 0.5894,
+      "rank": 183
+    },
+    {
+      "word": "krieger",
+      "score": 0.589,
+      "rank": 184
+    },
+    {
+      "word": "buenas",
+      "score": 0.5887,
+      "rank": 185
+    },
+    {
+      "word": "heroism",
+      "score": 0.5887,
+      "rank": 186
+    },
+    {
+      "word": "pleased",
+      "score": 0.5887,
+      "rank": 187
+    },
+    {
+      "word": "maxim",
+      "score": 0.5885,
+      "rank": 188
+    },
+    {
+      "word": "grégoire",
+      "score": 0.5884,
+      "rank": 189
+    },
+    {
+      "word": "finest",
+      "score": 0.5881,
+      "rank": 190
+    },
+    {
+      "word": "nominated",
+      "score": 0.5877,
+      "rank": 191
+    },
+    {
+      "word": "glade",
+      "score": 0.5875,
+      "rank": 192
+    },
+    {
+      "word": "valiantly",
+      "score": 0.5875,
+      "rank": 193
+    },
+    {
+      "word": "celebrate",
+      "score": 0.5874,
+      "rank": 194
+    },
+    {
+      "word": "competitors",
+      "score": 0.5873,
+      "rank": 195
+    },
+    {
+      "word": "dorota",
+      "score": 0.5867,
+      "rank": 196
+    },
+    {
+      "word": "glad",
+      "score": 0.5863,
+      "rank": 197
+    },
+    {
+      "word": "slut",
+      "score": 0.586,
+      "rank": 198
+    },
+    {
+      "word": "valdemar",
+      "score": 0.5856,
+      "rank": 199
+    },
+    {
+      "word": "ellen",
+      "score": 0.5849,
+      "rank": 200
+    },
+    {
+      "word": "resulting",
+      "score": 0.5846,
+      "rank": 201
+    },
+    {
+      "word": "tron",
+      "score": 0.5846,
+      "rank": 202
+    },
+    {
+      "word": "bonne",
+      "score": 0.5844,
+      "rank": 203
+    },
+    {
+      "word": "onur",
+      "score": 0.5843,
+      "rank": 204
+    },
+    {
+      "word": "proud",
+      "score": 0.5842,
+      "rank": 205
+    },
+    {
+      "word": "slava",
+      "score": 0.5841,
+      "rank": 206
+    },
+    {
+      "word": "kamp",
+      "score": 0.584,
+      "rank": 207
+    },
+    {
+      "word": "olympic",
+      "score": 0.584,
+      "rank": 208
+    },
+    {
+      "word": "promotion",
+      "score": 0.584,
+      "rank": 209
+    },
+    {
+      "word": "massimo",
+      "score": 0.5838,
+      "rank": 210
+    },
+    {
+      "word": "persevere",
+      "score": 0.5838,
+      "rank": 211
+    },
+    {
+      "word": "vinnie",
+      "score": 0.5838,
+      "rank": 212
+    },
+    {
+      "word": "hea",
+      "score": 0.5834,
+      "rank": 213
+    },
+    {
+      "word": "cielo",
+      "score": 0.5831,
+      "rank": 214
+    },
+    {
+      "word": "heroics",
+      "score": 0.5831,
+      "rank": 215
+    },
+    {
+      "word": "outlast",
+      "score": 0.583,
+      "rank": 216
+    },
+    {
+      "word": "vid",
+      "score": 0.5829,
+      "rank": 217
+    },
+    {
+      "word": "boa",
+      "score": 0.5827,
+      "rank": 218
+    },
+    {
+      "word": "wrought",
+      "score": 0.5826,
+      "rank": 219
+    },
+    {
+      "word": "cheers",
+      "score": 0.5825,
+      "rank": 220
+    },
+    {
+      "word": "verdicts",
+      "score": 0.5823,
+      "rank": 221
+    },
+    {
+      "word": "vincent",
+      "score": 0.5822,
+      "rank": 222
+    },
+    {
+      "word": "knockouts",
+      "score": 0.582,
+      "rank": 223
+    },
+    {
+      "word": "highly",
+      "score": 0.5814,
+      "rank": 224
+    },
+    {
+      "word": "favorable",
+      "score": 0.5811,
+      "rank": 225
+    },
+    {
+      "word": "exemplary",
+      "score": 0.581,
+      "rank": 226
+    },
+    {
+      "word": "formidable",
+      "score": 0.5806,
+      "rank": 227
+    },
+    {
+      "word": "yeltsin",
+      "score": 0.5805,
+      "rank": 228
+    },
+    {
+      "word": "saluted",
+      "score": 0.5805,
+      "rank": 229
+    },
+    {
+      "word": "glades",
+      "score": 0.5804,
+      "rank": 230
+    },
+    {
+      "word": "siege",
+      "score": 0.5802,
+      "rank": 231
+    },
+    {
+      "word": "coronado",
+      "score": 0.5802,
+      "rank": 232
+    },
+    {
+      "word": "superiority",
+      "score": 0.5802,
+      "rank": 233
+    },
+    {
+      "word": "excellent",
+      "score": 0.58,
+      "rank": 234
+    },
+    {
+      "word": "buena",
+      "score": 0.5796,
+      "rank": 235
+    },
+    {
+      "word": "bonaventure",
+      "score": 0.5796,
+      "rank": 236
+    },
+    {
+      "word": "allegiance",
+      "score": 0.5792,
+      "rank": 237
+    },
+    {
+      "word": "madhav",
+      "score": 0.5791,
+      "rank": 238
+    },
+    {
+      "word": "crowning",
+      "score": 0.5785,
+      "rank": 239
+    },
+    {
+      "word": "commended",
+      "score": 0.5777,
+      "rank": 240
+    },
+    {
+      "word": "gauna",
+      "score": 0.5772,
+      "rank": 241
+    },
+    {
+      "word": "opponent",
+      "score": 0.577,
+      "rank": 242
+    },
+    {
+      "word": "playoff",
+      "score": 0.5769,
+      "rank": 243
+    },
+    {
+      "word": "vinci",
+      "score": 0.5767,
+      "rank": 244
+    },
+    {
+      "word": "praise",
+      "score": 0.5766,
+      "rank": 245
+    },
+    {
+      "word": "allegro",
+      "score": 0.5765,
+      "rank": 246
+    },
+    {
+      "word": "buenos",
+      "score": 0.5765,
+      "rank": 247
+    },
+    {
+      "word": "disqualified",
+      "score": 0.5763,
+      "rank": 248
+    },
+    {
+      "word": "proclaimed",
+      "score": 0.5762,
+      "rank": 249
+    },
+    {
+      "word": "finish",
+      "score": 0.5759,
+      "rank": 250
+    },
+    {
+      "word": "salute",
+      "score": 0.5756,
+      "rank": 251
+    },
+    {
+      "word": "praised",
+      "score": 0.5755,
+      "rank": 252
+    },
+    {
+      "word": "thrilled",
+      "score": 0.5754,
+      "rank": 253
+    },
+    {
+      "word": "ceo",
+      "score": 0.5751,
+      "rank": 254
+    },
+    {
+      "word": "celebratory",
+      "score": 0.575,
+      "rank": 255
+    },
+    {
+      "word": "competitive",
+      "score": 0.5748,
+      "rank": 256
+    },
+    {
+      "word": "bra",
+      "score": 0.5748,
+      "rank": 257
+    },
+    {
+      "word": "hitler",
+      "score": 0.5744,
+      "rank": 258
+    },
+    {
+      "word": "skye",
+      "score": 0.5737,
+      "rank": 259
+    },
+    {
+      "word": "trowel",
+      "score": 0.5736,
+      "rank": 260
+    },
+    {
+      "word": "gandalf",
+      "score": 0.5735,
+      "rank": 261
+    },
+    {
+      "word": "neelu",
+      "score": 0.5734,
+      "rank": 262
+    },
+    {
+      "word": "reis",
+      "score": 0.5726,
+      "rank": 263
+    },
+    {
+      "word": "bragged",
+      "score": 0.5722,
+      "rank": 264
+    },
+    {
+      "word": "coup",
+      "score": 0.5722,
+      "rank": 265
+    },
+    {
+      "word": "bittu",
+      "score": 0.5721,
+      "rank": 266
+    },
+    {
+      "word": "validate",
+      "score": 0.572,
+      "rank": 267
+    },
+    {
+      "word": "bun",
+      "score": 0.5718,
+      "rank": 268
+    },
+    {
+      "word": "completion",
+      "score": 0.5717,
+      "rank": 269
+    },
+    {
+      "word": "loofah",
+      "score": 0.5717,
+      "rank": 270
+    },
+    {
+      "word": "atleast",
+      "score": 0.5716,
+      "rank": 271
+    },
+    {
+      "word": "olympian",
+      "score": 0.5716,
+      "rank": 272
+    },
+    {
+      "word": "fini",
+      "score": 0.5715,
+      "rank": 273
+    },
+    {
+      "word": "thrilling",
+      "score": 0.5715,
+      "rank": 274
+    },
+    {
+      "word": "medals",
+      "score": 0.5712,
+      "rank": 275
+    },
+    {
+      "word": "befall",
+      "score": 0.5712,
+      "rank": 276
+    },
+    {
+      "word": "honouring",
+      "score": 0.5711,
+      "rank": 277
+    },
+    {
+      "word": "zoloft",
+      "score": 0.571,
+      "rank": 278
+    },
+    {
+      "word": "sprang",
+      "score": 0.571,
+      "rank": 279
+    },
+    {
+      "word": "eventual",
+      "score": 0.571,
+      "rank": 280
+    },
+    {
+      "word": "contend",
+      "score": 0.5709,
+      "rank": 281
+    },
+    {
+      "word": "votes",
+      "score": 0.5709,
+      "rank": 282
+    },
+    {
+      "word": "dorado",
+      "score": 0.5708,
+      "rank": 283
+    },
+    {
+      "word": "kara",
+      "score": 0.5706,
+      "rank": 284
+    },
+    {
+      "word": "finishes",
+      "score": 0.5704,
+      "rank": 285
+    },
+    {
+      "word": "ola",
+      "score": 0.5702,
+      "rank": 286
+    },
+    {
+      "word": "patriot",
+      "score": 0.5698,
+      "rank": 287
+    },
+    {
+      "word": "dah",
+      "score": 0.5697,
+      "rank": 288
+    },
+    {
+      "word": "ahana",
+      "score": 0.5696,
+      "rank": 289
+    },
+    {
+      "word": "outstanding",
+      "score": 0.5695,
+      "rank": 290
+    },
+    {
+      "word": "achieved",
+      "score": 0.5695,
+      "rank": 291
+    },
+    {
+      "word": "nominations",
+      "score": 0.5693,
+      "rank": 292
+    },
+    {
+      "word": "elected",
+      "score": 0.5692,
+      "rank": 293
+    },
+    {
+      "word": "honoré",
+      "score": 0.5692,
+      "rank": 294
+    },
+    {
+      "word": "positively",
+      "score": 0.5691,
+      "rank": 295
+    },
+    {
+      "word": "enthusiastic",
+      "score": 0.5687,
+      "rank": 296
+    },
+    {
+      "word": "bien",
+      "score": 0.5684,
+      "rank": 297
+    },
+    {
+      "word": "ceos",
+      "score": 0.5684,
+      "rank": 298
+    },
+    {
+      "word": "bout",
+      "score": 0.5681,
+      "rank": 299
+    },
+    {
+      "word": "redeem",
+      "score": 0.5681,
+      "rank": 300
+    },
+    {
+      "word": "fulfilled",
+      "score": 0.5681,
+      "rank": 301
+    },
+    {
+      "word": "participate",
+      "score": 0.5679,
+      "rank": 302
+    },
+    {
+      "word": "excited",
+      "score": 0.5679,
+      "rank": 303
+    },
+    {
+      "word": "alabama",
+      "score": 0.5677,
+      "rank": 304
+    },
+    {
+      "word": "diversions",
+      "score": 0.5673,
+      "rank": 305
+    },
+    {
+      "word": "melee",
+      "score": 0.5672,
+      "rank": 306
+    },
+    {
+      "word": "reigning",
+      "score": 0.5671,
+      "rank": 307
+    },
+    {
+      "word": "rinko",
+      "score": 0.567,
+      "rank": 308
+    },
+    {
+      "word": "attain",
+      "score": 0.5669,
+      "rank": 309
+    },
+    {
+      "word": "utmost",
+      "score": 0.5668,
+      "rank": 310
+    },
+    {
+      "word": "upbeat",
+      "score": 0.5667,
+      "rank": 311
+    },
+    {
+      "word": "fin",
+      "score": 0.5666,
+      "rank": 312
+    },
+    {
+      "word": "gallant",
+      "score": 0.5665,
+      "rank": 313
+    },
+    {
+      "word": "super",
+      "score": 0.5664,
+      "rank": 314
+    },
+    {
+      "word": "lotte",
+      "score": 0.5663,
+      "rank": 315
+    },
+    {
+      "word": "raving",
+      "score": 0.5658,
+      "rank": 316
+    },
+    {
+      "word": "dobie",
+      "score": 0.5656,
+      "rank": 317
+    },
+    {
+      "word": "achieving",
+      "score": 0.5651,
+      "rank": 318
+    },
+    {
+      "word": "galore",
+      "score": 0.5649,
+      "rank": 319
+    },
+    {
+      "word": "gut",
+      "score": 0.5649,
+      "rank": 320
+    },
+    {
+      "word": "cee",
+      "score": 0.5648,
+      "rank": 321
+    },
+    {
+      "word": "culminated",
+      "score": 0.5647,
+      "rank": 322
+    },
+    {
+      "word": "duluth",
+      "score": 0.5647,
+      "rank": 323
+    },
+    {
+      "word": "promotions",
+      "score": 0.5647,
+      "rank": 324
+    },
+    {
+      "word": "warring",
+      "score": 0.5646,
+      "rank": 325
+    },
+    {
+      "word": "fare",
+      "score": 0.5644,
+      "rank": 326
+    },
+    {
+      "word": "tournaments",
+      "score": 0.5644,
+      "rank": 327
+    },
+    {
+      "word": "kilpatrick",
+      "score": 0.5642,
+      "rank": 328
+    },
+    {
+      "word": "jura",
+      "score": 0.5636,
+      "rank": 329
+    },
+    {
+      "word": "hoop",
+      "score": 0.5635,
+      "rank": 330
+    },
+    {
+      "word": "volkoff",
+      "score": 0.5634,
+      "rank": 331
+    },
+    {
+      "word": "rejoice",
+      "score": 0.5633,
+      "rank": 332
+    },
+    {
+      "word": "advantageous",
+      "score": 0.5632,
+      "rank": 333
+    },
+    {
+      "word": "wingate",
+      "score": 0.5631,
+      "rank": 334
+    },
+    {
+      "word": "sátur",
+      "score": 0.5631,
+      "rank": 335
+    },
+    {
+      "word": "tim",
+      "score": 0.5627,
+      "rank": 336
+    },
+    {
+      "word": "finale",
+      "score": 0.5624,
+      "rank": 337
+    },
+    {
+      "word": "håkan",
+      "score": 0.5624,
+      "rank": 338
+    },
+    {
+      "word": "jer",
+      "score": 0.5619,
+      "rank": 339
+    },
+    {
+      "word": "sonu",
+      "score": 0.5618,
+      "rank": 340
+    },
+    {
+      "word": "slog",
+      "score": 0.5616,
+      "rank": 341
+    },
+    {
+      "word": "bon",
+      "score": 0.5615,
+      "rank": 342
+    },
+    {
+      "word": "gist",
+      "score": 0.5613,
+      "rank": 343
+    },
+    {
+      "word": "fallujah",
+      "score": 0.5613,
+      "rank": 344
+    },
+    {
+      "word": "wanda",
+      "score": 0.5612,
+      "rank": 345
+    },
+    {
+      "word": "cheer",
+      "score": 0.5612,
+      "rank": 346
+    },
+    {
+      "word": "hoff",
+      "score": 0.5612,
+      "rank": 347
+    },
+    {
+      "word": "aceveda",
+      "score": 0.5612,
+      "rank": 348
+    },
+    {
+      "word": "booming",
+      "score": 0.5611,
+      "rank": 349
+    },
+    {
+      "word": "clinking",
+      "score": 0.5611,
+      "rank": 350
+    },
+    {
+      "word": "hava",
+      "score": 0.561,
+      "rank": 351
+    },
+    {
+      "word": "mobilization",
+      "score": 0.5609,
+      "rank": 352
+    },
+    {
+      "word": "bravery",
+      "score": 0.5607,
+      "rank": 353
+    },
+    {
+      "word": "wunderbar",
+      "score": 0.5607,
+      "rank": 354
+    },
+    {
+      "word": "bene",
+      "score": 0.5606,
+      "rank": 355
+    },
+    {
+      "word": "madhu",
+      "score": 0.5605,
+      "rank": 356
+    },
+    {
+      "word": "celebrated",
+      "score": 0.5605,
+      "rank": 357
+    },
+    {
+      "word": "hoffa",
+      "score": 0.5604,
+      "rank": 358
+    },
+    {
+      "word": "surpassed",
+      "score": 0.5602,
+      "rank": 359
+    },
+    {
+      "word": "krieg",
+      "score": 0.5602,
+      "rank": 360
+    },
+    {
+      "word": "uav",
+      "score": 0.5601,
+      "rank": 361
+    },
+    {
+      "word": "accomplish",
+      "score": 0.56,
+      "rank": 362
+    },
+    {
+      "word": "glenda",
+      "score": 0.56,
+      "rank": 363
+    },
+    {
+      "word": "maxime",
+      "score": 0.5599,
+      "rank": 364
+    },
+    {
+      "word": "winch",
+      "score": 0.5599,
+      "rank": 365
+    },
+    {
+      "word": "sprung",
+      "score": 0.5598,
+      "rank": 366
+    },
+    {
+      "word": "agra",
+      "score": 0.5598,
+      "rank": 367
+    },
+    {
+      "word": "pico",
+      "score": 0.5596,
+      "rank": 368
+    },
+    {
+      "word": "nay",
+      "score": 0.5596,
+      "rank": 369
+    },
+    {
+      "word": "valente",
+      "score": 0.5596,
+      "rank": 370
+    },
+    {
+      "word": "klara",
+      "score": 0.5595,
+      "rank": 371
+    },
+    {
+      "word": "good",
+      "score": 0.5595,
+      "rank": 372
+    },
+    {
+      "word": "vault",
+      "score": 0.5595,
+      "rank": 373
+    },
+    {
+      "word": "qualifying",
+      "score": 0.5594,
+      "rank": 374
+    },
+    {
+      "word": "reelection",
+      "score": 0.5593,
+      "rank": 375
+    },
+    {
+      "word": "proudly",
+      "score": 0.5592,
+      "rank": 376
+    },
+    {
+      "word": "great",
+      "score": 0.5591,
+      "rank": 377
+    },
+    {
+      "word": "ultimate",
+      "score": 0.5591,
+      "rank": 378
+    },
+    {
+      "word": "benedict",
+      "score": 0.5591,
+      "rank": 379
+    },
+    {
+      "word": "bragging",
+      "score": 0.5591,
+      "rank": 380
+    },
+    {
+      "word": "winnetou",
+      "score": 0.559,
+      "rank": 381
+    },
+    {
+      "word": "göring",
+      "score": 0.5588,
+      "rank": 382
+    },
+    {
+      "word": "vette",
+      "score": 0.5588,
+      "rank": 383
+    },
+    {
+      "word": "bona",
+      "score": 0.5588,
+      "rank": 384
+    },
+    {
+      "word": "conqueror",
+      "score": 0.5588,
+      "rank": 385
+    },
+    {
+      "word": "praises",
+      "score": 0.5585,
+      "rank": 386
+    },
+    {
+      "word": "winfrey",
+      "score": 0.5585,
+      "rank": 387
+    },
+    {
+      "word": "pietje",
+      "score": 0.5584,
+      "rank": 388
+    },
+    {
+      "word": "bestest",
+      "score": 0.5583,
+      "rank": 389
+    },
+    {
+      "word": "johan",
+      "score": 0.5582,
+      "rank": 390
+    },
+    {
+      "word": "ravings",
+      "score": 0.5582,
+      "rank": 391
+    },
+    {
+      "word": "commendation",
+      "score": 0.5581,
+      "rank": 392
+    },
+    {
+      "word": "wojtek",
+      "score": 0.558,
+      "rank": 393
+    },
+    {
+      "word": "feint",
+      "score": 0.558,
+      "rank": 394
+    },
+    {
+      "word": "juri",
+      "score": 0.558,
+      "rank": 395
+    },
+    {
+      "word": "augment",
+      "score": 0.5579,
+      "rank": 396
+    },
+    {
+      "word": "duel",
+      "score": 0.5579,
+      "rank": 397
+    },
+    {
+      "word": "raja",
+      "score": 0.5579,
+      "rank": 398
+    },
+    {
+      "word": "wincing",
+      "score": 0.5578,
+      "rank": 399
+    },
+    {
+      "word": "douglas",
+      "score": 0.5578,
+      "rank": 400
+    },
+    {
+      "word": "gala",
+      "score": 0.5577,
+      "rank": 401
+    },
+    {
+      "word": "vindication",
+      "score": 0.5577,
+      "rank": 402
+    },
+    {
+      "word": "bello",
+      "score": 0.5576,
+      "rank": 403
+    },
+    {
+      "word": "juergens",
+      "score": 0.5575,
+      "rank": 404
+    },
+    {
+      "word": "wyoming",
+      "score": 0.5573,
+      "rank": 405
+    },
+    {
+      "word": "exciting",
+      "score": 0.5572,
+      "rank": 406
+    },
+    {
+      "word": "genial",
+      "score": 0.5572,
+      "rank": 407
+    },
+    {
+      "word": "ravi",
+      "score": 0.557,
+      "rank": 408
+    },
+    {
+      "word": "deposed",
+      "score": 0.557,
+      "rank": 409
+    },
+    {
+      "word": "battles",
+      "score": 0.5568,
+      "rank": 410
+    },
+    {
+      "word": "hajime",
+      "score": 0.5567,
+      "rank": 411
+    },
+    {
+      "word": "cezanne",
+      "score": 0.5567,
+      "rank": 412
+    },
+    {
+      "word": "versus",
+      "score": 0.5566,
+      "rank": 413
+    },
+    {
+      "word": "vyvyan",
+      "score": 0.5565,
+      "rank": 414
+    },
+    {
+      "word": "achieves",
+      "score": 0.5565,
+      "rank": 415
+    },
+    {
+      "word": "ultimately",
+      "score": 0.5563,
+      "rank": 416
+    },
+    {
+      "word": "wegener",
+      "score": 0.5563,
+      "rank": 417
+    },
+    {
+      "word": "peaks",
+      "score": 0.5563,
+      "rank": 418
+    },
+    {
+      "word": "ecstatic",
+      "score": 0.5562,
+      "rank": 419
+    },
+    {
+      "word": "final",
+      "score": 0.5562,
+      "rank": 420
+    },
+    {
+      "word": "taiga",
+      "score": 0.5559,
+      "rank": 421
+    },
+    {
+      "word": "decisive",
+      "score": 0.5554,
+      "rank": 422
+    },
+    {
+      "word": "fortuna",
+      "score": 0.5553,
+      "rank": 423
+    },
+    {
+      "word": "hail",
+      "score": 0.555,
+      "rank": 424
+    },
+    {
+      "word": "earned",
+      "score": 0.5549,
+      "rank": 425
+    },
+    {
+      "word": "rematch",
+      "score": 0.5549,
+      "rank": 426
+    },
+    {
+      "word": "finito",
+      "score": 0.5548,
+      "rank": 427
+    },
+    {
+      "word": "rejoiced",
+      "score": 0.5547,
+      "rank": 428
+    },
+    {
+      "word": "ranga",
+      "score": 0.5547,
+      "rank": 429
+    },
+    {
+      "word": "helter",
+      "score": 0.5547,
+      "rank": 430
+    },
+    {
+      "word": "boos",
+      "score": 0.5547,
+      "rank": 431
+    },
+    {
+      "word": "vlasta",
+      "score": 0.5545,
+      "rank": 432
+    },
+    {
+      "word": "augmented",
+      "score": 0.5544,
+      "rank": 433
+    },
+    {
+      "word": "befallen",
+      "score": 0.5544,
+      "rank": 434
+    },
+    {
+      "word": "upheld",
+      "score": 0.5538,
+      "rank": 435
+    },
+    {
+      "word": "premier",
+      "score": 0.5537,
+      "rank": 436
+    },
+    {
+      "word": "nihaal",
+      "score": 0.5537,
+      "rank": 437
+    },
+    {
+      "word": "jibun",
+      "score": 0.5536,
+      "rank": 438
+    },
+    {
+      "word": "brave",
+      "score": 0.5536,
+      "rank": 439
+    },
+    {
+      "word": "merton",
+      "score": 0.5535,
+      "rank": 440
+    },
+    {
+      "word": "ser",
+      "score": 0.5531,
+      "rank": 441
+    },
+    {
+      "word": "prizes",
+      "score": 0.553,
+      "rank": 442
+    },
+    {
+      "word": "vinny",
+      "score": 0.5529,
+      "rank": 443
+    },
+    {
+      "word": "bravado",
+      "score": 0.5528,
+      "rank": 444
+    },
+    {
+      "word": "ano",
+      "score": 0.5528,
+      "rank": 445
+    },
+    {
+      "word": "boom",
+      "score": 0.5528,
+      "rank": 446
+    },
+    {
+      "word": "galu",
+      "score": 0.5527,
+      "rank": 447
+    },
+    {
+      "word": "regatta",
+      "score": 0.5527,
+      "rank": 448
+    },
+    {
+      "word": "nominees",
+      "score": 0.5525,
+      "rank": 449
+    },
+    {
+      "word": "idaho",
+      "score": 0.5524,
+      "rank": 450
+    },
+    {
+      "word": "sautéed",
+      "score": 0.5522,
+      "rank": 451
+    },
+    {
+      "word": "rager",
+      "score": 0.5522,
+      "rank": 452
+    },
+    {
+      "word": "award",
+      "score": 0.552,
+      "rank": 453
+    },
+    {
+      "word": "winston",
+      "score": 0.5518,
+      "rank": 454
+    },
+    {
+      "word": "breakout",
+      "score": 0.5517,
+      "rank": 455
+    },
+    {
+      "word": "fait",
+      "score": 0.5517,
+      "rank": 456
+    },
+    {
+      "word": "begat",
+      "score": 0.5516,
+      "rank": 457
+    },
+    {
+      "word": "wyatt",
+      "score": 0.5515,
+      "rank": 458
+    },
+    {
+      "word": "bueno",
+      "score": 0.5514,
+      "rank": 459
+    },
+    {
+      "word": "vale",
+      "score": 0.5514,
+      "rank": 460
+    },
+    {
+      "word": "achieve",
+      "score": 0.5509,
+      "rank": 461
+    },
+    {
+      "word": "joo",
+      "score": 0.5508,
+      "rank": 462
+    },
+    {
+      "word": "uesugi",
+      "score": 0.5508,
+      "rank": 463
+    },
+    {
+      "word": "jud",
+      "score": 0.5508,
+      "rank": 464
+    },
+    {
+      "word": "goddamit",
+      "score": 0.5506,
+      "rank": 465
+    },
+    {
+      "word": "luckily",
+      "score": 0.5506,
+      "rank": 466
+    },
+    {
+      "word": "bem",
+      "score": 0.5505,
+      "rank": 467
+    },
+    {
+      "word": "corrigan",
+      "score": 0.5505,
+      "rank": 468
+    },
+    {
+      "word": "asa",
+      "score": 0.5503,
+      "rank": 469
+    },
+    {
+      "word": "voted",
+      "score": 0.5502,
+      "rank": 470
+    },
+    {
+      "word": "luck",
+      "score": 0.5501,
+      "rank": 471
+    },
+    {
+      "word": "ucla",
+      "score": 0.5501,
+      "rank": 472
+    },
+    {
+      "word": "unanimous",
+      "score": 0.55,
+      "rank": 473
+    },
+    {
+      "word": "boast",
+      "score": 0.55,
+      "rank": 474
+    },
+    {
+      "word": "juma",
+      "score": 0.55,
+      "rank": 475
+    },
+    {
+      "word": "annette",
+      "score": 0.55,
+      "rank": 476
+    },
+    {
+      "word": "matchmaking",
+      "score": 0.5496,
+      "rank": 477
+    },
+    {
+      "word": "darius",
+      "score": 0.5495,
+      "rank": 478
+    },
+    {
+      "word": "jeopardy",
+      "score": 0.5495,
+      "rank": 479
+    },
+    {
+      "word": "verdi",
+      "score": 0.5495,
+      "rank": 480
+    },
+    {
+      "word": "gloriously",
+      "score": 0.5494,
+      "rank": 481
+    },
+    {
+      "word": "billet",
+      "score": 0.5494,
+      "rank": 482
+    },
+    {
+      "word": "klimt",
+      "score": 0.5493,
+      "rank": 483
+    },
+    {
+      "word": "winces",
+      "score": 0.5491,
+      "rank": 484
+    },
+    {
+      "word": "diverting",
+      "score": 0.5491,
+      "rank": 485
+    },
+    {
+      "word": "fein",
+      "score": 0.5491,
+      "rank": 486
+    },
+    {
+      "word": "jamal",
+      "score": 0.5491,
+      "rank": 487
+    },
+    {
+      "word": "ascot",
+      "score": 0.5488,
+      "rank": 488
+    },
+    {
+      "word": "ivs",
+      "score": 0.5488,
+      "rank": 489
+    },
+    {
+      "word": "prima",
+      "score": 0.5488,
+      "rank": 490
+    },
+    {
+      "word": "madhuri",
+      "score": 0.5488,
+      "rank": 491
+    },
+    {
+      "word": "rejoices",
+      "score": 0.5488,
+      "rank": 492
+    },
+    {
+      "word": "dollop",
+      "score": 0.5488,
+      "rank": 493
+    },
+    {
+      "word": "hap",
+      "score": 0.5487,
+      "rank": 494
+    },
+    {
+      "word": "vez",
+      "score": 0.5487,
+      "rank": 495
+    },
+    {
+      "word": "walling",
+      "score": 0.5484,
+      "rank": 496
+    },
+    {
+      "word": "culminating",
+      "score": 0.5483,
+      "rank": 497
+    },
+    {
+      "word": "assange",
+      "score": 0.5483,
+      "rank": 498
+    },
+    {
+      "word": "ali",
+      "score": 0.5483,
+      "rank": 499
+    },
+    {
+      "word": "utah",
+      "score": 0.5481,
+      "rank": 500
+    },
+    {
+      "word": "havin",
+      "score": 0.5481,
+      "rank": 501
+    },
+    {
+      "word": "adios",
+      "score": 0.5481,
+      "rank": 502
+    },
+    {
+      "word": "honore",
+      "score": 0.5481,
+      "rank": 503
+    },
+    {
+      "word": "superb",
+      "score": 0.548,
+      "rank": 504
+    },
+    {
+      "word": "olympics",
+      "score": 0.5479,
+      "rank": 505
+    },
+    {
+      "word": "scorer",
+      "score": 0.5478,
+      "rank": 506
+    },
+    {
+      "word": "kabul",
+      "score": 0.5478,
+      "rank": 507
+    },
+    {
+      "word": "iwas",
+      "score": 0.5478,
+      "rank": 508
+    },
+    {
+      "word": "vel",
+      "score": 0.5477,
+      "rank": 509
+    },
+    {
+      "word": "wel",
+      "score": 0.5477,
+      "rank": 510
+    },
+    {
+      "word": "apropos",
+      "score": 0.5477,
+      "rank": 511
+    },
+    {
+      "word": "darien",
+      "score": 0.5476,
+      "rank": 512
+    },
+    {
+      "word": "ammu",
+      "score": 0.5476,
+      "rank": 513
+    },
+    {
+      "word": "shod",
+      "score": 0.5475,
+      "rank": 514
+    },
+    {
+      "word": "stemming",
+      "score": 0.5475,
+      "rank": 515
+    },
+    {
+      "word": "wino",
+      "score": 0.5475,
+      "rank": 516
+    },
+    {
+      "word": "wii",
+      "score": 0.5475,
+      "rank": 517
+    },
+    {
+      "word": "eureka",
+      "score": 0.5474,
+      "rank": 518
+    },
+    {
+      "word": "goodness",
+      "score": 0.5474,
+      "rank": 519
+    },
+    {
+      "word": "felice",
+      "score": 0.5473,
+      "rank": 520
+    },
+    {
+      "word": "fifa",
+      "score": 0.5473,
+      "rank": 521
+    },
+    {
+      "word": "sze",
+      "score": 0.5472,
+      "rank": 522
+    },
+    {
+      "word": "contra",
+      "score": 0.5471,
+      "rank": 523
+    },
+    {
+      "word": "satisfied",
+      "score": 0.547,
+      "rank": 524
+    },
+    {
+      "word": "jenga",
+      "score": 0.547,
+      "rank": 525
+    },
+    {
+      "word": "arun",
+      "score": 0.5468,
+      "rank": 526
+    },
+    {
+      "word": "kaze",
+      "score": 0.5468,
+      "rank": 527
+    },
+    {
+      "word": "jussi",
+      "score": 0.5467,
+      "rank": 528
+    },
+    {
+      "word": "ari",
+      "score": 0.5464,
+      "rank": 529
+    },
+    {
+      "word": "thankfully",
+      "score": 0.5464,
+      "rank": 530
+    },
+    {
+      "word": "demi",
+      "score": 0.5464,
+      "rank": 531
+    },
+    {
+      "word": "dominate",
+      "score": 0.5463,
+      "rank": 532
+    },
+    {
+      "word": "ikari",
+      "score": 0.5463,
+      "rank": 533
+    },
+    {
+      "word": "ahold",
+      "score": 0.5463,
+      "rank": 534
+    },
+    {
+      "word": "dan",
+      "score": 0.5461,
+      "rank": 535
+    },
+    {
+      "word": "tuo",
+      "score": 0.546,
+      "rank": 536
+    },
+    {
+      "word": "ska",
+      "score": 0.5459,
+      "rank": 537
+    },
+    {
+      "word": "fang",
+      "score": 0.5459,
+      "rank": 538
+    },
+    {
+      "word": "valor",
+      "score": 0.5459,
+      "rank": 539
+    },
+    {
+      "word": "auf",
+      "score": 0.5458,
+      "rank": 540
+    },
+    {
+      "word": "logo",
+      "score": 0.5457,
+      "rank": 541
+    },
+    {
+      "word": "mobilized",
+      "score": 0.5457,
+      "rank": 542
+    },
+    {
+      "word": "savin",
+      "score": 0.5457,
+      "rank": 543
+    },
+    {
+      "word": "vve",
+      "score": 0.5457,
+      "rank": 544
+    },
+    {
+      "word": "surest",
+      "score": 0.5457,
+      "rank": 545
+    },
+    {
+      "word": "mahatma",
+      "score": 0.5456,
+      "rank": 546
+    },
+    {
+      "word": "soared",
+      "score": 0.5456,
+      "rank": 547
+    },
+    {
+      "word": "alli",
+      "score": 0.5456,
+      "rank": 548
+    },
+    {
+      "word": "darin",
+      "score": 0.5456,
+      "rank": 549
+    },
+    {
+      "word": "battlefields",
+      "score": 0.5454,
+      "rank": 550
+    },
+    {
+      "word": "return",
+      "score": 0.5454,
+      "rank": 551
+    },
+    {
+      "word": "consuelo",
+      "score": 0.5453,
+      "rank": 552
+    },
+    {
+      "word": "maarten",
+      "score": 0.5453,
+      "rank": 553
+    },
+    {
+      "word": "pra",
+      "score": 0.5453,
+      "rank": 554
+    },
+    {
+      "word": "goode",
+      "score": 0.5452,
+      "rank": 555
+    },
+    {
+      "word": "beulah",
+      "score": 0.5452,
+      "rank": 556
+    },
+    {
+      "word": "fantastic",
+      "score": 0.5452,
+      "rank": 557
+    },
+    {
+      "word": "renée",
+      "score": 0.5452,
+      "rank": 558
+    },
+    {
+      "word": "race",
+      "score": 0.5451,
+      "rank": 559
+    },
+    {
+      "word": "vicente",
+      "score": 0.5451,
+      "rank": 560
+    },
+    {
+      "word": "rejoicing",
+      "score": 0.545,
+      "rank": 561
+    },
+    {
+      "word": "sekai",
+      "score": 0.545,
+      "rank": 562
+    },
+    {
+      "word": "eng",
+      "score": 0.545,
+      "rank": 563
+    },
+    {
+      "word": "hui",
+      "score": 0.5448,
+      "rank": 564
+    },
+    {
+      "word": "braved",
+      "score": 0.5447,
+      "rank": 565
+    },
+    {
+      "word": "befell",
+      "score": 0.5447,
+      "rank": 566
+    },
+    {
+      "word": "karin",
+      "score": 0.5447,
+      "rank": 567
+    },
+    {
+      "word": "improv",
+      "score": 0.5446,
+      "rank": 568
+    },
+    {
+      "word": "invigorating",
+      "score": 0.5446,
+      "rank": 569
+    },
+    {
+      "word": "iike",
+      "score": 0.5445,
+      "rank": 570
+    },
+    {
+      "word": "prideful",
+      "score": 0.5445,
+      "rank": 571
+    },
+    {
+      "word": "duce",
+      "score": 0.5445,
+      "rank": 572
+    },
+    {
+      "word": "feliz",
+      "score": 0.5444,
+      "rank": 573
+    },
+    {
+      "word": "favorably",
+      "score": 0.5444,
+      "rank": 574
+    },
+    {
+      "word": "performances",
+      "score": 0.5444,
+      "rank": 575
+    },
+    {
+      "word": "varda",
+      "score": 0.5443,
+      "rank": 576
+    },
+    {
+      "word": "beget",
+      "score": 0.5443,
+      "rank": 577
+    },
+    {
+      "word": "nielsen",
+      "score": 0.5443,
+      "rank": 578
+    },
+    {
+      "word": "uppsala",
+      "score": 0.5442,
+      "rank": 579
+    },
+    {
+      "word": "unopposed",
+      "score": 0.5441,
+      "rank": 580
+    },
+    {
+      "word": "gustav",
+      "score": 0.5441,
+      "rank": 581
+    },
+    {
+      "word": "era",
+      "score": 0.5441,
+      "rank": 582
+    },
+    {
+      "word": "schon",
+      "score": 0.5441,
+      "rank": 583
+    },
+    {
+      "word": "jai",
+      "score": 0.544,
+      "rank": 584
+    },
+    {
+      "word": "suk",
+      "score": 0.544,
+      "rank": 585
+    },
+    {
+      "word": "vetted",
+      "score": 0.5439,
+      "rank": 586
+    },
+    {
+      "word": "salvo",
+      "score": 0.5438,
+      "rank": 587
+    },
+    {
+      "word": "thames",
+      "score": 0.5438,
+      "rank": 588
+    },
+    {
+      "word": "pari",
+      "score": 0.5438,
+      "rank": 589
+    },
+    {
+      "word": "kui",
+      "score": 0.5438,
+      "rank": 590
+    },
+    {
+      "word": "cert",
+      "score": 0.5437,
+      "rank": 591
+    },
+    {
+      "word": "som",
+      "score": 0.5436,
+      "rank": 592
+    },
+    {
+      "word": "tha",
+      "score": 0.5435,
+      "rank": 593
+    },
+    {
+      "word": "overtaken",
+      "score": 0.5435,
+      "rank": 594
+    },
+    {
+      "word": "alistair",
+      "score": 0.5435,
+      "rank": 595
+    },
+    {
+      "word": "sedan",
+      "score": 0.5435,
+      "rank": 596
+    },
+    {
+      "word": "holden",
+      "score": 0.5433,
+      "rank": 597
+    },
+    {
+      "word": "java",
+      "score": 0.5433,
+      "rank": 598
+    },
+    {
+      "word": "jurassic",
+      "score": 0.543,
+      "rank": 599
+    },
+    {
+      "word": "jaan",
+      "score": 0.543,
+      "rank": 600
+    },
+    {
+      "word": "benedetto",
+      "score": 0.5429,
+      "rank": 601
+    },
+    {
+      "word": "mahir",
+      "score": 0.5428,
+      "rank": 602
+    },
+    {
+      "word": "heroes",
+      "score": 0.5428,
+      "rank": 603
+    },
+    {
+      "word": "suis",
+      "score": 0.5428,
+      "rank": 604
+    },
+    {
+      "word": "jove",
+      "score": 0.5426,
+      "rank": 605
+    },
+    {
+      "word": "theo",
+      "score": 0.5426,
+      "rank": 606
+    },
+    {
+      "word": "duels",
+      "score": 0.5425,
+      "rank": 607
+    },
+    {
+      "word": "stems",
+      "score": 0.5425,
+      "rank": 608
+    },
+    {
+      "word": "eth",
+      "score": 0.5425,
+      "rank": 609
+    },
+    {
+      "word": "osborne",
+      "score": 0.5425,
+      "rank": 610
+    },
+    {
+      "word": "eminence",
+      "score": 0.5424,
+      "rank": 611
+    },
+    {
+      "word": "clare",
+      "score": 0.5423,
+      "rank": 612
+    },
+    {
+      "word": "unturned",
+      "score": 0.5423,
+      "rank": 613
+    },
+    {
+      "word": "hayek",
+      "score": 0.5422,
+      "rank": 614
+    },
+    {
+      "word": "honor",
+      "score": 0.5422,
+      "rank": 615
+    },
+    {
+      "word": "valise",
+      "score": 0.5419,
+      "rank": 616
+    },
+    {
+      "word": "desperado",
+      "score": 0.5419,
+      "rank": 617
+    },
+    {
+      "word": "peritta",
+      "score": 0.5418,
+      "rank": 618
+    },
+    {
+      "word": "flagrant",
+      "score": 0.5417,
+      "rank": 619
+    },
+    {
+      "word": "vita",
+      "score": 0.5417,
+      "rank": 620
+    },
+    {
+      "word": "pow",
+      "score": 0.5417,
+      "rank": 621
+    },
+    {
+      "word": "combat",
+      "score": 0.5415,
+      "rank": 622
+    },
+    {
+      "word": "ruling",
+      "score": 0.5415,
+      "rank": 623
+    },
+    {
+      "word": "ava",
+      "score": 0.5414,
+      "rank": 624
+    },
+    {
+      "word": "raze",
+      "score": 0.5414,
+      "rank": 625
+    },
+    {
+      "word": "sad",
+      "score": 0.5414,
+      "rank": 626
+    },
+    {
+      "word": "ole",
+      "score": 0.5413,
+      "rank": 627
+    },
+    {
+      "word": "gusto",
+      "score": 0.5412,
+      "rank": 628
+    },
+    {
+      "word": "sor",
+      "score": 0.5411,
+      "rank": 629
+    },
+    {
+      "word": "tallest",
+      "score": 0.541,
+      "rank": 630
+    },
+    {
+      "word": "nisse",
+      "score": 0.5409,
+      "rank": 631
+    },
+    {
+      "word": "reg",
+      "score": 0.5408,
+      "rank": 632
+    },
+    {
+      "word": "gavin",
+      "score": 0.5408,
+      "rank": 633
+    },
+    {
+      "word": "prashant",
+      "score": 0.5408,
+      "rank": 634
+    },
+    {
+      "word": "pelant",
+      "score": 0.5407,
+      "rank": 635
+    },
+    {
+      "word": "jahan",
+      "score": 0.5407,
+      "rank": 636
+    },
+    {
+      "word": "fiat",
+      "score": 0.5407,
+      "rank": 637
+    },
+    {
+      "word": "laureate",
+      "score": 0.5406,
+      "rank": 638
+    },
+    {
+      "word": "gia",
+      "score": 0.5406,
+      "rank": 639
+    },
+    {
+      "word": "turin",
+      "score": 0.5406,
+      "rank": 640
+    },
+    {
+      "word": "sant",
+      "score": 0.5405,
+      "rank": 641
+    },
+    {
+      "word": "javi",
+      "score": 0.5405,
+      "rank": 642
+    },
+    {
+      "word": "bren",
+      "score": 0.5404,
+      "rank": 643
+    },
+    {
+      "word": "minh",
+      "score": 0.5404,
+      "rank": 644
+    },
+    {
+      "word": "jurek",
+      "score": 0.5404,
+      "rank": 645
+    },
+    {
+      "word": "hei",
+      "score": 0.5404,
+      "rank": 646
+    },
+    {
+      "word": "aja",
+      "score": 0.5404,
+      "rank": 647
+    },
+    {
+      "word": "gargantuan",
+      "score": 0.5403,
+      "rank": 648
+    },
+    {
+      "word": "duc",
+      "score": 0.5403,
+      "rank": 649
+    },
+    {
+      "word": "duvet",
+      "score": 0.5402,
+      "rank": 650
+    },
+    {
+      "word": "ono",
+      "score": 0.5401,
+      "rank": 651
+    },
+    {
+      "word": "haig",
+      "score": 0.5401,
+      "rank": 652
+    },
+    {
+      "word": "awesome",
+      "score": 0.5401,
+      "rank": 653
+    },
+    {
+      "word": "redo",
+      "score": 0.54,
+      "rank": 654
+    },
+    {
+      "word": "habib",
+      "score": 0.54,
+      "rank": 655
+    },
+    {
+      "word": "guerra",
+      "score": 0.54,
+      "rank": 656
+    },
+    {
+      "word": "mire",
+      "score": 0.5399,
+      "rank": 657
+    },
+    {
+      "word": "athos",
+      "score": 0.5399,
+      "rank": 658
+    },
+    {
+      "word": "doin",
+      "score": 0.5399,
+      "rank": 659
+    },
+    {
+      "word": "hakeem",
+      "score": 0.5398,
+      "rank": 660
+    },
+    {
+      "word": "jap",
+      "score": 0.5398,
+      "rank": 661
+    },
+    {
+      "word": "faire",
+      "score": 0.5398,
+      "rank": 662
+    },
+    {
+      "word": "sono",
+      "score": 0.5398,
+      "rank": 663
+    },
+    {
+      "word": "racing",
+      "score": 0.5398,
+      "rank": 664
+    },
+    {
+      "word": "guerre",
+      "score": 0.5397,
+      "rank": 665
+    },
+    {
+      "word": "hic",
+      "score": 0.5396,
+      "rank": 666
+    },
+    {
+      "word": "glendale",
+      "score": 0.5396,
+      "rank": 667
+    },
+    {
+      "word": "haute",
+      "score": 0.5396,
+      "rank": 668
+    },
+    {
+      "word": "vie",
+      "score": 0.5395,
+      "rank": 669
+    },
+    {
+      "word": "qualify",
+      "score": 0.5394,
+      "rank": 670
+    },
+    {
+      "word": "tanikaze",
+      "score": 0.5394,
+      "rank": 671
+    },
+    {
+      "word": "admirable",
+      "score": 0.5394,
+      "rank": 672
+    },
+    {
+      "word": "padawan",
+      "score": 0.5393,
+      "rank": 673
+    },
+    {
+      "word": "bahadur",
+      "score": 0.5392,
+      "rank": 674
+    },
+    {
+      "word": "reagan",
+      "score": 0.5392,
+      "rank": 675
+    },
+    {
+      "word": "pika",
+      "score": 0.5391,
+      "rank": 676
+    },
+    {
+      "word": "steffen",
+      "score": 0.539,
+      "rank": 677
+    },
+    {
+      "word": "naik",
+      "score": 0.539,
+      "rank": 678
+    },
+    {
+      "word": "conquerors",
+      "score": 0.5389,
+      "rank": 679
+    },
+    {
+      "word": "war",
+      "score": 0.5387,
+      "rank": 680
+    },
+    {
+      "word": "thís",
+      "score": 0.5386,
+      "rank": 681
+    },
+    {
+      "word": "beret",
+      "score": 0.5386,
+      "rank": 682
+    },
+    {
+      "word": "onslaught",
+      "score": 0.5386,
+      "rank": 683
+    },
+    {
+      "word": "aaargh",
+      "score": 0.5386,
+      "rank": 684
+    },
+    {
+      "word": "wawa",
+      "score": 0.5385,
+      "rank": 685
+    },
+    {
+      "word": "kyla",
+      "score": 0.5385,
+      "rank": 686
+    },
+    {
+      "word": "dado",
+      "score": 0.5384,
+      "rank": 687
+    },
+    {
+      "word": "jeb",
+      "score": 0.5384,
+      "rank": 688
+    },
+    {
+      "word": "gere",
+      "score": 0.5384,
+      "rank": 689
+    },
+    {
+      "word": "marcia",
+      "score": 0.5383,
+      "rank": 690
+    },
+    {
+      "word": "elated",
+      "score": 0.5382,
+      "rank": 691
+    },
+    {
+      "word": "lois",
+      "score": 0.5382,
+      "rank": 692
+    },
+    {
+      "word": "kuo",
+      "score": 0.5382,
+      "rank": 693
+    },
+    {
+      "word": "huo",
+      "score": 0.5382,
+      "rank": 694
+    },
+    {
+      "word": "overjoyed",
+      "score": 0.5381,
+      "rank": 695
+    },
+    {
+      "word": "jour",
+      "score": 0.5381,
+      "rank": 696
+    },
+    {
+      "word": "taker",
+      "score": 0.5381,
+      "rank": 697
+    },
+    {
+      "word": "hirono",
+      "score": 0.5381,
+      "rank": 698
+    },
+    {
+      "word": "laurence",
+      "score": 0.5381,
+      "rank": 699
+    },
+    {
+      "word": "leann",
+      "score": 0.538,
+      "rank": 700
+    },
+    {
+      "word": "sagan",
+      "score": 0.538,
+      "rank": 701
+    },
+    {
+      "word": "gioia",
+      "score": 0.5379,
+      "rank": 702
+    },
+    {
+      "word": "saki",
+      "score": 0.5379,
+      "rank": 703
+    },
+    {
+      "word": "ish",
+      "score": 0.5378,
+      "rank": 704
+    },
+    {
+      "word": "ben",
+      "score": 0.5378,
+      "rank": 705
+    },
+    {
+      "word": "morgan",
+      "score": 0.5378,
+      "rank": 706
+    },
+    {
+      "word": "eah",
+      "score": 0.5377,
+      "rank": 707
+    },
+    {
+      "word": "japp",
+      "score": 0.5375,
+      "rank": 708
+    },
+    {
+      "word": "alas",
+      "score": 0.5375,
+      "rank": 709
+    },
+    {
+      "word": "fide",
+      "score": 0.5375,
+      "rank": 710
+    },
+    {
+      "word": "ascended",
+      "score": 0.5375,
+      "rank": 711
+    },
+    {
+      "word": "takers",
+      "score": 0.5375,
+      "rank": 712
+    },
+    {
+      "word": "megha",
+      "score": 0.5375,
+      "rank": 713
+    },
+    {
+      "word": "eileen",
+      "score": 0.5374,
+      "rank": 714
+    },
+    {
+      "word": "dob",
+      "score": 0.5373,
+      "rank": 715
+    },
+    {
+      "word": "ajoke",
+      "score": 0.5373,
+      "rank": 716
+    },
+    {
+      "word": "hinault",
+      "score": 0.5373,
+      "rank": 717
+    },
+    {
+      "word": "battleground",
+      "score": 0.5372,
+      "rank": 718
+    },
+    {
+      "word": "guillaume",
+      "score": 0.5371,
+      "rank": 719
+    },
+    {
+      "word": "well",
+      "score": 0.5371,
+      "rank": 720
+    },
+    {
+      "word": "vigor",
+      "score": 0.5371,
+      "rank": 721
+    },
+    {
+      "word": "reuven",
+      "score": 0.5371,
+      "rank": 722
+    },
+    {
+      "word": "roly",
+      "score": 0.5369,
+      "rank": 723
+    },
+    {
+      "word": "bonus",
+      "score": 0.5369,
+      "rank": 724
+    },
+    {
+      "word": "dou",
+      "score": 0.5369,
+      "rank": 725
+    },
+    {
+      "word": "awarded",
+      "score": 0.5368,
+      "rank": 726
+    },
+    {
+      "word": "godavari",
+      "score": 0.5368,
+      "rank": 727
+    },
+    {
+      "word": "alo",
+      "score": 0.5367,
+      "rank": 728
+    },
+    {
+      "word": "alois",
+      "score": 0.5367,
+      "rank": 729
+    },
+    {
+      "word": "ode",
+      "score": 0.5367,
+      "rank": 730
+    },
+    {
+      "word": "pour",
+      "score": 0.5367,
+      "rank": 731
+    },
+    {
+      "word": "einar",
+      "score": 0.5367,
+      "rank": 732
+    },
+    {
+      "word": "stat",
+      "score": 0.5367,
+      "rank": 733
+    },
+    {
+      "word": "relieved",
+      "score": 0.5366,
+      "rank": 734
+    },
+    {
+      "word": "alamos",
+      "score": 0.5366,
+      "rank": 735
+    },
+    {
+      "word": "iou",
+      "score": 0.5366,
+      "rank": 736
+    },
+    {
+      "word": "lancer",
+      "score": 0.5366,
+      "rank": 737
+    },
+    {
+      "word": "sau",
+      "score": 0.5364,
+      "rank": 738
+    },
+    {
+      "word": "devine",
+      "score": 0.5364,
+      "rank": 739
+    },
+    {
+      "word": "redder",
+      "score": 0.5364,
+      "rank": 740
+    },
+    {
+      "word": "ayngaran",
+      "score": 0.5363,
+      "rank": 741
+    },
+    {
+      "word": "inigo",
+      "score": 0.5363,
+      "rank": 742
+    },
+    {
+      "word": "tomek",
+      "score": 0.5362,
+      "rank": 743
+    },
+    {
+      "word": "delighted",
+      "score": 0.5362,
+      "rank": 744
+    },
+    {
+      "word": "eben",
+      "score": 0.5362,
+      "rank": 745
+    },
+    {
+      "word": "durant",
+      "score": 0.5361,
+      "rank": 746
+    },
+    {
+      "word": "uhn",
+      "score": 0.5361,
+      "rank": 747
+    },
+    {
+      "word": "υοu",
+      "score": 0.536,
+      "rank": 748
+    },
+    {
+      "word": "happy",
+      "score": 0.536,
+      "rank": 749
+    },
+    {
+      "word": "celebration",
+      "score": 0.536,
+      "rank": 750
+    },
+    {
+      "word": "vil",
+      "score": 0.536,
+      "rank": 751
+    },
+    {
+      "word": "bonn",
+      "score": 0.536,
+      "rank": 752
+    },
+    {
+      "word": "govind",
+      "score": 0.5359,
+      "rank": 753
+    },
+    {
+      "word": "warfare",
+      "score": 0.5358,
+      "rank": 754
+    },
+    {
+      "word": "ata",
+      "score": 0.5358,
+      "rank": 755
+    },
+    {
+      "word": "concede",
+      "score": 0.5357,
+      "rank": 756
+    },
+    {
+      "word": "winchell",
+      "score": 0.5357,
+      "rank": 757
+    },
+    {
+      "word": "terminate",
+      "score": 0.5356,
+      "rank": 758
+    },
+    {
+      "word": "vaya",
+      "score": 0.5356,
+      "rank": 759
+    },
+    {
+      "word": "affirmation",
+      "score": 0.5356,
+      "rank": 760
+    },
+    {
+      "word": "beholden",
+      "score": 0.5355,
+      "rank": 761
+    },
+    {
+      "word": "quel",
+      "score": 0.5355,
+      "rank": 762
+    },
+    {
+      "word": "truce",
+      "score": 0.5354,
+      "rank": 763
+    },
+    {
+      "word": "fred",
+      "score": 0.5354,
+      "rank": 764
+    },
+    {
+      "word": "response",
+      "score": 0.5354,
+      "rank": 765
+    },
+    {
+      "word": "lov",
+      "score": 0.5354,
+      "rank": 766
+    },
+    {
+      "word": "aegis",
+      "score": 0.5354,
+      "rank": 767
+    },
+    {
+      "word": "coursing",
+      "score": 0.5354,
+      "rank": 768
+    },
+    {
+      "word": "sawa",
+      "score": 0.5353,
+      "rank": 769
+    },
+    {
+      "word": "vis",
+      "score": 0.5352,
+      "rank": 770
+    },
+    {
+      "word": "verily",
+      "score": 0.5351,
+      "rank": 771
+    },
+    {
+      "word": "whine",
+      "score": 0.5351,
+      "rank": 772
+    },
+    {
+      "word": "ala",
+      "score": 0.5351,
+      "rank": 773
+    },
+    {
+      "word": "whalen",
+      "score": 0.5351,
+      "rank": 774
+    },
+    {
+      "word": "raza",
+      "score": 0.5351,
+      "rank": 775
+    },
+    {
+      "word": "enthusiasts",
+      "score": 0.5351,
+      "rank": 776
+    },
+    {
+      "word": "hoy",
+      "score": 0.535,
+      "rank": 777
+    },
+    {
+      "word": "shootout",
+      "score": 0.535,
+      "rank": 778
+    },
+    {
+      "word": "aver",
+      "score": 0.535,
+      "rank": 779
+    },
+    {
+      "word": "conclusion",
+      "score": 0.5349,
+      "rank": 780
+    },
+    {
+      "word": "firmament",
+      "score": 0.5349,
+      "rank": 781
+    },
+    {
+      "word": "nominee",
+      "score": 0.5349,
+      "rank": 782
+    },
+    {
+      "word": "fairer",
+      "score": 0.5349,
+      "rank": 783
+    },
+    {
+      "word": "jumpers",
+      "score": 0.5349,
+      "rank": 784
+    },
+    {
+      "word": "fortunately",
+      "score": 0.5349,
+      "rank": 785
+    },
+    {
+      "word": "raya",
+      "score": 0.5349,
+      "rank": 786
+    },
+    {
+      "word": "validity",
+      "score": 0.5349,
+      "rank": 787
+    },
+    {
+      "word": "stiller",
+      "score": 0.5348,
+      "rank": 788
+    },
+    {
+      "word": "dueling",
+      "score": 0.5348,
+      "rank": 789
+    },
+    {
+      "word": "ugo",
+      "score": 0.5348,
+      "rank": 790
+    },
+    {
+      "word": "dans",
+      "score": 0.5348,
+      "rank": 791
+    },
+    {
+      "word": "jimbo",
+      "score": 0.5347,
+      "rank": 792
+    },
+    {
+      "word": "mong",
+      "score": 0.5347,
+      "rank": 793
+    },
+    {
+      "word": "arsene",
+      "score": 0.5347,
+      "rank": 794
+    },
+    {
+      "word": "yello",
+      "score": 0.5346,
+      "rank": 795
+    },
+    {
+      "word": "wwe",
+      "score": 0.5346,
+      "rank": 796
+    },
+    {
+      "word": "vayu",
+      "score": 0.5346,
+      "rank": 797
+    },
+    {
+      "word": "bingo",
+      "score": 0.5346,
+      "rank": 798
+    },
+    {
+      "word": "karai",
+      "score": 0.5346,
+      "rank": 799
+    },
+    {
+      "word": "juha",
+      "score": 0.5346,
+      "rank": 800
+    },
+    {
+      "word": "aman",
+      "score": 0.5346,
+      "rank": 801
+    },
+    {
+      "word": "iam",
+      "score": 0.5345,
+      "rank": 802
+    },
+    {
+      "word": "vai",
+      "score": 0.5344,
+      "rank": 803
+    },
+    {
+      "word": "pre",
+      "score": 0.5344,
+      "rank": 804
+    },
+    {
+      "word": "escalante",
+      "score": 0.5344,
+      "rank": 805
+    },
+    {
+      "word": "antoine",
+      "score": 0.5344,
+      "rank": 806
+    },
+    {
+      "word": "sever",
+      "score": 0.5344,
+      "rank": 807
+    },
+    {
+      "word": "excellently",
+      "score": 0.5344,
+      "rank": 808
+    },
+    {
+      "word": "thrill",
+      "score": 0.5344,
+      "rank": 809
+    },
+    {
+      "word": "awarding",
+      "score": 0.5344,
+      "rank": 810
+    },
+    {
+      "word": "gotten",
+      "score": 0.5343,
+      "rank": 811
+    },
+    {
+      "word": "eew",
+      "score": 0.5343,
+      "rank": 812
+    },
+    {
+      "word": "wehrmacht",
+      "score": 0.5343,
+      "rank": 813
+    },
+    {
+      "word": "avenged",
+      "score": 0.5343,
+      "rank": 814
+    },
+    {
+      "word": "bayram",
+      "score": 0.5343,
+      "rank": 815
+    },
+    {
+      "word": "kansai",
+      "score": 0.5342,
+      "rank": 816
+    },
+    {
+      "word": "berk",
+      "score": 0.5342,
+      "rank": 817
+    },
+    {
+      "word": "raki",
+      "score": 0.5341,
+      "rank": 818
+    },
+    {
+      "word": "intending",
+      "score": 0.5341,
+      "rank": 819
+    },
+    {
+      "word": "reston",
+      "score": 0.5341,
+      "rank": 820
+    },
+    {
+      "word": "tailgate",
+      "score": 0.5341,
+      "rank": 821
+    },
+    {
+      "word": "dice",
+      "score": 0.534,
+      "rank": 822
+    },
+    {
+      "word": "fixture",
+      "score": 0.534,
+      "rank": 823
+    },
+    {
+      "word": "gung",
+      "score": 0.534,
+      "rank": 824
+    },
+    {
+      "word": "sunken",
+      "score": 0.5339,
+      "rank": 825
+    },
+    {
+      "word": "hallelujah",
+      "score": 0.5339,
+      "rank": 826
+    },
+    {
+      "word": "aright",
+      "score": 0.5339,
+      "rank": 827
+    },
+    {
+      "word": "bayou",
+      "score": 0.5339,
+      "rank": 828
+    },
+    {
+      "word": "satoru",
+      "score": 0.5338,
+      "rank": 829
+    },
+    {
+      "word": "brest",
+      "score": 0.5338,
+      "rank": 830
+    },
+    {
+      "word": "sadako",
+      "score": 0.5338,
+      "rank": 831
+    },
+    {
+      "word": "ewa",
+      "score": 0.5337,
+      "rank": 832
+    },
+    {
+      "word": "mertz",
+      "score": 0.5337,
+      "rank": 833
+    },
+    {
+      "word": "ara",
+      "score": 0.5336,
+      "rank": 834
+    },
+    {
+      "word": "felicity",
+      "score": 0.5336,
+      "rank": 835
+    },
+    {
+      "word": "palais",
+      "score": 0.5336,
+      "rank": 836
+    },
+    {
+      "word": "terje",
+      "score": 0.5335,
+      "rank": 837
+    },
+    {
+      "word": "godsend",
+      "score": 0.5335,
+      "rank": 838
+    },
+    {
+      "word": "selam",
+      "score": 0.5335,
+      "rank": 839
+    },
+    {
+      "word": "doa",
+      "score": 0.5335,
+      "rank": 840
+    },
+    {
+      "word": "hakan",
+      "score": 0.5334,
+      "rank": 841
+    },
+    {
+      "word": "sio",
+      "score": 0.5334,
+      "rank": 842
+    },
+    {
+      "word": "repute",
+      "score": 0.5334,
+      "rank": 843
+    },
+    {
+      "word": "meghan",
+      "score": 0.5334,
+      "rank": 844
+    },
+    {
+      "word": "salve",
+      "score": 0.5332,
+      "rank": 845
+    },
+    {
+      "word": "peng",
+      "score": 0.5332,
+      "rank": 846
+    },
+    {
+      "word": "jesu",
+      "score": 0.5331,
+      "rank": 847
+    },
+    {
+      "word": "andersson",
+      "score": 0.5331,
+      "rank": 848
+    },
+    {
+      "word": "escapade",
+      "score": 0.5331,
+      "rank": 849
+    },
+    {
+      "word": "antoinette",
+      "score": 0.5331,
+      "rank": 850
+    },
+    {
+      "word": "tok",
+      "score": 0.533,
+      "rank": 851
+    },
+    {
+      "word": "yadda",
+      "score": 0.533,
+      "rank": 852
+    },
+    {
+      "word": "pert",
+      "score": 0.533,
+      "rank": 853
+    },
+    {
+      "word": "grandeur",
+      "score": 0.533,
+      "rank": 854
+    },
+    {
+      "word": "corona",
+      "score": 0.5329,
+      "rank": 855
+    },
+    {
+      "word": "kombat",
+      "score": 0.5329,
+      "rank": 856
+    },
+    {
+      "word": "graeme",
+      "score": 0.5329,
+      "rank": 857
+    },
+    {
+      "word": "arkansas",
+      "score": 0.5329,
+      "rank": 858
+    },
+    {
+      "word": "justo",
+      "score": 0.5329,
+      "rank": 859
+    },
+    {
+      "word": "geta",
+      "score": 0.5329,
+      "rank": 860
+    },
+    {
+      "word": "hai",
+      "score": 0.5329,
+      "rank": 861
+    },
+    {
+      "word": "afloat",
+      "score": 0.5328,
+      "rank": 862
+    },
+    {
+      "word": "fiind",
+      "score": 0.5328,
+      "rank": 863
+    },
+    {
+      "word": "magnifique",
+      "score": 0.5327,
+      "rank": 864
+    },
+    {
+      "word": "supremely",
+      "score": 0.5327,
+      "rank": 865
+    },
+    {
+      "word": "lucknow",
+      "score": 0.5327,
+      "rank": 866
+    },
+    {
+      "word": "vest",
+      "score": 0.5327,
+      "rank": 867
+    },
+    {
+      "word": "scampi",
+      "score": 0.5327,
+      "rank": 868
+    },
+    {
+      "word": "gawain",
+      "score": 0.5327,
+      "rank": 869
+    },
+    {
+      "word": "mountbatten",
+      "score": 0.5327,
+      "rank": 870
+    },
+    {
+      "word": "eeg",
+      "score": 0.5325,
+      "rank": 871
+    },
+    {
+      "word": "segal",
+      "score": 0.5325,
+      "rank": 872
+    },
+    {
+      "word": "sinan",
+      "score": 0.5325,
+      "rank": 873
+    },
+    {
+      "word": "supreme",
+      "score": 0.5324,
+      "rank": 874
+    },
+    {
+      "word": "jot",
+      "score": 0.5323,
+      "rank": 875
+    },
+    {
+      "word": "bom",
+      "score": 0.5323,
+      "rank": 876
+    },
+    {
+      "word": "mod",
+      "score": 0.5323,
+      "rank": 877
+    },
+    {
+      "word": "arduous",
+      "score": 0.5323,
+      "rank": 878
+    },
+    {
+      "word": "bet",
+      "score": 0.5323,
+      "rank": 879
+    },
+    {
+      "word": "gelding",
+      "score": 0.5322,
+      "rank": 880
+    },
+    {
+      "word": "thrills",
+      "score": 0.5322,
+      "rank": 881
+    },
+    {
+      "word": "eee",
+      "score": 0.5322,
+      "rank": 882
+    },
+    {
+      "word": "venkat",
+      "score": 0.5322,
+      "rank": 883
+    },
+    {
+      "word": "fame",
+      "score": 0.5321,
+      "rank": 884
+    },
+    {
+      "word": "latter",
+      "score": 0.5321,
+      "rank": 885
+    },
+    {
+      "word": "adores",
+      "score": 0.532,
+      "rank": 886
+    },
+    {
+      "word": "contrite",
+      "score": 0.532,
+      "rank": 887
+    },
+    {
+      "word": "excite",
+      "score": 0.5319,
+      "rank": 888
+    },
+    {
+      "word": "finishing",
+      "score": 0.5318,
+      "rank": 889
+    },
+    {
+      "word": "jandi",
+      "score": 0.5318,
+      "rank": 890
+    },
+    {
+      "word": "escapades",
+      "score": 0.5317,
+      "rank": 891
+    },
+    {
+      "word": "punt",
+      "score": 0.5317,
+      "rank": 892
+    },
+    {
+      "word": "eeh",
+      "score": 0.5316,
+      "rank": 893
+    },
+    {
+      "word": "toma",
+      "score": 0.5316,
+      "rank": 894
+    },
+    {
+      "word": "val",
+      "score": 0.5316,
+      "rank": 895
+    },
+    {
+      "word": "grad",
+      "score": 0.5316,
+      "rank": 896
+    },
+    {
+      "word": "grande",
+      "score": 0.5315,
+      "rank": 897
+    },
+    {
+      "word": "impressed",
+      "score": 0.5315,
+      "rank": 898
+    },
+    {
+      "word": "delve",
+      "score": 0.5315,
+      "rank": 899
+    },
+    {
+      "word": "τhe",
+      "score": 0.5314,
+      "rank": 900
+    },
+    {
+      "word": "leo",
+      "score": 0.5314,
+      "rank": 901
+    },
+    {
+      "word": "ofus",
+      "score": 0.5314,
+      "rank": 902
+    },
+    {
+      "word": "søren",
+      "score": 0.5313,
+      "rank": 903
+    },
+    {
+      "word": "poi",
+      "score": 0.5313,
+      "rank": 904
+    },
+    {
+      "word": "avanti",
+      "score": 0.5313,
+      "rank": 905
+    },
+    {
+      "word": "obtuse",
+      "score": 0.5313,
+      "rank": 906
+    },
+    {
+      "word": "ahn",
+      "score": 0.5313,
+      "rank": 907
+    },
+    {
+      "word": "events",
+      "score": 0.5312,
+      "rank": 908
+    },
+    {
+      "word": "kaz",
+      "score": 0.5312,
+      "rank": 909
+    },
+    {
+      "word": "versailles",
+      "score": 0.5311,
+      "rank": 910
+    },
+    {
+      "word": "helo",
+      "score": 0.5311,
+      "rank": 911
+    },
+    {
+      "word": "ora",
+      "score": 0.5311,
+      "rank": 912
+    },
+    {
+      "word": "gilt",
+      "score": 0.5311,
+      "rank": 913
+    },
+    {
+      "word": "taut",
+      "score": 0.531,
+      "rank": 914
+    },
+    {
+      "word": "greats",
+      "score": 0.531,
+      "rank": 915
+    },
+    {
+      "word": "goal",
+      "score": 0.5309,
+      "rank": 916
+    },
+    {
+      "word": "parfait",
+      "score": 0.5309,
+      "rank": 917
+    },
+    {
+      "word": "topped",
+      "score": 0.5309,
+      "rank": 918
+    },
+    {
+      "word": "jubal",
+      "score": 0.5308,
+      "rank": 919
+    },
+    {
+      "word": "stan",
+      "score": 0.5308,
+      "rank": 920
+    },
+    {
+      "word": "affirm",
+      "score": 0.5308,
+      "rank": 921
+    },
+    {
+      "word": "braggart",
+      "score": 0.5308,
+      "rank": 922
+    },
+    {
+      "word": "turpin",
+      "score": 0.5307,
+      "rank": 923
+    },
+    {
+      "word": "harken",
+      "score": 0.5306,
+      "rank": 924
+    },
+    {
+      "word": "prestige",
+      "score": 0.5306,
+      "rank": 925
+    },
+    {
+      "word": "huygens",
+      "score": 0.5306,
+      "rank": 926
+    },
+    {
+      "word": "yeti",
+      "score": 0.5306,
+      "rank": 927
+    },
+    {
+      "word": "gault",
+      "score": 0.5306,
+      "rank": 928
+    },
+    {
+      "word": "boost",
+      "score": 0.5305,
+      "rank": 929
+    },
+    {
+      "word": "cede",
+      "score": 0.5305,
+      "rank": 930
+    },
+    {
+      "word": "bent",
+      "score": 0.5305,
+      "rank": 931
+    },
+    {
+      "word": "spiel",
+      "score": 0.5304,
+      "rank": 932
+    },
+    {
+      "word": "hochstetter",
+      "score": 0.5304,
+      "rank": 933
+    },
+    {
+      "word": "captured",
+      "score": 0.5303,
+      "rank": 934
+    },
+    {
+      "word": "hilt",
+      "score": 0.5303,
+      "rank": 935
+    },
+    {
+      "word": "julio",
+      "score": 0.5303,
+      "rank": 936
+    },
+    {
+      "word": "poli",
+      "score": 0.5303,
+      "rank": 937
+    },
+    {
+      "word": "nato",
+      "score": 0.5303,
+      "rank": 938
+    },
+    {
+      "word": "dmitri",
+      "score": 0.5303,
+      "rank": 939
+    },
+    {
+      "word": "saké",
+      "score": 0.5302,
+      "rank": 940
+    },
+    {
+      "word": "oome",
+      "score": 0.5302,
+      "rank": 941
+    },
+    {
+      "word": "det",
+      "score": 0.5301,
+      "rank": 942
+    },
+    {
+      "word": "marti",
+      "score": 0.5301,
+      "rank": 943
+    },
+    {
+      "word": "dancing",
+      "score": 0.5301,
+      "rank": 944
+    },
+    {
+      "word": "tottenham",
+      "score": 0.53,
+      "rank": 945
+    },
+    {
+      "word": "uproar",
+      "score": 0.53,
+      "rank": 946
+    },
+    {
+      "word": "bennet",
+      "score": 0.5299,
+      "rank": 947
+    },
+    {
+      "word": "savitri",
+      "score": 0.5299,
+      "rank": 948
+    },
+    {
+      "word": "toho",
+      "score": 0.5299,
+      "rank": 949
+    },
+    {
+      "word": "stem",
+      "score": 0.5299,
+      "rank": 950
+    },
+    {
+      "word": "cemal",
+      "score": 0.5298,
+      "rank": 951
+    },
+    {
+      "word": "supporters",
+      "score": 0.5298,
+      "rank": 952
+    },
+    {
+      "word": "cao",
+      "score": 0.5297,
+      "rank": 953
+    },
+    {
+      "word": "oli",
+      "score": 0.5297,
+      "rank": 954
+    },
+    {
+      "word": "epa",
+      "score": 0.5296,
+      "rank": 955
+    },
+    {
+      "word": "nagus",
+      "score": 0.5296,
+      "rank": 956
+    },
+    {
+      "word": "tak",
+      "score": 0.5296,
+      "rank": 957
+    },
+    {
+      "word": "serizawa",
+      "score": 0.5296,
+      "rank": 958
+    },
+    {
+      "word": "varun",
+      "score": 0.5295,
+      "rank": 959
+    },
+    {
+      "word": "allen",
+      "score": 0.5295,
+      "rank": 960
+    },
+    {
+      "word": "bes",
+      "score": 0.5295,
+      "rank": 961
+    },
+    {
+      "word": "reigned",
+      "score": 0.5295,
+      "rank": 962
+    },
+    {
+      "word": "seuss",
+      "score": 0.5295,
+      "rank": 963
+    },
+    {
+      "word": "braves",
+      "score": 0.5294,
+      "rank": 964
+    },
+    {
+      "word": "condon",
+      "score": 0.5293,
+      "rank": 965
+    },
+    {
+      "word": "ativan",
+      "score": 0.5293,
+      "rank": 966
+    },
+    {
+      "word": "saluting",
+      "score": 0.5293,
+      "rank": 967
+    },
+    {
+      "word": "uhh",
+      "score": 0.5293,
+      "rank": 968
+    },
+    {
+      "word": "minuet",
+      "score": 0.5293,
+      "rank": 969
+    },
+    {
+      "word": "oye",
+      "score": 0.5292,
+      "rank": 970
+    },
+    {
+      "word": "tiki",
+      "score": 0.5292,
+      "rank": 971
+    },
+    {
+      "word": "mateo",
+      "score": 0.5292,
+      "rank": 972
+    },
+    {
+      "word": "doj",
+      "score": 0.5292,
+      "rank": 973
+    },
+    {
+      "word": "playoffs",
+      "score": 0.5292,
+      "rank": 974
+    },
+    {
+      "word": "evian",
+      "score": 0.5291,
+      "rank": 975
+    },
+    {
+      "word": "optimism",
+      "score": 0.5291,
+      "rank": 976
+    },
+    {
+      "word": "peaked",
+      "score": 0.529,
+      "rank": 977
+    },
+    {
+      "word": "teo",
+      "score": 0.529,
+      "rank": 978
+    },
+    {
+      "word": "vik",
+      "score": 0.5289,
+      "rank": 979
+    },
+    {
+      "word": "kok",
+      "score": 0.5289,
+      "rank": 980
+    },
+    {
+      "word": "sim",
+      "score": 0.5289,
+      "rank": 981
+    },
+    {
+      "word": "motta",
+      "score": 0.5288,
+      "rank": 982
+    },
+    {
+      "word": "pak",
+      "score": 0.5287,
+      "rank": 983
+    },
+    {
+      "word": "kan",
+      "score": 0.5287,
+      "rank": 984
+    },
+    {
+      "word": "elicit",
+      "score": 0.5287,
+      "rank": 985
+    },
+    {
+      "word": "thrived",
+      "score": 0.5287,
+      "rank": 986
+    },
+    {
+      "word": "lou",
+      "score": 0.5287,
+      "rank": 987
+    },
+    {
+      "word": "gert",
+      "score": 0.5286,
+      "rank": 988
+    },
+    {
+      "word": "ahi",
+      "score": 0.5286,
+      "rank": 989
+    },
+    {
+      "word": "aah",
+      "score": 0.5285,
+      "rank": 990
+    },
+    {
+      "word": "timbuktu",
+      "score": 0.5285,
+      "rank": 991
+    },
+    {
+      "word": "moro",
+      "score": 0.5285,
+      "rank": 992
+    },
+    {
+      "word": "joy",
+      "score": 0.5284,
+      "rank": 993
+    },
+    {
+      "word": "seu",
+      "score": 0.5284,
+      "rank": 994
+    },
+    {
+      "word": "toulouse",
+      "score": 0.5283,
+      "rank": 995
+    },
+    {
+      "word": "ven",
+      "score": 0.5283,
+      "rank": 996
+    },
+    {
+      "word": "eko",
+      "score": 0.5283,
+      "rank": 997
+    },
+    {
+      "word": "madhavan",
+      "score": 0.5283,
+      "rank": 998
+    },
+    {
+      "word": "lucky",
+      "score": 0.5283,
+      "rank": 999
+    },
+    {
+      "word": "swarmed",
+      "score": 0.5283,
+      "rank": 1000
+    }
+  ]
+}

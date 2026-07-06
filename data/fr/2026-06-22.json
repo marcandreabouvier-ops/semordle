@@ -1,0 +1,5014 @@
+{
+  "date": "2026-06-22",
+  "puzzleNumber": 170,
+  "lang": "fr",
+  "secret": "désert",
+  "wordLength": 6,
+  "hints": {
+    "top1": 0.9703,
+    "top10": 0.6781,
+    "top1000": 0.5407
+  },
+  "words": [
+    {
+      "word": "desert",
+      "score": 0.9703,
+      "rank": 1
+    },
+    {
+      "word": "dune",
+      "score": 0.7667,
+      "rank": 2
+    },
+    {
+      "word": "dunes",
+      "score": 0.7595,
+      "rank": 3
+    },
+    {
+      "word": "sandra",
+      "score": 0.716,
+      "rank": 4
+    },
+    {
+      "word": "pâtissière",
+      "score": 0.7013,
+      "rank": 5
+    },
+    {
+      "word": "sand",
+      "score": 0.6979,
+      "rank": 6
+    },
+    {
+      "word": "sands",
+      "score": 0.696,
+      "rank": 7
+    },
+    {
+      "word": "sandy",
+      "score": 0.6909,
+      "rank": 8
+    },
+    {
+      "word": "tarrant",
+      "score": 0.6879,
+      "rank": 9
+    },
+    {
+      "word": "pietro",
+      "score": 0.6781,
+      "rank": 10
+    },
+    {
+      "word": "soulager",
+      "score": 0.6674,
+      "rank": 11
+    },
+    {
+      "word": "tartare",
+      "score": 0.6637,
+      "rank": 12
+    },
+    {
+      "word": "tarée",
+      "score": 0.657,
+      "rank": 13
+    },
+    {
+      "word": "salière",
+      "score": 0.6538,
+      "rank": 14
+    },
+    {
+      "word": "soulagera",
+      "score": 0.6536,
+      "rank": 15
+    },
+    {
+      "word": "sureau",
+      "score": 0.6526,
+      "rank": 16
+    },
+    {
+      "word": "dirt",
+      "score": 0.652,
+      "rank": 17
+    },
+    {
+      "word": "tarées",
+      "score": 0.651,
+      "rank": 18
+    },
+    {
+      "word": "plaine",
+      "score": 0.6505,
+      "rank": 19
+    },
+    {
+      "word": "sanders",
+      "score": 0.6501,
+      "rank": 20
+    },
+    {
+      "word": "séché",
+      "score": 0.6475,
+      "rank": 21
+    },
+    {
+      "word": "dessert",
+      "score": 0.6474,
+      "rank": 22
+    },
+    {
+      "word": "tar",
+      "score": 0.6446,
+      "rank": 23
+    },
+    {
+      "word": "desolee",
+      "score": 0.6443,
+      "rank": 24
+    },
+    {
+      "word": "traîné",
+      "score": 0.6356,
+      "rank": 25
+    },
+    {
+      "word": "tariq",
+      "score": 0.6352,
+      "rank": 26
+    },
+    {
+      "word": "savannah",
+      "score": 0.6349,
+      "rank": 27
+    },
+    {
+      "word": "tarot",
+      "score": 0.6347,
+      "rank": 28
+    },
+    {
+      "word": "moran",
+      "score": 0.6338,
+      "rank": 29
+    },
+    {
+      "word": "plaines",
+      "score": 0.6336,
+      "rank": 30
+    },
+    {
+      "word": "sèche",
+      "score": 0.633,
+      "rank": 31
+    },
+    {
+      "word": "desserts",
+      "score": 0.6327,
+      "rank": 32
+    },
+    {
+      "word": "malina",
+      "score": 0.6318,
+      "rank": 33
+    },
+    {
+      "word": "dusty",
+      "score": 0.6309,
+      "rank": 34
+    },
+    {
+      "word": "salement",
+      "score": 0.6298,
+      "rank": 35
+    },
+    {
+      "word": "salive",
+      "score": 0.6295,
+      "rank": 36
+    },
+    {
+      "word": "sombre",
+      "score": 0.6288,
+      "rank": 37
+    },
+    {
+      "word": "paumes",
+      "score": 0.6287,
+      "rank": 38
+    },
+    {
+      "word": "bergers",
+      "score": 0.6278,
+      "rank": 39
+    },
+    {
+      "word": "sourcil",
+      "score": 0.627,
+      "rank": 40
+    },
+    {
+      "word": "séchez",
+      "score": 0.6263,
+      "rank": 41
+    },
+    {
+      "word": "salée",
+      "score": 0.6259,
+      "rank": 42
+    },
+    {
+      "word": "plateaux",
+      "score": 0.6257,
+      "rank": 43
+    },
+    {
+      "word": "sèches",
+      "score": 0.6256,
+      "rank": 44
+    },
+    {
+      "word": "tardis",
+      "score": 0.6255,
+      "rank": 45
+    },
+    {
+      "word": "suarez",
+      "score": 0.6251,
+      "rank": 46
+    },
+    {
+      "word": "kirsten",
+      "score": 0.6247,
+      "rank": 47
+    },
+    {
+      "word": "paumé",
+      "score": 0.6245,
+      "rank": 48
+    },
+    {
+      "word": "patraque",
+      "score": 0.624,
+      "rank": 49
+    },
+    {
+      "word": "tardif",
+      "score": 0.6235,
+      "rank": 50
+    },
+    {
+      "word": "pistache",
+      "score": 0.623,
+      "rank": 51
+    },
+    {
+      "word": "comanche",
+      "score": 0.6219,
+      "rank": 52
+    },
+    {
+      "word": "moore",
+      "score": 0.6217,
+      "rank": 53
+    },
+    {
+      "word": "poussière",
+      "score": 0.6199,
+      "rank": 54
+    },
+    {
+      "word": "tartines",
+      "score": 0.619,
+      "rank": 55
+    },
+    {
+      "word": "tarentule",
+      "score": 0.6186,
+      "rank": 56
+    },
+    {
+      "word": "salissez",
+      "score": 0.6178,
+      "rank": 57
+    },
+    {
+      "word": "terrer",
+      "score": 0.6176,
+      "rank": 58
+    },
+    {
+      "word": "wilhelm",
+      "score": 0.6157,
+      "rank": 59
+    },
+    {
+      "word": "steppe",
+      "score": 0.6154,
+      "rank": 60
+    },
+    {
+      "word": "sandi",
+      "score": 0.6141,
+      "rank": 61
+    },
+    {
+      "word": "lisière",
+      "score": 0.614,
+      "rank": 62
+    },
+    {
+      "word": "soulage",
+      "score": 0.6138,
+      "rank": 63
+    },
+    {
+      "word": "barrent",
+      "score": 0.6134,
+      "rank": 64
+    },
+    {
+      "word": "sol",
+      "score": 0.6131,
+      "rank": 65
+    },
+    {
+      "word": "taré",
+      "score": 0.6128,
+      "rank": 66
+    },
+    {
+      "word": "lave",
+      "score": 0.6128,
+      "rank": 67
+    },
+    {
+      "word": "pâtir",
+      "score": 0.6124,
+      "rank": 68
+    },
+    {
+      "word": "résous",
+      "score": 0.611,
+      "rank": 69
+    },
+    {
+      "word": "tartiner",
+      "score": 0.6104,
+      "rank": 70
+    },
+    {
+      "word": "rance",
+      "score": 0.6102,
+      "rank": 71
+    },
+    {
+      "word": "nuire",
+      "score": 0.6091,
+      "rank": 72
+    },
+    {
+      "word": "pénurie",
+      "score": 0.6088,
+      "rank": 73
+    },
+    {
+      "word": "taryn",
+      "score": 0.6082,
+      "rank": 74
+    },
+    {
+      "word": "désole",
+      "score": 0.6077,
+      "rank": 75
+    },
+    {
+      "word": "playa",
+      "score": 0.6075,
+      "rank": 76
+    },
+    {
+      "word": "vaincre",
+      "score": 0.6075,
+      "rank": 77
+    },
+    {
+      "word": "rockland",
+      "score": 0.6061,
+      "rank": 78
+    },
+    {
+      "word": "sournoise",
+      "score": 0.6057,
+      "rank": 79
+    },
+    {
+      "word": "tarek",
+      "score": 0.6055,
+      "rank": 80
+    },
+    {
+      "word": "graver",
+      "score": 0.6055,
+      "rank": 81
+    },
+    {
+      "word": "saules",
+      "score": 0.6051,
+      "rank": 82
+    },
+    {
+      "word": "terre",
+      "score": 0.6042,
+      "rank": 83
+    },
+    {
+      "word": "plages",
+      "score": 0.604,
+      "rank": 84
+    },
+    {
+      "word": "arides",
+      "score": 0.6035,
+      "rank": 85
+    },
+    {
+      "word": "pistage",
+      "score": 0.6033,
+      "rank": 86
+    },
+    {
+      "word": "moulé",
+      "score": 0.6032,
+      "rank": 87
+    },
+    {
+      "word": "sali",
+      "score": 0.6024,
+      "rank": 88
+    },
+    {
+      "word": "salim",
+      "score": 0.6005,
+      "rank": 89
+    },
+    {
+      "word": "cendre",
+      "score": 0.6001,
+      "rank": 90
+    },
+    {
+      "word": "chauffe",
+      "score": 0.6001,
+      "rank": 91
+    },
+    {
+      "word": "creme",
+      "score": 0.6001,
+      "rank": 92
+    },
+    {
+      "word": "pise",
+      "score": 0.5998,
+      "rank": 93
+    },
+    {
+      "word": "plairez",
+      "score": 0.5996,
+      "rank": 94
+    },
+    {
+      "word": "pascale",
+      "score": 0.5991,
+      "rank": 95
+    },
+    {
+      "word": "calé",
+      "score": 0.5991,
+      "rank": 96
+    },
+    {
+      "word": "tardives",
+      "score": 0.5989,
+      "rank": 97
+    },
+    {
+      "word": "dallas",
+      "score": 0.5987,
+      "rank": 98
+    },
+    {
+      "word": "pâles",
+      "score": 0.5986,
+      "rank": 99
+    },
+    {
+      "word": "tarin",
+      "score": 0.5983,
+      "rank": 100
+    },
+    {
+      "word": "lunaire",
+      "score": 0.5977,
+      "rank": 101
+    },
+    {
+      "word": "salomé",
+      "score": 0.5967,
+      "rank": 102
+    },
+    {
+      "word": "salinas",
+      "score": 0.5963,
+      "rank": 103
+    },
+    {
+      "word": "pâtisserie",
+      "score": 0.5962,
+      "rank": 104
+    },
+    {
+      "word": "chal",
+      "score": 0.596,
+      "rank": 105
+    },
+    {
+      "word": "surnaturelle",
+      "score": 0.596,
+      "rank": 106
+    },
+    {
+      "word": "assomme",
+      "score": 0.596,
+      "rank": 107
+    },
+    {
+      "word": "tarr",
+      "score": 0.5959,
+      "rank": 108
+    },
+    {
+      "word": "plaire",
+      "score": 0.5955,
+      "rank": 109
+    },
+    {
+      "word": "terri",
+      "score": 0.595,
+      "rank": 110
+    },
+    {
+      "word": "froissée",
+      "score": 0.595,
+      "rank": 111
+    },
+    {
+      "word": "terrestres",
+      "score": 0.5949,
+      "rank": 112
+    },
+    {
+      "word": "pâleur",
+      "score": 0.5948,
+      "rank": 113
+    },
+    {
+      "word": "tropicaux",
+      "score": 0.5948,
+      "rank": 114
+    },
+    {
+      "word": "pâture",
+      "score": 0.5945,
+      "rank": 115
+    },
+    {
+      "word": "rocha",
+      "score": 0.5943,
+      "rank": 116
+    },
+    {
+      "word": "piero",
+      "score": 0.5936,
+      "rank": 117
+    },
+    {
+      "word": "laissiez",
+      "score": 0.5935,
+      "rank": 118
+    },
+    {
+      "word": "terres",
+      "score": 0.5933,
+      "rank": 119
+    },
+    {
+      "word": "salés",
+      "score": 0.5933,
+      "rank": 120
+    },
+    {
+      "word": "pioche",
+      "score": 0.5932,
+      "rank": 121
+    },
+    {
+      "word": "disneyland",
+      "score": 0.5932,
+      "rank": 122
+    },
+    {
+      "word": "piquée",
+      "score": 0.5928,
+      "rank": 123
+    },
+    {
+      "word": "plage",
+      "score": 0.5927,
+      "rank": 124
+    },
+    {
+      "word": "boueux",
+      "score": 0.5926,
+      "rank": 125
+    },
+    {
+      "word": "piqué",
+      "score": 0.5926,
+      "rank": 126
+    },
+    {
+      "word": "fresque",
+      "score": 0.5925,
+      "rank": 127
+    },
+    {
+      "word": "sourcils",
+      "score": 0.5925,
+      "rank": 128
+    },
+    {
+      "word": "déguste",
+      "score": 0.5924,
+      "rank": 129
+    },
+    {
+      "word": "navarro",
+      "score": 0.5923,
+      "rank": 130
+    },
+    {
+      "word": "géologie",
+      "score": 0.5922,
+      "rank": 131
+    },
+    {
+      "word": "tartares",
+      "score": 0.5922,
+      "rank": 132
+    },
+    {
+      "word": "uhura",
+      "score": 0.5921,
+      "rank": 133
+    },
+    {
+      "word": "punir",
+      "score": 0.592,
+      "rank": 134
+    },
+    {
+      "word": "aride",
+      "score": 0.591,
+      "rank": 135
+    },
+    {
+      "word": "fétiche",
+      "score": 0.591,
+      "rank": 136
+    },
+    {
+      "word": "chauffes",
+      "score": 0.591,
+      "rank": 137
+    },
+    {
+      "word": "terra",
+      "score": 0.5909,
+      "rank": 138
+    },
+    {
+      "word": "taro",
+      "score": 0.5909,
+      "rank": 139
+    },
+    {
+      "word": "paradine",
+      "score": 0.5909,
+      "rank": 140
+    },
+    {
+      "word": "salander",
+      "score": 0.5908,
+      "rank": 141
+    },
+    {
+      "word": "tarés",
+      "score": 0.5907,
+      "rank": 142
+    },
+    {
+      "word": "arrète",
+      "score": 0.5907,
+      "rank": 143
+    },
+    {
+      "word": "myles",
+      "score": 0.5905,
+      "rank": 144
+    },
+    {
+      "word": "barrez",
+      "score": 0.5904,
+      "rank": 145
+    },
+    {
+      "word": "tarmac",
+      "score": 0.5894,
+      "rank": 146
+    },
+    {
+      "word": "bouées",
+      "score": 0.5894,
+      "rank": 147
+    },
+    {
+      "word": "piquante",
+      "score": 0.5892,
+      "rank": 148
+    },
+    {
+      "word": "rajiv",
+      "score": 0.5892,
+      "rank": 149
+    },
+    {
+      "word": "charabia",
+      "score": 0.589,
+      "rank": 150
+    },
+    {
+      "word": "faisans",
+      "score": 0.589,
+      "rank": 151
+    },
+    {
+      "word": "gorski",
+      "score": 0.589,
+      "rank": 152
+    },
+    {
+      "word": "géologique",
+      "score": 0.5889,
+      "rank": 153
+    },
+    {
+      "word": "asséché",
+      "score": 0.5886,
+      "rank": 154
+    },
+    {
+      "word": "konrad",
+      "score": 0.5882,
+      "rank": 155
+    },
+    {
+      "word": "pedrosa",
+      "score": 0.5882,
+      "rank": 156
+    },
+    {
+      "word": "géologiques",
+      "score": 0.588,
+      "rank": 157
+    },
+    {
+      "word": "séchés",
+      "score": 0.5879,
+      "rank": 158
+    },
+    {
+      "word": "tumulte",
+      "score": 0.5878,
+      "rank": 159
+    },
+    {
+      "word": "prairies",
+      "score": 0.5874,
+      "rank": 160
+    },
+    {
+      "word": "baisée",
+      "score": 0.587,
+      "rank": 161
+    },
+    {
+      "word": "tropiques",
+      "score": 0.5868,
+      "rank": 162
+    },
+    {
+      "word": "fresques",
+      "score": 0.5868,
+      "rank": 163
+    },
+    {
+      "word": "charrette",
+      "score": 0.5868,
+      "rank": 164
+    },
+    {
+      "word": "pâque",
+      "score": 0.5868,
+      "rank": 165
+    },
+    {
+      "word": "plains",
+      "score": 0.5866,
+      "rank": 166
+    },
+    {
+      "word": "tarlouze",
+      "score": 0.5865,
+      "rank": 167
+    },
+    {
+      "word": "saleté",
+      "score": 0.5863,
+      "rank": 168
+    },
+    {
+      "word": "sanka",
+      "score": 0.5862,
+      "rank": 169
+    },
+    {
+      "word": "séoul",
+      "score": 0.5861,
+      "rank": 170
+    },
+    {
+      "word": "salie",
+      "score": 0.5859,
+      "rank": 171
+    },
+    {
+      "word": "pâris",
+      "score": 0.5856,
+      "rank": 172
+    },
+    {
+      "word": "paulette",
+      "score": 0.5855,
+      "rank": 173
+    },
+    {
+      "word": "chamane",
+      "score": 0.5853,
+      "rank": 174
+    },
+    {
+      "word": "sèchent",
+      "score": 0.5852,
+      "rank": 175
+    },
+    {
+      "word": "frederic",
+      "score": 0.5852,
+      "rank": 176
+    },
+    {
+      "word": "soudoyé",
+      "score": 0.5852,
+      "rank": 177
+    },
+    {
+      "word": "chanvre",
+      "score": 0.5851,
+      "rank": 178
+    },
+    {
+      "word": "chaudasse",
+      "score": 0.5851,
+      "rank": 179
+    },
+    {
+      "word": "chapera",
+      "score": 0.585,
+      "rank": 180
+    },
+    {
+      "word": "costa",
+      "score": 0.5846,
+      "rank": 181
+    },
+    {
+      "word": "tum",
+      "score": 0.5845,
+      "rank": 182
+    },
+    {
+      "word": "tanner",
+      "score": 0.5843,
+      "rank": 183
+    },
+    {
+      "word": "côlon",
+      "score": 0.5843,
+      "rank": 184
+    },
+    {
+      "word": "arno",
+      "score": 0.584,
+      "rank": 185
+    },
+    {
+      "word": "pendjab",
+      "score": 0.5838,
+      "rank": 186
+    },
+    {
+      "word": "chagrine",
+      "score": 0.5837,
+      "rank": 187
+    },
+    {
+      "word": "fraîche",
+      "score": 0.5837,
+      "rank": 188
+    },
+    {
+      "word": "rocheuse",
+      "score": 0.5836,
+      "rank": 189
+    },
+    {
+      "word": "ravoir",
+      "score": 0.5834,
+      "rank": 190
+    },
+    {
+      "word": "tania",
+      "score": 0.5834,
+      "rank": 191
+    },
+    {
+      "word": "fis",
+      "score": 0.5833,
+      "rank": 192
+    },
+    {
+      "word": "pécan",
+      "score": 0.5832,
+      "rank": 193
+    },
+    {
+      "word": "lugubre",
+      "score": 0.5832,
+      "rank": 194
+    },
+    {
+      "word": "sandoval",
+      "score": 0.5829,
+      "rank": 195
+    },
+    {
+      "word": "salé",
+      "score": 0.5829,
+      "rank": 196
+    },
+    {
+      "word": "pacha",
+      "score": 0.5828,
+      "rank": 197
+    },
+    {
+      "word": "terrestre",
+      "score": 0.5828,
+      "rank": 198
+    },
+    {
+      "word": "montana",
+      "score": 0.5827,
+      "rank": 199
+    },
+    {
+      "word": "stardust",
+      "score": 0.5826,
+      "rank": 200
+    },
+    {
+      "word": "glissière",
+      "score": 0.5826,
+      "rank": 201
+    },
+    {
+      "word": "fatima",
+      "score": 0.5823,
+      "rank": 202
+    },
+    {
+      "word": "miséreux",
+      "score": 0.5822,
+      "rank": 203
+    },
+    {
+      "word": "crème",
+      "score": 0.5821,
+      "rank": 204
+    },
+    {
+      "word": "chaux",
+      "score": 0.5816,
+      "rank": 205
+    },
+    {
+      "word": "récifs",
+      "score": 0.5815,
+      "rank": 206
+    },
+    {
+      "word": "paire",
+      "score": 0.5813,
+      "rank": 207
+    },
+    {
+      "word": "froissé",
+      "score": 0.5811,
+      "rank": 208
+    },
+    {
+      "word": "plaira",
+      "score": 0.5811,
+      "rank": 209
+    },
+    {
+      "word": "résume",
+      "score": 0.5807,
+      "rank": 210
+    },
+    {
+      "word": "délicatesse",
+      "score": 0.5807,
+      "rank": 211
+    },
+    {
+      "word": "plaisent",
+      "score": 0.5807,
+      "rank": 212
+    },
+    {
+      "word": "frais",
+      "score": 0.5806,
+      "rank": 213
+    },
+    {
+      "word": "soupire",
+      "score": 0.5806,
+      "rank": 214
+    },
+    {
+      "word": "pérou",
+      "score": 0.5806,
+      "rank": 215
+    },
+    {
+      "word": "kurde",
+      "score": 0.5805,
+      "rank": 216
+    },
+    {
+      "word": "paquin",
+      "score": 0.5803,
+      "rank": 217
+    },
+    {
+      "word": "semés",
+      "score": 0.5801,
+      "rank": 218
+    },
+    {
+      "word": "plairas",
+      "score": 0.58,
+      "rank": 219
+    },
+    {
+      "word": "séchée",
+      "score": 0.58,
+      "rank": 220
+    },
+    {
+      "word": "navré",
+      "score": 0.58,
+      "rank": 221
+    },
+    {
+      "word": "magda",
+      "score": 0.58,
+      "rank": 222
+    },
+    {
+      "word": "salter",
+      "score": 0.5799,
+      "rank": 223
+    },
+    {
+      "word": "sunbae",
+      "score": 0.5798,
+      "rank": 224
+    },
+    {
+      "word": "cendres",
+      "score": 0.5795,
+      "rank": 225
+    },
+    {
+      "word": "tanné",
+      "score": 0.5793,
+      "rank": 226
+    },
+    {
+      "word": "rasoir",
+      "score": 0.5793,
+      "rank": 227
+    },
+    {
+      "word": "piqués",
+      "score": 0.5792,
+      "rank": 228
+    },
+    {
+      "word": "fatidique",
+      "score": 0.5792,
+      "rank": 229
+    },
+    {
+      "word": "mulets",
+      "score": 0.5791,
+      "rank": 230
+    },
+    {
+      "word": "salit",
+      "score": 0.5791,
+      "rank": 231
+    },
+    {
+      "word": "saloperie",
+      "score": 0.579,
+      "rank": 232
+    },
+    {
+      "word": "chérit",
+      "score": 0.579,
+      "rank": 233
+    },
+    {
+      "word": "dunder",
+      "score": 0.5789,
+      "rank": 234
+    },
+    {
+      "word": "geôlier",
+      "score": 0.5788,
+      "rank": 235
+    },
+    {
+      "word": "garcía",
+      "score": 0.5786,
+      "rank": 236
+    },
+    {
+      "word": "landis",
+      "score": 0.5785,
+      "rank": 237
+    },
+    {
+      "word": "tan",
+      "score": 0.5785,
+      "rank": 238
+    },
+    {
+      "word": "charade",
+      "score": 0.5785,
+      "rank": 239
+    },
+    {
+      "word": "peiné",
+      "score": 0.5784,
+      "rank": 240
+    },
+    {
+      "word": "rot",
+      "score": 0.5783,
+      "rank": 241
+    },
+    {
+      "word": "pathétique",
+      "score": 0.5781,
+      "rank": 242
+    },
+    {
+      "word": "trahis",
+      "score": 0.578,
+      "rank": 243
+    },
+    {
+      "word": "soif",
+      "score": 0.5779,
+      "rank": 244
+    },
+    {
+      "word": "consommer",
+      "score": 0.5775,
+      "rank": 245
+    },
+    {
+      "word": "kamen",
+      "score": 0.5774,
+      "rank": 246
+    },
+    {
+      "word": "stein",
+      "score": 0.5774,
+      "rank": 247
+    },
+    {
+      "word": "parait",
+      "score": 0.5772,
+      "rank": 248
+    },
+    {
+      "word": "pastèques",
+      "score": 0.5771,
+      "rank": 249
+    },
+    {
+      "word": "tailladé",
+      "score": 0.5771,
+      "rank": 250
+    },
+    {
+      "word": "sel",
+      "score": 0.577,
+      "rank": 251
+    },
+    {
+      "word": "karsten",
+      "score": 0.5768,
+      "rank": 252
+    },
+    {
+      "word": "taira",
+      "score": 0.5767,
+      "rank": 253
+    },
+    {
+      "word": "butés",
+      "score": 0.5767,
+      "rank": 254
+    },
+    {
+      "word": "baignée",
+      "score": 0.5767,
+      "rank": 255
+    },
+    {
+      "word": "hautain",
+      "score": 0.5762,
+      "rank": 256
+    },
+    {
+      "word": "sourds",
+      "score": 0.576,
+      "rank": 257
+    },
+    {
+      "word": "ravit",
+      "score": 0.5756,
+      "rank": 258
+    },
+    {
+      "word": "chaloupe",
+      "score": 0.5756,
+      "rank": 259
+    },
+    {
+      "word": "sumatra",
+      "score": 0.5755,
+      "rank": 260
+    },
+    {
+      "word": "castro",
+      "score": 0.5755,
+      "rank": 261
+    },
+    {
+      "word": "pondre",
+      "score": 0.5752,
+      "rank": 262
+    },
+    {
+      "word": "basiques",
+      "score": 0.5752,
+      "rank": 263
+    },
+    {
+      "word": "vaincrai",
+      "score": 0.5751,
+      "rank": 264
+    },
+    {
+      "word": "lando",
+      "score": 0.5751,
+      "rank": 265
+    },
+    {
+      "word": "odorat",
+      "score": 0.5749,
+      "rank": 266
+    },
+    {
+      "word": "inculte",
+      "score": 0.5748,
+      "rank": 267
+    },
+    {
+      "word": "sundae",
+      "score": 0.5748,
+      "rank": 268
+    },
+    {
+      "word": "pieuse",
+      "score": 0.5747,
+      "rank": 269
+    },
+    {
+      "word": "sark",
+      "score": 0.5745,
+      "rank": 270
+    },
+    {
+      "word": "tancredi",
+      "score": 0.5744,
+      "rank": 271
+    },
+    {
+      "word": "ragoût",
+      "score": 0.5743,
+      "rank": 272
+    },
+    {
+      "word": "froisse",
+      "score": 0.5742,
+      "rank": 273
+    },
+    {
+      "word": "rudi",
+      "score": 0.5741,
+      "rank": 274
+    },
+    {
+      "word": "poudrière",
+      "score": 0.574,
+      "rank": 275
+    },
+    {
+      "word": "pelvien",
+      "score": 0.5739,
+      "rank": 276
+    },
+    {
+      "word": "livrais",
+      "score": 0.5739,
+      "rank": 277
+    },
+    {
+      "word": "puants",
+      "score": 0.5738,
+      "rank": 278
+    },
+    {
+      "word": "picasso",
+      "score": 0.5736,
+      "rank": 279
+    },
+    {
+      "word": "paradisiaque",
+      "score": 0.5736,
+      "rank": 280
+    },
+    {
+      "word": "saul",
+      "score": 0.5734,
+      "rank": 281
+    },
+    {
+      "word": "piètre",
+      "score": 0.5734,
+      "rank": 282
+    },
+    {
+      "word": "pacquiao",
+      "score": 0.5732,
+      "rank": 283
+    },
+    {
+      "word": "mouettes",
+      "score": 0.5729,
+      "rank": 284
+    },
+    {
+      "word": "vulgaire",
+      "score": 0.5729,
+      "rank": 285
+    },
+    {
+      "word": "féerique",
+      "score": 0.5726,
+      "rank": 286
+    },
+    {
+      "word": "cha",
+      "score": 0.5726,
+      "rank": 287
+    },
+    {
+      "word": "szura",
+      "score": 0.5725,
+      "rank": 288
+    },
+    {
+      "word": "pieux",
+      "score": 0.5725,
+      "rank": 289
+    },
+    {
+      "word": "palourdes",
+      "score": 0.5725,
+      "rank": 290
+    },
+    {
+      "word": "suzi",
+      "score": 0.5725,
+      "rank": 291
+    },
+    {
+      "word": "chut",
+      "score": 0.572,
+      "rank": 292
+    },
+    {
+      "word": "korsak",
+      "score": 0.5718,
+      "rank": 293
+    },
+    {
+      "word": "tassé",
+      "score": 0.5718,
+      "rank": 294
+    },
+    {
+      "word": "chausse",
+      "score": 0.5716,
+      "rank": 295
+    },
+    {
+      "word": "taperais",
+      "score": 0.5716,
+      "rank": 296
+    },
+    {
+      "word": "disney",
+      "score": 0.5714,
+      "rank": 297
+    },
+    {
+      "word": "dun",
+      "score": 0.5714,
+      "rank": 298
+    },
+    {
+      "word": "ashland",
+      "score": 0.5713,
+      "rank": 299
+    },
+    {
+      "word": "pâtés",
+      "score": 0.5712,
+      "rank": 300
+    },
+    {
+      "word": "pieuvre",
+      "score": 0.5712,
+      "rank": 301
+    },
+    {
+      "word": "sauvages",
+      "score": 0.5711,
+      "rank": 302
+    },
+    {
+      "word": "piquant",
+      "score": 0.5711,
+      "rank": 303
+    },
+    {
+      "word": "cal",
+      "score": 0.571,
+      "rank": 304
+    },
+    {
+      "word": "pioches",
+      "score": 0.5709,
+      "rank": 305
+    },
+    {
+      "word": "pâlir",
+      "score": 0.5709,
+      "rank": 306
+    },
+    {
+      "word": "pâtisseries",
+      "score": 0.5709,
+      "rank": 307
+    },
+    {
+      "word": "paumée",
+      "score": 0.5708,
+      "rank": 308
+    },
+    {
+      "word": "plaies",
+      "score": 0.5708,
+      "rank": 309
+    },
+    {
+      "word": "poilues",
+      "score": 0.5707,
+      "rank": 310
+    },
+    {
+      "word": "montagne",
+      "score": 0.5707,
+      "rank": 311
+    },
+    {
+      "word": "naze",
+      "score": 0.5707,
+      "rank": 312
+    },
+    {
+      "word": "danno",
+      "score": 0.5706,
+      "rank": 313
+    },
+    {
+      "word": "pierres",
+      "score": 0.5706,
+      "rank": 314
+    },
+    {
+      "word": "troué",
+      "score": 0.5705,
+      "rank": 315
+    },
+    {
+      "word": "sourd",
+      "score": 0.5705,
+      "rank": 316
+    },
+    {
+      "word": "trouée",
+      "score": 0.5705,
+      "rank": 317
+    },
+    {
+      "word": "pluto",
+      "score": 0.5705,
+      "rank": 318
+    },
+    {
+      "word": "devons",
+      "score": 0.5705,
+      "rank": 319
+    },
+    {
+      "word": "incinérée",
+      "score": 0.5704,
+      "rank": 320
+    },
+    {
+      "word": "palourde",
+      "score": 0.5704,
+      "rank": 321
+    },
+    {
+      "word": "terrain",
+      "score": 0.5704,
+      "rank": 322
+    },
+    {
+      "word": "délia",
+      "score": 0.5704,
+      "rank": 323
+    },
+    {
+      "word": "saltimbanque",
+      "score": 0.5703,
+      "rank": 324
+    },
+    {
+      "word": "malia",
+      "score": 0.5703,
+      "rank": 325
+    },
+    {
+      "word": "calista",
+      "score": 0.5703,
+      "rank": 326
+    },
+    {
+      "word": "paraitre",
+      "score": 0.5703,
+      "rank": 327
+    },
+    {
+      "word": "terrassé",
+      "score": 0.5703,
+      "rank": 328
+    },
+    {
+      "word": "laque",
+      "score": 0.5702,
+      "rank": 329
+    },
+    {
+      "word": "baissait",
+      "score": 0.5701,
+      "rank": 330
+    },
+    {
+      "word": "dimitrios",
+      "score": 0.5697,
+      "rank": 331
+    },
+    {
+      "word": "pauly",
+      "score": 0.5697,
+      "rank": 332
+    },
+    {
+      "word": "siam",
+      "score": 0.5695,
+      "rank": 333
+    },
+    {
+      "word": "moisir",
+      "score": 0.5695,
+      "rank": 334
+    },
+    {
+      "word": "ernesto",
+      "score": 0.5695,
+      "rank": 335
+    },
+    {
+      "word": "plairais",
+      "score": 0.5695,
+      "rank": 336
+    },
+    {
+      "word": "ciré",
+      "score": 0.5694,
+      "rank": 337
+    },
+    {
+      "word": "pâques",
+      "score": 0.5693,
+      "rank": 338
+    },
+    {
+      "word": "déchu",
+      "score": 0.5693,
+      "rank": 339
+    },
+    {
+      "word": "pétasse",
+      "score": 0.5692,
+      "rank": 340
+    },
+    {
+      "word": "chazz",
+      "score": 0.5691,
+      "rank": 341
+    },
+    {
+      "word": "caché",
+      "score": 0.5691,
+      "rank": 342
+    },
+    {
+      "word": "sournois",
+      "score": 0.5691,
+      "rank": 343
+    },
+    {
+      "word": "pilates",
+      "score": 0.569,
+      "rank": 344
+    },
+    {
+      "word": "ruisseaux",
+      "score": 0.569,
+      "rank": 345
+    },
+    {
+      "word": "récif",
+      "score": 0.5689,
+      "rank": 346
+    },
+    {
+      "word": "goro",
+      "score": 0.5689,
+      "rank": 347
+    },
+    {
+      "word": "pires",
+      "score": 0.5689,
+      "rank": 348
+    },
+    {
+      "word": "poivrot",
+      "score": 0.5688,
+      "rank": 349
+    },
+    {
+      "word": "fay",
+      "score": 0.5686,
+      "rank": 350
+    },
+    {
+      "word": "jadzia",
+      "score": 0.5684,
+      "rank": 351
+    },
+    {
+      "word": "poilue",
+      "score": 0.5684,
+      "rank": 352
+    },
+    {
+      "word": "faisal",
+      "score": 0.5684,
+      "rank": 353
+    },
+    {
+      "word": "failles",
+      "score": 0.5684,
+      "rank": 354
+    },
+    {
+      "word": "fesse",
+      "score": 0.5683,
+      "rank": 355
+    },
+    {
+      "word": "poire",
+      "score": 0.5678,
+      "rank": 356
+    },
+    {
+      "word": "baisait",
+      "score": 0.5676,
+      "rank": 357
+    },
+    {
+      "word": "plaidoirie",
+      "score": 0.5675,
+      "rank": 358
+    },
+    {
+      "word": "troels",
+      "score": 0.5675,
+      "rank": 359
+    },
+    {
+      "word": "saracen",
+      "score": 0.5674,
+      "rank": 360
+    },
+    {
+      "word": "trahi",
+      "score": 0.5674,
+      "rank": 361
+    },
+    {
+      "word": "bisque",
+      "score": 0.5674,
+      "rank": 362
+    },
+    {
+      "word": "paumés",
+      "score": 0.5673,
+      "rank": 363
+    },
+    {
+      "word": "vaincra",
+      "score": 0.5673,
+      "rank": 364
+    },
+    {
+      "word": "traînais",
+      "score": 0.5672,
+      "rank": 365
+    },
+    {
+      "word": "pauline",
+      "score": 0.5672,
+      "rank": 366
+    },
+    {
+      "word": "paisible",
+      "score": 0.5672,
+      "rank": 367
+    },
+    {
+      "word": "salissant",
+      "score": 0.5671,
+      "rank": 368
+    },
+    {
+      "word": "chaussée",
+      "score": 0.5669,
+      "rank": 369
+    },
+    {
+      "word": "tâter",
+      "score": 0.5668,
+      "rank": 370
+    },
+    {
+      "word": "groenland",
+      "score": 0.5668,
+      "rank": 371
+    },
+    {
+      "word": "montagnes",
+      "score": 0.5666,
+      "rank": 372
+    },
+    {
+      "word": "sal",
+      "score": 0.5665,
+      "rank": 373
+    },
+    {
+      "word": "corniche",
+      "score": 0.5665,
+      "rank": 374
+    },
+    {
+      "word": "nuptiale",
+      "score": 0.5665,
+      "rank": 375
+    },
+    {
+      "word": "satin",
+      "score": 0.5665,
+      "rank": 376
+    },
+    {
+      "word": "lachez",
+      "score": 0.5665,
+      "rank": 377
+    },
+    {
+      "word": "pelouse",
+      "score": 0.5665,
+      "rank": 378
+    },
+    {
+      "word": "trã",
+      "score": 0.5664,
+      "rank": 379
+    },
+    {
+      "word": "soulever",
+      "score": 0.5664,
+      "rank": 380
+    },
+    {
+      "word": "jordan",
+      "score": 0.5663,
+      "rank": 381
+    },
+    {
+      "word": "filantes",
+      "score": 0.5662,
+      "rank": 382
+    },
+    {
+      "word": "sho",
+      "score": 0.5662,
+      "rank": 383
+    },
+    {
+      "word": "arretez",
+      "score": 0.5661,
+      "rank": 384
+    },
+    {
+      "word": "pâle",
+      "score": 0.566,
+      "rank": 385
+    },
+    {
+      "word": "calotte",
+      "score": 0.5657,
+      "rank": 386
+    },
+    {
+      "word": "tara",
+      "score": 0.5656,
+      "rank": 387
+    },
+    {
+      "word": "munni",
+      "score": 0.5655,
+      "rank": 388
+    },
+    {
+      "word": "gronde",
+      "score": 0.5654,
+      "rank": 389
+    },
+    {
+      "word": "chérir",
+      "score": 0.5652,
+      "rank": 390
+    },
+    {
+      "word": "cailles",
+      "score": 0.5652,
+      "rank": 391
+    },
+    {
+      "word": "tartine",
+      "score": 0.5651,
+      "rank": 392
+    },
+    {
+      "word": "palermo",
+      "score": 0.5649,
+      "rank": 393
+    },
+    {
+      "word": "gémir",
+      "score": 0.5649,
+      "rank": 394
+    },
+    {
+      "word": "torché",
+      "score": 0.5648,
+      "rank": 395
+    },
+    {
+      "word": "continentale",
+      "score": 0.5647,
+      "rank": 396
+    },
+    {
+      "word": "bassine",
+      "score": 0.5646,
+      "rank": 397
+    },
+    {
+      "word": "tori",
+      "score": 0.5646,
+      "rank": 398
+    },
+    {
+      "word": "soignée",
+      "score": 0.5643,
+      "rank": 399
+    },
+    {
+      "word": "fantasme",
+      "score": 0.5641,
+      "rank": 400
+    },
+    {
+      "word": "tru",
+      "score": 0.5641,
+      "rank": 401
+    },
+    {
+      "word": "cindy",
+      "score": 0.564,
+      "rank": 402
+    },
+    {
+      "word": "rocheux",
+      "score": 0.564,
+      "rank": 403
+    },
+    {
+      "word": "mel",
+      "score": 0.5639,
+      "rank": 404
+    },
+    {
+      "word": "punira",
+      "score": 0.5639,
+      "rank": 405
+    },
+    {
+      "word": "baisé",
+      "score": 0.5638,
+      "rank": 406
+    },
+    {
+      "word": "ciboire",
+      "score": 0.5638,
+      "rank": 407
+    },
+    {
+      "word": "gourmandise",
+      "score": 0.5638,
+      "rank": 408
+    },
+    {
+      "word": "salope",
+      "score": 0.5637,
+      "rank": 409
+    },
+    {
+      "word": "rauque",
+      "score": 0.5636,
+      "rank": 410
+    },
+    {
+      "word": "nour",
+      "score": 0.5636,
+      "rank": 411
+    },
+    {
+      "word": "diaz",
+      "score": 0.5636,
+      "rank": 412
+    },
+    {
+      "word": "chapiteau",
+      "score": 0.5636,
+      "rank": 413
+    },
+    {
+      "word": "navrés",
+      "score": 0.5636,
+      "rank": 414
+    },
+    {
+      "word": "salissent",
+      "score": 0.5634,
+      "rank": 415
+    },
+    {
+      "word": "baisés",
+      "score": 0.5634,
+      "rank": 416
+    },
+    {
+      "word": "salopette",
+      "score": 0.5633,
+      "rank": 417
+    },
+    {
+      "word": "châtain",
+      "score": 0.5633,
+      "rank": 418
+    },
+    {
+      "word": "fée",
+      "score": 0.5632,
+      "rank": 419
+    },
+    {
+      "word": "rixe",
+      "score": 0.563,
+      "rank": 420
+    },
+    {
+      "word": "kuroda",
+      "score": 0.563,
+      "rank": 421
+    },
+    {
+      "word": "terrains",
+      "score": 0.5629,
+      "rank": 422
+    },
+    {
+      "word": "morve",
+      "score": 0.5629,
+      "rank": 423
+    },
+    {
+      "word": "tanière",
+      "score": 0.5628,
+      "rank": 424
+    },
+    {
+      "word": "survol",
+      "score": 0.5628,
+      "rank": 425
+    },
+    {
+      "word": "dulcinée",
+      "score": 0.5625,
+      "rank": 426
+    },
+    {
+      "word": "bourre",
+      "score": 0.5624,
+      "rank": 427
+    },
+    {
+      "word": "mahalo",
+      "score": 0.5623,
+      "rank": 428
+    },
+    {
+      "word": "peignoir",
+      "score": 0.5622,
+      "rank": 429
+    },
+    {
+      "word": "ardennes",
+      "score": 0.5622,
+      "rank": 430
+    },
+    {
+      "word": "piege",
+      "score": 0.5618,
+      "rank": 431
+    },
+    {
+      "word": "parcouru",
+      "score": 0.5615,
+      "rank": 432
+    },
+    {
+      "word": "dust",
+      "score": 0.5615,
+      "rank": 433
+    },
+    {
+      "word": "pasha",
+      "score": 0.5615,
+      "rank": 434
+    },
+    {
+      "word": "vertige",
+      "score": 0.5614,
+      "rank": 435
+    },
+    {
+      "word": "bernardino",
+      "score": 0.5612,
+      "rank": 436
+    },
+    {
+      "word": "devenais",
+      "score": 0.561,
+      "rank": 437
+    },
+    {
+      "word": "tâchons",
+      "score": 0.5608,
+      "rank": 438
+    },
+    {
+      "word": "mustafa",
+      "score": 0.5608,
+      "rank": 439
+    },
+    {
+      "word": "volière",
+      "score": 0.5607,
+      "rank": 440
+    },
+    {
+      "word": "pénis",
+      "score": 0.5607,
+      "rank": 441
+    },
+    {
+      "word": "traci",
+      "score": 0.5607,
+      "rank": 442
+    },
+    {
+      "word": "rocco",
+      "score": 0.5607,
+      "rank": 443
+    },
+    {
+      "word": "rassure",
+      "score": 0.5605,
+      "rank": 444
+    },
+    {
+      "word": "landes",
+      "score": 0.5604,
+      "rank": 445
+    },
+    {
+      "word": "calice",
+      "score": 0.5603,
+      "rank": 446
+    },
+    {
+      "word": "mouilles",
+      "score": 0.5602,
+      "rank": 447
+    },
+    {
+      "word": "kaya",
+      "score": 0.5601,
+      "rank": 448
+    },
+    {
+      "word": "canari",
+      "score": 0.5601,
+      "rank": 449
+    },
+    {
+      "word": "limiers",
+      "score": 0.56,
+      "rank": 450
+    },
+    {
+      "word": "faucheuse",
+      "score": 0.56,
+      "rank": 451
+    },
+    {
+      "word": "dindes",
+      "score": 0.56,
+      "rank": 452
+    },
+    {
+      "word": "arretes",
+      "score": 0.5599,
+      "rank": 453
+    },
+    {
+      "word": "arrete",
+      "score": 0.5599,
+      "rank": 454
+    },
+    {
+      "word": "chas",
+      "score": 0.5599,
+      "rank": 455
+    },
+    {
+      "word": "morra",
+      "score": 0.5598,
+      "rank": 456
+    },
+    {
+      "word": "pissais",
+      "score": 0.5598,
+      "rank": 457
+    },
+    {
+      "word": "fraîchement",
+      "score": 0.5598,
+      "rank": 458
+    },
+    {
+      "word": "survole",
+      "score": 0.5597,
+      "rank": 459
+    },
+    {
+      "word": "hud",
+      "score": 0.5597,
+      "rank": 460
+    },
+    {
+      "word": "desolé",
+      "score": 0.5596,
+      "rank": 461
+    },
+    {
+      "word": "meadows",
+      "score": 0.5596,
+      "rank": 462
+    },
+    {
+      "word": "traînait",
+      "score": 0.5595,
+      "rank": 463
+    },
+    {
+      "word": "passã",
+      "score": 0.5594,
+      "rank": 464
+    },
+    {
+      "word": "piéce",
+      "score": 0.5594,
+      "rank": 465
+    },
+    {
+      "word": "pénombre",
+      "score": 0.5594,
+      "rank": 466
+    },
+    {
+      "word": "bai",
+      "score": 0.5594,
+      "rank": 467
+    },
+    {
+      "word": "sécu",
+      "score": 0.5594,
+      "rank": 468
+    },
+    {
+      "word": "foncièrement",
+      "score": 0.5593,
+      "rank": 469
+    },
+    {
+      "word": "pistaches",
+      "score": 0.5593,
+      "rank": 470
+    },
+    {
+      "word": "mazel",
+      "score": 0.5593,
+      "rank": 471
+    },
+    {
+      "word": "salutaire",
+      "score": 0.5592,
+      "rank": 472
+    },
+    {
+      "word": "paieras",
+      "score": 0.5591,
+      "rank": 473
+    },
+    {
+      "word": "rabaisse",
+      "score": 0.559,
+      "rank": 474
+    },
+    {
+      "word": "faille",
+      "score": 0.5589,
+      "rank": 475
+    },
+    {
+      "word": "paysage",
+      "score": 0.5589,
+      "rank": 476
+    },
+    {
+      "word": "puce",
+      "score": 0.5589,
+      "rank": 477
+    },
+    {
+      "word": "réchaud",
+      "score": 0.5588,
+      "rank": 478
+    },
+    {
+      "word": "darhk",
+      "score": 0.5587,
+      "rank": 479
+    },
+    {
+      "word": "pissait",
+      "score": 0.5587,
+      "rank": 480
+    },
+    {
+      "word": "chutes",
+      "score": 0.5587,
+      "rank": 481
+    },
+    {
+      "word": "pagaille",
+      "score": 0.5587,
+      "rank": 482
+    },
+    {
+      "word": "fausto",
+      "score": 0.5586,
+      "rank": 483
+    },
+    {
+      "word": "sour",
+      "score": 0.5586,
+      "rank": 484
+    },
+    {
+      "word": "keuf",
+      "score": 0.5586,
+      "rank": 485
+    },
+    {
+      "word": "déluge",
+      "score": 0.5586,
+      "rank": 486
+    },
+    {
+      "word": "bains",
+      "score": 0.5586,
+      "rank": 487
+    },
+    {
+      "word": "targaryen",
+      "score": 0.5586,
+      "rank": 488
+    },
+    {
+      "word": "ricci",
+      "score": 0.5586,
+      "rank": 489
+    },
+    {
+      "word": "sandstorm",
+      "score": 0.5585,
+      "rank": 490
+    },
+    {
+      "word": "miaule",
+      "score": 0.5585,
+      "rank": 491
+    },
+    {
+      "word": "cachera",
+      "score": 0.5584,
+      "rank": 492
+    },
+    {
+      "word": "séchées",
+      "score": 0.5584,
+      "rank": 493
+    },
+    {
+      "word": "seaux",
+      "score": 0.5583,
+      "rank": 494
+    },
+    {
+      "word": "ritchie",
+      "score": 0.5583,
+      "rank": 495
+    },
+    {
+      "word": "népal",
+      "score": 0.5583,
+      "rank": 496
+    },
+    {
+      "word": "sorrento",
+      "score": 0.5583,
+      "rank": 497
+    },
+    {
+      "word": "salopes",
+      "score": 0.5582,
+      "rank": 498
+    },
+    {
+      "word": "tantôt",
+      "score": 0.5582,
+      "rank": 499
+    },
+    {
+      "word": "chauffez",
+      "score": 0.5582,
+      "rank": 500
+    },
+    {
+      "word": "paolo",
+      "score": 0.5581,
+      "rank": 501
+    },
+    {
+      "word": "baines",
+      "score": 0.558,
+      "rank": 502
+    },
+    {
+      "word": "raiko",
+      "score": 0.5579,
+      "rank": 503
+    },
+    {
+      "word": "pâtissier",
+      "score": 0.5578,
+      "rank": 504
+    },
+    {
+      "word": "fantassins",
+      "score": 0.5578,
+      "rank": 505
+    },
+    {
+      "word": "sandström",
+      "score": 0.5577,
+      "rank": 506
+    },
+    {
+      "word": "jouir",
+      "score": 0.5577,
+      "rank": 507
+    },
+    {
+      "word": "pastèque",
+      "score": 0.5577,
+      "rank": 508
+    },
+    {
+      "word": "napier",
+      "score": 0.5576,
+      "rank": 509
+    },
+    {
+      "word": "trousse",
+      "score": 0.5575,
+      "rank": 510
+    },
+    {
+      "word": "plaîit",
+      "score": 0.5572,
+      "rank": 511
+    },
+    {
+      "word": "pathétiques",
+      "score": 0.5572,
+      "rank": 512
+    },
+    {
+      "word": "frivole",
+      "score": 0.5571,
+      "rank": 513
+    },
+    {
+      "word": "râle",
+      "score": 0.5571,
+      "rank": 514
+    },
+    {
+      "word": "duché",
+      "score": 0.5571,
+      "rank": 515
+    },
+    {
+      "word": "fossés",
+      "score": 0.5571,
+      "rank": 516
+    },
+    {
+      "word": "périra",
+      "score": 0.5569,
+      "rank": 517
+    },
+    {
+      "word": "créole",
+      "score": 0.5569,
+      "rank": 518
+    },
+    {
+      "word": "souris",
+      "score": 0.5568,
+      "rank": 519
+    },
+    {
+      "word": "pelvienne",
+      "score": 0.5568,
+      "rank": 520
+    },
+    {
+      "word": "manquée",
+      "score": 0.5568,
+      "rank": 521
+    },
+    {
+      "word": "trahit",
+      "score": 0.5567,
+      "rank": 522
+    },
+    {
+      "word": "paco",
+      "score": 0.5566,
+      "rank": 523
+    },
+    {
+      "word": "péri",
+      "score": 0.5565,
+      "rank": 524
+    },
+    {
+      "word": "rocheuses",
+      "score": 0.5564,
+      "rank": 525
+    },
+    {
+      "word": "lirais",
+      "score": 0.5564,
+      "rank": 526
+    },
+    {
+      "word": "laguerta",
+      "score": 0.5563,
+      "rank": 527
+    },
+    {
+      "word": "baisaient",
+      "score": 0.5563,
+      "rank": 528
+    },
+    {
+      "word": "dolce",
+      "score": 0.5562,
+      "rank": 529
+    },
+    {
+      "word": "tourmente",
+      "score": 0.5562,
+      "rank": 530
+    },
+    {
+      "word": "chauves",
+      "score": 0.5561,
+      "rank": 531
+    },
+    {
+      "word": "trouilles",
+      "score": 0.5561,
+      "rank": 532
+    },
+    {
+      "word": "pudeur",
+      "score": 0.556,
+      "rank": 533
+    },
+    {
+      "word": "piéces",
+      "score": 0.556,
+      "rank": 534
+    },
+    {
+      "word": "naufrage",
+      "score": 0.556,
+      "rank": 535
+    },
+    {
+      "word": "natacha",
+      "score": 0.5559,
+      "rank": 536
+    },
+    {
+      "word": "châtie",
+      "score": 0.5559,
+      "rank": 537
+    },
+    {
+      "word": "birgitte",
+      "score": 0.5559,
+      "rank": 538
+    },
+    {
+      "word": "neary",
+      "score": 0.5559,
+      "rank": 539
+    },
+    {
+      "word": "ferment",
+      "score": 0.5559,
+      "rank": 540
+    },
+    {
+      "word": "rocky",
+      "score": 0.5558,
+      "rank": 541
+    },
+    {
+      "word": "plaie",
+      "score": 0.5557,
+      "rank": 542
+    },
+    {
+      "word": "piquer",
+      "score": 0.5557,
+      "rank": 543
+    },
+    {
+      "word": "cachée",
+      "score": 0.5557,
+      "rank": 544
+    },
+    {
+      "word": "saborder",
+      "score": 0.5557,
+      "rank": 545
+    },
+    {
+      "word": "clara",
+      "score": 0.5556,
+      "rank": 546
+    },
+    {
+      "word": "malick",
+      "score": 0.5554,
+      "rank": 547
+    },
+    {
+      "word": "ripou",
+      "score": 0.5554,
+      "rank": 548
+    },
+    {
+      "word": "durcir",
+      "score": 0.5553,
+      "rank": 549
+    },
+    {
+      "word": "raies",
+      "score": 0.5552,
+      "rank": 550
+    },
+    {
+      "word": "pagne",
+      "score": 0.5552,
+      "rank": 551
+    },
+    {
+      "word": "calais",
+      "score": 0.5551,
+      "rank": 552
+    },
+    {
+      "word": "rustre",
+      "score": 0.5551,
+      "rank": 553
+    },
+    {
+      "word": "volupté",
+      "score": 0.555,
+      "rank": 554
+    },
+    {
+      "word": "trouille",
+      "score": 0.555,
+      "rank": 555
+    },
+    {
+      "word": "caza",
+      "score": 0.555,
+      "rank": 556
+    },
+    {
+      "word": "viandes",
+      "score": 0.5549,
+      "rank": 557
+    },
+    {
+      "word": "malhotra",
+      "score": 0.5548,
+      "rank": 558
+    },
+    {
+      "word": "fraîcheur",
+      "score": 0.5548,
+      "rank": 559
+    },
+    {
+      "word": "renarde",
+      "score": 0.5547,
+      "rank": 560
+    },
+    {
+      "word": "charpie",
+      "score": 0.5547,
+      "rank": 561
+    },
+    {
+      "word": "cachemire",
+      "score": 0.5547,
+      "rank": 562
+    },
+    {
+      "word": "savoureux",
+      "score": 0.5546,
+      "rank": 563
+    },
+    {
+      "word": "férocement",
+      "score": 0.5546,
+      "rank": 564
+    },
+    {
+      "word": "arreté",
+      "score": 0.5545,
+      "rank": 565
+    },
+    {
+      "word": "péniche",
+      "score": 0.5545,
+      "rank": 566
+    },
+    {
+      "word": "pétasses",
+      "score": 0.5545,
+      "rank": 567
+    },
+    {
+      "word": "kady",
+      "score": 0.5544,
+      "rank": 568
+    },
+    {
+      "word": "solã",
+      "score": 0.5544,
+      "rank": 569
+    },
+    {
+      "word": "surmonte",
+      "score": 0.5544,
+      "rank": 570
+    },
+    {
+      "word": "sora",
+      "score": 0.5543,
+      "rank": 571
+    },
+    {
+      "word": "blottir",
+      "score": 0.5541,
+      "rank": 572
+    },
+    {
+      "word": "missouri",
+      "score": 0.5541,
+      "rank": 573
+    },
+    {
+      "word": "déraillé",
+      "score": 0.5541,
+      "rank": 574
+    },
+    {
+      "word": "arurû",
+      "score": 0.554,
+      "rank": 575
+    },
+    {
+      "word": "planais",
+      "score": 0.554,
+      "rank": 576
+    },
+    {
+      "word": "sombré",
+      "score": 0.5539,
+      "rank": 577
+    },
+    {
+      "word": "mourrir",
+      "score": 0.5539,
+      "rank": 578
+    },
+    {
+      "word": "chassés",
+      "score": 0.5538,
+      "rank": 579
+    },
+    {
+      "word": "périphérique",
+      "score": 0.5538,
+      "rank": 580
+    },
+    {
+      "word": "pavée",
+      "score": 0.5537,
+      "rank": 581
+    },
+    {
+      "word": "croft",
+      "score": 0.5535,
+      "rank": 582
+    },
+    {
+      "word": "fraîches",
+      "score": 0.5535,
+      "rank": 583
+    },
+    {
+      "word": "cagliostro",
+      "score": 0.5535,
+      "rank": 584
+    },
+    {
+      "word": "piégé",
+      "score": 0.5535,
+      "rank": 585
+    },
+    {
+      "word": "tamsin",
+      "score": 0.5534,
+      "rank": 586
+    },
+    {
+      "word": "fées",
+      "score": 0.5533,
+      "rank": 587
+    },
+    {
+      "word": "ranimé",
+      "score": 0.5532,
+      "rank": 588
+    },
+    {
+      "word": "pie",
+      "score": 0.5532,
+      "rank": 589
+    },
+    {
+      "word": "teri",
+      "score": 0.5531,
+      "rank": 590
+    },
+    {
+      "word": "fiévreux",
+      "score": 0.5531,
+      "rank": 591
+    },
+    {
+      "word": "esquives",
+      "score": 0.5531,
+      "rank": 592
+    },
+    {
+      "word": "fabre",
+      "score": 0.5531,
+      "rank": 593
+    },
+    {
+      "word": "tracas",
+      "score": 0.5531,
+      "rank": 594
+    },
+    {
+      "word": "dink",
+      "score": 0.553,
+      "rank": 595
+    },
+    {
+      "word": "sandro",
+      "score": 0.553,
+      "rank": 596
+    },
+    {
+      "word": "tuco",
+      "score": 0.553,
+      "rank": 597
+    },
+    {
+      "word": "lacs",
+      "score": 0.553,
+      "rank": 598
+    },
+    {
+      "word": "coté",
+      "score": 0.5529,
+      "rank": 599
+    },
+    {
+      "word": "calvaire",
+      "score": 0.5529,
+      "rank": 600
+    },
+    {
+      "word": "chaperons",
+      "score": 0.5529,
+      "rank": 601
+    },
+    {
+      "word": "corrado",
+      "score": 0.5529,
+      "rank": 602
+    },
+    {
+      "word": "lopez",
+      "score": 0.5529,
+      "rank": 603
+    },
+    {
+      "word": "têtus",
+      "score": 0.5528,
+      "rank": 604
+    },
+    {
+      "word": "puces",
+      "score": 0.5527,
+      "rank": 605
+    },
+    {
+      "word": "kaylee",
+      "score": 0.5527,
+      "rank": 606
+    },
+    {
+      "word": "délirez",
+      "score": 0.5526,
+      "rank": 607
+    },
+    {
+      "word": "caleçon",
+      "score": 0.5526,
+      "rank": 608
+    },
+    {
+      "word": "kiera",
+      "score": 0.5524,
+      "rank": 609
+    },
+    {
+      "word": "dunphy",
+      "score": 0.5523,
+      "rank": 610
+    },
+    {
+      "word": "fondre",
+      "score": 0.5523,
+      "rank": 611
+    },
+    {
+      "word": "côtière",
+      "score": 0.5522,
+      "rank": 612
+    },
+    {
+      "word": "torride",
+      "score": 0.5522,
+      "rank": 613
+    },
+    {
+      "word": "bistro",
+      "score": 0.552,
+      "rank": 614
+    },
+    {
+      "word": "mousseux",
+      "score": 0.552,
+      "rank": 615
+    },
+    {
+      "word": "pèse",
+      "score": 0.552,
+      "rank": 616
+    },
+    {
+      "word": "tropical",
+      "score": 0.5519,
+      "rank": 617
+    },
+    {
+      "word": "duce",
+      "score": 0.5518,
+      "rank": 618
+    },
+    {
+      "word": "honda",
+      "score": 0.5518,
+      "rank": 619
+    },
+    {
+      "word": "péroné",
+      "score": 0.5518,
+      "rank": 620
+    },
+    {
+      "word": "tâché",
+      "score": 0.5517,
+      "rank": 621
+    },
+    {
+      "word": "bécasse",
+      "score": 0.5517,
+      "rank": 622
+    },
+    {
+      "word": "selina",
+      "score": 0.5517,
+      "rank": 623
+    },
+    {
+      "word": "dorées",
+      "score": 0.5517,
+      "rank": 624
+    },
+    {
+      "word": "sensuel",
+      "score": 0.5516,
+      "rank": 625
+    },
+    {
+      "word": "prairie",
+      "score": 0.5516,
+      "rank": 626
+    },
+    {
+      "word": "suce",
+      "score": 0.5515,
+      "rank": 627
+    },
+    {
+      "word": "tourmentez",
+      "score": 0.5515,
+      "rank": 628
+    },
+    {
+      "word": "arnaud",
+      "score": 0.5513,
+      "rank": 629
+    },
+    {
+      "word": "toundra",
+      "score": 0.5513,
+      "rank": 630
+    },
+    {
+      "word": "pouliche",
+      "score": 0.5513,
+      "rank": 631
+    },
+    {
+      "word": "crèmes",
+      "score": 0.5513,
+      "rank": 632
+    },
+    {
+      "word": "tournure",
+      "score": 0.5512,
+      "rank": 633
+    },
+    {
+      "word": "sauvage",
+      "score": 0.5512,
+      "rank": 634
+    },
+    {
+      "word": "ntac",
+      "score": 0.5512,
+      "rank": 635
+    },
+    {
+      "word": "chamboulé",
+      "score": 0.5512,
+      "rank": 636
+    },
+    {
+      "word": "chasteté",
+      "score": 0.5512,
+      "rank": 637
+    },
+    {
+      "word": "pales",
+      "score": 0.5512,
+      "rank": 638
+    },
+    {
+      "word": "malette",
+      "score": 0.5511,
+      "rank": 639
+    },
+    {
+      "word": "plaisait",
+      "score": 0.5511,
+      "rank": 640
+    },
+    {
+      "word": "poisseux",
+      "score": 0.551,
+      "rank": 641
+    },
+    {
+      "word": "nadir",
+      "score": 0.551,
+      "rank": 642
+    },
+    {
+      "word": "coulés",
+      "score": 0.551,
+      "rank": 643
+    },
+    {
+      "word": "bain",
+      "score": 0.551,
+      "rank": 644
+    },
+    {
+      "word": "natale",
+      "score": 0.5509,
+      "rank": 645
+    },
+    {
+      "word": "lei",
+      "score": 0.5509,
+      "rank": 646
+    },
+    {
+      "word": "pissenlit",
+      "score": 0.5508,
+      "rank": 647
+    },
+    {
+      "word": "ruiz",
+      "score": 0.5508,
+      "rank": 648
+    },
+    {
+      "word": "chassée",
+      "score": 0.5507,
+      "rank": 649
+    },
+    {
+      "word": "mauricio",
+      "score": 0.5507,
+      "rank": 650
+    },
+    {
+      "word": "pei",
+      "score": 0.5506,
+      "rank": 651
+    },
+    {
+      "word": "takada",
+      "score": 0.5506,
+      "rank": 652
+    },
+    {
+      "word": "dine",
+      "score": 0.5505,
+      "rank": 653
+    },
+    {
+      "word": "espêce",
+      "score": 0.5505,
+      "rank": 654
+    },
+    {
+      "word": "férocité",
+      "score": 0.5505,
+      "rank": 655
+    },
+    {
+      "word": "basculé",
+      "score": 0.5505,
+      "rank": 656
+    },
+    {
+      "word": "épice",
+      "score": 0.5504,
+      "rank": 657
+    },
+    {
+      "word": "liasse",
+      "score": 0.5503,
+      "rank": 658
+    },
+    {
+      "word": "kalinda",
+      "score": 0.5502,
+      "rank": 659
+    },
+    {
+      "word": "mèche",
+      "score": 0.5502,
+      "rank": 660
+    },
+    {
+      "word": "fantasmé",
+      "score": 0.5502,
+      "rank": 661
+    },
+    {
+      "word": "devon",
+      "score": 0.5501,
+      "rank": 662
+    },
+    {
+      "word": "arnaque",
+      "score": 0.5501,
+      "rank": 663
+    },
+    {
+      "word": "bouée",
+      "score": 0.5501,
+      "rank": 664
+    },
+    {
+      "word": "rasent",
+      "score": 0.55,
+      "rank": 665
+    },
+    {
+      "word": "rejet",
+      "score": 0.55,
+      "rank": 666
+    },
+    {
+      "word": "cicero",
+      "score": 0.5499,
+      "rank": 667
+    },
+    {
+      "word": "morsures",
+      "score": 0.5498,
+      "rank": 668
+    },
+    {
+      "word": "boirais",
+      "score": 0.5498,
+      "rank": 669
+    },
+    {
+      "word": "arrhes",
+      "score": 0.5498,
+      "rank": 670
+    },
+    {
+      "word": "rhoda",
+      "score": 0.5497,
+      "rank": 671
+    },
+    {
+      "word": "châle",
+      "score": 0.5497,
+      "rank": 672
+    },
+    {
+      "word": "balafre",
+      "score": 0.5497,
+      "rank": 673
+    },
+    {
+      "word": "stanhope",
+      "score": 0.5496,
+      "rank": 674
+    },
+    {
+      "word": "bonze",
+      "score": 0.5496,
+      "rank": 675
+    },
+    {
+      "word": "oreillons",
+      "score": 0.5495,
+      "rank": 676
+    },
+    {
+      "word": "pondent",
+      "score": 0.5495,
+      "rank": 677
+    },
+    {
+      "word": "fiévreuse",
+      "score": 0.5494,
+      "rank": 678
+    },
+    {
+      "word": "seema",
+      "score": 0.5494,
+      "rank": 679
+    },
+    {
+      "word": "flolo",
+      "score": 0.5494,
+      "rank": 680
+    },
+    {
+      "word": "kamal",
+      "score": 0.5494,
+      "rank": 681
+    },
+    {
+      "word": "pêché",
+      "score": 0.5493,
+      "rank": 682
+    },
+    {
+      "word": "comanches",
+      "score": 0.5493,
+      "rank": 683
+    },
+    {
+      "word": "traite",
+      "score": 0.5493,
+      "rank": 684
+    },
+    {
+      "word": "rut",
+      "score": 0.5492,
+      "rank": 685
+    },
+    {
+      "word": "riesen",
+      "score": 0.5492,
+      "rank": 686
+    },
+    {
+      "word": "felipe",
+      "score": 0.5492,
+      "rank": 687
+    },
+    {
+      "word": "pâté",
+      "score": 0.5492,
+      "rank": 688
+    },
+    {
+      "word": "tanabe",
+      "score": 0.5491,
+      "rank": 689
+    },
+    {
+      "word": "rougeurs",
+      "score": 0.5491,
+      "rank": 690
+    },
+    {
+      "word": "rasgotra",
+      "score": 0.5491,
+      "rank": 691
+    },
+    {
+      "word": "sru",
+      "score": 0.549,
+      "rank": 692
+    },
+    {
+      "word": "cheik",
+      "score": 0.549,
+      "rank": 693
+    },
+    {
+      "word": "suri",
+      "score": 0.549,
+      "rank": 694
+    },
+    {
+      "word": "baille",
+      "score": 0.5489,
+      "rank": 695
+    },
+    {
+      "word": "pascal",
+      "score": 0.5489,
+      "rank": 696
+    },
+    {
+      "word": "miroir",
+      "score": 0.5489,
+      "rank": 697
+    },
+    {
+      "word": "calderon",
+      "score": 0.5489,
+      "rank": 698
+    },
+    {
+      "word": "chaste",
+      "score": 0.5489,
+      "rank": 699
+    },
+    {
+      "word": "charlatan",
+      "score": 0.5489,
+      "rank": 700
+    },
+    {
+      "word": "asile",
+      "score": 0.5488,
+      "rank": 701
+    },
+    {
+      "word": "hue",
+      "score": 0.5488,
+      "rank": 702
+    },
+    {
+      "word": "râler",
+      "score": 0.5488,
+      "rank": 703
+    },
+    {
+      "word": "équestre",
+      "score": 0.5488,
+      "rank": 704
+    },
+    {
+      "word": "furie",
+      "score": 0.5487,
+      "rank": 705
+    },
+    {
+      "word": "chéris",
+      "score": 0.5487,
+      "rank": 706
+    },
+    {
+      "word": "laché",
+      "score": 0.5487,
+      "rank": 707
+    },
+    {
+      "word": "soulier",
+      "score": 0.5487,
+      "rank": 708
+    },
+    {
+      "word": "pékin",
+      "score": 0.5486,
+      "rank": 709
+    },
+    {
+      "word": "steiner",
+      "score": 0.5486,
+      "rank": 710
+    },
+    {
+      "word": "piteux",
+      "score": 0.5485,
+      "rank": 711
+    },
+    {
+      "word": "arnaques",
+      "score": 0.5485,
+      "rank": 712
+    },
+    {
+      "word": "chul",
+      "score": 0.5484,
+      "rank": 713
+    },
+    {
+      "word": "toiture",
+      "score": 0.5484,
+      "rank": 714
+    },
+    {
+      "word": "matos",
+      "score": 0.5484,
+      "rank": 715
+    },
+    {
+      "word": "baisent",
+      "score": 0.5483,
+      "rank": 716
+    },
+    {
+      "word": "cale",
+      "score": 0.5483,
+      "rank": 717
+    },
+    {
+      "word": "poché",
+      "score": 0.5483,
+      "rank": 718
+    },
+    {
+      "word": "pédale",
+      "score": 0.5483,
+      "rank": 719
+    },
+    {
+      "word": "plais",
+      "score": 0.5483,
+      "rank": 720
+    },
+    {
+      "word": "pénal",
+      "score": 0.5482,
+      "rank": 721
+    },
+    {
+      "word": "saoul",
+      "score": 0.5482,
+      "rank": 722
+    },
+    {
+      "word": "reddington",
+      "score": 0.5481,
+      "rank": 723
+    },
+    {
+      "word": "curé",
+      "score": 0.5481,
+      "rank": 724
+    },
+    {
+      "word": "arnaquer",
+      "score": 0.5481,
+      "rank": 725
+    },
+    {
+      "word": "natasha",
+      "score": 0.5481,
+      "rank": 726
+    },
+    {
+      "word": "néfastes",
+      "score": 0.548,
+      "rank": 727
+    },
+    {
+      "word": "paisiblement",
+      "score": 0.548,
+      "rank": 728
+    },
+    {
+      "word": "lache",
+      "score": 0.548,
+      "rank": 729
+    },
+    {
+      "word": "ricine",
+      "score": 0.548,
+      "rank": 730
+    },
+    {
+      "word": "mors",
+      "score": 0.548,
+      "rank": 731
+    },
+    {
+      "word": "rasant",
+      "score": 0.5479,
+      "rank": 732
+    },
+    {
+      "word": "graissé",
+      "score": 0.5479,
+      "rank": 733
+    },
+    {
+      "word": "ralf",
+      "score": 0.5479,
+      "rank": 734
+    },
+    {
+      "word": "ricin",
+      "score": 0.5479,
+      "rank": 735
+    },
+    {
+      "word": "baises",
+      "score": 0.5478,
+      "rank": 736
+    },
+    {
+      "word": "riker",
+      "score": 0.5478,
+      "rank": 737
+    },
+    {
+      "word": "parcourait",
+      "score": 0.5478,
+      "rank": 738
+    },
+    {
+      "word": "ritter",
+      "score": 0.5477,
+      "rank": 739
+    },
+    {
+      "word": "chaz",
+      "score": 0.5477,
+      "rank": 740
+    },
+    {
+      "word": "cachettes",
+      "score": 0.5477,
+      "rank": 741
+    },
+    {
+      "word": "falaises",
+      "score": 0.5476,
+      "rank": 742
+    },
+    {
+      "word": "tangue",
+      "score": 0.5476,
+      "rank": 743
+    },
+    {
+      "word": "cirie",
+      "score": 0.5475,
+      "rank": 744
+    },
+    {
+      "word": "trac",
+      "score": 0.5475,
+      "rank": 745
+    },
+    {
+      "word": "chaperon",
+      "score": 0.5475,
+      "rank": 746
+    },
+    {
+      "word": "dîtes",
+      "score": 0.5474,
+      "rank": 747
+    },
+    {
+      "word": "misères",
+      "score": 0.5474,
+      "rank": 748
+    },
+    {
+      "word": "fantaisie",
+      "score": 0.5473,
+      "rank": 749
+    },
+    {
+      "word": "foncés",
+      "score": 0.5472,
+      "rank": 750
+    },
+    {
+      "word": "tue",
+      "score": 0.5472,
+      "rank": 751
+    },
+    {
+      "word": "nage",
+      "score": 0.5471,
+      "rank": 752
+    },
+    {
+      "word": "traînera",
+      "score": 0.547,
+      "rank": 753
+    },
+    {
+      "word": "kanbe",
+      "score": 0.547,
+      "rank": 754
+    },
+    {
+      "word": "pourboire",
+      "score": 0.547,
+      "rank": 755
+    },
+    {
+      "word": "passif",
+      "score": 0.5468,
+      "rank": 756
+    },
+    {
+      "word": "laqué",
+      "score": 0.5468,
+      "rank": 757
+    },
+    {
+      "word": "piastres",
+      "score": 0.5468,
+      "rank": 758
+    },
+    {
+      "word": "fonce",
+      "score": 0.5468,
+      "rank": 759
+    },
+    {
+      "word": "susumu",
+      "score": 0.5468,
+      "rank": 760
+    },
+    {
+      "word": "salis",
+      "score": 0.5468,
+      "rank": 761
+    },
+    {
+      "word": "crotte",
+      "score": 0.5468,
+      "rank": 762
+    },
+    {
+      "word": "cassent",
+      "score": 0.5467,
+      "rank": 763
+    },
+    {
+      "word": "cinoche",
+      "score": 0.5467,
+      "rank": 764
+    },
+    {
+      "word": "carafe",
+      "score": 0.5466,
+      "rank": 765
+    },
+    {
+      "word": "ferais",
+      "score": 0.5464,
+      "rank": 766
+    },
+    {
+      "word": "vend",
+      "score": 0.5464,
+      "rank": 767
+    },
+    {
+      "word": "mourrez",
+      "score": 0.5464,
+      "rank": 768
+    },
+    {
+      "word": "râles",
+      "score": 0.5464,
+      "rank": 769
+    },
+    {
+      "word": "rinaldi",
+      "score": 0.5463,
+      "rank": 770
+    },
+    {
+      "word": "portland",
+      "score": 0.5463,
+      "rank": 771
+    },
+    {
+      "word": "parcourir",
+      "score": 0.5463,
+      "rank": 772
+    },
+    {
+      "word": "mallette",
+      "score": 0.5463,
+      "rank": 773
+    },
+    {
+      "word": "dalles",
+      "score": 0.5463,
+      "rank": 774
+    },
+    {
+      "word": "moule",
+      "score": 0.5462,
+      "rank": 775
+    },
+    {
+      "word": "chaises",
+      "score": 0.5462,
+      "rank": 776
+    },
+    {
+      "word": "faisceaux",
+      "score": 0.5462,
+      "rank": 777
+    },
+    {
+      "word": "urnes",
+      "score": 0.5461,
+      "rank": 778
+    },
+    {
+      "word": "lenore",
+      "score": 0.5461,
+      "rank": 779
+    },
+    {
+      "word": "scarabées",
+      "score": 0.5461,
+      "rank": 780
+    },
+    {
+      "word": "montrais",
+      "score": 0.5461,
+      "rank": 781
+    },
+    {
+      "word": "urss",
+      "score": 0.5461,
+      "rank": 782
+    },
+    {
+      "word": "landau",
+      "score": 0.5461,
+      "rank": 783
+    },
+    {
+      "word": "puiser",
+      "score": 0.546,
+      "rank": 784
+    },
+    {
+      "word": "traques",
+      "score": 0.546,
+      "rank": 785
+    },
+    {
+      "word": "sténo",
+      "score": 0.546,
+      "rank": 786
+    },
+    {
+      "word": "côtelette",
+      "score": 0.546,
+      "rank": 787
+    },
+    {
+      "word": "cicéron",
+      "score": 0.5459,
+      "rank": 788
+    },
+    {
+      "word": "aliénés",
+      "score": 0.5459,
+      "rank": 789
+    },
+    {
+      "word": "tique",
+      "score": 0.5458,
+      "rank": 790
+    },
+    {
+      "word": "baissée",
+      "score": 0.5458,
+      "rank": 791
+    },
+    {
+      "word": "misez",
+      "score": 0.5458,
+      "rank": 792
+    },
+    {
+      "word": "caprica",
+      "score": 0.5456,
+      "rank": 793
+    },
+    {
+      "word": "zafer",
+      "score": 0.5456,
+      "rank": 794
+    },
+    {
+      "word": "douanes",
+      "score": 0.5456,
+      "rank": 795
+    },
+    {
+      "word": "maze",
+      "score": 0.5454,
+      "rank": 796
+    },
+    {
+      "word": "continental",
+      "score": 0.5454,
+      "rank": 797
+    },
+    {
+      "word": "diapos",
+      "score": 0.5454,
+      "rank": 798
+    },
+    {
+      "word": "zale",
+      "score": 0.5454,
+      "rank": 799
+    },
+    {
+      "word": "lelouch",
+      "score": 0.5453,
+      "rank": 800
+    },
+    {
+      "word": "espece",
+      "score": 0.5453,
+      "rank": 801
+    },
+    {
+      "word": "trou",
+      "score": 0.5453,
+      "rank": 802
+    },
+    {
+      "word": "voile",
+      "score": 0.5453,
+      "rank": 803
+    },
+    {
+      "word": "largo",
+      "score": 0.5452,
+      "rank": 804
+    },
+    {
+      "word": "méchamment",
+      "score": 0.5452,
+      "rank": 805
+    },
+    {
+      "word": "namaste",
+      "score": 0.5452,
+      "rank": 806
+    },
+    {
+      "word": "ruisseau",
+      "score": 0.5452,
+      "rank": 807
+    },
+    {
+      "word": "feras",
+      "score": 0.5452,
+      "rank": 808
+    },
+    {
+      "word": "pére",
+      "score": 0.5451,
+      "rank": 809
+    },
+    {
+      "word": "murakami",
+      "score": 0.5451,
+      "rank": 810
+    },
+    {
+      "word": "déjeuné",
+      "score": 0.5451,
+      "rank": 811
+    },
+    {
+      "word": "tartes",
+      "score": 0.5451,
+      "rank": 812
+    },
+    {
+      "word": "dérailles",
+      "score": 0.5451,
+      "rank": 813
+    },
+    {
+      "word": "soutane",
+      "score": 0.545,
+      "rank": 814
+    },
+    {
+      "word": "troqué",
+      "score": 0.5449,
+      "rank": 815
+    },
+    {
+      "word": "faye",
+      "score": 0.5449,
+      "rank": 816
+    },
+    {
+      "word": "boden",
+      "score": 0.5449,
+      "rank": 817
+    },
+    {
+      "word": "nola",
+      "score": 0.5449,
+      "rank": 818
+    },
+    {
+      "word": "urètre",
+      "score": 0.5448,
+      "rank": 819
+    },
+    {
+      "word": "tirerais",
+      "score": 0.5448,
+      "rank": 820
+    },
+    {
+      "word": "côtes",
+      "score": 0.5448,
+      "rank": 821
+    },
+    {
+      "word": "châtié",
+      "score": 0.5448,
+      "rank": 822
+    },
+    {
+      "word": "frousse",
+      "score": 0.5448,
+      "rank": 823
+    },
+    {
+      "word": "pissent",
+      "score": 0.5448,
+      "rank": 824
+    },
+    {
+      "word": "raclures",
+      "score": 0.5448,
+      "rank": 825
+    },
+    {
+      "word": "déchue",
+      "score": 0.5447,
+      "rank": 826
+    },
+    {
+      "word": "taillé",
+      "score": 0.5447,
+      "rank": 827
+    },
+    {
+      "word": "assises",
+      "score": 0.5446,
+      "rank": 828
+    },
+    {
+      "word": "pavot",
+      "score": 0.5446,
+      "rank": 829
+    },
+    {
+      "word": "shû",
+      "score": 0.5446,
+      "rank": 830
+    },
+    {
+      "word": "maladive",
+      "score": 0.5446,
+      "rank": 831
+    },
+    {
+      "word": "charogne",
+      "score": 0.5446,
+      "rank": 832
+    },
+    {
+      "word": "lacéré",
+      "score": 0.5446,
+      "rank": 833
+    },
+    {
+      "word": "sèment",
+      "score": 0.5445,
+      "rank": 834
+    },
+    {
+      "word": "râleur",
+      "score": 0.5444,
+      "rank": 835
+    },
+    {
+      "word": "relou",
+      "score": 0.5444,
+      "rank": 836
+    },
+    {
+      "word": "alina",
+      "score": 0.5444,
+      "rank": 837
+    },
+    {
+      "word": "noix",
+      "score": 0.5444,
+      "rank": 838
+    },
+    {
+      "word": "roche",
+      "score": 0.5444,
+      "rank": 839
+    },
+    {
+      "word": "dévorait",
+      "score": 0.5443,
+      "rank": 840
+    },
+    {
+      "word": "parut",
+      "score": 0.5443,
+      "rank": 841
+    },
+    {
+      "word": "cachés",
+      "score": 0.5443,
+      "rank": 842
+    },
+    {
+      "word": "partiras",
+      "score": 0.5442,
+      "rank": 843
+    },
+    {
+      "word": "fadaises",
+      "score": 0.5442,
+      "rank": 844
+    },
+    {
+      "word": "fredo",
+      "score": 0.5442,
+      "rank": 845
+    },
+    {
+      "word": "furies",
+      "score": 0.5442,
+      "rank": 846
+    },
+    {
+      "word": "bianca",
+      "score": 0.5442,
+      "rank": 847
+    },
+    {
+      "word": "haïssait",
+      "score": 0.5441,
+      "rank": 848
+    },
+    {
+      "word": "baume",
+      "score": 0.5441,
+      "rank": 849
+    },
+    {
+      "word": "surnaturel",
+      "score": 0.5441,
+      "rank": 850
+    },
+    {
+      "word": "pâturage",
+      "score": 0.5441,
+      "rank": 851
+    },
+    {
+      "word": "rer",
+      "score": 0.5441,
+      "rank": 852
+    },
+    {
+      "word": "lucía",
+      "score": 0.544,
+      "rank": 853
+    },
+    {
+      "word": "suivrai",
+      "score": 0.544,
+      "rank": 854
+    },
+    {
+      "word": "salem",
+      "score": 0.5439,
+      "rank": 855
+    },
+    {
+      "word": "crabe",
+      "score": 0.5439,
+      "rank": 856
+    },
+    {
+      "word": "suivra",
+      "score": 0.5438,
+      "rank": 857
+    },
+    {
+      "word": "péquenaud",
+      "score": 0.5437,
+      "rank": 858
+    },
+    {
+      "word": "mar",
+      "score": 0.5437,
+      "rank": 859
+    },
+    {
+      "word": "rassis",
+      "score": 0.5437,
+      "rank": 860
+    },
+    {
+      "word": "décevoir",
+      "score": 0.5436,
+      "rank": 861
+    },
+    {
+      "word": "sanju",
+      "score": 0.5436,
+      "rank": 862
+    },
+    {
+      "word": "fernando",
+      "score": 0.5436,
+      "rank": 863
+    },
+    {
+      "word": "pègre",
+      "score": 0.5436,
+      "rank": 864
+    },
+    {
+      "word": "samoa",
+      "score": 0.5436,
+      "rank": 865
+    },
+    {
+      "word": "fouad",
+      "score": 0.5435,
+      "rank": 866
+    },
+    {
+      "word": "gaza",
+      "score": 0.5435,
+      "rank": 867
+    },
+    {
+      "word": "traire",
+      "score": 0.5435,
+      "rank": 868
+    },
+    {
+      "word": "soyeux",
+      "score": 0.5434,
+      "rank": 869
+    },
+    {
+      "word": "maltais",
+      "score": 0.5434,
+      "rank": 870
+    },
+    {
+      "word": "obsolète",
+      "score": 0.5433,
+      "rank": 871
+    },
+    {
+      "word": "pacotille",
+      "score": 0.5433,
+      "rank": 872
+    },
+    {
+      "word": "rodéo",
+      "score": 0.5433,
+      "rank": 873
+    },
+    {
+      "word": "foraine",
+      "score": 0.5433,
+      "rank": 874
+    },
+    {
+      "word": "caïmans",
+      "score": 0.5433,
+      "rank": 875
+    },
+    {
+      "word": "égarés",
+      "score": 0.5432,
+      "rank": 876
+    },
+    {
+      "word": "crevez",
+      "score": 0.5432,
+      "rank": 877
+    },
+    {
+      "word": "mécano",
+      "score": 0.5432,
+      "rank": 878
+    },
+    {
+      "word": "maline",
+      "score": 0.5432,
+      "rank": 879
+    },
+    {
+      "word": "traque",
+      "score": 0.5432,
+      "rank": 880
+    },
+    {
+      "word": "foss",
+      "score": 0.5431,
+      "rank": 881
+    },
+    {
+      "word": "plaisez",
+      "score": 0.5431,
+      "rank": 882
+    },
+    {
+      "word": "terreau",
+      "score": 0.5431,
+      "rank": 883
+    },
+    {
+      "word": "hideux",
+      "score": 0.5431,
+      "rank": 884
+    },
+    {
+      "word": "fantaisies",
+      "score": 0.5431,
+      "rank": 885
+    },
+    {
+      "word": "kunta",
+      "score": 0.5431,
+      "rank": 886
+    },
+    {
+      "word": "sors",
+      "score": 0.543,
+      "rank": 887
+    },
+    {
+      "word": "tige",
+      "score": 0.543,
+      "rank": 888
+    },
+    {
+      "word": "plaisant",
+      "score": 0.543,
+      "rank": 889
+    },
+    {
+      "word": "saletés",
+      "score": 0.543,
+      "rank": 890
+    },
+    {
+      "word": "pénétrez",
+      "score": 0.5429,
+      "rank": 891
+    },
+    {
+      "word": "peeta",
+      "score": 0.5429,
+      "rank": 892
+    },
+    {
+      "word": "éloignera",
+      "score": 0.5428,
+      "rank": 893
+    },
+    {
+      "word": "arriérés",
+      "score": 0.5428,
+      "rank": 894
+    },
+    {
+      "word": "kris",
+      "score": 0.5428,
+      "rank": 895
+    },
+    {
+      "word": "nanas",
+      "score": 0.5428,
+      "rank": 896
+    },
+    {
+      "word": "rabais",
+      "score": 0.5428,
+      "rank": 897
+    },
+    {
+      "word": "saturé",
+      "score": 0.5428,
+      "rank": 898
+    },
+    {
+      "word": "loïc",
+      "score": 0.5428,
+      "rank": 899
+    },
+    {
+      "word": "chaise",
+      "score": 0.5427,
+      "rank": 900
+    },
+    {
+      "word": "nus",
+      "score": 0.5427,
+      "rank": 901
+    },
+    {
+      "word": "caniches",
+      "score": 0.5427,
+      "rank": 902
+    },
+    {
+      "word": "résidus",
+      "score": 0.5427,
+      "rank": 903
+    },
+    {
+      "word": "châtains",
+      "score": 0.5427,
+      "rank": 904
+    },
+    {
+      "word": "têtard",
+      "score": 0.5427,
+      "rank": 905
+    },
+    {
+      "word": "choux",
+      "score": 0.5427,
+      "rank": 906
+    },
+    {
+      "word": "puissions",
+      "score": 0.5426,
+      "rank": 907
+    },
+    {
+      "word": "rhode",
+      "score": 0.5426,
+      "rank": 908
+    },
+    {
+      "word": "sourie",
+      "score": 0.5426,
+      "rank": 909
+    },
+    {
+      "word": "rudimentaire",
+      "score": 0.5426,
+      "rank": 910
+    },
+    {
+      "word": "janus",
+      "score": 0.5426,
+      "rank": 911
+    },
+    {
+      "word": "rasage",
+      "score": 0.5426,
+      "rank": 912
+    },
+    {
+      "word": "nauséeux",
+      "score": 0.5425,
+      "rank": 913
+    },
+    {
+      "word": "nuira",
+      "score": 0.5425,
+      "rank": 914
+    },
+    {
+      "word": "souche",
+      "score": 0.5425,
+      "rank": 915
+    },
+    {
+      "word": "barrée",
+      "score": 0.5425,
+      "rank": 916
+    },
+    {
+      "word": "largués",
+      "score": 0.5424,
+      "rank": 917
+    },
+    {
+      "word": "tireras",
+      "score": 0.5424,
+      "rank": 918
+    },
+    {
+      "word": "nourris",
+      "score": 0.5424,
+      "rank": 919
+    },
+    {
+      "word": "radha",
+      "score": 0.5424,
+      "rank": 920
+    },
+    {
+      "word": "chauve",
+      "score": 0.5423,
+      "rank": 921
+    },
+    {
+      "word": "pêchés",
+      "score": 0.5423,
+      "rank": 922
+    },
+    {
+      "word": "chagrin",
+      "score": 0.5423,
+      "rank": 923
+    },
+    {
+      "word": "sombres",
+      "score": 0.5422,
+      "rank": 924
+    },
+    {
+      "word": "amorce",
+      "score": 0.5422,
+      "rank": 925
+    },
+    {
+      "word": "poilu",
+      "score": 0.5422,
+      "rank": 926
+    },
+    {
+      "word": "oasis",
+      "score": 0.5422,
+      "rank": 927
+    },
+    {
+      "word": "saline",
+      "score": 0.5422,
+      "rank": 928
+    },
+    {
+      "word": "beach",
+      "score": 0.5421,
+      "rank": 929
+    },
+    {
+      "word": "chéries",
+      "score": 0.5421,
+      "rank": 930
+    },
+    {
+      "word": "susan",
+      "score": 0.5421,
+      "rank": 931
+    },
+    {
+      "word": "voies",
+      "score": 0.5421,
+      "rank": 932
+    },
+    {
+      "word": "tracée",
+      "score": 0.542,
+      "rank": 933
+    },
+    {
+      "word": "métèque",
+      "score": 0.542,
+      "rank": 934
+    },
+    {
+      "word": "diables",
+      "score": 0.542,
+      "rank": 935
+    },
+    {
+      "word": "dévie",
+      "score": 0.542,
+      "rank": 936
+    },
+    {
+      "word": "abatte",
+      "score": 0.542,
+      "rank": 937
+    },
+    {
+      "word": "devenez",
+      "score": 0.5419,
+      "rank": 938
+    },
+    {
+      "word": "chambrée",
+      "score": 0.5419,
+      "rank": 939
+    },
+    {
+      "word": "tannen",
+      "score": 0.5419,
+      "rank": 940
+    },
+    {
+      "word": "riens",
+      "score": 0.5419,
+      "rank": 941
+    },
+    {
+      "word": "fermière",
+      "score": 0.5419,
+      "rank": 942
+    },
+    {
+      "word": "prout",
+      "score": 0.5418,
+      "rank": 943
+    },
+    {
+      "word": "lézard",
+      "score": 0.5418,
+      "rank": 944
+    },
+    {
+      "word": "tang",
+      "score": 0.5418,
+      "rank": 945
+    },
+    {
+      "word": "ciera",
+      "score": 0.5418,
+      "rank": 946
+    },
+    {
+      "word": "pourvoir",
+      "score": 0.5418,
+      "rank": 947
+    },
+    {
+      "word": "foncent",
+      "score": 0.5418,
+      "rank": 948
+    },
+    {
+      "word": "roque",
+      "score": 0.5418,
+      "rank": 949
+    },
+    {
+      "word": "serez",
+      "score": 0.5417,
+      "rank": 950
+    },
+    {
+      "word": "arima",
+      "score": 0.5417,
+      "rank": 951
+    },
+    {
+      "word": "sombrer",
+      "score": 0.5417,
+      "rank": 952
+    },
+    {
+      "word": "dalle",
+      "score": 0.5417,
+      "rank": 953
+    },
+    {
+      "word": "punirai",
+      "score": 0.5416,
+      "rank": 954
+    },
+    {
+      "word": "khasinau",
+      "score": 0.5416,
+      "rank": 955
+    },
+    {
+      "word": "balais",
+      "score": 0.5415,
+      "rank": 956
+    },
+    {
+      "word": "navrée",
+      "score": 0.5415,
+      "rank": 957
+    },
+    {
+      "word": "taillés",
+      "score": 0.5415,
+      "rank": 958
+    },
+    {
+      "word": "rangeais",
+      "score": 0.5415,
+      "rank": 959
+    },
+    {
+      "word": "vra",
+      "score": 0.5414,
+      "rank": 960
+    },
+    {
+      "word": "madden",
+      "score": 0.5414,
+      "rank": 961
+    },
+    {
+      "word": "oriente",
+      "score": 0.5413,
+      "rank": 962
+    },
+    {
+      "word": "martien",
+      "score": 0.5413,
+      "rank": 963
+    },
+    {
+      "word": "piétinée",
+      "score": 0.5413,
+      "rank": 964
+    },
+    {
+      "word": "chan",
+      "score": 0.5412,
+      "rank": 965
+    },
+    {
+      "word": "amassé",
+      "score": 0.5412,
+      "rank": 966
+    },
+    {
+      "word": "arraché",
+      "score": 0.5412,
+      "rank": 967
+    },
+    {
+      "word": "soldé",
+      "score": 0.5412,
+      "rank": 968
+    },
+    {
+      "word": "rashid",
+      "score": 0.5411,
+      "rank": 969
+    },
+    {
+      "word": "ganga",
+      "score": 0.5411,
+      "rank": 970
+    },
+    {
+      "word": "kiran",
+      "score": 0.5411,
+      "rank": 971
+    },
+    {
+      "word": "scêne",
+      "score": 0.5411,
+      "rank": 972
+    },
+    {
+      "word": "nattes",
+      "score": 0.5411,
+      "rank": 973
+    },
+    {
+      "word": "rougeur",
+      "score": 0.5411,
+      "rank": 974
+    },
+    {
+      "word": "lointaines",
+      "score": 0.5411,
+      "rank": 975
+    },
+    {
+      "word": "naevia",
+      "score": 0.5411,
+      "rank": 976
+    },
+    {
+      "word": "dias",
+      "score": 0.5411,
+      "rank": 977
+    },
+    {
+      "word": "saori",
+      "score": 0.5411,
+      "rank": 978
+    },
+    {
+      "word": "chai",
+      "score": 0.541,
+      "rank": 979
+    },
+    {
+      "word": "bouché",
+      "score": 0.541,
+      "rank": 980
+    },
+    {
+      "word": "tropicale",
+      "score": 0.541,
+      "rank": 981
+    },
+    {
+      "word": "flanc",
+      "score": 0.5409,
+      "rank": 982
+    },
+    {
+      "word": "stuart",
+      "score": 0.5409,
+      "rank": 983
+    },
+    {
+      "word": "tannée",
+      "score": 0.5409,
+      "rank": 984
+    },
+    {
+      "word": "sandler",
+      "score": 0.5409,
+      "rank": 985
+    },
+    {
+      "word": "miaulement",
+      "score": 0.5409,
+      "rank": 986
+    },
+    {
+      "word": "kaspar",
+      "score": 0.5409,
+      "rank": 987
+    },
+    {
+      "word": "poulette",
+      "score": 0.5409,
+      "rank": 988
+    },
+    {
+      "word": "popol",
+      "score": 0.5409,
+      "rank": 989
+    },
+    {
+      "word": "lividité",
+      "score": 0.5409,
+      "rank": 990
+    },
+    {
+      "word": "chypre",
+      "score": 0.5409,
+      "rank": 991
+    },
+    {
+      "word": "paulie",
+      "score": 0.5409,
+      "rank": 992
+    },
+    {
+      "word": "turban",
+      "score": 0.5408,
+      "rank": 993
+    },
+    {
+      "word": "lope",
+      "score": 0.5408,
+      "rank": 994
+    },
+    {
+      "word": "vaillamment",
+      "score": 0.5408,
+      "rank": 995
+    },
+    {
+      "word": "geneva",
+      "score": 0.5408,
+      "rank": 996
+    },
+    {
+      "word": "pâtée",
+      "score": 0.5408,
+      "rank": 997
+    },
+    {
+      "word": "dérobe",
+      "score": 0.5407,
+      "rank": 998
+    },
+    {
+      "word": "kyla",
+      "score": 0.5407,
+      "rank": 999
+    },
+    {
+      "word": "moururent",
+      "score": 0.5407,
+      "rank": 1000
+    }
+  ]
+}

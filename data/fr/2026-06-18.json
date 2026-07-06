@@ -1,0 +1,5014 @@
+{
+  "date": "2026-06-18",
+  "puzzleNumber": 166,
+  "lang": "fr",
+  "secret": "mémoire",
+  "wordLength": 7,
+  "hints": {
+    "top1": 0.9636,
+    "top10": 0.7029,
+    "top1000": 0.5527
+  },
+  "words": [
+    {
+      "word": "memory",
+      "score": 0.9636,
+      "rank": 1
+    },
+    {
+      "word": "mémoriser",
+      "score": 0.888,
+      "rank": 2
+    },
+    {
+      "word": "mémorise",
+      "score": 0.8533,
+      "rank": 3
+    },
+    {
+      "word": "amnésie",
+      "score": 0.8221,
+      "rank": 4
+    },
+    {
+      "word": "mémorisé",
+      "score": 0.7877,
+      "rank": 5
+    },
+    {
+      "word": "memoire",
+      "score": 0.7268,
+      "rank": 6
+    },
+    {
+      "word": "rétention",
+      "score": 0.7142,
+      "rank": 7
+    },
+    {
+      "word": "ram",
+      "score": 0.7087,
+      "rank": 8
+    },
+    {
+      "word": "souvient",
+      "score": 0.7058,
+      "rank": 9
+    },
+    {
+      "word": "mémorables",
+      "score": 0.7029,
+      "rank": 10
+    },
+    {
+      "word": "démembrement",
+      "score": 0.7008,
+      "rank": 11
+    },
+    {
+      "word": "souviennent",
+      "score": 0.6978,
+      "rank": 12
+    },
+    {
+      "word": "rappelant",
+      "score": 0.691,
+      "rank": 13
+    },
+    {
+      "word": "remember",
+      "score": 0.6897,
+      "rank": 14
+    },
+    {
+      "word": "souviennes",
+      "score": 0.6896,
+      "rank": 15
+    },
+    {
+      "word": "souveniez",
+      "score": 0.6871,
+      "rank": 16
+    },
+    {
+      "word": "rappelez",
+      "score": 0.6863,
+      "rank": 17
+    },
+    {
+      "word": "oublia",
+      "score": 0.686,
+      "rank": 18
+    },
+    {
+      "word": "oubliée",
+      "score": 0.6844,
+      "rank": 19
+    },
+    {
+      "word": "rappeler",
+      "score": 0.6843,
+      "rank": 20
+    },
+    {
+      "word": "souviens",
+      "score": 0.6823,
+      "rank": 21
+    },
+    {
+      "word": "recoller",
+      "score": 0.6793,
+      "rank": 22
+    },
+    {
+      "word": "rappellent",
+      "score": 0.6792,
+      "rank": 23
+    },
+    {
+      "word": "souvienne",
+      "score": 0.6773,
+      "rank": 24
+    },
+    {
+      "word": "souviendrez",
+      "score": 0.6765,
+      "rank": 25
+    },
+    {
+      "word": "oublier",
+      "score": 0.6741,
+      "rank": 26
+    },
+    {
+      "word": "pensiez",
+      "score": 0.6721,
+      "rank": 27
+    },
+    {
+      "word": "retenus",
+      "score": 0.6715,
+      "rank": 28
+    },
+    {
+      "word": "oubliées",
+      "score": 0.6709,
+      "rank": 29
+    },
+    {
+      "word": "cognitif",
+      "score": 0.6679,
+      "rank": 30
+    },
+    {
+      "word": "oubliant",
+      "score": 0.6664,
+      "rank": 31
+    },
+    {
+      "word": "compteur",
+      "score": 0.6657,
+      "rank": 32
+    },
+    {
+      "word": "oublié",
+      "score": 0.6657,
+      "rank": 33
+    },
+    {
+      "word": "oublient",
+      "score": 0.6643,
+      "rank": 34
+    },
+    {
+      "word": "souvenez",
+      "score": 0.664,
+      "rank": 35
+    },
+    {
+      "word": "amnésique",
+      "score": 0.663,
+      "rank": 36
+    },
+    {
+      "word": "rappels",
+      "score": 0.6617,
+      "rank": 37
+    },
+    {
+      "word": "oublies",
+      "score": 0.6606,
+      "rank": 38
+    },
+    {
+      "word": "rappeliez",
+      "score": 0.6588,
+      "rank": 39
+    },
+    {
+      "word": "souvenait",
+      "score": 0.6582,
+      "rank": 40
+    },
+    {
+      "word": "rappelait",
+      "score": 0.658,
+      "rank": 41
+    },
+    {
+      "word": "oubliés",
+      "score": 0.6574,
+      "rank": 42
+    },
+    {
+      "word": "souviendront",
+      "score": 0.6559,
+      "rank": 43
+    },
+    {
+      "word": "memo",
+      "score": 0.6545,
+      "rank": 44
+    },
+    {
+      "word": "retenue",
+      "score": 0.6526,
+      "rank": 45
+    },
+    {
+      "word": "cognitive",
+      "score": 0.6525,
+      "rank": 46
+    },
+    {
+      "word": "retenues",
+      "score": 0.6508,
+      "rank": 47
+    },
+    {
+      "word": "réservent",
+      "score": 0.6506,
+      "rank": 48
+    },
+    {
+      "word": "forget",
+      "score": 0.6486,
+      "rank": 49
+    },
+    {
+      "word": "cachemire",
+      "score": 0.6468,
+      "rank": 50
+    },
+    {
+      "word": "pensif",
+      "score": 0.6466,
+      "rank": 51
+    },
+    {
+      "word": "rappelé",
+      "score": 0.646,
+      "rank": 52
+    },
+    {
+      "word": "reprenant",
+      "score": 0.6452,
+      "rank": 53
+    },
+    {
+      "word": "démenti",
+      "score": 0.6432,
+      "rank": 54
+    },
+    {
+      "word": "démentir",
+      "score": 0.6411,
+      "rank": 55
+    },
+    {
+      "word": "registres",
+      "score": 0.6398,
+      "rank": 56
+    },
+    {
+      "word": "relecture",
+      "score": 0.6395,
+      "rank": 57
+    },
+    {
+      "word": "comptent",
+      "score": 0.6388,
+      "rank": 58
+    },
+    {
+      "word": "reliés",
+      "score": 0.6374,
+      "rank": 59
+    },
+    {
+      "word": "retenu",
+      "score": 0.6372,
+      "rank": 60
+    },
+    {
+      "word": "rappele",
+      "score": 0.6359,
+      "rank": 61
+    },
+    {
+      "word": "cachent",
+      "score": 0.6322,
+      "rank": 62
+    },
+    {
+      "word": "oublierez",
+      "score": 0.6307,
+      "rank": 63
+    },
+    {
+      "word": "réservez",
+      "score": 0.6306,
+      "rank": 64
+    },
+    {
+      "word": "remémorer",
+      "score": 0.6301,
+      "rank": 65
+    },
+    {
+      "word": "mente",
+      "score": 0.6299,
+      "rank": 66
+    },
+    {
+      "word": "mentaux",
+      "score": 0.6285,
+      "rank": 67
+    },
+    {
+      "word": "rappel",
+      "score": 0.6276,
+      "rank": 68
+    },
+    {
+      "word": "registre",
+      "score": 0.6275,
+      "rank": 69
+    },
+    {
+      "word": "récipient",
+      "score": 0.6267,
+      "rank": 70
+    },
+    {
+      "word": "comptez",
+      "score": 0.6265,
+      "rank": 71
+    },
+    {
+      "word": "réciter",
+      "score": 0.6252,
+      "rank": 72
+    },
+    {
+      "word": "recueille",
+      "score": 0.6246,
+      "rank": 73
+    },
+    {
+      "word": "méprends",
+      "score": 0.6244,
+      "rank": 74
+    },
+    {
+      "word": "mind",
+      "score": 0.6228,
+      "rank": 75
+    },
+    {
+      "word": "mémorable",
+      "score": 0.6216,
+      "rank": 76
+    },
+    {
+      "word": "recommençait",
+      "score": 0.6216,
+      "rank": 77
+    },
+    {
+      "word": "conserves",
+      "score": 0.6214,
+      "rank": 78
+    },
+    {
+      "word": "répertoire",
+      "score": 0.6207,
+      "rank": 79
+    },
+    {
+      "word": "rappelée",
+      "score": 0.6207,
+      "rank": 80
+    },
+    {
+      "word": "consommé",
+      "score": 0.6206,
+      "rank": 81
+    },
+    {
+      "word": "oubliettes",
+      "score": 0.6204,
+      "rank": 82
+    },
+    {
+      "word": "concentrant",
+      "score": 0.62,
+      "rank": 83
+    },
+    {
+      "word": "oubliait",
+      "score": 0.6197,
+      "rank": 84
+    },
+    {
+      "word": "stéréo",
+      "score": 0.6192,
+      "rank": 85
+    },
+    {
+      "word": "réserver",
+      "score": 0.6187,
+      "rank": 86
+    },
+    {
+      "word": "recueillis",
+      "score": 0.6186,
+      "rank": 87
+    },
+    {
+      "word": "cognitives",
+      "score": 0.6185,
+      "rank": 88
+    },
+    {
+      "word": "concentrait",
+      "score": 0.6178,
+      "rank": 89
+    },
+    {
+      "word": "retenter",
+      "score": 0.6177,
+      "rank": 90
+    },
+    {
+      "word": "souviendras",
+      "score": 0.6174,
+      "rank": 91
+    },
+    {
+      "word": "recueilli",
+      "score": 0.617,
+      "rank": 92
+    },
+    {
+      "word": "compte",
+      "score": 0.6141,
+      "rank": 93
+    },
+    {
+      "word": "captent",
+      "score": 0.6137,
+      "rank": 94
+    },
+    {
+      "word": "recueil",
+      "score": 0.6136,
+      "rank": 95
+    },
+    {
+      "word": "résumer",
+      "score": 0.6125,
+      "rank": 96
+    },
+    {
+      "word": "consomme",
+      "score": 0.6121,
+      "rank": 97
+    },
+    {
+      "word": "comptes",
+      "score": 0.6093,
+      "rank": 98
+    },
+    {
+      "word": "sauver",
+      "score": 0.6089,
+      "rank": 99
+    },
+    {
+      "word": "minds",
+      "score": 0.6082,
+      "rank": 100
+    },
+    {
+      "word": "sac",
+      "score": 0.6081,
+      "rank": 101
+    },
+    {
+      "word": "révérende",
+      "score": 0.6077,
+      "rank": 102
+    },
+    {
+      "word": "retenti",
+      "score": 0.6076,
+      "rank": 103
+    },
+    {
+      "word": "ment",
+      "score": 0.6073,
+      "rank": 104
+    },
+    {
+      "word": "comptais",
+      "score": 0.6071,
+      "rank": 105
+    },
+    {
+      "word": "rappelés",
+      "score": 0.6067,
+      "rank": 106
+    },
+    {
+      "word": "repérée",
+      "score": 0.6065,
+      "rank": 107
+    },
+    {
+      "word": "retenir",
+      "score": 0.6062,
+      "rank": 108
+    },
+    {
+      "word": "réticente",
+      "score": 0.6062,
+      "rank": 109
+    },
+    {
+      "word": "ramenés",
+      "score": 0.6058,
+      "rank": 110
+    },
+    {
+      "word": "recueillie",
+      "score": 0.6057,
+      "rank": 111
+    },
+    {
+      "word": "récit",
+      "score": 0.6051,
+      "rank": 112
+    },
+    {
+      "word": "souvenu",
+      "score": 0.6048,
+      "rank": 113
+    },
+    {
+      "word": "révéler",
+      "score": 0.6047,
+      "rank": 114
+    },
+    {
+      "word": "lexa",
+      "score": 0.6045,
+      "rank": 115
+    },
+    {
+      "word": "oubliera",
+      "score": 0.6045,
+      "rank": 116
+    },
+    {
+      "word": "sauvegarde",
+      "score": 0.604,
+      "rank": 117
+    },
+    {
+      "word": "repéré",
+      "score": 0.6039,
+      "rank": 118
+    },
+    {
+      "word": "conserver",
+      "score": 0.6037,
+      "rank": 119
+    },
+    {
+      "word": "concentre",
+      "score": 0.6034,
+      "rank": 120
+    },
+    {
+      "word": "révélés",
+      "score": 0.6032,
+      "rank": 121
+    },
+    {
+      "word": "concentrent",
+      "score": 0.6031,
+      "rank": 122
+    },
+    {
+      "word": "saisie",
+      "score": 0.6027,
+      "rank": 123
+    },
+    {
+      "word": "capté",
+      "score": 0.6017,
+      "rank": 124
+    },
+    {
+      "word": "rachetée",
+      "score": 0.6015,
+      "rank": 125
+    },
+    {
+      "word": "récapitule",
+      "score": 0.6014,
+      "rank": 126
+    },
+    {
+      "word": "sauvée",
+      "score": 0.6012,
+      "rank": 127
+    },
+    {
+      "word": "retenez",
+      "score": 0.6006,
+      "rank": 128
+    },
+    {
+      "word": "démener",
+      "score": 0.6003,
+      "rank": 129
+    },
+    {
+      "word": "récité",
+      "score": 0.6,
+      "rank": 130
+    },
+    {
+      "word": "recueillir",
+      "score": 0.5999,
+      "rank": 131
+    },
+    {
+      "word": "stockée",
+      "score": 0.5994,
+      "rank": 132
+    },
+    {
+      "word": "renfrogné",
+      "score": 0.5993,
+      "rank": 133
+    },
+    {
+      "word": "retenait",
+      "score": 0.599,
+      "rank": 134
+    },
+    {
+      "word": "retenais",
+      "score": 0.5985,
+      "rank": 135
+    },
+    {
+      "word": "mentes",
+      "score": 0.5984,
+      "rank": 136
+    },
+    {
+      "word": "gêner",
+      "score": 0.5984,
+      "rank": 137
+    },
+    {
+      "word": "noter",
+      "score": 0.5982,
+      "rank": 138
+    },
+    {
+      "word": "collés",
+      "score": 0.5977,
+      "rank": 139
+    },
+    {
+      "word": "répéterai",
+      "score": 0.5972,
+      "rank": 140
+    },
+    {
+      "word": "sauveras",
+      "score": 0.5971,
+      "rank": 141
+    },
+    {
+      "word": "concentres",
+      "score": 0.597,
+      "rank": 142
+    },
+    {
+      "word": "répandent",
+      "score": 0.5968,
+      "rank": 143
+    },
+    {
+      "word": "concentrée",
+      "score": 0.5967,
+      "rank": 144
+    },
+    {
+      "word": "concentré",
+      "score": 0.5966,
+      "rank": 145
+    },
+    {
+      "word": "sauvés",
+      "score": 0.5964,
+      "rank": 146
+    },
+    {
+      "word": "démené",
+      "score": 0.5963,
+      "rank": 147
+    },
+    {
+      "word": "épargnée",
+      "score": 0.5963,
+      "rank": 148
+    },
+    {
+      "word": "retentit",
+      "score": 0.5961,
+      "rank": 149
+    },
+    {
+      "word": "perte",
+      "score": 0.596,
+      "rank": 150
+    },
+    {
+      "word": "saisit",
+      "score": 0.596,
+      "rank": 151
+    },
+    {
+      "word": "din",
+      "score": 0.5958,
+      "rank": 152
+    },
+    {
+      "word": "lerner",
+      "score": 0.595,
+      "rank": 153
+    },
+    {
+      "word": "sauvais",
+      "score": 0.595,
+      "rank": 154
+    },
+    {
+      "word": "réfère",
+      "score": 0.595,
+      "rank": 155
+    },
+    {
+      "word": "concentrées",
+      "score": 0.5949,
+      "rank": 156
+    },
+    {
+      "word": "concentrés",
+      "score": 0.5949,
+      "rank": 157
+    },
+    {
+      "word": "méprenez",
+      "score": 0.5941,
+      "rank": 158
+    },
+    {
+      "word": "relié",
+      "score": 0.5941,
+      "rank": 159
+    },
+    {
+      "word": "donnée",
+      "score": 0.594,
+      "rank": 160
+    },
+    {
+      "word": "débordés",
+      "score": 0.594,
+      "rank": 161
+    },
+    {
+      "word": "saveur",
+      "score": 0.5939,
+      "rank": 162
+    },
+    {
+      "word": "imprégner",
+      "score": 0.5937,
+      "rank": 163
+    },
+    {
+      "word": "démentiel",
+      "score": 0.5933,
+      "rank": 164
+    },
+    {
+      "word": "révise",
+      "score": 0.5931,
+      "rank": 165
+    },
+    {
+      "word": "récapituler",
+      "score": 0.593,
+      "rank": 166
+    },
+    {
+      "word": "recueillies",
+      "score": 0.592,
+      "rank": 167
+    },
+    {
+      "word": "collecté",
+      "score": 0.592,
+      "rank": 168
+    },
+    {
+      "word": "remarcher",
+      "score": 0.5918,
+      "rank": 169
+    },
+    {
+      "word": "apprises",
+      "score": 0.5916,
+      "rank": 170
+    },
+    {
+      "word": "captivé",
+      "score": 0.5916,
+      "rank": 171
+    },
+    {
+      "word": "pendentif",
+      "score": 0.5916,
+      "rank": 172
+    },
+    {
+      "word": "répande",
+      "score": 0.5915,
+      "rank": 173
+    },
+    {
+      "word": "apr",
+      "score": 0.5913,
+      "rank": 174
+    },
+    {
+      "word": "flashback",
+      "score": 0.5909,
+      "rank": 175
+    },
+    {
+      "word": "rando",
+      "score": 0.5908,
+      "rank": 176
+    },
+    {
+      "word": "présumer",
+      "score": 0.5907,
+      "rank": 177
+    },
+    {
+      "word": "répétition",
+      "score": 0.5906,
+      "rank": 178
+    },
+    {
+      "word": "conserverie",
+      "score": 0.5903,
+      "rank": 179
+    },
+    {
+      "word": "retrouve",
+      "score": 0.5901,
+      "rank": 180
+    },
+    {
+      "word": "versent",
+      "score": 0.5899,
+      "rank": 181
+    },
+    {
+      "word": "réserve",
+      "score": 0.5896,
+      "rank": 182
+    },
+    {
+      "word": "conservent",
+      "score": 0.5895,
+      "rank": 183
+    },
+    {
+      "word": "perçue",
+      "score": 0.5893,
+      "rank": 184
+    },
+    {
+      "word": "répertorié",
+      "score": 0.5893,
+      "rank": 185
+    },
+    {
+      "word": "prélèvement",
+      "score": 0.5893,
+      "rank": 186
+    },
+    {
+      "word": "foret",
+      "score": 0.5891,
+      "rank": 187
+    },
+    {
+      "word": "gardée",
+      "score": 0.5891,
+      "rank": 188
+    },
+    {
+      "word": "exemplaires",
+      "score": 0.5889,
+      "rank": 189
+    },
+    {
+      "word": "contrée",
+      "score": 0.5888,
+      "rank": 190
+    },
+    {
+      "word": "lueurs",
+      "score": 0.5887,
+      "rank": 191
+    },
+    {
+      "word": "saveurs",
+      "score": 0.5882,
+      "rank": 192
+    },
+    {
+      "word": "répétitif",
+      "score": 0.5882,
+      "rank": 193
+    },
+    {
+      "word": "souviendra",
+      "score": 0.5881,
+      "rank": 194
+    },
+    {
+      "word": "passées",
+      "score": 0.588,
+      "rank": 195
+    },
+    {
+      "word": "sauvées",
+      "score": 0.5876,
+      "rank": 196
+    },
+    {
+      "word": "reniflement",
+      "score": 0.5874,
+      "rank": 197
+    },
+    {
+      "word": "notifié",
+      "score": 0.5873,
+      "rank": 198
+    },
+    {
+      "word": "peng",
+      "score": 0.5871,
+      "rank": 199
+    },
+    {
+      "word": "entendent",
+      "score": 0.5871,
+      "rank": 200
+    },
+    {
+      "word": "rappelle",
+      "score": 0.5871,
+      "rank": 201
+    },
+    {
+      "word": "récré",
+      "score": 0.5868,
+      "rank": 202
+    },
+    {
+      "word": "passés",
+      "score": 0.5866,
+      "rank": 203
+    },
+    {
+      "word": "repère",
+      "score": 0.5865,
+      "rank": 204
+    },
+    {
+      "word": "sauvent",
+      "score": 0.5864,
+      "rank": 205
+    },
+    {
+      "word": "considérez",
+      "score": 0.5861,
+      "rank": 206
+    },
+    {
+      "word": "crète",
+      "score": 0.586,
+      "rank": 207
+    },
+    {
+      "word": "carte",
+      "score": 0.5856,
+      "rank": 208
+    },
+    {
+      "word": "exemplaire",
+      "score": 0.5856,
+      "rank": 209
+    },
+    {
+      "word": "pensons",
+      "score": 0.5855,
+      "rank": 210
+    },
+    {
+      "word": "cachetons",
+      "score": 0.5855,
+      "rank": 211
+    },
+    {
+      "word": "mentale",
+      "score": 0.5855,
+      "rank": 212
+    },
+    {
+      "word": "déchéance",
+      "score": 0.5852,
+      "rank": 213
+    },
+    {
+      "word": "passée",
+      "score": 0.5849,
+      "rank": 214
+    },
+    {
+      "word": "récits",
+      "score": 0.5849,
+      "rank": 215
+    },
+    {
+      "word": "carter",
+      "score": 0.5849,
+      "rank": 216
+    },
+    {
+      "word": "sud",
+      "score": 0.5848,
+      "rank": 217
+    },
+    {
+      "word": "saisies",
+      "score": 0.5847,
+      "rank": 218
+    },
+    {
+      "word": "mentalement",
+      "score": 0.5846,
+      "rank": 219
+    },
+    {
+      "word": "floue",
+      "score": 0.5845,
+      "rank": 220
+    },
+    {
+      "word": "repousse",
+      "score": 0.5844,
+      "rank": 221
+    },
+    {
+      "word": "répertoriés",
+      "score": 0.5844,
+      "rank": 222
+    },
+    {
+      "word": "oublie",
+      "score": 0.5843,
+      "rank": 223
+    },
+    {
+      "word": "ficherais",
+      "score": 0.5841,
+      "rank": 224
+    },
+    {
+      "word": "mémorial",
+      "score": 0.584,
+      "rank": 225
+    },
+    {
+      "word": "dorota",
+      "score": 0.5839,
+      "rank": 226
+    },
+    {
+      "word": "leclerc",
+      "score": 0.5838,
+      "rank": 227
+    },
+    {
+      "word": "détiennent",
+      "score": 0.5837,
+      "rank": 228
+    },
+    {
+      "word": "récurer",
+      "score": 0.5836,
+      "rank": 229
+    },
+    {
+      "word": "recevrai",
+      "score": 0.5835,
+      "rank": 230
+    },
+    {
+      "word": "récurrent",
+      "score": 0.5835,
+      "rank": 231
+    },
+    {
+      "word": "résistera",
+      "score": 0.5833,
+      "rank": 232
+    },
+    {
+      "word": "gardées",
+      "score": 0.5833,
+      "rank": 233
+    },
+    {
+      "word": "retrouves",
+      "score": 0.5832,
+      "rank": 234
+    },
+    {
+      "word": "billet",
+      "score": 0.5832,
+      "rank": 235
+    },
+    {
+      "word": "souviendrai",
+      "score": 0.5831,
+      "rank": 236
+    },
+    {
+      "word": "recevras",
+      "score": 0.5831,
+      "rank": 237
+    },
+    {
+      "word": "stockées",
+      "score": 0.583,
+      "rank": 238
+    },
+    {
+      "word": "notés",
+      "score": 0.583,
+      "rank": 239
+    },
+    {
+      "word": "crétine",
+      "score": 0.5828,
+      "rank": 240
+    },
+    {
+      "word": "répéter",
+      "score": 0.5827,
+      "rank": 241
+    },
+    {
+      "word": "save",
+      "score": 0.5826,
+      "rank": 242
+    },
+    {
+      "word": "sauvera",
+      "score": 0.5825,
+      "rank": 243
+    },
+    {
+      "word": "détient",
+      "score": 0.5824,
+      "rank": 244
+    },
+    {
+      "word": "effaçant",
+      "score": 0.582,
+      "rank": 245
+    },
+    {
+      "word": "conserve",
+      "score": 0.5819,
+      "rank": 246
+    },
+    {
+      "word": "conservée",
+      "score": 0.5817,
+      "rank": 247
+    },
+    {
+      "word": "reçoive",
+      "score": 0.5817,
+      "rank": 248
+    },
+    {
+      "word": "vergers",
+      "score": 0.5817,
+      "rank": 249
+    },
+    {
+      "word": "répandez",
+      "score": 0.5816,
+      "rank": 250
+    },
+    {
+      "word": "donnés",
+      "score": 0.5815,
+      "rank": 251
+    },
+    {
+      "word": "réclament",
+      "score": 0.5814,
+      "rank": 252
+    },
+    {
+      "word": "rétine",
+      "score": 0.5814,
+      "rank": 253
+    },
+    {
+      "word": "subordonnés",
+      "score": 0.5813,
+      "rank": 254
+    },
+    {
+      "word": "renseigner",
+      "score": 0.5812,
+      "rank": 255
+    },
+    {
+      "word": "soumission",
+      "score": 0.5811,
+      "rank": 256
+    },
+    {
+      "word": "mat",
+      "score": 0.581,
+      "rank": 257
+    },
+    {
+      "word": "déments",
+      "score": 0.5807,
+      "rank": 258
+    },
+    {
+      "word": "rationnement",
+      "score": 0.5807,
+      "rank": 259
+    },
+    {
+      "word": "amériques",
+      "score": 0.5805,
+      "rank": 260
+    },
+    {
+      "word": "répéte",
+      "score": 0.5804,
+      "rank": 261
+    },
+    {
+      "word": "sauviez",
+      "score": 0.5803,
+      "rank": 262
+    },
+    {
+      "word": "regrettez",
+      "score": 0.5799,
+      "rank": 263
+    },
+    {
+      "word": "dédié",
+      "score": 0.5798,
+      "rank": 264
+    },
+    {
+      "word": "prédis",
+      "score": 0.5797,
+      "rank": 265
+    },
+    {
+      "word": "attentionnés",
+      "score": 0.5797,
+      "rank": 266
+    },
+    {
+      "word": "sauvegardes",
+      "score": 0.5795,
+      "rank": 267
+    },
+    {
+      "word": "distraction",
+      "score": 0.5795,
+      "rank": 268
+    },
+    {
+      "word": "craig",
+      "score": 0.5795,
+      "rank": 269
+    },
+    {
+      "word": "rebuts",
+      "score": 0.5793,
+      "rank": 270
+    },
+    {
+      "word": "conservez",
+      "score": 0.5791,
+      "rank": 271
+    },
+    {
+      "word": "habitueras",
+      "score": 0.579,
+      "rank": 272
+    },
+    {
+      "word": "vident",
+      "score": 0.579,
+      "rank": 273
+    },
+    {
+      "word": "subordonné",
+      "score": 0.5789,
+      "rank": 274
+    },
+    {
+      "word": "annuaires",
+      "score": 0.5788,
+      "rank": 275
+    },
+    {
+      "word": "repensant",
+      "score": 0.5786,
+      "rank": 276
+    },
+    {
+      "word": "percuté",
+      "score": 0.5786,
+      "rank": 277
+    },
+    {
+      "word": "abréger",
+      "score": 0.5784,
+      "rank": 278
+    },
+    {
+      "word": "recevrait",
+      "score": 0.5781,
+      "rank": 279
+    },
+    {
+      "word": "dévoués",
+      "score": 0.5781,
+      "rank": 280
+    },
+    {
+      "word": "givrée",
+      "score": 0.578,
+      "rank": 281
+    },
+    {
+      "word": "reposez",
+      "score": 0.5777,
+      "rank": 282
+    },
+    {
+      "word": "relancé",
+      "score": 0.5775,
+      "rank": 283
+    },
+    {
+      "word": "dévouement",
+      "score": 0.5771,
+      "rank": 284
+    },
+    {
+      "word": "recevra",
+      "score": 0.5771,
+      "rank": 285
+    },
+    {
+      "word": "dépensé",
+      "score": 0.577,
+      "rank": 286
+    },
+    {
+      "word": "dixit",
+      "score": 0.5768,
+      "rank": 287
+    },
+    {
+      "word": "tranchées",
+      "score": 0.5768,
+      "rank": 288
+    },
+    {
+      "word": "rédigez",
+      "score": 0.5768,
+      "rank": 289
+    },
+    {
+      "word": "préservée",
+      "score": 0.5768,
+      "rank": 290
+    },
+    {
+      "word": "rappelais",
+      "score": 0.5767,
+      "rank": 291
+    },
+    {
+      "word": "attentionnée",
+      "score": 0.5765,
+      "rank": 292
+    },
+    {
+      "word": "stupeur",
+      "score": 0.5765,
+      "rank": 293
+    },
+    {
+      "word": "gere",
+      "score": 0.5765,
+      "rank": 294
+    },
+    {
+      "word": "receleur",
+      "score": 0.5765,
+      "rank": 295
+    },
+    {
+      "word": "concentrez",
+      "score": 0.5763,
+      "rank": 296
+    },
+    {
+      "word": "repensé",
+      "score": 0.5763,
+      "rank": 297
+    },
+    {
+      "word": "remise",
+      "score": 0.5762,
+      "rank": 298
+    },
+    {
+      "word": "capturée",
+      "score": 0.576,
+      "rank": 299
+    },
+    {
+      "word": "vermines",
+      "score": 0.576,
+      "rank": 300
+    },
+    {
+      "word": "sanju",
+      "score": 0.5759,
+      "rank": 301
+    },
+    {
+      "word": "détenus",
+      "score": 0.5759,
+      "rank": 302
+    },
+    {
+      "word": "reprenne",
+      "score": 0.5758,
+      "rank": 303
+    },
+    {
+      "word": "rencontriez",
+      "score": 0.5757,
+      "rank": 304
+    },
+    {
+      "word": "reçoivent",
+      "score": 0.5756,
+      "rank": 305
+    },
+    {
+      "word": "codés",
+      "score": 0.5755,
+      "rank": 306
+    },
+    {
+      "word": "sauvetage",
+      "score": 0.5754,
+      "rank": 307
+    },
+    {
+      "word": "fang",
+      "score": 0.5754,
+      "rank": 308
+    },
+    {
+      "word": "attentionné",
+      "score": 0.5753,
+      "rank": 309
+    },
+    {
+      "word": "rédige",
+      "score": 0.5753,
+      "rank": 310
+    },
+    {
+      "word": "répétée",
+      "score": 0.5752,
+      "rank": 311
+    },
+    {
+      "word": "secundo",
+      "score": 0.575,
+      "rank": 312
+    },
+    {
+      "word": "dévoué",
+      "score": 0.5749,
+      "rank": 313
+    },
+    {
+      "word": "débordée",
+      "score": 0.5749,
+      "rank": 314
+    },
+    {
+      "word": "répété",
+      "score": 0.5747,
+      "rank": 315
+    },
+    {
+      "word": "épargné",
+      "score": 0.5747,
+      "rank": 316
+    },
+    {
+      "word": "répandant",
+      "score": 0.5746,
+      "rank": 317
+    },
+    {
+      "word": "réticence",
+      "score": 0.5746,
+      "rank": 318
+    },
+    {
+      "word": "présumés",
+      "score": 0.5745,
+      "rank": 319
+    },
+    {
+      "word": "token",
+      "score": 0.5745,
+      "rank": 320
+    },
+    {
+      "word": "crachat",
+      "score": 0.5745,
+      "rank": 321
+    },
+    {
+      "word": "eldon",
+      "score": 0.5744,
+      "rank": 322
+    },
+    {
+      "word": "repense",
+      "score": 0.5743,
+      "rank": 323
+    },
+    {
+      "word": "dice",
+      "score": 0.5742,
+      "rank": 324
+    },
+    {
+      "word": "uber",
+      "score": 0.5742,
+      "rank": 325
+    },
+    {
+      "word": "détenue",
+      "score": 0.5741,
+      "rank": 326
+    },
+    {
+      "word": "notée",
+      "score": 0.574,
+      "rank": 327
+    },
+    {
+      "word": "mentales",
+      "score": 0.5739,
+      "rank": 328
+    },
+    {
+      "word": "consciente",
+      "score": 0.5739,
+      "rank": 329
+    },
+    {
+      "word": "reposés",
+      "score": 0.5738,
+      "rank": 330
+    },
+    {
+      "word": "gradé",
+      "score": 0.5738,
+      "rank": 331
+    },
+    {
+      "word": "remises",
+      "score": 0.5738,
+      "rank": 332
+    },
+    {
+      "word": "répétés",
+      "score": 0.5737,
+      "rank": 333
+    },
+    {
+      "word": "souligné",
+      "score": 0.5737,
+      "rank": 334
+    },
+    {
+      "word": "genève",
+      "score": 0.5737,
+      "rank": 335
+    },
+    {
+      "word": "soulevée",
+      "score": 0.5737,
+      "rank": 336
+    },
+    {
+      "word": "évanouie",
+      "score": 0.5737,
+      "rank": 337
+    },
+    {
+      "word": "rétablisse",
+      "score": 0.5735,
+      "rank": 338
+    },
+    {
+      "word": "retarde",
+      "score": 0.5735,
+      "rank": 339
+    },
+    {
+      "word": "reproduisent",
+      "score": 0.5735,
+      "rank": 340
+    },
+    {
+      "word": "fond",
+      "score": 0.5735,
+      "rank": 341
+    },
+    {
+      "word": "convié",
+      "score": 0.5734,
+      "rank": 342
+    },
+    {
+      "word": "surmené",
+      "score": 0.5734,
+      "rank": 343
+    },
+    {
+      "word": "freine",
+      "score": 0.5734,
+      "rank": 344
+    },
+    {
+      "word": "relec",
+      "score": 0.5734,
+      "rank": 345
+    },
+    {
+      "word": "renfermé",
+      "score": 0.5734,
+      "rank": 346
+    },
+    {
+      "word": "livrera",
+      "score": 0.5733,
+      "rank": 347
+    },
+    {
+      "word": "enregistres",
+      "score": 0.5733,
+      "rank": 348
+    },
+    {
+      "word": "esprit",
+      "score": 0.5732,
+      "rank": 349
+    },
+    {
+      "word": "sorbet",
+      "score": 0.5731,
+      "rank": 350
+    },
+    {
+      "word": "louer",
+      "score": 0.5731,
+      "rank": 351
+    },
+    {
+      "word": "savant",
+      "score": 0.573,
+      "rank": 352
+    },
+    {
+      "word": "admettrai",
+      "score": 0.573,
+      "rank": 353
+    },
+    {
+      "word": "détenir",
+      "score": 0.5729,
+      "rank": 354
+    },
+    {
+      "word": "reniflements",
+      "score": 0.5727,
+      "rank": 355
+    },
+    {
+      "word": "epouse",
+      "score": 0.5726,
+      "rank": 356
+    },
+    {
+      "word": "livrer",
+      "score": 0.5725,
+      "rank": 357
+    },
+    {
+      "word": "pénètre",
+      "score": 0.5722,
+      "rank": 358
+    },
+    {
+      "word": "baraqué",
+      "score": 0.5722,
+      "rank": 359
+    },
+    {
+      "word": "cec",
+      "score": 0.5722,
+      "rank": 360
+    },
+    {
+      "word": "détenues",
+      "score": 0.572,
+      "rank": 361
+    },
+    {
+      "word": "ger",
+      "score": 0.5719,
+      "rank": 362
+    },
+    {
+      "word": "ler",
+      "score": 0.5719,
+      "rank": 363
+    },
+    {
+      "word": "rdv",
+      "score": 0.5718,
+      "rank": 364
+    },
+    {
+      "word": "livrez",
+      "score": 0.5718,
+      "rank": 365
+    },
+    {
+      "word": "cachez",
+      "score": 0.5717,
+      "rank": 366
+    },
+    {
+      "word": "ganga",
+      "score": 0.5717,
+      "rank": 367
+    },
+    {
+      "word": "ecrivez",
+      "score": 0.5716,
+      "rank": 368
+    },
+    {
+      "word": "accédé",
+      "score": 0.5716,
+      "rank": 369
+    },
+    {
+      "word": "retombe",
+      "score": 0.5716,
+      "rank": 370
+    },
+    {
+      "word": "comptait",
+      "score": 0.5715,
+      "rank": 371
+    },
+    {
+      "word": "enregistre",
+      "score": 0.5714,
+      "rank": 372
+    },
+    {
+      "word": "présages",
+      "score": 0.5714,
+      "rank": 373
+    },
+    {
+      "word": "percés",
+      "score": 0.5714,
+      "rank": 374
+    },
+    {
+      "word": "blés",
+      "score": 0.5713,
+      "rank": 375
+    },
+    {
+      "word": "réceptif",
+      "score": 0.5713,
+      "rank": 376
+    },
+    {
+      "word": "repousses",
+      "score": 0.5711,
+      "rank": 377
+    },
+    {
+      "word": "résine",
+      "score": 0.5711,
+      "rank": 378
+    },
+    {
+      "word": "ricanement",
+      "score": 0.5711,
+      "rank": 379
+    },
+    {
+      "word": "connaissions",
+      "score": 0.5708,
+      "rank": 380
+    },
+    {
+      "word": "réglés",
+      "score": 0.5708,
+      "rank": 381
+    },
+    {
+      "word": "annulés",
+      "score": 0.5707,
+      "rank": 382
+    },
+    {
+      "word": "racontais",
+      "score": 0.5707,
+      "rank": 383
+    },
+    {
+      "word": "ina",
+      "score": 0.5707,
+      "rank": 384
+    },
+    {
+      "word": "enchaînement",
+      "score": 0.5706,
+      "rank": 385
+    },
+    {
+      "word": "présumé",
+      "score": 0.5705,
+      "rank": 386
+    },
+    {
+      "word": "récupère",
+      "score": 0.5705,
+      "rank": 387
+    },
+    {
+      "word": "avalés",
+      "score": 0.5705,
+      "rank": 388
+    },
+    {
+      "word": "évanoui",
+      "score": 0.5705,
+      "rank": 389
+    },
+    {
+      "word": "courante",
+      "score": 0.5704,
+      "rank": 390
+    },
+    {
+      "word": "repassage",
+      "score": 0.5704,
+      "rank": 391
+    },
+    {
+      "word": "holt",
+      "score": 0.5702,
+      "rank": 392
+    },
+    {
+      "word": "détendus",
+      "score": 0.5701,
+      "rank": 393
+    },
+    {
+      "word": "pelant",
+      "score": 0.57,
+      "rank": 394
+    },
+    {
+      "word": "éteignait",
+      "score": 0.57,
+      "rank": 395
+    },
+    {
+      "word": "énervement",
+      "score": 0.57,
+      "rank": 396
+    },
+    {
+      "word": "répétons",
+      "score": 0.57,
+      "rank": 397
+    },
+    {
+      "word": "uri",
+      "score": 0.57,
+      "rank": 398
+    },
+    {
+      "word": "geindre",
+      "score": 0.5699,
+      "rank": 399
+    },
+    {
+      "word": "éduque",
+      "score": 0.5699,
+      "rank": 400
+    },
+    {
+      "word": "crâneur",
+      "score": 0.5698,
+      "rank": 401
+    },
+    {
+      "word": "curés",
+      "score": 0.5698,
+      "rank": 402
+    },
+    {
+      "word": "repoussante",
+      "score": 0.5697,
+      "rank": 403
+    },
+    {
+      "word": "conte",
+      "score": 0.5697,
+      "rank": 404
+    },
+    {
+      "word": "repens",
+      "score": 0.5696,
+      "rank": 405
+    },
+    {
+      "word": "fugace",
+      "score": 0.5696,
+      "rank": 406
+    },
+    {
+      "word": "pente",
+      "score": 0.5696,
+      "rank": 407
+    },
+    {
+      "word": "leo",
+      "score": 0.5696,
+      "rank": 408
+    },
+    {
+      "word": "con",
+      "score": 0.5695,
+      "rank": 409
+    },
+    {
+      "word": "reçoit",
+      "score": 0.5695,
+      "rank": 410
+    },
+    {
+      "word": "liée",
+      "score": 0.5695,
+      "rank": 411
+    },
+    {
+      "word": "latente",
+      "score": 0.5694,
+      "rank": 412
+    },
+    {
+      "word": "exténuée",
+      "score": 0.5694,
+      "rank": 413
+    },
+    {
+      "word": "livres",
+      "score": 0.5693,
+      "rank": 414
+    },
+    {
+      "word": "oublieras",
+      "score": 0.5693,
+      "rank": 415
+    },
+    {
+      "word": "rajouté",
+      "score": 0.5692,
+      "rank": 416
+    },
+    {
+      "word": "répète",
+      "score": 0.5692,
+      "rank": 417
+    },
+    {
+      "word": "récital",
+      "score": 0.5691,
+      "rank": 418
+    },
+    {
+      "word": "notes",
+      "score": 0.5691,
+      "rank": 419
+    },
+    {
+      "word": "emballez",
+      "score": 0.5689,
+      "rank": 420
+    },
+    {
+      "word": "lié",
+      "score": 0.5688,
+      "rank": 421
+    },
+    {
+      "word": "reproduit",
+      "score": 0.5688,
+      "rank": 422
+    },
+    {
+      "word": "affût",
+      "score": 0.5688,
+      "rank": 423
+    },
+    {
+      "word": "ramenée",
+      "score": 0.5688,
+      "rank": 424
+    },
+    {
+      "word": "rigole",
+      "score": 0.5687,
+      "rank": 425
+    },
+    {
+      "word": "livre",
+      "score": 0.5686,
+      "rank": 426
+    },
+    {
+      "word": "retardes",
+      "score": 0.5686,
+      "rank": 427
+    },
+    {
+      "word": "usées",
+      "score": 0.5684,
+      "rank": 428
+    },
+    {
+      "word": "rand",
+      "score": 0.5684,
+      "rank": 429
+    },
+    {
+      "word": "présumée",
+      "score": 0.5684,
+      "rank": 430
+    },
+    {
+      "word": "perdras",
+      "score": 0.5684,
+      "rank": 431
+    },
+    {
+      "word": "décrits",
+      "score": 0.5683,
+      "rank": 432
+    },
+    {
+      "word": "contondant",
+      "score": 0.5683,
+      "rank": 433
+    },
+    {
+      "word": "perspicace",
+      "score": 0.5682,
+      "rank": 434
+    },
+    {
+      "word": "leann",
+      "score": 0.5681,
+      "rank": 435
+    },
+    {
+      "word": "ecris",
+      "score": 0.568,
+      "rank": 436
+    },
+    {
+      "word": "déteindre",
+      "score": 0.568,
+      "rank": 437
+    },
+    {
+      "word": "lamenter",
+      "score": 0.568,
+      "rank": 438
+    },
+    {
+      "word": "dut",
+      "score": 0.5679,
+      "rank": 439
+    },
+    {
+      "word": "souviendrais",
+      "score": 0.5679,
+      "rank": 440
+    },
+    {
+      "word": "répétez",
+      "score": 0.5678,
+      "rank": 441
+    },
+    {
+      "word": "démence",
+      "score": 0.5678,
+      "rank": 442
+    },
+    {
+      "word": "fois",
+      "score": 0.5678,
+      "rank": 443
+    },
+    {
+      "word": "lido",
+      "score": 0.5678,
+      "rank": 444
+    },
+    {
+      "word": "bord",
+      "score": 0.5677,
+      "rank": 445
+    },
+    {
+      "word": "sachent",
+      "score": 0.5676,
+      "rank": 446
+    },
+    {
+      "word": "bisons",
+      "score": 0.5676,
+      "rank": 447
+    },
+    {
+      "word": "rétracte",
+      "score": 0.5676,
+      "rank": 448
+    },
+    {
+      "word": "tendent",
+      "score": 0.5676,
+      "rank": 449
+    },
+    {
+      "word": "prétendus",
+      "score": 0.5676,
+      "rank": 450
+    },
+    {
+      "word": "énigme",
+      "score": 0.5676,
+      "rank": 451
+    },
+    {
+      "word": "emménagement",
+      "score": 0.5675,
+      "rank": 452
+    },
+    {
+      "word": "pénalité",
+      "score": 0.5675,
+      "rank": 453
+    },
+    {
+      "word": "préservés",
+      "score": 0.5675,
+      "rank": 454
+    },
+    {
+      "word": "soignés",
+      "score": 0.5675,
+      "rank": 455
+    },
+    {
+      "word": "cession",
+      "score": 0.5675,
+      "rank": 456
+    },
+    {
+      "word": "négligés",
+      "score": 0.5674,
+      "rank": 457
+    },
+    {
+      "word": "songé",
+      "score": 0.5674,
+      "rank": 458
+    },
+    {
+      "word": "élèvent",
+      "score": 0.5674,
+      "rank": 459
+    },
+    {
+      "word": "bin",
+      "score": 0.5674,
+      "rank": 460
+    },
+    {
+      "word": "repasse",
+      "score": 0.5674,
+      "rank": 461
+    },
+    {
+      "word": "répit",
+      "score": 0.5673,
+      "rank": 462
+    },
+    {
+      "word": "repasser",
+      "score": 0.5673,
+      "rank": 463
+    },
+    {
+      "word": "acheteuse",
+      "score": 0.5673,
+      "rank": 464
+    },
+    {
+      "word": "réchauffée",
+      "score": 0.5673,
+      "rank": 465
+    },
+    {
+      "word": "reprenais",
+      "score": 0.5673,
+      "rank": 466
+    },
+    {
+      "word": "profané",
+      "score": 0.5672,
+      "rank": 467
+    },
+    {
+      "word": "frein",
+      "score": 0.5672,
+      "rank": 468
+    },
+    {
+      "word": "gardez",
+      "score": 0.5672,
+      "rank": 469
+    },
+    {
+      "word": "récif",
+      "score": 0.5671,
+      "rank": 470
+    },
+    {
+      "word": "refais",
+      "score": 0.5671,
+      "rank": 471
+    },
+    {
+      "word": "récupérez",
+      "score": 0.5671,
+      "rank": 472
+    },
+    {
+      "word": "ramèneras",
+      "score": 0.5671,
+      "rank": 473
+    },
+    {
+      "word": "messe",
+      "score": 0.567,
+      "rank": 474
+    },
+    {
+      "word": "reçus",
+      "score": 0.567,
+      "rank": 475
+    },
+    {
+      "word": "reprit",
+      "score": 0.567,
+      "rank": 476
+    },
+    {
+      "word": "passé",
+      "score": 0.567,
+      "rank": 477
+    },
+    {
+      "word": "avon",
+      "score": 0.5669,
+      "rank": 478
+    },
+    {
+      "word": "répétiez",
+      "score": 0.5669,
+      "rank": 479
+    },
+    {
+      "word": "débordent",
+      "score": 0.5669,
+      "rank": 480
+    },
+    {
+      "word": "attester",
+      "score": 0.5668,
+      "rank": 481
+    },
+    {
+      "word": "libérez",
+      "score": 0.5668,
+      "rank": 482
+    },
+    {
+      "word": "collerait",
+      "score": 0.5665,
+      "rank": 483
+    },
+    {
+      "word": "beu",
+      "score": 0.5664,
+      "rank": 484
+    },
+    {
+      "word": "raté",
+      "score": 0.5664,
+      "rank": 485
+    },
+    {
+      "word": "considérait",
+      "score": 0.5664,
+      "rank": 486
+    },
+    {
+      "word": "détaillée",
+      "score": 0.5662,
+      "rank": 487
+    },
+    {
+      "word": "concentrer",
+      "score": 0.5662,
+      "rank": 488
+    },
+    {
+      "word": "anticipée",
+      "score": 0.5662,
+      "rank": 489
+    },
+    {
+      "word": "reniflé",
+      "score": 0.5661,
+      "rank": 490
+    },
+    {
+      "word": "ficher",
+      "score": 0.5661,
+      "rank": 491
+    },
+    {
+      "word": "revérifie",
+      "score": 0.5661,
+      "rank": 492
+    },
+    {
+      "word": "sgc",
+      "score": 0.5661,
+      "rank": 493
+    },
+    {
+      "word": "bavardage",
+      "score": 0.566,
+      "rank": 494
+    },
+    {
+      "word": "racontait",
+      "score": 0.566,
+      "rank": 495
+    },
+    {
+      "word": "attardés",
+      "score": 0.566,
+      "rank": 496
+    },
+    {
+      "word": "sauverais",
+      "score": 0.5659,
+      "rank": 497
+    },
+    {
+      "word": "evénement",
+      "score": 0.5659,
+      "rank": 498
+    },
+    {
+      "word": "aprã",
+      "score": 0.5658,
+      "rank": 499
+    },
+    {
+      "word": "usé",
+      "score": 0.5658,
+      "rank": 500
+    },
+    {
+      "word": "sentent",
+      "score": 0.5658,
+      "rank": 501
+    },
+    {
+      "word": "stan",
+      "score": 0.5657,
+      "rank": 502
+    },
+    {
+      "word": "taub",
+      "score": 0.5657,
+      "rank": 503
+    },
+    {
+      "word": "appris",
+      "score": 0.5657,
+      "rank": 504
+    },
+    {
+      "word": "snyder",
+      "score": 0.5656,
+      "rank": 505
+    },
+    {
+      "word": "retrouvaient",
+      "score": 0.5656,
+      "rank": 506
+    },
+    {
+      "word": "kool",
+      "score": 0.5656,
+      "rank": 507
+    },
+    {
+      "word": "consumé",
+      "score": 0.5655,
+      "rank": 508
+    },
+    {
+      "word": "gert",
+      "score": 0.5655,
+      "rank": 509
+    },
+    {
+      "word": "attarde",
+      "score": 0.5655,
+      "rank": 510
+    },
+    {
+      "word": "repreniez",
+      "score": 0.5654,
+      "rank": 511
+    },
+    {
+      "word": "emballés",
+      "score": 0.5654,
+      "rank": 512
+    },
+    {
+      "word": "livrent",
+      "score": 0.5653,
+      "rank": 513
+    },
+    {
+      "word": "détendue",
+      "score": 0.5652,
+      "rank": 514
+    },
+    {
+      "word": "soldé",
+      "score": 0.5652,
+      "rank": 515
+    },
+    {
+      "word": "repoussant",
+      "score": 0.5652,
+      "rank": 516
+    },
+    {
+      "word": "imagination",
+      "score": 0.5651,
+      "rank": 517
+    },
+    {
+      "word": "emballent",
+      "score": 0.5651,
+      "rank": 518
+    },
+    {
+      "word": "sauve",
+      "score": 0.5651,
+      "rank": 519
+    },
+    {
+      "word": "cruciaux",
+      "score": 0.5651,
+      "rank": 520
+    },
+    {
+      "word": "retracé",
+      "score": 0.565,
+      "rank": 521
+    },
+    {
+      "word": "aprés",
+      "score": 0.565,
+      "rank": 522
+    },
+    {
+      "word": "répandit",
+      "score": 0.5649,
+      "rank": 523
+    },
+    {
+      "word": "missa",
+      "score": 0.5649,
+      "rank": 524
+    },
+    {
+      "word": "comptés",
+      "score": 0.5649,
+      "rank": 525
+    },
+    {
+      "word": "reprises",
+      "score": 0.5649,
+      "rank": 526
+    },
+    {
+      "word": "sapristi",
+      "score": 0.5648,
+      "rank": 527
+    },
+    {
+      "word": "ramené",
+      "score": 0.5648,
+      "rank": 528
+    },
+    {
+      "word": "memphis",
+      "score": 0.5648,
+      "rank": 529
+    },
+    {
+      "word": "capturé",
+      "score": 0.5647,
+      "rank": 530
+    },
+    {
+      "word": "relais",
+      "score": 0.5647,
+      "rank": 531
+    },
+    {
+      "word": "précisé",
+      "score": 0.5647,
+      "rank": 532
+    },
+    {
+      "word": "régents",
+      "score": 0.5647,
+      "rank": 533
+    },
+    {
+      "word": "gaspillée",
+      "score": 0.5646,
+      "rank": 534
+    },
+    {
+      "word": "admettre",
+      "score": 0.5645,
+      "rank": 535
+    },
+    {
+      "word": "remettais",
+      "score": 0.5645,
+      "rank": 536
+    },
+    {
+      "word": "rémi",
+      "score": 0.5645,
+      "rank": 537
+    },
+    {
+      "word": "carnets",
+      "score": 0.5644,
+      "rank": 538
+    },
+    {
+      "word": "enlevée",
+      "score": 0.5644,
+      "rank": 539
+    },
+    {
+      "word": "réchauffé",
+      "score": 0.5644,
+      "rank": 540
+    },
+    {
+      "word": "éditer",
+      "score": 0.5644,
+      "rank": 541
+    },
+    {
+      "word": "apprends",
+      "score": 0.5644,
+      "rank": 542
+    },
+    {
+      "word": "livrés",
+      "score": 0.5644,
+      "rank": 543
+    },
+    {
+      "word": "récite",
+      "score": 0.5643,
+      "rank": 544
+    },
+    {
+      "word": "cedra",
+      "score": 0.5643,
+      "rank": 545
+    },
+    {
+      "word": "libères",
+      "score": 0.5643,
+      "rank": 546
+    },
+    {
+      "word": "mentez",
+      "score": 0.5643,
+      "rank": 547
+    },
+    {
+      "word": "créole",
+      "score": 0.5643,
+      "rank": 548
+    },
+    {
+      "word": "listé",
+      "score": 0.5641,
+      "rank": 549
+    },
+    {
+      "word": "enquérir",
+      "score": 0.5641,
+      "rank": 550
+    },
+    {
+      "word": "empruntée",
+      "score": 0.5641,
+      "rank": 551
+    },
+    {
+      "word": "dégagées",
+      "score": 0.5641,
+      "rank": 552
+    },
+    {
+      "word": "courantes",
+      "score": 0.564,
+      "rank": 553
+    },
+    {
+      "word": "antécédents",
+      "score": 0.564,
+      "rank": 554
+    },
+    {
+      "word": "réessaie",
+      "score": 0.564,
+      "rank": 555
+    },
+    {
+      "word": "dégagement",
+      "score": 0.564,
+      "rank": 556
+    },
+    {
+      "word": "aprèm",
+      "score": 0.5639,
+      "rank": 557
+    },
+    {
+      "word": "reprenons",
+      "score": 0.5638,
+      "rank": 558
+    },
+    {
+      "word": "pertinemment",
+      "score": 0.5637,
+      "rank": 559
+    },
+    {
+      "word": "annuler",
+      "score": 0.5637,
+      "rank": 560
+    },
+    {
+      "word": "acquises",
+      "score": 0.5637,
+      "rank": 561
+    },
+    {
+      "word": "recraché",
+      "score": 0.5636,
+      "rank": 562
+    },
+    {
+      "word": "concentrons",
+      "score": 0.5636,
+      "rank": 563
+    },
+    {
+      "word": "regagné",
+      "score": 0.5635,
+      "rank": 564
+    },
+    {
+      "word": "dépanneuse",
+      "score": 0.5635,
+      "rank": 565
+    },
+    {
+      "word": "énervent",
+      "score": 0.5635,
+      "rank": 566
+    },
+    {
+      "word": "réservait",
+      "score": 0.5635,
+      "rank": 567
+    },
+    {
+      "word": "sujette",
+      "score": 0.5635,
+      "rank": 568
+    },
+    {
+      "word": "étalage",
+      "score": 0.5634,
+      "rank": 569
+    },
+    {
+      "word": "doigt",
+      "score": 0.5633,
+      "rank": 570
+    },
+    {
+      "word": "ressentes",
+      "score": 0.5633,
+      "rank": 571
+    },
+    {
+      "word": "gaspillez",
+      "score": 0.5633,
+      "rank": 572
+    },
+    {
+      "word": "dédiée",
+      "score": 0.5633,
+      "rank": 573
+    },
+    {
+      "word": "dicton",
+      "score": 0.5633,
+      "rank": 574
+    },
+    {
+      "word": "cursus",
+      "score": 0.5632,
+      "rank": 575
+    },
+    {
+      "word": "décrivent",
+      "score": 0.5632,
+      "rank": 576
+    },
+    {
+      "word": "décris",
+      "score": 0.5632,
+      "rank": 577
+    },
+    {
+      "word": "croûtons",
+      "score": 0.5631,
+      "rank": 578
+    },
+    {
+      "word": "récup",
+      "score": 0.5631,
+      "rank": 579
+    },
+    {
+      "word": "rénale",
+      "score": 0.5631,
+      "rank": 580
+    },
+    {
+      "word": "abusée",
+      "score": 0.563,
+      "rank": 581
+    },
+    {
+      "word": "écrin",
+      "score": 0.563,
+      "rank": 582
+    },
+    {
+      "word": "donné",
+      "score": 0.563,
+      "rank": 583
+    },
+    {
+      "word": "leni",
+      "score": 0.5629,
+      "rank": 584
+    },
+    {
+      "word": "renée",
+      "score": 0.5629,
+      "rank": 585
+    },
+    {
+      "word": "dépannage",
+      "score": 0.5629,
+      "rank": 586
+    },
+    {
+      "word": "répliquer",
+      "score": 0.5629,
+      "rank": 587
+    },
+    {
+      "word": "trépied",
+      "score": 0.5628,
+      "rank": 588
+    },
+    {
+      "word": "prélève",
+      "score": 0.5628,
+      "rank": 589
+    },
+    {
+      "word": "intérimaire",
+      "score": 0.5628,
+      "rank": 590
+    },
+    {
+      "word": "antécédent",
+      "score": 0.5628,
+      "rank": 591
+    },
+    {
+      "word": "répétitions",
+      "score": 0.5627,
+      "rank": 592
+    },
+    {
+      "word": "repondre",
+      "score": 0.5626,
+      "rank": 593
+    },
+    {
+      "word": "répétées",
+      "score": 0.5626,
+      "rank": 594
+    },
+    {
+      "word": "cla",
+      "score": 0.5626,
+      "rank": 595
+    },
+    {
+      "word": "bossez",
+      "score": 0.5625,
+      "rank": 596
+    },
+    {
+      "word": "prive",
+      "score": 0.5625,
+      "rank": 597
+    },
+    {
+      "word": "stocké",
+      "score": 0.5625,
+      "rank": 598
+    },
+    {
+      "word": "den",
+      "score": 0.5624,
+      "rank": 599
+    },
+    {
+      "word": "précieuse",
+      "score": 0.5624,
+      "rank": 600
+    },
+    {
+      "word": "étendues",
+      "score": 0.5624,
+      "rank": 601
+    },
+    {
+      "word": "apprise",
+      "score": 0.5623,
+      "rank": 602
+    },
+    {
+      "word": "appliquant",
+      "score": 0.5623,
+      "rank": 603
+    },
+    {
+      "word": "rechargé",
+      "score": 0.5623,
+      "rank": 604
+    },
+    {
+      "word": "devis",
+      "score": 0.5623,
+      "rank": 605
+    },
+    {
+      "word": "libérant",
+      "score": 0.5622,
+      "rank": 606
+    },
+    {
+      "word": "reçues",
+      "score": 0.5622,
+      "rank": 607
+    },
+    {
+      "word": "ecrit",
+      "score": 0.5621,
+      "rank": 608
+    },
+    {
+      "word": "verger",
+      "score": 0.562,
+      "rank": 609
+    },
+    {
+      "word": "lim",
+      "score": 0.562,
+      "rank": 610
+    },
+    {
+      "word": "répétera",
+      "score": 0.562,
+      "rank": 611
+    },
+    {
+      "word": "risquais",
+      "score": 0.562,
+      "rank": 612
+    },
+    {
+      "word": "genii",
+      "score": 0.562,
+      "rank": 613
+    },
+    {
+      "word": "punis",
+      "score": 0.5619,
+      "rank": 614
+    },
+    {
+      "word": "réservée",
+      "score": 0.5619,
+      "rank": 615
+    },
+    {
+      "word": "pendent",
+      "score": 0.5619,
+      "rank": 616
+    },
+    {
+      "word": "utérus",
+      "score": 0.5619,
+      "rank": 617
+    },
+    {
+      "word": "rendez",
+      "score": 0.5619,
+      "rank": 618
+    },
+    {
+      "word": "endurcis",
+      "score": 0.5619,
+      "rank": 619
+    },
+    {
+      "word": "garant",
+      "score": 0.5618,
+      "rank": 620
+    },
+    {
+      "word": "dunham",
+      "score": 0.5618,
+      "rank": 621
+    },
+    {
+      "word": "infime",
+      "score": 0.5618,
+      "rank": 622
+    },
+    {
+      "word": "fréquente",
+      "score": 0.5616,
+      "rank": 623
+    },
+    {
+      "word": "accros",
+      "score": 0.5616,
+      "rank": 624
+    },
+    {
+      "word": "pertes",
+      "score": 0.5615,
+      "rank": 625
+    },
+    {
+      "word": "ressente",
+      "score": 0.5615,
+      "rank": 626
+    },
+    {
+      "word": "freins",
+      "score": 0.5613,
+      "rank": 627
+    },
+    {
+      "word": "invétéré",
+      "score": 0.5613,
+      "rank": 628
+    },
+    {
+      "word": "dépens",
+      "score": 0.5613,
+      "rank": 629
+    },
+    {
+      "word": "échantillon",
+      "score": 0.5612,
+      "rank": 630
+    },
+    {
+      "word": "renvoient",
+      "score": 0.5612,
+      "rank": 631
+    },
+    {
+      "word": "renonçant",
+      "score": 0.5611,
+      "rank": 632
+    },
+    {
+      "word": "luke",
+      "score": 0.5611,
+      "rank": 633
+    },
+    {
+      "word": "pastrami",
+      "score": 0.561,
+      "rank": 634
+    },
+    {
+      "word": "loutre",
+      "score": 0.561,
+      "rank": 635
+    },
+    {
+      "word": "rezian",
+      "score": 0.561,
+      "rank": 636
+    },
+    {
+      "word": "détaillant",
+      "score": 0.561,
+      "rank": 637
+    },
+    {
+      "word": "gradés",
+      "score": 0.561,
+      "rank": 638
+    },
+    {
+      "word": "osti",
+      "score": 0.561,
+      "rank": 639
+    },
+    {
+      "word": "regretterez",
+      "score": 0.5609,
+      "rank": 640
+    },
+    {
+      "word": "seok",
+      "score": 0.5609,
+      "rank": 641
+    },
+    {
+      "word": "résumons",
+      "score": 0.5609,
+      "rank": 642
+    },
+    {
+      "word": "crépitement",
+      "score": 0.5609,
+      "rank": 643
+    },
+    {
+      "word": "prestation",
+      "score": 0.5609,
+      "rank": 644
+    },
+    {
+      "word": "crain",
+      "score": 0.5608,
+      "rank": 645
+    },
+    {
+      "word": "censée",
+      "score": 0.5608,
+      "rank": 646
+    },
+    {
+      "word": "amputer",
+      "score": 0.5608,
+      "rank": 647
+    },
+    {
+      "word": "rasseoir",
+      "score": 0.5607,
+      "rank": 648
+    },
+    {
+      "word": "rad",
+      "score": 0.5606,
+      "rank": 649
+    },
+    {
+      "word": "répètes",
+      "score": 0.5606,
+      "rank": 650
+    },
+    {
+      "word": "sauvegardé",
+      "score": 0.5606,
+      "rank": 651
+    },
+    {
+      "word": "bornés",
+      "score": 0.5606,
+      "rank": 652
+    },
+    {
+      "word": "livrée",
+      "score": 0.5606,
+      "rank": 653
+    },
+    {
+      "word": "rencardé",
+      "score": 0.5606,
+      "rank": 654
+    },
+    {
+      "word": "revérifié",
+      "score": 0.5605,
+      "rank": 655
+    },
+    {
+      "word": "regis",
+      "score": 0.5605,
+      "rank": 656
+    },
+    {
+      "word": "écoulés",
+      "score": 0.5605,
+      "rank": 657
+    },
+    {
+      "word": "détenu",
+      "score": 0.5605,
+      "rank": 658
+    },
+    {
+      "word": "manquée",
+      "score": 0.5604,
+      "rank": 659
+    },
+    {
+      "word": "ramenées",
+      "score": 0.5604,
+      "rank": 660
+    },
+    {
+      "word": "décrété",
+      "score": 0.5604,
+      "rank": 661
+    },
+    {
+      "word": "accablantes",
+      "score": 0.5604,
+      "rank": 662
+    },
+    {
+      "word": "délivrés",
+      "score": 0.5603,
+      "rank": 663
+    },
+    {
+      "word": "indulgente",
+      "score": 0.5603,
+      "rank": 664
+    },
+    {
+      "word": "évanouir",
+      "score": 0.5603,
+      "rank": 665
+    },
+    {
+      "word": "méprisez",
+      "score": 0.5603,
+      "rank": 666
+    },
+    {
+      "word": "récidive",
+      "score": 0.5602,
+      "rank": 667
+    },
+    {
+      "word": "enlevées",
+      "score": 0.5602,
+      "rank": 668
+    },
+    {
+      "word": "allument",
+      "score": 0.5602,
+      "rank": 669
+    },
+    {
+      "word": "crémaillère",
+      "score": 0.5601,
+      "rank": 670
+    },
+    {
+      "word": "ratée",
+      "score": 0.56,
+      "rank": 671
+    },
+    {
+      "word": "volez",
+      "score": 0.56,
+      "rank": 672
+    },
+    {
+      "word": "livreurs",
+      "score": 0.56,
+      "rank": 673
+    },
+    {
+      "word": "déposé",
+      "score": 0.56,
+      "rank": 674
+    },
+    {
+      "word": "démente",
+      "score": 0.5599,
+      "rank": 675
+    },
+    {
+      "word": "pré",
+      "score": 0.5599,
+      "rank": 676
+    },
+    {
+      "word": "réfugier",
+      "score": 0.5599,
+      "rank": 677
+    },
+    {
+      "word": "documenté",
+      "score": 0.5598,
+      "rank": 678
+    },
+    {
+      "word": "détaillé",
+      "score": 0.5598,
+      "rank": 679
+    },
+    {
+      "word": "enseigné",
+      "score": 0.5598,
+      "rank": 680
+    },
+    {
+      "word": "sel",
+      "score": 0.5598,
+      "rank": 681
+    },
+    {
+      "word": "ramassée",
+      "score": 0.5597,
+      "rank": 682
+    },
+    {
+      "word": "epa",
+      "score": 0.5597,
+      "rank": 683
+    },
+    {
+      "word": "prends",
+      "score": 0.5597,
+      "rank": 684
+    },
+    {
+      "word": "mise",
+      "score": 0.5597,
+      "rank": 685
+    },
+    {
+      "word": "rebrousser",
+      "score": 0.5597,
+      "rank": 686
+    },
+    {
+      "word": "détaillées",
+      "score": 0.5596,
+      "rank": 687
+    },
+    {
+      "word": "envié",
+      "score": 0.5596,
+      "rank": 688
+    },
+    {
+      "word": "rigolote",
+      "score": 0.5596,
+      "rank": 689
+    },
+    {
+      "word": "mentais",
+      "score": 0.5596,
+      "rank": 690
+    },
+    {
+      "word": "dévie",
+      "score": 0.5595,
+      "rank": 691
+    },
+    {
+      "word": "paresseuse",
+      "score": 0.5595,
+      "rank": 692
+    },
+    {
+      "word": "retirées",
+      "score": 0.5595,
+      "rank": 693
+    },
+    {
+      "word": "absorbée",
+      "score": 0.5595,
+      "rank": 694
+    },
+    {
+      "word": "damné",
+      "score": 0.5595,
+      "rank": 695
+    },
+    {
+      "word": "freinage",
+      "score": 0.5595,
+      "rank": 696
+    },
+    {
+      "word": "accro",
+      "score": 0.5595,
+      "rank": 697
+    },
+    {
+      "word": "recaler",
+      "score": 0.5595,
+      "rank": 698
+    },
+    {
+      "word": "intellos",
+      "score": 0.5595,
+      "rank": 699
+    },
+    {
+      "word": "délivre",
+      "score": 0.5594,
+      "rank": 700
+    },
+    {
+      "word": "retrouviez",
+      "score": 0.5594,
+      "rank": 701
+    },
+    {
+      "word": "saigné",
+      "score": 0.5594,
+      "rank": 702
+    },
+    {
+      "word": "ressentais",
+      "score": 0.5594,
+      "rank": 703
+    },
+    {
+      "word": "révolu",
+      "score": 0.5594,
+      "rank": 704
+    },
+    {
+      "word": "ecrire",
+      "score": 0.5594,
+      "rank": 705
+    },
+    {
+      "word": "bingum",
+      "score": 0.5593,
+      "rank": 706
+    },
+    {
+      "word": "acculé",
+      "score": 0.5593,
+      "rank": 707
+    },
+    {
+      "word": "recrée",
+      "score": 0.5593,
+      "rank": 708
+    },
+    {
+      "word": "epargne",
+      "score": 0.5592,
+      "rank": 709
+    },
+    {
+      "word": "écuries",
+      "score": 0.5592,
+      "rank": 710
+    },
+    {
+      "word": "souvenue",
+      "score": 0.5592,
+      "rank": 711
+    },
+    {
+      "word": "insère",
+      "score": 0.5592,
+      "rank": 712
+    },
+    {
+      "word": "écope",
+      "score": 0.5591,
+      "rank": 713
+    },
+    {
+      "word": "délivrée",
+      "score": 0.5591,
+      "rank": 714
+    },
+    {
+      "word": "sagan",
+      "score": 0.559,
+      "rank": 715
+    },
+    {
+      "word": "réduis",
+      "score": 0.559,
+      "rank": 716
+    },
+    {
+      "word": "sig",
+      "score": 0.559,
+      "rank": 717
+    },
+    {
+      "word": "offrande",
+      "score": 0.559,
+      "rank": 718
+    },
+    {
+      "word": "dévorer",
+      "score": 0.559,
+      "rank": 719
+    },
+    {
+      "word": "déminage",
+      "score": 0.5589,
+      "rank": 720
+    },
+    {
+      "word": "âpre",
+      "score": 0.5589,
+      "rank": 721
+    },
+    {
+      "word": "arrhes",
+      "score": 0.5589,
+      "rank": 722
+    },
+    {
+      "word": "destiné",
+      "score": 0.5589,
+      "rank": 723
+    },
+    {
+      "word": "antérieurs",
+      "score": 0.5589,
+      "rank": 724
+    },
+    {
+      "word": "classé",
+      "score": 0.5588,
+      "rank": 725
+    },
+    {
+      "word": "primé",
+      "score": 0.5588,
+      "rank": 726
+    },
+    {
+      "word": "débordé",
+      "score": 0.5588,
+      "rank": 727
+    },
+    {
+      "word": "yeti",
+      "score": 0.5588,
+      "rank": 728
+    },
+    {
+      "word": "dicté",
+      "score": 0.5588,
+      "rank": 729
+    },
+    {
+      "word": "réservés",
+      "score": 0.5588,
+      "rank": 730
+    },
+    {
+      "word": "rejettent",
+      "score": 0.5588,
+      "rank": 731
+    },
+    {
+      "word": "réflechir",
+      "score": 0.5588,
+      "rank": 732
+    },
+    {
+      "word": "préserver",
+      "score": 0.5588,
+      "rank": 733
+    },
+    {
+      "word": "éventré",
+      "score": 0.5587,
+      "rank": 734
+    },
+    {
+      "word": "retrouvent",
+      "score": 0.5587,
+      "rank": 735
+    },
+    {
+      "word": "sèment",
+      "score": 0.5587,
+      "rank": 736
+    },
+    {
+      "word": "imaginée",
+      "score": 0.5587,
+      "rank": 737
+    },
+    {
+      "word": "mental",
+      "score": 0.5586,
+      "rank": 738
+    },
+    {
+      "word": "réservées",
+      "score": 0.5586,
+      "rank": 739
+    },
+    {
+      "word": "servi",
+      "score": 0.5586,
+      "rank": 740
+    },
+    {
+      "word": "nakajima",
+      "score": 0.5585,
+      "rank": 741
+    },
+    {
+      "word": "démodé",
+      "score": 0.5585,
+      "rank": 742
+    },
+    {
+      "word": "plait",
+      "score": 0.5585,
+      "rank": 743
+    },
+    {
+      "word": "enleviez",
+      "score": 0.5585,
+      "rank": 744
+    },
+    {
+      "word": "habitue",
+      "score": 0.5585,
+      "rank": 745
+    },
+    {
+      "word": "préservé",
+      "score": 0.5584,
+      "rank": 746
+    },
+    {
+      "word": "éliminent",
+      "score": 0.5583,
+      "rank": 747
+    },
+    {
+      "word": "décerné",
+      "score": 0.5583,
+      "rank": 748
+    },
+    {
+      "word": "revente",
+      "score": 0.5583,
+      "rank": 749
+    },
+    {
+      "word": "détaillés",
+      "score": 0.5583,
+      "rank": 750
+    },
+    {
+      "word": "prétendez",
+      "score": 0.5582,
+      "rank": 751
+    },
+    {
+      "word": "planait",
+      "score": 0.5582,
+      "rank": 752
+    },
+    {
+      "word": "énervant",
+      "score": 0.5582,
+      "rank": 753
+    },
+    {
+      "word": "rebut",
+      "score": 0.5582,
+      "rank": 754
+    },
+    {
+      "word": "monture",
+      "score": 0.5582,
+      "rank": 755
+    },
+    {
+      "word": "linc",
+      "score": 0.5582,
+      "rank": 756
+    },
+    {
+      "word": "sida",
+      "score": 0.5582,
+      "rank": 757
+    },
+    {
+      "word": "previens",
+      "score": 0.5581,
+      "rank": 758
+    },
+    {
+      "word": "sen",
+      "score": 0.5581,
+      "rank": 759
+    },
+    {
+      "word": "gardé",
+      "score": 0.5581,
+      "rank": 760
+    },
+    {
+      "word": "privez",
+      "score": 0.558,
+      "rank": 761
+    },
+    {
+      "word": "sauvé",
+      "score": 0.558,
+      "rank": 762
+    },
+    {
+      "word": "doublés",
+      "score": 0.558,
+      "rank": 763
+    },
+    {
+      "word": "note",
+      "score": 0.558,
+      "rank": 764
+    },
+    {
+      "word": "détail",
+      "score": 0.558,
+      "rank": 765
+    },
+    {
+      "word": "répétais",
+      "score": 0.558,
+      "rank": 766
+    },
+    {
+      "word": "racontiez",
+      "score": 0.5579,
+      "rank": 767
+    },
+    {
+      "word": "obsolète",
+      "score": 0.5579,
+      "rank": 768
+    },
+    {
+      "word": "priés",
+      "score": 0.5579,
+      "rank": 769
+    },
+    {
+      "word": "régent",
+      "score": 0.5579,
+      "rank": 770
+    },
+    {
+      "word": "récuser",
+      "score": 0.5579,
+      "rank": 771
+    },
+    {
+      "word": "mãªme",
+      "score": 0.5578,
+      "rank": 772
+    },
+    {
+      "word": "rappellez",
+      "score": 0.5578,
+      "rank": 773
+    },
+    {
+      "word": "cotés",
+      "score": 0.5578,
+      "rank": 774
+    },
+    {
+      "word": "envisagé",
+      "score": 0.5577,
+      "rank": 775
+    },
+    {
+      "word": "recevoir",
+      "score": 0.5577,
+      "rank": 776
+    },
+    {
+      "word": "reprise",
+      "score": 0.5576,
+      "rank": 777
+    },
+    {
+      "word": "censées",
+      "score": 0.5576,
+      "rank": 778
+    },
+    {
+      "word": "débordant",
+      "score": 0.5576,
+      "rank": 779
+    },
+    {
+      "word": "accroc",
+      "score": 0.5576,
+      "rank": 780
+    },
+    {
+      "word": "perce",
+      "score": 0.5575,
+      "rank": 781
+    },
+    {
+      "word": "gisèle",
+      "score": 0.5575,
+      "rank": 782
+    },
+    {
+      "word": "dégagé",
+      "score": 0.5575,
+      "rank": 783
+    },
+    {
+      "word": "tranchée",
+      "score": 0.5575,
+      "rank": 784
+    },
+    {
+      "word": "consomment",
+      "score": 0.5575,
+      "rank": 785
+    },
+    {
+      "word": "avalé",
+      "score": 0.5575,
+      "rank": 786
+    },
+    {
+      "word": "envergure",
+      "score": 0.5575,
+      "rank": 787
+    },
+    {
+      "word": "gibet",
+      "score": 0.5574,
+      "rank": 788
+    },
+    {
+      "word": "empreinte",
+      "score": 0.5574,
+      "rank": 789
+    },
+    {
+      "word": "répètent",
+      "score": 0.5574,
+      "rank": 790
+    },
+    {
+      "word": "rétro",
+      "score": 0.5573,
+      "rank": 791
+    },
+    {
+      "word": "rescapé",
+      "score": 0.5573,
+      "rank": 792
+    },
+    {
+      "word": "retiennent",
+      "score": 0.5572,
+      "rank": 793
+    },
+    {
+      "word": "ramen",
+      "score": 0.5572,
+      "rank": 794
+    },
+    {
+      "word": "ishval",
+      "score": 0.5572,
+      "rank": 795
+    },
+    {
+      "word": "psychique",
+      "score": 0.5572,
+      "rank": 796
+    },
+    {
+      "word": "regrettera",
+      "score": 0.5572,
+      "rank": 797
+    },
+    {
+      "word": "congénères",
+      "score": 0.5572,
+      "rank": 798
+    },
+    {
+      "word": "pesée",
+      "score": 0.5571,
+      "rank": 799
+    },
+    {
+      "word": "ratissé",
+      "score": 0.5571,
+      "rank": 800
+    },
+    {
+      "word": "pèsent",
+      "score": 0.5571,
+      "rank": 801
+    },
+    {
+      "word": "réside",
+      "score": 0.557,
+      "rank": 802
+    },
+    {
+      "word": "habiterai",
+      "score": 0.557,
+      "rank": 803
+    },
+    {
+      "word": "reposée",
+      "score": 0.5569,
+      "rank": 804
+    },
+    {
+      "word": "enculés",
+      "score": 0.5569,
+      "rank": 805
+    },
+    {
+      "word": "lueur",
+      "score": 0.5569,
+      "rank": 806
+    },
+    {
+      "word": "pénalités",
+      "score": 0.5569,
+      "rank": 807
+    },
+    {
+      "word": "missouri",
+      "score": 0.5568,
+      "rank": 808
+    },
+    {
+      "word": "déteint",
+      "score": 0.5568,
+      "rank": 809
+    },
+    {
+      "word": "prodige",
+      "score": 0.5568,
+      "rank": 810
+    },
+    {
+      "word": "répétant",
+      "score": 0.5568,
+      "rank": 811
+    },
+    {
+      "word": "douze",
+      "score": 0.5567,
+      "rank": 812
+    },
+    {
+      "word": "raconter",
+      "score": 0.5567,
+      "rank": 813
+    },
+    {
+      "word": "ramène",
+      "score": 0.5567,
+      "rank": 814
+    },
+    {
+      "word": "veilleuse",
+      "score": 0.5566,
+      "rank": 815
+    },
+    {
+      "word": "inattention",
+      "score": 0.5566,
+      "rank": 816
+    },
+    {
+      "word": "atteindras",
+      "score": 0.5566,
+      "rank": 817
+    },
+    {
+      "word": "avertit",
+      "score": 0.5566,
+      "rank": 818
+    },
+    {
+      "word": "craint",
+      "score": 0.5566,
+      "rank": 819
+    },
+    {
+      "word": "apprend",
+      "score": 0.5566,
+      "rank": 820
+    },
+    {
+      "word": "dos",
+      "score": 0.5566,
+      "rank": 821
+    },
+    {
+      "word": "galettes",
+      "score": 0.5566,
+      "rank": 822
+    },
+    {
+      "word": "coursier",
+      "score": 0.5566,
+      "rank": 823
+    },
+    {
+      "word": "délirante",
+      "score": 0.5566,
+      "rank": 824
+    },
+    {
+      "word": "réincarné",
+      "score": 0.5565,
+      "rank": 825
+    },
+    {
+      "word": "ramer",
+      "score": 0.5564,
+      "rank": 826
+    },
+    {
+      "word": "obsédé",
+      "score": 0.5564,
+      "rank": 827
+    },
+    {
+      "word": "usent",
+      "score": 0.5564,
+      "rank": 828
+    },
+    {
+      "word": "songeais",
+      "score": 0.5564,
+      "rank": 829
+    },
+    {
+      "word": "adepte",
+      "score": 0.5563,
+      "rank": 830
+    },
+    {
+      "word": "abattant",
+      "score": 0.5563,
+      "rank": 831
+    },
+    {
+      "word": "remues",
+      "score": 0.5563,
+      "rank": 832
+    },
+    {
+      "word": "tordre",
+      "score": 0.5563,
+      "rank": 833
+    },
+    {
+      "word": "promené",
+      "score": 0.5563,
+      "rank": 834
+    },
+    {
+      "word": "créons",
+      "score": 0.5562,
+      "rank": 835
+    },
+    {
+      "word": "rem",
+      "score": 0.5562,
+      "rank": 836
+    },
+    {
+      "word": "ein",
+      "score": 0.5561,
+      "rank": 837
+    },
+    {
+      "word": "assèche",
+      "score": 0.5561,
+      "rank": 838
+    },
+    {
+      "word": "kryten",
+      "score": 0.5561,
+      "rank": 839
+    },
+    {
+      "word": "usée",
+      "score": 0.5561,
+      "rank": 840
+    },
+    {
+      "word": "mentionnez",
+      "score": 0.5561,
+      "rank": 841
+    },
+    {
+      "word": "réticences",
+      "score": 0.5561,
+      "rank": 842
+    },
+    {
+      "word": "feuilleter",
+      "score": 0.5561,
+      "rank": 843
+    },
+    {
+      "word": "liés",
+      "score": 0.556,
+      "rank": 844
+    },
+    {
+      "word": "diseuse",
+      "score": 0.556,
+      "rank": 845
+    },
+    {
+      "word": "destinés",
+      "score": 0.556,
+      "rank": 846
+    },
+    {
+      "word": "sortilège",
+      "score": 0.556,
+      "rank": 847
+    },
+    {
+      "word": "halètement",
+      "score": 0.556,
+      "rank": 848
+    },
+    {
+      "word": "réprimandé",
+      "score": 0.556,
+      "rank": 849
+    },
+    {
+      "word": "prétendre",
+      "score": 0.556,
+      "rank": 850
+    },
+    {
+      "word": "ramassé",
+      "score": 0.5559,
+      "rank": 851
+    },
+    {
+      "word": "régente",
+      "score": 0.5559,
+      "rank": 852
+    },
+    {
+      "word": "apprendra",
+      "score": 0.5559,
+      "rank": 853
+    },
+    {
+      "word": "firmament",
+      "score": 0.5559,
+      "rank": 854
+    },
+    {
+      "word": "procède",
+      "score": 0.5559,
+      "rank": 855
+    },
+    {
+      "word": "refermé",
+      "score": 0.5559,
+      "rank": 856
+    },
+    {
+      "word": "comptées",
+      "score": 0.5558,
+      "rank": 857
+    },
+    {
+      "word": "livreur",
+      "score": 0.5558,
+      "rank": 858
+    },
+    {
+      "word": "apprendras",
+      "score": 0.5557,
+      "rank": 859
+    },
+    {
+      "word": "attrappe",
+      "score": 0.5556,
+      "rank": 860
+    },
+    {
+      "word": "banni",
+      "score": 0.5555,
+      "rank": 861
+    },
+    {
+      "word": "enregistrait",
+      "score": 0.5555,
+      "rank": 862
+    },
+    {
+      "word": "réapprendre",
+      "score": 0.5555,
+      "rank": 863
+    },
+    {
+      "word": "soulèvent",
+      "score": 0.5555,
+      "rank": 864
+    },
+    {
+      "word": "dam",
+      "score": 0.5555,
+      "rank": 865
+    },
+    {
+      "word": "reproduire",
+      "score": 0.5555,
+      "rank": 866
+    },
+    {
+      "word": "kline",
+      "score": 0.5554,
+      "rank": 867
+    },
+    {
+      "word": "briefé",
+      "score": 0.5554,
+      "rank": 868
+    },
+    {
+      "word": "évoquent",
+      "score": 0.5554,
+      "rank": 869
+    },
+    {
+      "word": "sauverez",
+      "score": 0.5554,
+      "rank": 870
+    },
+    {
+      "word": "priver",
+      "score": 0.5554,
+      "rank": 871
+    },
+    {
+      "word": "prévient",
+      "score": 0.5553,
+      "rank": 872
+    },
+    {
+      "word": "deviné",
+      "score": 0.5553,
+      "rank": 873
+    },
+    {
+      "word": "raconta",
+      "score": 0.5553,
+      "rank": 874
+    },
+    {
+      "word": "derice",
+      "score": 0.5553,
+      "rank": 875
+    },
+    {
+      "word": "préfere",
+      "score": 0.5552,
+      "rank": 876
+    },
+    {
+      "word": "aveuglette",
+      "score": 0.5552,
+      "rank": 877
+    },
+    {
+      "word": "attarder",
+      "score": 0.5552,
+      "rank": 878
+    },
+    {
+      "word": "étayer",
+      "score": 0.5552,
+      "rank": 879
+    },
+    {
+      "word": "exténué",
+      "score": 0.5551,
+      "rank": 880
+    },
+    {
+      "word": "éprise",
+      "score": 0.555,
+      "rank": 881
+    },
+    {
+      "word": "gênes",
+      "score": 0.555,
+      "rank": 882
+    },
+    {
+      "word": "réparant",
+      "score": 0.555,
+      "rank": 883
+    },
+    {
+      "word": "reçue",
+      "score": 0.555,
+      "rank": 884
+    },
+    {
+      "word": "réessaye",
+      "score": 0.555,
+      "rank": 885
+    },
+    {
+      "word": "revêtement",
+      "score": 0.5549,
+      "rank": 886
+    },
+    {
+      "word": "proxénète",
+      "score": 0.5549,
+      "rank": 887
+    },
+    {
+      "word": "génisse",
+      "score": 0.5549,
+      "rank": 888
+    },
+    {
+      "word": "cacherait",
+      "score": 0.5549,
+      "rank": 889
+    },
+    {
+      "word": "oubliais",
+      "score": 0.5548,
+      "rank": 890
+    },
+    {
+      "word": "redonné",
+      "score": 0.5548,
+      "rank": 891
+    },
+    {
+      "word": "kiryu",
+      "score": 0.5548,
+      "rank": 892
+    },
+    {
+      "word": "présage",
+      "score": 0.5548,
+      "rank": 893
+    },
+    {
+      "word": "enchères",
+      "score": 0.5548,
+      "rank": 894
+    },
+    {
+      "word": "précisions",
+      "score": 0.5548,
+      "rank": 895
+    },
+    {
+      "word": "carnet",
+      "score": 0.5547,
+      "rank": 896
+    },
+    {
+      "word": "jung",
+      "score": 0.5547,
+      "rank": 897
+    },
+    {
+      "word": "admet",
+      "score": 0.5547,
+      "rank": 898
+    },
+    {
+      "word": "rétablis",
+      "score": 0.5547,
+      "rank": 899
+    },
+    {
+      "word": "vende",
+      "score": 0.5547,
+      "rank": 900
+    },
+    {
+      "word": "récuperer",
+      "score": 0.5547,
+      "rank": 901
+    },
+    {
+      "word": "repérés",
+      "score": 0.5547,
+      "rank": 902
+    },
+    {
+      "word": "histoire",
+      "score": 0.5547,
+      "rank": 903
+    },
+    {
+      "word": "miné",
+      "score": 0.5547,
+      "rank": 904
+    },
+    {
+      "word": "remettre",
+      "score": 0.5546,
+      "rank": 905
+    },
+    {
+      "word": "considérais",
+      "score": 0.5546,
+      "rank": 906
+    },
+    {
+      "word": "referais",
+      "score": 0.5545,
+      "rank": 907
+    },
+    {
+      "word": "zale",
+      "score": 0.5545,
+      "rank": 908
+    },
+    {
+      "word": "baraquement",
+      "score": 0.5545,
+      "rank": 909
+    },
+    {
+      "word": "kessler",
+      "score": 0.5545,
+      "rank": 910
+    },
+    {
+      "word": "soigné",
+      "score": 0.5545,
+      "rank": 911
+    },
+    {
+      "word": "gange",
+      "score": 0.5545,
+      "rank": 912
+    },
+    {
+      "word": "mit",
+      "score": 0.5545,
+      "rank": 913
+    },
+    {
+      "word": "récidiviste",
+      "score": 0.5544,
+      "rank": 914
+    },
+    {
+      "word": "ajamais",
+      "score": 0.5544,
+      "rank": 915
+    },
+    {
+      "word": "démodée",
+      "score": 0.5544,
+      "rank": 916
+    },
+    {
+      "word": "génant",
+      "score": 0.5544,
+      "rank": 917
+    },
+    {
+      "word": "acosta",
+      "score": 0.5543,
+      "rank": 918
+    },
+    {
+      "word": "relevés",
+      "score": 0.5543,
+      "rank": 919
+    },
+    {
+      "word": "péninsule",
+      "score": 0.5543,
+      "rank": 920
+    },
+    {
+      "word": "enrobé",
+      "score": 0.5543,
+      "rank": 921
+    },
+    {
+      "word": "plaçons",
+      "score": 0.5543,
+      "rank": 922
+    },
+    {
+      "word": "piéger",
+      "score": 0.5542,
+      "rank": 923
+    },
+    {
+      "word": "génies",
+      "score": 0.5542,
+      "rank": 924
+    },
+    {
+      "word": "butée",
+      "score": 0.5542,
+      "rank": 925
+    },
+    {
+      "word": "bec",
+      "score": 0.5541,
+      "rank": 926
+    },
+    {
+      "word": "logés",
+      "score": 0.5541,
+      "rank": 927
+    },
+    {
+      "word": "redire",
+      "score": 0.554,
+      "rank": 928
+    },
+    {
+      "word": "fonçant",
+      "score": 0.554,
+      "rank": 929
+    },
+    {
+      "word": "pendre",
+      "score": 0.554,
+      "rank": 930
+    },
+    {
+      "word": "repart",
+      "score": 0.5539,
+      "rank": 931
+    },
+    {
+      "word": "détailler",
+      "score": 0.5539,
+      "rank": 932
+    },
+    {
+      "word": "dod",
+      "score": 0.5539,
+      "rank": 933
+    },
+    {
+      "word": "repères",
+      "score": 0.5539,
+      "rank": 934
+    },
+    {
+      "word": "comptant",
+      "score": 0.5539,
+      "rank": 935
+    },
+    {
+      "word": "étend",
+      "score": 0.5539,
+      "rank": 936
+    },
+    {
+      "word": "confère",
+      "score": 0.5538,
+      "rank": 937
+    },
+    {
+      "word": "géré",
+      "score": 0.5538,
+      "rank": 938
+    },
+    {
+      "word": "rétracté",
+      "score": 0.5537,
+      "rank": 939
+    },
+    {
+      "word": "pendue",
+      "score": 0.5537,
+      "rank": 940
+    },
+    {
+      "word": "étudier",
+      "score": 0.5537,
+      "rank": 941
+    },
+    {
+      "word": "enfers",
+      "score": 0.5537,
+      "rank": 942
+    },
+    {
+      "word": "reverrait",
+      "score": 0.5536,
+      "rank": 943
+    },
+    {
+      "word": "classées",
+      "score": 0.5536,
+      "rank": 944
+    },
+    {
+      "word": "plaide",
+      "score": 0.5536,
+      "rank": 945
+    },
+    {
+      "word": "rétracter",
+      "score": 0.5536,
+      "rank": 946
+    },
+    {
+      "word": "délivré",
+      "score": 0.5536,
+      "rank": 947
+    },
+    {
+      "word": "enchainé",
+      "score": 0.5536,
+      "rank": 948
+    },
+    {
+      "word": "monté",
+      "score": 0.5536,
+      "rank": 949
+    },
+    {
+      "word": "paresseux",
+      "score": 0.5536,
+      "rank": 950
+    },
+    {
+      "word": "gaspillé",
+      "score": 0.5536,
+      "rank": 951
+    },
+    {
+      "word": "comptage",
+      "score": 0.5536,
+      "rank": 952
+    },
+    {
+      "word": "rappelons",
+      "score": 0.5536,
+      "rank": 953
+    },
+    {
+      "word": "inge",
+      "score": 0.5535,
+      "rank": 954
+    },
+    {
+      "word": "détachées",
+      "score": 0.5535,
+      "rank": 955
+    },
+    {
+      "word": "démembrer",
+      "score": 0.5535,
+      "rank": 956
+    },
+    {
+      "word": "compta",
+      "score": 0.5535,
+      "rank": 957
+    },
+    {
+      "word": "soudés",
+      "score": 0.5535,
+      "rank": 958
+    },
+    {
+      "word": "chine",
+      "score": 0.5535,
+      "rank": 959
+    },
+    {
+      "word": "abrégé",
+      "score": 0.5535,
+      "rank": 960
+    },
+    {
+      "word": "utilisais",
+      "score": 0.5534,
+      "rank": 961
+    },
+    {
+      "word": "cogne",
+      "score": 0.5534,
+      "rank": 962
+    },
+    {
+      "word": "penché",
+      "score": 0.5534,
+      "rank": 963
+    },
+    {
+      "word": "ancienne",
+      "score": 0.5534,
+      "rank": 964
+    },
+    {
+      "word": "ratées",
+      "score": 0.5534,
+      "rank": 965
+    },
+    {
+      "word": "enseignes",
+      "score": 0.5533,
+      "rank": 966
+    },
+    {
+      "word": "étendue",
+      "score": 0.5533,
+      "rank": 967
+    },
+    {
+      "word": "décrivant",
+      "score": 0.5533,
+      "rank": 968
+    },
+    {
+      "word": "repoussés",
+      "score": 0.5533,
+      "rank": 969
+    },
+    {
+      "word": "fréquenté",
+      "score": 0.5533,
+      "rank": 970
+    },
+    {
+      "word": "amérique",
+      "score": 0.5533,
+      "rank": 971
+    },
+    {
+      "word": "avoirs",
+      "score": 0.5533,
+      "rank": 972
+    },
+    {
+      "word": "copieux",
+      "score": 0.5533,
+      "rank": 973
+    },
+    {
+      "word": "sunder",
+      "score": 0.5533,
+      "rank": 974
+    },
+    {
+      "word": "distractions",
+      "score": 0.5532,
+      "rank": 975
+    },
+    {
+      "word": "ratés",
+      "score": 0.5532,
+      "rank": 976
+    },
+    {
+      "word": "célibat",
+      "score": 0.5532,
+      "rank": 977
+    },
+    {
+      "word": "précaire",
+      "score": 0.5532,
+      "rank": 978
+    },
+    {
+      "word": "retouché",
+      "score": 0.5532,
+      "rank": 979
+    },
+    {
+      "word": "empoché",
+      "score": 0.5532,
+      "rank": 980
+    },
+    {
+      "word": "avram",
+      "score": 0.5532,
+      "rank": 981
+    },
+    {
+      "word": "redescendre",
+      "score": 0.5531,
+      "rank": 982
+    },
+    {
+      "word": "copiez",
+      "score": 0.5531,
+      "rank": 983
+    },
+    {
+      "word": "dring",
+      "score": 0.5531,
+      "rank": 984
+    },
+    {
+      "word": "appréhende",
+      "score": 0.5531,
+      "rank": 985
+    },
+    {
+      "word": "compète",
+      "score": 0.5531,
+      "rank": 986
+    },
+    {
+      "word": "plèbe",
+      "score": 0.5531,
+      "rank": 987
+    },
+    {
+      "word": "délirait",
+      "score": 0.553,
+      "rank": 988
+    },
+    {
+      "word": "ramon",
+      "score": 0.553,
+      "rank": 989
+    },
+    {
+      "word": "mallette",
+      "score": 0.553,
+      "rank": 990
+    },
+    {
+      "word": "okada",
+      "score": 0.5529,
+      "rank": 991
+    },
+    {
+      "word": "dégager",
+      "score": 0.5529,
+      "rank": 992
+    },
+    {
+      "word": "racolage",
+      "score": 0.5528,
+      "rank": 993
+    },
+    {
+      "word": "reveillé",
+      "score": 0.5528,
+      "rank": 994
+    },
+    {
+      "word": "bourg",
+      "score": 0.5528,
+      "rank": 995
+    },
+    {
+      "word": "reiko",
+      "score": 0.5527,
+      "rank": 996
+    },
+    {
+      "word": "perd",
+      "score": 0.5527,
+      "rank": 997
+    },
+    {
+      "word": "risotto",
+      "score": 0.5527,
+      "rank": 998
+    },
+    {
+      "word": "aval",
+      "score": 0.5527,
+      "rank": 999
+    },
+    {
+      "word": "habituer",
+      "score": 0.5527,
+      "rank": 1000
+    }
+  ]
+}

@@ -9,13 +9,190 @@
 const STORAGE_PREFIX = 'semordle:';
 const WORDLE_MAX_ATTEMPTS = 6;
 
+// ─── Click sound (Web Audio API — no external files) ─────
+const _audioCtx = (() => {
+  try { return new (window.AudioContext || window.webkitAudioContext)(); } catch(e) { return null; }
+})();
+
+function playClick(type = 'key') {
+  if (!_audioCtx) return;
+  const now = _audioCtx.currentTime;
+
+  if (type === 'submit') {
+    // Deeper, satisfying thunk for submit/enter
+    const osc = _audioCtx.createOscillator();
+    const gain = _audioCtx.createGain();
+    osc.connect(gain); gain.connect(_audioCtx.destination);
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(180, now);
+    osc.frequency.exponentialRampToValueAtTime(80, now + 0.06);
+    gain.gain.setValueAtTime(0.18, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+    osc.start(now); osc.stop(now + 0.13);
+
+    const osc2 = _audioCtx.createOscillator();
+    const gain2 = _audioCtx.createGain();
+    osc2.connect(gain2); gain2.connect(_audioCtx.destination);
+    osc2.type = 'triangle';
+    osc2.frequency.setValueAtTime(320, now);
+    osc2.frequency.exponentialRampToValueAtTime(140, now + 0.05);
+    gain2.gain.setValueAtTime(0.10, now);
+    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+    osc2.start(now); osc2.stop(now + 0.09);
+  } else {
+    // Light tactile tick for regular buttons / keyboard keys
+    const osc = _audioCtx.createOscillator();
+    const gain = _audioCtx.createGain();
+    osc.connect(gain); gain.connect(_audioCtx.destination);
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(520, now);
+    osc.frequency.exponentialRampToValueAtTime(200, now + 0.04);
+    gain.gain.setValueAtTime(0.12, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+    osc.start(now); osc.stop(now + 0.07);
+  }
+}
+
+function resumeAudio() {
+  if (_audioCtx && _audioCtx.state === 'suspended') _audioCtx.resume();
+}
+
+// ─── Background floating words ────────────────────────────
+const _bgWords = {
+  canvas: null,
+  ctx: null,
+  words: [],     // pool of { text, x, y, vx, vy, alpha, targetAlpha, size, phase, life, maxLife }
+  pool: [],      // word strings to draw from
+  raf: null,
+  lastFrame: 0,
+};
+
+const BG_FILLER_WORDS = [
+  // Common English nouns / adjectives that feel evocative but aren't cheats
+  'light','shadow','mirror','bridge','stone','silver','amber','drift',
+  'hollow','garden','thunder','echo','vessel','current','margin','bloom',
+  'cipher','signal','tempo','canvas','depth','signal','notion','archive',
+  'chapter','circuit','phantom','origin','vertex','solace','prism','motion',
+  'fractal','glimmer','syntax','harbor','lantern','spiral','mosaic','tangent',
+  'plateau','zenith','vector','lacuna','corona','tremor','stratum','nexus',
+  // French equivalents (shown regardless of language — they add atmosphere)
+  'lumière','ombre','miroir','pierre','courant','écho','jardin','cipher',
+  'origine','spirale','prisme','signal','profond','mosaïque','sommet',
+];
+
+function bgWordsInit(puzzleWords) {
+  const canvas = document.getElementById('bg-words-canvas');
+  if (!canvas) return;
+  _bgWords.canvas = canvas;
+  _bgWords.ctx = canvas.getContext('2d');
+  _bgWords.resize();
+
+  // Build word pool: ~30% from puzzle top-1000, rest from filler
+  // Shuffle puzzle words and take a sparse sample from scattered ranks
+  const puzzleSample = [];
+  if (puzzleWords && puzzleWords.length > 0) {
+    // Pick ~15 words from spread ranks (not top 10 — too obvious)
+    const candidates = puzzleWords.filter(w => w.rank != null && w.rank > 50 && w.rank <= 1000);
+    for (let i = 0; i < Math.min(15, candidates.length); i++) {
+      const idx = Math.floor(Math.random() * candidates.length);
+      puzzleSample.push(candidates.splice(idx, 1)[0].word);
+    }
+  }
+  _bgWords.pool = [...BG_FILLER_WORDS, ...puzzleSample].sort(() => Math.random() - 0.5);
+
+  window.addEventListener('resize', _bgWords.resize.bind(_bgWords));
+  _bgWords.tick(performance.now());
+}
+
+_bgWords.resize = function() {
+  if (!this.canvas) return;
+  this.canvas.width  = window.innerWidth;
+  this.canvas.height = window.innerHeight;
+};
+
+_bgWords.spawn = function() {
+  const W = this.canvas.width, H = this.canvas.height;
+  const text = this.pool[Math.floor(Math.random() * this.pool.length)];
+  const size = 11 + Math.random() * 14;
+  // Spawn anywhere on screen, biased toward edges so they don't crowd center
+  const edge = Math.random() < 0.6;
+  let x, y;
+  if (edge) {
+    const side = Math.floor(Math.random() * 4);
+    if (side === 0)      { x = Math.random() * W; y = -30; }
+    else if (side === 1) { x = W + 30;             y = Math.random() * H; }
+    else if (side === 2) { x = Math.random() * W; y = H + 30; }
+    else                 { x = -30;                y = Math.random() * H; }
+  } else {
+    x = Math.random() * W;
+    y = Math.random() * H;
+  }
+  const angle = Math.random() * Math.PI * 2;
+  const speed = 0.12 + Math.random() * 0.18;
+  const maxLife = 4000 + Math.random() * 6000;
+  this.words.push({
+    text, x, y, size,
+    vx: Math.cos(angle) * speed,
+    vy: Math.sin(angle) * speed,
+    alpha: 0,
+    targetAlpha: 0.18 + Math.random() * 0.12,
+    life: 0,
+    maxLife,
+    fadeIn:  maxLife * 0.15,
+    fadeOut: maxLife * 0.75,
+  });
+};
+
+_bgWords.tick = function(now) {
+  this.raf = requestAnimationFrame(this.tick.bind(this));
+  const dt = Math.min(now - this.lastFrame, 50);
+  this.lastFrame = now;
+
+  if (!this.canvas || !this.ctx) return;
+  const ctx = this.ctx;
+  const W = this.canvas.width, H = this.canvas.height;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Maintain ~18 words on screen
+  while (this.words.length < 18) this.spawn();
+
+  ctx.font = `600 ${12}px 'Inter', sans-serif`;
+  ctx.letterSpacing = '0.08em';
+
+  for (let i = this.words.length - 1; i >= 0; i--) {
+    const w = this.words[i];
+    w.life += dt;
+    w.x += w.vx;
+    w.y += w.vy;
+
+    // Fade in / sustain / fade out
+    if (w.life < w.fadeIn) {
+      w.alpha = w.targetAlpha * (w.life / w.fadeIn);
+    } else if (w.life < w.fadeOut) {
+      w.alpha = w.targetAlpha;
+    } else if (w.life < w.maxLife) {
+      w.alpha = w.targetAlpha * (1 - (w.life - w.fadeOut) / (w.maxLife - w.fadeOut));
+    } else {
+      this.words.splice(i, 1);
+      continue;
+    }
+
+    ctx.globalAlpha = w.alpha;
+    ctx.font = `600 ${w.size}px 'Inter', sans-serif`;
+    ctx.fillStyle = '#3a3020';
+    ctx.fillText(w.text, w.x, w.y);
+  }
+  ctx.globalAlpha = 1;
+};
+
 // ─── i18n ─────────────────────────────────────────────────
 const I18N = {
   en: {
     subtitle:        'A daily word hunt through meaning and letters.',
     inputPlaceholder:'Type a word…',
     guessBtn:        'Guess',
-    journeyTitle:    'Your journey',
+    journeyTitle:    'Your guesses',
     emptyState:      'Your guesses will appear here. Try a word that might be semantically related to the secret!',
     tabSemantic:     'Semantic',
     tabWordle:       'Wordle',
@@ -50,6 +227,20 @@ const I18N = {
     solved:          '🎯 Solved',
     inProgress:      '🕹 In progress',
     shareUrl:        'Play at https://semordle.game',
+    howToTitle:      'How to play',
+    howToBody: `
+      <p>Every day there's a secret word. Your goal is to find it by guessing semantically related words.</p>
+      <div class="how-to-step"><span class="how-to-icon">🧠</span><div><strong>Semantic tab</strong><br>Type any word. You'll see how <em>semantically close</em> it is to the secret — ranked from #1 (closest) down.</div></div>
+      <div class="how-to-step"><span class="how-to-icon">🔥</span><div><strong>Temperature</strong><br>Words are color-coded by rank:<br>
+        <span style="color:#ef4444">■ Scorching</span> top 10 &nbsp;
+        <span style="color:#f59e0b">■ Hot</span> top 100 &nbsp;
+        <span style="color:#22c55e">■ Warm</span> top 500 &nbsp;
+        <span style="color:#64748b">■ Cold</span> beyond
+      </div></div>
+      <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle tab</strong><br>Unlock a hidden clue word by solving a Wordle-style challenge. Even if you fail, you keep the green letters as a hint.</div></div>
+      <div class="how-to-step"><span class="how-to-icon">🗺</span><div><strong>Semantic landscape</strong><br>See your guesses plotted visually. Closer words appear nearer the center. Zoom and pan to explore.</div></div>
+      <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Win</strong><br>Type the exact secret word to solve the puzzle. Share your result!</div></div>`,
+    howToClose:      'Got it!',
     winTitle:        'You solved it!',
     winSubtitle:     (n) => `You found the word in ${n} guess${n !== 1 ? 'es' : ''}!`,
     keepPlaying:     'Keep playing',
@@ -58,7 +249,7 @@ const I18N = {
     subtitle:        'Une chasse aux mots quotidienne entre sens et lettres.',
     inputPlaceholder:'Entrez un mot…',
     guessBtn:        'Deviner',
-    journeyTitle:    'Votre parcours',
+    journeyTitle:    'Vos propositions',
     emptyState:      'Vos propositions apparaîtront ici. Essayez un mot sémantiquement proche du secret !',
     tabSemantic:     'Sémantique',
     tabWordle:       'Wordle',
@@ -93,6 +284,20 @@ const I18N = {
     solved:          '🎯 Résolu',
     inProgress:      '🕹 En cours',
     shareUrl:        'Jouez sur https://semordle.game',
+    howToTitle:      'Comment jouer',
+    howToBody: `
+      <p>Chaque jour, il y a un mot secret. Votre objectif est de le trouver en devinant des mots sémantiquement proches.</p>
+      <div class="how-to-step"><span class="how-to-icon">🧠</span><div><strong>Onglet Sémantique</strong><br>Entrez n'importe quel mot. Vous verrez à quel point il est <em>sémantiquement proche</em> du secret — classé du #1 (le plus proche) vers le bas.</div></div>
+      <div class="how-to-step"><span class="how-to-icon">🔥</span><div><strong>Température</strong><br>Les mots sont colorés selon leur rang :<br>
+        <span style="color:#ef4444">■ Brûlant</span> top 10 &nbsp;
+        <span style="color:#f59e0b">■ Chaud</span> top 100 &nbsp;
+        <span style="color:#22c55e">■ Tiède</span> top 500 &nbsp;
+        <span style="color:#64748b">■ Froid</span> au-delà
+      </div></div>
+      <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Onglet Wordle</strong><br>Débloquez un mot indice caché en résolvant un défi style Wordle. Même si vous échouez, vous gardez les lettres vertes.</div></div>
+      <div class="how-to-step"><span class="how-to-icon">🗺</span><div><strong>Paysage sémantique</strong><br>Visualisez vos propositions sur une carte. Les mots proches apparaissent près du centre. Zoomez et faites glisser pour explorer.</div></div>
+      <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Gagner</strong><br>Tapez le mot secret exact pour résoudre le puzzle. Partagez votre résultat !</div></div>`,
+    howToClose:      'Compris !',
     winTitle:        'Résolu !',
     winSubtitle:     (n) => `Vous avez trouvé le mot en ${n} proposition${n !== 1 ? 's' : ''} !`,
     keepPlaying:     'Continuer à jouer',
@@ -101,11 +306,11 @@ const I18N = {
 
 // Temperature band definitions
 const TEMP = {
-  SCORCH:   { min: 1,    max: 10,   label: 'Scorching', icon: '🔥', cssClass: 'scorch', color: '#ef4444' },
-  HOT:      { min: 11,   max: 100,  label: 'Hot',       icon: '☀',  cssClass: 'hot',    color: '#f59e0b' },
-  WARM:     { min: 101,  max: 500,  label: 'Warm',      icon: '🌤', cssClass: 'warm',   color: '#22c55e' },
-  LUKEWARM: { min: 501,  max: 1000, label: 'Lukewarm',  icon: '❄',  cssClass: 'cold',   color: '#64748b' },
-  COLD:     { min: 1001, max: Infinity, label: 'Cold',  icon: '❄',  cssClass: 'cold',   color: '#475569' },
+  SCORCH:   { min: 1,    max: 10,   label: 'Scorching', icon: '🔥', cssClass: 'scorch', color: '#ff6b6b' },
+  HOT:      { min: 11,   max: 100,  label: 'Hot',       icon: '☀',  cssClass: 'hot',    color: '#f4a14a' },
+  WARM:     { min: 101,  max: 500,  label: 'Warm',      icon: '🌤', cssClass: 'warm',   color: '#2dd4bf' },
+  LUKEWARM: { min: 501,  max: 1000, label: 'Lukewarm',  icon: '❄',  cssClass: 'cold',   color: '#5a8f8a' },
+  COLD:     { min: 1001, max: Infinity, label: 'Cold',  icon: '❄',  cssClass: 'cold',   color: '#3d6662' },
 };
 
 // ─── State ───────────────────────────────────────────────
@@ -147,7 +352,7 @@ function wordToAngle(word) {
 }
 
 function getTemperature(rank) {
-  if (rank === null || rank === undefined) return TEMP.COLD;
+  if (rank === null || rank === undefined || rank > 1000) return TEMP.COLD;
   if (rank <= 10)   return TEMP.SCORCH;
   if (rank <= 100)  return TEMP.HOT;
   if (rank <= 500)  return TEMP.WARM;
@@ -214,15 +419,28 @@ async function loadPuzzle() {
     if (res.ok) loaded = await res.json();
   } catch (e) { /* swallow */ }
 
-  // Fallback to language sample
+  // Fallback: walk backwards up to 30 days to find the most recent real puzzle
+  if (!loaded) {
+    const d = new Date();
+    for (let i = 1; i <= 30 && !loaded; i++) {
+      d.setDate(d.getDate() - 1);
+      const yyyy = d.getFullYear();
+      const mm   = String(d.getMonth() + 1).padStart(2, '0');
+      const dd   = String(d.getDate()).padStart(2, '0');
+      try {
+        const res = await fetch(`data/${currentLang}/${yyyy}-${mm}-${dd}.json`);
+        if (res.ok) loaded = await res.json();
+      } catch (e) { /* swallow */ }
+    }
+  }
+
+  // Last resort: language sample, then English sample
   if (!loaded) {
     try {
       const res = await fetch(`data/${currentLang}/sample.json`);
       if (res.ok) loaded = await res.json();
     } catch (e) { /* swallow */ }
   }
-
-  // Last resort: English sample
   if (!loaded) {
     try {
       const res = await fetch('data/en/sample.json');
@@ -240,7 +458,11 @@ async function loadPuzzle() {
 function lookupWord(word) {
   if (!puzzle || !puzzle.words) return null;
   const lc = word.toLowerCase().trim();
-  return puzzle.words.find(w => w.word.toLowerCase() === lc) || null;
+  const idx = puzzle.words.findIndex(w => w.word.toLowerCase() === lc);
+  if (idx === -1) return null;
+  const entry = puzzle.words[idx];
+  if (entry.rank == null) return { ...entry, rank: idx + 1 };
+  return entry;
 }
 
 function isSecretWord(word) {
@@ -275,24 +497,28 @@ function submitSemanticGuess(rawWord) {
   let guessEntry;
   if (found) {
     const displayScore = normalizeScore(found.score, puzzle.hints);
+    const inTop1000 = found.rank <= 1000;
     guessEntry = {
       word: found.word,
       rank: found.rank,
       score: found.score,
       displayScore: displayScore,
       unlocked: false,
+      isCold: !inTop1000,
     };
-    // Update best rank
-    if (gameState.stats.bestRank === null || found.rank < gameState.stats.bestRank) {
+    // Update best rank only for top-1000 words
+    if (inTop1000 && (gameState.stats.bestRank === null || found.rank < gameState.stats.bestRank)) {
       gameState.stats.bestRank = found.rank;
     }
   } else {
+    // Word not in vocab at all — truly unknown
     guessEntry = {
       word: word,
       rank: null,
       score: null,
       displayScore: 0,
       unlocked: false,
+      isCold: true,
     };
   }
 
@@ -301,7 +527,7 @@ function submitSemanticGuess(rawWord) {
   saveState();
 
   clearSemanticMessage();
-  renderGuessCard(guessEntry, true);
+  renderGuessCard(guessEntry);
   updateBestRankLabel();
 
   updateLandscape();
@@ -330,7 +556,7 @@ function handleWin(word) {
   gameState.solvedAt = new Date().toISOString();
   saveState();
 
-  renderGuessCard(winEntry, true);
+  renderGuessCard(winEntry);
   updateBestRankLabel();
 
   updateLandscape();
@@ -361,8 +587,8 @@ function launchFireworks() {
   const particles = [];
 
   const COLORS = [
-    '#22c55e', '#a855f7', '#f59e0b', '#ef4444',
-    '#38bdf8', '#f472b6', '#fbbf24', '#86efac',
+    '#2dd4bf', '#f4a14a', '#ff6b6b', '#f0ede4',
+    '#3db8e8', '#fbbf24', '#7dd96a', '#c084fc',
   ];
 
   function createBurst(x, y) {
@@ -479,6 +705,16 @@ function applyI18n() {
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-pressed', String(active));
   });
+  // How-to modal content (re-render on lang switch)
+  const htContent = document.getElementById('how-to-content');
+  if (htContent) {
+    htContent.innerHTML = `<div class="how-to-content"><h2>${t('howToTitle')}</h2>${t('howToBody')}<button class="how-to-close-btn how-to-close" aria-label="Close">${t('howToClose')}</button></div>`;
+  }
+  // Desktop sidebar how-to (same content, no close button)
+  const sidebarContent = document.getElementById('sidebar-howto-content');
+  if (sidebarContent) {
+    sidebarContent.innerHTML = `<h2>${t('howToTitle')}</h2>${t('howToBody')}`;
+  }
 }
 
 function showSemanticMessage(msg, type = '') {
@@ -498,14 +734,24 @@ function clearSemanticMessage() {
 
 // ─── Render guess card ────────────────────────────────────
 
-function renderGuessCard(entry, prepend = false) {
+function renderGuessCard(entry) {
   const list = document.getElementById('guess-list');
+  if (list.querySelector(`[data-word="${CSS.escape(entry.word)}"]`)) return;
+
   const temp = entry.isWin ? TEMP.SCORCH : getTemperature(entry.rank);
 
   const card = document.createElement('div');
   card.setAttribute('role', 'listitem');
+  // Sort key: win=0, ranked by rank, unranked-but-scored by inverse score, truly unknown at bottom
+  const sortKey = entry.isWin ? 0
+    : entry.rank != null ? entry.rank
+    : entry.score != null ? 1000 + (1 - entry.score) * 10000
+    : 999999;
 
-  if (!entry.rank && !entry.isWin) {
+  card.dataset.rank = String(sortKey);
+  card.dataset.word = entry.word;
+
+  if (entry.isCold) {
     card.className = 'guess-card cold-card';
   } else if (entry.unlocked) {
     card.className = 'guess-card unlocked-card';
@@ -513,23 +759,26 @@ function renderGuessCard(entry, prepend = false) {
     card.className = 'guess-card';
   }
 
-  const rankLabel = entry.isWin ? '🎯 Solved!' :
-                    entry.rank ? `#${entry.rank}` : t('outsideTop');
+  const rankLabel = entry.isWin ? '🎯 Solved!'
+    : entry.rank != null ? `#${entry.rank}`
+    : t('outsideTop');
   const tempLabel = entry.isWin ? t('youFoundIt') : temp.label;
-  const scoreLabel = entry.isWin ? '100.0' :
-                     (entry.displayScore > 0 ? entry.displayScore.toFixed(1) : null);
+  const scoreLabel = entry.displayScore > 0 ? entry.displayScore.toFixed(1) : null;
 
   const unlockBadge = entry.unlocked
     ? '<span class="unlock-badge" aria-label="unlocked via Wordle">🔓 Unlocked</span>'
     : '';
 
+  const inTop1000 = !entry.isCold && entry.rank != null;
+  const hasRealRank = entry.rank != null; // true for all found words, including beyond top 1000
   const metaLine = entry.isWin
     ? `${tempLabel}`
-    : scoreLabel
+    : hasRealRank && scoreLabel
       ? `${temp.icon} ${tempLabel} · similarity ${scoreLabel} ${unlockBadge}`
-      : `${temp.icon} ${tempLabel} · ${t('outsideTop')}`;
+      : `${temp.icon} ${tempLabel}`;
 
   const barFill = entry.displayScore > 0 ? entry.displayScore : 0;
+  const showBar = entry.isWin || inTop1000;
 
   card.innerHTML = `
     <div>
@@ -537,16 +786,31 @@ function renderGuessCard(entry, prepend = false) {
         ${entry.isWin ? '🎯' : temp.icon} ${escapeHtml(entry.word)}
       </div>
       <div class="guess-meta">${metaLine}</div>
-      ${entry.rank || entry.isWin ? `<div class="bar" aria-hidden="true"><div class="fill" style="width:${barFill}%"></div></div>` : ''}
+      ${showBar ? `<div class="bar" aria-hidden="true"><div class="fill" style="width:${barFill}%"></div></div>` : ''}
     </div>
     <div class="guess-rank" style="color: ${entry.isWin ? '#fbbf24' : temp.color}" aria-label="${rankLabel}">${rankLabel}</div>
   `;
 
-  if (prepend) {
-    // Insert at top (most recent first)
-    const emptyState = document.getElementById('guess-empty-state');
-    if (emptyState) list.insertBefore(card, emptyState.nextSibling);
-    else list.insertBefore(card, list.firstChild);
+  insertCardSorted(list, card, sortKey);
+
+  // Highlight this card as the latest guess (skip on state restore)
+  if (!entry._restoring) {
+    list.querySelectorAll('.latest-guess').forEach(el => el.classList.remove('latest-guess'));
+    card.classList.add('latest-guess');
+    card.style.setProperty('--latest-color', temp.color + 'aa');
+    card.style.setProperty('--latest-glow',  temp.color + '44');
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function insertCardSorted(list, card, rank) {
+  const emptyState = document.getElementById('guess-empty-state');
+  const cards = [...list.querySelectorAll('.guess-card')];
+  const insertBefore = cards.find(c => Number(c.dataset.rank) > rank);
+  if (insertBefore) {
+    list.insertBefore(card, insertBefore);
+  } else if (emptyState) {
+    list.insertBefore(card, emptyState);
   } else {
     list.appendChild(card);
   }
@@ -611,7 +875,7 @@ function launchLandscapeFireworks() {
   const cx = W / 2;
   const cy = H / 2;
 
-  const COLORS = ['#22c55e','#a855f7','#f59e0b','#ef4444','#38bdf8','#fbbf24','#86efac','#f472b6'];
+  const COLORS = ['#2dd4bf','#f4a14a','#ff6b6b','#f0ede4','#3db8e8','#fbbf24','#7dd96a','#c084fc'];
   const particles = [];
 
   function burst(x, y, n) {
@@ -670,7 +934,7 @@ function launchLandscapeFireworks() {
 
 // ─── Semantic Landscape (Canvas) ─────────────────────────
 
-const TARGET_R = 28;
+const TARGET_R = 16;
 
 // Viewport state for pan/zoom
 const view = { zoom: 1, panX: 0, panY: 0 };
@@ -682,6 +946,7 @@ function updateLandscape() {
   if (!canvas) return;
 
   const rect = canvas.getBoundingClientRect();
+  if (rect.width <= 0 || rect.height <= 0) return;
   const dpr  = window.devicePixelRatio || 1;
   if (canvas.width  !== Math.round(rect.width  * dpr) ||
       canvas.height !== Math.round(rect.height * dpr)) {
@@ -706,16 +971,16 @@ function updateLandscape() {
   const cx = 0;
   const cy = 0;
 
-  const MARGIN = 56;
+  const MARGIN = 28;
   const maxR = Math.min(W, H) / 2 - MARGIN;
 
-  // ── PASS 1: Zone fills ──
-  const zoneFracs  = [1.0, 0.72, 0.46, 0.22];
+  // ── PASS 1: Zone fills — cool (outer) → warm (inner) ──
+  const zoneFracs  = [1.0, 0.75, 0.50, 0.25];
   const zoneColors = [
-    'rgba(100,116,139,0.07)',
-    'rgba(34,197,94,0.07)',
-    'rgba(245,158,11,0.10)',
-    'rgba(239,68,68,0.13)',
+    'rgba(45,100,120,0.09)',    // cold outer — blue-teal tint
+    'rgba(45,180,140,0.09)',    // warm — teal-green
+    'rgba(220,140,50,0.11)',    // hot — amber
+    'rgba(255,90,60,0.15)',     // scorching — red-orange center
   ];
   zoneFracs.forEach((frac, i) => {
     ctx.beginPath();
@@ -724,65 +989,57 @@ function updateLandscape() {
     ctx.fill();
   });
 
-  // ── PASS 2: Dashed ring borders + zone text ──
-  const ringFracs  = [0.22, 0.46, 0.72, 1.0];
-  const ringLabels = ['Scorching', 'Hot', 'Warm', ''];
+  // ── PASS 2: Dashed ring borders only (no text labels) ──
+  const ringFracs = [0.25, 0.50, 0.75, 1.0];
+  const ringAlphas = [0.18, 0.13, 0.10, 0.08]; // inner rings slightly more visible
   ctx.save();
   ctx.setLineDash([3, 5]);
   ctx.lineWidth = 1 / view.zoom;
   ringFracs.forEach((frac, i) => {
     ctx.beginPath();
     ctx.arc(cx, cy, maxR * frac, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+    ctx.strokeStyle = `rgba(255,255,255,${ringAlphas[i]})`;
     ctx.stroke();
-    if (ringLabels[i]) {
-      ctx.setLineDash([]);
-      const fs = clamp(10 / view.zoom, 7, 13);
-      ctx.font = `${fs}px Inter, sans-serif`;
-      ctx.fillStyle = 'rgba(255,255,255,0.22)';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'top';
-      const labelR = maxR * (i === 0 ? 0.11 : (ringFracs[i - 1] + frac) / 2);
-      ctx.fillText(ringLabels[i], cx, cy - labelR + 4 / view.zoom);
-      ctx.setLineDash([3, 5]);
-    }
   });
   ctx.restore();
 
   // ── Collect dot world positions ──
-  const allGuesses = [...gameState.semanticGuesses];
-  const rankedGuesses = allGuesses
-    .filter(g => g.rank !== null && !g.isWin)
-    .sort((a, b) => a.rank - b.rank)
-    .slice(0, 15);
-  const coldGuesses = allGuesses
-    .filter(g => g.rank === null && !g.isWin)
-    .slice(0, 6);
+  // Keep chronological order for journey path; score drives radial distance.
+  const top1Score = puzzle.hints?.top1 || 1;
 
+  // score-to-distance: log curve so small score differences near the edge
+  // are still visible, while high scores compress near the center.
+  const scoreToDist = (score) => {
+    if (!score || score <= 0) return maxR * 0.93;
+    const norm = clamp(score / top1Score, 0, 1); // 0 = far, 1 = closest word
+    // log curve: norm=1 → distFrac≈0.08 (near center), norm=0 → distFrac≈0.92
+    const distFrac = 0.08 + (1 - Math.pow(norm, 0.45)) * 0.84;
+    return Math.max(maxR * distFrac, TARGET_R + 18);
+  };
+
+  const allGuesses = gameState.semanticGuesses.filter(g => !g.isWin);
   const dotItems = [];
 
-  rankedGuesses.forEach(g => {
-    const temp     = getTemperature(g.rank);
-    const angle    = wordToAngle(g.word);
-    const rad      = (angle * Math.PI) / 180;
-    const normRank = clamp((g.rank - 1) / 999, 0, 1);
-    const distFrac = 0.26 + normRank * 0.70;
-    const rawDist  = maxR * distFrac;
-    const dist     = Math.max(rawDist, TARGET_R + 18);
+  // Build dot items in chronological order (for journey path)
+  const seen = new Set();
+  allGuesses.forEach((g, i) => {
+    const key = g.word;
+    if (seen.has(key)) return;
+    seen.add(key);
+    const temp  = g.rank != null ? getTemperature(g.rank) : TEMP.COLD;
+    const angle = wordToAngle(g.word);
+    const rad   = (angle * Math.PI) / 180;
+    const dist  = scoreToDist(g.score);
+    const score = g.score || 0;
     dotItems.push({
       x: cx + dist * Math.cos(rad),
       y: cy + dist * Math.sin(rad),
-      word: g.word, rank: g.rank, temp, large: g.rank <= 10,
-    });
-  });
-
-  coldGuesses.forEach((g, i) => {
-    const angle = (wordToAngle(g.word) + i * 37) % 360;
-    const rad   = (angle * Math.PI) / 180;
-    dotItems.push({
-      x: cx + maxR * 0.93 * Math.cos(rad),
-      y: cy + maxR * 0.93 * Math.sin(rad),
-      word: g.word, rank: null, temp: TEMP.COLD, large: false,
+      word: g.word,
+      rank: g.rank,
+      score,
+      temp,
+      large: g.rank != null && g.rank <= 10,
+      order: i,
     });
   });
 
@@ -793,12 +1050,38 @@ function updateLandscape() {
     sy: (cy0 + view.panY) + wy * view.zoom,
   });
 
-  // ── PASS 3: Connector lines (in world space, thin) ──
+  // ── PASS 3: Journey path (world space) — faint line through guesses in order ──
+  if (dotItems.length >= 2) {
+    ctx.save();
+    ctx.lineWidth = 1.8 / view.zoom;
+    ctx.setLineDash([4, 5]);
+    ctx.lineCap = 'round';
+    for (let i = 0; i < dotItems.length - 1; i++) {
+      const a = dotItems[i], b = dotItems[i + 1];
+      // Fade older segments; brighten as score improves along the path
+      const t0 = clamp(a.score / top1Score, 0, 1);
+      const t1 = clamp(b.score / top1Score, 0, 1);
+      const alpha0 = 0.25 + t0 * 0.45;
+      const alpha1 = 0.25 + t1 * 0.45;
+      const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+      grad.addColorStop(0, a.temp.color + Math.round(alpha0 * 255).toString(16).padStart(2, '0'));
+      grad.addColorStop(1, b.temp.color + Math.round(alpha1 * 255).toString(16).padStart(2, '0'));
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.strokeStyle = grad;
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    ctx.restore();
+  }
+
+  // ── PASS 3b: Connector lines (dot → label, screen space) ──
   dotItems.forEach(d => {
     const sc = toScreen(d.x, d.y);
     const info = computeLabelScreen(ctx, d, sc.sx, sc.sy, W, H, view.zoom);
     if (!info) return;
-    const dotR = (d.large ? 8 : 5) * view.zoom;
+    const dotR = (d.large ? 5 : 3) * view.zoom;
     const dx = info.cx - sc.sx;
     const dy = info.cy - sc.sy;
     const dist = Math.hypot(dx, dy);
@@ -808,11 +1091,11 @@ function updateLandscape() {
     ctx.restore(); ctx.save();
     ctx.scale(dpr, dpr);
     ctx.beginPath();
-    ctx.moveTo(sc.sx + nx * (dotR + 3), sc.sy + ny * (dotR + 3));
+    ctx.moveTo(sc.sx + nx * (dotR + 2), sc.sy + ny * (dotR + 2));
     ctx.lineTo(info.cx - nx * 5, info.cy - ny * 5);
-    ctx.strokeStyle = d.temp.color + '44';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([2, 4]);
+    ctx.strokeStyle = d.temp.color + 'aa';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([2, 3]);
     ctx.stroke();
     ctx.setLineDash([]);
     // Re-apply world transform
@@ -821,7 +1104,7 @@ function updateLandscape() {
   });
 
   // ── PASS 4: Dots (world space) ──
-  dotItems.forEach(d => drawDot(ctx, d.x, d.y, d.temp, d.large, view.zoom));
+  dotItems.forEach(d => drawDot(ctx, d.x, d.y, d.temp, d.large, view.zoom, d.score, top1Score));
 
   // ── PASS 5: Target circle (world space, drawn before labels so labels sit on top) ──
   drawTarget(ctx, cx, cy, gameState.solved ? puzzle.secret : null, view.zoom);
@@ -859,7 +1142,7 @@ function updateLandscape() {
 function computeLabelScreen(ctx, d, sx, sy, W, H, zoom) {
   const PILL_H   = 18;
   const PILL_PAD = 9;
-  const DOT_R    = (d.large ? 8 : 5) * zoom;
+  const DOT_R    = (d.large ? 5 : 3) * zoom;
   const GAP      = 8;
 
   const label = d.rank ? `${d.word} #${d.rank}` : d.word;
@@ -911,30 +1194,44 @@ function computeLabelScreen(ctx, d, sx, sy, W, H, zoom) {
   };
 }
 
-function drawDot(ctx, x, y, temp, large, zoom) {
-  const r = large ? 8 : 5;
-  const glowR = r + 9;
+function drawDot(ctx, x, y, temp, large, zoom, score, top1Score) {
+  const r = large ? 5 : 3;
+  // Glow scales with score: cold word gets bare minimum, hot word gets large halo
+  const proximity = top1Score > 0 ? clamp((score || 0) / top1Score, 0, 1) : 0;
+  const glowR = r + 4 + proximity * 10;
+  const glowAlpha = Math.round((0.25 + proximity * 0.55) * 255).toString(16).padStart(2, '0');
+  const coreAlpha = Math.round((0.55 + proximity * 0.45) * 255).toString(16).padStart(2, '0');
 
+  // Outer glow
   const grd = ctx.createRadialGradient(x, y, 0, x, y, glowR);
-  grd.addColorStop(0, temp.color + '66');
+  grd.addColorStop(0, temp.color + glowAlpha);
   grd.addColorStop(1, temp.color + '00');
   ctx.beginPath();
   ctx.arc(x, y, glowR, 0, Math.PI * 2);
   ctx.fillStyle = grd;
   ctx.fill();
 
+  // Core dot — brighter for high-score words
   ctx.beginPath();
   ctx.arc(x, y, r, 0, Math.PI * 2);
-  ctx.fillStyle = temp.color;
+  ctx.fillStyle = temp.color + coreAlpha;
   ctx.fill();
-  ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+  ctx.strokeStyle = `rgba(255,255,255,${0.4 + proximity * 0.45})`;
   ctx.lineWidth = (large ? 1.5 : 1) / zoom;
   ctx.stroke();
+
+  // Extra inner specular for top-10 words
+  if (large) {
+    ctx.beginPath();
+    ctx.arc(x - r * 0.3, y - r * 0.3, r * 0.35, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${0.3 + proximity * 0.35})`;
+    ctx.fill();
+  }
 }
 
 function drawLabelScreen(ctx, d, info) {
   const { lx, ly, label, w, h, pad } = info;
-  ctx.fillStyle = 'rgba(6, 10, 24, 0.93)';
+  ctx.fillStyle = 'rgba(4, 10, 8, 0.94)';
   ctx.strokeStyle = d.temp.color + '88';
   ctx.lineWidth = 1;
   roundRect(ctx, lx, ly, w, h, 5);
@@ -949,23 +1246,23 @@ function drawLabelScreen(ctx, d, info) {
 
 function drawTarget(ctx, cx, cy, solvedWord, zoom) {
   ctx.beginPath();
-  ctx.arc(cx, cy, TARGET_R + 16, 0, Math.PI * 2);
-  ctx.fillStyle = solvedWord ? 'rgba(34,197,94,0.18)' : 'rgba(239,68,68,0.12)';
+  ctx.arc(cx, cy, TARGET_R + 10, 0, Math.PI * 2);
+  ctx.fillStyle = solvedWord ? 'rgba(45,212,191,0.18)' : 'rgba(244,161,74,0.14)';
   ctx.fill();
 
   const grad = ctx.createRadialGradient(cx - 6, cy - 6, 3, cx, cy, TARGET_R);
   if (solvedWord) {
-    grad.addColorStop(0, '#22c55e');
-    grad.addColorStop(1, '#a855f7');
+    grad.addColorStop(0, '#2dd4bf');
+    grad.addColorStop(1, '#0a6e6e');
   } else {
-    grad.addColorStop(0, '#ef4444');
-    grad.addColorStop(1, '#a855f7');
+    grad.addColorStop(0, '#f4a14a');
+    grad.addColorStop(1, '#7a3a10');
   }
   ctx.beginPath();
   ctx.arc(cx, cy, TARGET_R, 0, Math.PI * 2);
   ctx.fillStyle = grad;
   ctx.fill();
-  ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.25)';
   ctx.lineWidth = 1.5 / zoom;
   ctx.stroke();
 
@@ -1307,7 +1604,6 @@ function buildWordleHTML() {
     resultSection = `
       <div class="wordle-result lost" role="status" aria-live="polite">
         <h4>${t('lostTitle')}</h4>
-        <p>${t('lostBody', escapeHtml(target.word), target.rank)}</p>
         <div class="revealed-word" aria-label="Partial clue: ${mask}">${mask}</div>
         <p>${t('lostHint')}</p>
         ${resultBtns}
@@ -1580,7 +1876,7 @@ function handleWordleWin() {
   }
 
   saveState();
-  renderGuessCard(unlockEntry, true);
+  renderGuessCard(unlockEntry);
   updateBestRankLabel();
 
   updateLandscape();
@@ -1703,6 +1999,10 @@ async function copyShareText() {
   }
 }
 
+function lockBodyScroll(lock) {
+  document.body.style.overflow = lock ? 'hidden' : '';
+}
+
 function showWinModal() {
   const modal = document.getElementById('win-modal');
   if (!modal) return;
@@ -1716,6 +2016,7 @@ function showWinModal() {
   if (card) card.innerHTML = buildShareCardHTML();
 
   modal.classList.remove('hidden');
+  lockBodyScroll(true);
 
   // Also update desktop share section
   updateShareSection();
@@ -1764,7 +2065,7 @@ function setupModeTabs() {
     if (wordleState) {
       if (!inlineContainer.innerHTML.trim()) renderWordleUI();
     } else {
-      showWordleStartPrompt(inlineContainer);
+      startWordleChallenge();
     }
   });
 }
@@ -1774,8 +2075,14 @@ function setupModeTabs() {
 function setupKeyboardHandler() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      const howTo = document.getElementById('how-to-modal');
       const winModal = document.getElementById('win-modal');
-      if (!winModal.classList.contains('hidden')) {
+      const sidebar = document.querySelector('.sidebar-howto');
+      if (sidebar?.classList.contains('open')) {
+        sidebar.classList.remove('open');
+      } else if (!howTo.classList.contains('hidden')) {
+        howTo.classList.add('hidden');
+      } else if (!winModal.classList.contains('hidden')) {
         winModal.classList.add('hidden');
       } else {
         closeWordlePanel();
@@ -1809,9 +2116,20 @@ function setupKeyboardHandler() {
 function restoreState() {
   if (!gameState) return;
 
-  // Re-render all guesses: iterate oldest→newest and prepend each,
-  // so the newest ends up at the top of the list.
-  [...gameState.semanticGuesses].forEach(g => renderGuessCard(g, true));
+  // Back-fill rank/score for cold guesses saved before the real-rank feature
+  gameState.semanticGuesses.forEach(g => {
+    if (g.isCold && g.rank == null) {
+      const found = lookupWord(g.word);
+      if (found) {
+        g.rank = found.rank;
+        g.score = found.score;
+        g.displayScore = normalizeScore(found.score, puzzle.hints);
+      }
+    }
+  });
+
+  // Re-render all guesses sorted by rank (closest first); flag as restoring so no highlight
+  [...gameState.semanticGuesses].forEach(g => renderGuessCard({ ...g, _restoring: true }));
 
   if (gameState.semanticGuesses.length > 0) {
     hideEmptyState();
@@ -1834,6 +2152,8 @@ async function init() {
 
   if (!puzzle) {
     document.getElementById('puzzle-pill').textContent = 'Failed to load puzzle';
+    document.getElementById('semantic-input')?.setAttribute('disabled', 'true');
+    document.getElementById('semantic-submit')?.setAttribute('disabled', 'true');
     return;
   }
 
@@ -1848,15 +2168,22 @@ async function init() {
   // Apply translations and setup UI bindings
   applyI18n();
   if (!_initialized) {
+    setupHowTo();
     setupLangSwitcher();
     setupModeTabs();
     setupKeyboardHandler();
     setupModalCloseButtons();
     setupShareButtons();
     setupLandscapeInteraction();
+    setupClickSounds();
     document.getElementById('landscape-reset-btn')?.addEventListener('click', resetView);
     _initialized = true;
   }
+
+  // Start background floating words (re-init with new puzzle words on lang switch)
+  if (_bgWords.raf) cancelAnimationFrame(_bgWords.raf);
+  _bgWords.words = [];
+  bgWordsInit(puzzle.words);
   setupSemanticInput();
 
   // Restore previous session
@@ -1870,6 +2197,19 @@ async function init() {
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(updateLandscape, 150);
+  });
+}
+
+function setupClickSounds() {
+  // Resume AudioContext on first user gesture (browser autoplay policy)
+  document.addEventListener('pointerdown', resumeAudio, { once: true });
+
+  // Delegate: every pointerdown on a button/tab/vkey plays a click
+  document.addEventListener('pointerdown', e => {
+    const el = e.target.closest('button, .vkey');
+    if (!el) return;
+    const isSubmit = el.id === 'semantic-submit' || el.classList.contains('wordle-submit');
+    playClick(isSubmit ? 'submit' : 'key');
   });
 }
 
@@ -1910,11 +2250,13 @@ function setupModalCloseButtons() {
   // Win modal backdrop click
   document.getElementById('win-modal-backdrop')?.addEventListener('click', () => {
     document.getElementById('win-modal').classList.add('hidden');
+    lockBodyScroll(false);
   });
 
   // Close win modal button
   document.getElementById('close-win-btn')?.addEventListener('click', () => {
     document.getElementById('win-modal').classList.add('hidden');
+    lockBodyScroll(false);
   });
 }
 
@@ -1942,6 +2284,45 @@ function setupShareButtons() {
   });
 }
 
+function setupHowTo() {
+  const openBtn  = document.getElementById('how-to-btn');
+  const modal    = document.getElementById('how-to-modal');
+  const backdrop = document.getElementById('how-to-backdrop');
+  const sidebar  = document.querySelector('.sidebar-howto');
+
+  const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
+  const isDesktop = () => window.matchMedia('(min-width: 900px)').matches;
+
+  const openModal    = () => { modal.classList.remove('hidden'); lockBodyScroll(true); };
+  const closeModal   = () => { modal.classList.add('hidden');    lockBodyScroll(false); };
+  const closeSidebar = () => sidebar?.classList.remove('open');
+
+  openBtn?.addEventListener('click', () => {
+    if (isDesktop()) {
+      sidebar?.classList.toggle('open');
+    } else {
+      openModal();
+    }
+  });
+
+  backdrop?.addEventListener('click', closeModal);
+  sidebarCloseBtn?.addEventListener('click', closeSidebar);
+
+  // Close sidebar when clicking outside it on desktop
+  document.addEventListener('click', e => {
+    if (isDesktop() && sidebar?.classList.contains('open')) {
+      if (!sidebar.contains(e.target) && e.target !== openBtn) {
+        closeSidebar();
+      }
+    }
+  });
+
+  // Delegate close for the in-content modal button (re-rendered on lang switch)
+  modal?.addEventListener('click', e => {
+    if (e.target.classList.contains('how-to-close')) closeModal();
+  });
+}
+
 function setupLangSwitcher() {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     if (btn._langBound) return;
@@ -1951,7 +2332,7 @@ function setupLangSwitcher() {
       if (lang === currentLang) return;
       currentLang = lang;
       localStorage.setItem('semordle:lang', lang);
-      // Full reinit: clear UI and reload puzzle
+      // Reload puzzle + game state for new language; reset Wordle
       wordleState = null;
       gameState   = null;
       puzzle      = null;

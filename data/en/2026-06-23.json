@@ -1,0 +1,5014 @@
+{
+  "date": "2026-06-23",
+  "puzzleNumber": 171,
+  "lang": "en",
+  "secret": "horse",
+  "wordLength": 5,
+  "hints": {
+    "top1": 0.954,
+    "top10": 0.8158,
+    "top1000": 0.4264
+  },
+  "words": [
+    {
+      "word": "pony",
+      "score": 0.954,
+      "rank": 1
+    },
+    {
+      "word": "ponies",
+      "score": 0.9428,
+      "rank": 2
+    },
+    {
+      "word": "racehorse",
+      "score": 0.9314,
+      "rank": 3
+    },
+    {
+      "word": "stallion",
+      "score": 0.9252,
+      "rank": 4
+    },
+    {
+      "word": "equestrian",
+      "score": 0.913,
+      "rank": 5
+    },
+    {
+      "word": "stallions",
+      "score": 0.8572,
+      "rank": 6
+    },
+    {
+      "word": "racehorses",
+      "score": 0.835,
+      "rank": 7
+    },
+    {
+      "word": "mule",
+      "score": 0.8291,
+      "rank": 8
+    },
+    {
+      "word": "saddle",
+      "score": 0.8228,
+      "rank": 9
+    },
+    {
+      "word": "hooves",
+      "score": 0.8158,
+      "rank": 10
+    },
+    {
+      "word": "cai",
+      "score": 0.813,
+      "rank": 11
+    },
+    {
+      "word": "equine",
+      "score": 0.7926,
+      "rank": 12
+    },
+    {
+      "word": "mules",
+      "score": 0.7765,
+      "rank": 13
+    },
+    {
+      "word": "saddled",
+      "score": 0.77,
+      "rank": 14
+    },
+    {
+      "word": "donkey",
+      "score": 0.7512,
+      "rank": 15
+    },
+    {
+      "word": "ponyville",
+      "score": 0.7506,
+      "rank": 16
+    },
+    {
+      "word": "mustangs",
+      "score": 0.7351,
+      "rank": 17
+    },
+    {
+      "word": "colt",
+      "score": 0.7332,
+      "rank": 18
+    },
+    {
+      "word": "equinox",
+      "score": 0.7313,
+      "rank": 19
+    },
+    {
+      "word": "mull",
+      "score": 0.7302,
+      "rank": 20
+    },
+    {
+      "word": "mustang",
+      "score": 0.7262,
+      "rank": 21
+    },
+    {
+      "word": "sadler",
+      "score": 0.7249,
+      "rank": 22
+    },
+    {
+      "word": "stables",
+      "score": 0.7116,
+      "rank": 23
+    },
+    {
+      "word": "donkeys",
+      "score": 0.6909,
+      "rank": 24
+    },
+    {
+      "word": "ridden",
+      "score": 0.6873,
+      "rank": 25
+    },
+    {
+      "word": "thoroughbred",
+      "score": 0.6863,
+      "rank": 26
+    },
+    {
+      "word": "colts",
+      "score": 0.6773,
+      "rank": 27
+    },
+    {
+      "word": "seahorse",
+      "score": 0.6655,
+      "rank": 28
+    },
+    {
+      "word": "heston",
+      "score": 0.6426,
+      "rank": 29
+    },
+    {
+      "word": "roderick",
+      "score": 0.6417,
+      "rank": 30
+    },
+    {
+      "word": "clyde",
+      "score": 0.6413,
+      "rank": 31
+    },
+    {
+      "word": "rodent",
+      "score": 0.6394,
+      "rank": 32
+    },
+    {
+      "word": "steerage",
+      "score": 0.6323,
+      "rank": 33
+    },
+    {
+      "word": "animal",
+      "score": 0.6236,
+      "rank": 34
+    },
+    {
+      "word": "mounted",
+      "score": 0.6187,
+      "rank": 35
+    },
+    {
+      "word": "jockey",
+      "score": 0.6158,
+      "rank": 36
+    },
+    {
+      "word": "polo",
+      "score": 0.6142,
+      "rank": 37
+    },
+    {
+      "word": "cowboy",
+      "score": 0.6123,
+      "rank": 38
+    },
+    {
+      "word": "colter",
+      "score": 0.6112,
+      "rank": 39
+    },
+    {
+      "word": "nighthorse",
+      "score": 0.6106,
+      "rank": 40
+    },
+    {
+      "word": "animals",
+      "score": 0.6076,
+      "rank": 41
+    },
+    {
+      "word": "steers",
+      "score": 0.6059,
+      "rank": 42
+    },
+    {
+      "word": "hervé",
+      "score": 0.6058,
+      "rank": 43
+    },
+    {
+      "word": "heifer",
+      "score": 0.6049,
+      "rank": 44
+    },
+    {
+      "word": "rodeo",
+      "score": 0.6024,
+      "rank": 45
+    },
+    {
+      "word": "oxen",
+      "score": 0.6012,
+      "rank": 46
+    },
+    {
+      "word": "cavalry",
+      "score": 0.5939,
+      "rank": 47
+    },
+    {
+      "word": "jockeys",
+      "score": 0.5936,
+      "rank": 48
+    },
+    {
+      "word": "kon",
+      "score": 0.5921,
+      "rank": 49
+    },
+    {
+      "word": "sian",
+      "score": 0.5918,
+      "rank": 50
+    },
+    {
+      "word": "livestock",
+      "score": 0.591,
+      "rank": 51
+    },
+    {
+      "word": "wight",
+      "score": 0.5891,
+      "rank": 52
+    },
+    {
+      "word": "beasts",
+      "score": 0.5849,
+      "rank": 53
+    },
+    {
+      "word": "steer",
+      "score": 0.5828,
+      "rank": 54
+    },
+    {
+      "word": "toby",
+      "score": 0.5819,
+      "rank": 55
+    },
+    {
+      "word": "earls",
+      "score": 0.581,
+      "rank": 56
+    },
+    {
+      "word": "romeo",
+      "score": 0.5797,
+      "rank": 57
+    },
+    {
+      "word": "cabal",
+      "score": 0.5776,
+      "rank": 58
+    },
+    {
+      "word": "houghton",
+      "score": 0.577,
+      "rank": 59
+    },
+    {
+      "word": "cowl",
+      "score": 0.5753,
+      "rank": 60
+    },
+    {
+      "word": "terrier",
+      "score": 0.5709,
+      "rank": 61
+    },
+    {
+      "word": "cameron",
+      "score": 0.568,
+      "rank": 62
+    },
+    {
+      "word": "turds",
+      "score": 0.5661,
+      "rank": 63
+    },
+    {
+      "word": "koen",
+      "score": 0.5638,
+      "rank": 64
+    },
+    {
+      "word": "gallows",
+      "score": 0.5631,
+      "rank": 65
+    },
+    {
+      "word": "galloping",
+      "score": 0.563,
+      "rank": 66
+    },
+    {
+      "word": "oodles",
+      "score": 0.5626,
+      "rank": 67
+    },
+    {
+      "word": "flamenco",
+      "score": 0.5623,
+      "rank": 68
+    },
+    {
+      "word": "owen",
+      "score": 0.5607,
+      "rank": 69
+    },
+    {
+      "word": "gunther",
+      "score": 0.5603,
+      "rank": 70
+    },
+    {
+      "word": "hogan",
+      "score": 0.5597,
+      "rank": 71
+    },
+    {
+      "word": "poodle",
+      "score": 0.5573,
+      "rank": 72
+    },
+    {
+      "word": "caws",
+      "score": 0.5571,
+      "rank": 73
+    },
+    {
+      "word": "rowed",
+      "score": 0.5545,
+      "rank": 74
+    },
+    {
+      "word": "kovacs",
+      "score": 0.5534,
+      "rank": 75
+    },
+    {
+      "word": "galvin",
+      "score": 0.5531,
+      "rank": 76
+    },
+    {
+      "word": "moors",
+      "score": 0.552,
+      "rank": 77
+    },
+    {
+      "word": "saddlebags",
+      "score": 0.5519,
+      "rank": 78
+    },
+    {
+      "word": "mammal",
+      "score": 0.5517,
+      "rank": 79
+    },
+    {
+      "word": "huskies",
+      "score": 0.5497,
+      "rank": 80
+    },
+    {
+      "word": "chariot",
+      "score": 0.549,
+      "rank": 81
+    },
+    {
+      "word": "steered",
+      "score": 0.5486,
+      "rank": 82
+    },
+    {
+      "word": "olly",
+      "score": 0.5475,
+      "rank": 83
+    },
+    {
+      "word": "grannies",
+      "score": 0.5473,
+      "rank": 84
+    },
+    {
+      "word": "psi",
+      "score": 0.5466,
+      "rank": 85
+    },
+    {
+      "word": "garret",
+      "score": 0.5451,
+      "rank": 86
+    },
+    {
+      "word": "jocko",
+      "score": 0.545,
+      "rank": 87
+    },
+    {
+      "word": "boar",
+      "score": 0.5443,
+      "rank": 88
+    },
+    {
+      "word": "saddles",
+      "score": 0.5439,
+      "rank": 89
+    },
+    {
+      "word": "earle",
+      "score": 0.5426,
+      "rank": 90
+    },
+    {
+      "word": "wessex",
+      "score": 0.5414,
+      "rank": 91
+    },
+    {
+      "word": "thrace",
+      "score": 0.5412,
+      "rank": 92
+    },
+    {
+      "word": "rodents",
+      "score": 0.5405,
+      "rank": 93
+    },
+    {
+      "word": "bestial",
+      "score": 0.54,
+      "rank": 94
+    },
+    {
+      "word": "bestie",
+      "score": 0.5396,
+      "rank": 95
+    },
+    {
+      "word": "doggy",
+      "score": 0.5395,
+      "rank": 96
+    },
+    {
+      "word": "hounding",
+      "score": 0.539,
+      "rank": 97
+    },
+    {
+      "word": "pogue",
+      "score": 0.5388,
+      "rank": 98
+    },
+    {
+      "word": "poul",
+      "score": 0.5384,
+      "rank": 99
+    },
+    {
+      "word": "ravens",
+      "score": 0.5374,
+      "rank": 100
+    },
+    {
+      "word": "dunlop",
+      "score": 0.5362,
+      "rank": 101
+    },
+    {
+      "word": "pounder",
+      "score": 0.5353,
+      "rank": 102
+    },
+    {
+      "word": "mulling",
+      "score": 0.535,
+      "rank": 103
+    },
+    {
+      "word": "ollie",
+      "score": 0.534,
+      "rank": 104
+    },
+    {
+      "word": "poise",
+      "score": 0.5333,
+      "rank": 105
+    },
+    {
+      "word": "bovine",
+      "score": 0.5316,
+      "rank": 106
+    },
+    {
+      "word": "mammals",
+      "score": 0.5306,
+      "rank": 107
+    },
+    {
+      "word": "raven",
+      "score": 0.5303,
+      "rank": 108
+    },
+    {
+      "word": "orr",
+      "score": 0.5303,
+      "rank": 109
+    },
+    {
+      "word": "caplan",
+      "score": 0.53,
+      "rank": 110
+    },
+    {
+      "word": "earl",
+      "score": 0.53,
+      "rank": 111
+    },
+    {
+      "word": "pikes",
+      "score": 0.5293,
+      "rank": 112
+    },
+    {
+      "word": "oxford",
+      "score": 0.5277,
+      "rank": 113
+    },
+    {
+      "word": "rancho",
+      "score": 0.5275,
+      "rank": 114
+    },
+    {
+      "word": "sidekick",
+      "score": 0.5274,
+      "rank": 115
+    },
+    {
+      "word": "poultice",
+      "score": 0.5273,
+      "rank": 116
+    },
+    {
+      "word": "labrador",
+      "score": 0.5272,
+      "rank": 117
+    },
+    {
+      "word": "poochie",
+      "score": 0.5265,
+      "rank": 118
+    },
+    {
+      "word": "coaster",
+      "score": 0.5259,
+      "rank": 119
+    },
+    {
+      "word": "beast",
+      "score": 0.5253,
+      "rank": 120
+    },
+    {
+      "word": "chariots",
+      "score": 0.5253,
+      "rank": 121
+    },
+    {
+      "word": "ryder",
+      "score": 0.5252,
+      "rank": 122
+    },
+    {
+      "word": "feline",
+      "score": 0.525,
+      "rank": 123
+    },
+    {
+      "word": "vics",
+      "score": 0.5247,
+      "rank": 124
+    },
+    {
+      "word": "dogged",
+      "score": 0.5247,
+      "rank": 125
+    },
+    {
+      "word": "swine",
+      "score": 0.5239,
+      "rank": 126
+    },
+    {
+      "word": "castiel",
+      "score": 0.5239,
+      "rank": 127
+    },
+    {
+      "word": "macbeth",
+      "score": 0.5231,
+      "rank": 128
+    },
+    {
+      "word": "foxy",
+      "score": 0.5217,
+      "rank": 129
+    },
+    {
+      "word": "pheasant",
+      "score": 0.5215,
+      "rank": 130
+    },
+    {
+      "word": "pies",
+      "score": 0.521,
+      "rank": 131
+    },
+    {
+      "word": "bard",
+      "score": 0.5209,
+      "rank": 132
+    },
+    {
+      "word": "rode",
+      "score": 0.5207,
+      "rank": 133
+    },
+    {
+      "word": "cavaliere",
+      "score": 0.5202,
+      "rank": 134
+    },
+    {
+      "word": "barns",
+      "score": 0.5196,
+      "rank": 135
+    },
+    {
+      "word": "seamus",
+      "score": 0.5194,
+      "rank": 136
+    },
+    {
+      "word": "blackpool",
+      "score": 0.5193,
+      "rank": 137
+    },
+    {
+      "word": "navarre",
+      "score": 0.5185,
+      "rank": 138
+    },
+    {
+      "word": "husky",
+      "score": 0.5176,
+      "rank": 139
+    },
+    {
+      "word": "kno",
+      "score": 0.517,
+      "rank": 140
+    },
+    {
+      "word": "liverpool",
+      "score": 0.5167,
+      "rank": 141
+    },
+    {
+      "word": "mooring",
+      "score": 0.5165,
+      "rank": 142
+    },
+    {
+      "word": "mares",
+      "score": 0.516,
+      "rank": 143
+    },
+    {
+      "word": "bardo",
+      "score": 0.5158,
+      "rank": 144
+    },
+    {
+      "word": "cavalier",
+      "score": 0.5156,
+      "rank": 145
+    },
+    {
+      "word": "bullock",
+      "score": 0.5156,
+      "rank": 146
+    },
+    {
+      "word": "castor",
+      "score": 0.5156,
+      "rank": 147
+    },
+    {
+      "word": "poodles",
+      "score": 0.5154,
+      "rank": 148
+    },
+    {
+      "word": "gunny",
+      "score": 0.5152,
+      "rank": 149
+    },
+    {
+      "word": "cowboys",
+      "score": 0.5144,
+      "rank": 150
+    },
+    {
+      "word": "posies",
+      "score": 0.5141,
+      "rank": 151
+    },
+    {
+      "word": "roop",
+      "score": 0.5134,
+      "rank": 152
+    },
+    {
+      "word": "rowe",
+      "score": 0.5133,
+      "rank": 153
+    },
+    {
+      "word": "bulldog",
+      "score": 0.5126,
+      "rank": 154
+    },
+    {
+      "word": "hog",
+      "score": 0.5125,
+      "rank": 155
+    },
+    {
+      "word": "doggone",
+      "score": 0.5124,
+      "rank": 156
+    },
+    {
+      "word": "barden",
+      "score": 0.5121,
+      "rank": 157
+    },
+    {
+      "word": "pootie",
+      "score": 0.512,
+      "rank": 158
+    },
+    {
+      "word": "norse",
+      "score": 0.5119,
+      "rank": 159
+    },
+    {
+      "word": "blaine",
+      "score": 0.5113,
+      "rank": 160
+    },
+    {
+      "word": "pigpen",
+      "score": 0.5112,
+      "rank": 161
+    },
+    {
+      "word": "cattleman",
+      "score": 0.5108,
+      "rank": 162
+    },
+    {
+      "word": "greyhound",
+      "score": 0.51,
+      "rank": 163
+    },
+    {
+      "word": "hound",
+      "score": 0.51,
+      "rank": 164
+    },
+    {
+      "word": "trotsky",
+      "score": 0.5098,
+      "rank": 165
+    },
+    {
+      "word": "camelot",
+      "score": 0.5096,
+      "rank": 166
+    },
+    {
+      "word": "lobo",
+      "score": 0.5095,
+      "rank": 167
+    },
+    {
+      "word": "rochester",
+      "score": 0.5092,
+      "rank": 168
+    },
+    {
+      "word": "doggett",
+      "score": 0.5089,
+      "rank": 169
+    },
+    {
+      "word": "ravn",
+      "score": 0.5087,
+      "rank": 170
+    },
+    {
+      "word": "turd",
+      "score": 0.508,
+      "rank": 171
+    },
+    {
+      "word": "veterinary",
+      "score": 0.5079,
+      "rank": 172
+    },
+    {
+      "word": "ranch",
+      "score": 0.5078,
+      "rank": 173
+    },
+    {
+      "word": "viking",
+      "score": 0.5074,
+      "rank": 174
+    },
+    {
+      "word": "pagan",
+      "score": 0.5069,
+      "rank": 175
+    },
+    {
+      "word": "somerset",
+      "score": 0.5062,
+      "rank": 176
+    },
+    {
+      "word": "calf",
+      "score": 0.5061,
+      "rank": 177
+    },
+    {
+      "word": "trouper",
+      "score": 0.5061,
+      "rank": 178
+    },
+    {
+      "word": "rove",
+      "score": 0.5059,
+      "rank": 179
+    },
+    {
+      "word": "shepard",
+      "score": 0.5053,
+      "rank": 180
+    },
+    {
+      "word": "rider",
+      "score": 0.5049,
+      "rank": 181
+    },
+    {
+      "word": "champollion",
+      "score": 0.5047,
+      "rank": 182
+    },
+    {
+      "word": "pigskin",
+      "score": 0.5046,
+      "rank": 183
+    },
+    {
+      "word": "exeter",
+      "score": 0.5044,
+      "rank": 184
+    },
+    {
+      "word": "hoochie",
+      "score": 0.504,
+      "rank": 185
+    },
+    {
+      "word": "perri",
+      "score": 0.504,
+      "rank": 186
+    },
+    {
+      "word": "fife",
+      "score": 0.5036,
+      "rank": 187
+    },
+    {
+      "word": "blaire",
+      "score": 0.5036,
+      "rank": 188
+    },
+    {
+      "word": "rancher",
+      "score": 0.5025,
+      "rank": 189
+    },
+    {
+      "word": "caster",
+      "score": 0.5021,
+      "rank": 190
+    },
+    {
+      "word": "herder",
+      "score": 0.5019,
+      "rank": 191
+    },
+    {
+      "word": "stalwart",
+      "score": 0.5016,
+      "rank": 192
+    },
+    {
+      "word": "chien",
+      "score": 0.5015,
+      "rank": 193
+    },
+    {
+      "word": "bunnies",
+      "score": 0.5012,
+      "rank": 194
+    },
+    {
+      "word": "bullocks",
+      "score": 0.5009,
+      "rank": 195
+    },
+    {
+      "word": "collie",
+      "score": 0.5007,
+      "rank": 196
+    },
+    {
+      "word": "rottweiler",
+      "score": 0.5007,
+      "rank": 197
+    },
+    {
+      "word": "hokey",
+      "score": 0.5004,
+      "rank": 198
+    },
+    {
+      "word": "herds",
+      "score": 0.5002,
+      "rank": 199
+    },
+    {
+      "word": "bison",
+      "score": 0.499,
+      "rank": 200
+    },
+    {
+      "word": "flanders",
+      "score": 0.4988,
+      "rank": 201
+    },
+    {
+      "word": "govinda",
+      "score": 0.4981,
+      "rank": 202
+    },
+    {
+      "word": "sly",
+      "score": 0.4979,
+      "rank": 203
+    },
+    {
+      "word": "dollop",
+      "score": 0.4978,
+      "rank": 204
+    },
+    {
+      "word": "matador",
+      "score": 0.4975,
+      "rank": 205
+    },
+    {
+      "word": "calves",
+      "score": 0.497,
+      "rank": 206
+    },
+    {
+      "word": "sidekicks",
+      "score": 0.4968,
+      "rank": 207
+    },
+    {
+      "word": "derry",
+      "score": 0.4966,
+      "rank": 208
+    },
+    {
+      "word": "moore",
+      "score": 0.4963,
+      "rank": 209
+    },
+    {
+      "word": "wildlife",
+      "score": 0.4957,
+      "rank": 210
+    },
+    {
+      "word": "poached",
+      "score": 0.4955,
+      "rank": 211
+    },
+    {
+      "word": "strut",
+      "score": 0.4954,
+      "rank": 212
+    },
+    {
+      "word": "roost",
+      "score": 0.4953,
+      "rank": 213
+    },
+    {
+      "word": "canine",
+      "score": 0.4953,
+      "rank": 214
+    },
+    {
+      "word": "slay",
+      "score": 0.4946,
+      "rank": 215
+    },
+    {
+      "word": "beastmaster",
+      "score": 0.4946,
+      "rank": 216
+    },
+    {
+      "word": "chesterton",
+      "score": 0.4938,
+      "rank": 217
+    },
+    {
+      "word": "coventry",
+      "score": 0.4935,
+      "rank": 218
+    },
+    {
+      "word": "armoured",
+      "score": 0.4933,
+      "rank": 219
+    },
+    {
+      "word": "huntress",
+      "score": 0.4929,
+      "rank": 220
+    },
+    {
+      "word": "oxnard",
+      "score": 0.4929,
+      "rank": 221
+    },
+    {
+      "word": "pupkin",
+      "score": 0.4927,
+      "rank": 222
+    },
+    {
+      "word": "loonies",
+      "score": 0.4926,
+      "rank": 223
+    },
+    {
+      "word": "steed",
+      "score": 0.4923,
+      "rank": 224
+    },
+    {
+      "word": "robles",
+      "score": 0.492,
+      "rank": 225
+    },
+    {
+      "word": "cowley",
+      "score": 0.4919,
+      "rank": 226
+    },
+    {
+      "word": "bertie",
+      "score": 0.4916,
+      "rank": 227
+    },
+    {
+      "word": "koryn",
+      "score": 0.4916,
+      "rank": 228
+    },
+    {
+      "word": "ranches",
+      "score": 0.4916,
+      "rank": 229
+    },
+    {
+      "word": "hounds",
+      "score": 0.4914,
+      "rank": 230
+    },
+    {
+      "word": "laden",
+      "score": 0.4908,
+      "rank": 231
+    },
+    {
+      "word": "gannicus",
+      "score": 0.4907,
+      "rank": 232
+    },
+    {
+      "word": "pooper",
+      "score": 0.4898,
+      "rank": 233
+    },
+    {
+      "word": "galloway",
+      "score": 0.4897,
+      "rank": 234
+    },
+    {
+      "word": "nelly",
+      "score": 0.4894,
+      "rank": 235
+    },
+    {
+      "word": "doggie",
+      "score": 0.4894,
+      "rank": 236
+    },
+    {
+      "word": "hogwarts",
+      "score": 0.4894,
+      "rank": 237
+    },
+    {
+      "word": "pigs",
+      "score": 0.4894,
+      "rank": 238
+    },
+    {
+      "word": "cattle",
+      "score": 0.4892,
+      "rank": 239
+    },
+    {
+      "word": "derby",
+      "score": 0.4887,
+      "rank": 240
+    },
+    {
+      "word": "hogs",
+      "score": 0.4882,
+      "rank": 241
+    },
+    {
+      "word": "rovere",
+      "score": 0.4882,
+      "rank": 242
+    },
+    {
+      "word": "pike",
+      "score": 0.4881,
+      "rank": 243
+    },
+    {
+      "word": "ranching",
+      "score": 0.4877,
+      "rank": 244
+    },
+    {
+      "word": "trumbo",
+      "score": 0.4876,
+      "rank": 245
+    },
+    {
+      "word": "chieftain",
+      "score": 0.487,
+      "rank": 246
+    },
+    {
+      "word": "abattoir",
+      "score": 0.4867,
+      "rank": 247
+    },
+    {
+      "word": "carney",
+      "score": 0.4866,
+      "rank": 248
+    },
+    {
+      "word": "pokey",
+      "score": 0.4864,
+      "rank": 249
+    },
+    {
+      "word": "paddy",
+      "score": 0.4864,
+      "rank": 250
+    },
+    {
+      "word": "besties",
+      "score": 0.4864,
+      "rank": 251
+    },
+    {
+      "word": "hoke",
+      "score": 0.4862,
+      "rank": 252
+    },
+    {
+      "word": "kamla",
+      "score": 0.4858,
+      "rank": 253
+    },
+    {
+      "word": "pollo",
+      "score": 0.4856,
+      "rank": 254
+    },
+    {
+      "word": "chode",
+      "score": 0.4855,
+      "rank": 255
+    },
+    {
+      "word": "zoos",
+      "score": 0.4853,
+      "rank": 256
+    },
+    {
+      "word": "spears",
+      "score": 0.4849,
+      "rank": 257
+    },
+    {
+      "word": "rowan",
+      "score": 0.4849,
+      "rank": 258
+    },
+    {
+      "word": "livvy",
+      "score": 0.4847,
+      "rank": 259
+    },
+    {
+      "word": "neddy",
+      "score": 0.4846,
+      "rank": 260
+    },
+    {
+      "word": "chihuahua",
+      "score": 0.4846,
+      "rank": 261
+    },
+    {
+      "word": "gallivanting",
+      "score": 0.4846,
+      "rank": 262
+    },
+    {
+      "word": "celtic",
+      "score": 0.4845,
+      "rank": 263
+    },
+    {
+      "word": "hoot",
+      "score": 0.4844,
+      "rank": 264
+    },
+    {
+      "word": "cowell",
+      "score": 0.4844,
+      "rank": 265
+    },
+    {
+      "word": "lobos",
+      "score": 0.4841,
+      "rank": 266
+    },
+    {
+      "word": "furry",
+      "score": 0.484,
+      "rank": 267
+    },
+    {
+      "word": "dundee",
+      "score": 0.4838,
+      "rank": 268
+    },
+    {
+      "word": "pius",
+      "score": 0.4838,
+      "rank": 269
+    },
+    {
+      "word": "slayers",
+      "score": 0.4838,
+      "rank": 270
+    },
+    {
+      "word": "derrick",
+      "score": 0.4837,
+      "rank": 271
+    },
+    {
+      "word": "poke",
+      "score": 0.4836,
+      "rank": 272
+    },
+    {
+      "word": "schafer",
+      "score": 0.4834,
+      "rank": 273
+    },
+    {
+      "word": "trough",
+      "score": 0.4833,
+      "rank": 274
+    },
+    {
+      "word": "beagle",
+      "score": 0.4832,
+      "rank": 275
+    },
+    {
+      "word": "achilles",
+      "score": 0.4832,
+      "rank": 276
+    },
+    {
+      "word": "rabbits",
+      "score": 0.4831,
+      "rank": 277
+    },
+    {
+      "word": "bulldogs",
+      "score": 0.4831,
+      "rank": 278
+    },
+    {
+      "word": "creatures",
+      "score": 0.4831,
+      "rank": 279
+    },
+    {
+      "word": "gallop",
+      "score": 0.4829,
+      "rank": 280
+    },
+    {
+      "word": "foal",
+      "score": 0.4826,
+      "rank": 281
+    },
+    {
+      "word": "hussars",
+      "score": 0.4824,
+      "rank": 282
+    },
+    {
+      "word": "trod",
+      "score": 0.4824,
+      "rank": 283
+    },
+    {
+      "word": "trouser",
+      "score": 0.4822,
+      "rank": 284
+    },
+    {
+      "word": "piggies",
+      "score": 0.4821,
+      "rank": 285
+    },
+    {
+      "word": "wilden",
+      "score": 0.4821,
+      "rank": 286
+    },
+    {
+      "word": "rino",
+      "score": 0.4815,
+      "rank": 287
+    },
+    {
+      "word": "hoofs",
+      "score": 0.4814,
+      "rank": 288
+    },
+    {
+      "word": "hobbits",
+      "score": 0.4812,
+      "rank": 289
+    },
+    {
+      "word": "coursing",
+      "score": 0.4811,
+      "rank": 290
+    },
+    {
+      "word": "oscar",
+      "score": 0.4809,
+      "rank": 291
+    },
+    {
+      "word": "wade",
+      "score": 0.4806,
+      "rank": 292
+    },
+    {
+      "word": "stead",
+      "score": 0.4806,
+      "rank": 293
+    },
+    {
+      "word": "shamrock",
+      "score": 0.4805,
+      "rank": 294
+    },
+    {
+      "word": "dartie",
+      "score": 0.4804,
+      "rank": 295
+    },
+    {
+      "word": "pouty",
+      "score": 0.4798,
+      "rank": 296
+    },
+    {
+      "word": "scotland",
+      "score": 0.4798,
+      "rank": 297
+    },
+    {
+      "word": "dogging",
+      "score": 0.4797,
+      "rank": 298
+    },
+    {
+      "word": "rathod",
+      "score": 0.4796,
+      "rank": 299
+    },
+    {
+      "word": "loki",
+      "score": 0.4793,
+      "rank": 300
+    },
+    {
+      "word": "kadir",
+      "score": 0.4792,
+      "rank": 301
+    },
+    {
+      "word": "armor",
+      "score": 0.4791,
+      "rank": 302
+    },
+    {
+      "word": "roam",
+      "score": 0.479,
+      "rank": 303
+    },
+    {
+      "word": "lovin",
+      "score": 0.479,
+      "rank": 304
+    },
+    {
+      "word": "hester",
+      "score": 0.479,
+      "rank": 305
+    },
+    {
+      "word": "lupe",
+      "score": 0.4787,
+      "rank": 306
+    },
+    {
+      "word": "jagger",
+      "score": 0.4786,
+      "rank": 307
+    },
+    {
+      "word": "carnegie",
+      "score": 0.4783,
+      "rank": 308
+    },
+    {
+      "word": "gael",
+      "score": 0.4783,
+      "rank": 309
+    },
+    {
+      "word": "trumbull",
+      "score": 0.4781,
+      "rank": 310
+    },
+    {
+      "word": "pookie",
+      "score": 0.478,
+      "rank": 311
+    },
+    {
+      "word": "trotters",
+      "score": 0.4779,
+      "rank": 312
+    },
+    {
+      "word": "burrow",
+      "score": 0.4777,
+      "rank": 313
+    },
+    {
+      "word": "huntley",
+      "score": 0.4776,
+      "rank": 314
+    },
+    {
+      "word": "aidan",
+      "score": 0.4774,
+      "rank": 315
+    },
+    {
+      "word": "trog",
+      "score": 0.4774,
+      "rank": 316
+    },
+    {
+      "word": "vernon",
+      "score": 0.4771,
+      "rank": 317
+    },
+    {
+      "word": "cowgirl",
+      "score": 0.4771,
+      "rank": 318
+    },
+    {
+      "word": "espada",
+      "score": 0.4769,
+      "rank": 319
+    },
+    {
+      "word": "charcot",
+      "score": 0.4768,
+      "rank": 320
+    },
+    {
+      "word": "pooch",
+      "score": 0.4767,
+      "rank": 321
+    },
+    {
+      "word": "berger",
+      "score": 0.4759,
+      "rank": 322
+    },
+    {
+      "word": "cuervo",
+      "score": 0.4754,
+      "rank": 323
+    },
+    {
+      "word": "kamil",
+      "score": 0.4752,
+      "rank": 324
+    },
+    {
+      "word": "swines",
+      "score": 0.4751,
+      "rank": 325
+    },
+    {
+      "word": "boars",
+      "score": 0.4751,
+      "rank": 326
+    },
+    {
+      "word": "corrine",
+      "score": 0.475,
+      "rank": 327
+    },
+    {
+      "word": "huffs",
+      "score": 0.475,
+      "rank": 328
+    },
+    {
+      "word": "poach",
+      "score": 0.4749,
+      "rank": 329
+    },
+    {
+      "word": "bardot",
+      "score": 0.4748,
+      "rank": 330
+    },
+    {
+      "word": "roving",
+      "score": 0.4746,
+      "rank": 331
+    },
+    {
+      "word": "sauteed",
+      "score": 0.4745,
+      "rank": 332
+    },
+    {
+      "word": "cow",
+      "score": 0.4745,
+      "rank": 333
+    },
+    {
+      "word": "truman",
+      "score": 0.4742,
+      "rank": 334
+    },
+    {
+      "word": "ranchers",
+      "score": 0.474,
+      "rank": 335
+    },
+    {
+      "word": "herod",
+      "score": 0.4736,
+      "rank": 336
+    },
+    {
+      "word": "wizards",
+      "score": 0.4735,
+      "rank": 337
+    },
+    {
+      "word": "sally",
+      "score": 0.4733,
+      "rank": 338
+    },
+    {
+      "word": "celts",
+      "score": 0.4733,
+      "rank": 339
+    },
+    {
+      "word": "roebuck",
+      "score": 0.4733,
+      "rank": 340
+    },
+    {
+      "word": "sloop",
+      "score": 0.4733,
+      "rank": 341
+    },
+    {
+      "word": "rotten",
+      "score": 0.4731,
+      "rank": 342
+    },
+    {
+      "word": "loco",
+      "score": 0.4731,
+      "rank": 343
+    },
+    {
+      "word": "valkyries",
+      "score": 0.473,
+      "rank": 344
+    },
+    {
+      "word": "dachshund",
+      "score": 0.473,
+      "rank": 345
+    },
+    {
+      "word": "louganis",
+      "score": 0.4727,
+      "rank": 346
+    },
+    {
+      "word": "cheyenne",
+      "score": 0.4724,
+      "rank": 347
+    },
+    {
+      "word": "throes",
+      "score": 0.4722,
+      "rank": 348
+    },
+    {
+      "word": "unicorn",
+      "score": 0.4721,
+      "rank": 349
+    },
+    {
+      "word": "gallo",
+      "score": 0.4721,
+      "rank": 350
+    },
+    {
+      "word": "charly",
+      "score": 0.4719,
+      "rank": 351
+    },
+    {
+      "word": "creature",
+      "score": 0.4717,
+      "rank": 352
+    },
+    {
+      "word": "camel",
+      "score": 0.4717,
+      "rank": 353
+    },
+    {
+      "word": "gauls",
+      "score": 0.4714,
+      "rank": 354
+    },
+    {
+      "word": "kinks",
+      "score": 0.471,
+      "rank": 355
+    },
+    {
+      "word": "wolfie",
+      "score": 0.4709,
+      "rank": 356
+    },
+    {
+      "word": "herd",
+      "score": 0.4709,
+      "rank": 357
+    },
+    {
+      "word": "pounced",
+      "score": 0.4709,
+      "rank": 358
+    },
+    {
+      "word": "corsage",
+      "score": 0.4707,
+      "rank": 359
+    },
+    {
+      "word": "tulle",
+      "score": 0.4706,
+      "rank": 360
+    },
+    {
+      "word": "beastly",
+      "score": 0.4706,
+      "rank": 361
+    },
+    {
+      "word": "sired",
+      "score": 0.4705,
+      "rank": 362
+    },
+    {
+      "word": "hootie",
+      "score": 0.4705,
+      "rank": 363
+    },
+    {
+      "word": "harlequin",
+      "score": 0.4705,
+      "rank": 364
+    },
+    {
+      "word": "leopoldo",
+      "score": 0.4705,
+      "rank": 365
+    },
+    {
+      "word": "dolled",
+      "score": 0.4704,
+      "rank": 366
+    },
+    {
+      "word": "gurren",
+      "score": 0.4701,
+      "rank": 367
+    },
+    {
+      "word": "doggies",
+      "score": 0.4699,
+      "rank": 368
+    },
+    {
+      "word": "slings",
+      "score": 0.4699,
+      "rank": 369
+    },
+    {
+      "word": "herding",
+      "score": 0.4698,
+      "rank": 370
+    },
+    {
+      "word": "coltrane",
+      "score": 0.4698,
+      "rank": 371
+    },
+    {
+      "word": "tragg",
+      "score": 0.4698,
+      "rank": 372
+    },
+    {
+      "word": "vaca",
+      "score": 0.4697,
+      "rank": 373
+    },
+    {
+      "word": "kovac",
+      "score": 0.4695,
+      "rank": 374
+    },
+    {
+      "word": "steppes",
+      "score": 0.4694,
+      "rank": 375
+    },
+    {
+      "word": "speer",
+      "score": 0.4693,
+      "rank": 376
+    },
+    {
+      "word": "brody",
+      "score": 0.4692,
+      "rank": 377
+    },
+    {
+      "word": "loup",
+      "score": 0.4691,
+      "rank": 378
+    },
+    {
+      "word": "heathen",
+      "score": 0.469,
+      "rank": 379
+    },
+    {
+      "word": "poaching",
+      "score": 0.4689,
+      "rank": 380
+    },
+    {
+      "word": "roping",
+      "score": 0.4688,
+      "rank": 381
+    },
+    {
+      "word": "squires",
+      "score": 0.4687,
+      "rank": 382
+    },
+    {
+      "word": "alfalfa",
+      "score": 0.4687,
+      "rank": 383
+    },
+    {
+      "word": "vikings",
+      "score": 0.4687,
+      "rank": 384
+    },
+    {
+      "word": "tupper",
+      "score": 0.4686,
+      "rank": 385
+    },
+    {
+      "word": "ozu",
+      "score": 0.4685,
+      "rank": 386
+    },
+    {
+      "word": "trotting",
+      "score": 0.4683,
+      "rank": 387
+    },
+    {
+      "word": "rooney",
+      "score": 0.4683,
+      "rank": 388
+    },
+    {
+      "word": "schaefer",
+      "score": 0.4679,
+      "rank": 389
+    },
+    {
+      "word": "saxons",
+      "score": 0.4678,
+      "rank": 390
+    },
+    {
+      "word": "hopin",
+      "score": 0.4677,
+      "rank": 391
+    },
+    {
+      "word": "vilde",
+      "score": 0.4675,
+      "rank": 392
+    },
+    {
+      "word": "poontang",
+      "score": 0.4673,
+      "rank": 393
+    },
+    {
+      "word": "fauna",
+      "score": 0.4673,
+      "rank": 394
+    },
+    {
+      "word": "dragoon",
+      "score": 0.4672,
+      "rank": 395
+    },
+    {
+      "word": "clavo",
+      "score": 0.4671,
+      "rank": 396
+    },
+    {
+      "word": "devon",
+      "score": 0.4671,
+      "rank": 397
+    },
+    {
+      "word": "paganini",
+      "score": 0.467,
+      "rank": 398
+    },
+    {
+      "word": "squire",
+      "score": 0.467,
+      "rank": 399
+    },
+    {
+      "word": "troi",
+      "score": 0.467,
+      "rank": 400
+    },
+    {
+      "word": "petulant",
+      "score": 0.4669,
+      "rank": 401
+    },
+    {
+      "word": "hayden",
+      "score": 0.4669,
+      "rank": 402
+    },
+    {
+      "word": "herders",
+      "score": 0.4668,
+      "rank": 403
+    },
+    {
+      "word": "pig",
+      "score": 0.4668,
+      "rank": 404
+    },
+    {
+      "word": "kanin",
+      "score": 0.4667,
+      "rank": 405
+    },
+    {
+      "word": "horton",
+      "score": 0.4663,
+      "rank": 406
+    },
+    {
+      "word": "dingy",
+      "score": 0.4662,
+      "rank": 407
+    },
+    {
+      "word": "slug",
+      "score": 0.4662,
+      "rank": 408
+    },
+    {
+      "word": "owens",
+      "score": 0.466,
+      "rank": 409
+    },
+    {
+      "word": "dog",
+      "score": 0.466,
+      "rank": 410
+    },
+    {
+      "word": "gruff",
+      "score": 0.4659,
+      "rank": 411
+    },
+    {
+      "word": "leopold",
+      "score": 0.4656,
+      "rank": 412
+    },
+    {
+      "word": "pigtails",
+      "score": 0.4655,
+      "rank": 413
+    },
+    {
+      "word": "phelan",
+      "score": 0.4654,
+      "rank": 414
+    },
+    {
+      "word": "pongo",
+      "score": 0.4654,
+      "rank": 415
+    },
+    {
+      "word": "fergus",
+      "score": 0.4652,
+      "rank": 416
+    },
+    {
+      "word": "pet",
+      "score": 0.4651,
+      "rank": 417
+    },
+    {
+      "word": "devonshire",
+      "score": 0.4651,
+      "rank": 418
+    },
+    {
+      "word": "buckley",
+      "score": 0.465,
+      "rank": 419
+    },
+    {
+      "word": "karpov",
+      "score": 0.4648,
+      "rank": 420
+    },
+    {
+      "word": "maitland",
+      "score": 0.4647,
+      "rank": 421
+    },
+    {
+      "word": "tater",
+      "score": 0.4646,
+      "rank": 422
+    },
+    {
+      "word": "suleyman",
+      "score": 0.4645,
+      "rank": 423
+    },
+    {
+      "word": "renegades",
+      "score": 0.4642,
+      "rank": 424
+    },
+    {
+      "word": "jelena",
+      "score": 0.4641,
+      "rank": 425
+    },
+    {
+      "word": "breed",
+      "score": 0.4638,
+      "rank": 426
+    },
+    {
+      "word": "tucker",
+      "score": 0.4637,
+      "rank": 427
+    },
+    {
+      "word": "hooch",
+      "score": 0.4634,
+      "rank": 428
+    },
+    {
+      "word": "pheasants",
+      "score": 0.4634,
+      "rank": 429
+    },
+    {
+      "word": "trotter",
+      "score": 0.4633,
+      "rank": 430
+    },
+    {
+      "word": "saxena",
+      "score": 0.4631,
+      "rank": 431
+    },
+    {
+      "word": "tully",
+      "score": 0.4631,
+      "rank": 432
+    },
+    {
+      "word": "wog",
+      "score": 0.463,
+      "rank": 433
+    },
+    {
+      "word": "hunt",
+      "score": 0.463,
+      "rank": 434
+    },
+    {
+      "word": "diggy",
+      "score": 0.4629,
+      "rank": 435
+    },
+    {
+      "word": "braddock",
+      "score": 0.4629,
+      "rank": 436
+    },
+    {
+      "word": "pom",
+      "score": 0.4626,
+      "rank": 437
+    },
+    {
+      "word": "wilde",
+      "score": 0.4624,
+      "rank": 438
+    },
+    {
+      "word": "spearhead",
+      "score": 0.4624,
+      "rank": 439
+    },
+    {
+      "word": "chesterfield",
+      "score": 0.4623,
+      "rank": 440
+    },
+    {
+      "word": "filly",
+      "score": 0.4623,
+      "rank": 441
+    },
+    {
+      "word": "kincaid",
+      "score": 0.4622,
+      "rank": 442
+    },
+    {
+      "word": "susie",
+      "score": 0.4621,
+      "rank": 443
+    },
+    {
+      "word": "dragoons",
+      "score": 0.4621,
+      "rank": 444
+    },
+    {
+      "word": "rodrigues",
+      "score": 0.4621,
+      "rank": 445
+    },
+    {
+      "word": "moor",
+      "score": 0.462,
+      "rank": 446
+    },
+    {
+      "word": "nellie",
+      "score": 0.462,
+      "rank": 447
+    },
+    {
+      "word": "argos",
+      "score": 0.4617,
+      "rank": 448
+    },
+    {
+      "word": "gilles",
+      "score": 0.4617,
+      "rank": 449
+    },
+    {
+      "word": "hoof",
+      "score": 0.4616,
+      "rank": 450
+    },
+    {
+      "word": "dogg",
+      "score": 0.4615,
+      "rank": 451
+    },
+    {
+      "word": "kaspar",
+      "score": 0.4615,
+      "rank": 452
+    },
+    {
+      "word": "kandi",
+      "score": 0.4614,
+      "rank": 453
+    },
+    {
+      "word": "chateau",
+      "score": 0.4612,
+      "rank": 454
+    },
+    {
+      "word": "beastie",
+      "score": 0.4612,
+      "rank": 455
+    },
+    {
+      "word": "krüger",
+      "score": 0.4611,
+      "rank": 456
+    },
+    {
+      "word": "burris",
+      "score": 0.4611,
+      "rank": 457
+    },
+    {
+      "word": "hardy",
+      "score": 0.461,
+      "rank": 458
+    },
+    {
+      "word": "loch",
+      "score": 0.4609,
+      "rank": 459
+    },
+    {
+      "word": "ricks",
+      "score": 0.4608,
+      "rank": 460
+    },
+    {
+      "word": "bale",
+      "score": 0.4607,
+      "rank": 461
+    },
+    {
+      "word": "critters",
+      "score": 0.4607,
+      "rank": 462
+    },
+    {
+      "word": "hurdle",
+      "score": 0.4604,
+      "rank": 463
+    },
+    {
+      "word": "dartmoor",
+      "score": 0.4603,
+      "rank": 464
+    },
+    {
+      "word": "pets",
+      "score": 0.4603,
+      "rank": 465
+    },
+    {
+      "word": "keng",
+      "score": 0.4601,
+      "rank": 466
+    },
+    {
+      "word": "hulks",
+      "score": 0.4601,
+      "rank": 467
+    },
+    {
+      "word": "barnard",
+      "score": 0.46,
+      "rank": 468
+    },
+    {
+      "word": "locke",
+      "score": 0.46,
+      "rank": 469
+    },
+    {
+      "word": "pup",
+      "score": 0.4597,
+      "rank": 470
+    },
+    {
+      "word": "caine",
+      "score": 0.4594,
+      "rank": 471
+    },
+    {
+      "word": "perrier",
+      "score": 0.4593,
+      "rank": 472
+    },
+    {
+      "word": "rabbit",
+      "score": 0.4592,
+      "rank": 473
+    },
+    {
+      "word": "pods",
+      "score": 0.4591,
+      "rank": 474
+    },
+    {
+      "word": "penelope",
+      "score": 0.4588,
+      "rank": 475
+    },
+    {
+      "word": "voight",
+      "score": 0.4587,
+      "rank": 476
+    },
+    {
+      "word": "rat",
+      "score": 0.4587,
+      "rank": 477
+    },
+    {
+      "word": "angus",
+      "score": 0.4586,
+      "rank": 478
+    },
+    {
+      "word": "murillo",
+      "score": 0.4586,
+      "rank": 479
+    },
+    {
+      "word": "blair",
+      "score": 0.4586,
+      "rank": 480
+    },
+    {
+      "word": "ladle",
+      "score": 0.4583,
+      "rank": 481
+    },
+    {
+      "word": "canines",
+      "score": 0.4583,
+      "rank": 482
+    },
+    {
+      "word": "castillo",
+      "score": 0.4583,
+      "rank": 483
+    },
+    {
+      "word": "pok",
+      "score": 0.4582,
+      "rank": 484
+    },
+    {
+      "word": "moored",
+      "score": 0.4582,
+      "rank": 485
+    },
+    {
+      "word": "boggle",
+      "score": 0.4582,
+      "rank": 486
+    },
+    {
+      "word": "corrie",
+      "score": 0.4582,
+      "rank": 487
+    },
+    {
+      "word": "cower",
+      "score": 0.4581,
+      "rank": 488
+    },
+    {
+      "word": "rodrigo",
+      "score": 0.458,
+      "rank": 489
+    },
+    {
+      "word": "broots",
+      "score": 0.4579,
+      "rank": 490
+    },
+    {
+      "word": "corrado",
+      "score": 0.4576,
+      "rank": 491
+    },
+    {
+      "word": "lev",
+      "score": 0.4575,
+      "rank": 492
+    },
+    {
+      "word": "pout",
+      "score": 0.4574,
+      "rank": 493
+    },
+    {
+      "word": "raul",
+      "score": 0.4574,
+      "rank": 494
+    },
+    {
+      "word": "darting",
+      "score": 0.4574,
+      "rank": 495
+    },
+    {
+      "word": "piak",
+      "score": 0.4574,
+      "rank": 496
+    },
+    {
+      "word": "ronon",
+      "score": 0.4573,
+      "rank": 497
+    },
+    {
+      "word": "huntin",
+      "score": 0.4569,
+      "rank": 498
+    },
+    {
+      "word": "tailing",
+      "score": 0.4568,
+      "rank": 499
+    },
+    {
+      "word": "dragan",
+      "score": 0.4568,
+      "rank": 500
+    },
+    {
+      "word": "studs",
+      "score": 0.4568,
+      "rank": 501
+    },
+    {
+      "word": "rustic",
+      "score": 0.4565,
+      "rank": 502
+    },
+    {
+      "word": "feathers",
+      "score": 0.4564,
+      "rank": 503
+    },
+    {
+      "word": "hobos",
+      "score": 0.4563,
+      "rank": 504
+    },
+    {
+      "word": "weenie",
+      "score": 0.4562,
+      "rank": 505
+    },
+    {
+      "word": "veterinarian",
+      "score": 0.4561,
+      "rank": 506
+    },
+    {
+      "word": "koyuki",
+      "score": 0.456,
+      "rank": 507
+    },
+    {
+      "word": "retriever",
+      "score": 0.4559,
+      "rank": 508
+    },
+    {
+      "word": "roams",
+      "score": 0.4559,
+      "rank": 509
+    },
+    {
+      "word": "herded",
+      "score": 0.4559,
+      "rank": 510
+    },
+    {
+      "word": "steppe",
+      "score": 0.4558,
+      "rank": 511
+    },
+    {
+      "word": "valkyrie",
+      "score": 0.4557,
+      "rank": 512
+    },
+    {
+      "word": "trot",
+      "score": 0.4557,
+      "rank": 513
+    },
+    {
+      "word": "sherwood",
+      "score": 0.4557,
+      "rank": 514
+    },
+    {
+      "word": "piglet",
+      "score": 0.4556,
+      "rank": 515
+    },
+    {
+      "word": "sébastien",
+      "score": 0.4556,
+      "rank": 516
+    },
+    {
+      "word": "tates",
+      "score": 0.4555,
+      "rank": 517
+    },
+    {
+      "word": "rovers",
+      "score": 0.4554,
+      "rank": 518
+    },
+    {
+      "word": "carnivore",
+      "score": 0.4553,
+      "rank": 519
+    },
+    {
+      "word": "charley",
+      "score": 0.4553,
+      "rank": 520
+    },
+    {
+      "word": "pong",
+      "score": 0.4553,
+      "rank": 521
+    },
+    {
+      "word": "tron",
+      "score": 0.455,
+      "rank": 522
+    },
+    {
+      "word": "dowling",
+      "score": 0.455,
+      "rank": 523
+    },
+    {
+      "word": "barton",
+      "score": 0.4549,
+      "rank": 524
+    },
+    {
+      "word": "lance",
+      "score": 0.4546,
+      "rank": 525
+    },
+    {
+      "word": "troth",
+      "score": 0.4545,
+      "rank": 526
+    },
+    {
+      "word": "lopevi",
+      "score": 0.4544,
+      "rank": 527
+    },
+    {
+      "word": "locos",
+      "score": 0.4544,
+      "rank": 528
+    },
+    {
+      "word": "kaplan",
+      "score": 0.4543,
+      "rank": 529
+    },
+    {
+      "word": "durand",
+      "score": 0.4542,
+      "rank": 530
+    },
+    {
+      "word": "jacques",
+      "score": 0.4542,
+      "rank": 531
+    },
+    {
+      "word": "pta",
+      "score": 0.4542,
+      "rank": 532
+    },
+    {
+      "word": "lint",
+      "score": 0.4542,
+      "rank": 533
+    },
+    {
+      "word": "dogs",
+      "score": 0.4541,
+      "rank": 534
+    },
+    {
+      "word": "galleon",
+      "score": 0.454,
+      "rank": 535
+    },
+    {
+      "word": "hobbit",
+      "score": 0.4538,
+      "rank": 536
+    },
+    {
+      "word": "hunting",
+      "score": 0.4538,
+      "rank": 537
+    },
+    {
+      "word": "highlander",
+      "score": 0.4537,
+      "rank": 538
+    },
+    {
+      "word": "petticoat",
+      "score": 0.4537,
+      "rank": 539
+    },
+    {
+      "word": "rache",
+      "score": 0.4537,
+      "rank": 540
+    },
+    {
+      "word": "poacher",
+      "score": 0.4535,
+      "rank": 541
+    },
+    {
+      "word": "tuco",
+      "score": 0.4535,
+      "rank": 542
+    },
+    {
+      "word": "knοw",
+      "score": 0.4535,
+      "rank": 543
+    },
+    {
+      "word": "chevy",
+      "score": 0.4534,
+      "rank": 544
+    },
+    {
+      "word": "gables",
+      "score": 0.4534,
+      "rank": 545
+    },
+    {
+      "word": "berkeley",
+      "score": 0.4533,
+      "rank": 546
+    },
+    {
+      "word": "dingus",
+      "score": 0.4533,
+      "rank": 547
+    },
+    {
+      "word": "poon",
+      "score": 0.4532,
+      "rank": 548
+    },
+    {
+      "word": "volkov",
+      "score": 0.4531,
+      "rank": 549
+    },
+    {
+      "word": "kouga",
+      "score": 0.453,
+      "rank": 550
+    },
+    {
+      "word": "saxony",
+      "score": 0.453,
+      "rank": 551
+    },
+    {
+      "word": "bowen",
+      "score": 0.453,
+      "rank": 552
+    },
+    {
+      "word": "dinky",
+      "score": 0.4529,
+      "rank": 553
+    },
+    {
+      "word": "caspian",
+      "score": 0.4526,
+      "rank": 554
+    },
+    {
+      "word": "virgil",
+      "score": 0.4526,
+      "rank": 555
+    },
+    {
+      "word": "owt",
+      "score": 0.4526,
+      "rank": 556
+    },
+    {
+      "word": "turgut",
+      "score": 0.4525,
+      "rank": 557
+    },
+    {
+      "word": "garland",
+      "score": 0.4525,
+      "rank": 558
+    },
+    {
+      "word": "poncho",
+      "score": 0.4525,
+      "rank": 559
+    },
+    {
+      "word": "sonny",
+      "score": 0.4522,
+      "rank": 560
+    },
+    {
+      "word": "otters",
+      "score": 0.452,
+      "rank": 561
+    },
+    {
+      "word": "reddy",
+      "score": 0.4519,
+      "rank": 562
+    },
+    {
+      "word": "riding",
+      "score": 0.4519,
+      "rank": 563
+    },
+    {
+      "word": "jacky",
+      "score": 0.4518,
+      "rank": 564
+    },
+    {
+      "word": "turret",
+      "score": 0.4518,
+      "rank": 565
+    },
+    {
+      "word": "galway",
+      "score": 0.4517,
+      "rank": 566
+    },
+    {
+      "word": "kowalski",
+      "score": 0.4514,
+      "rank": 567
+    },
+    {
+      "word": "roc",
+      "score": 0.4512,
+      "rank": 568
+    },
+    {
+      "word": "volvo",
+      "score": 0.4509,
+      "rank": 569
+    },
+    {
+      "word": "petrie",
+      "score": 0.4507,
+      "rank": 570
+    },
+    {
+      "word": "hortense",
+      "score": 0.4507,
+      "rank": 571
+    },
+    {
+      "word": "herrick",
+      "score": 0.4505,
+      "rank": 572
+    },
+    {
+      "word": "heath",
+      "score": 0.4505,
+      "rank": 573
+    },
+    {
+      "word": "deering",
+      "score": 0.4504,
+      "rank": 574
+    },
+    {
+      "word": "winchester",
+      "score": 0.4504,
+      "rank": 575
+    },
+    {
+      "word": "cheshire",
+      "score": 0.4504,
+      "rank": 576
+    },
+    {
+      "word": "aguilar",
+      "score": 0.4503,
+      "rank": 577
+    },
+    {
+      "word": "truro",
+      "score": 0.4503,
+      "rank": 578
+    },
+    {
+      "word": "derbyshire",
+      "score": 0.4501,
+      "rank": 579
+    },
+    {
+      "word": "leopard",
+      "score": 0.4499,
+      "rank": 580
+    },
+    {
+      "word": "tyr",
+      "score": 0.4498,
+      "rank": 581
+    },
+    {
+      "word": "nuke",
+      "score": 0.4497,
+      "rank": 582
+    },
+    {
+      "word": "spear",
+      "score": 0.4497,
+      "rank": 583
+    },
+    {
+      "word": "dash",
+      "score": 0.4495,
+      "rank": 584
+    },
+    {
+      "word": "rohit",
+      "score": 0.4494,
+      "rank": 585
+    },
+    {
+      "word": "traci",
+      "score": 0.4494,
+      "rank": 586
+    },
+    {
+      "word": "joaquin",
+      "score": 0.4492,
+      "rank": 587
+    },
+    {
+      "word": "holster",
+      "score": 0.4491,
+      "rank": 588
+    },
+    {
+      "word": "hardwick",
+      "score": 0.449,
+      "rank": 589
+    },
+    {
+      "word": "kass",
+      "score": 0.4489,
+      "rank": 590
+    },
+    {
+      "word": "gallant",
+      "score": 0.4488,
+      "rank": 591
+    },
+    {
+      "word": "slutty",
+      "score": 0.4488,
+      "rank": 592
+    },
+    {
+      "word": "roscoe",
+      "score": 0.4487,
+      "rank": 593
+    },
+    {
+      "word": "medieval",
+      "score": 0.4485,
+      "rank": 594
+    },
+    {
+      "word": "tunney",
+      "score": 0.4481,
+      "rank": 595
+    },
+    {
+      "word": "tate",
+      "score": 0.448,
+      "rank": 596
+    },
+    {
+      "word": "odell",
+      "score": 0.448,
+      "rank": 597
+    },
+    {
+      "word": "damien",
+      "score": 0.448,
+      "rank": 598
+    },
+    {
+      "word": "braves",
+      "score": 0.448,
+      "rank": 599
+    },
+    {
+      "word": "petticoats",
+      "score": 0.4474,
+      "rank": 600
+    },
+    {
+      "word": "shouidn",
+      "score": 0.4474,
+      "rank": 601
+    },
+    {
+      "word": "laddie",
+      "score": 0.4473,
+      "rank": 602
+    },
+    {
+      "word": "connolly",
+      "score": 0.4473,
+      "rank": 603
+    },
+    {
+      "word": "rouen",
+      "score": 0.4473,
+      "rank": 604
+    },
+    {
+      "word": "oklahoma",
+      "score": 0.4473,
+      "rank": 605
+    },
+    {
+      "word": "viscount",
+      "score": 0.4472,
+      "rank": 606
+    },
+    {
+      "word": "stef",
+      "score": 0.447,
+      "rank": 607
+    },
+    {
+      "word": "rick",
+      "score": 0.447,
+      "rank": 608
+    },
+    {
+      "word": "charades",
+      "score": 0.447,
+      "rank": 609
+    },
+    {
+      "word": "rudd",
+      "score": 0.4469,
+      "rank": 610
+    },
+    {
+      "word": "huntsmen",
+      "score": 0.4469,
+      "rank": 611
+    },
+    {
+      "word": "pokemon",
+      "score": 0.4468,
+      "rank": 612
+    },
+    {
+      "word": "sandusky",
+      "score": 0.4468,
+      "rank": 613
+    },
+    {
+      "word": "fealty",
+      "score": 0.4466,
+      "rank": 614
+    },
+    {
+      "word": "burro",
+      "score": 0.4463,
+      "rank": 615
+    },
+    {
+      "word": "moose",
+      "score": 0.4463,
+      "rank": 616
+    },
+    {
+      "word": "erode",
+      "score": 0.4463,
+      "rank": 617
+    },
+    {
+      "word": "rotter",
+      "score": 0.4462,
+      "rank": 618
+    },
+    {
+      "word": "bryant",
+      "score": 0.4461,
+      "rank": 619
+    },
+    {
+      "word": "companion",
+      "score": 0.4461,
+      "rank": 620
+    },
+    {
+      "word": "skilful",
+      "score": 0.446,
+      "rank": 621
+    },
+    {
+      "word": "carajo",
+      "score": 0.4459,
+      "rank": 622
+    },
+    {
+      "word": "puri",
+      "score": 0.4458,
+      "rank": 623
+    },
+    {
+      "word": "roxie",
+      "score": 0.4458,
+      "rank": 624
+    },
+    {
+      "word": "castile",
+      "score": 0.4457,
+      "rank": 625
+    },
+    {
+      "word": "alistair",
+      "score": 0.4457,
+      "rank": 626
+    },
+    {
+      "word": "preys",
+      "score": 0.4456,
+      "rank": 627
+    },
+    {
+      "word": "guise",
+      "score": 0.4456,
+      "rank": 628
+    },
+    {
+      "word": "trawling",
+      "score": 0.4456,
+      "rank": 629
+    },
+    {
+      "word": "buffalo",
+      "score": 0.4455,
+      "rank": 630
+    },
+    {
+      "word": "liege",
+      "score": 0.4454,
+      "rank": 631
+    },
+    {
+      "word": "kleiss",
+      "score": 0.4453,
+      "rank": 632
+    },
+    {
+      "word": "tailed",
+      "score": 0.4453,
+      "rank": 633
+    },
+    {
+      "word": "eustace",
+      "score": 0.4453,
+      "rank": 634
+    },
+    {
+      "word": "gilligan",
+      "score": 0.4453,
+      "rank": 635
+    },
+    {
+      "word": "warren",
+      "score": 0.4452,
+      "rank": 636
+    },
+    {
+      "word": "troy",
+      "score": 0.4452,
+      "rank": 637
+    },
+    {
+      "word": "broner",
+      "score": 0.4452,
+      "rank": 638
+    },
+    {
+      "word": "gaunt",
+      "score": 0.4452,
+      "rank": 639
+    },
+    {
+      "word": "yolks",
+      "score": 0.4451,
+      "rank": 640
+    },
+    {
+      "word": "hobo",
+      "score": 0.4451,
+      "rank": 641
+    },
+    {
+      "word": "roly",
+      "score": 0.445,
+      "rank": 642
+    },
+    {
+      "word": "chatur",
+      "score": 0.445,
+      "rank": 643
+    },
+    {
+      "word": "hayride",
+      "score": 0.4449,
+      "rank": 644
+    },
+    {
+      "word": "hyenas",
+      "score": 0.4449,
+      "rank": 645
+    },
+    {
+      "word": "lords",
+      "score": 0.4448,
+      "rank": 646
+    },
+    {
+      "word": "padding",
+      "score": 0.4447,
+      "rank": 647
+    },
+    {
+      "word": "eddy",
+      "score": 0.4447,
+      "rank": 648
+    },
+    {
+      "word": "caddy",
+      "score": 0.4446,
+      "rank": 649
+    },
+    {
+      "word": "hoppy",
+      "score": 0.4446,
+      "rank": 650
+    },
+    {
+      "word": "harding",
+      "score": 0.4444,
+      "rank": 651
+    },
+    {
+      "word": "joules",
+      "score": 0.4443,
+      "rank": 652
+    },
+    {
+      "word": "scull",
+      "score": 0.4443,
+      "rank": 653
+    },
+    {
+      "word": "barnacle",
+      "score": 0.4442,
+      "rank": 654
+    },
+    {
+      "word": "groundhog",
+      "score": 0.4442,
+      "rank": 655
+    },
+    {
+      "word": "scavo",
+      "score": 0.444,
+      "rank": 656
+    },
+    {
+      "word": "shepherdess",
+      "score": 0.444,
+      "rank": 657
+    },
+    {
+      "word": "morley",
+      "score": 0.4439,
+      "rank": 658
+    },
+    {
+      "word": "louise",
+      "score": 0.4439,
+      "rank": 659
+    },
+    {
+      "word": "lópez",
+      "score": 0.4439,
+      "rank": 660
+    },
+    {
+      "word": "jayden",
+      "score": 0.4438,
+      "rank": 661
+    },
+    {
+      "word": "puma",
+      "score": 0.4437,
+      "rank": 662
+    },
+    {
+      "word": "pissant",
+      "score": 0.4437,
+      "rank": 663
+    },
+    {
+      "word": "kilgore",
+      "score": 0.4436,
+      "rank": 664
+    },
+    {
+      "word": "hackney",
+      "score": 0.4436,
+      "rank": 665
+    },
+    {
+      "word": "poe",
+      "score": 0.4435,
+      "rank": 666
+    },
+    {
+      "word": "paappi",
+      "score": 0.4434,
+      "rank": 667
+    },
+    {
+      "word": "odyssey",
+      "score": 0.4433,
+      "rank": 668
+    },
+    {
+      "word": "breton",
+      "score": 0.4432,
+      "rank": 669
+    },
+    {
+      "word": "fixture",
+      "score": 0.4431,
+      "rank": 670
+    },
+    {
+      "word": "kleist",
+      "score": 0.443,
+      "rank": 671
+    },
+    {
+      "word": "sauvage",
+      "score": 0.443,
+      "rank": 672
+    },
+    {
+      "word": "breeder",
+      "score": 0.4429,
+      "rank": 673
+    },
+    {
+      "word": "breeds",
+      "score": 0.4429,
+      "rank": 674
+    },
+    {
+      "word": "haydn",
+      "score": 0.4429,
+      "rank": 675
+    },
+    {
+      "word": "bugatti",
+      "score": 0.4429,
+      "rank": 676
+    },
+    {
+      "word": "bronek",
+      "score": 0.4429,
+      "rank": 677
+    },
+    {
+      "word": "wolfe",
+      "score": 0.4428,
+      "rank": 678
+    },
+    {
+      "word": "coasters",
+      "score": 0.4427,
+      "rank": 679
+    },
+    {
+      "word": "tuttle",
+      "score": 0.4427,
+      "rank": 680
+    },
+    {
+      "word": "lancashire",
+      "score": 0.4427,
+      "rank": 681
+    },
+    {
+      "word": "cork",
+      "score": 0.4425,
+      "rank": 682
+    },
+    {
+      "word": "sire",
+      "score": 0.4425,
+      "rank": 683
+    },
+    {
+      "word": "richard",
+      "score": 0.4424,
+      "rank": 684
+    },
+    {
+      "word": "tum",
+      "score": 0.4424,
+      "rank": 685
+    },
+    {
+      "word": "borne",
+      "score": 0.4423,
+      "rank": 686
+    },
+    {
+      "word": "rugged",
+      "score": 0.4422,
+      "rank": 687
+    },
+    {
+      "word": "dunkin",
+      "score": 0.4421,
+      "rank": 688
+    },
+    {
+      "word": "jostle",
+      "score": 0.442,
+      "rank": 689
+    },
+    {
+      "word": "trousseau",
+      "score": 0.4419,
+      "rank": 690
+    },
+    {
+      "word": "valco",
+      "score": 0.4419,
+      "rank": 691
+    },
+    {
+      "word": "puppy",
+      "score": 0.4419,
+      "rank": 692
+    },
+    {
+      "word": "huntsman",
+      "score": 0.4418,
+      "rank": 693
+    },
+    {
+      "word": "brulee",
+      "score": 0.4418,
+      "rank": 694
+    },
+    {
+      "word": "revolved",
+      "score": 0.4418,
+      "rank": 695
+    },
+    {
+      "word": "barnyard",
+      "score": 0.4417,
+      "rank": 696
+    },
+    {
+      "word": "ellery",
+      "score": 0.4417,
+      "rank": 697
+    },
+    {
+      "word": "sheepdog",
+      "score": 0.4417,
+      "rank": 698
+    },
+    {
+      "word": "weenies",
+      "score": 0.4416,
+      "rank": 699
+    },
+    {
+      "word": "brad",
+      "score": 0.4414,
+      "rank": 700
+    },
+    {
+      "word": "kinte",
+      "score": 0.4414,
+      "rank": 701
+    },
+    {
+      "word": "garter",
+      "score": 0.4414,
+      "rank": 702
+    },
+    {
+      "word": "pappi",
+      "score": 0.4413,
+      "rank": 703
+    },
+    {
+      "word": "hanyang",
+      "score": 0.4412,
+      "rank": 704
+    },
+    {
+      "word": "hooten",
+      "score": 0.4412,
+      "rank": 705
+    },
+    {
+      "word": "château",
+      "score": 0.4411,
+      "rank": 706
+    },
+    {
+      "word": "bullpen",
+      "score": 0.441,
+      "rank": 707
+    },
+    {
+      "word": "helm",
+      "score": 0.441,
+      "rank": 708
+    },
+    {
+      "word": "mannequin",
+      "score": 0.4409,
+      "rank": 709
+    },
+    {
+      "word": "hoodoo",
+      "score": 0.4409,
+      "rank": 710
+    },
+    {
+      "word": "tuckered",
+      "score": 0.4408,
+      "rank": 711
+    },
+    {
+      "word": "troels",
+      "score": 0.4408,
+      "rank": 712
+    },
+    {
+      "word": "ronaldo",
+      "score": 0.4408,
+      "rank": 713
+    },
+    {
+      "word": "hickory",
+      "score": 0.4406,
+      "rank": 714
+    },
+    {
+      "word": "furillo",
+      "score": 0.4403,
+      "rank": 715
+    },
+    {
+      "word": "canterbury",
+      "score": 0.4403,
+      "rank": 716
+    },
+    {
+      "word": "roxton",
+      "score": 0.4402,
+      "rank": 717
+    },
+    {
+      "word": "farmington",
+      "score": 0.4401,
+      "rank": 718
+    },
+    {
+      "word": "pox",
+      "score": 0.4401,
+      "rank": 719
+    },
+    {
+      "word": "porky",
+      "score": 0.44,
+      "rank": 720
+    },
+    {
+      "word": "caravaggio",
+      "score": 0.44,
+      "rank": 721
+    },
+    {
+      "word": "abbey",
+      "score": 0.4399,
+      "rank": 722
+    },
+    {
+      "word": "herman",
+      "score": 0.4399,
+      "rank": 723
+    },
+    {
+      "word": "pooped",
+      "score": 0.4398,
+      "rank": 724
+    },
+    {
+      "word": "thaddeus",
+      "score": 0.4398,
+      "rank": 725
+    },
+    {
+      "word": "portland",
+      "score": 0.4398,
+      "rank": 726
+    },
+    {
+      "word": "weasel",
+      "score": 0.4397,
+      "rank": 727
+    },
+    {
+      "word": "boer",
+      "score": 0.4396,
+      "rank": 728
+    },
+    {
+      "word": "toru",
+      "score": 0.4396,
+      "rank": 729
+    },
+    {
+      "word": "doge",
+      "score": 0.4395,
+      "rank": 730
+    },
+    {
+      "word": "rowing",
+      "score": 0.4394,
+      "rank": 731
+    },
+    {
+      "word": "jakey",
+      "score": 0.4394,
+      "rank": 732
+    },
+    {
+      "word": "hunts",
+      "score": 0.4393,
+      "rank": 733
+    },
+    {
+      "word": "piglets",
+      "score": 0.4391,
+      "rank": 734
+    },
+    {
+      "word": "cherokee",
+      "score": 0.4391,
+      "rank": 735
+    },
+    {
+      "word": "odin",
+      "score": 0.439,
+      "rank": 736
+    },
+    {
+      "word": "kuk",
+      "score": 0.439,
+      "rank": 737
+    },
+    {
+      "word": "huron",
+      "score": 0.439,
+      "rank": 738
+    },
+    {
+      "word": "gordie",
+      "score": 0.4389,
+      "rank": 739
+    },
+    {
+      "word": "camillo",
+      "score": 0.4388,
+      "rank": 740
+    },
+    {
+      "word": "ryker",
+      "score": 0.4387,
+      "rank": 741
+    },
+    {
+      "word": "truant",
+      "score": 0.4387,
+      "rank": 742
+    },
+    {
+      "word": "dingo",
+      "score": 0.4386,
+      "rank": 743
+    },
+    {
+      "word": "stud",
+      "score": 0.4385,
+      "rank": 744
+    },
+    {
+      "word": "castro",
+      "score": 0.4385,
+      "rank": 745
+    },
+    {
+      "word": "hounded",
+      "score": 0.4385,
+      "rank": 746
+    },
+    {
+      "word": "berkshire",
+      "score": 0.4384,
+      "rank": 747
+    },
+    {
+      "word": "pander",
+      "score": 0.4382,
+      "rank": 748
+    },
+    {
+      "word": "hattori",
+      "score": 0.4381,
+      "rank": 749
+    },
+    {
+      "word": "jousting",
+      "score": 0.4381,
+      "rank": 750
+    },
+    {
+      "word": "curley",
+      "score": 0.4376,
+      "rank": 751
+    },
+    {
+      "word": "wendy",
+      "score": 0.4376,
+      "rank": 752
+    },
+    {
+      "word": "tomboy",
+      "score": 0.4376,
+      "rank": 753
+    },
+    {
+      "word": "arden",
+      "score": 0.4376,
+      "rank": 754
+    },
+    {
+      "word": "ivory",
+      "score": 0.4376,
+      "rank": 755
+    },
+    {
+      "word": "colby",
+      "score": 0.4376,
+      "rank": 756
+    },
+    {
+      "word": "duckie",
+      "score": 0.4376,
+      "rank": 757
+    },
+    {
+      "word": "buck",
+      "score": 0.4375,
+      "rank": 758
+    },
+    {
+      "word": "egan",
+      "score": 0.4375,
+      "rank": 759
+    },
+    {
+      "word": "sliver",
+      "score": 0.4374,
+      "rank": 760
+    },
+    {
+      "word": "tangier",
+      "score": 0.4374,
+      "rank": 761
+    },
+    {
+      "word": "wields",
+      "score": 0.4374,
+      "rank": 762
+    },
+    {
+      "word": "duque",
+      "score": 0.4373,
+      "rank": 763
+    },
+    {
+      "word": "hamlet",
+      "score": 0.4372,
+      "rank": 764
+    },
+    {
+      "word": "freddie",
+      "score": 0.437,
+      "rank": 765
+    },
+    {
+      "word": "savory",
+      "score": 0.437,
+      "rank": 766
+    },
+    {
+      "word": "poo",
+      "score": 0.437,
+      "rank": 767
+    },
+    {
+      "word": "petri",
+      "score": 0.437,
+      "rank": 768
+    },
+    {
+      "word": "hilton",
+      "score": 0.4369,
+      "rank": 769
+    },
+    {
+      "word": "hilt",
+      "score": 0.4368,
+      "rank": 770
+    },
+    {
+      "word": "hodor",
+      "score": 0.4368,
+      "rank": 771
+    },
+    {
+      "word": "pastoral",
+      "score": 0.4367,
+      "rank": 772
+    },
+    {
+      "word": "mundy",
+      "score": 0.4367,
+      "rank": 773
+    },
+    {
+      "word": "jagged",
+      "score": 0.4367,
+      "rank": 774
+    },
+    {
+      "word": "kanna",
+      "score": 0.4367,
+      "rank": 775
+    },
+    {
+      "word": "jurgen",
+      "score": 0.4366,
+      "rank": 776
+    },
+    {
+      "word": "louse",
+      "score": 0.4366,
+      "rank": 777
+    },
+    {
+      "word": "ioan",
+      "score": 0.4366,
+      "rank": 778
+    },
+    {
+      "word": "tru",
+      "score": 0.4365,
+      "rank": 779
+    },
+    {
+      "word": "padded",
+      "score": 0.4363,
+      "rank": 780
+    },
+    {
+      "word": "pelt",
+      "score": 0.4363,
+      "rank": 781
+    },
+    {
+      "word": "poofter",
+      "score": 0.4363,
+      "rank": 782
+    },
+    {
+      "word": "heartland",
+      "score": 0.4363,
+      "rank": 783
+    },
+    {
+      "word": "pigheaded",
+      "score": 0.4362,
+      "rank": 784
+    },
+    {
+      "word": "dorset",
+      "score": 0.4362,
+      "rank": 785
+    },
+    {
+      "word": "earlobes",
+      "score": 0.4361,
+      "rank": 786
+    },
+    {
+      "word": "rutles",
+      "score": 0.4361,
+      "rank": 787
+    },
+    {
+      "word": "irishmen",
+      "score": 0.436,
+      "rank": 788
+    },
+    {
+      "word": "norton",
+      "score": 0.4359,
+      "rank": 789
+    },
+    {
+      "word": "petros",
+      "score": 0.4359,
+      "rank": 790
+    },
+    {
+      "word": "sable",
+      "score": 0.4359,
+      "rank": 791
+    },
+    {
+      "word": "sony",
+      "score": 0.4357,
+      "rank": 792
+    },
+    {
+      "word": "pompeii",
+      "score": 0.4357,
+      "rank": 793
+    },
+    {
+      "word": "houlihan",
+      "score": 0.4356,
+      "rank": 794
+    },
+    {
+      "word": "noggin",
+      "score": 0.4356,
+      "rank": 795
+    },
+    {
+      "word": "hussy",
+      "score": 0.4356,
+      "rank": 796
+    },
+    {
+      "word": "burroughs",
+      "score": 0.4355,
+      "rank": 797
+    },
+    {
+      "word": "clay",
+      "score": 0.4354,
+      "rank": 798
+    },
+    {
+      "word": "avian",
+      "score": 0.4352,
+      "rank": 799
+    },
+    {
+      "word": "sherpas",
+      "score": 0.4352,
+      "rank": 800
+    },
+    {
+      "word": "bronte",
+      "score": 0.435,
+      "rank": 801
+    },
+    {
+      "word": "collins",
+      "score": 0.435,
+      "rank": 802
+    },
+    {
+      "word": "quintana",
+      "score": 0.435,
+      "rank": 803
+    },
+    {
+      "word": "dashed",
+      "score": 0.435,
+      "rank": 804
+    },
+    {
+      "word": "vetting",
+      "score": 0.4349,
+      "rank": 805
+    },
+    {
+      "word": "limoges",
+      "score": 0.4349,
+      "rank": 806
+    },
+    {
+      "word": "stoddard",
+      "score": 0.4348,
+      "rank": 807
+    },
+    {
+      "word": "katja",
+      "score": 0.4348,
+      "rank": 808
+    },
+    {
+      "word": "pedrosa",
+      "score": 0.4348,
+      "rank": 809
+    },
+    {
+      "word": "wor",
+      "score": 0.4348,
+      "rank": 810
+    },
+    {
+      "word": "kin",
+      "score": 0.4348,
+      "rank": 811
+    },
+    {
+      "word": "kovak",
+      "score": 0.4347,
+      "rank": 812
+    },
+    {
+      "word": "camellia",
+      "score": 0.4346,
+      "rank": 813
+    },
+    {
+      "word": "nomad",
+      "score": 0.4345,
+      "rank": 814
+    },
+    {
+      "word": "shayne",
+      "score": 0.4344,
+      "rank": 815
+    },
+    {
+      "word": "slpowlcz",
+      "score": 0.4343,
+      "rank": 816
+    },
+    {
+      "word": "golan",
+      "score": 0.4343,
+      "rank": 817
+    },
+    {
+      "word": "kaur",
+      "score": 0.4342,
+      "rank": 818
+    },
+    {
+      "word": "paolo",
+      "score": 0.4341,
+      "rank": 819
+    },
+    {
+      "word": "kline",
+      "score": 0.4341,
+      "rank": 820
+    },
+    {
+      "word": "okatsu",
+      "score": 0.4341,
+      "rank": 821
+    },
+    {
+      "word": "dogfight",
+      "score": 0.4341,
+      "rank": 822
+    },
+    {
+      "word": "harriet",
+      "score": 0.4341,
+      "rank": 823
+    },
+    {
+      "word": "cuzco",
+      "score": 0.434,
+      "rank": 824
+    },
+    {
+      "word": "steven",
+      "score": 0.434,
+      "rank": 825
+    },
+    {
+      "word": "rolli",
+      "score": 0.4339,
+      "rank": 826
+    },
+    {
+      "word": "slurs",
+      "score": 0.4339,
+      "rank": 827
+    },
+    {
+      "word": "shepherd",
+      "score": 0.4339,
+      "rank": 828
+    },
+    {
+      "word": "roddy",
+      "score": 0.4338,
+      "rank": 829
+    },
+    {
+      "word": "orac",
+      "score": 0.4337,
+      "rank": 830
+    },
+    {
+      "word": "villiers",
+      "score": 0.4337,
+      "rank": 831
+    },
+    {
+      "word": "bacardi",
+      "score": 0.4337,
+      "rank": 832
+    },
+    {
+      "word": "shetland",
+      "score": 0.4337,
+      "rank": 833
+    },
+    {
+      "word": "reared",
+      "score": 0.4336,
+      "rank": 834
+    },
+    {
+      "word": "hen",
+      "score": 0.4335,
+      "rank": 835
+    },
+    {
+      "word": "corben",
+      "score": 0.4335,
+      "rank": 836
+    },
+    {
+      "word": "petrov",
+      "score": 0.4335,
+      "rank": 837
+    },
+    {
+      "word": "macleod",
+      "score": 0.4335,
+      "rank": 838
+    },
+    {
+      "word": "england",
+      "score": 0.4334,
+      "rank": 839
+    },
+    {
+      "word": "duras",
+      "score": 0.4334,
+      "rank": 840
+    },
+    {
+      "word": "rota",
+      "score": 0.4334,
+      "rank": 841
+    },
+    {
+      "word": "skwisgaar",
+      "score": 0.4333,
+      "rank": 842
+    },
+    {
+      "word": "unicorns",
+      "score": 0.4332,
+      "rank": 843
+    },
+    {
+      "word": "leapinlar",
+      "score": 0.4331,
+      "rank": 844
+    },
+    {
+      "word": "goro",
+      "score": 0.433,
+      "rank": 845
+    },
+    {
+      "word": "hardwicke",
+      "score": 0.433,
+      "rank": 846
+    },
+    {
+      "word": "ood",
+      "score": 0.433,
+      "rank": 847
+    },
+    {
+      "word": "cows",
+      "score": 0.4328,
+      "rank": 848
+    },
+    {
+      "word": "britney",
+      "score": 0.4328,
+      "rank": 849
+    },
+    {
+      "word": "muzzle",
+      "score": 0.4328,
+      "rank": 850
+    },
+    {
+      "word": "budding",
+      "score": 0.4328,
+      "rank": 851
+    },
+    {
+      "word": "barnum",
+      "score": 0.4327,
+      "rank": 852
+    },
+    {
+      "word": "jaggu",
+      "score": 0.4325,
+      "rank": 853
+    },
+    {
+      "word": "bylaws",
+      "score": 0.4325,
+      "rank": 854
+    },
+    {
+      "word": "breeders",
+      "score": 0.4324,
+      "rank": 855
+    },
+    {
+      "word": "dart",
+      "score": 0.4324,
+      "rank": 856
+    },
+    {
+      "word": "highlanders",
+      "score": 0.4323,
+      "rank": 857
+    },
+    {
+      "word": "taels",
+      "score": 0.4323,
+      "rank": 858
+    },
+    {
+      "word": "caracas",
+      "score": 0.4322,
+      "rank": 859
+    },
+    {
+      "word": "stewie",
+      "score": 0.4322,
+      "rank": 860
+    },
+    {
+      "word": "pemberton",
+      "score": 0.4322,
+      "rank": 861
+    },
+    {
+      "word": "rutland",
+      "score": 0.4321,
+      "rank": 862
+    },
+    {
+      "word": "pixies",
+      "score": 0.432,
+      "rank": 863
+    },
+    {
+      "word": "duce",
+      "score": 0.432,
+      "rank": 864
+    },
+    {
+      "word": "brioche",
+      "score": 0.4319,
+      "rank": 865
+    },
+    {
+      "word": "ducats",
+      "score": 0.4319,
+      "rank": 866
+    },
+    {
+      "word": "isle",
+      "score": 0.4319,
+      "rank": 867
+    },
+    {
+      "word": "mooch",
+      "score": 0.4318,
+      "rank": 868
+    },
+    {
+      "word": "garcía",
+      "score": 0.4318,
+      "rank": 869
+    },
+    {
+      "word": "leone",
+      "score": 0.4318,
+      "rank": 870
+    },
+    {
+      "word": "mulligan",
+      "score": 0.4318,
+      "rank": 871
+    },
+    {
+      "word": "shelly",
+      "score": 0.4318,
+      "rank": 872
+    },
+    {
+      "word": "knud",
+      "score": 0.4317,
+      "rank": 873
+    },
+    {
+      "word": "steffen",
+      "score": 0.4317,
+      "rank": 874
+    },
+    {
+      "word": "sashay",
+      "score": 0.4317,
+      "rank": 875
+    },
+    {
+      "word": "carve",
+      "score": 0.4316,
+      "rank": 876
+    },
+    {
+      "word": "pastures",
+      "score": 0.4316,
+      "rank": 877
+    },
+    {
+      "word": "cougars",
+      "score": 0.4315,
+      "rank": 878
+    },
+    {
+      "word": "roarke",
+      "score": 0.4314,
+      "rank": 879
+    },
+    {
+      "word": "keen",
+      "score": 0.4314,
+      "rank": 880
+    },
+    {
+      "word": "rallo",
+      "score": 0.4313,
+      "rank": 881
+    },
+    {
+      "word": "yolk",
+      "score": 0.4312,
+      "rank": 882
+    },
+    {
+      "word": "lupo",
+      "score": 0.4312,
+      "rank": 883
+    },
+    {
+      "word": "zachary",
+      "score": 0.4312,
+      "rank": 884
+    },
+    {
+      "word": "blaise",
+      "score": 0.4311,
+      "rank": 885
+    },
+    {
+      "word": "gaul",
+      "score": 0.4309,
+      "rank": 886
+    },
+    {
+      "word": "gornt",
+      "score": 0.4308,
+      "rank": 887
+    },
+    {
+      "word": "lasso",
+      "score": 0.4307,
+      "rank": 888
+    },
+    {
+      "word": "corky",
+      "score": 0.4307,
+      "rank": 889
+    },
+    {
+      "word": "faustus",
+      "score": 0.4307,
+      "rank": 890
+    },
+    {
+      "word": "hoops",
+      "score": 0.4307,
+      "rank": 891
+    },
+    {
+      "word": "wielded",
+      "score": 0.4307,
+      "rank": 892
+    },
+    {
+      "word": "truscott",
+      "score": 0.4306,
+      "rank": 893
+    },
+    {
+      "word": "rourke",
+      "score": 0.4306,
+      "rank": 894
+    },
+    {
+      "word": "wilkie",
+      "score": 0.4306,
+      "rank": 895
+    },
+    {
+      "word": "collin",
+      "score": 0.4305,
+      "rank": 896
+    },
+    {
+      "word": "wolf",
+      "score": 0.4305,
+      "rank": 897
+    },
+    {
+      "word": "chaise",
+      "score": 0.4304,
+      "rank": 898
+    },
+    {
+      "word": "gable",
+      "score": 0.4304,
+      "rank": 899
+    },
+    {
+      "word": "hullabaloo",
+      "score": 0.4303,
+      "rank": 900
+    },
+    {
+      "word": "gui",
+      "score": 0.4303,
+      "rank": 901
+    },
+    {
+      "word": "handler",
+      "score": 0.4302,
+      "rank": 902
+    },
+    {
+      "word": "ponce",
+      "score": 0.4302,
+      "rank": 903
+    },
+    {
+      "word": "clayton",
+      "score": 0.4302,
+      "rank": 904
+    },
+    {
+      "word": "morland",
+      "score": 0.4302,
+      "rank": 905
+    },
+    {
+      "word": "bulls",
+      "score": 0.4302,
+      "rank": 906
+    },
+    {
+      "word": "halstead",
+      "score": 0.4302,
+      "rank": 907
+    },
+    {
+      "word": "baird",
+      "score": 0.4301,
+      "rank": 908
+    },
+    {
+      "word": "chester",
+      "score": 0.43,
+      "rank": 909
+    },
+    {
+      "word": "kolkata",
+      "score": 0.43,
+      "rank": 910
+    },
+    {
+      "word": "wolverine",
+      "score": 0.43,
+      "rank": 911
+    },
+    {
+      "word": "galina",
+      "score": 0.4299,
+      "rank": 912
+    },
+    {
+      "word": "galicia",
+      "score": 0.4298,
+      "rank": 913
+    },
+    {
+      "word": "waded",
+      "score": 0.4298,
+      "rank": 914
+    },
+    {
+      "word": "raki",
+      "score": 0.4298,
+      "rank": 915
+    },
+    {
+      "word": "tarek",
+      "score": 0.4296,
+      "rank": 916
+    },
+    {
+      "word": "oldham",
+      "score": 0.4296,
+      "rank": 917
+    },
+    {
+      "word": "bruv",
+      "score": 0.4296,
+      "rank": 918
+    },
+    {
+      "word": "potus",
+      "score": 0.4295,
+      "rank": 919
+    },
+    {
+      "word": "oregano",
+      "score": 0.4295,
+      "rank": 920
+    },
+    {
+      "word": "hay",
+      "score": 0.4295,
+      "rank": 921
+    },
+    {
+      "word": "zoological",
+      "score": 0.4294,
+      "rank": 922
+    },
+    {
+      "word": "pant",
+      "score": 0.4294,
+      "rank": 923
+    },
+    {
+      "word": "eddie",
+      "score": 0.4294,
+      "rank": 924
+    },
+    {
+      "word": "claes",
+      "score": 0.4294,
+      "rank": 925
+    },
+    {
+      "word": "thrush",
+      "score": 0.4293,
+      "rank": 926
+    },
+    {
+      "word": "jase",
+      "score": 0.4292,
+      "rank": 927
+    },
+    {
+      "word": "brittas",
+      "score": 0.429,
+      "rank": 928
+    },
+    {
+      "word": "pouting",
+      "score": 0.429,
+      "rank": 929
+    },
+    {
+      "word": "kalinda",
+      "score": 0.429,
+      "rank": 930
+    },
+    {
+      "word": "pembroke",
+      "score": 0.4289,
+      "rank": 931
+    },
+    {
+      "word": "strasbourg",
+      "score": 0.4289,
+      "rank": 932
+    },
+    {
+      "word": "chutes",
+      "score": 0.4289,
+      "rank": 933
+    },
+    {
+      "word": "bose",
+      "score": 0.4289,
+      "rank": 934
+    },
+    {
+      "word": "trubel",
+      "score": 0.4288,
+      "rank": 935
+    },
+    {
+      "word": "slinky",
+      "score": 0.4288,
+      "rank": 936
+    },
+    {
+      "word": "gunk",
+      "score": 0.4287,
+      "rank": 937
+    },
+    {
+      "word": "lorne",
+      "score": 0.4287,
+      "rank": 938
+    },
+    {
+      "word": "evander",
+      "score": 0.4286,
+      "rank": 939
+    },
+    {
+      "word": "pester",
+      "score": 0.4286,
+      "rank": 940
+    },
+    {
+      "word": "erskine",
+      "score": 0.4285,
+      "rank": 941
+    },
+    {
+      "word": "chutki",
+      "score": 0.4285,
+      "rank": 942
+    },
+    {
+      "word": "critter",
+      "score": 0.4283,
+      "rank": 943
+    },
+    {
+      "word": "camilo",
+      "score": 0.4283,
+      "rank": 944
+    },
+    {
+      "word": "throne",
+      "score": 0.4282,
+      "rank": 945
+    },
+    {
+      "word": "dingle",
+      "score": 0.4282,
+      "rank": 946
+    },
+    {
+      "word": "oren",
+      "score": 0.4281,
+      "rank": 947
+    },
+    {
+      "word": "bouncy",
+      "score": 0.4281,
+      "rank": 948
+    },
+    {
+      "word": "kane",
+      "score": 0.4281,
+      "rank": 949
+    },
+    {
+      "word": "nava",
+      "score": 0.4281,
+      "rank": 950
+    },
+    {
+      "word": "gall",
+      "score": 0.428,
+      "rank": 951
+    },
+    {
+      "word": "larsen",
+      "score": 0.428,
+      "rank": 952
+    },
+    {
+      "word": "turf",
+      "score": 0.428,
+      "rank": 953
+    },
+    {
+      "word": "hogging",
+      "score": 0.428,
+      "rank": 954
+    },
+    {
+      "word": "bradley",
+      "score": 0.4279,
+      "rank": 955
+    },
+    {
+      "word": "saucy",
+      "score": 0.4277,
+      "rank": 956
+    },
+    {
+      "word": "clove",
+      "score": 0.4276,
+      "rank": 957
+    },
+    {
+      "word": "kiera",
+      "score": 0.4276,
+      "rank": 958
+    },
+    {
+      "word": "versailles",
+      "score": 0.4276,
+      "rank": 959
+    },
+    {
+      "word": "feint",
+      "score": 0.4276,
+      "rank": 960
+    },
+    {
+      "word": "ogling",
+      "score": 0.4276,
+      "rank": 961
+    },
+    {
+      "word": "ponch",
+      "score": 0.4274,
+      "rank": 962
+    },
+    {
+      "word": "farmhouse",
+      "score": 0.4273,
+      "rank": 963
+    },
+    {
+      "word": "mullins",
+      "score": 0.4273,
+      "rank": 964
+    },
+    {
+      "word": "leopards",
+      "score": 0.4273,
+      "rank": 965
+    },
+    {
+      "word": "brodie",
+      "score": 0.4272,
+      "rank": 966
+    },
+    {
+      "word": "owie",
+      "score": 0.4272,
+      "rank": 967
+    },
+    {
+      "word": "prue",
+      "score": 0.4272,
+      "rank": 968
+    },
+    {
+      "word": "huston",
+      "score": 0.4272,
+      "rank": 969
+    },
+    {
+      "word": "vogler",
+      "score": 0.4271,
+      "rank": 970
+    },
+    {
+      "word": "slaving",
+      "score": 0.4271,
+      "rank": 971
+    },
+    {
+      "word": "ralphie",
+      "score": 0.4271,
+      "rank": 972
+    },
+    {
+      "word": "corsica",
+      "score": 0.427,
+      "rank": 973
+    },
+    {
+      "word": "guido",
+      "score": 0.427,
+      "rank": 974
+    },
+    {
+      "word": "arouses",
+      "score": 0.427,
+      "rank": 975
+    },
+    {
+      "word": "samcro",
+      "score": 0.427,
+      "rank": 976
+    },
+    {
+      "word": "clays",
+      "score": 0.427,
+      "rank": 977
+    },
+    {
+      "word": "galilee",
+      "score": 0.4269,
+      "rank": 978
+    },
+    {
+      "word": "wizard",
+      "score": 0.4269,
+      "rank": 979
+    },
+    {
+      "word": "oscars",
+      "score": 0.4269,
+      "rank": 980
+    },
+    {
+      "word": "turlough",
+      "score": 0.4268,
+      "rank": 981
+    },
+    {
+      "word": "kronk",
+      "score": 0.4268,
+      "rank": 982
+    },
+    {
+      "word": "hallie",
+      "score": 0.4268,
+      "rank": 983
+    },
+    {
+      "word": "camden",
+      "score": 0.4268,
+      "rank": 984
+    },
+    {
+      "word": "rollo",
+      "score": 0.4267,
+      "rank": 985
+    },
+    {
+      "word": "zooey",
+      "score": 0.4266,
+      "rank": 986
+    },
+    {
+      "word": "pagans",
+      "score": 0.4266,
+      "rank": 987
+    },
+    {
+      "word": "donnelly",
+      "score": 0.4266,
+      "rank": 988
+    },
+    {
+      "word": "pontius",
+      "score": 0.4265,
+      "rank": 989
+    },
+    {
+      "word": "duchy",
+      "score": 0.4265,
+      "rank": 990
+    },
+    {
+      "word": "ferrets",
+      "score": 0.4265,
+      "rank": 991
+    },
+    {
+      "word": "frankie",
+      "score": 0.4265,
+      "rank": 992
+    },
+    {
+      "word": "landru",
+      "score": 0.4265,
+      "rank": 993
+    },
+    {
+      "word": "gault",
+      "score": 0.4265,
+      "rank": 994
+    },
+    {
+      "word": "duels",
+      "score": 0.4265,
+      "rank": 995
+    },
+    {
+      "word": "arouse",
+      "score": 0.4264,
+      "rank": 996
+    },
+    {
+      "word": "hayworth",
+      "score": 0.4264,
+      "rank": 997
+    },
+    {
+      "word": "bret",
+      "score": 0.4264,
+      "rank": 998
+    },
+    {
+      "word": "lope",
+      "score": 0.4264,
+      "rank": 999
+    },
+    {
+      "word": "bacon",
+      "score": 0.4264,
+      "rank": 1000
+    }
+  ]
+}

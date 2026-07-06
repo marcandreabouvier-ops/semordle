@@ -211,21 +211,24 @@ def generate_puzzle(
     # Cosine similarities (dot product of normalized vectors)
     scores = all_vecs @ secret_vec  # shape: (vocab_size,)
 
-    # Sort descending
+    # Sort descending — all words ranked
     ranked_indices = scores.argsort()[::-1]
-    top_indices = ranked_indices[:topn]
 
+    # Top-N get a rank number; the rest get only a score (rank: null in JSON)
     words = []
-    for rank, idx in enumerate(top_indices, start=1):
-        words.append({
+    for position, idx in enumerate(ranked_indices):
+        rank = position + 1
+        entry = {
             "word": vocab[idx],
             "score": round(float(scores[idx]), 4),
-            "rank": rank,
-        })
+        }
+        if rank <= topn:
+            entry["rank"] = rank
+        words.append(entry)
 
     top1_score  = words[0]["score"]  if words else 0.0
     top10_score = words[9]["score"]  if len(words) >= 10 else (words[-1]["score"] if words else 0.0)
-    top1k_score = words[-1]["score"] if words else 0.0
+    top1k_score = words[topn - 1]["score"] if len(words) >= topn else (words[-1]["score"] if words else 0.0)
 
     return {
         "date": date,
@@ -250,7 +253,8 @@ def save_puzzle(puzzle: dict, outdir: str = None):
     os.makedirs(directory, exist_ok=True)
     path = os.path.join(directory, f"{date}.json")
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(puzzle, f, indent=2, ensure_ascii=False)
+        # Compact JSON — all-words file can be 1-2 MB, no need for pretty-print
+        json.dump(puzzle, f, separators=(',', ':'), ensure_ascii=False)
     print(f"\nSaved: {path}")
     print(f"  Secret:      {puzzle['secret']}  ({puzzle['wordLength']} letters)")
     print(f"  Puzzle #:    {puzzle['puzzleNumber']}")
@@ -276,6 +280,9 @@ def main():
 
     # Batch mode
     parser.add_argument("--schedule", help="CSV file: date,lang,word,number")
+    parser.add_argument("--days-ahead", type=int, default=None,
+                        help="With --schedule: only generate puzzles whose date falls within "
+                             "the next N days AND whose output file does not already exist.")
 
     # Options
     parser.add_argument("--topn",     type=int, default=1000, help="Number of neighbors (default 1000)")
@@ -286,9 +293,27 @@ def main():
 
     if args.schedule:
         # Batch mode
+        from datetime import timedelta
         with open(args.schedule, encoding="utf-8") as f:
             reader = csv.DictReader(f)
             rows = list(reader)
+
+        if args.days_ahead is not None:
+            today = datetime.today().date()
+            cutoff = today + timedelta(days=args.days_ahead)
+            filtered = []
+            for row in rows:
+                d = datetime.strptime(row["date"].strip(), "%Y-%m-%d").date()
+                if d < today or d > cutoff:
+                    continue
+                outdir = args.outdir or os.path.join("data", row["lang"].strip())
+                path = os.path.join(outdir, f"{row['date'].strip()}.json")
+                if os.path.exists(path):
+                    print(f"  Skipping {path} (already exists)")
+                    continue
+                filtered.append(row)
+            rows = filtered
+
         print(f"Batch mode: {len(rows)} puzzles to generate.")
         for row in rows:
             puzzle = generate_puzzle(

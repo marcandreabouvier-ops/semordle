@@ -1,0 +1,5014 @@
+{
+  "date": "2026-06-28",
+  "puzzleNumber": 176,
+  "lang": "fr",
+  "secret": "famille",
+  "wordLength": 7,
+  "hints": {
+    "top1": 0.9947,
+    "top10": 0.9504,
+    "top1000": 0.5848
+  },
+  "words": [
+    {
+      "word": "aile",
+      "score": 0.9947,
+      "rank": 1
+    },
+    {
+      "word": "familial",
+      "score": 0.9911,
+      "rank": 2
+    },
+    {
+      "word": "familiale",
+      "score": 0.99,
+      "rank": 3
+    },
+    {
+      "word": "familiaux",
+      "score": 0.9887,
+      "rank": 4
+    },
+    {
+      "word": "family",
+      "score": 0.9887,
+      "rank": 5
+    },
+    {
+      "word": "rodin",
+      "score": 0.9885,
+      "rank": 6
+    },
+    {
+      "word": "familiales",
+      "score": 0.9865,
+      "rank": 7
+    },
+    {
+      "word": "ailes",
+      "score": 0.983,
+      "rank": 8
+    },
+    {
+      "word": "familiers",
+      "score": 0.9707,
+      "rank": 9
+    },
+    {
+      "word": "pere",
+      "score": 0.9504,
+      "rank": 10
+    },
+    {
+      "word": "familier",
+      "score": 0.9326,
+      "rank": 11
+    },
+    {
+      "word": "relatives",
+      "score": 0.9034,
+      "rank": 12
+    },
+    {
+      "word": "parenté",
+      "score": 0.8697,
+      "rank": 13
+    },
+    {
+      "word": "padres",
+      "score": 0.8455,
+      "rank": 14
+    },
+    {
+      "word": "parentaux",
+      "score": 0.8409,
+      "rank": 15
+    },
+    {
+      "word": "parentale",
+      "score": 0.8207,
+      "rank": 16
+    },
+    {
+      "word": "parents",
+      "score": 0.8097,
+      "rank": 17
+    },
+    {
+      "word": "parente",
+      "score": 0.7944,
+      "rank": 18
+    },
+    {
+      "word": "parental",
+      "score": 0.7931,
+      "rank": 19
+    },
+    {
+      "word": "familières",
+      "score": 0.7906,
+      "rank": 20
+    },
+    {
+      "word": "paternelle",
+      "score": 0.7895,
+      "rank": 21
+    },
+    {
+      "word": "naisse",
+      "score": 0.7772,
+      "rank": 22
+    },
+    {
+      "word": "tantes",
+      "score": 0.7672,
+      "rank": 23
+    },
+    {
+      "word": "klan",
+      "score": 0.7638,
+      "rank": 24
+    },
+    {
+      "word": "dada",
+      "score": 0.7597,
+      "rank": 25
+    },
+    {
+      "word": "madre",
+      "score": 0.7549,
+      "rank": 26
+    },
+    {
+      "word": "maternelle",
+      "score": 0.7536,
+      "rank": 27
+    },
+    {
+      "word": "nénés",
+      "score": 0.7529,
+      "rank": 28
+    },
+    {
+      "word": "momo",
+      "score": 0.7488,
+      "rank": 29
+    },
+    {
+      "word": "parent",
+      "score": 0.7476,
+      "rank": 30
+    },
+    {
+      "word": "mère",
+      "score": 0.7475,
+      "rank": 31
+    },
+    {
+      "word": "clan",
+      "score": 0.7462,
+      "rank": 32
+    },
+    {
+      "word": "oncles",
+      "score": 0.7454,
+      "rank": 33
+    },
+    {
+      "word": "mères",
+      "score": 0.7445,
+      "rank": 34
+    },
+    {
+      "word": "maternelles",
+      "score": 0.7443,
+      "rank": 35
+    },
+    {
+      "word": "mor",
+      "score": 0.7431,
+      "rank": 36
+    },
+    {
+      "word": "potomac",
+      "score": 0.7428,
+      "rank": 37
+    },
+    {
+      "word": "domestiques",
+      "score": 0.741,
+      "rank": 38
+    },
+    {
+      "word": "diya",
+      "score": 0.7362,
+      "rank": 39
+    },
+    {
+      "word": "nai",
+      "score": 0.7333,
+      "rank": 40
+    },
+    {
+      "word": "ema",
+      "score": 0.7319,
+      "rank": 41
+    },
+    {
+      "word": "enfanter",
+      "score": 0.7314,
+      "rank": 42
+    },
+    {
+      "word": "individus",
+      "score": 0.7275,
+      "rank": 43
+    },
+    {
+      "word": "mamy",
+      "score": 0.7261,
+      "rank": 44
+    },
+    {
+      "word": "mame",
+      "score": 0.7256,
+      "rank": 45
+    },
+    {
+      "word": "barnes",
+      "score": 0.7248,
+      "rank": 46
+    },
+    {
+      "word": "paternel",
+      "score": 0.7246,
+      "rank": 47
+    },
+    {
+      "word": "morne",
+      "score": 0.723,
+      "rank": 48
+    },
+    {
+      "word": "soeurs",
+      "score": 0.7218,
+      "rank": 49
+    },
+    {
+      "word": "maman",
+      "score": 0.7206,
+      "rank": 50
+    },
+    {
+      "word": "mother",
+      "score": 0.7202,
+      "rank": 51
+    },
+    {
+      "word": "tante",
+      "score": 0.7198,
+      "rank": 52
+    },
+    {
+      "word": "mamies",
+      "score": 0.7194,
+      "rank": 53
+    },
+    {
+      "word": "pères",
+      "score": 0.7182,
+      "rank": 54
+    },
+    {
+      "word": "mamma",
+      "score": 0.7142,
+      "rank": 55
+    },
+    {
+      "word": "pai",
+      "score": 0.7135,
+      "rank": 56
+    },
+    {
+      "word": "mater",
+      "score": 0.7124,
+      "rank": 57
+    },
+    {
+      "word": "mamans",
+      "score": 0.7124,
+      "rank": 58
+    },
+    {
+      "word": "peuples",
+      "score": 0.712,
+      "rank": 59
+    },
+    {
+      "word": "individuels",
+      "score": 0.7114,
+      "rank": 60
+    },
+    {
+      "word": "padre",
+      "score": 0.7107,
+      "rank": 61
+    },
+    {
+      "word": "descendants",
+      "score": 0.7101,
+      "rank": 62
+    },
+    {
+      "word": "amères",
+      "score": 0.7095,
+      "rank": 63
+    },
+    {
+      "word": "anne",
+      "score": 0.7081,
+      "rank": 64
+    },
+    {
+      "word": "peuple",
+      "score": 0.7073,
+      "rank": 65
+    },
+    {
+      "word": "amatrice",
+      "score": 0.7047,
+      "rank": 66
+    },
+    {
+      "word": "domestique",
+      "score": 0.7045,
+      "rank": 67
+    },
+    {
+      "word": "barn",
+      "score": 0.7041,
+      "rank": 68
+    },
+    {
+      "word": "maternel",
+      "score": 0.7031,
+      "rank": 69
+    },
+    {
+      "word": "babine",
+      "score": 0.702,
+      "rank": 70
+    },
+    {
+      "word": "gente",
+      "score": 0.7012,
+      "rank": 71
+    },
+    {
+      "word": "mare",
+      "score": 0.7003,
+      "rank": 72
+    },
+    {
+      "word": "epouser",
+      "score": 0.6994,
+      "rank": 73
+    },
+    {
+      "word": "mami",
+      "score": 0.6983,
+      "rank": 74
+    },
+    {
+      "word": "personnes",
+      "score": 0.698,
+      "rank": 75
+    },
+    {
+      "word": "casanova",
+      "score": 0.6967,
+      "rank": 76
+    },
+    {
+      "word": "père",
+      "score": 0.6966,
+      "rank": 77
+    },
+    {
+      "word": "mamie",
+      "score": 0.6961,
+      "rank": 78
+    },
+    {
+      "word": "humaines",
+      "score": 0.6961,
+      "rank": 79
+    },
+    {
+      "word": "habitants",
+      "score": 0.6953,
+      "rank": 80
+    },
+    {
+      "word": "gères",
+      "score": 0.6952,
+      "rank": 81
+    },
+    {
+      "word": "pappas",
+      "score": 0.6951,
+      "rank": 82
+    },
+    {
+      "word": "lents",
+      "score": 0.695,
+      "rank": 83
+    },
+    {
+      "word": "naitre",
+      "score": 0.6944,
+      "rank": 84
+    },
+    {
+      "word": "beuveries",
+      "score": 0.6932,
+      "rank": 85
+    },
+    {
+      "word": "individuel",
+      "score": 0.6929,
+      "rank": 86
+    },
+    {
+      "word": "momies",
+      "score": 0.6929,
+      "rank": 87
+    },
+    {
+      "word": "enfant",
+      "score": 0.6919,
+      "rank": 88
+    },
+    {
+      "word": "mom",
+      "score": 0.6917,
+      "rank": 89
+    },
+    {
+      "word": "bratva",
+      "score": 0.6917,
+      "rank": 90
+    },
+    {
+      "word": "hérité",
+      "score": 0.6904,
+      "rank": 91
+    },
+    {
+      "word": "vendait",
+      "score": 0.689,
+      "rank": 92
+    },
+    {
+      "word": "babi",
+      "score": 0.6888,
+      "rank": 93
+    },
+    {
+      "word": "humains",
+      "score": 0.6869,
+      "rank": 94
+    },
+    {
+      "word": "farfadet",
+      "score": 0.6862,
+      "rank": 95
+    },
+    {
+      "word": "individuelle",
+      "score": 0.6862,
+      "rank": 96
+    },
+    {
+      "word": "nourrisse",
+      "score": 0.686,
+      "rank": 97
+    },
+    {
+      "word": "mémère",
+      "score": 0.6859,
+      "rank": 98
+    },
+    {
+      "word": "father",
+      "score": 0.6858,
+      "rank": 99
+    },
+    {
+      "word": "amants",
+      "score": 0.6856,
+      "rank": 100
+    },
+    {
+      "word": "enfants",
+      "score": 0.6845,
+      "rank": 101
+    },
+    {
+      "word": "folk",
+      "score": 0.6839,
+      "rank": 102
+    },
+    {
+      "word": "cousins",
+      "score": 0.6829,
+      "rank": 103
+    },
+    {
+      "word": "mak",
+      "score": 0.6818,
+      "rank": 104
+    },
+    {
+      "word": "beuverie",
+      "score": 0.6813,
+      "rank": 105
+    },
+    {
+      "word": "isa",
+      "score": 0.6797,
+      "rank": 106
+    },
+    {
+      "word": "couples",
+      "score": 0.6797,
+      "rank": 107
+    },
+    {
+      "word": "enfanté",
+      "score": 0.679,
+      "rank": 108
+    },
+    {
+      "word": "bibine",
+      "score": 0.6783,
+      "rank": 109
+    },
+    {
+      "word": "rases",
+      "score": 0.6768,
+      "rank": 110
+    },
+    {
+      "word": "sororité",
+      "score": 0.6764,
+      "rank": 111
+    },
+    {
+      "word": "individu",
+      "score": 0.676,
+      "rank": 112
+    },
+    {
+      "word": "caserne",
+      "score": 0.6759,
+      "rank": 113
+    },
+    {
+      "word": "gent",
+      "score": 0.6758,
+      "rank": 114
+    },
+    {
+      "word": "bambino",
+      "score": 0.6749,
+      "rank": 115
+    },
+    {
+      "word": "momie",
+      "score": 0.6747,
+      "rank": 116
+    },
+    {
+      "word": "naina",
+      "score": 0.6746,
+      "rank": 117
+    },
+    {
+      "word": "papa",
+      "score": 0.6743,
+      "rank": 118
+    },
+    {
+      "word": "gens",
+      "score": 0.673,
+      "rank": 119
+    },
+    {
+      "word": "adultes",
+      "score": 0.6726,
+      "rank": 120
+    },
+    {
+      "word": "raccompagnée",
+      "score": 0.6719,
+      "rank": 121
+    },
+    {
+      "word": "bibi",
+      "score": 0.6718,
+      "rank": 122
+    },
+    {
+      "word": "cousines",
+      "score": 0.6717,
+      "rank": 123
+    },
+    {
+      "word": "people",
+      "score": 0.6714,
+      "rank": 124
+    },
+    {
+      "word": "far",
+      "score": 0.6713,
+      "rank": 125
+    },
+    {
+      "word": "clancy",
+      "score": 0.6705,
+      "rank": 126
+    },
+    {
+      "word": "ménages",
+      "score": 0.6704,
+      "rank": 127
+    },
+    {
+      "word": "fils",
+      "score": 0.6696,
+      "rank": 128
+    },
+    {
+      "word": "zia",
+      "score": 0.6693,
+      "rank": 129
+    },
+    {
+      "word": "materner",
+      "score": 0.6692,
+      "rank": 130
+    },
+    {
+      "word": "humain",
+      "score": 0.6667,
+      "rank": 131
+    },
+    {
+      "word": "humaine",
+      "score": 0.6658,
+      "rank": 132
+    },
+    {
+      "word": "marrants",
+      "score": 0.6656,
+      "rank": 133
+    },
+    {
+      "word": "infantile",
+      "score": 0.6655,
+      "rank": 134
+    },
+    {
+      "word": "adonner",
+      "score": 0.6642,
+      "rank": 135
+    },
+    {
+      "word": "enfantin",
+      "score": 0.6641,
+      "rank": 136
+    },
+    {
+      "word": "copilote",
+      "score": 0.664,
+      "rank": 137
+    },
+    {
+      "word": "société",
+      "score": 0.6639,
+      "rank": 138
+    },
+    {
+      "word": "annee",
+      "score": 0.6636,
+      "rank": 139
+    },
+    {
+      "word": "gamines",
+      "score": 0.6632,
+      "rank": 140
+    },
+    {
+      "word": "mammaire",
+      "score": 0.6625,
+      "rank": 141
+    },
+    {
+      "word": "bebe",
+      "score": 0.6623,
+      "rank": 142
+    },
+    {
+      "word": "naissances",
+      "score": 0.662,
+      "rank": 143
+    },
+    {
+      "word": "descendance",
+      "score": 0.6612,
+      "rank": 144
+    },
+    {
+      "word": "volker",
+      "score": 0.6588,
+      "rank": 145
+    },
+    {
+      "word": "nourrisson",
+      "score": 0.6584,
+      "rank": 146
+    },
+    {
+      "word": "mama",
+      "score": 0.6575,
+      "rank": 147
+    },
+    {
+      "word": "son",
+      "score": 0.6567,
+      "rank": 148
+    },
+    {
+      "word": "épousais",
+      "score": 0.6566,
+      "rank": 149
+    },
+    {
+      "word": "héréditaire",
+      "score": 0.6565,
+      "rank": 150
+    },
+    {
+      "word": "morin",
+      "score": 0.6563,
+      "rank": 151
+    },
+    {
+      "word": "nôtres",
+      "score": 0.6556,
+      "rank": 152
+    },
+    {
+      "word": "êtres",
+      "score": 0.6555,
+      "rank": 153
+    },
+    {
+      "word": "societe",
+      "score": 0.6555,
+      "rank": 154
+    },
+    {
+      "word": "baba",
+      "score": 0.6546,
+      "rank": 155
+    },
+    {
+      "word": "dad",
+      "score": 0.6545,
+      "rank": 156
+    },
+    {
+      "word": "nait",
+      "score": 0.6543,
+      "rank": 157
+    },
+    {
+      "word": "nains",
+      "score": 0.6542,
+      "rank": 158
+    },
+    {
+      "word": "partagent",
+      "score": 0.6537,
+      "rank": 159
+    },
+    {
+      "word": "soeur",
+      "score": 0.6534,
+      "rank": 160
+    },
+    {
+      "word": "rase",
+      "score": 0.653,
+      "rank": 161
+    },
+    {
+      "word": "marrantes",
+      "score": 0.6525,
+      "rank": 162
+    },
+    {
+      "word": "tapantes",
+      "score": 0.652,
+      "rank": 163
+    },
+    {
+      "word": "descendant",
+      "score": 0.6519,
+      "rank": 164
+    },
+    {
+      "word": "abuela",
+      "score": 0.6515,
+      "rank": 165
+    },
+    {
+      "word": "tati",
+      "score": 0.6514,
+      "rank": 166
+    },
+    {
+      "word": "générations",
+      "score": 0.6513,
+      "rank": 167
+    },
+    {
+      "word": "bambin",
+      "score": 0.6513,
+      "rank": 168
+    },
+    {
+      "word": "belvédère",
+      "score": 0.651,
+      "rank": 169
+    },
+    {
+      "word": "hérédité",
+      "score": 0.6496,
+      "rank": 170
+    },
+    {
+      "word": "humainement",
+      "score": 0.6495,
+      "rank": 171
+    },
+    {
+      "word": "enfance",
+      "score": 0.6492,
+      "rank": 172
+    },
+    {
+      "word": "ouin",
+      "score": 0.6486,
+      "rank": 173
+    },
+    {
+      "word": "vendais",
+      "score": 0.6475,
+      "rank": 174
+    },
+    {
+      "word": "children",
+      "score": 0.6468,
+      "rank": 175
+    },
+    {
+      "word": "convives",
+      "score": 0.6455,
+      "rank": 176
+    },
+    {
+      "word": "sons",
+      "score": 0.645,
+      "rank": 177
+    },
+    {
+      "word": "gamin",
+      "score": 0.6445,
+      "rank": 178
+    },
+    {
+      "word": "gamine",
+      "score": 0.6445,
+      "rank": 179
+    },
+    {
+      "word": "habitons",
+      "score": 0.644,
+      "rank": 180
+    },
+    {
+      "word": "vides",
+      "score": 0.6436,
+      "rank": 181
+    },
+    {
+      "word": "communauté",
+      "score": 0.6433,
+      "rank": 182
+    },
+    {
+      "word": "enfantine",
+      "score": 0.6429,
+      "rank": 183
+    },
+    {
+      "word": "animé",
+      "score": 0.6429,
+      "rank": 184
+    },
+    {
+      "word": "nourrissons",
+      "score": 0.6427,
+      "rank": 185
+    },
+    {
+      "word": "communal",
+      "score": 0.6425,
+      "rank": 186
+    },
+    {
+      "word": "amère",
+      "score": 0.6425,
+      "rank": 187
+    },
+    {
+      "word": "conjointe",
+      "score": 0.6417,
+      "rank": 188
+    },
+    {
+      "word": "tata",
+      "score": 0.6416,
+      "rank": 189
+    },
+    {
+      "word": "nain",
+      "score": 0.6415,
+      "rank": 190
+    },
+    {
+      "word": "maitre",
+      "score": 0.6414,
+      "rank": 191
+    },
+    {
+      "word": "nourrissais",
+      "score": 0.6409,
+      "rank": 192
+    },
+    {
+      "word": "généalogique",
+      "score": 0.6403,
+      "rank": 193
+    },
+    {
+      "word": "nourrissait",
+      "score": 0.6382,
+      "rank": 194
+    },
+    {
+      "word": "coussins",
+      "score": 0.638,
+      "rank": 195
+    },
+    {
+      "word": "papote",
+      "score": 0.638,
+      "rank": 196
+    },
+    {
+      "word": "mensuels",
+      "score": 0.6377,
+      "rank": 197
+    },
+    {
+      "word": "casernes",
+      "score": 0.6376,
+      "rank": 198
+    },
+    {
+      "word": "caspere",
+      "score": 0.6376,
+      "rank": 199
+    },
+    {
+      "word": "childs",
+      "score": 0.6375,
+      "rank": 200
+    },
+    {
+      "word": "mensuel",
+      "score": 0.6371,
+      "rank": 201
+    },
+    {
+      "word": "niño",
+      "score": 0.637,
+      "rank": 202
+    },
+    {
+      "word": "cogne",
+      "score": 0.6366,
+      "rank": 203
+    },
+    {
+      "word": "gamineries",
+      "score": 0.6364,
+      "rank": 204
+    },
+    {
+      "word": "associé",
+      "score": 0.636,
+      "rank": 205
+    },
+    {
+      "word": "annuaires",
+      "score": 0.636,
+      "rank": 206
+    },
+    {
+      "word": "groupe",
+      "score": 0.6356,
+      "rank": 207
+    },
+    {
+      "word": "consécutifs",
+      "score": 0.6353,
+      "rank": 208
+    },
+    {
+      "word": "vivions",
+      "score": 0.6348,
+      "rank": 209
+    },
+    {
+      "word": "kids",
+      "score": 0.6342,
+      "rank": 210
+    },
+    {
+      "word": "partageons",
+      "score": 0.634,
+      "rank": 211
+    },
+    {
+      "word": "diverses",
+      "score": 0.6333,
+      "rank": 212
+    },
+    {
+      "word": "affectés",
+      "score": 0.6331,
+      "rank": 213
+    },
+    {
+      "word": "mariage",
+      "score": 0.6329,
+      "rank": 214
+    },
+    {
+      "word": "marieras",
+      "score": 0.6326,
+      "rank": 215
+    },
+    {
+      "word": "nourrice",
+      "score": 0.6326,
+      "rank": 216
+    },
+    {
+      "word": "gilda",
+      "score": 0.6325,
+      "rank": 217
+    },
+    {
+      "word": "partageais",
+      "score": 0.6324,
+      "rank": 218
+    },
+    {
+      "word": "fois",
+      "score": 0.6321,
+      "rank": 219
+    },
+    {
+      "word": "frères",
+      "score": 0.6321,
+      "rank": 220
+    },
+    {
+      "word": "liaisons",
+      "score": 0.6317,
+      "rank": 221
+    },
+    {
+      "word": "papas",
+      "score": 0.6315,
+      "rank": 222
+    },
+    {
+      "word": "mamelles",
+      "score": 0.6315,
+      "rank": 223
+    },
+    {
+      "word": "nas",
+      "score": 0.6313,
+      "rank": 224
+    },
+    {
+      "word": "née",
+      "score": 0.6312,
+      "rank": 225
+    },
+    {
+      "word": "pleut",
+      "score": 0.6312,
+      "rank": 226
+    },
+    {
+      "word": "ments",
+      "score": 0.6311,
+      "rank": 227
+    },
+    {
+      "word": "mali",
+      "score": 0.6307,
+      "rank": 228
+    },
+    {
+      "word": "partagez",
+      "score": 0.6306,
+      "rank": 229
+    },
+    {
+      "word": "dédie",
+      "score": 0.6304,
+      "rank": 230
+    },
+    {
+      "word": "mariera",
+      "score": 0.6301,
+      "rank": 231
+    },
+    {
+      "word": "lita",
+      "score": 0.63,
+      "rank": 232
+    },
+    {
+      "word": "dévorés",
+      "score": 0.6298,
+      "rank": 233
+    },
+    {
+      "word": "notre",
+      "score": 0.6296,
+      "rank": 234
+    },
+    {
+      "word": "chacun",
+      "score": 0.6292,
+      "rank": 235
+    },
+    {
+      "word": "cousin",
+      "score": 0.6292,
+      "rank": 236
+    },
+    {
+      "word": "soumettrai",
+      "score": 0.6291,
+      "rank": 237
+    },
+    {
+      "word": "mariée",
+      "score": 0.6288,
+      "rank": 238
+    },
+    {
+      "word": "vivien",
+      "score": 0.6287,
+      "rank": 239
+    },
+    {
+      "word": "garderie",
+      "score": 0.6287,
+      "rank": 240
+    },
+    {
+      "word": "naissance",
+      "score": 0.6286,
+      "rank": 241
+    },
+    {
+      "word": "leto",
+      "score": 0.6285,
+      "rank": 242
+    },
+    {
+      "word": "mather",
+      "score": 0.6283,
+      "rank": 243
+    },
+    {
+      "word": "ovaires",
+      "score": 0.6283,
+      "rank": 244
+    },
+    {
+      "word": "granny",
+      "score": 0.6281,
+      "rank": 245
+    },
+    {
+      "word": "sonnait",
+      "score": 0.6279,
+      "rank": 246
+    },
+    {
+      "word": "mariées",
+      "score": 0.6278,
+      "rank": 247
+    },
+    {
+      "word": "éprouves",
+      "score": 0.6276,
+      "rank": 248
+    },
+    {
+      "word": "dévoré",
+      "score": 0.6274,
+      "rank": 249
+    },
+    {
+      "word": "fiancées",
+      "score": 0.6272,
+      "rank": 250
+    },
+    {
+      "word": "vécues",
+      "score": 0.627,
+      "rank": 251
+    },
+    {
+      "word": "ensemble",
+      "score": 0.6269,
+      "rank": 252
+    },
+    {
+      "word": "âges",
+      "score": 0.6269,
+      "rank": 253
+    },
+    {
+      "word": "éventré",
+      "score": 0.6265,
+      "rank": 254
+    },
+    {
+      "word": "vivre",
+      "score": 0.6265,
+      "rank": 255
+    },
+    {
+      "word": "particulier",
+      "score": 0.6263,
+      "rank": 256
+    },
+    {
+      "word": "unser",
+      "score": 0.6256,
+      "rank": 257
+    },
+    {
+      "word": "avoirs",
+      "score": 0.6256,
+      "rank": 258
+    },
+    {
+      "word": "ancestrale",
+      "score": 0.6252,
+      "rank": 259
+    },
+    {
+      "word": "ménagers",
+      "score": 0.6252,
+      "rank": 260
+    },
+    {
+      "word": "rasseoir",
+      "score": 0.6251,
+      "rank": 261
+    },
+    {
+      "word": "ménagerie",
+      "score": 0.6249,
+      "rank": 262
+    },
+    {
+      "word": "amicale",
+      "score": 0.6248,
+      "rank": 263
+    },
+    {
+      "word": "évelyne",
+      "score": 0.6247,
+      "rank": 264
+    },
+    {
+      "word": "uncle",
+      "score": 0.6247,
+      "rank": 265
+    },
+    {
+      "word": "affectées",
+      "score": 0.6246,
+      "rank": 266
+    },
+    {
+      "word": "sommes",
+      "score": 0.6244,
+      "rank": 267
+    },
+    {
+      "word": "bébés",
+      "score": 0.6242,
+      "rank": 268
+    },
+    {
+      "word": "appartenez",
+      "score": 0.6241,
+      "rank": 269
+    },
+    {
+      "word": "tabarnak",
+      "score": 0.6236,
+      "rank": 270
+    },
+    {
+      "word": "vécus",
+      "score": 0.6235,
+      "rank": 271
+    },
+    {
+      "word": "isaac",
+      "score": 0.6234,
+      "rank": 272
+    },
+    {
+      "word": "ancestral",
+      "score": 0.6234,
+      "rank": 273
+    },
+    {
+      "word": "vivent",
+      "score": 0.6232,
+      "rank": 274
+    },
+    {
+      "word": "nonne",
+      "score": 0.6231,
+      "rank": 275
+    },
+    {
+      "word": "nées",
+      "score": 0.6231,
+      "rank": 276
+    },
+    {
+      "word": "affaires",
+      "score": 0.6231,
+      "rank": 277
+    },
+    {
+      "word": "sibley",
+      "score": 0.6228,
+      "rank": 278
+    },
+    {
+      "word": "vécu",
+      "score": 0.6228,
+      "rank": 279
+    },
+    {
+      "word": "andres",
+      "score": 0.6226,
+      "rank": 280
+    },
+    {
+      "word": "wesen",
+      "score": 0.6222,
+      "rank": 281
+    },
+    {
+      "word": "bodnar",
+      "score": 0.6218,
+      "rank": 282
+    },
+    {
+      "word": "voorhees",
+      "score": 0.6217,
+      "rank": 283
+    },
+    {
+      "word": "vies",
+      "score": 0.6217,
+      "rank": 284
+    },
+    {
+      "word": "partageant",
+      "score": 0.6217,
+      "rank": 285
+    },
+    {
+      "word": "notres",
+      "score": 0.6213,
+      "rank": 286
+    },
+    {
+      "word": "associées",
+      "score": 0.6212,
+      "rank": 287
+    },
+    {
+      "word": "caniche",
+      "score": 0.6207,
+      "rank": 288
+    },
+    {
+      "word": "gamins",
+      "score": 0.6206,
+      "rank": 289
+    },
+    {
+      "word": "milf",
+      "score": 0.6206,
+      "rank": 290
+    },
+    {
+      "word": "vécurent",
+      "score": 0.6205,
+      "rank": 291
+    },
+    {
+      "word": "conjugaux",
+      "score": 0.6205,
+      "rank": 292
+    },
+    {
+      "word": "générer",
+      "score": 0.6205,
+      "rank": 293
+    },
+    {
+      "word": "marierait",
+      "score": 0.6204,
+      "rank": 294
+    },
+    {
+      "word": "lointaines",
+      "score": 0.6203,
+      "rank": 295
+    },
+    {
+      "word": "anniv",
+      "score": 0.6202,
+      "rank": 296
+    },
+    {
+      "word": "appartenons",
+      "score": 0.6201,
+      "rank": 297
+    },
+    {
+      "word": "épouses",
+      "score": 0.6201,
+      "rank": 298
+    },
+    {
+      "word": "kunta",
+      "score": 0.6201,
+      "rank": 299
+    },
+    {
+      "word": "sonnette",
+      "score": 0.62,
+      "rank": 300
+    },
+    {
+      "word": "guérie",
+      "score": 0.62,
+      "rank": 301
+    },
+    {
+      "word": "vit",
+      "score": 0.6199,
+      "rank": 302
+    },
+    {
+      "word": "foyer",
+      "score": 0.6199,
+      "rank": 303
+    },
+    {
+      "word": "particuliers",
+      "score": 0.6197,
+      "rank": 304
+    },
+    {
+      "word": "affairs",
+      "score": 0.6195,
+      "rank": 305
+    },
+    {
+      "word": "chez",
+      "score": 0.6195,
+      "rank": 306
+    },
+    {
+      "word": "habitant",
+      "score": 0.6193,
+      "rank": 307
+    },
+    {
+      "word": "guère",
+      "score": 0.619,
+      "rank": 308
+    },
+    {
+      "word": "appartenir",
+      "score": 0.619,
+      "rank": 309
+    },
+    {
+      "word": "adulte",
+      "score": 0.6189,
+      "rank": 310
+    },
+    {
+      "word": "boden",
+      "score": 0.6189,
+      "rank": 311
+    },
+    {
+      "word": "adoptée",
+      "score": 0.6188,
+      "rank": 312
+    },
+    {
+      "word": "communément",
+      "score": 0.6188,
+      "rank": 313
+    },
+    {
+      "word": "shérifs",
+      "score": 0.6186,
+      "rank": 314
+    },
+    {
+      "word": "tatum",
+      "score": 0.6186,
+      "rank": 315
+    },
+    {
+      "word": "appartenais",
+      "score": 0.6185,
+      "rank": 316
+    },
+    {
+      "word": "maisonnée",
+      "score": 0.6185,
+      "rank": 317
+    },
+    {
+      "word": "créons",
+      "score": 0.6185,
+      "rank": 318
+    },
+    {
+      "word": "soignera",
+      "score": 0.6185,
+      "rank": 319
+    },
+    {
+      "word": "sonder",
+      "score": 0.6185,
+      "rank": 320
+    },
+    {
+      "word": "parmi",
+      "score": 0.6185,
+      "rank": 321
+    },
+    {
+      "word": "pêre",
+      "score": 0.6178,
+      "rank": 322
+    },
+    {
+      "word": "sueurs",
+      "score": 0.6177,
+      "rank": 323
+    },
+    {
+      "word": "descendante",
+      "score": 0.6173,
+      "rank": 324
+    },
+    {
+      "word": "nous",
+      "score": 0.6172,
+      "rank": 325
+    },
+    {
+      "word": "mangent",
+      "score": 0.6172,
+      "rank": 326
+    },
+    {
+      "word": "avis",
+      "score": 0.617,
+      "rank": 327
+    },
+    {
+      "word": "nami",
+      "score": 0.6168,
+      "rank": 328
+    },
+    {
+      "word": "réunies",
+      "score": 0.6168,
+      "rank": 329
+    },
+    {
+      "word": "associée",
+      "score": 0.6168,
+      "rank": 330
+    },
+    {
+      "word": "collectif",
+      "score": 0.6166,
+      "rank": 331
+    },
+    {
+      "word": "supportais",
+      "score": 0.6164,
+      "rank": 332
+    },
+    {
+      "word": "partagera",
+      "score": 0.6163,
+      "rank": 333
+    },
+    {
+      "word": "pape",
+      "score": 0.6162,
+      "rank": 334
+    },
+    {
+      "word": "réunissons",
+      "score": 0.6162,
+      "rank": 335
+    },
+    {
+      "word": "niki",
+      "score": 0.6162,
+      "rank": 336
+    },
+    {
+      "word": "anis",
+      "score": 0.6161,
+      "rank": 337
+    },
+    {
+      "word": "dévorée",
+      "score": 0.6157,
+      "rank": 338
+    },
+    {
+      "word": "sœurette",
+      "score": 0.6155,
+      "rank": 339
+    },
+    {
+      "word": "réunis",
+      "score": 0.6155,
+      "rank": 340
+    },
+    {
+      "word": "tripote",
+      "score": 0.6154,
+      "rank": 341
+    },
+    {
+      "word": "gosses",
+      "score": 0.6154,
+      "rank": 342
+    },
+    {
+      "word": "garuda",
+      "score": 0.6152,
+      "rank": 343
+    },
+    {
+      "word": "propos",
+      "score": 0.6149,
+      "rank": 344
+    },
+    {
+      "word": "sont",
+      "score": 0.6149,
+      "rank": 345
+    },
+    {
+      "word": "commères",
+      "score": 0.6148,
+      "rank": 346
+    },
+    {
+      "word": "parer",
+      "score": 0.6148,
+      "rank": 347
+    },
+    {
+      "word": "prierais",
+      "score": 0.6148,
+      "rank": 348
+    },
+    {
+      "word": "maitres",
+      "score": 0.6145,
+      "rank": 349
+    },
+    {
+      "word": "aimées",
+      "score": 0.6144,
+      "rank": 350
+    },
+    {
+      "word": "kirk",
+      "score": 0.6144,
+      "rank": 351
+    },
+    {
+      "word": "sondra",
+      "score": 0.6143,
+      "rank": 352
+    },
+    {
+      "word": "prierai",
+      "score": 0.6141,
+      "rank": 353
+    },
+    {
+      "word": "partageait",
+      "score": 0.6141,
+      "rank": 354
+    },
+    {
+      "word": "gosse",
+      "score": 0.6141,
+      "rank": 355
+    },
+    {
+      "word": "naître",
+      "score": 0.614,
+      "rank": 356
+    },
+    {
+      "word": "fiona",
+      "score": 0.6139,
+      "rank": 357
+    },
+    {
+      "word": "régina",
+      "score": 0.6138,
+      "rank": 358
+    },
+    {
+      "word": "ménage",
+      "score": 0.6136,
+      "rank": 359
+    },
+    {
+      "word": "mors",
+      "score": 0.6134,
+      "rank": 360
+    },
+    {
+      "word": "soutiens",
+      "score": 0.6128,
+      "rank": 361
+    },
+    {
+      "word": "nôtre",
+      "score": 0.6127,
+      "rank": 362
+    },
+    {
+      "word": "réunie",
+      "score": 0.6126,
+      "rank": 363
+    },
+    {
+      "word": "aki",
+      "score": 0.6126,
+      "rank": 364
+    },
+    {
+      "word": "parti",
+      "score": 0.6126,
+      "rank": 365
+    },
+    {
+      "word": "thom",
+      "score": 0.6124,
+      "rank": 366
+    },
+    {
+      "word": "luo",
+      "score": 0.6123,
+      "rank": 367
+    },
+    {
+      "word": "beu",
+      "score": 0.6122,
+      "rank": 368
+    },
+    {
+      "word": "kyle",
+      "score": 0.6122,
+      "rank": 369
+    },
+    {
+      "word": "décents",
+      "score": 0.612,
+      "rank": 370
+    },
+    {
+      "word": "personnelles",
+      "score": 0.6119,
+      "rank": 371
+    },
+    {
+      "word": "domicile",
+      "score": 0.6118,
+      "rank": 372
+    },
+    {
+      "word": "noies",
+      "score": 0.6117,
+      "rank": 373
+    },
+    {
+      "word": "corporelles",
+      "score": 0.6116,
+      "rank": 374
+    },
+    {
+      "word": "uns",
+      "score": 0.6113,
+      "rank": 375
+    },
+    {
+      "word": "naît",
+      "score": 0.6113,
+      "rank": 376
+    },
+    {
+      "word": "associe",
+      "score": 0.6112,
+      "rank": 377
+    },
+    {
+      "word": "auxquelles",
+      "score": 0.6112,
+      "rank": 378
+    },
+    {
+      "word": "child",
+      "score": 0.611,
+      "rank": 379
+    },
+    {
+      "word": "papi",
+      "score": 0.6109,
+      "rank": 380
+    },
+    {
+      "word": "jimi",
+      "score": 0.6109,
+      "rank": 381
+    },
+    {
+      "word": "engendrer",
+      "score": 0.6108,
+      "rank": 382
+    },
+    {
+      "word": "vécue",
+      "score": 0.6108,
+      "rank": 383
+    },
+    {
+      "word": "allen",
+      "score": 0.6107,
+      "rank": 384
+    },
+    {
+      "word": "jaunisse",
+      "score": 0.6106,
+      "rank": 385
+    },
+    {
+      "word": "partagerez",
+      "score": 0.6103,
+      "rank": 386
+    },
+    {
+      "word": "together",
+      "score": 0.61,
+      "rank": 387
+    },
+    {
+      "word": "onze",
+      "score": 0.6099,
+      "rank": 388
+    },
+    {
+      "word": "oncle",
+      "score": 0.6099,
+      "rank": 389
+    },
+    {
+      "word": "soutiennes",
+      "score": 0.6099,
+      "rank": 390
+    },
+    {
+      "word": "congénitale",
+      "score": 0.6097,
+      "rank": 391
+    },
+    {
+      "word": "associés",
+      "score": 0.6096,
+      "rank": 392
+    },
+    {
+      "word": "niaiseries",
+      "score": 0.6095,
+      "rank": 393
+    },
+    {
+      "word": "frère",
+      "score": 0.6093,
+      "rank": 394
+    },
+    {
+      "word": "corporels",
+      "score": 0.6093,
+      "rank": 395
+    },
+    {
+      "word": "vende",
+      "score": 0.6092,
+      "rank": 396
+    },
+    {
+      "word": "nonnes",
+      "score": 0.6091,
+      "rank": 397
+    },
+    {
+      "word": "chéries",
+      "score": 0.6091,
+      "rank": 398
+    },
+    {
+      "word": "matent",
+      "score": 0.609,
+      "rank": 399
+    },
+    {
+      "word": "cônes",
+      "score": 0.609,
+      "rank": 400
+    },
+    {
+      "word": "réunisse",
+      "score": 0.6089,
+      "rank": 401
+    },
+    {
+      "word": "tutti",
+      "score": 0.6088,
+      "rank": 402
+    },
+    {
+      "word": "corpulence",
+      "score": 0.6087,
+      "rank": 403
+    },
+    {
+      "word": "nyssa",
+      "score": 0.6085,
+      "rank": 404
+    },
+    {
+      "word": "horaires",
+      "score": 0.6084,
+      "rank": 405
+    },
+    {
+      "word": "nostradamus",
+      "score": 0.6083,
+      "rank": 406
+    },
+    {
+      "word": "partagerais",
+      "score": 0.6082,
+      "rank": 407
+    },
+    {
+      "word": "dindes",
+      "score": 0.6082,
+      "rank": 408
+    },
+    {
+      "word": "mariait",
+      "score": 0.6081,
+      "rank": 409
+    },
+    {
+      "word": "nam",
+      "score": 0.6081,
+      "rank": 410
+    },
+    {
+      "word": "peloton",
+      "score": 0.6081,
+      "rank": 411
+    },
+    {
+      "word": "détenir",
+      "score": 0.608,
+      "rank": 412
+    },
+    {
+      "word": "elan",
+      "score": 0.6078,
+      "rank": 413
+    },
+    {
+      "word": "éventualités",
+      "score": 0.6078,
+      "rank": 414
+    },
+    {
+      "word": "elk",
+      "score": 0.6078,
+      "rank": 415
+    },
+    {
+      "word": "vita",
+      "score": 0.6077,
+      "rank": 416
+    },
+    {
+      "word": "oursons",
+      "score": 0.6077,
+      "rank": 417
+    },
+    {
+      "word": "nasa",
+      "score": 0.6077,
+      "rank": 418
+    },
+    {
+      "word": "filmer",
+      "score": 0.6075,
+      "rank": 419
+    },
+    {
+      "word": "allegra",
+      "score": 0.6075,
+      "rank": 420
+    },
+    {
+      "word": "généré",
+      "score": 0.6075,
+      "rank": 421
+    },
+    {
+      "word": "présents",
+      "score": 0.6073,
+      "rank": 422
+    },
+    {
+      "word": "racontées",
+      "score": 0.6071,
+      "rank": 423
+    },
+    {
+      "word": "piccolo",
+      "score": 0.6071,
+      "rank": 424
+    },
+    {
+      "word": "fresques",
+      "score": 0.607,
+      "rank": 425
+    },
+    {
+      "word": "nanas",
+      "score": 0.607,
+      "rank": 426
+    },
+    {
+      "word": "andre",
+      "score": 0.607,
+      "rank": 427
+    },
+    {
+      "word": "autrui",
+      "score": 0.607,
+      "rank": 428
+    },
+    {
+      "word": "fiancés",
+      "score": 0.6068,
+      "rank": 429
+    },
+    {
+      "word": "générée",
+      "score": 0.6067,
+      "rank": 430
+    },
+    {
+      "word": "partagé",
+      "score": 0.6066,
+      "rank": 431
+    },
+    {
+      "word": "homère",
+      "score": 0.6065,
+      "rank": 432
+    },
+    {
+      "word": "robie",
+      "score": 0.6065,
+      "rank": 433
+    },
+    {
+      "word": "avère",
+      "score": 0.6064,
+      "rank": 434
+    },
+    {
+      "word": "égale",
+      "score": 0.6063,
+      "rank": 435
+    },
+    {
+      "word": "vivian",
+      "score": 0.6063,
+      "rank": 436
+    },
+    {
+      "word": "anges",
+      "score": 0.6062,
+      "rank": 437
+    },
+    {
+      "word": "adoption",
+      "score": 0.6062,
+      "rank": 438
+    },
+    {
+      "word": "habité",
+      "score": 0.6061,
+      "rank": 439
+    },
+    {
+      "word": "rok",
+      "score": 0.606,
+      "rank": 440
+    },
+    {
+      "word": "leur",
+      "score": 0.606,
+      "rank": 441
+    },
+    {
+      "word": "tendus",
+      "score": 0.606,
+      "rank": 442
+    },
+    {
+      "word": "lesquels",
+      "score": 0.6059,
+      "rank": 443
+    },
+    {
+      "word": "nauséeuse",
+      "score": 0.6059,
+      "rank": 444
+    },
+    {
+      "word": "amicales",
+      "score": 0.6059,
+      "rank": 445
+    },
+    {
+      "word": "plaçons",
+      "score": 0.6059,
+      "rank": 446
+    },
+    {
+      "word": "aimés",
+      "score": 0.6058,
+      "rank": 447
+    },
+    {
+      "word": "livre",
+      "score": 0.6058,
+      "rank": 448
+    },
+    {
+      "word": "concernés",
+      "score": 0.6057,
+      "rank": 449
+    },
+    {
+      "word": "barnett",
+      "score": 0.6057,
+      "rank": 450
+    },
+    {
+      "word": "human",
+      "score": 0.6056,
+      "rank": 451
+    },
+    {
+      "word": "affectueux",
+      "score": 0.6055,
+      "rank": 452
+    },
+    {
+      "word": "dans",
+      "score": 0.6054,
+      "rank": 453
+    },
+    {
+      "word": "grands",
+      "score": 0.6048,
+      "rank": 454
+    },
+    {
+      "word": "assoies",
+      "score": 0.6048,
+      "rank": 455
+    },
+    {
+      "word": "filleul",
+      "score": 0.6047,
+      "rank": 456
+    },
+    {
+      "word": "mette",
+      "score": 0.6047,
+      "rank": 457
+    },
+    {
+      "word": "emmènerons",
+      "score": 0.6046,
+      "rank": 458
+    },
+    {
+      "word": "esclandre",
+      "score": 0.6045,
+      "rank": 459
+    },
+    {
+      "word": "sœur",
+      "score": 0.6045,
+      "rank": 460
+    },
+    {
+      "word": "reproduira",
+      "score": 0.6045,
+      "rank": 461
+    },
+    {
+      "word": "aveuglette",
+      "score": 0.6044,
+      "rank": 462
+    },
+    {
+      "word": "attester",
+      "score": 0.6044,
+      "rank": 463
+    },
+    {
+      "word": "tamise",
+      "score": 0.6044,
+      "rank": 464
+    },
+    {
+      "word": "réunira",
+      "score": 0.6041,
+      "rank": 465
+    },
+    {
+      "word": "tergiverser",
+      "score": 0.6041,
+      "rank": 466
+    },
+    {
+      "word": "mutuelle",
+      "score": 0.604,
+      "rank": 467
+    },
+    {
+      "word": "pétasses",
+      "score": 0.604,
+      "rank": 468
+    },
+    {
+      "word": "mûrir",
+      "score": 0.604,
+      "rank": 469
+    },
+    {
+      "word": "piéces",
+      "score": 0.604,
+      "rank": 470
+    },
+    {
+      "word": "faã",
+      "score": 0.6038,
+      "rank": 471
+    },
+    {
+      "word": "noie",
+      "score": 0.6038,
+      "rank": 472
+    },
+    {
+      "word": "gemme",
+      "score": 0.6037,
+      "rank": 473
+    },
+    {
+      "word": "chique",
+      "score": 0.6036,
+      "rank": 474
+    },
+    {
+      "word": "donnes",
+      "score": 0.6035,
+      "rank": 475
+    },
+    {
+      "word": "ces",
+      "score": 0.6035,
+      "rank": 476
+    },
+    {
+      "word": "sœurs",
+      "score": 0.6034,
+      "rank": 477
+    },
+    {
+      "word": "énigmes",
+      "score": 0.6034,
+      "rank": 478
+    },
+    {
+      "word": "séparons",
+      "score": 0.6034,
+      "rank": 479
+    },
+    {
+      "word": "relative",
+      "score": 0.6033,
+      "rank": 480
+    },
+    {
+      "word": "comptera",
+      "score": 0.6033,
+      "rank": 481
+    },
+    {
+      "word": "groupés",
+      "score": 0.6032,
+      "rank": 482
+    },
+    {
+      "word": "livres",
+      "score": 0.6032,
+      "rank": 483
+    },
+    {
+      "word": "marrés",
+      "score": 0.6031,
+      "rank": 484
+    },
+    {
+      "word": "ans",
+      "score": 0.6029,
+      "rank": 485
+    },
+    {
+      "word": "fesse",
+      "score": 0.6029,
+      "rank": 486
+    },
+    {
+      "word": "génitales",
+      "score": 0.6029,
+      "rank": 487
+    },
+    {
+      "word": "hermano",
+      "score": 0.6028,
+      "rank": 488
+    },
+    {
+      "word": "mammaires",
+      "score": 0.6028,
+      "rank": 489
+    },
+    {
+      "word": "tania",
+      "score": 0.6027,
+      "rank": 490
+    },
+    {
+      "word": "sonne",
+      "score": 0.6027,
+      "rank": 491
+    },
+    {
+      "word": "jim",
+      "score": 0.6025,
+      "rank": 492
+    },
+    {
+      "word": "roulais",
+      "score": 0.6025,
+      "rank": 493
+    },
+    {
+      "word": "confrères",
+      "score": 0.6024,
+      "rank": 494
+    },
+    {
+      "word": "mariés",
+      "score": 0.6024,
+      "rank": 495
+    },
+    {
+      "word": "nausées",
+      "score": 0.6024,
+      "rank": 496
+    },
+    {
+      "word": "donnent",
+      "score": 0.6024,
+      "rank": 497
+    },
+    {
+      "word": "taudis",
+      "score": 0.6023,
+      "rank": 498
+    },
+    {
+      "word": "grandiras",
+      "score": 0.6022,
+      "rank": 499
+    },
+    {
+      "word": "die",
+      "score": 0.602,
+      "rank": 500
+    },
+    {
+      "word": "nourris",
+      "score": 0.602,
+      "rank": 501
+    },
+    {
+      "word": "noboru",
+      "score": 0.602,
+      "rank": 502
+    },
+    {
+      "word": "duce",
+      "score": 0.6019,
+      "rank": 503
+    },
+    {
+      "word": "serie",
+      "score": 0.6018,
+      "rank": 504
+    },
+    {
+      "word": "epouse",
+      "score": 0.6017,
+      "rank": 505
+    },
+    {
+      "word": "venant",
+      "score": 0.6017,
+      "rank": 506
+    },
+    {
+      "word": "ons",
+      "score": 0.6016,
+      "rank": 507
+    },
+    {
+      "word": "organisons",
+      "score": 0.6014,
+      "rank": 508
+    },
+    {
+      "word": "ourson",
+      "score": 0.6012,
+      "rank": 509
+    },
+    {
+      "word": "relevés",
+      "score": 0.6012,
+      "rank": 510
+    },
+    {
+      "word": "cerise",
+      "score": 0.6011,
+      "rank": 511
+    },
+    {
+      "word": "ceux",
+      "score": 0.601,
+      "rank": 512
+    },
+    {
+      "word": "piéce",
+      "score": 0.601,
+      "rank": 513
+    },
+    {
+      "word": "nomi",
+      "score": 0.601,
+      "rank": 514
+    },
+    {
+      "word": "antécédents",
+      "score": 0.6009,
+      "rank": 515
+    },
+    {
+      "word": "censées",
+      "score": 0.6009,
+      "rank": 516
+    },
+    {
+      "word": "nourrira",
+      "score": 0.6009,
+      "rank": 517
+    },
+    {
+      "word": "fidèle",
+      "score": 0.6008,
+      "rank": 518
+    },
+    {
+      "word": "utérus",
+      "score": 0.6008,
+      "rank": 519
+    },
+    {
+      "word": "jie",
+      "score": 0.6008,
+      "rank": 520
+    },
+    {
+      "word": "lei",
+      "score": 0.6006,
+      "rank": 521
+    },
+    {
+      "word": "patriarche",
+      "score": 0.6006,
+      "rank": 522
+    },
+    {
+      "word": "marrier",
+      "score": 0.6006,
+      "rank": 523
+    },
+    {
+      "word": "nénette",
+      "score": 0.6005,
+      "rank": 524
+    },
+    {
+      "word": "litige",
+      "score": 0.6005,
+      "rank": 525
+    },
+    {
+      "word": "compagnes",
+      "score": 0.6005,
+      "rank": 526
+    },
+    {
+      "word": "prédestiné",
+      "score": 0.6005,
+      "rank": 527
+    },
+    {
+      "word": "noël",
+      "score": 0.6004,
+      "rank": 528
+    },
+    {
+      "word": "leviez",
+      "score": 0.6003,
+      "rank": 529
+    },
+    {
+      "word": "soignent",
+      "score": 0.6002,
+      "rank": 530
+    },
+    {
+      "word": "habitée",
+      "score": 0.6002,
+      "rank": 531
+    },
+    {
+      "word": "généalogie",
+      "score": 0.6001,
+      "rank": 532
+    },
+    {
+      "word": "égorger",
+      "score": 0.6001,
+      "rank": 533
+    },
+    {
+      "word": "récit",
+      "score": 0.6,
+      "rank": 534
+    },
+    {
+      "word": "faussaires",
+      "score": 0.5999,
+      "rank": 535
+    },
+    {
+      "word": "desseins",
+      "score": 0.5999,
+      "rank": 536
+    },
+    {
+      "word": "mes",
+      "score": 0.5998,
+      "rank": 537
+    },
+    {
+      "word": "siens",
+      "score": 0.5998,
+      "rank": 538
+    },
+    {
+      "word": "cousine",
+      "score": 0.5998,
+      "rank": 539
+    },
+    {
+      "word": "malkovich",
+      "score": 0.5998,
+      "rank": 540
+    },
+    {
+      "word": "puant",
+      "score": 0.5998,
+      "rank": 541
+    },
+    {
+      "word": "icônes",
+      "score": 0.5997,
+      "rank": 542
+    },
+    {
+      "word": "partageaient",
+      "score": 0.5996,
+      "rank": 543
+    },
+    {
+      "word": "réunissent",
+      "score": 0.5996,
+      "rank": 544
+    },
+    {
+      "word": "détailler",
+      "score": 0.5995,
+      "rank": 545
+    },
+    {
+      "word": "parias",
+      "score": 0.5995,
+      "rank": 546
+    },
+    {
+      "word": "tia",
+      "score": 0.5992,
+      "rank": 547
+    },
+    {
+      "word": "histoires",
+      "score": 0.5991,
+      "rank": 548
+    },
+    {
+      "word": "plaã",
+      "score": 0.5991,
+      "rank": 549
+    },
+    {
+      "word": "dela",
+      "score": 0.5991,
+      "rank": 550
+    },
+    {
+      "word": "chiantes",
+      "score": 0.599,
+      "rank": 551
+    },
+    {
+      "word": "society",
+      "score": 0.5989,
+      "rank": 552
+    },
+    {
+      "word": "fiançailles",
+      "score": 0.5989,
+      "rank": 553
+    },
+    {
+      "word": "premiers",
+      "score": 0.5989,
+      "rank": 554
+    },
+    {
+      "word": "casa",
+      "score": 0.5988,
+      "rank": 555
+    },
+    {
+      "word": "ringards",
+      "score": 0.5987,
+      "rank": 556
+    },
+    {
+      "word": "enchères",
+      "score": 0.5987,
+      "rank": 557
+    },
+    {
+      "word": "dona",
+      "score": 0.5987,
+      "rank": 558
+    },
+    {
+      "word": "mutuellement",
+      "score": 0.5986,
+      "rank": 559
+    },
+    {
+      "word": "ishval",
+      "score": 0.5986,
+      "rank": 560
+    },
+    {
+      "word": "caresse",
+      "score": 0.5986,
+      "rank": 561
+    },
+    {
+      "word": "matteo",
+      "score": 0.5986,
+      "rank": 562
+    },
+    {
+      "word": "enfers",
+      "score": 0.5986,
+      "rank": 563
+    },
+    {
+      "word": "leurs",
+      "score": 0.5986,
+      "rank": 564
+    },
+    {
+      "word": "gentilles",
+      "score": 0.5986,
+      "rank": 565
+    },
+    {
+      "word": "patsy",
+      "score": 0.5984,
+      "rank": 566
+    },
+    {
+      "word": "éventualité",
+      "score": 0.5984,
+      "rank": 567
+    },
+    {
+      "word": "étayer",
+      "score": 0.5984,
+      "rank": 568
+    },
+    {
+      "word": "tenir",
+      "score": 0.5983,
+      "rank": 569
+    },
+    {
+      "word": "dem",
+      "score": 0.5983,
+      "rank": 570
+    },
+    {
+      "word": "judée",
+      "score": 0.5982,
+      "rank": 571
+    },
+    {
+      "word": "partiras",
+      "score": 0.5982,
+      "rank": 572
+    },
+    {
+      "word": "vendes",
+      "score": 0.5981,
+      "rank": 573
+    },
+    {
+      "word": "liv",
+      "score": 0.598,
+      "rank": 574
+    },
+    {
+      "word": "vieille",
+      "score": 0.598,
+      "rank": 575
+    },
+    {
+      "word": "bourses",
+      "score": 0.598,
+      "rank": 576
+    },
+    {
+      "word": "concerne",
+      "score": 0.5979,
+      "rank": 577
+    },
+    {
+      "word": "relation",
+      "score": 0.5979,
+      "rank": 578
+    },
+    {
+      "word": "corp",
+      "score": 0.5979,
+      "rank": 579
+    },
+    {
+      "word": "concernent",
+      "score": 0.5979,
+      "rank": 580
+    },
+    {
+      "word": "arrhes",
+      "score": 0.5979,
+      "rank": 581
+    },
+    {
+      "word": "livrais",
+      "score": 0.5978,
+      "rank": 582
+    },
+    {
+      "word": "karla",
+      "score": 0.5977,
+      "rank": 583
+    },
+    {
+      "word": "retrouves",
+      "score": 0.5977,
+      "rank": 584
+    },
+    {
+      "word": "rad",
+      "score": 0.5977,
+      "rank": 585
+    },
+    {
+      "word": "tim",
+      "score": 0.5976,
+      "rank": 586
+    },
+    {
+      "word": "emmèneras",
+      "score": 0.5976,
+      "rank": 587
+    },
+    {
+      "word": "bandeaux",
+      "score": 0.5975,
+      "rank": 588
+    },
+    {
+      "word": "obsèques",
+      "score": 0.5974,
+      "rank": 589
+    },
+    {
+      "word": "litière",
+      "score": 0.5974,
+      "rank": 590
+    },
+    {
+      "word": "amériques",
+      "score": 0.5974,
+      "rank": 591
+    },
+    {
+      "word": "premiêre",
+      "score": 0.5973,
+      "rank": 592
+    },
+    {
+      "word": "soutenue",
+      "score": 0.5972,
+      "rank": 593
+    },
+    {
+      "word": "demeures",
+      "score": 0.5972,
+      "rank": 594
+    },
+    {
+      "word": "guéries",
+      "score": 0.5972,
+      "rank": 595
+    },
+    {
+      "word": "préfet",
+      "score": 0.5972,
+      "rank": 596
+    },
+    {
+      "word": "pari",
+      "score": 0.5971,
+      "rank": 597
+    },
+    {
+      "word": "série",
+      "score": 0.597,
+      "rank": 598
+    },
+    {
+      "word": "déc",
+      "score": 0.597,
+      "rank": 599
+    },
+    {
+      "word": "préavis",
+      "score": 0.597,
+      "rank": 600
+    },
+    {
+      "word": "niche",
+      "score": 0.597,
+      "rank": 601
+    },
+    {
+      "word": "engagerais",
+      "score": 0.5969,
+      "rank": 602
+    },
+    {
+      "word": "marrié",
+      "score": 0.5969,
+      "rank": 603
+    },
+    {
+      "word": "ridée",
+      "score": 0.5969,
+      "rank": 604
+    },
+    {
+      "word": "lirais",
+      "score": 0.5969,
+      "rank": 605
+    },
+    {
+      "word": "graeme",
+      "score": 0.5969,
+      "rank": 606
+    },
+    {
+      "word": "paître",
+      "score": 0.5968,
+      "rank": 607
+    },
+    {
+      "word": "cognée",
+      "score": 0.5968,
+      "rank": 608
+    },
+    {
+      "word": "aisselles",
+      "score": 0.5967,
+      "rank": 609
+    },
+    {
+      "word": "fond",
+      "score": 0.5967,
+      "rank": 610
+    },
+    {
+      "word": "concernées",
+      "score": 0.5967,
+      "rank": 611
+    },
+    {
+      "word": "réunissez",
+      "score": 0.5967,
+      "rank": 612
+    },
+    {
+      "word": "barrès",
+      "score": 0.5965,
+      "rank": 613
+    },
+    {
+      "word": "spécial",
+      "score": 0.5965,
+      "rank": 614
+    },
+    {
+      "word": "anson",
+      "score": 0.5965,
+      "rank": 615
+    },
+    {
+      "word": "détaillant",
+      "score": 0.5965,
+      "rank": 616
+    },
+    {
+      "word": "présume",
+      "score": 0.5964,
+      "rank": 617
+    },
+    {
+      "word": "répandent",
+      "score": 0.5964,
+      "rank": 618
+    },
+    {
+      "word": "rassemblés",
+      "score": 0.5963,
+      "rank": 619
+    },
+    {
+      "word": "plaie",
+      "score": 0.5963,
+      "rank": 620
+    },
+    {
+      "word": "écorce",
+      "score": 0.5963,
+      "rank": 621
+    },
+    {
+      "word": "portons",
+      "score": 0.5962,
+      "rank": 622
+    },
+    {
+      "word": "hante",
+      "score": 0.5962,
+      "rank": 623
+    },
+    {
+      "word": "égorge",
+      "score": 0.5962,
+      "rank": 624
+    },
+    {
+      "word": "détail",
+      "score": 0.5962,
+      "rank": 625
+    },
+    {
+      "word": "apparitions",
+      "score": 0.5962,
+      "rank": 626
+    },
+    {
+      "word": "dib",
+      "score": 0.5961,
+      "rank": 627
+    },
+    {
+      "word": "broder",
+      "score": 0.5959,
+      "rank": 628
+    },
+    {
+      "word": "sortes",
+      "score": 0.5959,
+      "rank": 629
+    },
+    {
+      "word": "énervé",
+      "score": 0.5958,
+      "rank": 630
+    },
+    {
+      "word": "soignées",
+      "score": 0.5958,
+      "rank": 631
+    },
+    {
+      "word": "énerve",
+      "score": 0.5958,
+      "rank": 632
+    },
+    {
+      "word": "dmitri",
+      "score": 0.5957,
+      "rank": 633
+    },
+    {
+      "word": "historien",
+      "score": 0.5957,
+      "rank": 634
+    },
+    {
+      "word": "vivi",
+      "score": 0.5956,
+      "rank": 635
+    },
+    {
+      "word": "réuni",
+      "score": 0.5954,
+      "rank": 636
+    },
+    {
+      "word": "fidèles",
+      "score": 0.5953,
+      "rank": 637
+    },
+    {
+      "word": "brothers",
+      "score": 0.5953,
+      "rank": 638
+    },
+    {
+      "word": "intérieures",
+      "score": 0.5952,
+      "rank": 639
+    },
+    {
+      "word": "possèdent",
+      "score": 0.5952,
+      "rank": 640
+    },
+    {
+      "word": "matelas",
+      "score": 0.5951,
+      "rank": 641
+    },
+    {
+      "word": "chéris",
+      "score": 0.5951,
+      "rank": 642
+    },
+    {
+      "word": "confère",
+      "score": 0.5951,
+      "rank": 643
+    },
+    {
+      "word": "caste",
+      "score": 0.5951,
+      "rank": 644
+    },
+    {
+      "word": "adoptif",
+      "score": 0.595,
+      "rank": 645
+    },
+    {
+      "word": "rajouté",
+      "score": 0.595,
+      "rank": 646
+    },
+    {
+      "word": "corporelle",
+      "score": 0.595,
+      "rank": 647
+    },
+    {
+      "word": "reiko",
+      "score": 0.5948,
+      "rank": 648
+    },
+    {
+      "word": "sonnera",
+      "score": 0.5947,
+      "rank": 649
+    },
+    {
+      "word": "prieur",
+      "score": 0.5947,
+      "rank": 650
+    },
+    {
+      "word": "crisse",
+      "score": 0.5947,
+      "rank": 651
+    },
+    {
+      "word": "montrés",
+      "score": 0.5947,
+      "rank": 652
+    },
+    {
+      "word": "pénis",
+      "score": 0.5947,
+      "rank": 653
+    },
+    {
+      "word": "loi",
+      "score": 0.5946,
+      "rank": 654
+    },
+    {
+      "word": "rezian",
+      "score": 0.5946,
+      "rank": 655
+    },
+    {
+      "word": "sie",
+      "score": 0.5946,
+      "rank": 656
+    },
+    {
+      "word": "melissa",
+      "score": 0.5946,
+      "rank": 657
+    },
+    {
+      "word": "fille",
+      "score": 0.5945,
+      "rank": 658
+    },
+    {
+      "word": "rassemble",
+      "score": 0.5945,
+      "rank": 659
+    },
+    {
+      "word": "appartenu",
+      "score": 0.5944,
+      "rank": 660
+    },
+    {
+      "word": "énervent",
+      "score": 0.5944,
+      "rank": 661
+    },
+    {
+      "word": "kyste",
+      "score": 0.5943,
+      "rank": 662
+    },
+    {
+      "word": "viens",
+      "score": 0.5943,
+      "rank": 663
+    },
+    {
+      "word": "gange",
+      "score": 0.5943,
+      "rank": 664
+    },
+    {
+      "word": "glenda",
+      "score": 0.5942,
+      "rank": 665
+    },
+    {
+      "word": "peloter",
+      "score": 0.5942,
+      "rank": 666
+    },
+    {
+      "word": "veuilles",
+      "score": 0.5942,
+      "rank": 667
+    },
+    {
+      "word": "dôme",
+      "score": 0.5941,
+      "rank": 668
+    },
+    {
+      "word": "soutiré",
+      "score": 0.5941,
+      "rank": 669
+    },
+    {
+      "word": "ich",
+      "score": 0.5941,
+      "rank": 670
+    },
+    {
+      "word": "savait",
+      "score": 0.594,
+      "rank": 671
+    },
+    {
+      "word": "annule",
+      "score": 0.594,
+      "rank": 672
+    },
+    {
+      "word": "desquels",
+      "score": 0.5939,
+      "rank": 673
+    },
+    {
+      "word": "parie",
+      "score": 0.5939,
+      "rank": 674
+    },
+    {
+      "word": "énervée",
+      "score": 0.5939,
+      "rank": 675
+    },
+    {
+      "word": "jaillit",
+      "score": 0.5938,
+      "rank": 676
+    },
+    {
+      "word": "noëlle",
+      "score": 0.5938,
+      "rank": 677
+    },
+    {
+      "word": "génèrent",
+      "score": 0.5938,
+      "rank": 678
+    },
+    {
+      "word": "genèse",
+      "score": 0.5937,
+      "rank": 679
+    },
+    {
+      "word": "achetons",
+      "score": 0.5936,
+      "rank": 680
+    },
+    {
+      "word": "fai",
+      "score": 0.5936,
+      "rank": 681
+    },
+    {
+      "word": "appartient",
+      "score": 0.5936,
+      "rank": 682
+    },
+    {
+      "word": "tva",
+      "score": 0.5936,
+      "rank": 683
+    },
+    {
+      "word": "fabre",
+      "score": 0.5936,
+      "rank": 684
+    },
+    {
+      "word": "offrande",
+      "score": 0.5936,
+      "rank": 685
+    },
+    {
+      "word": "littérature",
+      "score": 0.5935,
+      "rank": 686
+    },
+    {
+      "word": "empilés",
+      "score": 0.5935,
+      "rank": 687
+    },
+    {
+      "word": "sonnerie",
+      "score": 0.5935,
+      "rank": 688
+    },
+    {
+      "word": "eus",
+      "score": 0.5934,
+      "rank": 689
+    },
+    {
+      "word": "prétendus",
+      "score": 0.5934,
+      "rank": 690
+    },
+    {
+      "word": "petites",
+      "score": 0.5934,
+      "rank": 691
+    },
+    {
+      "word": "quotidien",
+      "score": 0.5933,
+      "rank": 692
+    },
+    {
+      "word": "fiat",
+      "score": 0.5932,
+      "rank": 693
+    },
+    {
+      "word": "compagnons",
+      "score": 0.5932,
+      "rank": 694
+    },
+    {
+      "word": "mœurs",
+      "score": 0.5931,
+      "rank": 695
+    },
+    {
+      "word": "nts",
+      "score": 0.593,
+      "rank": 696
+    },
+    {
+      "word": "décidons",
+      "score": 0.593,
+      "rank": 697
+    },
+    {
+      "word": "élimine",
+      "score": 0.593,
+      "rank": 698
+    },
+    {
+      "word": "kelley",
+      "score": 0.593,
+      "rank": 699
+    },
+    {
+      "word": "raconte",
+      "score": 0.5929,
+      "rank": 700
+    },
+    {
+      "word": "rédige",
+      "score": 0.5929,
+      "rank": 701
+    },
+    {
+      "word": "étranglement",
+      "score": 0.5929,
+      "rank": 702
+    },
+    {
+      "word": "dancing",
+      "score": 0.5929,
+      "rank": 703
+    },
+    {
+      "word": "énervait",
+      "score": 0.5928,
+      "rank": 704
+    },
+    {
+      "word": "innée",
+      "score": 0.5928,
+      "rank": 705
+    },
+    {
+      "word": "toutes",
+      "score": 0.5927,
+      "rank": 706
+    },
+    {
+      "word": "vergers",
+      "score": 0.5927,
+      "rank": 707
+    },
+    {
+      "word": "considérais",
+      "score": 0.5927,
+      "rank": 708
+    },
+    {
+      "word": "présages",
+      "score": 0.5927,
+      "rank": 709
+    },
+    {
+      "word": "andrews",
+      "score": 0.5927,
+      "rank": 710
+    },
+    {
+      "word": "elu",
+      "score": 0.5926,
+      "rank": 711
+    },
+    {
+      "word": "dring",
+      "score": 0.5925,
+      "rank": 712
+    },
+    {
+      "word": "loutre",
+      "score": 0.5925,
+      "rank": 713
+    },
+    {
+      "word": "loutres",
+      "score": 0.5925,
+      "rank": 714
+    },
+    {
+      "word": "serrée",
+      "score": 0.5924,
+      "rank": 715
+    },
+    {
+      "word": "gonzesses",
+      "score": 0.5923,
+      "rank": 716
+    },
+    {
+      "word": "noi",
+      "score": 0.5923,
+      "rank": 717
+    },
+    {
+      "word": "garcía",
+      "score": 0.5923,
+      "rank": 718
+    },
+    {
+      "word": "mariages",
+      "score": 0.5923,
+      "rank": 719
+    },
+    {
+      "word": "dattes",
+      "score": 0.5922,
+      "rank": 720
+    },
+    {
+      "word": "katharina",
+      "score": 0.5921,
+      "rank": 721
+    },
+    {
+      "word": "mat",
+      "score": 0.592,
+      "rank": 722
+    },
+    {
+      "word": "génisse",
+      "score": 0.592,
+      "rank": 723
+    },
+    {
+      "word": "valais",
+      "score": 0.592,
+      "rank": 724
+    },
+    {
+      "word": "réunir",
+      "score": 0.592,
+      "rank": 725
+    },
+    {
+      "word": "pla",
+      "score": 0.592,
+      "rank": 726
+    },
+    {
+      "word": "parmis",
+      "score": 0.592,
+      "rank": 727
+    },
+    {
+      "word": "dansais",
+      "score": 0.5919,
+      "rank": 728
+    },
+    {
+      "word": "nogales",
+      "score": 0.5919,
+      "rank": 729
+    },
+    {
+      "word": "nike",
+      "score": 0.5919,
+      "rank": 730
+    },
+    {
+      "word": "dansons",
+      "score": 0.5919,
+      "rank": 731
+    },
+    {
+      "word": "paieras",
+      "score": 0.5919,
+      "rank": 732
+    },
+    {
+      "word": "aveuglant",
+      "score": 0.5919,
+      "rank": 733
+    },
+    {
+      "word": "vieux",
+      "score": 0.5919,
+      "rank": 734
+    },
+    {
+      "word": "prends",
+      "score": 0.5918,
+      "rank": 735
+    },
+    {
+      "word": "raza",
+      "score": 0.5918,
+      "rank": 736
+    },
+    {
+      "word": "gendre",
+      "score": 0.5918,
+      "rank": 737
+    },
+    {
+      "word": "avin",
+      "score": 0.5917,
+      "rank": 738
+    },
+    {
+      "word": "garçonnière",
+      "score": 0.5917,
+      "rank": 739
+    },
+    {
+      "word": "anciennes",
+      "score": 0.5917,
+      "rank": 740
+    },
+    {
+      "word": "maternité",
+      "score": 0.5917,
+      "rank": 741
+    },
+    {
+      "word": "loques",
+      "score": 0.5916,
+      "rank": 742
+    },
+    {
+      "word": "commun",
+      "score": 0.5915,
+      "rank": 743
+    },
+    {
+      "word": "entourer",
+      "score": 0.5914,
+      "rank": 744
+    },
+    {
+      "word": "sincères",
+      "score": 0.5914,
+      "rank": 745
+    },
+    {
+      "word": "écoulées",
+      "score": 0.5914,
+      "rank": 746
+    },
+    {
+      "word": "proches",
+      "score": 0.5914,
+      "rank": 747
+    },
+    {
+      "word": "énervant",
+      "score": 0.5914,
+      "rank": 748
+    },
+    {
+      "word": "fife",
+      "score": 0.5913,
+      "rank": 749
+    },
+    {
+      "word": "sisko",
+      "score": 0.5913,
+      "rank": 750
+    },
+    {
+      "word": "faits",
+      "score": 0.5913,
+      "rank": 751
+    },
+    {
+      "word": "développe",
+      "score": 0.5913,
+      "rank": 752
+    },
+    {
+      "word": "fêtards",
+      "score": 0.5913,
+      "rank": 753
+    },
+    {
+      "word": "souza",
+      "score": 0.5912,
+      "rank": 754
+    },
+    {
+      "word": "annuler",
+      "score": 0.5912,
+      "rank": 755
+    },
+    {
+      "word": "accordons",
+      "score": 0.5912,
+      "rank": 756
+    },
+    {
+      "word": "mazette",
+      "score": 0.5911,
+      "rank": 757
+    },
+    {
+      "word": "équiper",
+      "score": 0.5911,
+      "rank": 758
+    },
+    {
+      "word": "énerver",
+      "score": 0.591,
+      "rank": 759
+    },
+    {
+      "word": "conception",
+      "score": 0.591,
+      "rank": 760
+    },
+    {
+      "word": "anderson",
+      "score": 0.591,
+      "rank": 761
+    },
+    {
+      "word": "dealeuse",
+      "score": 0.591,
+      "rank": 762
+    },
+    {
+      "word": "éprouvez",
+      "score": 0.591,
+      "rank": 763
+    },
+    {
+      "word": "humanité",
+      "score": 0.591,
+      "rank": 764
+    },
+    {
+      "word": "community",
+      "score": 0.591,
+      "rank": 765
+    },
+    {
+      "word": "oss",
+      "score": 0.591,
+      "rank": 766
+    },
+    {
+      "word": "lci",
+      "score": 0.5909,
+      "rank": 767
+    },
+    {
+      "word": "particulière",
+      "score": 0.5908,
+      "rank": 768
+    },
+    {
+      "word": "pareille",
+      "score": 0.5908,
+      "rank": 769
+    },
+    {
+      "word": "étables",
+      "score": 0.5908,
+      "rank": 770
+    },
+    {
+      "word": "réfère",
+      "score": 0.5908,
+      "rank": 771
+    },
+    {
+      "word": "discutais",
+      "score": 0.5907,
+      "rank": 772
+    },
+    {
+      "word": "accablantes",
+      "score": 0.5906,
+      "rank": 773
+    },
+    {
+      "word": "souille",
+      "score": 0.5906,
+      "rank": 774
+    },
+    {
+      "word": "aînée",
+      "score": 0.5906,
+      "rank": 775
+    },
+    {
+      "word": "mille",
+      "score": 0.5905,
+      "rank": 776
+    },
+    {
+      "word": "devenez",
+      "score": 0.5904,
+      "rank": 777
+    },
+    {
+      "word": "vise",
+      "score": 0.5904,
+      "rank": 778
+    },
+    {
+      "word": "pétales",
+      "score": 0.5904,
+      "rank": 779
+    },
+    {
+      "word": "vespa",
+      "score": 0.5902,
+      "rank": 780
+    },
+    {
+      "word": "lesquelles",
+      "score": 0.5902,
+      "rank": 781
+    },
+    {
+      "word": "une",
+      "score": 0.5901,
+      "rank": 782
+    },
+    {
+      "word": "usurier",
+      "score": 0.5901,
+      "rank": 783
+    },
+    {
+      "word": "présenta",
+      "score": 0.5901,
+      "rank": 784
+    },
+    {
+      "word": "rentrais",
+      "score": 0.5901,
+      "rank": 785
+    },
+    {
+      "word": "dansait",
+      "score": 0.59,
+      "rank": 786
+    },
+    {
+      "word": "répande",
+      "score": 0.59,
+      "rank": 787
+    },
+    {
+      "word": "messe",
+      "score": 0.59,
+      "rank": 788
+    },
+    {
+      "word": "recueillis",
+      "score": 0.59,
+      "rank": 789
+    },
+    {
+      "word": "adoptifs",
+      "score": 0.59,
+      "rank": 790
+    },
+    {
+      "word": "chérit",
+      "score": 0.59,
+      "rank": 791
+    },
+    {
+      "word": "génère",
+      "score": 0.5899,
+      "rank": 792
+    },
+    {
+      "word": "hérite",
+      "score": 0.5899,
+      "rank": 793
+    },
+    {
+      "word": "créa",
+      "score": 0.5899,
+      "rank": 794
+    },
+    {
+      "word": "montrées",
+      "score": 0.5899,
+      "rank": 795
+    },
+    {
+      "word": "estimais",
+      "score": 0.5899,
+      "rank": 796
+    },
+    {
+      "word": "iis",
+      "score": 0.5898,
+      "rank": 797
+    },
+    {
+      "word": "cadeau",
+      "score": 0.5898,
+      "rank": 798
+    },
+    {
+      "word": "épousée",
+      "score": 0.5898,
+      "rank": 799
+    },
+    {
+      "word": "plaies",
+      "score": 0.5898,
+      "rank": 800
+    },
+    {
+      "word": "égarées",
+      "score": 0.5898,
+      "rank": 801
+    },
+    {
+      "word": "bei",
+      "score": 0.5897,
+      "rank": 802
+    },
+    {
+      "word": "dorota",
+      "score": 0.5897,
+      "rank": 803
+    },
+    {
+      "word": "vend",
+      "score": 0.5897,
+      "rank": 804
+    },
+    {
+      "word": "delle",
+      "score": 0.5897,
+      "rank": 805
+    },
+    {
+      "word": "portent",
+      "score": 0.5896,
+      "rank": 806
+    },
+    {
+      "word": "trois",
+      "score": 0.5896,
+      "rank": 807
+    },
+    {
+      "word": "cisjordanie",
+      "score": 0.5896,
+      "rank": 808
+    },
+    {
+      "word": "soyons",
+      "score": 0.5896,
+      "rank": 809
+    },
+    {
+      "word": "comptées",
+      "score": 0.5895,
+      "rank": 810
+    },
+    {
+      "word": "cesses",
+      "score": 0.5895,
+      "rank": 811
+    },
+    {
+      "word": "contiennent",
+      "score": 0.5895,
+      "rank": 812
+    },
+    {
+      "word": "rime",
+      "score": 0.5895,
+      "rank": 813
+    },
+    {
+      "word": "fées",
+      "score": 0.5895,
+      "rank": 814
+    },
+    {
+      "word": "clara",
+      "score": 0.5894,
+      "rank": 815
+    },
+    {
+      "word": "fasse",
+      "score": 0.5894,
+      "rank": 816
+    },
+    {
+      "word": "déçoivent",
+      "score": 0.5893,
+      "rank": 817
+    },
+    {
+      "word": "étre",
+      "score": 0.5893,
+      "rank": 818
+    },
+    {
+      "word": "considérés",
+      "score": 0.5893,
+      "rank": 819
+    },
+    {
+      "word": "régents",
+      "score": 0.5893,
+      "rank": 820
+    },
+    {
+      "word": "donneuse",
+      "score": 0.5892,
+      "rank": 821
+    },
+    {
+      "word": "inédit",
+      "score": 0.5892,
+      "rank": 822
+    },
+    {
+      "word": "bizutage",
+      "score": 0.5892,
+      "rank": 823
+    },
+    {
+      "word": "trié",
+      "score": 0.5892,
+      "rank": 824
+    },
+    {
+      "word": "pourpre",
+      "score": 0.5892,
+      "rank": 825
+    },
+    {
+      "word": "partagerons",
+      "score": 0.5892,
+      "rank": 826
+    },
+    {
+      "word": "passé",
+      "score": 0.5891,
+      "rank": 827
+    },
+    {
+      "word": "folks",
+      "score": 0.5891,
+      "rank": 828
+    },
+    {
+      "word": "dévorent",
+      "score": 0.5891,
+      "rank": 829
+    },
+    {
+      "word": "jane",
+      "score": 0.5891,
+      "rank": 830
+    },
+    {
+      "word": "nés",
+      "score": 0.5891,
+      "rank": 831
+    },
+    {
+      "word": "réunit",
+      "score": 0.589,
+      "rank": 832
+    },
+    {
+      "word": "malouines",
+      "score": 0.589,
+      "rank": 833
+    },
+    {
+      "word": "abu",
+      "score": 0.5889,
+      "rank": 834
+    },
+    {
+      "word": "compagne",
+      "score": 0.5889,
+      "rank": 835
+    },
+    {
+      "word": "iga",
+      "score": 0.5889,
+      "rank": 836
+    },
+    {
+      "word": "tantine",
+      "score": 0.5888,
+      "rank": 837
+    },
+    {
+      "word": "communautés",
+      "score": 0.5888,
+      "rank": 838
+    },
+    {
+      "word": "anya",
+      "score": 0.5888,
+      "rank": 839
+    },
+    {
+      "word": "jas",
+      "score": 0.5888,
+      "rank": 840
+    },
+    {
+      "word": "susanna",
+      "score": 0.5888,
+      "rank": 841
+    },
+    {
+      "word": "dalle",
+      "score": 0.5887,
+      "rank": 842
+    },
+    {
+      "word": "ros",
+      "score": 0.5887,
+      "rank": 843
+    },
+    {
+      "word": "louer",
+      "score": 0.5887,
+      "rank": 844
+    },
+    {
+      "word": "pére",
+      "score": 0.5887,
+      "rank": 845
+    },
+    {
+      "word": "voudrions",
+      "score": 0.5887,
+      "rank": 846
+    },
+    {
+      "word": "grandit",
+      "score": 0.5887,
+      "rank": 847
+    },
+    {
+      "word": "racontais",
+      "score": 0.5886,
+      "rank": 848
+    },
+    {
+      "word": "logés",
+      "score": 0.5886,
+      "rank": 849
+    },
+    {
+      "word": "écriras",
+      "score": 0.5885,
+      "rank": 850
+    },
+    {
+      "word": "village",
+      "score": 0.5882,
+      "rank": 851
+    },
+    {
+      "word": "caniches",
+      "score": 0.5882,
+      "rank": 852
+    },
+    {
+      "word": "réflexions",
+      "score": 0.5882,
+      "rank": 853
+    },
+    {
+      "word": "annalise",
+      "score": 0.5882,
+      "rank": 854
+    },
+    {
+      "word": "percuté",
+      "score": 0.5882,
+      "rank": 855
+    },
+    {
+      "word": "cession",
+      "score": 0.5882,
+      "rank": 856
+    },
+    {
+      "word": "crevés",
+      "score": 0.5882,
+      "rank": 857
+    },
+    {
+      "word": "vengeurs",
+      "score": 0.5882,
+      "rank": 858
+    },
+    {
+      "word": "levés",
+      "score": 0.5881,
+      "rank": 859
+    },
+    {
+      "word": "andrés",
+      "score": 0.5881,
+      "rank": 860
+    },
+    {
+      "word": "tous",
+      "score": 0.5881,
+      "rank": 861
+    },
+    {
+      "word": "années",
+      "score": 0.5881,
+      "rank": 862
+    },
+    {
+      "word": "vierges",
+      "score": 0.5881,
+      "rank": 863
+    },
+    {
+      "word": "goupille",
+      "score": 0.588,
+      "rank": 864
+    },
+    {
+      "word": "gestes",
+      "score": 0.588,
+      "rank": 865
+    },
+    {
+      "word": "teo",
+      "score": 0.588,
+      "rank": 866
+    },
+    {
+      "word": "lisons",
+      "score": 0.588,
+      "rank": 867
+    },
+    {
+      "word": "étant",
+      "score": 0.588,
+      "rank": 868
+    },
+    {
+      "word": "everyone",
+      "score": 0.5879,
+      "rank": 869
+    },
+    {
+      "word": "dimaggio",
+      "score": 0.5879,
+      "rank": 870
+    },
+    {
+      "word": "bégaiement",
+      "score": 0.5879,
+      "rank": 871
+    },
+    {
+      "word": "gênantes",
+      "score": 0.5879,
+      "rank": 872
+    },
+    {
+      "word": "entier",
+      "score": 0.5878,
+      "rank": 873
+    },
+    {
+      "word": "kiryu",
+      "score": 0.5878,
+      "rank": 874
+    },
+    {
+      "word": "mariais",
+      "score": 0.5878,
+      "rank": 875
+    },
+    {
+      "word": "harken",
+      "score": 0.5878,
+      "rank": 876
+    },
+    {
+      "word": "aînés",
+      "score": 0.5877,
+      "rank": 877
+    },
+    {
+      "word": "premiã",
+      "score": 0.5877,
+      "rank": 878
+    },
+    {
+      "word": "sera",
+      "score": 0.5876,
+      "rank": 879
+    },
+    {
+      "word": "vivons",
+      "score": 0.5876,
+      "rank": 880
+    },
+    {
+      "word": "appartenait",
+      "score": 0.5875,
+      "rank": 881
+    },
+    {
+      "word": "lolos",
+      "score": 0.5875,
+      "rank": 882
+    },
+    {
+      "word": "amertume",
+      "score": 0.5875,
+      "rank": 883
+    },
+    {
+      "word": "rushes",
+      "score": 0.5875,
+      "rank": 884
+    },
+    {
+      "word": "adoptés",
+      "score": 0.5875,
+      "rank": 885
+    },
+    {
+      "word": "péteux",
+      "score": 0.5874,
+      "rank": 886
+    },
+    {
+      "word": "faussaire",
+      "score": 0.5874,
+      "rank": 887
+    },
+    {
+      "word": "soutifs",
+      "score": 0.5874,
+      "rank": 888
+    },
+    {
+      "word": "rani",
+      "score": 0.5874,
+      "rank": 889
+    },
+    {
+      "word": "donner",
+      "score": 0.5874,
+      "rank": 890
+    },
+    {
+      "word": "faîtes",
+      "score": 0.5874,
+      "rank": 891
+    },
+    {
+      "word": "ayant",
+      "score": 0.5874,
+      "rank": 892
+    },
+    {
+      "word": "antérieurs",
+      "score": 0.5873,
+      "rank": 893
+    },
+    {
+      "word": "suraj",
+      "score": 0.5873,
+      "rank": 894
+    },
+    {
+      "word": "compatir",
+      "score": 0.5873,
+      "rank": 895
+    },
+    {
+      "word": "nouvelles",
+      "score": 0.5873,
+      "rank": 896
+    },
+    {
+      "word": "célibat",
+      "score": 0.5873,
+      "rank": 897
+    },
+    {
+      "word": "nacelle",
+      "score": 0.5873,
+      "rank": 898
+    },
+    {
+      "word": "moisie",
+      "score": 0.5872,
+      "rank": 899
+    },
+    {
+      "word": "répertoire",
+      "score": 0.5872,
+      "rank": 900
+    },
+    {
+      "word": "accompagnés",
+      "score": 0.5872,
+      "rank": 901
+    },
+    {
+      "word": "hirono",
+      "score": 0.5872,
+      "rank": 902
+    },
+    {
+      "word": "teinte",
+      "score": 0.5871,
+      "rank": 903
+    },
+    {
+      "word": "insère",
+      "score": 0.5871,
+      "rank": 904
+    },
+    {
+      "word": "ratées",
+      "score": 0.5871,
+      "rank": 905
+    },
+    {
+      "word": "maigri",
+      "score": 0.5871,
+      "rank": 906
+    },
+    {
+      "word": "jos",
+      "score": 0.587,
+      "rank": 907
+    },
+    {
+      "word": "fédération",
+      "score": 0.5869,
+      "rank": 908
+    },
+    {
+      "word": "kaylee",
+      "score": 0.5869,
+      "rank": 909
+    },
+    {
+      "word": "larissa",
+      "score": 0.5869,
+      "rank": 910
+    },
+    {
+      "word": "sonja",
+      "score": 0.5869,
+      "rank": 911
+    },
+    {
+      "word": "ler",
+      "score": 0.5869,
+      "rank": 912
+    },
+    {
+      "word": "richards",
+      "score": 0.5868,
+      "rank": 913
+    },
+    {
+      "word": "flotte",
+      "score": 0.5868,
+      "rank": 914
+    },
+    {
+      "word": "details",
+      "score": 0.5868,
+      "rank": 915
+    },
+    {
+      "word": "dorée",
+      "score": 0.5868,
+      "rank": 916
+    },
+    {
+      "word": "partages",
+      "score": 0.5868,
+      "rank": 917
+    },
+    {
+      "word": "loïc",
+      "score": 0.5867,
+      "rank": 918
+    },
+    {
+      "word": "considérées",
+      "score": 0.5867,
+      "rank": 919
+    },
+    {
+      "word": "tue",
+      "score": 0.5867,
+      "rank": 920
+    },
+    {
+      "word": "diseuse",
+      "score": 0.5867,
+      "rank": 921
+    },
+    {
+      "word": "litiges",
+      "score": 0.5867,
+      "rank": 922
+    },
+    {
+      "word": "plais",
+      "score": 0.5866,
+      "rank": 923
+    },
+    {
+      "word": "reiden",
+      "score": 0.5866,
+      "rank": 924
+    },
+    {
+      "word": "leve",
+      "score": 0.5866,
+      "rank": 925
+    },
+    {
+      "word": "méritais",
+      "score": 0.5866,
+      "rank": 926
+    },
+    {
+      "word": "ecole",
+      "score": 0.5866,
+      "rank": 927
+    },
+    {
+      "word": "moeurs",
+      "score": 0.5865,
+      "rank": 928
+    },
+    {
+      "word": "laquelle",
+      "score": 0.5865,
+      "rank": 929
+    },
+    {
+      "word": "partage",
+      "score": 0.5865,
+      "rank": 930
+    },
+    {
+      "word": "énigme",
+      "score": 0.5864,
+      "rank": 931
+    },
+    {
+      "word": "épousait",
+      "score": 0.5864,
+      "rank": 932
+    },
+    {
+      "word": "nelle",
+      "score": 0.5864,
+      "rank": 933
+    },
+    {
+      "word": "plaisantes",
+      "score": 0.5864,
+      "rank": 934
+    },
+    {
+      "word": "prochains",
+      "score": 0.5864,
+      "rank": 935
+    },
+    {
+      "word": "eux",
+      "score": 0.5863,
+      "rank": 936
+    },
+    {
+      "word": "vivrez",
+      "score": 0.5863,
+      "rank": 937
+    },
+    {
+      "word": "disons",
+      "score": 0.5863,
+      "rank": 938
+    },
+    {
+      "word": "sonnent",
+      "score": 0.5862,
+      "rank": 939
+    },
+    {
+      "word": "ëtes",
+      "score": 0.5862,
+      "rank": 940
+    },
+    {
+      "word": "ère",
+      "score": 0.5862,
+      "rank": 941
+    },
+    {
+      "word": "vie",
+      "score": 0.5862,
+      "rank": 942
+    },
+    {
+      "word": "dansez",
+      "score": 0.5861,
+      "rank": 943
+    },
+    {
+      "word": "méga",
+      "score": 0.5861,
+      "rank": 944
+    },
+    {
+      "word": "travis",
+      "score": 0.5861,
+      "rank": 945
+    },
+    {
+      "word": "écoule",
+      "score": 0.586,
+      "rank": 946
+    },
+    {
+      "word": "exécutifs",
+      "score": 0.586,
+      "rank": 947
+    },
+    {
+      "word": "écuries",
+      "score": 0.586,
+      "rank": 948
+    },
+    {
+      "word": "squelettes",
+      "score": 0.586,
+      "rank": 949
+    },
+    {
+      "word": "tycho",
+      "score": 0.586,
+      "rank": 950
+    },
+    {
+      "word": "assistera",
+      "score": 0.5859,
+      "rank": 951
+    },
+    {
+      "word": "kool",
+      "score": 0.5859,
+      "rank": 952
+    },
+    {
+      "word": "réunissant",
+      "score": 0.5859,
+      "rank": 953
+    },
+    {
+      "word": "racontée",
+      "score": 0.5859,
+      "rank": 954
+    },
+    {
+      "word": "développer",
+      "score": 0.5859,
+      "rank": 955
+    },
+    {
+      "word": "visionnaires",
+      "score": 0.5859,
+      "rank": 956
+    },
+    {
+      "word": "advient",
+      "score": 0.5858,
+      "rank": 957
+    },
+    {
+      "word": "maîtrisait",
+      "score": 0.5858,
+      "rank": 958
+    },
+    {
+      "word": "fera",
+      "score": 0.5857,
+      "rank": 959
+    },
+    {
+      "word": "sonnes",
+      "score": 0.5857,
+      "rank": 960
+    },
+    {
+      "word": "patiemment",
+      "score": 0.5857,
+      "rank": 961
+    },
+    {
+      "word": "fiente",
+      "score": 0.5857,
+      "rank": 962
+    },
+    {
+      "word": "répandu",
+      "score": 0.5856,
+      "rank": 963
+    },
+    {
+      "word": "oka",
+      "score": 0.5856,
+      "rank": 964
+    },
+    {
+      "word": "affilé",
+      "score": 0.5856,
+      "rank": 965
+    },
+    {
+      "word": "liée",
+      "score": 0.5856,
+      "rank": 966
+    },
+    {
+      "word": "risquais",
+      "score": 0.5856,
+      "rank": 967
+    },
+    {
+      "word": "nona",
+      "score": 0.5856,
+      "rank": 968
+    },
+    {
+      "word": "oni",
+      "score": 0.5856,
+      "rank": 969
+    },
+    {
+      "word": "primo",
+      "score": 0.5856,
+      "rank": 970
+    },
+    {
+      "word": "dansé",
+      "score": 0.5856,
+      "rank": 971
+    },
+    {
+      "word": "kaye",
+      "score": 0.5856,
+      "rank": 972
+    },
+    {
+      "word": "soignée",
+      "score": 0.5855,
+      "rank": 973
+    },
+    {
+      "word": "sortie",
+      "score": 0.5855,
+      "rank": 974
+    },
+    {
+      "word": "punis",
+      "score": 0.5855,
+      "rank": 975
+    },
+    {
+      "word": "avoir",
+      "score": 0.5855,
+      "rank": 976
+    },
+    {
+      "word": "vive",
+      "score": 0.5854,
+      "rank": 977
+    },
+    {
+      "word": "dresde",
+      "score": 0.5854,
+      "rank": 978
+    },
+    {
+      "word": "connaissions",
+      "score": 0.5854,
+      "rank": 979
+    },
+    {
+      "word": "spécifique",
+      "score": 0.5853,
+      "rank": 980
+    },
+    {
+      "word": "donnait",
+      "score": 0.5853,
+      "rank": 981
+    },
+    {
+      "word": "bridé",
+      "score": 0.5852,
+      "rank": 982
+    },
+    {
+      "word": "tullius",
+      "score": 0.5852,
+      "rank": 983
+    },
+    {
+      "word": "pasa",
+      "score": 0.5852,
+      "rank": 984
+    },
+    {
+      "word": "royauté",
+      "score": 0.5852,
+      "rank": 985
+    },
+    {
+      "word": "montrée",
+      "score": 0.5852,
+      "rank": 986
+    },
+    {
+      "word": "nsa",
+      "score": 0.5851,
+      "rank": 987
+    },
+    {
+      "word": "acheteuse",
+      "score": 0.5851,
+      "rank": 988
+    },
+    {
+      "word": "récits",
+      "score": 0.5851,
+      "rank": 989
+    },
+    {
+      "word": "raconteras",
+      "score": 0.5851,
+      "rank": 990
+    },
+    {
+      "word": "collés",
+      "score": 0.5851,
+      "rank": 991
+    },
+    {
+      "word": "allocs",
+      "score": 0.585,
+      "rank": 992
+    },
+    {
+      "word": "sciemment",
+      "score": 0.5849,
+      "rank": 993
+    },
+    {
+      "word": "existe",
+      "score": 0.5849,
+      "rank": 994
+    },
+    {
+      "word": "prélève",
+      "score": 0.5848,
+      "rank": 995
+    },
+    {
+      "word": "assisterai",
+      "score": 0.5848,
+      "rank": 996
+    },
+    {
+      "word": "dédié",
+      "score": 0.5848,
+      "rank": 997
+    },
+    {
+      "word": "bégaie",
+      "score": 0.5848,
+      "rank": 998
+    },
+    {
+      "word": "geneva",
+      "score": 0.5848,
+      "rank": 999
+    },
+    {
+      "word": "den",
+      "score": 0.5848,
+      "rank": 1000
+    }
+  ]
+}

@@ -1,0 +1,5014 @@
+{
+  "date": "2026-06-17",
+  "puzzleNumber": 165,
+  "lang": "fr",
+  "secret": "voyage",
+  "wordLength": 6,
+  "hints": {
+    "top1": 0.8476,
+    "top10": 0.8126,
+    "top1000": 0.6287
+  },
+  "words": [
+    {
+      "word": "expédie",
+      "score": 0.8476,
+      "rank": 1
+    },
+    {
+      "word": "trip",
+      "score": 0.8415,
+      "rank": 2
+    },
+    {
+      "word": "expédiés",
+      "score": 0.8391,
+      "rank": 3
+    },
+    {
+      "word": "tournage",
+      "score": 0.8367,
+      "rank": 4
+    },
+    {
+      "word": "excursion",
+      "score": 0.836,
+      "rank": 5
+    },
+    {
+      "word": "journey",
+      "score": 0.8241,
+      "rank": 6
+    },
+    {
+      "word": "trajet",
+      "score": 0.8193,
+      "rank": 7
+    },
+    {
+      "word": "périple",
+      "score": 0.8171,
+      "rank": 8
+    },
+    {
+      "word": "itinérant",
+      "score": 0.8168,
+      "rank": 9
+    },
+    {
+      "word": "expédier",
+      "score": 0.8126,
+      "rank": 10
+    },
+    {
+      "word": "croisière",
+      "score": 0.8076,
+      "rank": 11
+    },
+    {
+      "word": "expédition",
+      "score": 0.802,
+      "rank": 12
+    },
+    {
+      "word": "tourte",
+      "score": 0.8019,
+      "rank": 13
+    },
+    {
+      "word": "travelo",
+      "score": 0.799,
+      "rank": 14
+    },
+    {
+      "word": "tournages",
+      "score": 0.7971,
+      "rank": 15
+    },
+    {
+      "word": "déplacements",
+      "score": 0.7957,
+      "rank": 16
+    },
+    {
+      "word": "tournis",
+      "score": 0.7924,
+      "rank": 17
+    },
+    {
+      "word": "traveler",
+      "score": 0.7889,
+      "rank": 18
+    },
+    {
+      "word": "travelling",
+      "score": 0.7886,
+      "rank": 19
+    },
+    {
+      "word": "éteignent",
+      "score": 0.7869,
+      "rank": 20
+    },
+    {
+      "word": "itinéraire",
+      "score": 0.7868,
+      "rank": 21
+    },
+    {
+      "word": "croiseur",
+      "score": 0.7861,
+      "rank": 22
+    },
+    {
+      "word": "excursions",
+      "score": 0.7853,
+      "rank": 23
+    },
+    {
+      "word": "navigué",
+      "score": 0.7835,
+      "rank": 24
+    },
+    {
+      "word": "trek",
+      "score": 0.782,
+      "rank": 25
+    },
+    {
+      "word": "navigue",
+      "score": 0.7806,
+      "rank": 26
+    },
+    {
+      "word": "trajets",
+      "score": 0.7792,
+      "rank": 27
+    },
+    {
+      "word": "embarquement",
+      "score": 0.777,
+      "rank": 28
+    },
+    {
+      "word": "tourne",
+      "score": 0.7764,
+      "rank": 29
+    },
+    {
+      "word": "débarquement",
+      "score": 0.7764,
+      "rank": 30
+    },
+    {
+      "word": "tourments",
+      "score": 0.7762,
+      "rank": 31
+    },
+    {
+      "word": "aventures",
+      "score": 0.7729,
+      "rank": 32
+    },
+    {
+      "word": "expédié",
+      "score": 0.7715,
+      "rank": 33
+    },
+    {
+      "word": "arrimage",
+      "score": 0.771,
+      "rank": 34
+    },
+    {
+      "word": "aventure",
+      "score": 0.7708,
+      "rank": 35
+    },
+    {
+      "word": "croisières",
+      "score": 0.7701,
+      "rank": 36
+    },
+    {
+      "word": "embarquer",
+      "score": 0.7665,
+      "rank": 37
+    },
+    {
+      "word": "expéditions",
+      "score": 0.7658,
+      "rank": 38
+    },
+    {
+      "word": "destination",
+      "score": 0.7617,
+      "rank": 39
+    },
+    {
+      "word": "tournevis",
+      "score": 0.7608,
+      "rank": 40
+    },
+    {
+      "word": "tourna",
+      "score": 0.7606,
+      "rank": 41
+    },
+    {
+      "word": "repérez",
+      "score": 0.7604,
+      "rank": 42
+    },
+    {
+      "word": "tournée",
+      "score": 0.7592,
+      "rank": 43
+    },
+    {
+      "word": "cruise",
+      "score": 0.7583,
+      "rank": 44
+    },
+    {
+      "word": "embarques",
+      "score": 0.7577,
+      "rank": 45
+    },
+    {
+      "word": "croiseurs",
+      "score": 0.7568,
+      "rank": 46
+    },
+    {
+      "word": "parcourent",
+      "score": 0.7556,
+      "rank": 47
+    },
+    {
+      "word": "tourtes",
+      "score": 0.7555,
+      "rank": 48
+    },
+    {
+      "word": "tournera",
+      "score": 0.7555,
+      "rank": 49
+    },
+    {
+      "word": "atteigne",
+      "score": 0.7555,
+      "rank": 50
+    },
+    {
+      "word": "tournent",
+      "score": 0.7539,
+      "rank": 51
+    },
+    {
+      "word": "parcourant",
+      "score": 0.7539,
+      "rank": 52
+    },
+    {
+      "word": "vaisseau",
+      "score": 0.7531,
+      "rank": 53
+    },
+    {
+      "word": "passeurs",
+      "score": 0.7528,
+      "rank": 54
+    },
+    {
+      "word": "naviguer",
+      "score": 0.7528,
+      "rank": 55
+    },
+    {
+      "word": "transportée",
+      "score": 0.752,
+      "rank": 56
+    },
+    {
+      "word": "transportés",
+      "score": 0.7505,
+      "rank": 57
+    },
+    {
+      "word": "rebord",
+      "score": 0.7491,
+      "rank": 58
+    },
+    {
+      "word": "tournais",
+      "score": 0.749,
+      "rank": 59
+    },
+    {
+      "word": "expédiée",
+      "score": 0.7468,
+      "rank": 60
+    },
+    {
+      "word": "tournesol",
+      "score": 0.7468,
+      "rank": 61
+    },
+    {
+      "word": "aventureux",
+      "score": 0.7459,
+      "rank": 62
+    },
+    {
+      "word": "croisera",
+      "score": 0.7454,
+      "rank": 63
+    },
+    {
+      "word": "aventurer",
+      "score": 0.7438,
+      "rank": 64
+    },
+    {
+      "word": "itinéraires",
+      "score": 0.7422,
+      "rank": 65
+    },
+    {
+      "word": "tournés",
+      "score": 0.7415,
+      "rank": 66
+    },
+    {
+      "word": "passoire",
+      "score": 0.7404,
+      "rank": 67
+    },
+    {
+      "word": "tournait",
+      "score": 0.7401,
+      "rank": 68
+    },
+    {
+      "word": "tournons",
+      "score": 0.7396,
+      "rank": 69
+    },
+    {
+      "word": "tourné",
+      "score": 0.7394,
+      "rank": 70
+    },
+    {
+      "word": "nautiques",
+      "score": 0.7387,
+      "rank": 71
+    },
+    {
+      "word": "tournoi",
+      "score": 0.7385,
+      "rank": 72
+    },
+    {
+      "word": "tour",
+      "score": 0.7384,
+      "rank": 73
+    },
+    {
+      "word": "tripes",
+      "score": 0.7382,
+      "rank": 74
+    },
+    {
+      "word": "lajournée",
+      "score": 0.738,
+      "rank": 75
+    },
+    {
+      "word": "raccompagner",
+      "score": 0.7355,
+      "rank": 76
+    },
+    {
+      "word": "emporte",
+      "score": 0.7352,
+      "rank": 77
+    },
+    {
+      "word": "navire",
+      "score": 0.735,
+      "rank": 78
+    },
+    {
+      "word": "avènement",
+      "score": 0.7345,
+      "rank": 79
+    },
+    {
+      "word": "moore",
+      "score": 0.7331,
+      "rank": 80
+    },
+    {
+      "word": "débarquer",
+      "score": 0.7325,
+      "rank": 81
+    },
+    {
+      "word": "parcours",
+      "score": 0.7308,
+      "rank": 82
+    },
+    {
+      "word": "emmenée",
+      "score": 0.7296,
+      "rank": 83
+    },
+    {
+      "word": "tournois",
+      "score": 0.7285,
+      "rank": 84
+    },
+    {
+      "word": "débarque",
+      "score": 0.7268,
+      "rank": 85
+    },
+    {
+      "word": "nautique",
+      "score": 0.7267,
+      "rank": 86
+    },
+    {
+      "word": "embarcadère",
+      "score": 0.7266,
+      "rank": 87
+    },
+    {
+      "word": "traversent",
+      "score": 0.7264,
+      "rank": 88
+    },
+    {
+      "word": "passeur",
+      "score": 0.7253,
+      "rank": 89
+    },
+    {
+      "word": "tourner",
+      "score": 0.725,
+      "rank": 90
+    },
+    {
+      "word": "parcourir",
+      "score": 0.7249,
+      "rank": 91
+    },
+    {
+      "word": "aventureuse",
+      "score": 0.7239,
+      "rank": 92
+    },
+    {
+      "word": "transporté",
+      "score": 0.7239,
+      "rank": 93
+    },
+    {
+      "word": "cest",
+      "score": 0.7238,
+      "rank": 94
+    },
+    {
+      "word": "létale",
+      "score": 0.7237,
+      "rank": 95
+    },
+    {
+      "word": "tourmente",
+      "score": 0.7222,
+      "rank": 96
+    },
+    {
+      "word": "touristique",
+      "score": 0.7222,
+      "rank": 97
+    },
+    {
+      "word": "courir",
+      "score": 0.7212,
+      "rank": 98
+    },
+    {
+      "word": "vaisseaux",
+      "score": 0.7211,
+      "rank": 99
+    },
+    {
+      "word": "traversant",
+      "score": 0.7207,
+      "rank": 100
+    },
+    {
+      "word": "adventure",
+      "score": 0.7206,
+      "rank": 101
+    },
+    {
+      "word": "transportez",
+      "score": 0.7204,
+      "rank": 102
+    },
+    {
+      "word": "atlantide",
+      "score": 0.7197,
+      "rank": 103
+    },
+    {
+      "word": "passagère",
+      "score": 0.7191,
+      "rank": 104
+    },
+    {
+      "word": "tournées",
+      "score": 0.7187,
+      "rank": 105
+    },
+    {
+      "word": "débordement",
+      "score": 0.7184,
+      "rank": 106
+    },
+    {
+      "word": "bateau",
+      "score": 0.7172,
+      "rank": 107
+    },
+    {
+      "word": "embarque",
+      "score": 0.7165,
+      "rank": 108
+    },
+    {
+      "word": "tournure",
+      "score": 0.7154,
+      "rank": 109
+    },
+    {
+      "word": "ship",
+      "score": 0.7153,
+      "rank": 110
+    },
+    {
+      "word": "livrées",
+      "score": 0.7153,
+      "rank": 111
+    },
+    {
+      "word": "yacht",
+      "score": 0.7151,
+      "rank": 112
+    },
+    {
+      "word": "passager",
+      "score": 0.7149,
+      "rank": 113
+    },
+    {
+      "word": "tournante",
+      "score": 0.7147,
+      "rank": 114
+    },
+    {
+      "word": "transportait",
+      "score": 0.7144,
+      "rank": 115
+    },
+    {
+      "word": "largues",
+      "score": 0.714,
+      "rank": 116
+    },
+    {
+      "word": "débarquent",
+      "score": 0.7139,
+      "rank": 117
+    },
+    {
+      "word": "tourment",
+      "score": 0.7138,
+      "rank": 118
+    },
+    {
+      "word": "décoller",
+      "score": 0.713,
+      "rank": 119
+    },
+    {
+      "word": "parcourue",
+      "score": 0.713,
+      "rank": 120
+    },
+    {
+      "word": "pénétrant",
+      "score": 0.7128,
+      "rank": 121
+    },
+    {
+      "word": "embarquée",
+      "score": 0.7116,
+      "rank": 122
+    },
+    {
+      "word": "tourisme",
+      "score": 0.7112,
+      "rank": 123
+    },
+    {
+      "word": "déborder",
+      "score": 0.7108,
+      "rank": 124
+    },
+    {
+      "word": "emplie",
+      "score": 0.7107,
+      "rank": 125
+    },
+    {
+      "word": "naufragé",
+      "score": 0.71,
+      "rank": 126
+    },
+    {
+      "word": "amènent",
+      "score": 0.709,
+      "rank": 127
+    },
+    {
+      "word": "equipage",
+      "score": 0.7083,
+      "rank": 128
+    },
+    {
+      "word": "transporte",
+      "score": 0.7079,
+      "rank": 129
+    },
+    {
+      "word": "mission",
+      "score": 0.7078,
+      "rank": 130
+    },
+    {
+      "word": "flottant",
+      "score": 0.706,
+      "rank": 131
+    },
+    {
+      "word": "tourmenter",
+      "score": 0.7059,
+      "rank": 132
+    },
+    {
+      "word": "flotté",
+      "score": 0.7056,
+      "rank": 133
+    },
+    {
+      "word": "atteignant",
+      "score": 0.7049,
+      "rank": 134
+    },
+    {
+      "word": "mariné",
+      "score": 0.7049,
+      "rank": 135
+    },
+    {
+      "word": "chemin",
+      "score": 0.7045,
+      "rank": 136
+    },
+    {
+      "word": "inédite",
+      "score": 0.7044,
+      "rank": 137
+    },
+    {
+      "word": "flottait",
+      "score": 0.7038,
+      "rank": 138
+    },
+    {
+      "word": "explorateur",
+      "score": 0.7036,
+      "rank": 139
+    },
+    {
+      "word": "transporteur",
+      "score": 0.7035,
+      "rank": 140
+    },
+    {
+      "word": "déborde",
+      "score": 0.7028,
+      "rank": 141
+    },
+    {
+      "word": "maritimes",
+      "score": 0.7022,
+      "rank": 142
+    },
+    {
+      "word": "navale",
+      "score": 0.7021,
+      "rank": 143
+    },
+    {
+      "word": "repérer",
+      "score": 0.7018,
+      "rank": 144
+    },
+    {
+      "word": "aventurière",
+      "score": 0.7018,
+      "rank": 145
+    },
+    {
+      "word": "voie",
+      "score": 0.701,
+      "rank": 146
+    },
+    {
+      "word": "cheminement",
+      "score": 0.7006,
+      "rank": 147
+    },
+    {
+      "word": "courrais",
+      "score": 0.7004,
+      "rank": 148
+    },
+    {
+      "word": "touristiques",
+      "score": 0.7004,
+      "rank": 149
+    },
+    {
+      "word": "fériés",
+      "score": 0.7,
+      "rank": 150
+    },
+    {
+      "word": "missions",
+      "score": 0.6995,
+      "rank": 151
+    },
+    {
+      "word": "explorateurs",
+      "score": 0.6994,
+      "rank": 152
+    },
+    {
+      "word": "étendus",
+      "score": 0.6993,
+      "rank": 153
+    },
+    {
+      "word": "raccompagnes",
+      "score": 0.6987,
+      "rank": 154
+    },
+    {
+      "word": "brodie",
+      "score": 0.6987,
+      "rank": 155
+    },
+    {
+      "word": "promènent",
+      "score": 0.6985,
+      "rank": 156
+    },
+    {
+      "word": "destinée",
+      "score": 0.6981,
+      "rank": 157
+    },
+    {
+      "word": "duce",
+      "score": 0.6979,
+      "rank": 158
+    },
+    {
+      "word": "raccompagne",
+      "score": 0.6978,
+      "rank": 159
+    },
+    {
+      "word": "passante",
+      "score": 0.6977,
+      "rank": 160
+    },
+    {
+      "word": "passagers",
+      "score": 0.6972,
+      "rank": 161
+    },
+    {
+      "word": "tournesols",
+      "score": 0.697,
+      "rank": 162
+    },
+    {
+      "word": "repérés",
+      "score": 0.6968,
+      "rank": 163
+    },
+    {
+      "word": "traverser",
+      "score": 0.6964,
+      "rank": 164
+    },
+    {
+      "word": "transportes",
+      "score": 0.6964,
+      "rank": 165
+    },
+    {
+      "word": "courrez",
+      "score": 0.6962,
+      "rank": 166
+    },
+    {
+      "word": "traversera",
+      "score": 0.696,
+      "rank": 167
+    },
+    {
+      "word": "étienne",
+      "score": 0.6957,
+      "rank": 168
+    },
+    {
+      "word": "convoiter",
+      "score": 0.6957,
+      "rank": 169
+    },
+    {
+      "word": "tournes",
+      "score": 0.6956,
+      "rank": 170
+    },
+    {
+      "word": "embarcation",
+      "score": 0.6955,
+      "rank": 171
+    },
+    {
+      "word": "embarqué",
+      "score": 0.6955,
+      "rank": 172
+    },
+    {
+      "word": "tours",
+      "score": 0.6948,
+      "rank": 173
+    },
+    {
+      "word": "brodé",
+      "score": 0.6942,
+      "rank": 174
+    },
+    {
+      "word": "courre",
+      "score": 0.6941,
+      "rank": 175
+    },
+    {
+      "word": "ruée",
+      "score": 0.6939,
+      "rank": 176
+    },
+    {
+      "word": "visiter",
+      "score": 0.6937,
+      "rank": 177
+    },
+    {
+      "word": "flight",
+      "score": 0.6934,
+      "rank": 178
+    },
+    {
+      "word": "veille",
+      "score": 0.6931,
+      "rank": 179
+    },
+    {
+      "word": "allées",
+      "score": 0.6926,
+      "rank": 180
+    },
+    {
+      "word": "déléguer",
+      "score": 0.692,
+      "rank": 181
+    },
+    {
+      "word": "embarquez",
+      "score": 0.6917,
+      "rank": 182
+    },
+    {
+      "word": "maritime",
+      "score": 0.6901,
+      "rank": 183
+    },
+    {
+      "word": "arrivais",
+      "score": 0.6898,
+      "rank": 184
+    },
+    {
+      "word": "émergé",
+      "score": 0.6896,
+      "rank": 185
+    },
+    {
+      "word": "côtes",
+      "score": 0.6895,
+      "rank": 186
+    },
+    {
+      "word": "déplacement",
+      "score": 0.6887,
+      "rank": 187
+    },
+    {
+      "word": "débarques",
+      "score": 0.6882,
+      "rank": 188
+    },
+    {
+      "word": "évasions",
+      "score": 0.6878,
+      "rank": 189
+    },
+    {
+      "word": "nausée",
+      "score": 0.6873,
+      "rank": 190
+    },
+    {
+      "word": "arrivées",
+      "score": 0.6872,
+      "rank": 191
+    },
+    {
+      "word": "vol",
+      "score": 0.6865,
+      "rank": 192
+    },
+    {
+      "word": "bertram",
+      "score": 0.6863,
+      "rank": 193
+    },
+    {
+      "word": "détournes",
+      "score": 0.6856,
+      "rank": 194
+    },
+    {
+      "word": "transport",
+      "score": 0.6855,
+      "rank": 195
+    },
+    {
+      "word": "amirauté",
+      "score": 0.6853,
+      "rank": 196
+    },
+    {
+      "word": "emporter",
+      "score": 0.6853,
+      "rank": 197
+    },
+    {
+      "word": "planeur",
+      "score": 0.6849,
+      "rank": 198
+    },
+    {
+      "word": "flottante",
+      "score": 0.6849,
+      "rank": 199
+    },
+    {
+      "word": "émerger",
+      "score": 0.6849,
+      "rank": 200
+    },
+    {
+      "word": "trame",
+      "score": 0.6848,
+      "rank": 201
+    },
+    {
+      "word": "naufragés",
+      "score": 0.6845,
+      "rank": 202
+    },
+    {
+      "word": "éloignées",
+      "score": 0.6845,
+      "rank": 203
+    },
+    {
+      "word": "exploratrice",
+      "score": 0.6845,
+      "rank": 204
+    },
+    {
+      "word": "passants",
+      "score": 0.6845,
+      "rank": 205
+    },
+    {
+      "word": "volet",
+      "score": 0.6836,
+      "rank": 206
+    },
+    {
+      "word": "aventuriers",
+      "score": 0.6836,
+      "rank": 207
+    },
+    {
+      "word": "partira",
+      "score": 0.6836,
+      "rank": 208
+    },
+    {
+      "word": "destinées",
+      "score": 0.6834,
+      "rank": 209
+    },
+    {
+      "word": "livrer",
+      "score": 0.6831,
+      "rank": 210
+    },
+    {
+      "word": "virement",
+      "score": 0.683,
+      "rank": 211
+    },
+    {
+      "word": "parcouru",
+      "score": 0.6823,
+      "rank": 212
+    },
+    {
+      "word": "hodja",
+      "score": 0.6822,
+      "rank": 213
+    },
+    {
+      "word": "convoité",
+      "score": 0.6822,
+      "rank": 214
+    },
+    {
+      "word": "emportant",
+      "score": 0.682,
+      "rank": 215
+    },
+    {
+      "word": "nagé",
+      "score": 0.6815,
+      "rank": 216
+    },
+    {
+      "word": "atteignez",
+      "score": 0.6814,
+      "rank": 217
+    },
+    {
+      "word": "conquête",
+      "score": 0.6813,
+      "rank": 218
+    },
+    {
+      "word": "emmené",
+      "score": 0.6811,
+      "rank": 219
+    },
+    {
+      "word": "débarqué",
+      "score": 0.681,
+      "rank": 220
+    },
+    {
+      "word": "visa",
+      "score": 0.6809,
+      "rank": 221
+    },
+    {
+      "word": "traverse",
+      "score": 0.6805,
+      "rank": 222
+    },
+    {
+      "word": "poilu",
+      "score": 0.6805,
+      "rank": 223
+    },
+    {
+      "word": "destinations",
+      "score": 0.6805,
+      "rank": 224
+    },
+    {
+      "word": "jetés",
+      "score": 0.6801,
+      "rank": 225
+    },
+    {
+      "word": "embarqués",
+      "score": 0.6801,
+      "rank": 226
+    },
+    {
+      "word": "émigrer",
+      "score": 0.68,
+      "rank": 227
+    },
+    {
+      "word": "accompagnais",
+      "score": 0.6791,
+      "rank": 228
+    },
+    {
+      "word": "croiser",
+      "score": 0.6786,
+      "rank": 229
+    },
+    {
+      "word": "ambulante",
+      "score": 0.6785,
+      "rank": 230
+    },
+    {
+      "word": "suivais",
+      "score": 0.6782,
+      "rank": 231
+    },
+    {
+      "word": "barge",
+      "score": 0.6779,
+      "rank": 232
+    },
+    {
+      "word": "traversée",
+      "score": 0.6777,
+      "rank": 233
+    },
+    {
+      "word": "ensuit",
+      "score": 0.6776,
+      "rank": 234
+    },
+    {
+      "word": "débarquant",
+      "score": 0.6776,
+      "rank": 235
+    },
+    {
+      "word": "éloquent",
+      "score": 0.6775,
+      "rank": 236
+    },
+    {
+      "word": "navires",
+      "score": 0.6775,
+      "rank": 237
+    },
+    {
+      "word": "aillent",
+      "score": 0.6775,
+      "rank": 238
+    },
+    {
+      "word": "décollera",
+      "score": 0.6775,
+      "rank": 239
+    },
+    {
+      "word": "barque",
+      "score": 0.6773,
+      "rank": 240
+    },
+    {
+      "word": "détours",
+      "score": 0.677,
+      "rank": 241
+    },
+    {
+      "word": "passent",
+      "score": 0.6769,
+      "rank": 242
+    },
+    {
+      "word": "suivent",
+      "score": 0.6766,
+      "rank": 243
+    },
+    {
+      "word": "parcourait",
+      "score": 0.6765,
+      "rank": 244
+    },
+    {
+      "word": "montaient",
+      "score": 0.6761,
+      "rank": 245
+    },
+    {
+      "word": "délégué",
+      "score": 0.6759,
+      "rank": 246
+    },
+    {
+      "word": "ganga",
+      "score": 0.675,
+      "rank": 247
+    },
+    {
+      "word": "convoyeur",
+      "score": 0.6749,
+      "rank": 248
+    },
+    {
+      "word": "asile",
+      "score": 0.6748,
+      "rank": 249
+    },
+    {
+      "word": "escortée",
+      "score": 0.6746,
+      "rank": 250
+    },
+    {
+      "word": "mondiaux",
+      "score": 0.6743,
+      "rank": 251
+    },
+    {
+      "word": "mondes",
+      "score": 0.6739,
+      "rank": 252
+    },
+    {
+      "word": "arrivant",
+      "score": 0.6738,
+      "rank": 253
+    },
+    {
+      "word": "bay",
+      "score": 0.6735,
+      "rank": 254
+    },
+    {
+      "word": "portières",
+      "score": 0.6734,
+      "rank": 255
+    },
+    {
+      "word": "emportez",
+      "score": 0.6734,
+      "rank": 256
+    },
+    {
+      "word": "siege",
+      "score": 0.6734,
+      "rank": 257
+    },
+    {
+      "word": "peignoirs",
+      "score": 0.6733,
+      "rank": 258
+    },
+    {
+      "word": "visite",
+      "score": 0.6733,
+      "rank": 259
+    },
+    {
+      "word": "pénétrer",
+      "score": 0.6732,
+      "rank": 260
+    },
+    {
+      "word": "apportée",
+      "score": 0.6732,
+      "rank": 261
+    },
+    {
+      "word": "transporter",
+      "score": 0.6731,
+      "rank": 262
+    },
+    {
+      "word": "oriente",
+      "score": 0.6731,
+      "rank": 263
+    },
+    {
+      "word": "éloignons",
+      "score": 0.6731,
+      "rank": 264
+    },
+    {
+      "word": "emportes",
+      "score": 0.6727,
+      "rank": 265
+    },
+    {
+      "word": "léve",
+      "score": 0.6727,
+      "rank": 266
+    },
+    {
+      "word": "pénétration",
+      "score": 0.6726,
+      "rank": 267
+    },
+    {
+      "word": "paraîtra",
+      "score": 0.6725,
+      "rank": 268
+    },
+    {
+      "word": "plais",
+      "score": 0.6724,
+      "rank": 269
+    },
+    {
+      "word": "quest",
+      "score": 0.672,
+      "rank": 270
+    },
+    {
+      "word": "porto",
+      "score": 0.6716,
+      "rank": 271
+    },
+    {
+      "word": "plaies",
+      "score": 0.6715,
+      "rank": 272
+    },
+    {
+      "word": "valkyrie",
+      "score": 0.6714,
+      "rank": 273
+    },
+    {
+      "word": "référer",
+      "score": 0.6709,
+      "rank": 274
+    },
+    {
+      "word": "veillent",
+      "score": 0.6709,
+      "rank": 275
+    },
+    {
+      "word": "going",
+      "score": 0.6705,
+      "rank": 276
+    },
+    {
+      "word": "rove",
+      "score": 0.6705,
+      "rank": 277
+    },
+    {
+      "word": "étalage",
+      "score": 0.6705,
+      "rank": 278
+    },
+    {
+      "word": "navarre",
+      "score": 0.6702,
+      "rank": 279
+    },
+    {
+      "word": "marissa",
+      "score": 0.6701,
+      "rank": 280
+    },
+    {
+      "word": "arrivederci",
+      "score": 0.6699,
+      "rank": 281
+    },
+    {
+      "word": "visité",
+      "score": 0.6698,
+      "rank": 282
+    },
+    {
+      "word": "côtoyer",
+      "score": 0.6697,
+      "rank": 283
+    },
+    {
+      "word": "visitée",
+      "score": 0.6697,
+      "rank": 284
+    },
+    {
+      "word": "projetée",
+      "score": 0.6696,
+      "rank": 285
+    },
+    {
+      "word": "couronnement",
+      "score": 0.6694,
+      "rank": 286
+    },
+    {
+      "word": "largo",
+      "score": 0.6693,
+      "rank": 287
+    },
+    {
+      "word": "débordements",
+      "score": 0.6693,
+      "rank": 288
+    },
+    {
+      "word": "décolle",
+      "score": 0.6693,
+      "rank": 289
+    },
+    {
+      "word": "travers",
+      "score": 0.6692,
+      "rank": 290
+    },
+    {
+      "word": "apportées",
+      "score": 0.669,
+      "rank": 291
+    },
+    {
+      "word": "destinés",
+      "score": 0.6689,
+      "rank": 292
+    },
+    {
+      "word": "portés",
+      "score": 0.6688,
+      "rank": 293
+    },
+    {
+      "word": "sentier",
+      "score": 0.6687,
+      "rank": 294
+    },
+    {
+      "word": "plage",
+      "score": 0.6687,
+      "rank": 295
+    },
+    {
+      "word": "atteignent",
+      "score": 0.6686,
+      "rank": 296
+    },
+    {
+      "word": "promenade",
+      "score": 0.6686,
+      "rank": 297
+    },
+    {
+      "word": "tripe",
+      "score": 0.6685,
+      "rank": 298
+    },
+    {
+      "word": "renée",
+      "score": 0.6685,
+      "rank": 299
+    },
+    {
+      "word": "vacances",
+      "score": 0.6681,
+      "rank": 300
+    },
+    {
+      "word": "atteindrai",
+      "score": 0.6679,
+      "rank": 301
+    },
+    {
+      "word": "yachts",
+      "score": 0.6674,
+      "rank": 302
+    },
+    {
+      "word": "dérive",
+      "score": 0.6674,
+      "rank": 303
+    },
+    {
+      "word": "côtoie",
+      "score": 0.6671,
+      "rank": 304
+    },
+    {
+      "word": "zeeland",
+      "score": 0.6671,
+      "rank": 305
+    },
+    {
+      "word": "trager",
+      "score": 0.667,
+      "rank": 306
+    },
+    {
+      "word": "raja",
+      "score": 0.6669,
+      "rank": 307
+    },
+    {
+      "word": "deniz",
+      "score": 0.6668,
+      "rank": 308
+    },
+    {
+      "word": "veilleuse",
+      "score": 0.6668,
+      "rank": 309
+    },
+    {
+      "word": "jete",
+      "score": 0.6667,
+      "rank": 310
+    },
+    {
+      "word": "conduites",
+      "score": 0.6667,
+      "rank": 311
+    },
+    {
+      "word": "railleries",
+      "score": 0.6666,
+      "rank": 312
+    },
+    {
+      "word": "visites",
+      "score": 0.6663,
+      "rank": 313
+    },
+    {
+      "word": "plaira",
+      "score": 0.6663,
+      "rank": 314
+    },
+    {
+      "word": "voeux",
+      "score": 0.6661,
+      "rank": 315
+    },
+    {
+      "word": "vols",
+      "score": 0.6661,
+      "rank": 316
+    },
+    {
+      "word": "plaire",
+      "score": 0.666,
+      "rank": 317
+    },
+    {
+      "word": "bagagiste",
+      "score": 0.666,
+      "rank": 318
+    },
+    {
+      "word": "plait",
+      "score": 0.6651,
+      "rank": 319
+    },
+    {
+      "word": "volent",
+      "score": 0.665,
+      "rank": 320
+    },
+    {
+      "word": "raclement",
+      "score": 0.6649,
+      "rank": 321
+    },
+    {
+      "word": "conférés",
+      "score": 0.6645,
+      "rank": 322
+    },
+    {
+      "word": "emporté",
+      "score": 0.6645,
+      "rank": 323
+    },
+    {
+      "word": "traque",
+      "score": 0.6644,
+      "rank": 324
+    },
+    {
+      "word": "convois",
+      "score": 0.6643,
+      "rank": 325
+    },
+    {
+      "word": "courra",
+      "score": 0.6639,
+      "rank": 326
+    },
+    {
+      "word": "porteuses",
+      "score": 0.6639,
+      "rank": 327
+    },
+    {
+      "word": "raul",
+      "score": 0.6638,
+      "rank": 328
+    },
+    {
+      "word": "traversais",
+      "score": 0.6636,
+      "rank": 329
+    },
+    {
+      "word": "bertrand",
+      "score": 0.6633,
+      "rank": 330
+    },
+    {
+      "word": "traversé",
+      "score": 0.6628,
+      "rank": 331
+    },
+    {
+      "word": "alistair",
+      "score": 0.6627,
+      "rank": 332
+    },
+    {
+      "word": "chemins",
+      "score": 0.6627,
+      "rank": 333
+    },
+    {
+      "word": "embarquent",
+      "score": 0.6627,
+      "rank": 334
+    },
+    {
+      "word": "ladite",
+      "score": 0.6624,
+      "rank": 335
+    },
+    {
+      "word": "manoir",
+      "score": 0.6623,
+      "rank": 336
+    },
+    {
+      "word": "caleçon",
+      "score": 0.6623,
+      "rank": 337
+    },
+    {
+      "word": "déplaçant",
+      "score": 0.6621,
+      "rank": 338
+    },
+    {
+      "word": "piloté",
+      "score": 0.662,
+      "rank": 339
+    },
+    {
+      "word": "otomo",
+      "score": 0.6618,
+      "rank": 340
+    },
+    {
+      "word": "terrer",
+      "score": 0.6617,
+      "rank": 341
+    },
+    {
+      "word": "parait",
+      "score": 0.6616,
+      "rank": 342
+    },
+    {
+      "word": "rongés",
+      "score": 0.6614,
+      "rank": 343
+    },
+    {
+      "word": "hermès",
+      "score": 0.6613,
+      "rank": 344
+    },
+    {
+      "word": "cale",
+      "score": 0.6612,
+      "rank": 345
+    },
+    {
+      "word": "rivés",
+      "score": 0.6612,
+      "rank": 346
+    },
+    {
+      "word": "sieg",
+      "score": 0.6612,
+      "rank": 347
+    },
+    {
+      "word": "avare",
+      "score": 0.6611,
+      "rank": 348
+    },
+    {
+      "word": "viii",
+      "score": 0.661,
+      "rank": 349
+    },
+    {
+      "word": "veilleur",
+      "score": 0.661,
+      "rank": 350
+    },
+    {
+      "word": "alliées",
+      "score": 0.6608,
+      "rank": 351
+    },
+    {
+      "word": "zee",
+      "score": 0.6608,
+      "rank": 352
+    },
+    {
+      "word": "emmènent",
+      "score": 0.6608,
+      "rank": 353
+    },
+    {
+      "word": "partante",
+      "score": 0.6608,
+      "rank": 354
+    },
+    {
+      "word": "désertique",
+      "score": 0.6608,
+      "rank": 355
+    },
+    {
+      "word": "transports",
+      "score": 0.6606,
+      "rank": 356
+    },
+    {
+      "word": "traverses",
+      "score": 0.6606,
+      "rank": 357
+    },
+    {
+      "word": "coursiers",
+      "score": 0.6604,
+      "rank": 358
+    },
+    {
+      "word": "émerge",
+      "score": 0.6604,
+      "rank": 359
+    },
+    {
+      "word": "oculaires",
+      "score": 0.6604,
+      "rank": 360
+    },
+    {
+      "word": "saul",
+      "score": 0.6603,
+      "rank": 361
+    },
+    {
+      "word": "enlève",
+      "score": 0.6603,
+      "rank": 362
+    },
+    {
+      "word": "salées",
+      "score": 0.6602,
+      "rank": 363
+    },
+    {
+      "word": "touriste",
+      "score": 0.6602,
+      "rank": 364
+    },
+    {
+      "word": "visités",
+      "score": 0.6601,
+      "rank": 365
+    },
+    {
+      "word": "croise",
+      "score": 0.6599,
+      "rank": 366
+    },
+    {
+      "word": "svetlana",
+      "score": 0.6597,
+      "rank": 367
+    },
+    {
+      "word": "marierons",
+      "score": 0.6597,
+      "rank": 368
+    },
+    {
+      "word": "passant",
+      "score": 0.6596,
+      "rank": 369
+    },
+    {
+      "word": "pilotage",
+      "score": 0.6594,
+      "rank": 370
+    },
+    {
+      "word": "atterrira",
+      "score": 0.6594,
+      "rank": 371
+    },
+    {
+      "word": "passez",
+      "score": 0.6593,
+      "rank": 372
+    },
+    {
+      "word": "rejet",
+      "score": 0.6592,
+      "rank": 373
+    },
+    {
+      "word": "allaient",
+      "score": 0.6592,
+      "rank": 374
+    },
+    {
+      "word": "croisez",
+      "score": 0.6592,
+      "rank": 375
+    },
+    {
+      "word": "subis",
+      "score": 0.6591,
+      "rank": 376
+    },
+    {
+      "word": "bécane",
+      "score": 0.659,
+      "rank": 377
+    },
+    {
+      "word": "tourmentez",
+      "score": 0.659,
+      "rank": 378
+    },
+    {
+      "word": "visons",
+      "score": 0.6589,
+      "rank": 379
+    },
+    {
+      "word": "accompagnant",
+      "score": 0.6588,
+      "rank": 380
+    },
+    {
+      "word": "emportons",
+      "score": 0.6586,
+      "rank": 381
+    },
+    {
+      "word": "envié",
+      "score": 0.6585,
+      "rank": 382
+    },
+    {
+      "word": "parées",
+      "score": 0.6584,
+      "rank": 383
+    },
+    {
+      "word": "marées",
+      "score": 0.6583,
+      "rank": 384
+    },
+    {
+      "word": "promène",
+      "score": 0.658,
+      "rank": 385
+    },
+    {
+      "word": "venus",
+      "score": 0.6579,
+      "rank": 386
+    },
+    {
+      "word": "écolo",
+      "score": 0.6578,
+      "rank": 387
+    },
+    {
+      "word": "antre",
+      "score": 0.6577,
+      "rank": 388
+    },
+    {
+      "word": "arrivants",
+      "score": 0.6577,
+      "rank": 389
+    },
+    {
+      "word": "pilotait",
+      "score": 0.6577,
+      "rank": 390
+    },
+    {
+      "word": "passage",
+      "score": 0.6574,
+      "rank": 391
+    },
+    {
+      "word": "exilés",
+      "score": 0.6574,
+      "rank": 392
+    },
+    {
+      "word": "croisait",
+      "score": 0.6574,
+      "rank": 393
+    },
+    {
+      "word": "plaie",
+      "score": 0.6573,
+      "rank": 394
+    },
+    {
+      "word": "passible",
+      "score": 0.6572,
+      "rank": 395
+    },
+    {
+      "word": "partirent",
+      "score": 0.6572,
+      "rank": 396
+    },
+    {
+      "word": "éloignement",
+      "score": 0.6569,
+      "rank": 397
+    },
+    {
+      "word": "eteignez",
+      "score": 0.6569,
+      "rank": 398
+    },
+    {
+      "word": "plaide",
+      "score": 0.6568,
+      "rank": 399
+    },
+    {
+      "word": "traversées",
+      "score": 0.6568,
+      "rank": 400
+    },
+    {
+      "word": "thérésa",
+      "score": 0.6567,
+      "rank": 401
+    },
+    {
+      "word": "débordés",
+      "score": 0.6567,
+      "rank": 402
+    },
+    {
+      "word": "promener",
+      "score": 0.6566,
+      "rank": 403
+    },
+    {
+      "word": "valais",
+      "score": 0.6566,
+      "rank": 404
+    },
+    {
+      "word": "navigation",
+      "score": 0.6566,
+      "rank": 405
+    },
+    {
+      "word": "bercail",
+      "score": 0.6565,
+      "rank": 406
+    },
+    {
+      "word": "arriva",
+      "score": 0.6563,
+      "rank": 407
+    },
+    {
+      "word": "déroulement",
+      "score": 0.6562,
+      "rank": 408
+    },
+    {
+      "word": "traçage",
+      "score": 0.6562,
+      "rank": 409
+    },
+    {
+      "word": "jeta",
+      "score": 0.6559,
+      "rank": 410
+    },
+    {
+      "word": "traversons",
+      "score": 0.6559,
+      "rank": 411
+    },
+    {
+      "word": "tourelle",
+      "score": 0.6559,
+      "rank": 412
+    },
+    {
+      "word": "ovni",
+      "score": 0.6556,
+      "rank": 413
+    },
+    {
+      "word": "jetable",
+      "score": 0.6556,
+      "rank": 414
+    },
+    {
+      "word": "marchant",
+      "score": 0.6556,
+      "rank": 415
+    },
+    {
+      "word": "destin",
+      "score": 0.6554,
+      "rank": 416
+    },
+    {
+      "word": "astrid",
+      "score": 0.6553,
+      "rank": 417
+    },
+    {
+      "word": "devenue",
+      "score": 0.6552,
+      "rank": 418
+    },
+    {
+      "word": "surveille",
+      "score": 0.6551,
+      "rank": 419
+    },
+    {
+      "word": "bateaux",
+      "score": 0.6549,
+      "rank": 420
+    },
+    {
+      "word": "balnéaire",
+      "score": 0.6549,
+      "rank": 421
+    },
+    {
+      "word": "voies",
+      "score": 0.6546,
+      "rank": 422
+    },
+    {
+      "word": "rouleaux",
+      "score": 0.6546,
+      "rank": 423
+    },
+    {
+      "word": "pédiatre",
+      "score": 0.6544,
+      "rank": 424
+    },
+    {
+      "word": "volière",
+      "score": 0.6544,
+      "rank": 425
+    },
+    {
+      "word": "transpire",
+      "score": 0.6544,
+      "rank": 426
+    },
+    {
+      "word": "ambulant",
+      "score": 0.6543,
+      "rank": 427
+    },
+    {
+      "word": "vas",
+      "score": 0.6543,
+      "rank": 428
+    },
+    {
+      "word": "revoyez",
+      "score": 0.6542,
+      "rank": 429
+    },
+    {
+      "word": "déplaçait",
+      "score": 0.6542,
+      "rank": 430
+    },
+    {
+      "word": "barca",
+      "score": 0.6541,
+      "rank": 431
+    },
+    {
+      "word": "destiné",
+      "score": 0.6541,
+      "rank": 432
+    },
+    {
+      "word": "arrive",
+      "score": 0.6541,
+      "rank": 433
+    },
+    {
+      "word": "conduits",
+      "score": 0.6541,
+      "rank": 434
+    },
+    {
+      "word": "batiment",
+      "score": 0.6539,
+      "rank": 435
+    },
+    {
+      "word": "pia",
+      "score": 0.6538,
+      "rank": 436
+    },
+    {
+      "word": "leve",
+      "score": 0.6538,
+      "rank": 437
+    },
+    {
+      "word": "départager",
+      "score": 0.6535,
+      "rank": 438
+    },
+    {
+      "word": "accompagnait",
+      "score": 0.6535,
+      "rank": 439
+    },
+    {
+      "word": "vison",
+      "score": 0.6535,
+      "rank": 440
+    },
+    {
+      "word": "départ",
+      "score": 0.6534,
+      "rank": 441
+    },
+    {
+      "word": "sautille",
+      "score": 0.6534,
+      "rank": 442
+    },
+    {
+      "word": "envoyais",
+      "score": 0.6532,
+      "rank": 443
+    },
+    {
+      "word": "suivraient",
+      "score": 0.6532,
+      "rank": 444
+    },
+    {
+      "word": "caravane",
+      "score": 0.6531,
+      "rank": 445
+    },
+    {
+      "word": "tourette",
+      "score": 0.6531,
+      "rank": 446
+    },
+    {
+      "word": "enleviez",
+      "score": 0.6531,
+      "rank": 447
+    },
+    {
+      "word": "livrés",
+      "score": 0.6529,
+      "rank": 448
+    },
+    {
+      "word": "pont",
+      "score": 0.6527,
+      "rank": 449
+    },
+    {
+      "word": "traversait",
+      "score": 0.6527,
+      "rank": 450
+    },
+    {
+      "word": "milena",
+      "score": 0.6527,
+      "rank": 451
+    },
+    {
+      "word": "preniez",
+      "score": 0.6527,
+      "rank": 452
+    },
+    {
+      "word": "traite",
+      "score": 0.6526,
+      "rank": 453
+    },
+    {
+      "word": "visés",
+      "score": 0.6525,
+      "rank": 454
+    },
+    {
+      "word": "modo",
+      "score": 0.6524,
+      "rank": 455
+    },
+    {
+      "word": "went",
+      "score": 0.6524,
+      "rank": 456
+    },
+    {
+      "word": "étranglement",
+      "score": 0.6524,
+      "rank": 457
+    },
+    {
+      "word": "déroulée",
+      "score": 0.6523,
+      "rank": 458
+    },
+    {
+      "word": "landes",
+      "score": 0.6522,
+      "rank": 459
+    },
+    {
+      "word": "démarches",
+      "score": 0.6522,
+      "rank": 460
+    },
+    {
+      "word": "raoul",
+      "score": 0.6521,
+      "rank": 461
+    },
+    {
+      "word": "toulouse",
+      "score": 0.6521,
+      "rank": 462
+    },
+    {
+      "word": "hait",
+      "score": 0.652,
+      "rank": 463
+    },
+    {
+      "word": "playa",
+      "score": 0.6519,
+      "rank": 464
+    },
+    {
+      "word": "dévisager",
+      "score": 0.6517,
+      "rank": 465
+    },
+    {
+      "word": "légistes",
+      "score": 0.6517,
+      "rank": 466
+    },
+    {
+      "word": "planais",
+      "score": 0.6516,
+      "rank": 467
+    },
+    {
+      "word": "visitait",
+      "score": 0.6515,
+      "rank": 468
+    },
+    {
+      "word": "vend",
+      "score": 0.6515,
+      "rank": 469
+    },
+    {
+      "word": "éloignés",
+      "score": 0.6514,
+      "rank": 470
+    },
+    {
+      "word": "assange",
+      "score": 0.6514,
+      "rank": 471
+    },
+    {
+      "word": "géo",
+      "score": 0.6513,
+      "rank": 472
+    },
+    {
+      "word": "survole",
+      "score": 0.6513,
+      "rank": 473
+    },
+    {
+      "word": "courent",
+      "score": 0.6512,
+      "rank": 474
+    },
+    {
+      "word": "courrir",
+      "score": 0.6512,
+      "rank": 475
+    },
+    {
+      "word": "dunkerque",
+      "score": 0.6509,
+      "rank": 476
+    },
+    {
+      "word": "envoyiez",
+      "score": 0.6508,
+      "rank": 477
+    },
+    {
+      "word": "pétri",
+      "score": 0.6508,
+      "rank": 478
+    },
+    {
+      "word": "partiras",
+      "score": 0.6507,
+      "rank": 479
+    },
+    {
+      "word": "cession",
+      "score": 0.6507,
+      "rank": 480
+    },
+    {
+      "word": "kalinda",
+      "score": 0.6506,
+      "rank": 481
+    },
+    {
+      "word": "mouvants",
+      "score": 0.6505,
+      "rank": 482
+    },
+    {
+      "word": "bouleversant",
+      "score": 0.6504,
+      "rank": 483
+    },
+    {
+      "word": "innée",
+      "score": 0.6502,
+      "rank": 484
+    },
+    {
+      "word": "parvenue",
+      "score": 0.6502,
+      "rank": 485
+    },
+    {
+      "word": "anderson",
+      "score": 0.6502,
+      "rank": 486
+    },
+    {
+      "word": "décollé",
+      "score": 0.6502,
+      "rank": 487
+    },
+    {
+      "word": "einar",
+      "score": 0.6501,
+      "rank": 488
+    },
+    {
+      "word": "maja",
+      "score": 0.65,
+      "rank": 489
+    },
+    {
+      "word": "bouleverse",
+      "score": 0.6499,
+      "rank": 490
+    },
+    {
+      "word": "suivez",
+      "score": 0.6498,
+      "rank": 491
+    },
+    {
+      "word": "aurore",
+      "score": 0.6497,
+      "rank": 492
+    },
+    {
+      "word": "lnde",
+      "score": 0.6495,
+      "rank": 493
+    },
+    {
+      "word": "étincelle",
+      "score": 0.6495,
+      "rank": 494
+    },
+    {
+      "word": "camino",
+      "score": 0.6494,
+      "rank": 495
+    },
+    {
+      "word": "flottes",
+      "score": 0.6493,
+      "rank": 496
+    },
+    {
+      "word": "pénis",
+      "score": 0.6492,
+      "rank": 497
+    },
+    {
+      "word": "creusons",
+      "score": 0.6492,
+      "rank": 498
+    },
+    {
+      "word": "emportent",
+      "score": 0.6492,
+      "rank": 499
+    },
+    {
+      "word": "dériver",
+      "score": 0.6492,
+      "rank": 500
+    },
+    {
+      "word": "diversion",
+      "score": 0.649,
+      "rank": 501
+    },
+    {
+      "word": "raccompagnez",
+      "score": 0.649,
+      "rank": 502
+    },
+    {
+      "word": "devance",
+      "score": 0.649,
+      "rank": 503
+    },
+    {
+      "word": "lieux",
+      "score": 0.649,
+      "rank": 504
+    },
+    {
+      "word": "lang",
+      "score": 0.6489,
+      "rank": 505
+    },
+    {
+      "word": "ville",
+      "score": 0.6489,
+      "rank": 506
+    },
+    {
+      "word": "rejette",
+      "score": 0.6489,
+      "rank": 507
+    },
+    {
+      "word": "suivrai",
+      "score": 0.6489,
+      "rank": 508
+    },
+    {
+      "word": "ishval",
+      "score": 0.6488,
+      "rank": 509
+    },
+    {
+      "word": "puissions",
+      "score": 0.6487,
+      "rank": 510
+    },
+    {
+      "word": "visitez",
+      "score": 0.6486,
+      "rank": 511
+    },
+    {
+      "word": "livrera",
+      "score": 0.6486,
+      "rank": 512
+    },
+    {
+      "word": "serizawa",
+      "score": 0.6484,
+      "rank": 513
+    },
+    {
+      "word": "poilue",
+      "score": 0.6484,
+      "rank": 514
+    },
+    {
+      "word": "évincé",
+      "score": 0.6484,
+      "rank": 515
+    },
+    {
+      "word": "bornée",
+      "score": 0.6482,
+      "rank": 516
+    },
+    {
+      "word": "lieu",
+      "score": 0.6482,
+      "rank": 517
+    },
+    {
+      "word": "bondée",
+      "score": 0.6482,
+      "rank": 518
+    },
+    {
+      "word": "volais",
+      "score": 0.6482,
+      "rank": 519
+    },
+    {
+      "word": "visionnaires",
+      "score": 0.6481,
+      "rank": 520
+    },
+    {
+      "word": "corrine",
+      "score": 0.6481,
+      "rank": 521
+    },
+    {
+      "word": "privez",
+      "score": 0.6481,
+      "rank": 522
+    },
+    {
+      "word": "courrait",
+      "score": 0.648,
+      "rank": 523
+    },
+    {
+      "word": "leviez",
+      "score": 0.648,
+      "rank": 524
+    },
+    {
+      "word": "accompagnent",
+      "score": 0.648,
+      "rank": 525
+    },
+    {
+      "word": "repère",
+      "score": 0.6479,
+      "rank": 526
+    },
+    {
+      "word": "passerelle",
+      "score": 0.6479,
+      "rank": 527
+    },
+    {
+      "word": "chassant",
+      "score": 0.6479,
+      "rank": 528
+    },
+    {
+      "word": "visées",
+      "score": 0.6478,
+      "rank": 529
+    },
+    {
+      "word": "portées",
+      "score": 0.6478,
+      "rank": 530
+    },
+    {
+      "word": "conquêtes",
+      "score": 0.6477,
+      "rank": 531
+    },
+    {
+      "word": "surgit",
+      "score": 0.6476,
+      "rank": 532
+    },
+    {
+      "word": "éloignera",
+      "score": 0.6475,
+      "rank": 533
+    },
+    {
+      "word": "divague",
+      "score": 0.6474,
+      "rank": 534
+    },
+    {
+      "word": "éteintes",
+      "score": 0.6474,
+      "rank": 535
+    },
+    {
+      "word": "démène",
+      "score": 0.6474,
+      "rank": 536
+    },
+    {
+      "word": "démarche",
+      "score": 0.6474,
+      "rank": 537
+    },
+    {
+      "word": "natation",
+      "score": 0.6471,
+      "rank": 538
+    },
+    {
+      "word": "héliport",
+      "score": 0.6471,
+      "rank": 539
+    },
+    {
+      "word": "lasse",
+      "score": 0.647,
+      "rank": 540
+    },
+    {
+      "word": "étranger",
+      "score": 0.647,
+      "rank": 541
+    },
+    {
+      "word": "liées",
+      "score": 0.6469,
+      "rank": 542
+    },
+    {
+      "word": "eus",
+      "score": 0.6469,
+      "rank": 543
+    },
+    {
+      "word": "attarder",
+      "score": 0.6468,
+      "rank": 544
+    },
+    {
+      "word": "côtelette",
+      "score": 0.6468,
+      "rank": 545
+    },
+    {
+      "word": "racailles",
+      "score": 0.6467,
+      "rank": 546
+    },
+    {
+      "word": "usine",
+      "score": 0.6467,
+      "rank": 547
+    },
+    {
+      "word": "passer",
+      "score": 0.6466,
+      "rank": 548
+    },
+    {
+      "word": "eliza",
+      "score": 0.6466,
+      "rank": 549
+    },
+    {
+      "word": "littoral",
+      "score": 0.6465,
+      "rank": 550
+    },
+    {
+      "word": "survêtement",
+      "score": 0.6463,
+      "rank": 551
+    },
+    {
+      "word": "tripodes",
+      "score": 0.6462,
+      "rank": 552
+    },
+    {
+      "word": "esclandre",
+      "score": 0.6462,
+      "rank": 553
+    },
+    {
+      "word": "pénétrez",
+      "score": 0.6461,
+      "rank": 554
+    },
+    {
+      "word": "lido",
+      "score": 0.6461,
+      "rank": 555
+    },
+    {
+      "word": "carrefour",
+      "score": 0.6461,
+      "rank": 556
+    },
+    {
+      "word": "lei",
+      "score": 0.6461,
+      "rank": 557
+    },
+    {
+      "word": "voiler",
+      "score": 0.646,
+      "rank": 558
+    },
+    {
+      "word": "gorô",
+      "score": 0.6459,
+      "rank": 559
+    },
+    {
+      "word": "vidée",
+      "score": 0.6456,
+      "rank": 560
+    },
+    {
+      "word": "sobre",
+      "score": 0.6455,
+      "rank": 561
+    },
+    {
+      "word": "véloce",
+      "score": 0.6451,
+      "rank": 562
+    },
+    {
+      "word": "terrestre",
+      "score": 0.6451,
+      "rank": 563
+    },
+    {
+      "word": "nogales",
+      "score": 0.645,
+      "rank": 564
+    },
+    {
+      "word": "allant",
+      "score": 0.6449,
+      "rank": 565
+    },
+    {
+      "word": "traci",
+      "score": 0.6449,
+      "rank": 566
+    },
+    {
+      "word": "tarmac",
+      "score": 0.6449,
+      "rank": 567
+    },
+    {
+      "word": "toge",
+      "score": 0.6449,
+      "rank": 568
+    },
+    {
+      "word": "advenir",
+      "score": 0.6449,
+      "rank": 569
+    },
+    {
+      "word": "visé",
+      "score": 0.6449,
+      "rank": 570
+    },
+    {
+      "word": "promené",
+      "score": 0.6446,
+      "rank": 571
+    },
+    {
+      "word": "apportés",
+      "score": 0.6446,
+      "rank": 572
+    },
+    {
+      "word": "devis",
+      "score": 0.6446,
+      "rank": 573
+    },
+    {
+      "word": "wii",
+      "score": 0.6446,
+      "rank": 574
+    },
+    {
+      "word": "dyke",
+      "score": 0.6446,
+      "rank": 575
+    },
+    {
+      "word": "marécage",
+      "score": 0.6445,
+      "rank": 576
+    },
+    {
+      "word": "promènes",
+      "score": 0.6444,
+      "rank": 577
+    },
+    {
+      "word": "rentrait",
+      "score": 0.6444,
+      "rank": 578
+    },
+    {
+      "word": "cales",
+      "score": 0.6443,
+      "rank": 579
+    },
+    {
+      "word": "inédit",
+      "score": 0.6443,
+      "rank": 580
+    },
+    {
+      "word": "grièvement",
+      "score": 0.6443,
+      "rank": 581
+    },
+    {
+      "word": "vite",
+      "score": 0.6442,
+      "rank": 582
+    },
+    {
+      "word": "convoi",
+      "score": 0.6441,
+      "rank": 583
+    },
+    {
+      "word": "soumission",
+      "score": 0.6441,
+      "rank": 584
+    },
+    {
+      "word": "emmenés",
+      "score": 0.6441,
+      "rank": 585
+    },
+    {
+      "word": "conduisais",
+      "score": 0.644,
+      "rank": 586
+    },
+    {
+      "word": "exterieur",
+      "score": 0.644,
+      "rank": 587
+    },
+    {
+      "word": "veus",
+      "score": 0.644,
+      "rank": 588
+    },
+    {
+      "word": "voyante",
+      "score": 0.6439,
+      "rank": 589
+    },
+    {
+      "word": "coursier",
+      "score": 0.6439,
+      "rank": 590
+    },
+    {
+      "word": "dresde",
+      "score": 0.6439,
+      "rank": 591
+    },
+    {
+      "word": "endroit",
+      "score": 0.6439,
+      "rank": 592
+    },
+    {
+      "word": "vincent",
+      "score": 0.6439,
+      "rank": 593
+    },
+    {
+      "word": "lèvent",
+      "score": 0.6439,
+      "rank": 594
+    },
+    {
+      "word": "évade",
+      "score": 0.6438,
+      "rank": 595
+    },
+    {
+      "word": "portière",
+      "score": 0.6438,
+      "rank": 596
+    },
+    {
+      "word": "ronronnement",
+      "score": 0.6436,
+      "rank": 597
+    },
+    {
+      "word": "corrie",
+      "score": 0.6436,
+      "rank": 598
+    },
+    {
+      "word": "baille",
+      "score": 0.6436,
+      "rank": 599
+    },
+    {
+      "word": "havre",
+      "score": 0.6435,
+      "rank": 600
+    },
+    {
+      "word": "vielle",
+      "score": 0.6435,
+      "rank": 601
+    },
+    {
+      "word": "liasse",
+      "score": 0.6435,
+      "rank": 602
+    },
+    {
+      "word": "sur",
+      "score": 0.6434,
+      "rank": 603
+    },
+    {
+      "word": "été",
+      "score": 0.6434,
+      "rank": 604
+    },
+    {
+      "word": "laissais",
+      "score": 0.6433,
+      "rank": 605
+    },
+    {
+      "word": "manivelle",
+      "score": 0.6433,
+      "rank": 606
+    },
+    {
+      "word": "royaume",
+      "score": 0.6433,
+      "rank": 607
+    },
+    {
+      "word": "pasa",
+      "score": 0.6432,
+      "rank": 608
+    },
+    {
+      "word": "messe",
+      "score": 0.643,
+      "rank": 609
+    },
+    {
+      "word": "légendes",
+      "score": 0.6429,
+      "rank": 610
+    },
+    {
+      "word": "tania",
+      "score": 0.6429,
+      "rank": 611
+    },
+    {
+      "word": "traqué",
+      "score": 0.6429,
+      "rank": 612
+    },
+    {
+      "word": "passaient",
+      "score": 0.6428,
+      "rank": 613
+    },
+    {
+      "word": "revoyais",
+      "score": 0.6427,
+      "rank": 614
+    },
+    {
+      "word": "débordent",
+      "score": 0.6426,
+      "rank": 615
+    },
+    {
+      "word": "stratagème",
+      "score": 0.6426,
+      "rank": 616
+    },
+    {
+      "word": "valise",
+      "score": 0.6426,
+      "rank": 617
+    },
+    {
+      "word": "exigé",
+      "score": 0.6426,
+      "rank": 618
+    },
+    {
+      "word": "gîte",
+      "score": 0.6425,
+      "rank": 619
+    },
+    {
+      "word": "sui",
+      "score": 0.6425,
+      "rank": 620
+    },
+    {
+      "word": "naval",
+      "score": 0.6425,
+      "rank": 621
+    },
+    {
+      "word": "mar",
+      "score": 0.6424,
+      "rank": 622
+    },
+    {
+      "word": "gale",
+      "score": 0.6424,
+      "rank": 623
+    },
+    {
+      "word": "devenez",
+      "score": 0.6423,
+      "rank": 624
+    },
+    {
+      "word": "rivage",
+      "score": 0.6423,
+      "rank": 625
+    },
+    {
+      "word": "hull",
+      "score": 0.6423,
+      "rank": 626
+    },
+    {
+      "word": "entourent",
+      "score": 0.6423,
+      "rank": 627
+    },
+    {
+      "word": "levés",
+      "score": 0.6423,
+      "rank": 628
+    },
+    {
+      "word": "vacarme",
+      "score": 0.6421,
+      "rank": 629
+    },
+    {
+      "word": "escortera",
+      "score": 0.6421,
+      "rank": 630
+    },
+    {
+      "word": "trafique",
+      "score": 0.6421,
+      "rank": 631
+    },
+    {
+      "word": "côtière",
+      "score": 0.6421,
+      "rank": 632
+    },
+    {
+      "word": "tournerait",
+      "score": 0.642,
+      "rank": 633
+    },
+    {
+      "word": "rapprochée",
+      "score": 0.642,
+      "rank": 634
+    },
+    {
+      "word": "via",
+      "score": 0.6419,
+      "rank": 635
+    },
+    {
+      "word": "elvis",
+      "score": 0.6418,
+      "rank": 636
+    },
+    {
+      "word": "traversez",
+      "score": 0.6418,
+      "rank": 637
+    },
+    {
+      "word": "estella",
+      "score": 0.6418,
+      "rank": 638
+    },
+    {
+      "word": "légende",
+      "score": 0.6417,
+      "rank": 639
+    },
+    {
+      "word": "flotter",
+      "score": 0.6416,
+      "rank": 640
+    },
+    {
+      "word": "bilatérale",
+      "score": 0.6416,
+      "rank": 641
+    },
+    {
+      "word": "pourpres",
+      "score": 0.6414,
+      "rank": 642
+    },
+    {
+      "word": "elise",
+      "score": 0.6414,
+      "rank": 643
+    },
+    {
+      "word": "empilés",
+      "score": 0.6413,
+      "rank": 644
+    },
+    {
+      "word": "déduire",
+      "score": 0.6413,
+      "rank": 645
+    },
+    {
+      "word": "atterri",
+      "score": 0.6412,
+      "rank": 646
+    },
+    {
+      "word": "engendré",
+      "score": 0.6412,
+      "rank": 647
+    },
+    {
+      "word": "ovnis",
+      "score": 0.6412,
+      "rank": 648
+    },
+    {
+      "word": "récite",
+      "score": 0.6411,
+      "rank": 649
+    },
+    {
+      "word": "hind",
+      "score": 0.6411,
+      "rank": 650
+    },
+    {
+      "word": "engrais",
+      "score": 0.6411,
+      "rank": 651
+    },
+    {
+      "word": "loque",
+      "score": 0.641,
+      "rank": 652
+    },
+    {
+      "word": "puérile",
+      "score": 0.6409,
+      "rank": 653
+    },
+    {
+      "word": "conduises",
+      "score": 0.6408,
+      "rank": 654
+    },
+    {
+      "word": "terre",
+      "score": 0.6407,
+      "rank": 655
+    },
+    {
+      "word": "détourne",
+      "score": 0.6406,
+      "rank": 656
+    },
+    {
+      "word": "évasion",
+      "score": 0.6406,
+      "rank": 657
+    },
+    {
+      "word": "travolta",
+      "score": 0.6406,
+      "rank": 658
+    },
+    {
+      "word": "ivo",
+      "score": 0.6406,
+      "rank": 659
+    },
+    {
+      "word": "los",
+      "score": 0.6405,
+      "rank": 660
+    },
+    {
+      "word": "turell",
+      "score": 0.6404,
+      "rank": 661
+    },
+    {
+      "word": "revêtement",
+      "score": 0.6404,
+      "rank": 662
+    },
+    {
+      "word": "motus",
+      "score": 0.6404,
+      "rank": 663
+    },
+    {
+      "word": "moue",
+      "score": 0.6404,
+      "rank": 664
+    },
+    {
+      "word": "désertion",
+      "score": 0.6403,
+      "rank": 665
+    },
+    {
+      "word": "bagarreur",
+      "score": 0.6403,
+      "rank": 666
+    },
+    {
+      "word": "pacotille",
+      "score": 0.6402,
+      "rank": 667
+    },
+    {
+      "word": "étrangère",
+      "score": 0.6402,
+      "rank": 668
+    },
+    {
+      "word": "maux",
+      "score": 0.6402,
+      "rank": 669
+    },
+    {
+      "word": "butés",
+      "score": 0.6401,
+      "rank": 670
+    },
+    {
+      "word": "entourés",
+      "score": 0.6401,
+      "rank": 671
+    },
+    {
+      "word": "montrais",
+      "score": 0.64,
+      "rank": 672
+    },
+    {
+      "word": "voient",
+      "score": 0.64,
+      "rank": 673
+    },
+    {
+      "word": "émerveillé",
+      "score": 0.64,
+      "rank": 674
+    },
+    {
+      "word": "adèle",
+      "score": 0.64,
+      "rank": 675
+    },
+    {
+      "word": "rigoureuse",
+      "score": 0.64,
+      "rank": 676
+    },
+    {
+      "word": "encontre",
+      "score": 0.6399,
+      "rank": 677
+    },
+    {
+      "word": "suivras",
+      "score": 0.6399,
+      "rank": 678
+    },
+    {
+      "word": "caravanes",
+      "score": 0.6399,
+      "rank": 679
+    },
+    {
+      "word": "marrié",
+      "score": 0.6399,
+      "rank": 680
+    },
+    {
+      "word": "portée",
+      "score": 0.6398,
+      "rank": 681
+    },
+    {
+      "word": "prout",
+      "score": 0.6397,
+      "rank": 682
+    },
+    {
+      "word": "déménageur",
+      "score": 0.6396,
+      "rank": 683
+    },
+    {
+      "word": "ativan",
+      "score": 0.6396,
+      "rank": 684
+    },
+    {
+      "word": "tracassez",
+      "score": 0.6396,
+      "rank": 685
+    },
+    {
+      "word": "metas",
+      "score": 0.6396,
+      "rank": 686
+    },
+    {
+      "word": "passã",
+      "score": 0.6396,
+      "rank": 687
+    },
+    {
+      "word": "judée",
+      "score": 0.6396,
+      "rank": 688
+    },
+    {
+      "word": "jugées",
+      "score": 0.6395,
+      "rank": 689
+    },
+    {
+      "word": "vitrée",
+      "score": 0.6395,
+      "rank": 690
+    },
+    {
+      "word": "jument",
+      "score": 0.6395,
+      "rank": 691
+    },
+    {
+      "word": "tordu",
+      "score": 0.6394,
+      "rank": 692
+    },
+    {
+      "word": "galéré",
+      "score": 0.6394,
+      "rank": 693
+    },
+    {
+      "word": "viens",
+      "score": 0.6393,
+      "rank": 694
+    },
+    {
+      "word": "rendues",
+      "score": 0.6393,
+      "rank": 695
+    },
+    {
+      "word": "enlèvent",
+      "score": 0.6393,
+      "rank": 696
+    },
+    {
+      "word": "croises",
+      "score": 0.6392,
+      "rank": 697
+    },
+    {
+      "word": "trouvant",
+      "score": 0.6392,
+      "rank": 698
+    },
+    {
+      "word": "éloigné",
+      "score": 0.6392,
+      "rank": 699
+    },
+    {
+      "word": "marcheras",
+      "score": 0.6391,
+      "rank": 700
+    },
+    {
+      "word": "trouvais",
+      "score": 0.6391,
+      "rank": 701
+    },
+    {
+      "word": "nausées",
+      "score": 0.6389,
+      "rank": 702
+    },
+    {
+      "word": "suivra",
+      "score": 0.6389,
+      "rank": 703
+    },
+    {
+      "word": "estrada",
+      "score": 0.6389,
+      "rank": 704
+    },
+    {
+      "word": "nelly",
+      "score": 0.6389,
+      "rank": 705
+    },
+    {
+      "word": "détournée",
+      "score": 0.6388,
+      "rank": 706
+    },
+    {
+      "word": "enquérir",
+      "score": 0.6388,
+      "rank": 707
+    },
+    {
+      "word": "ode",
+      "score": 0.6388,
+      "rank": 708
+    },
+    {
+      "word": "suivrons",
+      "score": 0.6388,
+      "rank": 709
+    },
+    {
+      "word": "débordant",
+      "score": 0.6387,
+      "rank": 710
+    },
+    {
+      "word": "évasive",
+      "score": 0.6387,
+      "rank": 711
+    },
+    {
+      "word": "arrivage",
+      "score": 0.6387,
+      "rank": 712
+    },
+    {
+      "word": "passerez",
+      "score": 0.6387,
+      "rank": 713
+    },
+    {
+      "word": "procuré",
+      "score": 0.6387,
+      "rank": 714
+    },
+    {
+      "word": "loutre",
+      "score": 0.6386,
+      "rank": 715
+    },
+    {
+      "word": "sieur",
+      "score": 0.6386,
+      "rank": 716
+    },
+    {
+      "word": "angus",
+      "score": 0.6386,
+      "rank": 717
+    },
+    {
+      "word": "relai",
+      "score": 0.6385,
+      "rank": 718
+    },
+    {
+      "word": "délivrés",
+      "score": 0.6384,
+      "rank": 719
+    },
+    {
+      "word": "emplis",
+      "score": 0.6384,
+      "rank": 720
+    },
+    {
+      "word": "lacs",
+      "score": 0.6383,
+      "rank": 721
+    },
+    {
+      "word": "cas",
+      "score": 0.6382,
+      "rank": 722
+    },
+    {
+      "word": "jeté",
+      "score": 0.6382,
+      "rank": 723
+    },
+    {
+      "word": "manège",
+      "score": 0.6382,
+      "rank": 724
+    },
+    {
+      "word": "plages",
+      "score": 0.6382,
+      "rank": 725
+    },
+    {
+      "word": "pilotez",
+      "score": 0.6381,
+      "rank": 726
+    },
+    {
+      "word": "exutoire",
+      "score": 0.638,
+      "rank": 727
+    },
+    {
+      "word": "monteur",
+      "score": 0.6379,
+      "rank": 728
+    },
+    {
+      "word": "raclée",
+      "score": 0.6379,
+      "rank": 729
+    },
+    {
+      "word": "navrant",
+      "score": 0.6378,
+      "rank": 730
+    },
+    {
+      "word": "livrée",
+      "score": 0.6378,
+      "rank": 731
+    },
+    {
+      "word": "serrées",
+      "score": 0.6378,
+      "rank": 732
+    },
+    {
+      "word": "marci",
+      "score": 0.6377,
+      "rank": 733
+    },
+    {
+      "word": "kunta",
+      "score": 0.6376,
+      "rank": 734
+    },
+    {
+      "word": "déplaces",
+      "score": 0.6375,
+      "rank": 735
+    },
+    {
+      "word": "sentinelles",
+      "score": 0.6375,
+      "rank": 736
+    },
+    {
+      "word": "paso",
+      "score": 0.6375,
+      "rank": 737
+    },
+    {
+      "word": "reniflant",
+      "score": 0.6375,
+      "rank": 738
+    },
+    {
+      "word": "déléguée",
+      "score": 0.6375,
+      "rank": 739
+    },
+    {
+      "word": "mundo",
+      "score": 0.6374,
+      "rank": 740
+    },
+    {
+      "word": "barrée",
+      "score": 0.6374,
+      "rank": 741
+    },
+    {
+      "word": "attachées",
+      "score": 0.6374,
+      "rank": 742
+    },
+    {
+      "word": "tori",
+      "score": 0.6373,
+      "rank": 743
+    },
+    {
+      "word": "survenue",
+      "score": 0.6373,
+      "rank": 744
+    },
+    {
+      "word": "veiller",
+      "score": 0.6372,
+      "rank": 745
+    },
+    {
+      "word": "manquée",
+      "score": 0.6372,
+      "rank": 746
+    },
+    {
+      "word": "jetons",
+      "score": 0.6372,
+      "rank": 747
+    },
+    {
+      "word": "délivrée",
+      "score": 0.6372,
+      "rank": 748
+    },
+    {
+      "word": "raza",
+      "score": 0.6372,
+      "rank": 749
+    },
+    {
+      "word": "sentinelle",
+      "score": 0.6372,
+      "rank": 750
+    },
+    {
+      "word": "arrivaient",
+      "score": 0.6371,
+      "rank": 751
+    },
+    {
+      "word": "coureur",
+      "score": 0.637,
+      "rank": 752
+    },
+    {
+      "word": "leo",
+      "score": 0.637,
+      "rank": 753
+    },
+    {
+      "word": "passé",
+      "score": 0.6369,
+      "rank": 754
+    },
+    {
+      "word": "livrent",
+      "score": 0.6368,
+      "rank": 755
+    },
+    {
+      "word": "palais",
+      "score": 0.6367,
+      "rank": 756
+    },
+    {
+      "word": "bale",
+      "score": 0.6367,
+      "rank": 757
+    },
+    {
+      "word": "apparition",
+      "score": 0.6367,
+      "rank": 758
+    },
+    {
+      "word": "trinque",
+      "score": 0.6366,
+      "rank": 759
+    },
+    {
+      "word": "emménages",
+      "score": 0.6366,
+      "rank": 760
+    },
+    {
+      "word": "marée",
+      "score": 0.6365,
+      "rank": 761
+    },
+    {
+      "word": "revienne",
+      "score": 0.6365,
+      "rank": 762
+    },
+    {
+      "word": "détournement",
+      "score": 0.6365,
+      "rank": 763
+    },
+    {
+      "word": "loir",
+      "score": 0.6365,
+      "rank": 764
+    },
+    {
+      "word": "vassaux",
+      "score": 0.6363,
+      "rank": 765
+    },
+    {
+      "word": "démarquer",
+      "score": 0.6363,
+      "rank": 766
+    },
+    {
+      "word": "valenti",
+      "score": 0.6362,
+      "rank": 767
+    },
+    {
+      "word": "départs",
+      "score": 0.6362,
+      "rank": 768
+    },
+    {
+      "word": "censées",
+      "score": 0.6361,
+      "rank": 769
+    },
+    {
+      "word": "traîtrise",
+      "score": 0.6361,
+      "rank": 770
+    },
+    {
+      "word": "touristes",
+      "score": 0.6361,
+      "rank": 771
+    },
+    {
+      "word": "périphérique",
+      "score": 0.6361,
+      "rank": 772
+    },
+    {
+      "word": "moudre",
+      "score": 0.636,
+      "rank": 773
+    },
+    {
+      "word": "moulante",
+      "score": 0.636,
+      "rank": 774
+    },
+    {
+      "word": "visiteuse",
+      "score": 0.6359,
+      "rank": 775
+    },
+    {
+      "word": "déroulé",
+      "score": 0.6359,
+      "rank": 776
+    },
+    {
+      "word": "bella",
+      "score": 0.6359,
+      "rank": 777
+    },
+    {
+      "word": "lieues",
+      "score": 0.6358,
+      "rank": 778
+    },
+    {
+      "word": "élimine",
+      "score": 0.6358,
+      "rank": 779
+    },
+    {
+      "word": "veillais",
+      "score": 0.6358,
+      "rank": 780
+    },
+    {
+      "word": "immergé",
+      "score": 0.6358,
+      "rank": 781
+    },
+    {
+      "word": "convoite",
+      "score": 0.6357,
+      "rank": 782
+    },
+    {
+      "word": "atterrissent",
+      "score": 0.6356,
+      "rank": 783
+    },
+    {
+      "word": "clandestine",
+      "score": 0.6356,
+      "rank": 784
+    },
+    {
+      "word": "détournent",
+      "score": 0.6355,
+      "rank": 785
+    },
+    {
+      "word": "bouleverser",
+      "score": 0.6355,
+      "rank": 786
+    },
+    {
+      "word": "enléve",
+      "score": 0.6355,
+      "rank": 787
+    },
+    {
+      "word": "rivages",
+      "score": 0.6355,
+      "rank": 788
+    },
+    {
+      "word": "vexer",
+      "score": 0.6354,
+      "rank": 789
+    },
+    {
+      "word": "barges",
+      "score": 0.6354,
+      "rank": 790
+    },
+    {
+      "word": "étire",
+      "score": 0.6354,
+      "rank": 791
+    },
+    {
+      "word": "rejets",
+      "score": 0.6354,
+      "rank": 792
+    },
+    {
+      "word": "largués",
+      "score": 0.6353,
+      "rank": 793
+    },
+    {
+      "word": "andrés",
+      "score": 0.6353,
+      "rank": 794
+    },
+    {
+      "word": "remonte",
+      "score": 0.6353,
+      "rank": 795
+    },
+    {
+      "word": "angulaire",
+      "score": 0.6352,
+      "rank": 796
+    },
+    {
+      "word": "soudure",
+      "score": 0.6352,
+      "rank": 797
+    },
+    {
+      "word": "siéger",
+      "score": 0.6352,
+      "rank": 798
+    },
+    {
+      "word": "suive",
+      "score": 0.6352,
+      "rank": 799
+    },
+    {
+      "word": "val",
+      "score": 0.6352,
+      "rank": 800
+    },
+    {
+      "word": "livrez",
+      "score": 0.6351,
+      "rank": 801
+    },
+    {
+      "word": "racaille",
+      "score": 0.6351,
+      "rank": 802
+    },
+    {
+      "word": "escorté",
+      "score": 0.6351,
+      "rank": 803
+    },
+    {
+      "word": "survêt",
+      "score": 0.635,
+      "rank": 804
+    },
+    {
+      "word": "tracée",
+      "score": 0.6349,
+      "rank": 805
+    },
+    {
+      "word": "pétale",
+      "score": 0.6349,
+      "rank": 806
+    },
+    {
+      "word": "avérés",
+      "score": 0.6349,
+      "rank": 807
+    },
+    {
+      "word": "enchérir",
+      "score": 0.6348,
+      "rank": 808
+    },
+    {
+      "word": "soudés",
+      "score": 0.6348,
+      "rank": 809
+    },
+    {
+      "word": "esquivé",
+      "score": 0.6347,
+      "rank": 810
+    },
+    {
+      "word": "laque",
+      "score": 0.6347,
+      "rank": 811
+    },
+    {
+      "word": "mondial",
+      "score": 0.6347,
+      "rank": 812
+    },
+    {
+      "word": "traqués",
+      "score": 0.6346,
+      "rank": 813
+    },
+    {
+      "word": "ratées",
+      "score": 0.6346,
+      "rank": 814
+    },
+    {
+      "word": "vita",
+      "score": 0.6346,
+      "rank": 815
+    },
+    {
+      "word": "croisant",
+      "score": 0.6345,
+      "rank": 816
+    },
+    {
+      "word": "ramèneras",
+      "score": 0.6345,
+      "rank": 817
+    },
+    {
+      "word": "jette",
+      "score": 0.6344,
+      "rank": 818
+    },
+    {
+      "word": "plats",
+      "score": 0.6344,
+      "rank": 819
+    },
+    {
+      "word": "caleçons",
+      "score": 0.6344,
+      "rank": 820
+    },
+    {
+      "word": "accompagnés",
+      "score": 0.6343,
+      "rank": 821
+    },
+    {
+      "word": "miaulement",
+      "score": 0.6343,
+      "rank": 822
+    },
+    {
+      "word": "évader",
+      "score": 0.6341,
+      "rank": 823
+    },
+    {
+      "word": "envoyant",
+      "score": 0.6341,
+      "rank": 824
+    },
+    {
+      "word": "serrait",
+      "score": 0.6341,
+      "rank": 825
+    },
+    {
+      "word": "citadelle",
+      "score": 0.634,
+      "rank": 826
+    },
+    {
+      "word": "dancing",
+      "score": 0.6339,
+      "rank": 827
+    },
+    {
+      "word": "vit",
+      "score": 0.6339,
+      "rank": 828
+    },
+    {
+      "word": "allaite",
+      "score": 0.6339,
+      "rank": 829
+    },
+    {
+      "word": "serrée",
+      "score": 0.6338,
+      "rank": 830
+    },
+    {
+      "word": "attachant",
+      "score": 0.6338,
+      "rank": 831
+    },
+    {
+      "word": "arriviez",
+      "score": 0.6338,
+      "rank": 832
+    },
+    {
+      "word": "virements",
+      "score": 0.6338,
+      "rank": 833
+    },
+    {
+      "word": "pâques",
+      "score": 0.6338,
+      "rank": 834
+    },
+    {
+      "word": "utah",
+      "score": 0.6337,
+      "rank": 835
+    },
+    {
+      "word": "spatial",
+      "score": 0.6337,
+      "rank": 836
+    },
+    {
+      "word": "aveux",
+      "score": 0.6337,
+      "rank": 837
+    },
+    {
+      "word": "wesen",
+      "score": 0.6336,
+      "rank": 838
+    },
+    {
+      "word": "lci",
+      "score": 0.6336,
+      "rank": 839
+    },
+    {
+      "word": "jouis",
+      "score": 0.6335,
+      "rank": 840
+    },
+    {
+      "word": "maigri",
+      "score": 0.6335,
+      "rank": 841
+    },
+    {
+      "word": "galette",
+      "score": 0.6334,
+      "rank": 842
+    },
+    {
+      "word": "randonnées",
+      "score": 0.6334,
+      "rank": 843
+    },
+    {
+      "word": "relance",
+      "score": 0.6334,
+      "rank": 844
+    },
+    {
+      "word": "ote",
+      "score": 0.6334,
+      "rank": 845
+    },
+    {
+      "word": "traverserons",
+      "score": 0.6333,
+      "rank": 846
+    },
+    {
+      "word": "éloignes",
+      "score": 0.6333,
+      "rank": 847
+    },
+    {
+      "word": "molle",
+      "score": 0.6332,
+      "rank": 848
+    },
+    {
+      "word": "vernissage",
+      "score": 0.6332,
+      "rank": 849
+    },
+    {
+      "word": "batiatus",
+      "score": 0.6332,
+      "rank": 850
+    },
+    {
+      "word": "cirque",
+      "score": 0.6332,
+      "rank": 851
+    },
+    {
+      "word": "ajourné",
+      "score": 0.6331,
+      "rank": 852
+    },
+    {
+      "word": "steppe",
+      "score": 0.6331,
+      "rank": 853
+    },
+    {
+      "word": "volvo",
+      "score": 0.633,
+      "rank": 854
+    },
+    {
+      "word": "motard",
+      "score": 0.633,
+      "rank": 855
+    },
+    {
+      "word": "séoul",
+      "score": 0.633,
+      "rank": 856
+    },
+    {
+      "word": "éteinte",
+      "score": 0.633,
+      "rank": 857
+    },
+    {
+      "word": "révélés",
+      "score": 0.6329,
+      "rank": 858
+    },
+    {
+      "word": "siestes",
+      "score": 0.6329,
+      "rank": 859
+    },
+    {
+      "word": "soudaine",
+      "score": 0.6328,
+      "rank": 860
+    },
+    {
+      "word": "entourant",
+      "score": 0.6328,
+      "rank": 861
+    },
+    {
+      "word": "marrés",
+      "score": 0.6328,
+      "rank": 862
+    },
+    {
+      "word": "world",
+      "score": 0.6328,
+      "rank": 863
+    },
+    {
+      "word": "rodéo",
+      "score": 0.6328,
+      "rank": 864
+    },
+    {
+      "word": "passera",
+      "score": 0.6328,
+      "rank": 865
+    },
+    {
+      "word": "conquérir",
+      "score": 0.6328,
+      "rank": 866
+    },
+    {
+      "word": "ciera",
+      "score": 0.6328,
+      "rank": 867
+    },
+    {
+      "word": "franchissant",
+      "score": 0.6327,
+      "rank": 868
+    },
+    {
+      "word": "suiveur",
+      "score": 0.6327,
+      "rank": 869
+    },
+    {
+      "word": "rendez",
+      "score": 0.6327,
+      "rank": 870
+    },
+    {
+      "word": "censée",
+      "score": 0.6327,
+      "rank": 871
+    },
+    {
+      "word": "traînais",
+      "score": 0.6327,
+      "rank": 872
+    },
+    {
+      "word": "étripe",
+      "score": 0.6326,
+      "rank": 873
+    },
+    {
+      "word": "échos",
+      "score": 0.6325,
+      "rank": 874
+    },
+    {
+      "word": "trac",
+      "score": 0.6325,
+      "rank": 875
+    },
+    {
+      "word": "enlevé",
+      "score": 0.6324,
+      "rank": 876
+    },
+    {
+      "word": "éloignent",
+      "score": 0.6324,
+      "rank": 877
+    },
+    {
+      "word": "lueur",
+      "score": 0.6323,
+      "rank": 878
+    },
+    {
+      "word": "traire",
+      "score": 0.6323,
+      "rank": 879
+    },
+    {
+      "word": "rigoureux",
+      "score": 0.6323,
+      "rank": 880
+    },
+    {
+      "word": "holst",
+      "score": 0.6322,
+      "rank": 881
+    },
+    {
+      "word": "voeu",
+      "score": 0.6322,
+      "rank": 882
+    },
+    {
+      "word": "célia",
+      "score": 0.6322,
+      "rank": 883
+    },
+    {
+      "word": "mondiales",
+      "score": 0.6322,
+      "rank": 884
+    },
+    {
+      "word": "renvoient",
+      "score": 0.6321,
+      "rank": 885
+    },
+    {
+      "word": "jacs",
+      "score": 0.6321,
+      "rank": 886
+    },
+    {
+      "word": "trié",
+      "score": 0.6321,
+      "rank": 887
+    },
+    {
+      "word": "fouines",
+      "score": 0.6321,
+      "rank": 888
+    },
+    {
+      "word": "jurassic",
+      "score": 0.6321,
+      "rank": 889
+    },
+    {
+      "word": "barrés",
+      "score": 0.632,
+      "rank": 890
+    },
+    {
+      "word": "attirées",
+      "score": 0.632,
+      "rank": 891
+    },
+    {
+      "word": "tuniques",
+      "score": 0.6319,
+      "rank": 892
+    },
+    {
+      "word": "éprise",
+      "score": 0.6319,
+      "rank": 893
+    },
+    {
+      "word": "majeste",
+      "score": 0.6319,
+      "rank": 894
+    },
+    {
+      "word": "ressente",
+      "score": 0.6317,
+      "rank": 895
+    },
+    {
+      "word": "partir",
+      "score": 0.6317,
+      "rank": 896
+    },
+    {
+      "word": "gazette",
+      "score": 0.6317,
+      "rank": 897
+    },
+    {
+      "word": "stade",
+      "score": 0.6317,
+      "rank": 898
+    },
+    {
+      "word": "régent",
+      "score": 0.6317,
+      "rank": 899
+    },
+    {
+      "word": "serai",
+      "score": 0.6316,
+      "rank": 900
+    },
+    {
+      "word": "délivre",
+      "score": 0.6316,
+      "rank": 901
+    },
+    {
+      "word": "ecole",
+      "score": 0.6316,
+      "rank": 902
+    },
+    {
+      "word": "genève",
+      "score": 0.6314,
+      "rank": 903
+    },
+    {
+      "word": "égayer",
+      "score": 0.6313,
+      "rank": 904
+    },
+    {
+      "word": "côtoyé",
+      "score": 0.6312,
+      "rank": 905
+    },
+    {
+      "word": "ivre",
+      "score": 0.6312,
+      "rank": 906
+    },
+    {
+      "word": "clairière",
+      "score": 0.6311,
+      "rank": 907
+    },
+    {
+      "word": "détachant",
+      "score": 0.6311,
+      "rank": 908
+    },
+    {
+      "word": "shraga",
+      "score": 0.6311,
+      "rank": 909
+    },
+    {
+      "word": "envolée",
+      "score": 0.631,
+      "rank": 910
+    },
+    {
+      "word": "diriges",
+      "score": 0.631,
+      "rank": 911
+    },
+    {
+      "word": "lues",
+      "score": 0.631,
+      "rank": 912
+    },
+    {
+      "word": "rabaisse",
+      "score": 0.631,
+      "rank": 913
+    },
+    {
+      "word": "suivait",
+      "score": 0.631,
+      "rank": 914
+    },
+    {
+      "word": "détendus",
+      "score": 0.631,
+      "rank": 915
+    },
+    {
+      "word": "vantes",
+      "score": 0.631,
+      "rank": 916
+    },
+    {
+      "word": "commandées",
+      "score": 0.6309,
+      "rank": 917
+    },
+    {
+      "word": "croisés",
+      "score": 0.6309,
+      "rank": 918
+    },
+    {
+      "word": "vende",
+      "score": 0.6307,
+      "rank": 919
+    },
+    {
+      "word": "dérouter",
+      "score": 0.6307,
+      "rank": 920
+    },
+    {
+      "word": "aéroportée",
+      "score": 0.6307,
+      "rank": 921
+    },
+    {
+      "word": "seeker",
+      "score": 0.6307,
+      "rank": 922
+    },
+    {
+      "word": "mot",
+      "score": 0.6306,
+      "rank": 923
+    },
+    {
+      "word": "tatillon",
+      "score": 0.6306,
+      "rank": 924
+    },
+    {
+      "word": "tendus",
+      "score": 0.6306,
+      "rank": 925
+    },
+    {
+      "word": "visiteur",
+      "score": 0.6305,
+      "rank": 926
+    },
+    {
+      "word": "basiques",
+      "score": 0.6305,
+      "rank": 927
+    },
+    {
+      "word": "oscar",
+      "score": 0.6305,
+      "rank": 928
+    },
+    {
+      "word": "dures",
+      "score": 0.6304,
+      "rank": 929
+    },
+    {
+      "word": "butée",
+      "score": 0.6304,
+      "rank": 930
+    },
+    {
+      "word": "entretemps",
+      "score": 0.6304,
+      "rank": 931
+    },
+    {
+      "word": "maze",
+      "score": 0.6304,
+      "rank": 932
+    },
+    {
+      "word": "ritsu",
+      "score": 0.6304,
+      "rank": 933
+    },
+    {
+      "word": "désirée",
+      "score": 0.6303,
+      "rank": 934
+    },
+    {
+      "word": "costa",
+      "score": 0.6303,
+      "rank": 935
+    },
+    {
+      "word": "roulante",
+      "score": 0.6303,
+      "rank": 936
+    },
+    {
+      "word": "pêre",
+      "score": 0.6303,
+      "rank": 937
+    },
+    {
+      "word": "routières",
+      "score": 0.6303,
+      "rank": 938
+    },
+    {
+      "word": "vaincu",
+      "score": 0.6302,
+      "rank": 939
+    },
+    {
+      "word": "jacques",
+      "score": 0.6302,
+      "rank": 940
+    },
+    {
+      "word": "régents",
+      "score": 0.6302,
+      "rank": 941
+    },
+    {
+      "word": "transportant",
+      "score": 0.6302,
+      "rank": 942
+    },
+    {
+      "word": "stef",
+      "score": 0.6302,
+      "rank": 943
+    },
+    {
+      "word": "litiges",
+      "score": 0.6301,
+      "rank": 944
+    },
+    {
+      "word": "transportent",
+      "score": 0.63,
+      "rank": 945
+    },
+    {
+      "word": "fremont",
+      "score": 0.63,
+      "rank": 946
+    },
+    {
+      "word": "ressentes",
+      "score": 0.63,
+      "rank": 947
+    },
+    {
+      "word": "allai",
+      "score": 0.6298,
+      "rank": 948
+    },
+    {
+      "word": "usagés",
+      "score": 0.6298,
+      "rank": 949
+    },
+    {
+      "word": "durera",
+      "score": 0.6298,
+      "rank": 950
+    },
+    {
+      "word": "conduit",
+      "score": 0.6298,
+      "rank": 951
+    },
+    {
+      "word": "mésaventure",
+      "score": 0.6298,
+      "rank": 952
+    },
+    {
+      "word": "réglez",
+      "score": 0.6297,
+      "rank": 953
+    },
+    {
+      "word": "hur",
+      "score": 0.6297,
+      "rank": 954
+    },
+    {
+      "word": "partons",
+      "score": 0.6297,
+      "rank": 955
+    },
+    {
+      "word": "traquer",
+      "score": 0.6297,
+      "rank": 956
+    },
+    {
+      "word": "vise",
+      "score": 0.6296,
+      "rank": 957
+    },
+    {
+      "word": "surgi",
+      "score": 0.6296,
+      "rank": 958
+    },
+    {
+      "word": "poursuis",
+      "score": 0.6296,
+      "rank": 959
+    },
+    {
+      "word": "marchons",
+      "score": 0.6296,
+      "rank": 960
+    },
+    {
+      "word": "retrouve",
+      "score": 0.6295,
+      "rank": 961
+    },
+    {
+      "word": "échantillon",
+      "score": 0.6295,
+      "rank": 962
+    },
+    {
+      "word": "carje",
+      "score": 0.6295,
+      "rank": 963
+    },
+    {
+      "word": "gonzesse",
+      "score": 0.6295,
+      "rank": 964
+    },
+    {
+      "word": "larguer",
+      "score": 0.6295,
+      "rank": 965
+    },
+    {
+      "word": "baraque",
+      "score": 0.6295,
+      "rank": 966
+    },
+    {
+      "word": "stig",
+      "score": 0.6295,
+      "rank": 967
+    },
+    {
+      "word": "présages",
+      "score": 0.6294,
+      "rank": 968
+    },
+    {
+      "word": "légat",
+      "score": 0.6294,
+      "rank": 969
+    },
+    {
+      "word": "élevons",
+      "score": 0.6294,
+      "rank": 970
+    },
+    {
+      "word": "redire",
+      "score": 0.6294,
+      "rank": 971
+    },
+    {
+      "word": "pavés",
+      "score": 0.6294,
+      "rank": 972
+    },
+    {
+      "word": "cesar",
+      "score": 0.6293,
+      "rank": 973
+    },
+    {
+      "word": "nacelle",
+      "score": 0.6293,
+      "rank": 974
+    },
+    {
+      "word": "renvoyons",
+      "score": 0.6293,
+      "rank": 975
+    },
+    {
+      "word": "atterrissage",
+      "score": 0.6293,
+      "rank": 976
+    },
+    {
+      "word": "parias",
+      "score": 0.6293,
+      "rank": 977
+    },
+    {
+      "word": "saintes",
+      "score": 0.6292,
+      "rank": 978
+    },
+    {
+      "word": "veillée",
+      "score": 0.6292,
+      "rank": 979
+    },
+    {
+      "word": "entrailles",
+      "score": 0.6292,
+      "rank": 980
+    },
+    {
+      "word": "argos",
+      "score": 0.6292,
+      "rank": 981
+    },
+    {
+      "word": "vécus",
+      "score": 0.6291,
+      "rank": 982
+    },
+    {
+      "word": "frederic",
+      "score": 0.6291,
+      "rank": 983
+    },
+    {
+      "word": "vais",
+      "score": 0.6291,
+      "rank": 984
+    },
+    {
+      "word": "livret",
+      "score": 0.6291,
+      "rank": 985
+    },
+    {
+      "word": "montées",
+      "score": 0.629,
+      "rank": 986
+    },
+    {
+      "word": "rattaché",
+      "score": 0.629,
+      "rank": 987
+    },
+    {
+      "word": "oseras",
+      "score": 0.629,
+      "rank": 988
+    },
+    {
+      "word": "suraj",
+      "score": 0.629,
+      "rank": 989
+    },
+    {
+      "word": "dévier",
+      "score": 0.6289,
+      "rank": 990
+    },
+    {
+      "word": "mira",
+      "score": 0.6289,
+      "rank": 991
+    },
+    {
+      "word": "croisée",
+      "score": 0.6289,
+      "rank": 992
+    },
+    {
+      "word": "vertueuse",
+      "score": 0.6289,
+      "rank": 993
+    },
+    {
+      "word": "rendus",
+      "score": 0.6288,
+      "rank": 994
+    },
+    {
+      "word": "quiétude",
+      "score": 0.6288,
+      "rank": 995
+    },
+    {
+      "word": "pére",
+      "score": 0.6288,
+      "rank": 996
+    },
+    {
+      "word": "gaélique",
+      "score": 0.6288,
+      "rank": 997
+    },
+    {
+      "word": "bouler",
+      "score": 0.6287,
+      "rank": 998
+    },
+    {
+      "word": "apparus",
+      "score": 0.6287,
+      "rank": 999
+    },
+    {
+      "word": "étincelles",
+      "score": 0.6287,
+      "rank": 1000
+    }
+  ]
+}

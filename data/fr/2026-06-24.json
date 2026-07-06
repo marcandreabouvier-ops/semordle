@@ -1,0 +1,5014 @@
+{
+  "date": "2026-06-24",
+  "puzzleNumber": 172,
+  "lang": "fr",
+  "secret": "victoire",
+  "wordLength": 8,
+  "hints": {
+    "top1": 0.9817,
+    "top10": 0.9434,
+    "top1000": 0.7118
+  },
+  "words": [
+    {
+      "word": "victorieuse",
+      "score": 0.9817,
+      "rank": 1
+    },
+    {
+      "word": "victorieux",
+      "score": 0.9783,
+      "rank": 2
+    },
+    {
+      "word": "remporte",
+      "score": 0.9615,
+      "rank": 3
+    },
+    {
+      "word": "victoria",
+      "score": 0.9606,
+      "rank": 4
+    },
+    {
+      "word": "gagner",
+      "score": 0.9588,
+      "rank": 5
+    },
+    {
+      "word": "gagnés",
+      "score": 0.9555,
+      "rank": 6
+    },
+    {
+      "word": "gagné",
+      "score": 0.9538,
+      "rank": 7
+    },
+    {
+      "word": "victory",
+      "score": 0.9535,
+      "rank": 8
+    },
+    {
+      "word": "gagnant",
+      "score": 0.9534,
+      "rank": 9
+    },
+    {
+      "word": "gagnées",
+      "score": 0.9434,
+      "rank": 10
+    },
+    {
+      "word": "win",
+      "score": 0.942,
+      "rank": 11
+    },
+    {
+      "word": "gagniez",
+      "score": 0.9413,
+      "rank": 12
+    },
+    {
+      "word": "gagnée",
+      "score": 0.937,
+      "rank": 13
+    },
+    {
+      "word": "gagnait",
+      "score": 0.933,
+      "rank": 14
+    },
+    {
+      "word": "remporté",
+      "score": 0.9318,
+      "rank": 15
+    },
+    {
+      "word": "remportent",
+      "score": 0.9296,
+      "rank": 16
+    },
+    {
+      "word": "gagnais",
+      "score": 0.9273,
+      "rank": 17
+    },
+    {
+      "word": "gagnent",
+      "score": 0.9272,
+      "rank": 18
+    },
+    {
+      "word": "gagnez",
+      "score": 0.9271,
+      "rank": 19
+    },
+    {
+      "word": "vincenzo",
+      "score": 0.9266,
+      "rank": 20
+    },
+    {
+      "word": "gagnante",
+      "score": 0.9165,
+      "rank": 21
+    },
+    {
+      "word": "gagnera",
+      "score": 0.9071,
+      "rank": 22
+    },
+    {
+      "word": "gagne",
+      "score": 0.9025,
+      "rank": 23
+    },
+    {
+      "word": "gagnerez",
+      "score": 0.8998,
+      "rank": 24
+    },
+    {
+      "word": "gagnaient",
+      "score": 0.8997,
+      "rank": 25
+    },
+    {
+      "word": "won",
+      "score": 0.898,
+      "rank": 26
+    },
+    {
+      "word": "remportera",
+      "score": 0.8922,
+      "rank": 27
+    },
+    {
+      "word": "gagnons",
+      "score": 0.8899,
+      "rank": 28
+    },
+    {
+      "word": "gagneras",
+      "score": 0.8683,
+      "rank": 29
+    },
+    {
+      "word": "gagnantes",
+      "score": 0.8639,
+      "rank": 30
+    },
+    {
+      "word": "gagnants",
+      "score": 0.8567,
+      "rank": 31
+    },
+    {
+      "word": "gagnes",
+      "score": 0.8534,
+      "rank": 32
+    },
+    {
+      "word": "gagna",
+      "score": 0.8515,
+      "rank": 33
+    },
+    {
+      "word": "réussiras",
+      "score": 0.8349,
+      "rank": 34
+    },
+    {
+      "word": "gagneriez",
+      "score": 0.8325,
+      "rank": 35
+    },
+    {
+      "word": "succès",
+      "score": 0.8306,
+      "rank": 36
+    },
+    {
+      "word": "succes",
+      "score": 0.8284,
+      "rank": 37
+    },
+    {
+      "word": "réussite",
+      "score": 0.8265,
+      "rank": 38
+    },
+    {
+      "word": "wons",
+      "score": 0.8254,
+      "rank": 39
+    },
+    {
+      "word": "réussira",
+      "score": 0.8217,
+      "rank": 40
+    },
+    {
+      "word": "profité",
+      "score": 0.8181,
+      "rank": 41
+    },
+    {
+      "word": "accolade",
+      "score": 0.8162,
+      "rank": 42
+    },
+    {
+      "word": "gagnerons",
+      "score": 0.8161,
+      "rank": 43
+    },
+    {
+      "word": "gare",
+      "score": 0.8156,
+      "rank": 44
+    },
+    {
+      "word": "profitait",
+      "score": 0.8148,
+      "rank": 45
+    },
+    {
+      "word": "applaudi",
+      "score": 0.813,
+      "rank": 46
+    },
+    {
+      "word": "réussissent",
+      "score": 0.8126,
+      "rank": 47
+    },
+    {
+      "word": "réussies",
+      "score": 0.8106,
+      "rank": 48
+    },
+    {
+      "word": "réussissais",
+      "score": 0.8086,
+      "rank": 49
+    },
+    {
+      "word": "réussit",
+      "score": 0.808,
+      "rank": 50
+    },
+    {
+      "word": "gagneront",
+      "score": 0.8072,
+      "rank": 51
+    },
+    {
+      "word": "acclamé",
+      "score": 0.8063,
+      "rank": 52
+    },
+    {
+      "word": "réussie",
+      "score": 0.8057,
+      "rank": 53
+    },
+    {
+      "word": "réussisse",
+      "score": 0.8048,
+      "rank": 54
+    },
+    {
+      "word": "réussis",
+      "score": 0.8044,
+      "rank": 55
+    },
+    {
+      "word": "regagner",
+      "score": 0.8044,
+      "rank": 56
+    },
+    {
+      "word": "réussisses",
+      "score": 0.8029,
+      "rank": 57
+    },
+    {
+      "word": "réussites",
+      "score": 0.8026,
+      "rank": 58
+    },
+    {
+      "word": "réussir",
+      "score": 0.8014,
+      "rank": 59
+    },
+    {
+      "word": "réussissons",
+      "score": 0.7988,
+      "rank": 60
+    },
+    {
+      "word": "réussi",
+      "score": 0.7977,
+      "rank": 61
+    },
+    {
+      "word": "réussissez",
+      "score": 0.7934,
+      "rank": 62
+    },
+    {
+      "word": "gagnerai",
+      "score": 0.7922,
+      "rank": 63
+    },
+    {
+      "word": "fièrement",
+      "score": 0.792,
+      "rank": 64
+    },
+    {
+      "word": "championnat",
+      "score": 0.7918,
+      "rank": 65
+    },
+    {
+      "word": "conquérant",
+      "score": 0.7916,
+      "rank": 66
+    },
+    {
+      "word": "applaudissez",
+      "score": 0.7903,
+      "rank": 67
+    },
+    {
+      "word": "conquérir",
+      "score": 0.7903,
+      "rank": 68
+    },
+    {
+      "word": "sorte",
+      "score": 0.7886,
+      "rank": 69
+    },
+    {
+      "word": "remporter",
+      "score": 0.7883,
+      "rank": 70
+    },
+    {
+      "word": "réussirez",
+      "score": 0.7859,
+      "rank": 71
+    },
+    {
+      "word": "réjouit",
+      "score": 0.7857,
+      "rank": 72
+    },
+    {
+      "word": "réjouir",
+      "score": 0.7849,
+      "rank": 73
+    },
+    {
+      "word": "prestation",
+      "score": 0.7847,
+      "rank": 74
+    },
+    {
+      "word": "lauréat",
+      "score": 0.7835,
+      "rank": 75
+    },
+    {
+      "word": "supporterait",
+      "score": 0.7825,
+      "rank": 76
+    },
+    {
+      "word": "gagnerait",
+      "score": 0.7823,
+      "rank": 77
+    },
+    {
+      "word": "récompensée",
+      "score": 0.7822,
+      "rank": 78
+    },
+    {
+      "word": "réjouissais",
+      "score": 0.7821,
+      "rank": 79
+    },
+    {
+      "word": "loutres",
+      "score": 0.7816,
+      "rank": 80
+    },
+    {
+      "word": "convié",
+      "score": 0.7802,
+      "rank": 81
+    },
+    {
+      "word": "récompense",
+      "score": 0.7798,
+      "rank": 82
+    },
+    {
+      "word": "victorien",
+      "score": 0.7795,
+      "rank": 83
+    },
+    {
+      "word": "éminents",
+      "score": 0.7787,
+      "rank": 84
+    },
+    {
+      "word": "crissement",
+      "score": 0.7787,
+      "rank": 85
+    },
+    {
+      "word": "résultat",
+      "score": 0.7785,
+      "rank": 86
+    },
+    {
+      "word": "réjouis",
+      "score": 0.7772,
+      "rank": 87
+    },
+    {
+      "word": "éloge",
+      "score": 0.7766,
+      "rank": 88
+    },
+    {
+      "word": "revanche",
+      "score": 0.7764,
+      "rank": 89
+    },
+    {
+      "word": "stupeur",
+      "score": 0.7759,
+      "rank": 90
+    },
+    {
+      "word": "célébrant",
+      "score": 0.7755,
+      "rank": 91
+    },
+    {
+      "word": "recevais",
+      "score": 0.7737,
+      "rank": 92
+    },
+    {
+      "word": "bravé",
+      "score": 0.7734,
+      "rank": 93
+    },
+    {
+      "word": "louée",
+      "score": 0.7723,
+      "rank": 94
+    },
+    {
+      "word": "voit",
+      "score": 0.7721,
+      "rank": 95
+    },
+    {
+      "word": "réussissait",
+      "score": 0.7718,
+      "rank": 96
+    },
+    {
+      "word": "prestations",
+      "score": 0.7718,
+      "rank": 97
+    },
+    {
+      "word": "crissements",
+      "score": 0.7709,
+      "rank": 98
+    },
+    {
+      "word": "sortais",
+      "score": 0.7708,
+      "rank": 99
+    },
+    {
+      "word": "rebut",
+      "score": 0.769,
+      "rank": 100
+    },
+    {
+      "word": "élégante",
+      "score": 0.7664,
+      "rank": 101
+    },
+    {
+      "word": "survenue",
+      "score": 0.7651,
+      "rank": 102
+    },
+    {
+      "word": "concours",
+      "score": 0.7647,
+      "rank": 103
+    },
+    {
+      "word": "sieg",
+      "score": 0.7645,
+      "rank": 104
+    },
+    {
+      "word": "cerise",
+      "score": 0.7644,
+      "rank": 105
+    },
+    {
+      "word": "fêtarde",
+      "score": 0.7643,
+      "rank": 106
+    },
+    {
+      "word": "sourcier",
+      "score": 0.7633,
+      "rank": 107
+    },
+    {
+      "word": "échouera",
+      "score": 0.7632,
+      "rank": 108
+    },
+    {
+      "word": "réalisation",
+      "score": 0.7629,
+      "rank": 109
+    },
+    {
+      "word": "élégamment",
+      "score": 0.7629,
+      "rank": 110
+    },
+    {
+      "word": "dorota",
+      "score": 0.7628,
+      "rank": 111
+    },
+    {
+      "word": "reconnu",
+      "score": 0.7625,
+      "rank": 112
+    },
+    {
+      "word": "bénéficié",
+      "score": 0.7623,
+      "rank": 113
+    },
+    {
+      "word": "obtenus",
+      "score": 0.7622,
+      "rank": 114
+    },
+    {
+      "word": "valiant",
+      "score": 0.7618,
+      "rank": 115
+    },
+    {
+      "word": "rahul",
+      "score": 0.7617,
+      "rank": 116
+    },
+    {
+      "word": "loué",
+      "score": 0.7615,
+      "rank": 117
+    },
+    {
+      "word": "gagnerais",
+      "score": 0.7608,
+      "rank": 118
+    },
+    {
+      "word": "rallié",
+      "score": 0.7607,
+      "rank": 119
+    },
+    {
+      "word": "bondir",
+      "score": 0.7605,
+      "rank": 120
+    },
+    {
+      "word": "heureusement",
+      "score": 0.76,
+      "rank": 121
+    },
+    {
+      "word": "hennissement",
+      "score": 0.76,
+      "rank": 122
+    },
+    {
+      "word": "saluer",
+      "score": 0.7598,
+      "rank": 123
+    },
+    {
+      "word": "fierté",
+      "score": 0.7598,
+      "rank": 124
+    },
+    {
+      "word": "parviennent",
+      "score": 0.7598,
+      "rank": 125
+    },
+    {
+      "word": "bienfait",
+      "score": 0.7592,
+      "rank": 126
+    },
+    {
+      "word": "fêtard",
+      "score": 0.7586,
+      "rank": 127
+    },
+    {
+      "word": "obtenue",
+      "score": 0.7584,
+      "rank": 128
+    },
+    {
+      "word": "bénéficie",
+      "score": 0.758,
+      "rank": 129
+    },
+    {
+      "word": "saluent",
+      "score": 0.7577,
+      "rank": 130
+    },
+    {
+      "word": "bénédicte",
+      "score": 0.7571,
+      "rank": 131
+    },
+    {
+      "word": "réjouissons",
+      "score": 0.7569,
+      "rank": 132
+    },
+    {
+      "word": "loutre",
+      "score": 0.7569,
+      "rank": 133
+    },
+    {
+      "word": "souvenue",
+      "score": 0.7566,
+      "rank": 134
+    },
+    {
+      "word": "réalisée",
+      "score": 0.7565,
+      "rank": 135
+    },
+    {
+      "word": "déroulée",
+      "score": 0.7563,
+      "rank": 136
+    },
+    {
+      "word": "contre",
+      "score": 0.7562,
+      "rank": 137
+    },
+    {
+      "word": "partit",
+      "score": 0.7558,
+      "rank": 138
+    },
+    {
+      "word": "répugne",
+      "score": 0.7556,
+      "rank": 139
+    },
+    {
+      "word": "élogieux",
+      "score": 0.7556,
+      "rank": 140
+    },
+    {
+      "word": "réjouissez",
+      "score": 0.7554,
+      "rank": 141
+    },
+    {
+      "word": "obtenues",
+      "score": 0.7554,
+      "rank": 142
+    },
+    {
+      "word": "attrapait",
+      "score": 0.7552,
+      "rank": 143
+    },
+    {
+      "word": "partie",
+      "score": 0.7544,
+      "rank": 144
+    },
+    {
+      "word": "célèbrent",
+      "score": 0.7537,
+      "rank": 145
+    },
+    {
+      "word": "conquise",
+      "score": 0.7536,
+      "rank": 146
+    },
+    {
+      "word": "contenté",
+      "score": 0.7534,
+      "rank": 147
+    },
+    {
+      "word": "uvre",
+      "score": 0.7534,
+      "rank": 148
+    },
+    {
+      "word": "élèvera",
+      "score": 0.7526,
+      "rank": 149
+    },
+    {
+      "word": "résulte",
+      "score": 0.7522,
+      "rank": 150
+    },
+    {
+      "word": "obtenu",
+      "score": 0.7519,
+      "rank": 151
+    },
+    {
+      "word": "consolé",
+      "score": 0.7516,
+      "rank": 152
+    },
+    {
+      "word": "bravo",
+      "score": 0.7516,
+      "rank": 153
+    },
+    {
+      "word": "givrée",
+      "score": 0.7515,
+      "rank": 154
+    },
+    {
+      "word": "résultant",
+      "score": 0.7514,
+      "rank": 155
+    },
+    {
+      "word": "défilent",
+      "score": 0.7512,
+      "rank": 156
+    },
+    {
+      "word": "pertes",
+      "score": 0.7508,
+      "rank": 157
+    },
+    {
+      "word": "louange",
+      "score": 0.7506,
+      "rank": 158
+    },
+    {
+      "word": "fières",
+      "score": 0.7504,
+      "rank": 159
+    },
+    {
+      "word": "bénéficier",
+      "score": 0.7504,
+      "rank": 160
+    },
+    {
+      "word": "championne",
+      "score": 0.7502,
+      "rank": 161
+    },
+    {
+      "word": "royauté",
+      "score": 0.7501,
+      "rank": 162
+    },
+    {
+      "word": "admirais",
+      "score": 0.75,
+      "rank": 163
+    },
+    {
+      "word": "grégoire",
+      "score": 0.7499,
+      "rank": 164
+    },
+    {
+      "word": "veus",
+      "score": 0.7496,
+      "rank": 165
+    },
+    {
+      "word": "aperçut",
+      "score": 0.7494,
+      "rank": 166
+    },
+    {
+      "word": "remises",
+      "score": 0.7494,
+      "rank": 167
+    },
+    {
+      "word": "horaires",
+      "score": 0.7492,
+      "rank": 168
+    },
+    {
+      "word": "récompensé",
+      "score": 0.7492,
+      "rank": 169
+    },
+    {
+      "word": "reçois",
+      "score": 0.7486,
+      "rank": 170
+    },
+    {
+      "word": "atteignait",
+      "score": 0.7486,
+      "rank": 171
+    },
+    {
+      "word": "ovation",
+      "score": 0.7485,
+      "rank": 172
+    },
+    {
+      "word": "obtiennent",
+      "score": 0.7484,
+      "rank": 173
+    },
+    {
+      "word": "gode",
+      "score": 0.7483,
+      "rank": 174
+    },
+    {
+      "word": "réalisé",
+      "score": 0.7482,
+      "rank": 175
+    },
+    {
+      "word": "réalisées",
+      "score": 0.748,
+      "rank": 176
+    },
+    {
+      "word": "louanges",
+      "score": 0.7478,
+      "rank": 177
+    },
+    {
+      "word": "événement",
+      "score": 0.7478,
+      "rank": 178
+    },
+    {
+      "word": "amirauté",
+      "score": 0.7478,
+      "rank": 179
+    },
+    {
+      "word": "obtenir",
+      "score": 0.7476,
+      "rank": 180
+    },
+    {
+      "word": "ravivé",
+      "score": 0.7476,
+      "rank": 181
+    },
+    {
+      "word": "vincent",
+      "score": 0.7474,
+      "rank": 182
+    },
+    {
+      "word": "gandalf",
+      "score": 0.7472,
+      "rank": 183
+    },
+    {
+      "word": "accomplissez",
+      "score": 0.7471,
+      "rank": 184
+    },
+    {
+      "word": "bienheureux",
+      "score": 0.7469,
+      "rank": 185
+    },
+    {
+      "word": "célébrons",
+      "score": 0.7469,
+      "rank": 186
+    },
+    {
+      "word": "bénissez",
+      "score": 0.7467,
+      "rank": 187
+    },
+    {
+      "word": "distrais",
+      "score": 0.7466,
+      "rank": 188
+    },
+    {
+      "word": "glousser",
+      "score": 0.7464,
+      "rank": 189
+    },
+    {
+      "word": "apaisement",
+      "score": 0.7464,
+      "rank": 190
+    },
+    {
+      "word": "atteindrait",
+      "score": 0.7464,
+      "rank": 191
+    },
+    {
+      "word": "entretenait",
+      "score": 0.7463,
+      "rank": 192
+    },
+    {
+      "word": "heros",
+      "score": 0.7461,
+      "rank": 193
+    },
+    {
+      "word": "boa",
+      "score": 0.7459,
+      "rank": 194
+    },
+    {
+      "word": "scellée",
+      "score": 0.7457,
+      "rank": 195
+    },
+    {
+      "word": "achevé",
+      "score": 0.7453,
+      "rank": 196
+    },
+    {
+      "word": "vinci",
+      "score": 0.7452,
+      "rank": 197
+    },
+    {
+      "word": "prospères",
+      "score": 0.7449,
+      "rank": 198
+    },
+    {
+      "word": "trié",
+      "score": 0.7449,
+      "rank": 199
+    },
+    {
+      "word": "espére",
+      "score": 0.7449,
+      "rank": 200
+    },
+    {
+      "word": "fini",
+      "score": 0.7447,
+      "rank": 201
+    },
+    {
+      "word": "chanceux",
+      "score": 0.7444,
+      "rank": 202
+    },
+    {
+      "word": "salué",
+      "score": 0.7443,
+      "rank": 203
+    },
+    {
+      "word": "bienfaits",
+      "score": 0.7441,
+      "rank": 204
+    },
+    {
+      "word": "récompensés",
+      "score": 0.744,
+      "rank": 205
+    },
+    {
+      "word": "assistait",
+      "score": 0.7438,
+      "rank": 206
+    },
+    {
+      "word": "réjouissent",
+      "score": 0.7438,
+      "rank": 207
+    },
+    {
+      "word": "émeute",
+      "score": 0.7437,
+      "rank": 208
+    },
+    {
+      "word": "jugée",
+      "score": 0.7437,
+      "rank": 209
+    },
+    {
+      "word": "duluth",
+      "score": 0.7437,
+      "rank": 210
+    },
+    {
+      "word": "contrer",
+      "score": 0.7437,
+      "rank": 211
+    },
+    {
+      "word": "évader",
+      "score": 0.7436,
+      "rank": 212
+    },
+    {
+      "word": "éminent",
+      "score": 0.7435,
+      "rank": 213
+    },
+    {
+      "word": "réglé",
+      "score": 0.7434,
+      "rank": 214
+    },
+    {
+      "word": "rejoigniez",
+      "score": 0.7434,
+      "rank": 215
+    },
+    {
+      "word": "reçoivent",
+      "score": 0.7433,
+      "rank": 216
+    },
+    {
+      "word": "obtiendrez",
+      "score": 0.7432,
+      "rank": 217
+    },
+    {
+      "word": "gueux",
+      "score": 0.7432,
+      "rank": 218
+    },
+    {
+      "word": "profite",
+      "score": 0.7431,
+      "rank": 219
+    },
+    {
+      "word": "navrant",
+      "score": 0.7431,
+      "rank": 220
+    },
+    {
+      "word": "distraits",
+      "score": 0.7431,
+      "rank": 221
+    },
+    {
+      "word": "honnetement",
+      "score": 0.7426,
+      "rank": 222
+    },
+    {
+      "word": "conteste",
+      "score": 0.7426,
+      "rank": 223
+    },
+    {
+      "word": "vinnie",
+      "score": 0.7424,
+      "rank": 224
+    },
+    {
+      "word": "bonté",
+      "score": 0.7422,
+      "rank": 225
+    },
+    {
+      "word": "surviennent",
+      "score": 0.7418,
+      "rank": 226
+    },
+    {
+      "word": "retentissant",
+      "score": 0.7418,
+      "rank": 227
+    },
+    {
+      "word": "attrappe",
+      "score": 0.7417,
+      "rank": 228
+    },
+    {
+      "word": "applaudir",
+      "score": 0.7415,
+      "rank": 229
+    },
+    {
+      "word": "paras",
+      "score": 0.7414,
+      "rank": 230
+    },
+    {
+      "word": "conquérants",
+      "score": 0.7414,
+      "rank": 231
+    },
+    {
+      "word": "devenue",
+      "score": 0.7413,
+      "rank": 232
+    },
+    {
+      "word": "réjoui",
+      "score": 0.7413,
+      "rank": 233
+    },
+    {
+      "word": "apparu",
+      "score": 0.7412,
+      "rank": 234
+    },
+    {
+      "word": "aperçue",
+      "score": 0.7408,
+      "rank": 235
+    },
+    {
+      "word": "faîte",
+      "score": 0.7408,
+      "rank": 236
+    },
+    {
+      "word": "finis",
+      "score": 0.7405,
+      "rank": 237
+    },
+    {
+      "word": "saluons",
+      "score": 0.7401,
+      "rank": 238
+    },
+    {
+      "word": "réalisés",
+      "score": 0.7401,
+      "rank": 239
+    },
+    {
+      "word": "trône",
+      "score": 0.74,
+      "rank": 240
+    },
+    {
+      "word": "kamui",
+      "score": 0.7399,
+      "rank": 241
+    },
+    {
+      "word": "épanouir",
+      "score": 0.7398,
+      "rank": 242
+    },
+    {
+      "word": "siege",
+      "score": 0.7398,
+      "rank": 243
+    },
+    {
+      "word": "krieger",
+      "score": 0.7397,
+      "rank": 244
+    },
+    {
+      "word": "obtint",
+      "score": 0.7396,
+      "rank": 245
+    },
+    {
+      "word": "tapantes",
+      "score": 0.7395,
+      "rank": 246
+    },
+    {
+      "word": "fêtait",
+      "score": 0.7394,
+      "rank": 247
+    },
+    {
+      "word": "trophée",
+      "score": 0.7392,
+      "rank": 248
+    },
+    {
+      "word": "judée",
+      "score": 0.7391,
+      "rank": 249
+    },
+    {
+      "word": "bonne",
+      "score": 0.7386,
+      "rank": 250
+    },
+    {
+      "word": "conquis",
+      "score": 0.7384,
+      "rank": 251
+    },
+    {
+      "word": "déroulé",
+      "score": 0.7382,
+      "rank": 252
+    },
+    {
+      "word": "lors",
+      "score": 0.7382,
+      "rank": 253
+    },
+    {
+      "word": "apprit",
+      "score": 0.738,
+      "rank": 254
+    },
+    {
+      "word": "atteignez",
+      "score": 0.7379,
+      "rank": 255
+    },
+    {
+      "word": "étable",
+      "score": 0.7379,
+      "rank": 256
+    },
+    {
+      "word": "fin",
+      "score": 0.7379,
+      "rank": 257
+    },
+    {
+      "word": "éventail",
+      "score": 0.7377,
+      "rank": 258
+    },
+    {
+      "word": "devineras",
+      "score": 0.7377,
+      "rank": 259
+    },
+    {
+      "word": "rappel",
+      "score": 0.7376,
+      "rank": 260
+    },
+    {
+      "word": "honorée",
+      "score": 0.7375,
+      "rank": 261
+    },
+    {
+      "word": "retrouves",
+      "score": 0.7375,
+      "rank": 262
+    },
+    {
+      "word": "hitler",
+      "score": 0.7375,
+      "rank": 263
+    },
+    {
+      "word": "compète",
+      "score": 0.7375,
+      "rank": 264
+    },
+    {
+      "word": "siestes",
+      "score": 0.7374,
+      "rank": 265
+    },
+    {
+      "word": "apprécies",
+      "score": 0.7373,
+      "rank": 266
+    },
+    {
+      "word": "tron",
+      "score": 0.7373,
+      "rank": 267
+    },
+    {
+      "word": "bénisse",
+      "score": 0.7372,
+      "rank": 268
+    },
+    {
+      "word": "évènement",
+      "score": 0.7372,
+      "rank": 269
+    },
+    {
+      "word": "reçut",
+      "score": 0.7371,
+      "rank": 270
+    },
+    {
+      "word": "jer",
+      "score": 0.737,
+      "rank": 271
+    },
+    {
+      "word": "éprouvais",
+      "score": 0.7368,
+      "rank": 272
+    },
+    {
+      "word": "finissant",
+      "score": 0.7368,
+      "rank": 273
+    },
+    {
+      "word": "relai",
+      "score": 0.7366,
+      "rank": 274
+    },
+    {
+      "word": "finissent",
+      "score": 0.7366,
+      "rank": 275
+    },
+    {
+      "word": "klara",
+      "score": 0.7365,
+      "rank": 276
+    },
+    {
+      "word": "achetait",
+      "score": 0.7365,
+      "rank": 277
+    },
+    {
+      "word": "brillants",
+      "score": 0.7365,
+      "rank": 278
+    },
+    {
+      "word": "soulèvement",
+      "score": 0.7365,
+      "rank": 279
+    },
+    {
+      "word": "assistais",
+      "score": 0.7364,
+      "rank": 280
+    },
+    {
+      "word": "remettrez",
+      "score": 0.7364,
+      "rank": 281
+    },
+    {
+      "word": "beh",
+      "score": 0.7362,
+      "rank": 282
+    },
+    {
+      "word": "bonnes",
+      "score": 0.7361,
+      "rank": 283
+    },
+    {
+      "word": "apaisante",
+      "score": 0.736,
+      "rank": 284
+    },
+    {
+      "word": "promener",
+      "score": 0.7359,
+      "rank": 285
+    },
+    {
+      "word": "pourpres",
+      "score": 0.7359,
+      "rank": 286
+    },
+    {
+      "word": "campé",
+      "score": 0.7357,
+      "rank": 287
+    },
+    {
+      "word": "parti",
+      "score": 0.7357,
+      "rank": 288
+    },
+    {
+      "word": "cession",
+      "score": 0.7357,
+      "rank": 289
+    },
+    {
+      "word": "épanchement",
+      "score": 0.7356,
+      "rank": 290
+    },
+    {
+      "word": "arriere",
+      "score": 0.7356,
+      "rank": 291
+    },
+    {
+      "word": "fait",
+      "score": 0.7356,
+      "rank": 292
+    },
+    {
+      "word": "sieur",
+      "score": 0.7353,
+      "rank": 293
+    },
+    {
+      "word": "prestigieuse",
+      "score": 0.7352,
+      "rank": 294
+    },
+    {
+      "word": "guten",
+      "score": 0.7352,
+      "rank": 295
+    },
+    {
+      "word": "subisse",
+      "score": 0.7352,
+      "rank": 296
+    },
+    {
+      "word": "bondé",
+      "score": 0.7351,
+      "rank": 297
+    },
+    {
+      "word": "joconde",
+      "score": 0.735,
+      "rank": 298
+    },
+    {
+      "word": "prieuré",
+      "score": 0.7348,
+      "rank": 299
+    },
+    {
+      "word": "rend",
+      "score": 0.7347,
+      "rank": 300
+    },
+    {
+      "word": "courrais",
+      "score": 0.7346,
+      "rank": 301
+    },
+    {
+      "word": "comptiez",
+      "score": 0.7346,
+      "rank": 302
+    },
+    {
+      "word": "scellées",
+      "score": 0.7346,
+      "rank": 303
+    },
+    {
+      "word": "voeux",
+      "score": 0.7346,
+      "rank": 304
+    },
+    {
+      "word": "retrouve",
+      "score": 0.7345,
+      "rank": 305
+    },
+    {
+      "word": "devient",
+      "score": 0.7342,
+      "rank": 306
+    },
+    {
+      "word": "faisiez",
+      "score": 0.7342,
+      "rank": 307
+    },
+    {
+      "word": "dorado",
+      "score": 0.7339,
+      "rank": 308
+    },
+    {
+      "word": "relève",
+      "score": 0.7338,
+      "rank": 309
+    },
+    {
+      "word": "éclat",
+      "score": 0.7337,
+      "rank": 310
+    },
+    {
+      "word": "bégaiement",
+      "score": 0.7335,
+      "rank": 311
+    },
+    {
+      "word": "attardée",
+      "score": 0.7334,
+      "rank": 312
+    },
+    {
+      "word": "remettre",
+      "score": 0.7334,
+      "rank": 313
+    },
+    {
+      "word": "finies",
+      "score": 0.7334,
+      "rank": 314
+    },
+    {
+      "word": "premiã",
+      "score": 0.7333,
+      "rank": 315
+    },
+    {
+      "word": "distrait",
+      "score": 0.7333,
+      "rank": 316
+    },
+    {
+      "word": "reconnus",
+      "score": 0.7333,
+      "rank": 317
+    },
+    {
+      "word": "rencontra",
+      "score": 0.7333,
+      "rank": 318
+    },
+    {
+      "word": "logeuse",
+      "score": 0.7332,
+      "rank": 319
+    },
+    {
+      "word": "supporterai",
+      "score": 0.7332,
+      "rank": 320
+    },
+    {
+      "word": "sert",
+      "score": 0.7332,
+      "rank": 321
+    },
+    {
+      "word": "offraient",
+      "score": 0.7332,
+      "rank": 322
+    },
+    {
+      "word": "brillant",
+      "score": 0.7332,
+      "rank": 323
+    },
+    {
+      "word": "approuvés",
+      "score": 0.7332,
+      "rank": 324
+    },
+    {
+      "word": "soutiré",
+      "score": 0.7331,
+      "rank": 325
+    },
+    {
+      "word": "élèvent",
+      "score": 0.733,
+      "rank": 326
+    },
+    {
+      "word": "levée",
+      "score": 0.733,
+      "rank": 327
+    },
+    {
+      "word": "bénévolat",
+      "score": 0.7328,
+      "rank": 328
+    },
+    {
+      "word": "profitez",
+      "score": 0.7328,
+      "rank": 329
+    },
+    {
+      "word": "bonnement",
+      "score": 0.7327,
+      "rank": 330
+    },
+    {
+      "word": "rappele",
+      "score": 0.7327,
+      "rank": 331
+    },
+    {
+      "word": "éliminent",
+      "score": 0.7327,
+      "rank": 332
+    },
+    {
+      "word": "apaise",
+      "score": 0.7326,
+      "rank": 333
+    },
+    {
+      "word": "avisé",
+      "score": 0.7325,
+      "rank": 334
+    },
+    {
+      "word": "buenas",
+      "score": 0.7324,
+      "rank": 335
+    },
+    {
+      "word": "vissé",
+      "score": 0.7324,
+      "rank": 336
+    },
+    {
+      "word": "déterminé",
+      "score": 0.7323,
+      "rank": 337
+    },
+    {
+      "word": "lancée",
+      "score": 0.7323,
+      "rank": 338
+    },
+    {
+      "word": "rappelé",
+      "score": 0.7323,
+      "rank": 339
+    },
+    {
+      "word": "guère",
+      "score": 0.7323,
+      "rank": 340
+    },
+    {
+      "word": "décris",
+      "score": 0.7322,
+      "rank": 341
+    },
+    {
+      "word": "heureuses",
+      "score": 0.7321,
+      "rank": 342
+    },
+    {
+      "word": "attraperez",
+      "score": 0.7321,
+      "rank": 343
+    },
+    {
+      "word": "estimé",
+      "score": 0.7321,
+      "rank": 344
+    },
+    {
+      "word": "éclatent",
+      "score": 0.7321,
+      "rank": 345
+    },
+    {
+      "word": "assisté",
+      "score": 0.732,
+      "rank": 346
+    },
+    {
+      "word": "glenda",
+      "score": 0.7319,
+      "rank": 347
+    },
+    {
+      "word": "épatant",
+      "score": 0.7319,
+      "rank": 348
+    },
+    {
+      "word": "plaisaient",
+      "score": 0.7318,
+      "rank": 349
+    },
+    {
+      "word": "futés",
+      "score": 0.7317,
+      "rank": 350
+    },
+    {
+      "word": "cisjordanie",
+      "score": 0.7315,
+      "rank": 351
+    },
+    {
+      "word": "épatante",
+      "score": 0.7315,
+      "rank": 352
+    },
+    {
+      "word": "metas",
+      "score": 0.7315,
+      "rank": 353
+    },
+    {
+      "word": "ressaisir",
+      "score": 0.7314,
+      "rank": 354
+    },
+    {
+      "word": "échéant",
+      "score": 0.7314,
+      "rank": 355
+    },
+    {
+      "word": "renaître",
+      "score": 0.7314,
+      "rank": 356
+    },
+    {
+      "word": "faire",
+      "score": 0.7313,
+      "rank": 357
+    },
+    {
+      "word": "entrepris",
+      "score": 0.7313,
+      "rank": 358
+    },
+    {
+      "word": "participer",
+      "score": 0.7313,
+      "rank": 359
+    },
+    {
+      "word": "proviennent",
+      "score": 0.7313,
+      "rank": 360
+    },
+    {
+      "word": "jurons",
+      "score": 0.7313,
+      "rank": 361
+    },
+    {
+      "word": "bercer",
+      "score": 0.7312,
+      "rank": 362
+    },
+    {
+      "word": "surgit",
+      "score": 0.7312,
+      "rank": 363
+    },
+    {
+      "word": "garante",
+      "score": 0.7312,
+      "rank": 364
+    },
+    {
+      "word": "raffut",
+      "score": 0.7311,
+      "rank": 365
+    },
+    {
+      "word": "médailles",
+      "score": 0.7311,
+      "rank": 366
+    },
+    {
+      "word": "prospéré",
+      "score": 0.7311,
+      "rank": 367
+    },
+    {
+      "word": "feint",
+      "score": 0.7309,
+      "rank": 368
+    },
+    {
+      "word": "catcheurs",
+      "score": 0.7309,
+      "rank": 369
+    },
+    {
+      "word": "réjouissant",
+      "score": 0.7309,
+      "rank": 370
+    },
+    {
+      "word": "consuelo",
+      "score": 0.7309,
+      "rank": 371
+    },
+    {
+      "word": "cesses",
+      "score": 0.7309,
+      "rank": 372
+    },
+    {
+      "word": "sekai",
+      "score": 0.7308,
+      "rank": 373
+    },
+    {
+      "word": "darius",
+      "score": 0.7307,
+      "rank": 374
+    },
+    {
+      "word": "retrouvent",
+      "score": 0.7307,
+      "rank": 375
+    },
+    {
+      "word": "écoulent",
+      "score": 0.7307,
+      "rank": 376
+    },
+    {
+      "word": "positif",
+      "score": 0.7306,
+      "rank": 377
+    },
+    {
+      "word": "épris",
+      "score": 0.7306,
+      "rank": 378
+    },
+    {
+      "word": "lançaient",
+      "score": 0.7305,
+      "rank": 379
+    },
+    {
+      "word": "prima",
+      "score": 0.7305,
+      "rank": 380
+    },
+    {
+      "word": "attendit",
+      "score": 0.7304,
+      "rank": 381
+    },
+    {
+      "word": "gisement",
+      "score": 0.7304,
+      "rank": 382
+    },
+    {
+      "word": "jubile",
+      "score": 0.7304,
+      "rank": 383
+    },
+    {
+      "word": "douglas",
+      "score": 0.7304,
+      "rank": 384
+    },
+    {
+      "word": "souhaitons",
+      "score": 0.7303,
+      "rank": 385
+    },
+    {
+      "word": "lancés",
+      "score": 0.7302,
+      "rank": 386
+    },
+    {
+      "word": "wegener",
+      "score": 0.7301,
+      "rank": 387
+    },
+    {
+      "word": "supportait",
+      "score": 0.7301,
+      "rank": 388
+    },
+    {
+      "word": "rendant",
+      "score": 0.7301,
+      "rank": 389
+    },
+    {
+      "word": "évoquent",
+      "score": 0.7301,
+      "rank": 390
+    },
+    {
+      "word": "corrigan",
+      "score": 0.7301,
+      "rank": 391
+    },
+    {
+      "word": "réaliser",
+      "score": 0.7301,
+      "rank": 392
+    },
+    {
+      "word": "accepté",
+      "score": 0.73,
+      "rank": 393
+    },
+    {
+      "word": "agrafe",
+      "score": 0.73,
+      "rank": 394
+    },
+    {
+      "word": "souille",
+      "score": 0.7299,
+      "rank": 395
+    },
+    {
+      "word": "conviendrez",
+      "score": 0.7298,
+      "rank": 396
+    },
+    {
+      "word": "habilement",
+      "score": 0.7297,
+      "rank": 397
+    },
+    {
+      "word": "wyatt",
+      "score": 0.7297,
+      "rank": 398
+    },
+    {
+      "word": "palpitante",
+      "score": 0.7297,
+      "rank": 399
+    },
+    {
+      "word": "perte",
+      "score": 0.7297,
+      "rank": 400
+    },
+    {
+      "word": "obtiendrait",
+      "score": 0.7296,
+      "rank": 401
+    },
+    {
+      "word": "ratées",
+      "score": 0.7296,
+      "rank": 402
+    },
+    {
+      "word": "etonnant",
+      "score": 0.7295,
+      "rank": 403
+    },
+    {
+      "word": "dej",
+      "score": 0.7295,
+      "rank": 404
+    },
+    {
+      "word": "épanoui",
+      "score": 0.7294,
+      "rank": 405
+    },
+    {
+      "word": "contentait",
+      "score": 0.7294,
+      "rank": 406
+    },
+    {
+      "word": "bénéfiques",
+      "score": 0.7293,
+      "rank": 407
+    },
+    {
+      "word": "joo",
+      "score": 0.7293,
+      "rank": 408
+    },
+    {
+      "word": "bons",
+      "score": 0.7293,
+      "rank": 409
+    },
+    {
+      "word": "patiemment",
+      "score": 0.7292,
+      "rank": 410
+    },
+    {
+      "word": "göring",
+      "score": 0.7292,
+      "rank": 411
+    },
+    {
+      "word": "feinte",
+      "score": 0.7292,
+      "rank": 412
+    },
+    {
+      "word": "rappelée",
+      "score": 0.7292,
+      "rank": 413
+    },
+    {
+      "word": "excité",
+      "score": 0.7292,
+      "rank": 414
+    },
+    {
+      "word": "sursauté",
+      "score": 0.7291,
+      "rank": 415
+    },
+    {
+      "word": "jauge",
+      "score": 0.7291,
+      "rank": 416
+    },
+    {
+      "word": "remise",
+      "score": 0.729,
+      "rank": 417
+    },
+    {
+      "word": "duc",
+      "score": 0.7289,
+      "rank": 418
+    },
+    {
+      "word": "reconnais",
+      "score": 0.7289,
+      "rank": 419
+    },
+    {
+      "word": "arriviez",
+      "score": 0.7288,
+      "rank": 420
+    },
+    {
+      "word": "vœux",
+      "score": 0.7288,
+      "rank": 421
+    },
+    {
+      "word": "surprenez",
+      "score": 0.7287,
+      "rank": 422
+    },
+    {
+      "word": "admirait",
+      "score": 0.7286,
+      "rank": 423
+    },
+    {
+      "word": "accordait",
+      "score": 0.7284,
+      "rank": 424
+    },
+    {
+      "word": "achevée",
+      "score": 0.7284,
+      "rank": 425
+    },
+    {
+      "word": "écoutilles",
+      "score": 0.7284,
+      "rank": 426
+    },
+    {
+      "word": "rando",
+      "score": 0.7283,
+      "rank": 427
+    },
+    {
+      "word": "futé",
+      "score": 0.7282,
+      "rank": 428
+    },
+    {
+      "word": "baignent",
+      "score": 0.7282,
+      "rank": 429
+    },
+    {
+      "word": "litige",
+      "score": 0.7282,
+      "rank": 430
+    },
+    {
+      "word": "émouvante",
+      "score": 0.7282,
+      "rank": 431
+    },
+    {
+      "word": "êtiez",
+      "score": 0.7281,
+      "rank": 432
+    },
+    {
+      "word": "surgi",
+      "score": 0.728,
+      "rank": 433
+    },
+    {
+      "word": "rassurés",
+      "score": 0.7279,
+      "rank": 434
+    },
+    {
+      "word": "apaisée",
+      "score": 0.7279,
+      "rank": 435
+    },
+    {
+      "word": "satisfais",
+      "score": 0.7278,
+      "rank": 436
+    },
+    {
+      "word": "rendement",
+      "score": 0.7278,
+      "rank": 437
+    },
+    {
+      "word": "vaudront",
+      "score": 0.7278,
+      "rank": 438
+    },
+    {
+      "word": "bout",
+      "score": 0.7278,
+      "rank": 439
+    },
+    {
+      "word": "feins",
+      "score": 0.7278,
+      "rank": 440
+    },
+    {
+      "word": "sauvetage",
+      "score": 0.7278,
+      "rank": 441
+    },
+    {
+      "word": "raclement",
+      "score": 0.7276,
+      "rank": 442
+    },
+    {
+      "word": "vale",
+      "score": 0.7276,
+      "rank": 443
+    },
+    {
+      "word": "reconnues",
+      "score": 0.7275,
+      "rank": 444
+    },
+    {
+      "word": "suspens",
+      "score": 0.7273,
+      "rank": 445
+    },
+    {
+      "word": "ratée",
+      "score": 0.7273,
+      "rank": 446
+    },
+    {
+      "word": "resultat",
+      "score": 0.7272,
+      "rank": 447
+    },
+    {
+      "word": "bien",
+      "score": 0.7272,
+      "rank": 448
+    },
+    {
+      "word": "menahem",
+      "score": 0.7271,
+      "rank": 449
+    },
+    {
+      "word": "bene",
+      "score": 0.727,
+      "rank": 450
+    },
+    {
+      "word": "augure",
+      "score": 0.727,
+      "rank": 451
+    },
+    {
+      "word": "rendre",
+      "score": 0.727,
+      "rank": 452
+    },
+    {
+      "word": "subissez",
+      "score": 0.727,
+      "rank": 453
+    },
+    {
+      "word": "courent",
+      "score": 0.727,
+      "rank": 454
+    },
+    {
+      "word": "étalage",
+      "score": 0.7269,
+      "rank": 455
+    },
+    {
+      "word": "contentez",
+      "score": 0.7268,
+      "rank": 456
+    },
+    {
+      "word": "gustav",
+      "score": 0.7267,
+      "rank": 457
+    },
+    {
+      "word": "sauvant",
+      "score": 0.7267,
+      "rank": 458
+    },
+    {
+      "word": "apaisant",
+      "score": 0.7267,
+      "rank": 459
+    },
+    {
+      "word": "béatitude",
+      "score": 0.7267,
+      "rank": 460
+    },
+    {
+      "word": "cee",
+      "score": 0.7267,
+      "rank": 461
+    },
+    {
+      "word": "roulaient",
+      "score": 0.7266,
+      "rank": 462
+    },
+    {
+      "word": "accueillir",
+      "score": 0.7266,
+      "rank": 463
+    },
+    {
+      "word": "massimo",
+      "score": 0.7266,
+      "rank": 464
+    },
+    {
+      "word": "éloges",
+      "score": 0.7265,
+      "rank": 465
+    },
+    {
+      "word": "assistée",
+      "score": 0.7264,
+      "rank": 466
+    },
+    {
+      "word": "rencontrais",
+      "score": 0.7263,
+      "rank": 467
+    },
+    {
+      "word": "provoquant",
+      "score": 0.7263,
+      "rank": 468
+    },
+    {
+      "word": "regagné",
+      "score": 0.7263,
+      "rank": 469
+    },
+    {
+      "word": "courre",
+      "score": 0.7263,
+      "rank": 470
+    },
+    {
+      "word": "rendue",
+      "score": 0.7263,
+      "rank": 471
+    },
+    {
+      "word": "darin",
+      "score": 0.7263,
+      "rank": 472
+    },
+    {
+      "word": "retrouvez",
+      "score": 0.7262,
+      "rank": 473
+    },
+    {
+      "word": "sieu",
+      "score": 0.7262,
+      "rank": 474
+    },
+    {
+      "word": "amélia",
+      "score": 0.7262,
+      "rank": 475
+    },
+    {
+      "word": "débordante",
+      "score": 0.7261,
+      "rank": 476
+    },
+    {
+      "word": "dominent",
+      "score": 0.7259,
+      "rank": 477
+    },
+    {
+      "word": "dobie",
+      "score": 0.7259,
+      "rank": 478
+    },
+    {
+      "word": "alliez",
+      "score": 0.7258,
+      "rank": 479
+    },
+    {
+      "word": "perdrons",
+      "score": 0.7258,
+      "rank": 480
+    },
+    {
+      "word": "perçu",
+      "score": 0.7258,
+      "rank": 481
+    },
+    {
+      "word": "révéla",
+      "score": 0.7258,
+      "rank": 482
+    },
+    {
+      "word": "surpassent",
+      "score": 0.7257,
+      "rank": 483
+    },
+    {
+      "word": "zek",
+      "score": 0.7257,
+      "rank": 484
+    },
+    {
+      "word": "vais",
+      "score": 0.7256,
+      "rank": 485
+    },
+    {
+      "word": "sain",
+      "score": 0.7256,
+      "rank": 486
+    },
+    {
+      "word": "comprit",
+      "score": 0.7256,
+      "rank": 487
+    },
+    {
+      "word": "souhaitais",
+      "score": 0.7255,
+      "rank": 488
+    },
+    {
+      "word": "souriait",
+      "score": 0.7255,
+      "rank": 489
+    },
+    {
+      "word": "sautait",
+      "score": 0.7255,
+      "rank": 490
+    },
+    {
+      "word": "élimine",
+      "score": 0.7255,
+      "rank": 491
+    },
+    {
+      "word": "gracieux",
+      "score": 0.7254,
+      "rank": 492
+    },
+    {
+      "word": "remonté",
+      "score": 0.7254,
+      "rank": 493
+    },
+    {
+      "word": "ellen",
+      "score": 0.7254,
+      "rank": 494
+    },
+    {
+      "word": "bon",
+      "score": 0.7253,
+      "rank": 495
+    },
+    {
+      "word": "indiquaient",
+      "score": 0.7253,
+      "rank": 496
+    },
+    {
+      "word": "réalisent",
+      "score": 0.7253,
+      "rank": 497
+    },
+    {
+      "word": "franchissez",
+      "score": 0.7252,
+      "rank": 498
+    },
+    {
+      "word": "justesse",
+      "score": 0.7252,
+      "rank": 499
+    },
+    {
+      "word": "rejoignent",
+      "score": 0.7252,
+      "rank": 500
+    },
+    {
+      "word": "défiant",
+      "score": 0.7252,
+      "rank": 501
+    },
+    {
+      "word": "guillaume",
+      "score": 0.7252,
+      "rank": 502
+    },
+    {
+      "word": "fréquentée",
+      "score": 0.7251,
+      "rank": 503
+    },
+    {
+      "word": "faisait",
+      "score": 0.7251,
+      "rank": 504
+    },
+    {
+      "word": "appréciés",
+      "score": 0.7251,
+      "rank": 505
+    },
+    {
+      "word": "pari",
+      "score": 0.7251,
+      "rank": 506
+    },
+    {
+      "word": "vis",
+      "score": 0.7251,
+      "rank": 507
+    },
+    {
+      "word": "rendus",
+      "score": 0.725,
+      "rank": 508
+    },
+    {
+      "word": "termine",
+      "score": 0.7249,
+      "rank": 509
+    },
+    {
+      "word": "faites",
+      "score": 0.7249,
+      "rank": 510
+    },
+    {
+      "word": "merton",
+      "score": 0.7248,
+      "rank": 511
+    },
+    {
+      "word": "buena",
+      "score": 0.7248,
+      "rank": 512
+    },
+    {
+      "word": "reconnue",
+      "score": 0.7248,
+      "rank": 513
+    },
+    {
+      "word": "effectué",
+      "score": 0.7247,
+      "rank": 514
+    },
+    {
+      "word": "victor",
+      "score": 0.7247,
+      "rank": 515
+    },
+    {
+      "word": "dominée",
+      "score": 0.7247,
+      "rank": 516
+    },
+    {
+      "word": "relèvent",
+      "score": 0.7245,
+      "rank": 517
+    },
+    {
+      "word": "récité",
+      "score": 0.7245,
+      "rank": 518
+    },
+    {
+      "word": "maintenait",
+      "score": 0.7244,
+      "rank": 519
+    },
+    {
+      "word": "apprécieras",
+      "score": 0.7244,
+      "rank": 520
+    },
+    {
+      "word": "survenir",
+      "score": 0.7243,
+      "rank": 521
+    },
+    {
+      "word": "johan",
+      "score": 0.7243,
+      "rank": 522
+    },
+    {
+      "word": "ola",
+      "score": 0.7243,
+      "rank": 523
+    },
+    {
+      "word": "finito",
+      "score": 0.7242,
+      "rank": 524
+    },
+    {
+      "word": "reçoit",
+      "score": 0.7242,
+      "rank": 525
+    },
+    {
+      "word": "heureuse",
+      "score": 0.7242,
+      "rank": 526
+    },
+    {
+      "word": "monterez",
+      "score": 0.7241,
+      "rank": 527
+    },
+    {
+      "word": "sûrs",
+      "score": 0.7241,
+      "rank": 528
+    },
+    {
+      "word": "apeuré",
+      "score": 0.7241,
+      "rank": 529
+    },
+    {
+      "word": "verdi",
+      "score": 0.724,
+      "rank": 530
+    },
+    {
+      "word": "sagement",
+      "score": 0.7239,
+      "rank": 531
+    },
+    {
+      "word": "réaliserez",
+      "score": 0.7239,
+      "rank": 532
+    },
+    {
+      "word": "agissez",
+      "score": 0.7238,
+      "rank": 533
+    },
+    {
+      "word": "répétais",
+      "score": 0.7238,
+      "rank": 534
+    },
+    {
+      "word": "achève",
+      "score": 0.7238,
+      "rank": 535
+    },
+    {
+      "word": "sûres",
+      "score": 0.7237,
+      "rank": 536
+    },
+    {
+      "word": "dernier",
+      "score": 0.7237,
+      "rank": 537
+    },
+    {
+      "word": "recrée",
+      "score": 0.7237,
+      "rank": 538
+    },
+    {
+      "word": "remontait",
+      "score": 0.7237,
+      "rank": 539
+    },
+    {
+      "word": "courrai",
+      "score": 0.7237,
+      "rank": 540
+    },
+    {
+      "word": "soutiennent",
+      "score": 0.7236,
+      "rank": 541
+    },
+    {
+      "word": "élevé",
+      "score": 0.7235,
+      "rank": 542
+    },
+    {
+      "word": "appréciées",
+      "score": 0.7235,
+      "rank": 543
+    },
+    {
+      "word": "fière",
+      "score": 0.7235,
+      "rank": 544
+    },
+    {
+      "word": "ser",
+      "score": 0.7234,
+      "rank": 545
+    },
+    {
+      "word": "vaincu",
+      "score": 0.7234,
+      "rank": 546
+    },
+    {
+      "word": "assoit",
+      "score": 0.7234,
+      "rank": 547
+    },
+    {
+      "word": "wyoming",
+      "score": 0.7234,
+      "rank": 548
+    },
+    {
+      "word": "hajime",
+      "score": 0.7232,
+      "rank": 549
+    },
+    {
+      "word": "saoudite",
+      "score": 0.7231,
+      "rank": 550
+    },
+    {
+      "word": "suis",
+      "score": 0.7231,
+      "rank": 551
+    },
+    {
+      "word": "assoient",
+      "score": 0.7231,
+      "rank": 552
+    },
+    {
+      "word": "havane",
+      "score": 0.7231,
+      "rank": 553
+    },
+    {
+      "word": "séduit",
+      "score": 0.7231,
+      "rank": 554
+    },
+    {
+      "word": "sensass",
+      "score": 0.723,
+      "rank": 555
+    },
+    {
+      "word": "garant",
+      "score": 0.723,
+      "rank": 556
+    },
+    {
+      "word": "louait",
+      "score": 0.7229,
+      "rank": 557
+    },
+    {
+      "word": "berce",
+      "score": 0.7229,
+      "rank": 558
+    },
+    {
+      "word": "finissez",
+      "score": 0.7229,
+      "rank": 559
+    },
+    {
+      "word": "verte",
+      "score": 0.7229,
+      "rank": 560
+    },
+    {
+      "word": "navrée",
+      "score": 0.7228,
+      "rank": 561
+    },
+    {
+      "word": "espérant",
+      "score": 0.7228,
+      "rank": 562
+    },
+    {
+      "word": "punissait",
+      "score": 0.7228,
+      "rank": 563
+    },
+    {
+      "word": "dûe",
+      "score": 0.7228,
+      "rank": 564
+    },
+    {
+      "word": "sauvés",
+      "score": 0.7228,
+      "rank": 565
+    },
+    {
+      "word": "rager",
+      "score": 0.7227,
+      "rank": 566
+    },
+    {
+      "word": "gaiement",
+      "score": 0.7227,
+      "rank": 567
+    },
+    {
+      "word": "achetaient",
+      "score": 0.7227,
+      "rank": 568
+    },
+    {
+      "word": "espéré",
+      "score": 0.7227,
+      "rank": 569
+    },
+    {
+      "word": "rassuré",
+      "score": 0.7227,
+      "rank": 570
+    },
+    {
+      "word": "palpitant",
+      "score": 0.7227,
+      "rank": 571
+    },
+    {
+      "word": "messe",
+      "score": 0.7227,
+      "rank": 572
+    },
+    {
+      "word": "contiennent",
+      "score": 0.7226,
+      "rank": 573
+    },
+    {
+      "word": "bizutage",
+      "score": 0.7226,
+      "rank": 574
+    },
+    {
+      "word": "gaine",
+      "score": 0.7226,
+      "rank": 575
+    },
+    {
+      "word": "sensé",
+      "score": 0.7225,
+      "rank": 576
+    },
+    {
+      "word": "évade",
+      "score": 0.7225,
+      "rank": 577
+    },
+    {
+      "word": "hap",
+      "score": 0.7225,
+      "rank": 578
+    },
+    {
+      "word": "égo",
+      "score": 0.7225,
+      "rank": 579
+    },
+    {
+      "word": "défaite",
+      "score": 0.7224,
+      "rank": 580
+    },
+    {
+      "word": "attrapée",
+      "score": 0.7223,
+      "rank": 581
+    },
+    {
+      "word": "asa",
+      "score": 0.7223,
+      "rank": 582
+    },
+    {
+      "word": "glendale",
+      "score": 0.7222,
+      "rank": 583
+    },
+    {
+      "word": "récompenses",
+      "score": 0.7222,
+      "rank": 584
+    },
+    {
+      "word": "pues",
+      "score": 0.722,
+      "rank": 585
+    },
+    {
+      "word": "défaire",
+      "score": 0.722,
+      "rank": 586
+    },
+    {
+      "word": "saluez",
+      "score": 0.722,
+      "rank": 587
+    },
+    {
+      "word": "compté",
+      "score": 0.722,
+      "rank": 588
+    },
+    {
+      "word": "battante",
+      "score": 0.722,
+      "rank": 589
+    },
+    {
+      "word": "comptés",
+      "score": 0.7219,
+      "rank": 590
+    },
+    {
+      "word": "dévouée",
+      "score": 0.7219,
+      "rank": 591
+    },
+    {
+      "word": "sincères",
+      "score": 0.7219,
+      "rank": 592
+    },
+    {
+      "word": "vaut",
+      "score": 0.7219,
+      "rank": 593
+    },
+    {
+      "word": "fuira",
+      "score": 0.7219,
+      "rank": 594
+    },
+    {
+      "word": "bondée",
+      "score": 0.7219,
+      "rank": 595
+    },
+    {
+      "word": "devait",
+      "score": 0.7218,
+      "rank": 596
+    },
+    {
+      "word": "fraichement",
+      "score": 0.7218,
+      "rank": 597
+    },
+    {
+      "word": "rencontrant",
+      "score": 0.7218,
+      "rank": 598
+    },
+    {
+      "word": "veilleuse",
+      "score": 0.7217,
+      "rank": 599
+    },
+    {
+      "word": "décemment",
+      "score": 0.7217,
+      "rank": 600
+    },
+    {
+      "word": "suk",
+      "score": 0.7217,
+      "rank": 601
+    },
+    {
+      "word": "joute",
+      "score": 0.7217,
+      "rank": 602
+    },
+    {
+      "word": "arrivés",
+      "score": 0.7217,
+      "rank": 603
+    },
+    {
+      "word": "décidés",
+      "score": 0.7217,
+      "rank": 604
+    },
+    {
+      "word": "slava",
+      "score": 0.7216,
+      "rank": 605
+    },
+    {
+      "word": "véga",
+      "score": 0.7216,
+      "rank": 606
+    },
+    {
+      "word": "minh",
+      "score": 0.7216,
+      "rank": 607
+    },
+    {
+      "word": "stupéfait",
+      "score": 0.7215,
+      "rank": 608
+    },
+    {
+      "word": "éprise",
+      "score": 0.7215,
+      "rank": 609
+    },
+    {
+      "word": "conclu",
+      "score": 0.7215,
+      "rank": 610
+    },
+    {
+      "word": "apaisera",
+      "score": 0.7215,
+      "rank": 611
+    },
+    {
+      "word": "soulève",
+      "score": 0.7214,
+      "rank": 612
+    },
+    {
+      "word": "rappelés",
+      "score": 0.7214,
+      "rank": 613
+    },
+    {
+      "word": "détendus",
+      "score": 0.7214,
+      "rank": 614
+    },
+    {
+      "word": "participé",
+      "score": 0.7214,
+      "rank": 615
+    },
+    {
+      "word": "réaliseras",
+      "score": 0.7214,
+      "rank": 616
+    },
+    {
+      "word": "fixée",
+      "score": 0.7214,
+      "rank": 617
+    },
+    {
+      "word": "saisissant",
+      "score": 0.7214,
+      "rank": 618
+    },
+    {
+      "word": "surgelés",
+      "score": 0.7214,
+      "rank": 619
+    },
+    {
+      "word": "dah",
+      "score": 0.7214,
+      "rank": 620
+    },
+    {
+      "word": "sensés",
+      "score": 0.7213,
+      "rank": 621
+    },
+    {
+      "word": "attrapés",
+      "score": 0.7213,
+      "rank": 622
+    },
+    {
+      "word": "soulagé",
+      "score": 0.7213,
+      "rank": 623
+    },
+    {
+      "word": "bossaient",
+      "score": 0.7213,
+      "rank": 624
+    },
+    {
+      "word": "attrapé",
+      "score": 0.7212,
+      "rank": 625
+    },
+    {
+      "word": "abattre",
+      "score": 0.7212,
+      "rank": 626
+    },
+    {
+      "word": "racontiez",
+      "score": 0.7212,
+      "rank": 627
+    },
+    {
+      "word": "pries",
+      "score": 0.7212,
+      "rank": 628
+    },
+    {
+      "word": "célébre",
+      "score": 0.721,
+      "rank": 629
+    },
+    {
+      "word": "ouille",
+      "score": 0.7209,
+      "rank": 630
+    },
+    {
+      "word": "saviez",
+      "score": 0.7209,
+      "rank": 631
+    },
+    {
+      "word": "gardait",
+      "score": 0.7209,
+      "rank": 632
+    },
+    {
+      "word": "finie",
+      "score": 0.7209,
+      "rank": 633
+    },
+    {
+      "word": "soulagée",
+      "score": 0.7209,
+      "rank": 634
+    },
+    {
+      "word": "saisi",
+      "score": 0.7208,
+      "rank": 635
+    },
+    {
+      "word": "partouze",
+      "score": 0.7208,
+      "rank": 636
+    },
+    {
+      "word": "jubilé",
+      "score": 0.7207,
+      "rank": 637
+    },
+    {
+      "word": "résolument",
+      "score": 0.7207,
+      "rank": 638
+    },
+    {
+      "word": "tienne",
+      "score": 0.7207,
+      "rank": 639
+    },
+    {
+      "word": "joignent",
+      "score": 0.7207,
+      "rank": 640
+    },
+    {
+      "word": "achete",
+      "score": 0.7207,
+      "rank": 641
+    },
+    {
+      "word": "énoncé",
+      "score": 0.7206,
+      "rank": 642
+    },
+    {
+      "word": "rendues",
+      "score": 0.7206,
+      "rank": 643
+    },
+    {
+      "word": "attrapper",
+      "score": 0.7206,
+      "rank": 644
+    },
+    {
+      "word": "concède",
+      "score": 0.7206,
+      "rank": 645
+    },
+    {
+      "word": "dessein",
+      "score": 0.7206,
+      "rank": 646
+    },
+    {
+      "word": "finissiez",
+      "score": 0.7205,
+      "rank": 647
+    },
+    {
+      "word": "céleste",
+      "score": 0.7205,
+      "rank": 648
+    },
+    {
+      "word": "arrãªte",
+      "score": 0.7205,
+      "rank": 649
+    },
+    {
+      "word": "souhaité",
+      "score": 0.7203,
+      "rank": 650
+    },
+    {
+      "word": "filante",
+      "score": 0.7202,
+      "rank": 651
+    },
+    {
+      "word": "souhaitaient",
+      "score": 0.7201,
+      "rank": 652
+    },
+    {
+      "word": "repère",
+      "score": 0.7201,
+      "rank": 653
+    },
+    {
+      "word": "rencontriez",
+      "score": 0.7201,
+      "rank": 654
+    },
+    {
+      "word": "turin",
+      "score": 0.72,
+      "rank": 655
+    },
+    {
+      "word": "enthousiaste",
+      "score": 0.72,
+      "rank": 656
+    },
+    {
+      "word": "forgé",
+      "score": 0.72,
+      "rank": 657
+    },
+    {
+      "word": "rentrées",
+      "score": 0.72,
+      "rank": 658
+    },
+    {
+      "word": "valise",
+      "score": 0.7199,
+      "rank": 659
+    },
+    {
+      "word": "écoeure",
+      "score": 0.7199,
+      "rank": 660
+    },
+    {
+      "word": "apogée",
+      "score": 0.7199,
+      "rank": 661
+    },
+    {
+      "word": "vont",
+      "score": 0.7199,
+      "rank": 662
+    },
+    {
+      "word": "accordé",
+      "score": 0.7198,
+      "rank": 663
+    },
+    {
+      "word": "prestigieux",
+      "score": 0.7198,
+      "rank": 664
+    },
+    {
+      "word": "hakeem",
+      "score": 0.7198,
+      "rank": 665
+    },
+    {
+      "word": "theo",
+      "score": 0.7197,
+      "rank": 666
+    },
+    {
+      "word": "voué",
+      "score": 0.7197,
+      "rank": 667
+    },
+    {
+      "word": "sautille",
+      "score": 0.7197,
+      "rank": 668
+    },
+    {
+      "word": "accède",
+      "score": 0.7196,
+      "rank": 669
+    },
+    {
+      "word": "débrouilles",
+      "score": 0.7196,
+      "rank": 670
+    },
+    {
+      "word": "illustre",
+      "score": 0.7196,
+      "rank": 671
+    },
+    {
+      "word": "dirigeaient",
+      "score": 0.7195,
+      "rank": 672
+    },
+    {
+      "word": "jugées",
+      "score": 0.7195,
+      "rank": 673
+    },
+    {
+      "word": "gut",
+      "score": 0.7195,
+      "rank": 674
+    },
+    {
+      "word": "redouter",
+      "score": 0.7195,
+      "rank": 675
+    },
+    {
+      "word": "étranglait",
+      "score": 0.7195,
+      "rank": 676
+    },
+    {
+      "word": "ucla",
+      "score": 0.7195,
+      "rank": 677
+    },
+    {
+      "word": "soulèvent",
+      "score": 0.7195,
+      "rank": 678
+    },
+    {
+      "word": "veillent",
+      "score": 0.7194,
+      "rank": 679
+    },
+    {
+      "word": "amertume",
+      "score": 0.7194,
+      "rank": 680
+    },
+    {
+      "word": "vivement",
+      "score": 0.7194,
+      "rank": 681
+    },
+    {
+      "word": "jugés",
+      "score": 0.7194,
+      "rank": 682
+    },
+    {
+      "word": "complétement",
+      "score": 0.7193,
+      "rank": 683
+    },
+    {
+      "word": "subite",
+      "score": 0.7193,
+      "rank": 684
+    },
+    {
+      "word": "égalent",
+      "score": 0.7193,
+      "rank": 685
+    },
+    {
+      "word": "tapais",
+      "score": 0.7192,
+      "rank": 686
+    },
+    {
+      "word": "buenos",
+      "score": 0.7191,
+      "rank": 687
+    },
+    {
+      "word": "pelant",
+      "score": 0.719,
+      "rank": 688
+    },
+    {
+      "word": "profiterais",
+      "score": 0.719,
+      "rank": 689
+    },
+    {
+      "word": "fiat",
+      "score": 0.7189,
+      "rank": 690
+    },
+    {
+      "word": "éclatement",
+      "score": 0.7189,
+      "rank": 691
+    },
+    {
+      "word": "auf",
+      "score": 0.7189,
+      "rank": 692
+    },
+    {
+      "word": "dansez",
+      "score": 0.7189,
+      "rank": 693
+    },
+    {
+      "word": "souhaitait",
+      "score": 0.7189,
+      "rank": 694
+    },
+    {
+      "word": "aille",
+      "score": 0.7189,
+      "rank": 695
+    },
+    {
+      "word": "punis",
+      "score": 0.7188,
+      "rank": 696
+    },
+    {
+      "word": "ole",
+      "score": 0.7188,
+      "rank": 697
+    },
+    {
+      "word": "ravi",
+      "score": 0.7188,
+      "rank": 698
+    },
+    {
+      "word": "dût",
+      "score": 0.7188,
+      "rank": 699
+    },
+    {
+      "word": "becs",
+      "score": 0.7188,
+      "rank": 700
+    },
+    {
+      "word": "conviendrait",
+      "score": 0.7187,
+      "rank": 701
+    },
+    {
+      "word": "perd",
+      "score": 0.7187,
+      "rank": 702
+    },
+    {
+      "word": "prendras",
+      "score": 0.7186,
+      "rank": 703
+    },
+    {
+      "word": "trouviez",
+      "score": 0.7186,
+      "rank": 704
+    },
+    {
+      "word": "reconnaît",
+      "score": 0.7186,
+      "rank": 705
+    },
+    {
+      "word": "pico",
+      "score": 0.7186,
+      "rank": 706
+    },
+    {
+      "word": "étonnamment",
+      "score": 0.7186,
+      "rank": 707
+    },
+    {
+      "word": "vit",
+      "score": 0.7185,
+      "rank": 708
+    },
+    {
+      "word": "souhaite",
+      "score": 0.7185,
+      "rank": 709
+    },
+    {
+      "word": "apparut",
+      "score": 0.7185,
+      "rank": 710
+    },
+    {
+      "word": "prie",
+      "score": 0.7185,
+      "rank": 711
+    },
+    {
+      "word": "décidiez",
+      "score": 0.7184,
+      "rank": 712
+    },
+    {
+      "word": "terminent",
+      "score": 0.7184,
+      "rank": 713
+    },
+    {
+      "word": "prévenue",
+      "score": 0.7184,
+      "rank": 714
+    },
+    {
+      "word": "défient",
+      "score": 0.7184,
+      "rank": 715
+    },
+    {
+      "word": "hommage",
+      "score": 0.7183,
+      "rank": 716
+    },
+    {
+      "word": "saki",
+      "score": 0.7183,
+      "rank": 717
+    },
+    {
+      "word": "écoulé",
+      "score": 0.7183,
+      "rank": 718
+    },
+    {
+      "word": "profiter",
+      "score": 0.7183,
+      "rank": 719
+    },
+    {
+      "word": "espérez",
+      "score": 0.7183,
+      "rank": 720
+    },
+    {
+      "word": "dès",
+      "score": 0.7183,
+      "rank": 721
+    },
+    {
+      "word": "jouais",
+      "score": 0.7183,
+      "rank": 722
+    },
+    {
+      "word": "finit",
+      "score": 0.7183,
+      "rank": 723
+    },
+    {
+      "word": "courtisée",
+      "score": 0.7182,
+      "rank": 724
+    },
+    {
+      "word": "dét",
+      "score": 0.7182,
+      "rank": 725
+    },
+    {
+      "word": "assoiffés",
+      "score": 0.7182,
+      "rank": 726
+    },
+    {
+      "word": "parvenir",
+      "score": 0.7182,
+      "rank": 727
+    },
+    {
+      "word": "vic",
+      "score": 0.7181,
+      "rank": 728
+    },
+    {
+      "word": "apprécié",
+      "score": 0.7181,
+      "rank": 729
+    },
+    {
+      "word": "jeu",
+      "score": 0.7181,
+      "rank": 730
+    },
+    {
+      "word": "padawan",
+      "score": 0.718,
+      "rank": 731
+    },
+    {
+      "word": "surgissent",
+      "score": 0.718,
+      "rank": 732
+    },
+    {
+      "word": "dhani",
+      "score": 0.718,
+      "rank": 733
+    },
+    {
+      "word": "remets",
+      "score": 0.7179,
+      "rank": 734
+    },
+    {
+      "word": "enfin",
+      "score": 0.7179,
+      "rank": 735
+    },
+    {
+      "word": "endiguer",
+      "score": 0.7179,
+      "rank": 736
+    },
+    {
+      "word": "apprécier",
+      "score": 0.7179,
+      "rank": 737
+    },
+    {
+      "word": "rendaient",
+      "score": 0.7179,
+      "rank": 738
+    },
+    {
+      "word": "genève",
+      "score": 0.7178,
+      "rank": 739
+    },
+    {
+      "word": "tenu",
+      "score": 0.7178,
+      "rank": 740
+    },
+    {
+      "word": "décidée",
+      "score": 0.7178,
+      "rank": 741
+    },
+    {
+      "word": "convienne",
+      "score": 0.7178,
+      "rank": 742
+    },
+    {
+      "word": "soutenaient",
+      "score": 0.7177,
+      "rank": 743
+    },
+    {
+      "word": "vint",
+      "score": 0.7177,
+      "rank": 744
+    },
+    {
+      "word": "précipitée",
+      "score": 0.7176,
+      "rank": 745
+    },
+    {
+      "word": "préviennent",
+      "score": 0.7176,
+      "rank": 746
+    },
+    {
+      "word": "emparé",
+      "score": 0.7176,
+      "rank": 747
+    },
+    {
+      "word": "dorée",
+      "score": 0.7176,
+      "rank": 748
+    },
+    {
+      "word": "égal",
+      "score": 0.7175,
+      "rank": 749
+    },
+    {
+      "word": "eurent",
+      "score": 0.7175,
+      "rank": 750
+    },
+    {
+      "word": "agréé",
+      "score": 0.7175,
+      "rank": 751
+    },
+    {
+      "word": "score",
+      "score": 0.7175,
+      "rank": 752
+    },
+    {
+      "word": "offrande",
+      "score": 0.7174,
+      "rank": 753
+    },
+    {
+      "word": "séduisante",
+      "score": 0.7174,
+      "rank": 754
+    },
+    {
+      "word": "berne",
+      "score": 0.7174,
+      "rank": 755
+    },
+    {
+      "word": "décidons",
+      "score": 0.7174,
+      "rank": 756
+    },
+    {
+      "word": "convenait",
+      "score": 0.7174,
+      "rank": 757
+    },
+    {
+      "word": "rigoureuse",
+      "score": 0.7173,
+      "rank": 758
+    },
+    {
+      "word": "essais",
+      "score": 0.7173,
+      "rank": 759
+    },
+    {
+      "word": "amusais",
+      "score": 0.7173,
+      "rank": 760
+    },
+    {
+      "word": "avait",
+      "score": 0.7173,
+      "rank": 761
+    },
+    {
+      "word": "dessoûler",
+      "score": 0.7173,
+      "rank": 762
+    },
+    {
+      "word": "dans",
+      "score": 0.7173,
+      "rank": 763
+    },
+    {
+      "word": "fréquenté",
+      "score": 0.7173,
+      "rank": 764
+    },
+    {
+      "word": "révolu",
+      "score": 0.7172,
+      "rank": 765
+    },
+    {
+      "word": "voulaient",
+      "score": 0.7172,
+      "rank": 766
+    },
+    {
+      "word": "devine",
+      "score": 0.7172,
+      "rank": 767
+    },
+    {
+      "word": "espérons",
+      "score": 0.7171,
+      "rank": 768
+    },
+    {
+      "word": "sereinement",
+      "score": 0.717,
+      "rank": 769
+    },
+    {
+      "word": "fêtez",
+      "score": 0.717,
+      "rank": 770
+    },
+    {
+      "word": "dest",
+      "score": 0.717,
+      "rank": 771
+    },
+    {
+      "word": "remet",
+      "score": 0.717,
+      "rank": 772
+    },
+    {
+      "word": "appréciée",
+      "score": 0.717,
+      "rank": 773
+    },
+    {
+      "word": "recouvré",
+      "score": 0.7169,
+      "rank": 774
+    },
+    {
+      "word": "agissaient",
+      "score": 0.7169,
+      "rank": 775
+    },
+    {
+      "word": "eben",
+      "score": 0.7168,
+      "rank": 776
+    },
+    {
+      "word": "annette",
+      "score": 0.7168,
+      "rank": 777
+    },
+    {
+      "word": "trépied",
+      "score": 0.7167,
+      "rank": 778
+    },
+    {
+      "word": "voliez",
+      "score": 0.7167,
+      "rank": 779
+    },
+    {
+      "word": "salues",
+      "score": 0.7167,
+      "rank": 780
+    },
+    {
+      "word": "logo",
+      "score": 0.7166,
+      "rank": 781
+    },
+    {
+      "word": "dessus",
+      "score": 0.7166,
+      "rank": 782
+    },
+    {
+      "word": "perdez",
+      "score": 0.7164,
+      "rank": 783
+    },
+    {
+      "word": "bizut",
+      "score": 0.7164,
+      "rank": 784
+    },
+    {
+      "word": "louer",
+      "score": 0.7164,
+      "rank": 785
+    },
+    {
+      "word": "conviens",
+      "score": 0.7164,
+      "rank": 786
+    },
+    {
+      "word": "bergerie",
+      "score": 0.7163,
+      "rank": 787
+    },
+    {
+      "word": "avez",
+      "score": 0.7163,
+      "rank": 788
+    },
+    {
+      "word": "eminence",
+      "score": 0.7162,
+      "rank": 789
+    },
+    {
+      "word": "défendais",
+      "score": 0.7162,
+      "rank": 790
+    },
+    {
+      "word": "étire",
+      "score": 0.7162,
+      "rank": 791
+    },
+    {
+      "word": "cétait",
+      "score": 0.7162,
+      "rank": 792
+    },
+    {
+      "word": "ali",
+      "score": 0.7162,
+      "rank": 793
+    },
+    {
+      "word": "avertir",
+      "score": 0.7162,
+      "rank": 794
+    },
+    {
+      "word": "regagne",
+      "score": 0.7162,
+      "rank": 795
+    },
+    {
+      "word": "atteindrai",
+      "score": 0.7161,
+      "rank": 796
+    },
+    {
+      "word": "célibat",
+      "score": 0.7161,
+      "rank": 797
+    },
+    {
+      "word": "allés",
+      "score": 0.7161,
+      "rank": 798
+    },
+    {
+      "word": "eteignez",
+      "score": 0.716,
+      "rank": 799
+    },
+    {
+      "word": "rendu",
+      "score": 0.716,
+      "rank": 800
+    },
+    {
+      "word": "vicente",
+      "score": 0.716,
+      "rank": 801
+    },
+    {
+      "word": "aperçu",
+      "score": 0.716,
+      "rank": 802
+    },
+    {
+      "word": "défais",
+      "score": 0.716,
+      "rank": 803
+    },
+    {
+      "word": "détenait",
+      "score": 0.716,
+      "rank": 804
+    },
+    {
+      "word": "débrouille",
+      "score": 0.716,
+      "rank": 805
+    },
+    {
+      "word": "duce",
+      "score": 0.716,
+      "rank": 806
+    },
+    {
+      "word": "séduisant",
+      "score": 0.716,
+      "rank": 807
+    },
+    {
+      "word": "décida",
+      "score": 0.716,
+      "rank": 808
+    },
+    {
+      "word": "avantageux",
+      "score": 0.716,
+      "rank": 809
+    },
+    {
+      "word": "grièvement",
+      "score": 0.7159,
+      "rank": 810
+    },
+    {
+      "word": "souhaitent",
+      "score": 0.7159,
+      "rank": 811
+    },
+    {
+      "word": "dansé",
+      "score": 0.7159,
+      "rank": 812
+    },
+    {
+      "word": "déterré",
+      "score": 0.7159,
+      "rank": 813
+    },
+    {
+      "word": "tourment",
+      "score": 0.7159,
+      "rank": 814
+    },
+    {
+      "word": "guêpe",
+      "score": 0.7158,
+      "rank": 815
+    },
+    {
+      "word": "vengeurs",
+      "score": 0.7158,
+      "rank": 816
+    },
+    {
+      "word": "débrouillent",
+      "score": 0.7158,
+      "rank": 817
+    },
+    {
+      "word": "grandement",
+      "score": 0.7158,
+      "rank": 818
+    },
+    {
+      "word": "accordée",
+      "score": 0.7157,
+      "rank": 819
+    },
+    {
+      "word": "profitera",
+      "score": 0.7157,
+      "rank": 820
+    },
+    {
+      "word": "accepteras",
+      "score": 0.7157,
+      "rank": 821
+    },
+    {
+      "word": "abrégé",
+      "score": 0.7157,
+      "rank": 822
+    },
+    {
+      "word": "étroitement",
+      "score": 0.7156,
+      "rank": 823
+    },
+    {
+      "word": "aprã",
+      "score": 0.7156,
+      "rank": 824
+    },
+    {
+      "word": "devenu",
+      "score": 0.7155,
+      "rank": 825
+    },
+    {
+      "word": "allégé",
+      "score": 0.7155,
+      "rank": 826
+    },
+    {
+      "word": "tim",
+      "score": 0.7155,
+      "rank": 827
+    },
+    {
+      "word": "lancé",
+      "score": 0.7155,
+      "rank": 828
+    },
+    {
+      "word": "gusto",
+      "score": 0.7154,
+      "rank": 829
+    },
+    {
+      "word": "glades",
+      "score": 0.7154,
+      "rank": 830
+    },
+    {
+      "word": "montée",
+      "score": 0.7154,
+      "rank": 831
+    },
+    {
+      "word": "antoinette",
+      "score": 0.7154,
+      "rank": 832
+    },
+    {
+      "word": "manille",
+      "score": 0.7153,
+      "rank": 833
+    },
+    {
+      "word": "gestes",
+      "score": 0.7153,
+      "rank": 834
+    },
+    {
+      "word": "congelés",
+      "score": 0.7153,
+      "rank": 835
+    },
+    {
+      "word": "baignade",
+      "score": 0.7153,
+      "rank": 836
+    },
+    {
+      "word": "dûment",
+      "score": 0.7153,
+      "rank": 837
+    },
+    {
+      "word": "durant",
+      "score": 0.7152,
+      "rank": 838
+    },
+    {
+      "word": "sparte",
+      "score": 0.7152,
+      "rank": 839
+    },
+    {
+      "word": "nettement",
+      "score": 0.7152,
+      "rank": 840
+    },
+    {
+      "word": "ratent",
+      "score": 0.7152,
+      "rank": 841
+    },
+    {
+      "word": "saisis",
+      "score": 0.7151,
+      "rank": 842
+    },
+    {
+      "word": "sauverais",
+      "score": 0.7151,
+      "rank": 843
+    },
+    {
+      "word": "survenu",
+      "score": 0.7151,
+      "rank": 844
+    },
+    {
+      "word": "rangé",
+      "score": 0.7151,
+      "rank": 845
+    },
+    {
+      "word": "encouragée",
+      "score": 0.7151,
+      "rank": 846
+    },
+    {
+      "word": "pointu",
+      "score": 0.7151,
+      "rank": 847
+    },
+    {
+      "word": "plaidé",
+      "score": 0.715,
+      "rank": 848
+    },
+    {
+      "word": "reg",
+      "score": 0.715,
+      "rank": 849
+    },
+    {
+      "word": "obtenez",
+      "score": 0.715,
+      "rank": 850
+    },
+    {
+      "word": "estimons",
+      "score": 0.715,
+      "rank": 851
+    },
+    {
+      "word": "voulu",
+      "score": 0.7149,
+      "rank": 852
+    },
+    {
+      "word": "soutenais",
+      "score": 0.7149,
+      "rank": 853
+    },
+    {
+      "word": "survenant",
+      "score": 0.7149,
+      "rank": 854
+    },
+    {
+      "word": "hausser",
+      "score": 0.7149,
+      "rank": 855
+    },
+    {
+      "word": "enverras",
+      "score": 0.7148,
+      "rank": 856
+    },
+    {
+      "word": "ruée",
+      "score": 0.7148,
+      "rank": 857
+    },
+    {
+      "word": "accueille",
+      "score": 0.7148,
+      "rank": 858
+    },
+    {
+      "word": "foi",
+      "score": 0.7148,
+      "rank": 859
+    },
+    {
+      "word": "savaient",
+      "score": 0.7148,
+      "rank": 860
+    },
+    {
+      "word": "souhaitant",
+      "score": 0.7148,
+      "rank": 861
+    },
+    {
+      "word": "construit",
+      "score": 0.7147,
+      "rank": 862
+    },
+    {
+      "word": "grâce",
+      "score": 0.7147,
+      "rank": 863
+    },
+    {
+      "word": "vies",
+      "score": 0.7147,
+      "rank": 864
+    },
+    {
+      "word": "perdants",
+      "score": 0.7147,
+      "rank": 865
+    },
+    {
+      "word": "comptées",
+      "score": 0.7147,
+      "rank": 866
+    },
+    {
+      "word": "mettaient",
+      "score": 0.7147,
+      "rank": 867
+    },
+    {
+      "word": "lutter",
+      "score": 0.7147,
+      "rank": 868
+    },
+    {
+      "word": "piéce",
+      "score": 0.7147,
+      "rank": 869
+    },
+    {
+      "word": "demi",
+      "score": 0.7147,
+      "rank": 870
+    },
+    {
+      "word": "pret",
+      "score": 0.7146,
+      "rank": 871
+    },
+    {
+      "word": "frapperai",
+      "score": 0.7146,
+      "rank": 872
+    },
+    {
+      "word": "ben",
+      "score": 0.7146,
+      "rank": 873
+    },
+    {
+      "word": "saigné",
+      "score": 0.7146,
+      "rank": 874
+    },
+    {
+      "word": "attardés",
+      "score": 0.7146,
+      "rank": 875
+    },
+    {
+      "word": "vénèrent",
+      "score": 0.7146,
+      "rank": 876
+    },
+    {
+      "word": "sensée",
+      "score": 0.7146,
+      "rank": 877
+    },
+    {
+      "word": "perdras",
+      "score": 0.7145,
+      "rank": 878
+    },
+    {
+      "word": "fuie",
+      "score": 0.7145,
+      "rank": 879
+    },
+    {
+      "word": "étendue",
+      "score": 0.7145,
+      "rank": 880
+    },
+    {
+      "word": "parfaire",
+      "score": 0.7144,
+      "rank": 881
+    },
+    {
+      "word": "répondes",
+      "score": 0.7144,
+      "rank": 882
+    },
+    {
+      "word": "rédige",
+      "score": 0.7143,
+      "rank": 883
+    },
+    {
+      "word": "attraperas",
+      "score": 0.7143,
+      "rank": 884
+    },
+    {
+      "word": "subsiste",
+      "score": 0.7143,
+      "rank": 885
+    },
+    {
+      "word": "lancer",
+      "score": 0.7143,
+      "rank": 886
+    },
+    {
+      "word": "déroulera",
+      "score": 0.7142,
+      "rank": 887
+    },
+    {
+      "word": "écopé",
+      "score": 0.7142,
+      "rank": 888
+    },
+    {
+      "word": "saisit",
+      "score": 0.7142,
+      "rank": 889
+    },
+    {
+      "word": "louent",
+      "score": 0.7142,
+      "rank": 890
+    },
+    {
+      "word": "éléphant",
+      "score": 0.7142,
+      "rank": 891
+    },
+    {
+      "word": "jura",
+      "score": 0.7142,
+      "rank": 892
+    },
+    {
+      "word": "révèles",
+      "score": 0.7141,
+      "rank": 893
+    },
+    {
+      "word": "filant",
+      "score": 0.7141,
+      "rank": 894
+    },
+    {
+      "word": "sono",
+      "score": 0.714,
+      "rank": 895
+    },
+    {
+      "word": "ratatouille",
+      "score": 0.714,
+      "rank": 896
+    },
+    {
+      "word": "assoir",
+      "score": 0.714,
+      "rank": 897
+    },
+    {
+      "word": "bueno",
+      "score": 0.714,
+      "rank": 898
+    },
+    {
+      "word": "nommant",
+      "score": 0.714,
+      "rank": 899
+    },
+    {
+      "word": "retours",
+      "score": 0.714,
+      "rank": 900
+    },
+    {
+      "word": "rentrée",
+      "score": 0.7139,
+      "rank": 901
+    },
+    {
+      "word": "allô",
+      "score": 0.7139,
+      "rank": 902
+    },
+    {
+      "word": "béguin",
+      "score": 0.7139,
+      "rank": 903
+    },
+    {
+      "word": "élégance",
+      "score": 0.7139,
+      "rank": 904
+    },
+    {
+      "word": "heu",
+      "score": 0.7139,
+      "rank": 905
+    },
+    {
+      "word": "lancées",
+      "score": 0.7139,
+      "rank": 906
+    },
+    {
+      "word": "relèves",
+      "score": 0.7138,
+      "rank": 907
+    },
+    {
+      "word": "écrémé",
+      "score": 0.7138,
+      "rank": 908
+    },
+    {
+      "word": "prendrais",
+      "score": 0.7138,
+      "rank": 909
+    },
+    {
+      "word": "annuler",
+      "score": 0.7138,
+      "rank": 910
+    },
+    {
+      "word": "égare",
+      "score": 0.7138,
+      "rank": 911
+    },
+    {
+      "word": "kévin",
+      "score": 0.7138,
+      "rank": 912
+    },
+    {
+      "word": "soldé",
+      "score": 0.7138,
+      "rank": 913
+    },
+    {
+      "word": "bello",
+      "score": 0.7138,
+      "rank": 914
+    },
+    {
+      "word": "ishval",
+      "score": 0.7138,
+      "rank": 915
+    },
+    {
+      "word": "honorifique",
+      "score": 0.7137,
+      "rank": 916
+    },
+    {
+      "word": "réclamée",
+      "score": 0.7137,
+      "rank": 917
+    },
+    {
+      "word": "régent",
+      "score": 0.7137,
+      "rank": 918
+    },
+    {
+      "word": "lotissement",
+      "score": 0.7137,
+      "rank": 919
+    },
+    {
+      "word": "atteindre",
+      "score": 0.7136,
+      "rank": 920
+    },
+    {
+      "word": "duvet",
+      "score": 0.7136,
+      "rank": 921
+    },
+    {
+      "word": "dinde",
+      "score": 0.7136,
+      "rank": 922
+    },
+    {
+      "word": "rappelant",
+      "score": 0.7136,
+      "rank": 923
+    },
+    {
+      "word": "duré",
+      "score": 0.7135,
+      "rank": 924
+    },
+    {
+      "word": "bennet",
+      "score": 0.7135,
+      "rank": 925
+    },
+    {
+      "word": "tolèrent",
+      "score": 0.7134,
+      "rank": 926
+    },
+    {
+      "word": "appréciez",
+      "score": 0.7134,
+      "rank": 927
+    },
+    {
+      "word": "pare",
+      "score": 0.7134,
+      "rank": 928
+    },
+    {
+      "word": "dater",
+      "score": 0.7134,
+      "rank": 929
+    },
+    {
+      "word": "rappellerons",
+      "score": 0.7133,
+      "rank": 930
+    },
+    {
+      "word": "avouez",
+      "score": 0.7133,
+      "rank": 931
+    },
+    {
+      "word": "appréhende",
+      "score": 0.7132,
+      "rank": 932
+    },
+    {
+      "word": "jour",
+      "score": 0.7132,
+      "rank": 933
+    },
+    {
+      "word": "soumettez",
+      "score": 0.7132,
+      "rank": 934
+    },
+    {
+      "word": "hoche",
+      "score": 0.7132,
+      "rank": 935
+    },
+    {
+      "word": "présentais",
+      "score": 0.7132,
+      "rank": 936
+    },
+    {
+      "word": "voulus",
+      "score": 0.7131,
+      "rank": 937
+    },
+    {
+      "word": "avérés",
+      "score": 0.7131,
+      "rank": 938
+    },
+    {
+      "word": "firmament",
+      "score": 0.7131,
+      "rank": 939
+    },
+    {
+      "word": "racontée",
+      "score": 0.713,
+      "rank": 940
+    },
+    {
+      "word": "prévenant",
+      "score": 0.713,
+      "rank": 941
+    },
+    {
+      "word": "hoff",
+      "score": 0.713,
+      "rank": 942
+    },
+    {
+      "word": "raté",
+      "score": 0.713,
+      "rank": 943
+    },
+    {
+      "word": "fourré",
+      "score": 0.713,
+      "rank": 944
+    },
+    {
+      "word": "faisions",
+      "score": 0.713,
+      "rank": 945
+    },
+    {
+      "word": "léve",
+      "score": 0.713,
+      "rank": 946
+    },
+    {
+      "word": "forgée",
+      "score": 0.7129,
+      "rank": 947
+    },
+    {
+      "word": "soudés",
+      "score": 0.7129,
+      "rank": 948
+    },
+    {
+      "word": "éminence",
+      "score": 0.7129,
+      "rank": 949
+    },
+    {
+      "word": "fêtera",
+      "score": 0.7129,
+      "rank": 950
+    },
+    {
+      "word": "butée",
+      "score": 0.7128,
+      "rank": 951
+    },
+    {
+      "word": "préfere",
+      "score": 0.7128,
+      "rank": 952
+    },
+    {
+      "word": "bragg",
+      "score": 0.7128,
+      "rank": 953
+    },
+    {
+      "word": "éprouvent",
+      "score": 0.7128,
+      "rank": 954
+    },
+    {
+      "word": "replié",
+      "score": 0.7128,
+      "rank": 955
+    },
+    {
+      "word": "rendrez",
+      "score": 0.7128,
+      "rank": 956
+    },
+    {
+      "word": "règnent",
+      "score": 0.7128,
+      "rank": 957
+    },
+    {
+      "word": "prieur",
+      "score": 0.7128,
+      "rank": 958
+    },
+    {
+      "word": "souhaiter",
+      "score": 0.7128,
+      "rank": 959
+    },
+    {
+      "word": "ouste",
+      "score": 0.7127,
+      "rank": 960
+    },
+    {
+      "word": "deviennent",
+      "score": 0.7127,
+      "rank": 961
+    },
+    {
+      "word": "stiller",
+      "score": 0.7127,
+      "rank": 962
+    },
+    {
+      "word": "acceptée",
+      "score": 0.7127,
+      "rank": 963
+    },
+    {
+      "word": "falloir",
+      "score": 0.7127,
+      "rank": 964
+    },
+    {
+      "word": "salvo",
+      "score": 0.7127,
+      "rank": 965
+    },
+    {
+      "word": "versent",
+      "score": 0.7126,
+      "rank": 966
+    },
+    {
+      "word": "apprécions",
+      "score": 0.7126,
+      "rank": 967
+    },
+    {
+      "word": "élevant",
+      "score": 0.7125,
+      "rank": 968
+    },
+    {
+      "word": "navet",
+      "score": 0.7125,
+      "rank": 969
+    },
+    {
+      "word": "sagan",
+      "score": 0.7124,
+      "rank": 970
+    },
+    {
+      "word": "favorisé",
+      "score": 0.7124,
+      "rank": 971
+    },
+    {
+      "word": "étendu",
+      "score": 0.7124,
+      "rank": 972
+    },
+    {
+      "word": "avalée",
+      "score": 0.7124,
+      "rank": 973
+    },
+    {
+      "word": "allez",
+      "score": 0.7124,
+      "rank": 974
+    },
+    {
+      "word": "huo",
+      "score": 0.7123,
+      "rank": 975
+    },
+    {
+      "word": "rentre",
+      "score": 0.7123,
+      "rank": 976
+    },
+    {
+      "word": "louons",
+      "score": 0.7123,
+      "rank": 977
+    },
+    {
+      "word": "écoulement",
+      "score": 0.7123,
+      "rank": 978
+    },
+    {
+      "word": "chœurs",
+      "score": 0.7123,
+      "rank": 979
+    },
+    {
+      "word": "emplit",
+      "score": 0.7123,
+      "rank": 980
+    },
+    {
+      "word": "révélait",
+      "score": 0.7123,
+      "rank": 981
+    },
+    {
+      "word": "prévoyait",
+      "score": 0.7122,
+      "rank": 982
+    },
+    {
+      "word": "minuit",
+      "score": 0.7122,
+      "rank": 983
+    },
+    {
+      "word": "enthousiasme",
+      "score": 0.7122,
+      "rank": 984
+    },
+    {
+      "word": "étouffent",
+      "score": 0.712,
+      "rank": 985
+    },
+    {
+      "word": "leann",
+      "score": 0.712,
+      "rank": 986
+    },
+    {
+      "word": "sautons",
+      "score": 0.712,
+      "rank": 987
+    },
+    {
+      "word": "bornée",
+      "score": 0.712,
+      "rank": 988
+    },
+    {
+      "word": "redeviens",
+      "score": 0.712,
+      "rank": 989
+    },
+    {
+      "word": "répande",
+      "score": 0.7119,
+      "rank": 990
+    },
+    {
+      "word": "jenga",
+      "score": 0.7119,
+      "rank": 991
+    },
+    {
+      "word": "prises",
+      "score": 0.7119,
+      "rank": 992
+    },
+    {
+      "word": "fortunés",
+      "score": 0.7119,
+      "rank": 993
+    },
+    {
+      "word": "étendus",
+      "score": 0.7119,
+      "rank": 994
+    },
+    {
+      "word": "réponds",
+      "score": 0.7119,
+      "rank": 995
+    },
+    {
+      "word": "aillent",
+      "score": 0.7119,
+      "rank": 996
+    },
+    {
+      "word": "fréquentés",
+      "score": 0.7119,
+      "rank": 997
+    },
+    {
+      "word": "assoiffé",
+      "score": 0.7118,
+      "rank": 998
+    },
+    {
+      "word": "excitées",
+      "score": 0.7118,
+      "rank": 999
+    },
+    {
+      "word": "apprécient",
+      "score": 0.7118,
+      "rank": 1000
+    }
+  ]
+}

@@ -4,23 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Semordle – Daily semantic word hunt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="bg-words-canvas" aria-hidden="true"></canvas>
+  <div class="page-layout">
   <div class="shell">
+    <div class="shell-grain" aria-hidden="true"></div>
+    <div class="shell-ridges" aria-hidden="true"></div>
     <header>
       <div class="brand">
         <div>
           <h1>Semordle</h1>
+          <div class="machine-tag">Machine 3000</div>
           <div class="subtitle">A daily word hunt through meaning and letters.</div>
+          <div class="pill" id="puzzle-pill" aria-live="polite">Loading…</div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div class="header-controls">
+        <button class="how-to-btn" id="how-to-btn" aria-label="How to play">?</button>
         <div class="lang-switcher" role="group" aria-label="Language">
           <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
           <button class="lang-btn" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
         </div>
-        <div class="pill" id="puzzle-pill" aria-live="polite">Loading…</div>
       </div>
     </header>
 
@@ -32,7 +41,9 @@
           <div class="caption">Semantic landscape</div>
           <button id="landscape-reset-btn" class="landscape-reset-btn" aria-label="Reset zoom and pan" title="Reset view" style="opacity:0">⊙ Reset</button>
         </div>
-        <canvas id="landscape-canvas" class="landscape-canvas" aria-label="Semantic proximity map showing your guesses around the hidden target word" role="img"></canvas>
+        <div class="lcd-screen">
+          <canvas id="landscape-canvas" class="landscape-canvas" aria-label="Semantic proximity map showing your guesses around the hidden target word" role="img"></canvas>
+        </div>
 
         <!-- Mode tabs -->
         <div class="mode-tabs" role="tablist" aria-label="Game mode">
@@ -99,7 +110,15 @@
 
       </section>
     </main>
-  </div>
+  </div><!-- /.shell -->
+
+  <!-- Desktop sidebar: how-to panel (toggled by ? button at ≥900px) -->
+  <aside class="sidebar-howto" aria-label="How to play">
+    <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close how to play">✕</button>
+    <div id="sidebar-howto-content"></div>
+  </aside>
+
+  </div><!-- /.page-layout -->
 
   <!-- Win modal -->
   <div id="win-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="You solved today's Semordle!">
@@ -114,6 +133,15 @@
       <button class="copy-btn" id="win-copy-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
       <div id="win-copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
       <button class="close-win-btn" id="close-win-btn" aria-label="Close win screen and continue">Keep playing</button>
+    </div>
+  </div>
+
+  <!-- How to play modal -->
+  <div id="how-to-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="how-to-title">
+    <div class="modal-backdrop" id="how-to-backdrop"></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="how-to-close" aria-label="Close">✕</button>
+      <div id="how-to-content"></div>
     </div>
   </div>
 
