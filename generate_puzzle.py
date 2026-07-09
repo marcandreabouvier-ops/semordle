@@ -123,7 +123,9 @@ def load_vocab(lang: str, secret: str, min_len: int = 3, max_len: int = 12) -> l
         if vocab_path.exists():
             print(f"Loading vocab from {vocab_path} …")
             with open(vocab_path, encoding="utf-8") as f:
-                words = [w.strip().lower() for w in f if w.strip()]
+                raw_words = [w.strip() for w in f if w.strip()]
+            # Exclude proper nouns: words that start with an uppercase letter
+            words = [w.lower() for w in raw_words if w and not w[0].isupper()]
             break
     else:
         print(f"[WARN] No vocab file found for '{lang}' — using built-in fallback.")

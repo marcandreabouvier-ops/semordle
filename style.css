@@ -1,48 +1,42 @@
 /* =========================================================
    Semordle – style.css
-   GameBoy × Oscilloscope — grey plastic shell, phosphor screen
+   Full-screen 3D semantic radar redesign
    ========================================================= */
 
 :root {
-  /* Plastic shell — warm GameBoy beige */
-  --plastic:       #cecabe;
-  --plastic-light: #dedad0;
-  --plastic-mid:   #c2beb4;
-  --plastic-dark:  #a8a49a;
-  --plastic-shadow:#888480;
-  --plastic-text:  #28241e;
-  --plastic-muted: #787268;
-
-  /* Screen (LCD / phosphor) */
-  --screen-bg:    #080e0b;
-  --screen-deep:  #050a07;
-  --screen-bezel: #1e1c1a;
-
-  /* Phosphor palette */
-  --phosphor:     #2dd4bf;
-  --phosphor-dim: #1a8a7e;
-  --amber:        #f4a14a;
-  --amber-dim:    #b07030;
-
-  /* Temperature */
+  /* Temperature bands */
   --scorch-c:  #ff6b6b;
   --hot-c:     #f4a14a;
   --warm-c:    #2dd4bf;
   --cold-c:    #4a7a76;
 
-  /* Glass on screen */
-  --screen-glass:  rgba(255,255,255,0.05);
-  --screen-edge:   rgba(45,212,191,0.18);
+  /* Phosphor / amber accents */
+  --phosphor:     #2dd4bf;
+  --phosphor-dim: #1a8a7e;
+  --amber:        #f4a14a;
+  --amber-dim:    #b07030;
+
+  /* Space background */
+  --space-bg:  #050a07;
+  --screen-bg: #080e0b;
+
+  /* Screen text */
   --screen-text:   #d4ede8;
   --screen-muted:  #8abfb8;
   --screen-subtle: #5a8a84;
 
-  /* Screen line */
-  --line: rgba(45,212,191,0.16);
+  /* Glass overlay */
+  --glass:        rgba(5,10,7,0.80);
+  --glass-border: rgba(45,212,191,0.18);
 
+  /* Radii */
   --radius-xl: 18px;
   --radius-lg: 10px;
   --radius-md: 6px;
+
+  /* Layout */
+  --input-bar-height: 72px;
+  --handle-height: 38px;
 
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
@@ -50,484 +44,207 @@
 /* === Reset === */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* === Background — warm neutral poster/desk feel === */
+/* === Body — full-screen dark space === */
 body {
   margin: 0;
-  min-height: 100vh;
-  /* Warm off-white/tan — like the poster background */
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 20%, #e8e0d0 0%, transparent 70%),
-    #d8d0c0;
-  padding: 48px 20px 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--space-bg);
   position: relative;
-  overflow-x: hidden;
 }
 
-/* === Floating background words === */
-#bg-words-canvas {
+/* === Three.js container — fills entire viewport === */
+#three-canvas-container {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
   z-index: 0;
 }
-
-/* === GameBoy device shell — flat front-on illustration style === */
-.shell {
-  width: min(560px, 100%);
-  position: relative;
-
-  /* Warm GameBoy beige — lit from top-left */
-  background: linear-gradient(160deg,
-    #dedad0 0%,
-    #d2cec4 30%,
-    #cac6bc 60%,
-    #c2beb4 100%
-  );
-
-  /* Classic GameBoy shape: rounded top, wider rounded bottom */
-  border-radius: 24px 24px 48px 48px;
-  padding: 26px 22px 48px;
-
-  /* Flat illustration shadow — crisp bottom/right, soft ambient */
-  box-shadow:
-    /* Hard offset shadow — like the poster illustration */
-    6px 8px 0px #a8a49a,
-    /* Soft ambient drop shadow */
-    4px 12px 32px rgba(0,0,0,0.28),
-    0 24px 56px rgba(0,0,0,0.18),
-    /* Top edge highlight */
-    inset 0 2px 0 rgba(255,255,255,0.85),
-    /* Bottom inner shadow — gives thickness */
-    inset 0 -4px 14px rgba(0,0,0,0.12);
+#three-canvas-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
 }
 
-/* Top-left corner gloss — catches the light */
-.shell::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 55%; height: 45%;
-  border-radius: 24px 0 60% 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.28) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Bottom grip area — the ribbed speaker grille look */
-.shell::after {
-  content: '';
-  position: absolute;
-  bottom: 14px; left: 50%; right: 14px;
-  height: 28px;
-  transform: translateX(0);
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(0,0,0,0.12) 0px,
-    rgba(0,0,0,0.12) 3px,
-    transparent 3px,
-    transparent 6px
-  );
-  border-radius: 3px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Plastic grain on face */
-.shell .shell-grain {
-  position: absolute;
+/* === CSS2D label overlay === */
+#css2d-container {
+  position: fixed;
   inset: 0;
-  border-radius: inherit;
+  z-index: 5;
   pointer-events: none;
-  z-index: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 160px 160px;
 }
 
-/* Horizontal ridge lines — ABS plastic texture */
-.shell .shell-ridges {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    rgba(0,0,0,0.014) 3px,
-    rgba(0,0,0,0.014) 4px
-  );
-}
-
-/* Everything inside shell sits above the textures */
-.shell > *:not(.shell-grain):not(.shell-ridges) { position: relative; z-index: 1; }
-
-/* === Header — sits on plastic === */
-header {
+/* === Top bar === */
+#top-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 20;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 14px;
-  margin-bottom: 22px;
+  align-items: center;
+  padding: 12px 18px env(safe-area-inset-top, 0px);
+  pointer-events: none;
 }
+#top-bar > * { pointer-events: auto; }
 
-.brand { display: flex; align-items: flex-start; gap: 10px; }
-
-.header-controls {
+#top-bar-left {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
-  padding-top: 4px;
 }
 
-/* Retro pixel logo — Press Start 2P, Nintendo-style */
+#top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Title wordmark */
 h1 {
   margin: 0;
-  font-family: 'Press Start 2P', monospace;
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(14px, 4vw, 22px);
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  /* Dark ink on light plastic — like the Nintendo label */
-  background: linear-gradient(135deg, #1a1612 0%, #0a4a44 45%, #7a3c0a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.5));
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: clamp(15px, 3.5vw, 20px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--phosphor);
+  text-shadow: 0 0 18px rgba(45,212,191,0.55);
 }
 
-.machine-tag {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  letter-spacing: 0.08em;
-  color: var(--amber);
-  margin-top: 5px;
-  margin-left: 2px;
-  display: inline-block;
-  /* Italic slant like the GameBoy Color logotype */
-  transform: skewX(-8deg);
-  transform-origin: left center;
-  opacity: 0.9;
-}
-
-.subtitle {
-  color: #6a6458;
-  margin-top: 8px;
-  font-size: 13px;
-  font-style: italic;
-  letter-spacing: 0.02em;
-}
-
-/* Pill — engraved LCD readout label on the plastic */
+/* Puzzle number pill */
 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  padding: 5px 11px;
+  gap: 5px;
+  padding: 4px 10px;
   border-radius: 5px;
-  background: linear-gradient(170deg, #222018, #1a1816);
+  background: rgba(45,212,191,0.08);
+  border: 1px solid rgba(45,212,191,0.22);
   color: var(--phosphor);
-  font-weight: 700;
+  font-weight: 500;
   font-size: 11px;
   font-family: 'JetBrains Mono', monospace;
   white-space: nowrap;
   letter-spacing: 0.08em;
-  box-shadow:
-    inset 0 2px 5px rgba(0,0,0,0.65),
-    inset 0 -1px 0 rgba(255,255,255,0.05),
-    0 1px 0 rgba(255,255,255,0.35);
 }
 
-/* === How-to button — plastic feel === */
+/* Best rank badge */
+.best-rank-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--screen-muted);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* === How-to button === */
 .how-to-btn {
   width: 32px; height: 32px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #d0ccc4, #b8b4ac);
-  border: none;
-  color: var(--plastic-text);
-  -webkit-text-fill-color: var(--plastic-text);
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  color: var(--screen-muted);
   font-size: 14px; font-weight: 900;
   cursor: pointer;
   display: grid; place-items: center;
-  padding: 0; animation: none;
+  padding: 0;
   flex-shrink: 0;
-  box-shadow:
-    -2px -2px 5px rgba(255,255,255,0.6),
-     2px  2px 6px rgba(0,0,0,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.5);
-  transition: box-shadow 0.12s, transform 0.08s;
+  transition: border-color 0.15s, color 0.15s;
 }
 .how-to-btn:hover {
-  box-shadow:
-    -2px -2px 4px rgba(255,255,255,0.5),
-     2px  2px 5px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.4);
+  border-color: var(--phosphor);
+  color: var(--phosphor);
 }
 .how-to-btn:active {
-  transform: scale(0.90) translateY(2px);
-  transition: box-shadow 0.04s, transform 0.04s;
-  box-shadow:
-    inset 2px 3px 7px rgba(0,0,0,0.5),
-    inset 0 -1px 0 rgba(255,255,255,0.2);
+  transform: scale(0.90);
 }
 
-/* === Language switcher — plastic toggle === */
+/* === Language switcher === */
 .lang-switcher {
   display: flex;
   padding: 3px;
-  border: none;
-  background: linear-gradient(170deg, #b8b4ac, #cac6be);
-  border-radius: 8px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
   gap: 2px;
-  box-shadow:
-    inset 1px 1px 4px rgba(0,0,0,0.25),
-    inset 0 -1px 0 rgba(255,255,255,0.4),
-    0 1px 0 rgba(255,255,255,0.5);
 }
 
 .lang-btn {
-  padding: 5px 13px;
-  border-radius: 5px;
+  padding: 4px 11px;
+  border-radius: 4px;
   font-size: 11px; font-weight: 800;
   letter-spacing: 0.1em;
   border: none;
   background: none;
-  color: var(--plastic-muted);
-  -webkit-text-fill-color: var(--plastic-muted);
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
+  color: var(--screen-subtle);
   cursor: pointer;
-  animation: none; box-shadow: none; filter: none;
-  transition: background 0.12s;
+  transition: background 0.12s, color 0.12s;
+  font-family: inherit;
 }
 .lang-btn.active,
 .lang-btn[aria-pressed="true"] {
-  background: linear-gradient(145deg, #1e1c1a, #2a2724);
+  background: rgba(45,212,191,0.15);
   color: var(--phosphor);
-  -webkit-text-fill-color: var(--phosphor);
-  animation: none;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 .lang-btn:hover:not(.active) {
-  background: rgba(0,0,0,0.08);
-  -webkit-text-fill-color: var(--plastic-text);
+  color: var(--screen-muted);
 }
 
-/* =========================================================
-   THE SCREEN — dark LCD inset
-   ========================================================= */
-.hero {
-  display: block;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.panel {
-  /* Thick dark bezel — GameBoy screen surround */
-  border: none;
-  border-radius: 14px;
-  background: var(--screen-bg);
-  position: relative;
-  overflow: hidden;
-  /* Bezel: dark plastic frame around the screen */
-  outline: 10px solid #1c1a18;
-  outline-offset: 0px;
-  box-shadow:
-    0 0 0 11px #242220,
-    0 0 0 14px #2e2c2a,
-    inset 0 0 30px rgba(0,0,0,0.7),
-    inset 0 0 8px  rgba(45,212,191,0.04),
-    /* outer shadow below the bezel */
-    0 6px 18px rgba(0,0,0,0.4);
-  margin: 4px;
-}
-
-.main-panel { padding: 22px 20px 24px; }
-
-/* === LCD screen wrapper — only around the canvas === */
-.lcd-screen {
-  position: relative;
-  border-radius: var(--radius-lg);
-  /* inset bezel */
-  box-shadow:
-     3px  3px 10px rgba(0,0,0,0.7),
-    -2px -2px  6px rgba(255,255,255,0.10),
-    inset 0 0 30px rgba(0,0,0,0.7),
-    inset 0 0 8px  rgba(45,212,191,0.05);
-  overflow: hidden;
-}
-
-/* Scanlines on LCD only */
-.lcd-screen::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    rgba(0,0,0,0.09) 3px,
-    rgba(0,0,0,0.09) 4px
-  );
-}
-
-/* Glare reflection on LCD only */
-.lcd-screen::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 5%; right: 5%;
-  height: 38%;
-  pointer-events: none;
-  z-index: 11;
-  border-radius: 0 0 60% 60%;
-  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
-}
-
-/* === Landscape header (on screen) === */
-.landscape-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
-.landscape-reset-btn {
-  padding: 4px 12px;
-  height: auto;
-  font-size: 10px; font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
-  background: linear-gradient(145deg, #d0ccc4, #b8b4ac);
-  border: none;
-  border-radius: 999px;
-  color: var(--plastic-text);
-  -webkit-text-fill-color: var(--plastic-text);
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
-  cursor: pointer;
-  animation: none; filter: none;
-  letter-spacing: 0.06em;
-  box-shadow:
-    -2px -2px 4px rgba(255,255,255,0.6),
-     2px  2px 5px rgba(0,0,0,0.28),
-    inset 0 1px 0 rgba(255,255,255,0.5);
-  transition: box-shadow 0.12s, transform 0.08s, opacity 0.2s;
-}
-.landscape-reset-btn:hover {
-  box-shadow:
-    -2px -2px 4px rgba(255,255,255,0.5),
-     2px  2px 5px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.4);
-}
-.landscape-reset-btn:active {
-  transform: scale(0.90) translateY(2px);
-  transition: box-shadow 0.04s, transform 0.04s;
-  box-shadow: inset 2px 3px 7px rgba(0,0,0,0.5);
-}
-
-/* === Canvas — oscilloscope display === */
-.landscape-canvas {
-  display: block;
-  width: 100%; height: 260px;
-  border-radius: 0;
-  border: none;
-  background-color: #060c09;
-  cursor: default;
-}
-
-/* === Mode tabs — plastic buttons === */
-.mode-tabs {
-  display: flex;
-  margin: 18px 0;
-  padding: 4px;
-  border: none;
-  background: linear-gradient(170deg, #b8b4ac, #cac6be);
-  border-radius: var(--radius-lg);
-  gap: 4px;
-  box-shadow:
-    inset 1px 1px 4px rgba(0,0,0,0.25),
-    inset 0 -1px 0 rgba(255,255,255,0.4),
-    0 1px 0 rgba(255,255,255,0.5);
-}
-
-.tab {
-  flex: 1; text-align: center;
-  padding: 10px;
-  border-radius: var(--radius-md);
-  font-weight: 800; font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--plastic-muted);
-  -webkit-text-fill-color: var(--plastic-muted);
-  background: none; border: none;
-  cursor: pointer;
-  animation: none; box-shadow: none; filter: none;
-  transition: box-shadow 0.12s, transform 0.08s, background 0.12s;
-  font-family: inherit;
-}
-.tab.active,
-.tab[aria-selected="true"] {
-  background: linear-gradient(145deg, #2a2724, #1e1c1a);
-  color: var(--phosphor);
-  -webkit-text-fill-color: var(--phosphor);
-  animation: none;
-  box-shadow: inset 1px 1px 4px rgba(0,0,0,0.6), inset 0 -1px 0 rgba(255,255,255,0.05);
-}
-.tab:hover:not(.active):not([aria-selected="true"]) {
-  background: rgba(0,0,0,0.08);
-  -webkit-text-fill-color: var(--plastic-text);
-}
-.tab:active:not(.active) {
-  transform: scale(0.94) translateY(1px);
-  transition: box-shadow 0.04s, transform 0.04s;
-  box-shadow: inset 2px 3px 7px rgba(0,0,0,0.5);
-}
-
-/* === Entry form === */
-.entry {
+/* === Input bar (fixed bottom) === */
+#input-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: min(600px, calc(100vw - 32px));
+  z-index: 20;
+  padding: 12px 16px env(safe-area-inset-bottom, 12px);
+  background: rgba(5,10,7,0.92);
+  backdrop-filter: blur(32px);
+  border-top: 1px solid rgba(45,212,191,0.35);
+  border-left: 1px solid rgba(45,212,191,0.18);
+  border-right: 1px solid rgba(45,212,191,0.18);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 32px rgba(45,212,191,0.10), 0 -1px 0 rgba(45,212,191,0.08);
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 8px;
-  margin-top: 18px;
+  grid-template-rows: auto auto;
+  gap: 6px 8px;
+  align-items: center;
 }
 
-#semantic-submit { font-size: 16px; }
+#semantic-message {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
 
 input[type="text"] {
   width: 100%;
   border: 1px solid rgba(45,212,191,0.2);
-  border-radius: var(--radius-md);
-  padding: 15px 16px;
-  background: rgba(0,0,0,0.45);
+  border-radius: 999px;
+  padding: 13px 20px;
+  background: rgba(0,0,0,0.50);
   color: var(--screen-text);
   outline: none;
   font-size: 16px;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   letter-spacing: 0.06em;
   transition: border-color 0.2s, background 0.2s;
-  box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
 }
 input[type="text"]:focus {
-  border-color: rgba(45,212,191,0.45);
-  background: rgba(0,0,0,0.55);
-  box-shadow: inset 0 2px 8px rgba(0,0,0,0.5), 0 0 0 3px rgba(45,212,191,0.07);
+  border-color: rgba(45,212,191,0.5);
+  background: rgba(0,0,0,0.60);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.5), 0 0 0 3px rgba(45,212,191,0.08);
 }
 input[type="text"]::placeholder { color: var(--screen-subtle); }
 
-/* === Buttons on screen — physical plastic keys === */
+/* === Buttons (global dark style) === */
 button {
   border: none;
   border-radius: var(--radius-md);
@@ -535,46 +252,35 @@ button {
   font-size: 14px; font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  /* Plastic button: dark grey like GB's A/B buttons */
-  background: linear-gradient(155deg, #3a3632, #2a2624);
+  background: rgba(45,212,191,0.12);
+  border: 1px solid rgba(45,212,191,0.25);
   color: var(--phosphor);
-  -webkit-text-fill-color: var(--phosphor);
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
-  box-shadow:
-    -2px -2px 4px rgba(255,255,255,0.08),
-     2px  2px 8px rgba(0,0,0,0.7),
-     inset 0 1px 0 rgba(255,255,255,0.10);
   cursor: pointer;
   font-family: inherit;
-  transition: box-shadow 0.12s, transform 0.08s;
+  transition: background 0.15s, border-color 0.15s;
   white-space: nowrap;
-  animation: none;
   position: relative; isolation: isolate;
 }
 button:hover {
-  box-shadow:
-    -2px -2px 4px rgba(255,255,255,0.1),
-     2px  2px 8px rgba(0,0,0,0.8),
-     inset 0 1px 0 rgba(255,255,255,0.12),
-     0 0 10px rgba(45,212,191,0.12);
-  -webkit-text-fill-color: #4af0dc;
+  background: rgba(45,212,191,0.20);
+  border-color: rgba(45,212,191,0.45);
 }
 button:active {
-  transform: scale(0.93) translateY(2px);
-  box-shadow:
-    inset 2px 3px 8px rgba(0,0,0,0.85),
-    inset 0 -1px 0 rgba(255,255,255,0.04),
-    0 1px 0 rgba(255,255,255,0.15);
-  transition: box-shadow 0.04s, transform 0.04s;
+  transform: scale(0.94);
+  transition: transform 0.06s;
 }
 button:disabled { opacity: 0.35; cursor: not-allowed; }
 
+#semantic-submit {
+  height: 46px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
 /* === Game message === */
 .game-message {
-  min-height: 22px;
-  margin: 8px 0 0;
-  font-size: 12px;
+  min-height: 18px;
+  font-size: 11px;
   color: var(--screen-muted);
   font-weight: 600;
   text-align: center;
@@ -585,17 +291,203 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .game-message.error { color: var(--scorch-c); }
 .game-message.info  { color: var(--amber); }
 
-/* === Section title (on screen) === */
-.section-title {
+/* === Wordle handle (languette qui sort de derrière l'input bar) === */
+#wordle-handle {
+  position: fixed;
+  bottom: calc(var(--input-bar-height, 70px) - 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 19;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8px 20px 18px;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+  border-top: 1px solid rgba(244,161,74,0.40);
+  border-left: 1px solid rgba(244,161,74,0.20);
+  border-right: 1px solid rgba(244,161,74,0.20);
+  border-bottom: none;
+  background: rgba(8,14,11,0.95);
+  backdrop-filter: blur(16px);
+  color: var(--amber);
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: background 0.15s, border-color 0.15s, bottom 0.38s cubic-bezier(0.22,1,0.36,1);
+  white-space: nowrap;
+}
+#wordle-handle.overlay-open {
+  bottom: calc(100vh - 56px - 10px);
+  border-color: rgba(244,161,74,0.65);
+  background: rgba(244,161,74,0.12);
+}
+#wordle-handle-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+#wordle-handle:hover {
+  background: rgba(244,161,74,0.10);
+  border-color: rgba(244,161,74,0.60);
+}
+
+/* === Wordle overlay (bottom sheet, quasi plein écran) === */
+#wordle-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: min(600px, 100vw);
+  height: calc(100vh - 56px);
+  z-index: 50;
+  background: rgba(8,14,11,0.97);
+  backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(244,161,74,0.25);
+  border-left: 1px solid rgba(244,161,74,0.12);
+  border-right: 1px solid rgba(244,161,74,0.12);
+  border-radius: 20px 20px 0 0;
+  transition: transform 0.38s cubic-bezier(0.22,1,0.36,1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+#wordle-overlay.open {
+  transform: translateX(-50%) translateY(0);
+}
+
+#wordle-drag-handle {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 4px;
+  flex-shrink: 0;
+  cursor: grab;
+}
+#wordle-drag-handle span {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(244,161,74,0.35);
+}
+
+#wordle-overlay-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 22px 0 12px;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  padding: 18px 20px 12px;
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  background: rgba(5,10,7,0.95);
+  z-index: 1;
+}
+
+#wordle-overlay-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+#wordle-overlay-close {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--screen-muted);
+  font-size: 13px;
+  display: grid; place-items: center;
+  padding: 0;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: border-color 0.15s, color 0.15s;
+}
+#wordle-overlay-close:hover {
+  border-color: var(--scorch-c);
+  color: var(--scorch-c);
+}
+
+#wordle-overlay-body {
+  flex: 1;
+  padding: 20px 16px env(safe-area-inset-bottom, 20px);
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* === Dot labels (CSS2D) === */
+.dot-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(5,10,7,0.90);
+  border: 1px solid currentColor;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.88;
+  line-height: 1.4;
+}
+.dot-label-rank {
+  opacity: 0.65;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+}
+
+/* === Win toast === */
+#win-toast {
+  position: fixed;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-12px);
+  z-index: 150;
+  padding: 12px 28px;
+  background: rgba(5,10,7,0.92);
+  border: 1px solid rgba(45,212,191,0.5);
+  border-radius: 999px;
+  color: var(--phosphor);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: 0 0 32px rgba(45,212,191,0.25), 0 4px 24px rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+#win-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.dot-label--latest {
+  opacity: 1;
+  border-width: 2px;
+  background: rgba(5,10,7,0.97);
+  box-shadow: 0 0 12px currentColor, 0 0 24px currentColor;
+  font-size: 13px;
+  padding: 4px 10px;
+  z-index: 10;
+}
+.dot-label--latest .dot-label-word {
+  font-weight: 900;
+  text-shadow: 0 0 6px currentColor, 0 0 14px currentColor;
+  letter-spacing: 0.05em;
+}
+.dot-label--latest .dot-label-rank {
+  opacity: 1;
+  font-size: 11px;
   font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.01em;
-  color: var(--screen-text);
 }
 
 /* === Caption === */
@@ -608,9 +500,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* === Guess list === */
+/* =========================================================
+   Guess list (hidden DOM — kept for share/state logic)
+   ========================================================= */
 .guess-list { display: grid; gap: 7px; }
-
 .guess-list-empty p {
   color: var(--screen-subtle);
   font-size: 13px;
@@ -621,7 +514,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* === Guess card — LCD readout rows === */
+/* === Guess card (hidden DOM, also used for last-guess clone in share) === */
 .guess-card {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -644,12 +537,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   background: var(--accent-bar, transparent);
   border-radius: 0 999px 999px 0;
 }
-
 @keyframes slideIn {
   from { opacity: 0; transform: translateY(-5px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 .guess-card.cold-card {
   background: rgba(0,0,0,0.25);
   border-color: rgba(74,122,118,0.15);
@@ -665,7 +556,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
     0 0 0 1px var(--latest-color, rgba(45,212,191,0.25)),
     0 0 12px var(--latest-glow, rgba(45,212,191,0.18));
 }
-
 .guess-word {
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   font-weight: 500;
@@ -716,13 +606,29 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   transition: width 0.5s cubic-bezier(0.22,1,0.36,1);
 }
 
+/* === Section title === */
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 22px 0 12px;
+  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  color: var(--screen-text);
+}
+
 /* === Share section === */
 .share-section {
-  margin-top: 18px;
+  margin-top: 0;
+  margin-bottom: 18px;
   padding: 18px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(244,161,74,0.2);
-  background: rgba(244,161,74,0.05);
+  border: 1px solid rgba(244,161,74,0.35);
+  background: rgba(244,161,74,0.08);
+  box-shadow: 0 0 18px rgba(244,161,74,0.10);
+  animation: slideIn 0.3s cubic-bezier(0.22,1,0.36,1);
 }
 .share-section .caption { margin-bottom: 10px; display: block; }
 
@@ -744,29 +650,9 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   color: var(--amber);
 }
 
-/* === Sponsor slot === */
-.sponsor-slot { padding: 18px 0 2px; }
-.sponsor-card {
-  min-height: 90px;
-  border-radius: var(--radius-md);
-  border: 1px dashed rgba(45,212,191,0.15);
-  background: rgba(0,0,0,0.2);
-  display: grid; place-items: center;
-  text-align: center; padding: 16px;
-}
-.sponsor-card .label {
-  display: inline-flex; align-items: center;
-  padding: 4px 9px; border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  color: var(--screen-subtle);
-  font-size: 9px; text-transform: uppercase;
-  letter-spacing: 0.14em; font-weight: 700;
-  margin-bottom: 7px; font-family: 'JetBrains Mono', monospace;
-}
-.sponsor-card .headline { font-weight: 700; font-size: 14px; color: var(--screen-muted); }
-.sponsor-card .subline  { color: var(--screen-subtle); font-size: 12px; margin-top: 3px; font-style: italic; }
-
-/* === Wordle panel === */
+/* =========================================================
+   Wordle UI (inside #wordle-overlay)
+   ========================================================= */
 .wordle-header { margin-bottom: 16px; }
 .wordle-header h3 {
   margin: 4px 0 6px;
@@ -776,7 +662,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 .wordle-header p { color: var(--screen-muted); font-size: 12px; margin: 0; line-height: 1.55; font-style: italic; }
 
-/* === Wordle board === */
 .wordle-board { display: grid; gap: 5px; margin: 0 auto 16px; max-width: 280px; }
 .wordle-row { display: grid; gap: 4px; }
 
@@ -812,38 +697,29 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .tile.gray   { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); color: var(--screen-muted); }
 
 /* === Virtual keyboard === */
-.vkeyboard { display: grid; gap: 5px; margin-top: 12px; }
-.vkeyboard-row { display: flex; justify-content: center; gap: 4px; }
+.vkeyboard { display: grid; gap: 6px; margin-top: 14px; }
+.vkeyboard-row { display: flex; justify-content: center; gap: 5px; }
 .vkey {
-  min-width: 30px; height: 42px;
-  border-radius: 4px;
-  background: linear-gradient(155deg, #3a3632, #2a2624);
-  border: none;
+  min-width: 36px; height: 52px;
+  border-radius: 6px;
+  background: rgba(45,212,191,0.06);
+  border: 1px solid rgba(45,212,191,0.18);
   color: var(--screen-text);
-  -webkit-text-fill-color: var(--screen-text);
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; font-weight: 500;
+  font-size: 13px; font-weight: 600;
   cursor: pointer;
   display: grid; place-items: center;
   padding: 0 4px;
-  animation: none;
-  box-shadow:
-    -1px -1px 3px rgba(255,255,255,0.07),
-     1px  1px 5px rgba(0,0,0,0.7),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-  filter: none;
-  transition: box-shadow 0.1s, transform 0.08s;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  transition: background 0.12s;
 }
-.vkey:hover { box-shadow: -1px -1px 3px rgba(255,255,255,0.08), 1px 1px 5px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 6px rgba(45,212,191,0.1); }
-.vkey:active { transform: scale(0.88) translateY(2px); transition: box-shadow 0.04s, transform 0.04s; box-shadow: inset 2px 3px 8px rgba(0,0,0,0.9), 0 1px 0 rgba(255,255,255,0.1); }
-.vkey.green  { background: rgba(45,212,191,0.2); border: 1px solid rgba(45,212,191,0.3); -webkit-text-fill-color: var(--phosphor); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
-.vkey.yellow { background: rgba(244,161,74,0.2); border: 1px solid rgba(244,161,74,0.3); -webkit-text-fill-color: var(--amber); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); }
-.vkey.gray   { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); -webkit-text-fill-color: var(--screen-muted); }
-.vkey.wide   { min-width: 50px; font-size: 9px; }
+.vkey:hover { background: rgba(45,212,191,0.12); }
+.vkey:active { transform: scale(0.88); }
+.vkey.green  { background: rgba(45,212,191,0.22); border-color: var(--phosphor); color: var(--phosphor); }
+.vkey.yellow { background: rgba(244,161,74,0.22); border-color: var(--amber); color: var(--amber); }
+.vkey.gray   { background: rgba(0,0,0,0.35); border-color: rgba(255,255,255,0.12); color: var(--screen-muted); }
+.vkey.wide   { min-width: 60px; font-size: 10px; }
 
 /* === Wordle message === */
 .wordle-message { min-height: 18px; font-size: 12px; color: var(--screen-muted); text-align: center; margin-top: 7px; font-weight: 600; font-style: italic; font-family: 'JetBrains Mono', monospace; }
@@ -888,46 +764,40 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .copy-btn { margin-top: 10px; width: 100%; height: 44px; display: grid; place-items: center; font-size: 13px; border-radius: var(--radius-md); }
 .copy-confirm { min-height: 18px; text-align: center; font-size: 11px; color: var(--phosphor); margin-top: 7px; font-weight: 600; font-style: italic; font-family: 'JetBrains Mono', monospace; }
 
-/* === Modals === */
+/* =========================================================
+   Modals
+   ========================================================= */
 .modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; }
 .modal.hidden { display: none; }
-.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(6px); cursor: pointer; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.80); backdrop-filter: blur(6px); cursor: pointer; }
 .modal-content {
   position: relative; z-index: 1;
-  /* Modal looks like its own plastic device panel */
   background: linear-gradient(170deg, #1a1816 0%, #120e0c 100%);
-  border: 2px solid #2a2624;
+  border: 1px solid #2a2624;
   border-radius: var(--radius-xl);
   padding: 28px;
   width: min(500px, calc(100vw - 32px));
   max-height: calc(100vh - 40px);
   overflow-y: auto;
-  box-shadow:
-    -3px -3px 8px rgba(255,255,255,0.05),
-     5px  5px 20px rgba(0,0,0,0.8),
-     inset 0 1px 0 rgba(255,255,255,0.07);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .modal-close {
   position: absolute; top: 14px; right: 14px;
-  background: linear-gradient(145deg, #3a3632, #2a2624);
-  border: none;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 50%;
   width: 32px; height: 32px;
   display: grid; place-items: center;
   cursor: pointer;
   color: var(--screen-muted);
-  -webkit-text-fill-color: var(--screen-muted);
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
   font-size: 12px; padding: 0;
-  box-shadow: -1px -1px 3px rgba(255,255,255,0.07), 2px 2px 6px rgba(0,0,0,0.7);
-  animation: none;
-  transition: box-shadow 0.12s;
+  transition: border-color 0.15s, color 0.15s;
+  text-transform: none; letter-spacing: 0;
 }
-.modal-close:hover { box-shadow: -1px -1px 3px rgba(255,255,255,0.09), 2px 2px 6px rgba(0,0,0,0.8), 0 0 8px rgba(45,212,191,0.1); -webkit-text-fill-color: var(--phosphor); }
+.modal-close:hover { border-color: var(--scorch-c); color: var(--scorch-c); }
 
 /* === How-to modal === */
-.how-to-content h2 { margin: 0 0 14px; font-family: 'Press Start 2P', monospace; font-size: 14px; line-height: 1.6; letter-spacing: 0.02em; color: var(--screen-text); }
+.how-to-content h2 { margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; letter-spacing: 0.08em; text-transform: uppercase; color: var(--phosphor); }
 .how-to-content p  { color: var(--screen-text); font-size: 13px; line-height: 1.65; margin: 0 0 16px; opacity: 0.85; }
 .how-to-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; padding: 12px; border-radius: var(--radius-md); background: rgba(45,212,191,0.05); border: 1px solid rgba(45,212,191,0.18); font-size: 13px; line-height: 1.6; color: var(--screen-text); }
 .how-to-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
@@ -938,135 +808,73 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .win-modal-content { text-align: center; }
 .win-header { margin-bottom: 20px; }
 .win-icon { font-size: 48px; margin-bottom: 10px; display: block; }
-.win-header h2 { margin: 0 0 6px; font-family: 'Press Start 2P', monospace; font-size: 16px; line-height: 1.5; letter-spacing: 0.02em; color: var(--screen-text); }
+.win-header h2 { margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 16px; line-height: 1.5; letter-spacing: 0.08em; text-transform: uppercase; color: var(--screen-text); }
 .win-subtitle { color: var(--screen-muted); font-size: 13px; margin: 0; font-style: italic; }
 .win-share-card { text-align: left; }
 .close-win-btn {
   margin-top: 10px; width: 100%; height: 44px;
-  background: linear-gradient(155deg, #3a3632, #2a2624);
-  border: none; font-weight: 700; font-size: 13px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-weight: 700; font-size: 13px;
   border-radius: var(--radius-md);
   color: var(--screen-muted);
-  -webkit-text-fill-color: var(--screen-muted);
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
-  animation: none; filter: none;
-  box-shadow: -1px -1px 3px rgba(255,255,255,0.07), 2px 2px 6px rgba(0,0,0,0.6);
 }
-.close-win-btn:hover { -webkit-text-fill-color: var(--screen-text); }
+.close-win-btn:hover { color: var(--screen-text); border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); }
 
 /* === Utility === */
 .hidden { display: none !important; }
 
 /* =========================================================
-   Page layout wrapper — always just a centered column
-   ========================================================= */
-.page-layout {
-  display: contents; /* transparent wrapper — children lay out as if it weren't there */
-  position: relative;
-  z-index: 1;
-}
-
-/* =========================================================
-   Desktop sidebar how-to panel (≥ 900px, toggled by ? btn)
-   ========================================================= */
-
-/* Always hidden on mobile — handled by the modal instead */
-.sidebar-howto {
-  display: none;
-}
-
-@media (min-width: 900px) {
-  /* Sidebar slides in from the right, fixed to the viewport */
-  .sidebar-howto {
-    display: block;
-    position: fixed;
-    top: 48px;
-    right: -340px; /* off-screen by default */
-    width: 300px;
-    max-height: calc(100vh - 96px);
-    overflow-y: auto;
-    /* Same dark plastic feel as the screen panels */
-    background: linear-gradient(170deg, #1a1816 0%, #120e0c 100%);
-    border: 2px solid #2a2624;
-    border-left: 2px solid #3a3632;
-    border-radius: var(--radius-xl) 0 0 var(--radius-xl);
-    padding: 48px 22px 28px;
-    box-shadow:
-      -6px 0 24px rgba(0,0,0,0.5),
-      inset 0 1px 0 rgba(255,255,255,0.06);
-    z-index: 50;
-    transition: right 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  /* Visible state — toggled by JS adding .open */
-  .sidebar-howto.open {
-    right: 0;
-  }
-
-  /* On desktop, suppress the how-to centered modal — use sidebar instead */
-  #how-to-modal { display: none !important; }
-}
-
-/* Sidebar close button */
-.sidebar-close-btn {
-  position: absolute;
-  top: 14px; right: 14px;
-  background: linear-gradient(145deg, #3a3632, #2a2624);
-  border: none;
-  border-radius: 50%;
-  width: 28px; height: 28px;
-  display: grid; place-items: center;
-  cursor: pointer;
-  color: var(--screen-muted);
-  -webkit-text-fill-color: var(--screen-muted);
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
-  font-size: 11px; padding: 0;
-  box-shadow: -1px -1px 3px rgba(255,255,255,0.07), 2px 2px 6px rgba(0,0,0,0.7);
-  animation: none;
-  transition: box-shadow 0.12s;
-}
-.sidebar-close-btn:hover {
-  -webkit-text-fill-color: var(--phosphor);
-  box-shadow: -1px -1px 3px rgba(255,255,255,0.09), 2px 2px 6px rgba(0,0,0,0.8), 0 0 8px rgba(45,212,191,0.1);
-}
-
-/* Sidebar heading — always scoped so it doesn't conflict with modal */
-.sidebar-howto h2 {
-  margin: 0 0 18px;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 10px;
-  line-height: 1.8;
-  letter-spacing: 0.04em;
-  color: var(--phosphor);
-}
-.sidebar-howto .how-to-content { color: var(--screen-text); }
-
-/* =========================================================
    Mobile (≤ 600px)
    ========================================================= */
 @media (max-width: 600px) {
-  body { padding: 20px 10px 48px; }
-
-  .shell {
-    border-radius: 18px 18px 36px 36px;
-    padding: 20px 16px 38px;
+  :root {
+    --input-bar-height: 80px;
   }
 
-  .main-panel { padding: 16px 14px 18px; }
-  .landscape-canvas { height: 200px; }
+  #top-bar {
+    padding: 10px 12px;
+  }
 
-  .modal-content { width: 100%; max-width: 100%; height: 100%; max-height: 100%; border-radius: 0; padding: 20px 16px; }
-  .modal-close { top: 12px; right: 12px; }
+  h1 { font-size: 15px; }
 
-  .entry { grid-template-columns: 1fr; }
-  button#semantic-submit, button.unlock-button { height: 50px; }
+  .modal-content {
+    width: 100%; max-width: 100%;
+    max-height: 90vh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    margin: 0;
+  }
 
-  .vkey { min-width: 26px; height: 38px; font-size: 10px; }
-  .vkey.wide { min-width: 42px; }
+  .vkey { min-width: 28px; height: 46px; font-size: 11px; }
+  .vkey.wide { min-width: 46px; font-size: 9px; }
 
-  h1 { font-size: clamp(12px, 5.5vw, 18px); }
+  #input-bar {
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    padding: 10px 12px env(safe-area-inset-bottom, 12px);
+  }
+
+  #wordle-handle {
+    transform: translateX(-50%);
+  }
+
+  #wordle-overlay {
+    left: 0;
+    transform: translateY(100%);
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+  }
+  #wordle-overlay.open {
+    transform: translateY(0);
+  }
+  #wordle-overlay.open ~ #wordle-handle,
+  #wordle-handle.overlay-open {
+    transform: translateX(-50%);
+  }
 }
 
 /* === Reduced motion === */

@@ -6,119 +6,92 @@
   <title>Semordle – Daily semantic word hunt</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
-  <canvas id="bg-words-canvas" aria-hidden="true"></canvas>
-  <div class="page-layout">
-  <div class="shell">
-    <div class="shell-grain" aria-hidden="true"></div>
-    <div class="shell-ridges" aria-hidden="true"></div>
-    <header>
-      <div class="brand">
-        <div>
-          <h1>Semordle</h1>
-          <div class="machine-tag">Machine 3000</div>
-          <div class="subtitle">A daily word hunt through meaning and letters.</div>
-          <div class="pill" id="puzzle-pill" aria-live="polite">Loading…</div>
-        </div>
+
+  <!-- Three.js canvas fills 100vw/100vh -->
+  <div id="three-canvas-container" aria-hidden="true"></div>
+  <!-- CSS2DRenderer labels overlay (pointer-events:none) -->
+  <div id="css2d-container" aria-hidden="true"></div>
+
+  <!-- Top bar: logo + controls -->
+  <header id="top-bar">
+    <div id="top-bar-left">
+      <h1>Semordle</h1>
+      <div class="pill" id="puzzle-pill" aria-live="polite">Loading…</div>
+    </div>
+    <div id="top-bar-right">
+      <span class="best-rank-badge" id="best-rank-label" aria-live="polite"></span>
+      <button class="how-to-btn" id="how-to-btn" aria-label="How to play">?</button>
+      <div class="lang-switcher" role="group" aria-label="Language">
+        <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+        <button class="lang-btn" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
       </div>
-      <div class="header-controls">
-        <button class="how-to-btn" id="how-to-btn" aria-label="How to play">?</button>
-        <div class="lang-switcher" role="group" aria-label="Language">
-          <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
-          <button class="lang-btn" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
-        </div>
+    </div>
+  </header>
+
+  <!-- Wordle handle tab (languette derrière l'input bar) -->
+  <button id="wordle-handle" aria-label="Open Wordle challenge">
+    <span id="wordle-handle-label">Wordle</span>
+  </button>
+
+  <!-- Input bar (fixed bottom) -->
+  <div id="input-bar">
+    <input
+      type="text"
+      id="semantic-input"
+      placeholder="Type a word…"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="none"
+      spellcheck="false"
+      aria-label="Semantic guess input"
+    />
+    <button id="semantic-submit" aria-label="Submit semantic guess">Guess</button>
+    <div id="semantic-message" class="game-message" role="alert" aria-live="polite"></div>
+  </div>
+
+  <!-- Wordle overlay (slides up from bottom, partial bottom sheet) -->
+  <div id="wordle-overlay" role="dialog" aria-modal="true" aria-label="Wordle challenge">
+    <div id="wordle-drag-handle" aria-hidden="true"><span></span></div>
+    <div id="wordle-overlay-header">
+      <span id="wordle-overlay-title">Wordle</span>
+      <button id="wordle-overlay-close" aria-label="Close Wordle">✕</button>
+    </div>
+    <div id="wordle-overlay-body">
+      <div id="wordle-inline-content"></div>
+      <div id="partial-clues" class="partial-clues" aria-live="polite" aria-label="Partial clues from failed Wordle attempts"></div>
+    </div>
+  </div>
+
+  <!-- Hidden DOM nodes kept for game logic (share, state restore, applyI18n) -->
+  <div id="hidden-dom" style="display:none" aria-hidden="true">
+    <div id="last-guess-section">
+      <div id="last-guess-container"></div>
+    </div>
+    <span id="journey-title">Your journey</span>
+    <section class="share-section" id="share-section" aria-label="Share your result">
+      <div class="caption" id="share-caption">Share your result</div>
+      <div class="share-card" id="share-card-preview" aria-live="polite"></div>
+      <button class="copy-btn" id="copy-share-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
+      <div id="copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
+    </section>
+    <div class="guess-list" id="guess-list" role="list" aria-label="Semantic guess history">
+      <div class="guess-list-empty" id="guess-empty-state">
+        <p>Your guesses will appear here.</p>
       </div>
-    </header>
-
-    <main class="hero" id="game-root">
-      <section class="panel main-panel" aria-label="Main game area">
-
-        <!-- Landscape -->
-        <div class="landscape-header">
-          <div class="caption">Semantic landscape</div>
-          <button id="landscape-reset-btn" class="landscape-reset-btn" aria-label="Reset zoom and pan" title="Reset view" style="opacity:0">⊙ Reset</button>
-        </div>
-        <div class="lcd-screen">
-          <canvas id="landscape-canvas" class="landscape-canvas" aria-label="Semantic proximity map showing your guesses around the hidden target word" role="img"></canvas>
-        </div>
-
-        <!-- Mode tabs -->
-        <div class="mode-tabs" role="tablist" aria-label="Game mode">
-          <button class="tab active" id="tab-semantic" role="tab" aria-selected="true" aria-controls="semantic-panel">Semantic</button>
-          <button class="tab" id="tab-wordle" role="tab" aria-selected="false" aria-controls="wordle-inline-panel">Wordle</button>
-        </div>
-
-        <!-- Semantic panel -->
-        <div id="semantic-panel" role="tabpanel" aria-labelledby="tab-semantic">
-          <div class="entry">
-            <input
-              type="text"
-              id="semantic-input"
-              placeholder="Type a word…"
-              autocomplete="off"
-              autocorrect="off"
-              autocapitalize="none"
-              spellcheck="false"
-              aria-label="Semantic guess input"
-            />
-            <button id="semantic-submit" aria-label="Submit semantic guess">Guess</button>
-          </div>
-
-          <div id="semantic-message" class="game-message" role="alert" aria-live="polite"></div>
-
-          <div class="section-title">
-            <span>Your journey</span>
-            <span class="caption" id="best-rank-label" aria-live="polite"></span>
-          </div>
-
-          <div class="guess-list" id="guess-list" role="list" aria-label="Semantic guess history">
-            <div class="guess-list-empty" id="guess-empty-state">
-              <p>Your guesses will appear here. Try a word that might be semantically related to the secret!</p>
-            </div>
-          </div>
-
-          <!-- Partial clues from failed Wordle attempts -->
-          <div id="partial-clues" class="partial-clues" aria-live="polite" aria-label="Partial clues from failed Wordle attempts"></div>
-
-          <!-- Share card (shown after win) -->
-          <section class="share-section" id="share-section" aria-label="Share your result" style="display:none;">
-            <div class="caption">Share your result</div>
-            <div class="share-card" id="share-card-preview" aria-live="polite"></div>
-            <button class="copy-btn" id="copy-share-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
-            <div id="copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
-          </section>
-
-          <!-- Ad placeholder (always last, never between guesses) -->
-          <section class="sponsor-slot" aria-label="Sponsored banner placeholder">
-            <div class="sponsor-card">
-              <div>
-                <div class="label">Sponsored</div>
-                <div class="headline">One calm banner lives here</div>
-                <div class="subline">Visible, but never between guesses.</div>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- Wordle inline panel -->
-        <div id="wordle-inline-panel" role="tabpanel" aria-labelledby="tab-wordle" class="hidden">
-          <div id="wordle-inline-content"></div>
-        </div>
-
-      </section>
-    </main>
-  </div><!-- /.shell -->
-
-  <!-- Desktop sidebar: how-to panel (toggled by ? button at ≥900px) -->
-  <aside class="sidebar-howto" aria-label="How to play">
-    <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close how to play">✕</button>
-    <div id="sidebar-howto-content"></div>
-  </aside>
-
-  </div><!-- /.page-layout -->
+    </div>
+  </div>
 
   <!-- Win modal -->
   <div id="win-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="You solved today's Semordle!">
@@ -145,6 +118,6 @@
     </div>
   </div>
 
-  <script src="game.js"></script>
+  <script type="module" src="game.js"></script>
 </body>
 </html>
