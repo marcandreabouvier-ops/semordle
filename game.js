@@ -90,6 +90,7 @@ const I18N = {
     copiedOk:        '✓ Copied to clipboard!',
     copiedFail:      'Could not copy — try manually',
     alreadyGuessed:  (w) => `You already guessed "${w}"`,
+    lemmaFolded:     (from, to) => `"${from}" counted as "${to}"`,
     alreadySolved:   "You already solved today's puzzle!",
     noClue:          'No stronger clue available — keep guessing!',
     needLetters:     (n) => `Need ${n} letters`,
@@ -109,7 +110,7 @@ const I18N = {
         <span style="color:#ff6b6b">■ Scorching</span> top 100 &nbsp;
         <span style="color:#f4a14a">■ Hot</span> top 500 &nbsp;
         <span style="color:#2dd4bf">■ Warm</span> top 1000 &nbsp;
-        <span style="color:#4a7a76">■ Cold</span> beyond
+        <span style="color:#6b8fc2">■ Cold</span> beyond
       </div></div>
       <div class="how-to-step"><span class="how-to-icon">🌐</span><div><strong>3D radar</strong><br>Your guesses appear as glowing dots on a semantic sphere. Closer words orbit nearer the center. Drag to rotate, scroll to zoom.</div></div>
       <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle</strong><br>Tap ▲ Wordle to unlock a hidden clue word. Even if you fail, you keep the green letters.</div></div>
@@ -151,6 +152,7 @@ const I18N = {
     copiedOk:        '✓ Copié !',
     copiedFail:      'Impossible de copier — essayez manuellement',
     alreadyGuessed:  (w) => `Vous avez déjà proposé "${w}"`,
+    lemmaFolded:     (from, to) => `« ${from} » compté comme « ${to} »`,
     alreadySolved:   'Vous avez déjà résolu le puzzle du jour !',
     noClue:          'Pas d\'indice plus fort disponible — continuez à deviner !',
     needLetters:     (n) => `${n} lettres requises`,
@@ -170,7 +172,7 @@ const I18N = {
         <span style="color:#ff6b6b">■ Brûlant</span> top 100 &nbsp;
         <span style="color:#f4a14a">■ Chaud</span> top 500 &nbsp;
         <span style="color:#2dd4bf">■ Tiède</span> top 1000 &nbsp;
-        <span style="color:#4a7a76">■ Froid</span> au-delà
+        <span style="color:#6b8fc2">■ Froid</span> au-delà
       </div></div>
       <div class="how-to-step"><span class="how-to-icon">🌐</span><div><strong>Radar 3D</strong><br>Vos propositions apparaissent comme des points lumineux sur une sphère sémantique. Les mots proches orbitent près du centre. Faites glisser pour tourner, défilez pour zoomer.</div></div>
       <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle</strong><br>Appuyez sur ▲ Wordle pour débloquer un mot indice caché. Même si vous échouez, vous gardez les lettres vertes.</div></div>
@@ -188,12 +190,13 @@ const TEMP = {
   SCORCH: { min: 1,    max: 100,  label: 'Scorching', icon: '🔥', cssClass: 'scorch', color: '#ff5722' },
   HOT:    { min: 101,  max: 500,  label: 'Hot',       icon: '☀',  cssClass: 'hot',    color: '#ffc400' },
   WARM:   { min: 501,  max: 1000, label: 'Lukewarm',  icon: '🌤', cssClass: 'warm',   color: '#40c4ff' },
-  COLD:   { min: 1001, max: Infinity, label: 'Cold',  icon: '❄',  cssClass: 'cold',   color: '#1a3a6b' },
+  COLD:   { min: 1001, max: Infinity, label: 'Cold',  icon: '❄',  cssClass: 'cold',   color: '#6b8fc2' },
 };
 
-// Heat gradient: rank 1 = bright green, 2-10 vivid red, …, 1000 light blue, +1000 dark blue
+// Heat gradient: rank 1 = bright green, 2-10 vivid red, …, 1000 light blue, +1000 steel blue
+// The cold end stays bright enough to read against the dark background.
 function rankToColor(rank) {
-  if (rank == null || rank > 1000) return '#1a3a6b';
+  if (rank == null || rank > 1000) return '#6b8fc2';
   if (rank === 1) return '#00e676';
 
   // Stops: [rank_threshold, r, g, b]
@@ -203,7 +206,7 @@ function rankToColor(rank) {
     [51,  255, 145,   0],  // #ff9100 orange
     [201, 255, 196,   0],  // #ffc400 amber
     [501,  64, 196, 255],  // #40c4ff light blue
-    [1001, 26,  58, 107],  // #1a3a6b dark blue (sentinel)
+    [1001, 107, 143, 194], // #6b8fc2 steel blue (sentinel)
   ];
 
   for (let i = 0; i < stops.length - 1; i++) {
@@ -217,7 +220,7 @@ function rankToColor(rank) {
       return `rgb(${r},${g},${b})`;
     }
   }
-  return '#1a3a6b';
+  return '#6b8fc2';
 }
 
 // ─── State ───────────────────────────────────────────────
@@ -370,15 +373,55 @@ function isSecretWord(word) {
   return word.toLowerCase().trim().normalize('NFC') === puzzle.secret.toLowerCase().normalize('NFC');
 }
 
+// ─── Form → lemma map (chevaux → cheval, cats → cat) ─────
+// Puzzle vocabularies contain only lemmas; this map folds inflected
+// guesses onto their lemma so they still get a score.
+
+let formsMap = null;
+
+async function loadFormsMap() {
+  formsMap = null;
+  try {
+    const res = await fetch(`vocab/${currentLang}_forms.json`);
+    if (res.ok) formsMap = await res.json();
+  } catch (e) { /* map is optional — exact lookups still work without it */ }
+}
+
+function toLemma(word) {
+  if (!formsMap) return null;
+  const lemma = formsMap[word.toLowerCase().trim().normalize('NFC')];
+  return lemma || null;
+}
+
 // ─── Semantic guess submission ────────────────────────────
 
 function submitSemanticGuess(rawWord) {
-  const word = rawWord.toLowerCase().trim();
+  let word = rawWord.toLowerCase().trim();
   if (!word) return;
 
   if (isSecretWord(word)) {
     handleWin(word);
     return;
+  }
+
+  // Fold inflected forms onto their lemma (chevaux → cheval).
+  // Exact vocabulary words always win over the mapping.
+  let folded = false;
+  let found = lookupWord(word);
+  if (!found) {
+    const lemma = toLemma(word);
+    if (lemma) {
+      if (isSecretWord(lemma)) {
+        handleWin(lemma);
+        return;
+      }
+      const lemmaEntry = lookupWord(lemma);
+      if (lemmaEntry) {
+        found = lemmaEntry;
+        folded = word !== lemma;
+        word = lemma;
+      }
+    }
   }
 
   const alreadyGuessed = gameState.semanticGuesses.some(
@@ -388,8 +431,6 @@ function submitSemanticGuess(rawWord) {
     showSemanticMessage(t('alreadyGuessed', word), 'error');
     return;
   }
-
-  const found = lookupWord(word);
 
   let guessEntry;
   if (found) {
@@ -422,6 +463,7 @@ function submitSemanticGuess(rawWord) {
   saveState();
 
   clearSemanticMessage();
+  if (folded) showSemanticMessage(t('lemmaFolded', rawWord.toLowerCase().trim(), word), 'info');
   renderGuessCard(guessEntry);
   updateBestRankLabel();
   hideEmptyState();
@@ -452,6 +494,7 @@ function handleWin(word) {
   renderGuessCard(winEntry);
   updateBestRankLabel();
   hideEmptyState();
+  updateShareSection();
 
   updateScene();
   launchFireworks();
@@ -661,6 +704,10 @@ function applyI18n() {
   const shareCaption = document.getElementById('share-caption');
   if (shareCaption) shareCaption.textContent = t('shareCaption');
 
+  // Last guess caption (guess panel)
+  const lastGuessTitle = document.getElementById('last-guess-title');
+  if (lastGuessTitle) lastGuessTitle.textContent = t('lastGuess');
+
   // Language buttons
   document.querySelectorAll('.lang-btn').forEach(btn => {
     const active = btn.dataset.lang === currentLang;
@@ -673,6 +720,28 @@ function applyI18n() {
   if (htContent) {
     htContent.innerHTML = `<div class="how-to-content"><h2>${t('howToTitle')}</h2>${t('howToBody')}<button class="how-to-close-btn how-to-close" aria-label="Close">${t('howToClose')}</button></div>`;
   }
+}
+
+// ─── Guess panel (left side) ──────────────────────────────
+
+function setupGuessPanel() {
+  const panel = document.getElementById('guess-panel');
+  const toggle = document.getElementById('guess-panel-toggle');
+  if (!panel || !toggle) return;
+
+  const saved = localStorage.getItem('semordle:panel');
+  const collapsed = saved != null
+    ? saved === 'collapsed'
+    : window.matchMedia('(max-width: 880px)').matches; // collapsed by default on mobile
+
+  const apply = (isCollapsed) => {
+    panel.classList.toggle('collapsed', isCollapsed);
+    toggle.textContent = isCollapsed ? '▶' : '◀';
+    toggle.setAttribute('aria-expanded', String(!isCollapsed));
+    localStorage.setItem('semordle:panel', isCollapsed ? 'collapsed' : 'open');
+  };
+  apply(collapsed);
+  toggle.addEventListener('click', () => apply(!panel.classList.contains('collapsed')));
 }
 
 function showSemanticMessage(msg, type = '') {
@@ -689,7 +758,7 @@ function clearSemanticMessage() {
   el.className = 'game-message';
 }
 
-// ─── Render guess card (hidden DOM — for state/share) ──────
+// ─── Render guess card (guess panel list) ─────────────────
 
 function renderGuessCard(entry) {
   const list = document.getElementById('guess-list');
@@ -749,6 +818,10 @@ function renderGuessCard(entry) {
   `;
 
   insertCardSorted(list, card, sortKey);
+
+  // "Last guess" spotlight above the list (guesses arrive in chronological
+  // order during restore, so the final call leaves the latest one showing)
+  updateLastGuessSection(card);
 
   // Add the 3D dot (skipped during restore — rebuildScene handles that)
   if (!entry._restoring) {
@@ -863,7 +936,8 @@ function initThreeScene() {
 
   // ── Camera ──
   _camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 2000);
-  _camera.position.set(0, 0, 280);
+  // Slightly elevated view so the rank rings read as an ellipse (cf. mockup)
+  _camera.position.set(0, 120, 320);
 
   // ── OrbitControls ──
   _controls = new OrbitControls(_camera, _renderer.domElement);
@@ -932,12 +1006,46 @@ function initThreeScene() {
 
     // Target label (? or secret word after win)
     const labelDiv = document.createElement('div');
-    labelDiv.className = 'dot-label';
+    labelDiv.className = 'dot-label dot-label--target';
     labelDiv.style.color = '#f4a14a';
     labelDiv.innerHTML = '<span class="dot-label-word">?</span>';
     _targetLabel = new CSS2DObject(labelDiv);
     _targetLabel.position.set(0, 12, 0);
     _targetMesh.add(_targetLabel);
+  }
+
+  // ── Rank rings: reference circles at top 10 / 100 / 500 / 1000 ──
+  // Radii use the same score→radius mapping as the dots, so a dot's
+  // position can be read against the rings directly.
+  if (puzzle?.words?.length) {
+    // Each label sits at its own azimuth so neighboring rings don't overlap
+    const bands = [
+      { rank: 10,   color: 0xff5722, angle: Math.PI * 0.25 },
+      { rank: 100,  color: 0xff9100, angle: Math.PI * 0.75 },
+      { rank: 500,  color: 0xffc400, angle: Math.PI * 1.25 },
+      { rank: 1000, color: 0x6b8fc2, angle: Math.PI * 1.75 },
+    ];
+    bands.forEach(band => {
+      const entry = puzzle.words[band.rank - 1];
+      if (!entry) return;
+      const r = scoreToRadius(entry.score, band.rank);
+      const pts = [];
+      for (let i = 0; i <= 128; i++) {
+        const a = (i / 128) * Math.PI * 2;
+        pts.push(new THREE.Vector3(Math.cos(a) * r, 0, Math.sin(a) * r));
+      }
+      const geo = new THREE.BufferGeometry().setFromPoints(pts);
+      const mat = new THREE.LineBasicMaterial({ color: band.color, transparent: true, opacity: 0.25 });
+      _scene.add(new THREE.Line(geo, mat));
+
+      const tag = document.createElement('div');
+      tag.className = 'ring-label';
+      tag.style.color = rankToColor(band.rank);
+      tag.textContent = `top ${band.rank}`;
+      const tagObj = new CSS2DObject(tag);
+      tagObj.position.set(r * Math.cos(band.angle), 0, r * Math.sin(band.angle));
+      _scene.add(tagObj);
+    });
   }
 
   // ── Animation loop ──
@@ -966,22 +1074,28 @@ function initThreeScene() {
 
 // ─── Word → sphere position (3D) ─────────────────────────
 
-function wordToSpherePosition(word, rank, score) {
-  const top1Score = puzzle?.hints?.top1 || 1;
-
-  // Radial distance: sqrt-scale gives better perceptual spread
-  // rank 1 → r≈14, rank 10 → r≈27, rank 100 → r≈43, rank 500 → r≈75, rank 1000 → r=100
-  let r;
-  if (rank != null && rank >= 1) {
-    const norm = Math.sqrt(Math.min(rank, 1000) / 1000);
-    r = 14 + norm * 86;
-  } else if (rank === 0) {
-    r = 0;
-  } else {
-    const sc = score || 0;
-    const norm = clamp(sc / top1Score, 0, 1);
-    r = 102 + (1 - norm) * 6;
+// Radial distance is driven by SCORE (semantic similarity), not rank:
+// two words with similar similarity sit at similar radii, so spacing on
+// the radar is proportional to how semantically close each word is.
+//   score == top1 hint    → r = 14  (hugging the target)
+//   score == top1000 hint → r = 100 (edge of the "warm" zone)
+//   colder than top-1000  → r = 100..150 by similarity deficit
+//   unknown word (null)   → r = 155 (outermost)
+function scoreToRadius(score, rank) {
+  if (rank === 0) return 0; // the target itself
+  if (score == null) return 155;
+  const top1  = puzzle?.hints?.top1 ?? 1;
+  const top1k = puzzle?.hints?.top1000 ?? 0;
+  if (score >= top1k && top1 > top1k) {
+    const n = clamp((top1 - score) / (top1 - top1k), 0, 1);
+    return 14 + n * 86;
   }
+  const n = clamp((top1k - score) / Math.max(top1k, 0.15), 0, 1);
+  return 100 + n * 50;
+}
+
+function wordToSpherePosition(word, rank, score) {
+  const r = scoreToRadius(score, rank);
 
   // Angular distribution: use word hash for theta, and a second hash for phi
   // Spread phi more uniformly by mixing two independent hashes
@@ -1011,7 +1125,7 @@ function addDotToScene(entry) {
 
   const temp = getTemperature(entry.rank);
   const dotColor = rankToColor(entry.rank);
-  const pos = wordToSpherePosition(entry.word, entry.rank, entry.score || 0);
+  const pos = wordToSpherePosition(entry.word, entry.rank, entry.score ?? null);
   const proximity = puzzle?.hints?.top1 > 0
     ? clamp((entry.score || 0) / puzzle.hints.top1, 0, 1)
     : 0;
@@ -1814,7 +1928,9 @@ function restoreState() {
 // ─── Initialization ───────────────────────────────────────
 
 async function init() {
+  const formsPromise = loadFormsMap(); // non-blocking; awaited below
   puzzle = await loadPuzzle();
+  await formsPromise;
 
   if (!puzzle) {
     document.getElementById('puzzle-pill').textContent = 'Failed to load puzzle';
@@ -1833,6 +1949,7 @@ async function init() {
 
   if (!_initialized) {
     initThreeScene();
+    setupGuessPanel();
     setupHowTo();
     setupLangSwitcher();
     setupWordleHandle();

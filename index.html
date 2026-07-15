@@ -74,24 +74,30 @@
     </div>
   </div>
 
-  <!-- Hidden DOM nodes kept for game logic (share, state restore, applyI18n) -->
-  <div id="hidden-dom" style="display:none" aria-hidden="true">
-    <div id="last-guess-section">
-      <div id="last-guess-container"></div>
+  <!-- Left panel: guess history (share section must stay BEFORE guess list) -->
+  <aside id="guess-panel" aria-label="Guess history">
+    <div id="guess-panel-header">
+      <span class="caption" id="journey-title">Your journey</span>
+      <button id="guess-panel-toggle" aria-label="Toggle guess list" aria-expanded="true">◀</button>
     </div>
-    <span id="journey-title">Your journey</span>
-    <section class="share-section" id="share-section" aria-label="Share your result">
-      <div class="caption" id="share-caption">Share your result</div>
-      <div class="share-card" id="share-card-preview" aria-live="polite"></div>
-      <button class="copy-btn" id="copy-share-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
-      <div id="copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
-    </section>
-    <div class="guess-list" id="guess-list" role="list" aria-label="Semantic guess history">
-      <div class="guess-list-empty" id="guess-empty-state">
-        <p>Your guesses will appear here.</p>
+    <div id="guess-panel-body">
+      <div id="last-guess-section" class="hidden">
+        <div class="caption" id="last-guess-title">Last guess</div>
+        <div id="last-guess-container"></div>
+      </div>
+      <section class="share-section" id="share-section" aria-label="Share your result" style="display:none">
+        <div class="caption" id="share-caption">Share your result</div>
+        <div class="share-card" id="share-card-preview" aria-live="polite"></div>
+        <button class="copy-btn" id="copy-share-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
+        <div id="copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
+      </section>
+      <div class="guess-list" id="guess-list" role="list" aria-label="Semantic guess history">
+        <div class="guess-list-empty" id="guess-empty-state">
+          <p>Your guesses will appear here.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </aside>
 
   <!-- Win modal -->
   <div id="win-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="You solved today's Semordle!">

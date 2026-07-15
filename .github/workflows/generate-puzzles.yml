@@ -21,18 +21,25 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Cache pip dependencies & model
+      - name: Cache word2vec models
+        id: cache-models
         uses: actions/cache@v4
         with:
-          path: |
-            ~/.cache/pip
-            ~/.cache/huggingface
-          key: semordle-ml-${{ runner.os }}-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            semordle-ml-${{ runner.os }}-
+          path: models
+          key: semordle-w2v-models-v1
+
+      - name: Download word2vec models (cache miss only)
+        if: steps.cache-models.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p models
+          curl -sL -o models/frWac_500_skip_cut100.bin \
+            "https://embeddings.net/embeddings/frWac_no_postag_no_phrase_500_skip_cut100.bin"
+          curl -sL -o models/GoogleNews-slim.bin.gz \
+            "https://github.com/eyaler/word2vec-slim/raw/master/GoogleNews-vectors-negative300-SLIM.bin.gz"
+          gunzip -f models/GoogleNews-slim.bin.gz
 
       - name: Install dependencies
-        run: pip install sentence-transformers torch --quiet
+        run: pip install numpy --quiet
 
       - name: Generate next 10 days of puzzles
         run: |

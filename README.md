@@ -1,125 +1,102 @@
 # Semordle
 
-A daily browser word game that combines Semantle-style semantic guessing with a Wordle-style unlock challenge.
+A daily browser word game that combines Semantle-style semantic guessing with a Wordle-style unlock challenge. Bilingual (EN/FR), rendered as a full-screen 3D semantic radar (Three.js).
 
 ---
 
 ## How to run locally
 
-1. Open a terminal and navigate to this folder:
+```bash
+cd "semordle v01"
+python -m http.server 8081
+# then open http://localhost:8081
+```
 
-   ```bash
-   cd semordle
-   ```
-
-2. Start a local HTTP server (Python 3 required):
-
-   ```bash
-   python -m http.server 8080
-   ```
-
-3. Open your browser and visit:
-
-   ```
-   http://localhost:8080
-   ```
-
-> **Why a server?** The game fetches JSON puzzle files via `fetch()`, which requires HTTP. Opening `index.html` directly as a `file://` URL will cause CORS errors in most browsers.
+> **Why a server?** The game fetches JSON puzzle files via `fetch()`, which requires HTTP. Opening `index.html` directly as a `file://` URL will cause CORS errors.
 
 ---
 
 ## How to play
 
-1. Type a word you think is semantically related to the hidden secret word and press **Guess** or **Enter**.
-2. Words in the top 1000 closest neighbors show a rank and similarity score:
-   - 🔥 Rank 1–10: Scorching
-   - ☀ Rank 11–100: Hot
-   - 🌤 Rank 101–500: Warm
-   - ❄ Rank 501–1000: Lukewarm
-   - ❄ Outside top 1000: Cold
-3. Click **🗝 Discover a stronger clue** to start a Wordle-style challenge. Winning adds a better-ranked word to your history. Losing still reveals the green-position letters.
-4. Find the secret word to win!
+1. Type a word semantically related to the hidden secret word and press **Guess**.
+2. Each guess appears as a glowing dot on the 3D radar — the closer to the center, the closer in meaning. Reference rings mark the top 10 / 100 / 500 / 1000 neighbors. The left panel lists all your guesses sorted by rank.
+3. Inflected forms are folded onto their lemma automatically (*chevaux* counts as *cheval*, *mice* as *mouse*).
+4. Open the **▲ Wordle** tab for a Wordle-style challenge: winning adds a strong clue word to your history.
+5. Find the secret word to win!
 
 ---
 
-## Adding new daily puzzles
+## Generating puzzles
 
-### Option 1: Manual (quick)
-
-Create a new file in the `data/` folder named `YYYY-MM-DD.json` (e.g. `data/2026-06-04.json`) following this format:
-
-```json
-{
-  "date": "2026-06-04",
-  "puzzleNumber": 153,
-  "secret": "forest",
-  "wordLength": 6,
-  "hints": {
-    "top1": 0.8100,
-    "top10": 0.6800,
-    "top1000": 0.1100
-  },
-  "words": [
-    { "word": "woodland", "score": 0.8100, "rank": 1 },
-    { "word": "jungle",   "score": 0.7900, "rank": 2 }
-  ]
-}
-```
-
-The game will automatically load today's file (based on the user's local date).
-
-### Option 2: Using generate_data.py (mock)
+### One-time setup
 
 ```bash
-python generate_data.py --mock --word forest --date 2026-06-04 --number 153
+pip install numpy
+
+# Word2vec models (~630 MB total, kept out of git in models/)
+mkdir -p models
+curl -L -o models/frWac_500_skip_cut100.bin \
+  "http://embeddings.net/embeddings/frWac_no_postag_no_phrase_500_skip_cut100.bin"
+curl -L -o models/GoogleNews-slim.bin.gz \
+  "https://github.com/eyaler/word2vec-slim/raw/master/GoogleNews-vectors-negative300-SLIM.bin.gz"
+gunzip models/GoogleNews-slim.bin.gz
 ```
 
-This uses built-in word lists. Output goes to `data/2026-06-04.json`.
-
-### Option 3: Using generate_data.py with real embeddings (gensim)
+### Generate
 
 ```bash
-pip install gensim
-# Download a pretrained model, e.g. Google News Word2Vec
-python generate_data.py --gensim \
-    --model /path/to/GoogleNews-vectors-negative300.bin \
-    --word forest --date 2026-06-04 --number 153
+# Upcoming puzzles from the schedule (skips existing files; --force regenerates)
+python generate_puzzle.py --schedule schedule.csv --days-ahead 10
+
+# A single puzzle
+python generate_puzzle.py --lang fr --word tonnerre --date 2026-07-15 --number 193
 ```
 
-This produces semantically accurate neighbor lists.
+`schedule.csv` format (header required): `date,lang,word,number`. The secret word must exist in the language's word2vec model — the script fails loudly otherwise. Avoid reusing an upcoming word in the same language, and never schedule direct EN/FR translations on the same date.
+
+A GitHub Actions cron (`.github/workflows/generate-puzzles.yml`) runs every Monday and generates the next 10 days automatically (models are cached between runs).
+
+### Why word2vec (and not sentence-transformers)?
+
+Sentence-embedding models are built for sentences; on isolated words they lean on shared subword tokens, so the "closest" words are spelled alike, not related in meaning (*tonnerre* → *tondre*, *tonique*). Static word2vec models capture distributional semantics (*tonnerre* → *orage*, *éclair*, *foudre*) — the same approach as [Cémantix](https://cemantix.certitudes.org/). FR uses the frWaC model (Fauconnier), EN uses a slimmed GoogleNews model.
+
+### Rebuilding vocabularies (rarely needed)
+
+Puzzle candidates come from clean lemma lists in `vocab/` — no proper nouns, plurals, conjugated forms, misspellings, or foreign words:
+
+- **FR**: NOM/ADJ/VER/ADV lemmas from [Lexique 3.83](http://www.lexique.org) intersected with the frWaC model (~23k lemmas), plus a form→lemma map (`fr_forms.json`) served to the browser.
+- **EN**: model vocabulary filtered through WordNet base forms (30k lemmas), inflections generated with lemminflect (`en_forms.json`).
+
+```bash
+pip install numpy nltk lemminflect
+python -c "import nltk; nltk.download('wordnet')"
+curl -L -o models/Lexique383.tsv "http://www.lexique.org/databases/Lexique383/Lexique383.tsv"
+python build_vocab.py
+```
 
 ---
 
 ## File structure
 
 ```
-semordle/
-├── index.html          Main game page
-├── style.css           All styles
-├── game.js             All game logic (vanilla JS)
-├── generate_data.py    Python script for generating puzzle JSON
-├── README.md           This file
-├── data/
-│   ├── 2026-06-03.json Today's puzzle (secret: "market")
-│   └── sample.json     Fallback sample puzzle (secret: "ocean")
-└── Semordle preview.html  Original UI mockup (do not modify)
+index.html            Main game page (no logic)
+style.css             All styles
+game.js               All game logic (vanilla JS module + Three.js via CDN importmap)
+w2v.py                Minimal word2vec .bin loader (numpy only, no gensim)
+build_vocab.py        Builds vocab/*_lemmas.txt and vocab/*_forms.json
+generate_puzzle.py    Puzzle JSON generator (word2vec)
+schedule.csv          Word schedule (date,lang,word,number)
+models/               word2vec models + Lexique (gitignored, ~630 MB)
+vocab/                Clean lemma lists + form→lemma maps (committed)
+data/{en,fr}/         Daily puzzle JSON files
 ```
-
----
-
-## Puzzle data security note
-
-The secret word is stored in plain text inside the JSON file. This is acceptable for a local or hobby game, but **is not secure for a public-facing production deployment**:
-
-- Any player can open the JSON file in their browser or DevTools and see the answer.
-- For production: move the secret-word validation to a server-side API. The client only receives the hint scores and word list — the secret is never sent to the browser until the game is won.
 
 ---
 
 ## Technical notes
 
-- **Pure vanilla JS**: no frameworks, no build step required.
-- **Local storage**: game progress is saved per puzzle date under `semordle:YYYY-MM-DD`.
-- **Canvas landscape**: the semantic map uses HTML Canvas to draw guess positions.
-- **Responsive**: two-column layout on desktop (>880px), single column + modal Wordle on mobile.
-- **Accessibility**: ARIA labels, keyboard navigation, Enter to submit, focus management.
+- **Pure vanilla JS**, no build step; Three.js r158 loaded via CDN importmap.
+- **Local storage**: progress saved per puzzle under `semordle:{lang}:{YYYY-MM-DD}`.
+- **3D radar**: dot distance from center is driven by the *similarity score* (not rank), so spacing is semantically consistent; reference rings use the same mapping.
+- **Responsive**: left guess panel collapses by default under 880px.
+- **Security note**: the secret word is stored in plain text in the served JSON. Fine for a hobby game; a production deployment should validate guesses server-side.

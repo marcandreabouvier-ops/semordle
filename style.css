@@ -890,3 +890,80 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(45,212,191,0.18); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(45,212,191,0.3); }
+
+/* === Guess panel (left side) === */
+#guess-panel {
+  position: fixed;
+  left: 14px;
+  top: 64px;
+  bottom: 96px;
+  width: 300px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.3s ease;
+}
+
+#guess-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--glass-border);
+  flex: none;
+}
+
+#guess-panel-toggle {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--screen-muted);
+  border-radius: 6px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+}
+#guess-panel-toggle:hover { color: var(--screen-text); border-color: var(--phosphor); }
+
+#guess-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#guess-panel.collapsed { transform: translateX(calc(-100% + 48px)); }
+#guess-panel.collapsed #guess-panel-body { visibility: hidden; }
+#guess-panel.collapsed #journey-title { visibility: hidden; }
+
+#last-guess-section { flex: none; }
+#last-guess-section .caption { margin-bottom: 6px; display: block; }
+
+@media (max-width: 880px) {
+  #guess-panel { width: min(300px, 80vw); top: 58px; bottom: 88px; }
+}
+
+/* === Dot label readability === */
+.dot-label { font-size: 12px; opacity: 0.96; }
+.dot-label-word { color: var(--screen-text); }
+.dot-label--target .dot-label-word { color: inherit; }
+
+/* === Rank ring labels === */
+.ring-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
