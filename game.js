@@ -11,52 +11,6 @@ import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer
 const STORAGE_PREFIX = 'semordle:';
 const WORDLE_MAX_ATTEMPTS = 6;
 
-// ─── Click sound (Web Audio API — no external files) ─────
-const _audioCtx = (() => {
-  try { return new (window.AudioContext || window.webkitAudioContext)(); } catch(e) { return null; }
-})();
-
-function playClick(type = 'key') {
-  if (!_audioCtx) return;
-  const now = _audioCtx.currentTime;
-
-  if (type === 'submit') {
-    const osc = _audioCtx.createOscillator();
-    const gain = _audioCtx.createGain();
-    osc.connect(gain); gain.connect(_audioCtx.destination);
-    osc.type = 'square';
-    osc.frequency.setValueAtTime(180, now);
-    osc.frequency.exponentialRampToValueAtTime(80, now + 0.06);
-    gain.gain.setValueAtTime(0.18, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-    osc.start(now); osc.stop(now + 0.13);
-
-    const osc2 = _audioCtx.createOscillator();
-    const gain2 = _audioCtx.createGain();
-    osc2.connect(gain2); gain2.connect(_audioCtx.destination);
-    osc2.type = 'triangle';
-    osc2.frequency.setValueAtTime(320, now);
-    osc2.frequency.exponentialRampToValueAtTime(140, now + 0.05);
-    gain2.gain.setValueAtTime(0.10, now);
-    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-    osc2.start(now); osc2.stop(now + 0.09);
-  } else {
-    const osc = _audioCtx.createOscillator();
-    const gain = _audioCtx.createGain();
-    osc.connect(gain); gain.connect(_audioCtx.destination);
-    osc.type = 'square';
-    osc.frequency.setValueAtTime(520, now);
-    osc.frequency.exponentialRampToValueAtTime(200, now + 0.04);
-    gain.gain.setValueAtTime(0.12, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
-    osc.start(now); osc.stop(now + 0.07);
-  }
-}
-
-function resumeAudio() {
-  if (_audioCtx && _audioCtx.state === 'suspended') _audioCtx.resume();
-}
-
 // ─── i18n ─────────────────────────────────────────────────
 const I18N = {
   en: {
@@ -91,12 +45,15 @@ const I18N = {
     copiedFail:      'Could not copy — try manually',
     alreadyGuessed:  (w) => `You already guessed "${w}"`,
     lemmaFolded:     (from, to) => `"${from}" counted as "${to}"`,
+    tabJourney:      'Journey',
+    rankedTitle:     'Ranked guesses',
     alreadySolved:   "You already solved today's puzzle!",
     noClue:          'No stronger clue available — keep guessing!',
     needLetters:     (n) => `Need ${n} letters`,
     lettersOnly:     'Letters only please',
     alreadyTried:    'Already tried that word',
     outsideTop:      'outside top 1000',
+    unknownWord:     'Unknown word',
     lastGuess:       'Last Guess',
     youFoundIt:      "You found it!",
     solved:          '🎯 Solved',
@@ -153,12 +110,15 @@ const I18N = {
     copiedFail:      'Impossible de copier — essayez manuellement',
     alreadyGuessed:  (w) => `Vous avez déjà proposé "${w}"`,
     lemmaFolded:     (from, to) => `« ${from} » compté comme « ${to} »`,
+    tabJourney:      'Parcours',
+    rankedTitle:     'Classement',
     alreadySolved:   'Vous avez déjà résolu le puzzle du jour !',
     noClue:          'Pas d\'indice plus fort disponible — continuez à deviner !',
     needLetters:     (n) => `${n} lettres requises`,
     lettersOnly:     'Lettres uniquement',
     alreadyTried:    'Mot déjà essayé',
     outsideTop:      'hors du top 1000',
+    unknownWord:     'Mot inconnu',
     lastGuess:       'Dernière proposition',
     youFoundIt:      'Vous l\'avez trouvé !',
     solved:          '🎯 Résolu',
@@ -464,6 +424,7 @@ function submitSemanticGuess(rawWord) {
 
   clearSemanticMessage();
   if (folded) showSemanticMessage(t('lemmaFolded', rawWord.toLowerCase().trim(), word), 'info');
+  else if (!found) showSemanticMessage(t('unknownWord'), 'error');
   renderGuessCard(guessEntry);
   updateBestRankLabel();
   hideEmptyState();
@@ -704,9 +665,13 @@ function applyI18n() {
   const shareCaption = document.getElementById('share-caption');
   if (shareCaption) shareCaption.textContent = t('shareCaption');
 
-  // Last guess caption (guess panel)
+  // Guess panel captions + tab handle
   const lastGuessTitle = document.getElementById('last-guess-title');
   if (lastGuessTitle) lastGuessTitle.textContent = t('lastGuess');
+  const rankedTitle = document.getElementById('ranked-title');
+  if (rankedTitle) rankedTitle.textContent = t('rankedTitle');
+  const panelHandleLabel = document.getElementById('guess-panel-handle-label');
+  if (panelHandleLabel) panelHandleLabel.textContent = t('tabJourney');
 
   // Language buttons
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -726,8 +691,8 @@ function applyI18n() {
 
 function setupGuessPanel() {
   const panel = document.getElementById('guess-panel');
-  const toggle = document.getElementById('guess-panel-toggle');
-  if (!panel || !toggle) return;
+  const handle = document.getElementById('guess-panel-handle');
+  if (!panel || !handle) return;
 
   const saved = localStorage.getItem('semordle:panel');
   const collapsed = saved != null
@@ -736,12 +701,11 @@ function setupGuessPanel() {
 
   const apply = (isCollapsed) => {
     panel.classList.toggle('collapsed', isCollapsed);
-    toggle.textContent = isCollapsed ? '▶' : '◀';
-    toggle.setAttribute('aria-expanded', String(!isCollapsed));
+    handle.setAttribute('aria-expanded', String(!isCollapsed));
     localStorage.setItem('semordle:panel', isCollapsed ? 'collapsed' : 'open');
   };
   apply(collapsed);
-  toggle.addEventListener('click', () => apply(!panel.classList.contains('collapsed')));
+  handle.addEventListener('click', () => apply(!panel.classList.contains('collapsed')));
 }
 
 function showSemanticMessage(msg, type = '') {
@@ -784,10 +748,14 @@ function renderGuessCard(entry) {
     card.className = 'guess-card';
   }
 
+  // rank == null && score == null → word absent from the vocabulary
+  const isUnknown = !entry.isWin && entry.rank == null && entry.score == null;
+
   const rankLabel = entry.isWin ? '🎯 Solved!'
     : entry.rank != null ? `#${entry.rank}`
+    : isUnknown ? '?'
     : t('outsideTop');
-  const tempLabel = entry.isWin ? t('youFoundIt') : temp.label;
+  const tempLabel = entry.isWin ? t('youFoundIt') : isUnknown ? t('unknownWord') : temp.label;
   const scoreLabel = entry.displayScore > 0 ? entry.displayScore.toFixed(1) : null;
 
   const unlockBadge = entry.unlocked
@@ -798,18 +766,20 @@ function renderGuessCard(entry) {
   const hasRealRank = entry.rank != null;
   const metaLine = entry.isWin
     ? `${tempLabel}`
-    : hasRealRank && scoreLabel
-      ? `${temp.icon} ${tempLabel} · similarity ${scoreLabel} ${unlockBadge}`
-      : `${temp.icon} ${tempLabel}`;
+    : isUnknown
+      ? `❓ ${tempLabel}`
+      : hasRealRank && scoreLabel
+        ? `${temp.icon} ${tempLabel} · similarity ${scoreLabel} ${unlockBadge}`
+        : `${temp.icon} ${tempLabel}`;
 
   const barFill = entry.displayScore > 0 ? entry.displayScore : 0;
   const showBar = entry.isWin || inTop1000;
 
-  const cardColor = entry.isWin ? '#fbbf24' : rankToColor(entry.rank);
+  const cardColor = entry.isWin ? '#fbbf24' : isUnknown ? 'var(--screen-muted)' : rankToColor(entry.rank);
   card.innerHTML = `
     <div>
       <div class="guess-word" style="color: ${cardColor}">
-        ${entry.isWin ? '🎯' : temp.icon} ${escapeHtml(entry.word)}
+        ${entry.isWin ? '🎯' : isUnknown ? '❓' : temp.icon} ${escapeHtml(entry.word)}
       </div>
       <div class="guess-meta">${metaLine}</div>
       ${showBar ? `<div class="bar" aria-hidden="true"><div class="fill" style="width:${barFill}%"></div></div>` : ''}
@@ -886,12 +856,43 @@ let _renderer = null;
 let _labelRenderer = null;
 let _controls = null;
 let _targetMesh = null;
+let _targetGlow = null;
 let _targetLabel = null;
 let _targetPulse = 0;
 let _dotObjects = [];   // { mesh, sprite, labelObj, word, proximity, dotR }
 let _latestDotWord = null;
 let _animationId = null;
 let _autoRotateTimer = null;
+let _camAnim = null; // in-flight camera animation { from, to (Spherical), t }
+
+const lerp = (a, b, k) => a + (b - a) * k;
+const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+// OS-level "reduce motion": no camera glides, no auto-rotation.
+// (CSS @media rules cannot reach these rAF-driven Three.js animations.)
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+// Glide the camera so `pos` ends up in the foreground, slightly below the
+// screen center (camera aims a bit above the dot's direction).
+function flyToDot(pos) {
+  if (!_camera || !_controls || pos.lengthSq() === 0) return;
+  const from = new THREE.Spherical().setFromVector3(_camera.position);
+  const target = new THREE.Spherical().setFromVector3(pos);
+  const phi = clamp(target.phi - 0.30, 0.30, Math.PI - 0.30);
+  // Shortest angular path for the azimuth
+  let dTheta = target.theta - from.theta;
+  dTheta = ((dTheta + Math.PI) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) - Math.PI;
+  const to = new THREE.Spherical(from.radius, phi, from.theta + dTheta);
+
+  if (prefersReducedMotion()) {
+    // Instant cut instead of a glide — same end state, no motion
+    _camera.position.setFromSpherical(to);
+    return;
+  }
+  _camAnim = { from, to, t: 0 };
+}
 let _glowTexture = null;
 
 function makeCircleTexture(size = 128) {
@@ -937,24 +938,25 @@ function initThreeScene() {
   // ── Camera ──
   _camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 2000);
   // Slightly elevated view so the rank rings read as an ellipse (cf. mockup)
-  _camera.position.set(0, 120, 320);
+  _camera.position.set(0, 150, 420);
 
   // ── OrbitControls ──
   _controls = new OrbitControls(_camera, _renderer.domElement);
   _controls.enableDamping = true;
   _controls.dampingFactor = 0.06;
   _controls.minDistance = 80;
-  _controls.maxDistance = 600;
-  _controls.autoRotate = true;
+  _controls.maxDistance = 550; // stay inside the starfield shell (r ≥ 600)
+  _controls.autoRotate = !prefersReducedMotion();
   _controls.autoRotateSpeed = 0.4;
   _controls.enablePan = false;
   _controls.addEventListener('start', () => {
     _controls.autoRotate = false;
+    _camAnim = null; // user grabbed the view — cancel any fly-to
     clearTimeout(_autoRotateTimer);
   });
   _controls.addEventListener('end', () => {
     clearTimeout(_autoRotateTimer);
-    _autoRotateTimer = setTimeout(() => { _controls.autoRotate = true; }, 3000);
+    _autoRotateTimer = setTimeout(() => { _controls.autoRotate = !prefersReducedMotion(); }, 3000);
   });
 
   // ── Shared glow texture (circular radial gradient) ──
@@ -973,17 +975,25 @@ function initThreeScene() {
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 2.2, transparent: true, opacity: 0.85 });
+    // Circular sprite texture — without it, close-up stars render as squares.
+    // Additive blending + full opacity keep them bright despite the soft texture.
+    const mat = new THREE.PointsMaterial({
+      color: 0xffffff, size: 5, map: _glowTexture,
+      transparent: true, opacity: 1, depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
     _scene.add(new THREE.Points(geo, mat));
   }
 
-  // ── Target sphere ──
+  // ── Target sphere — a living white-gold "sun" ──
+  // Warm white sits OUTSIDE the temperature gradient (green/red/orange/amber/blue),
+  // so the target can never be confused with a ~top-100 amber word dot.
   {
     const geo = new THREE.SphereGeometry(8, 32, 32);
     const mat = new THREE.MeshStandardMaterial({
-      color: 0xf4a14a,
-      emissive: 0xf4a14a,
-      emissiveIntensity: 1.0,
+      color: 0xffffff,
+      emissive: 0xfff2cc,
+      emissiveIntensity: 1.6,
       roughness: 0.3,
       metalness: 0.1,
     });
@@ -994,20 +1004,20 @@ function initThreeScene() {
     // Outer glow sprite for target (circular texture)
     const spriteMat = new THREE.SpriteMaterial({
       map: _glowTexture,
-      color: 0xf4a14a,
+      color: 0xfff6e0,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.65,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
-    const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.setScalar(50);
-    _targetMesh.add(sprite);
+    _targetGlow = new THREE.Sprite(spriteMat);
+    _targetGlow.scale.setScalar(70); // clearly larger than any word-dot glow
+    _targetMesh.add(_targetGlow);
 
     // Target label (? or secret word after win)
     const labelDiv = document.createElement('div');
     labelDiv.className = 'dot-label dot-label--target';
-    labelDiv.style.color = '#f4a14a';
+    labelDiv.style.color = '#ffe9c2';
     labelDiv.innerHTML = '<span class="dot-label-word">?</span>';
     _targetLabel = new CSS2DObject(labelDiv);
     _targetLabel.position.set(0, 12, 0);
@@ -1017,7 +1027,9 @@ function initThreeScene() {
   // ── Rank rings: reference circles at top 10 / 100 / 500 / 1000 ──
   // Radii use the same score→radius mapping as the dots, so a dot's
   // position can be read against the rings directly.
-  if (puzzle?.words?.length) {
+  // Disabled 2026-07-16 (jugés trop chargés) — remettre à true pour les ravoir.
+  const SHOW_RANK_RINGS = false;
+  if (SHOW_RANK_RINGS && puzzle?.words?.length) {
     // Each label sits at its own azimuth so neighboring rings don't overlap
     const bands = [
       { rank: 10,   color: 0xff5722, angle: Math.PI * 0.25 },
@@ -1051,12 +1063,28 @@ function initThreeScene() {
   // ── Animation loop ──
   function animate() {
     _animationId = requestAnimationFrame(animate);
+
+    if (_camAnim) {
+      _camAnim.t += 0.022;
+      const k = easeInOutCubic(Math.min(_camAnim.t, 1));
+      _camera.position.setFromSpherical(new THREE.Spherical(
+        lerp(_camAnim.from.radius, _camAnim.to.radius, k),
+        lerp(_camAnim.from.phi,    _camAnim.to.phi,    k),
+        lerp(_camAnim.from.theta,  _camAnim.to.theta,  k)
+      ));
+      if (_camAnim.t >= 1) _camAnim = null;
+    }
     _controls.update();
 
-    // Pulse target
+    // Pulse + shimmer the target sun (two offset sine waves so the
+    // breathing never looks mechanical)
     _targetPulse += 0.03;
     const s = 1 + 0.12 * Math.sin(_targetPulse);
     _targetMesh.scale.setScalar(s);
+    _targetMesh.material.emissiveIntensity = 1.6 + 0.45 * Math.sin(_targetPulse * 1.7);
+    if (_targetGlow) {
+      _targetGlow.material.opacity = 0.55 + 0.15 * Math.sin(_targetPulse * 1.3 + 1.2);
+    }
 
     _renderer.render(_scene, _camera);
     _labelRenderer.render(_scene, _camera);
@@ -1074,24 +1102,29 @@ function initThreeScene() {
 
 // ─── Word → sphere position (3D) ─────────────────────────
 
-// Radial distance is driven by SCORE (semantic similarity), not rank:
-// two words with similar similarity sit at similar radii, so spacing on
-// the radar is proportional to how semantically close each word is.
-//   score == top1 hint    → r = 14  (hugging the target)
-//   score == top1000 hint → r = 100 (edge of the "warm" zone)
-//   colder than top-1000  → r = 100..150 by similarity deficit
-//   unknown word (null)   → r = 155 (outermost)
+// Radial distance is driven by SCORE (semantic similarity), anchored on the
+// puzzle hints so the visual bands are guaranteed regardless of distribution:
+//   score ≥ top10 hint  → r = 14..30   (inner sanctum: the top-10 hugs the target)
+//   top1000..top10      → r = 30..130  (main play zone, eased spread)
+//   colder than top1000 → r = 130..240 (cold words drift far out)
+//   unknown word (null) → r = 250      (outermost)
 function scoreToRadius(score, rank) {
   if (rank === 0) return 0; // the target itself
-  if (score == null) return 155;
-  const top1  = puzzle?.hints?.top1 ?? 1;
-  const top1k = puzzle?.hints?.top1000 ?? 0;
-  if (score >= top1k && top1 > top1k) {
-    const n = clamp((top1 - score) / (top1 - top1k), 0, 1);
-    return 14 + n * 86;
+  if (score == null) return 250;
+  const h = puzzle?.hints || {};
+  const top1  = h.top1 ?? 1;
+  const top10 = h.top10 ?? top1 * 0.8;
+  const top1k = h.top1000 ?? 0;
+  if (score >= top10) {
+    const n = clamp((top1 - score) / Math.max(top1 - top10, 1e-6), 0, 1);
+    return 14 + n * 16;
+  }
+  if (score >= top1k) {
+    const n = clamp((top10 - score) / Math.max(top10 - top1k, 1e-6), 0, 1);
+    return 30 + Math.pow(n, 0.8) * 100;
   }
   const n = clamp((top1k - score) / Math.max(top1k, 0.15), 0, 1);
-  return 100 + n * 50;
+  return 130 + n * 110;
 }
 
 function wordToSpherePosition(word, rank, score) {
@@ -1119,6 +1152,10 @@ function addDotToScene(entry) {
 
   // Win entry uses the target sphere — no separate dot needed
   if (entry.isWin) return;
+
+  // Unknown words (absent from the vocabulary) have no meaningful
+  // position — they stay in the list but never appear on the radar
+  if (entry.rank == null && entry.score == null) return;
 
   // Avoid duplicates
   if (_dotObjects.find(d => d.word === entry.word)) return;
@@ -1164,7 +1201,7 @@ function addDotToScene(entry) {
   const labelDiv = buildDotLabel(entry, temp);
   const labelObj = new CSS2DObject(labelDiv);
   labelObj.position.copy(pos);
-  labelObj.position.y += dotR + 4;
+  labelObj.position.y += dotR + 10; // clear the glow sprite so the orb stays visible
   _scene.add(labelObj);
 
   _dotObjects.push({ mesh, sprite, labelObj, word: entry.word, proximity, dotR });
@@ -1190,9 +1227,12 @@ function addDotToScene(entry) {
       _controls.autoRotate = false;
       clearTimeout(_autoRotateTimer);
       _autoRotateTimer = setTimeout(() => {
-        if (_controls) _controls.autoRotate = true;
-      }, 2000);
+        if (_controls) _controls.autoRotate = !prefersReducedMotion();
+      }, 7000);
     }
+
+    // Bring the fresh guess to the foreground, slightly below center
+    flyToDot(pos);
   }
 }
 
@@ -1350,7 +1390,7 @@ function closeWordlePanel() {
   lockBodyScroll(false);
   if (_controls) {
     clearTimeout(_autoRotateTimer);
-    _autoRotateTimer = setTimeout(() => { _controls.autoRotate = true; }, 1000);
+    _autoRotateTimer = setTimeout(() => { _controls.autoRotate = !prefersReducedMotion(); }, 1000);
   }
 }
 
@@ -1511,7 +1551,7 @@ function buildWordleHTML() {
       <p>${t('wordleDesc')}</p>
       <p style="font-size:12px;color:var(--screen-muted)">${t('wordleLength', wordLen, WORDLE_MAX_ATTEMPTS - attempts.length)}</p>
     </div>
-    <div class="wordle-board" role="grid" aria-label="Wordle guess board">
+    <div class="wordle-board" role="grid" aria-label="Wordle guess board" style="--word-len:${wordLen}">
       ${boardRows}
     </div>
     ${messageArea}
@@ -1956,22 +1996,11 @@ async function init() {
     setupKeyboardHandler();
     setupModalCloseButtons();
     setupShareButtons();
-    setupClickSounds();
     _initialized = true;
   }
 
   setupSemanticInput();
   restoreState();
-}
-
-function setupClickSounds() {
-  document.addEventListener('pointerdown', resumeAudio, { once: true });
-  document.addEventListener('pointerdown', e => {
-    const el = e.target.closest('button, .vkey');
-    if (!el) return;
-    const isSubmit = el.id === 'semantic-submit' || el.classList.contains('wordle-submit');
-    playClick(isSubmit ? 'submit' : 'key');
-  });
 }
 
 function setupSemanticInput() {

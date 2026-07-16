@@ -2,14 +2,24 @@
 
 Jeu de mots sémantique quotidien (Semantle × Wordle), bilingue EN/FR. Hébergé sur GitHub Pages. Stack vanilla JS/HTML/CSS + Three.js r158 (CDN importmap), aucun build step.
 
-## Design (redesign 2026-07-09, ajusté 2026-07-15)
+## Design (redesign 2026-07-09, ajusté 2026-07-15/16)
 
 Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro — tout l'ancien design system (shell aluminium, phosphor screen) a été supprimé du CSS.
-- Sphère 3D navigable (OrbitControls), mots = dots lumineux, anneaux de référence top 10/100/500/1000
-- **Panneau gauche** repliable : dernière proposition + section partage + liste des guesses triée par rang (replié par défaut sur mobile ≤880px, état persisté dans `localStorage['semordle:panel']`)
+- Sphère 3D navigable (OrbitControls), mots = dots lumineux ; anneaux de référence
+  top 10/100/500/1000 DÉSACTIVÉS (flag `SHOW_RANK_RINGS` dans initThreeScene — jugés trop chargés)
+- Cible centrale = **soleil blanc-doré animé** (pulse + shimmer emissive/halo) — blanc chaud
+  volontairement HORS du dégradé de température pour ne pas confondre avec les mots ambrés ~top 100
+- **Éparpillement dramatique** : top 10 collé au centre (r 14-30), zone de jeu 30-130, mots froids 130-240, inconnus 250
+- **Recentrage caméra** : à chaque guess la caméra glisse (flyToDot) pour amener le nouveau dot au premier plan, ~un peu sous le centre écran ; annulé si l'utilisateur drag ; auto-rotation en pause 7 s
+- **Panneau gauche** ouvert/fermé par une **languette verticale « Parcours »** (même design que la languette Wordle) ; séparation nette entre « dernière proposition » et la liste « Classement » ; replié par défaut sur mobile ≤880px, état persisté dans `localStorage['semordle:panel']`
 - Input bar fixée en bas (glass effect)
-- Wordle : overlay slide-up (languette ▲ Wordle)
+- Wordle : overlay slide-up quasi plein écran (languette ▲ Wordle) ; la grille se
+  dimensionne via `--word-len` (inline) + budget hauteur en `dvh`, et le clavier se
+  compresse (`@media max-height 760/600px`) pour que grille + clavier tiennent
+  TOUJOURS sans scroll, même sur écran court (zoom 250 %)
+- Top bar : passe sur 2 lignes sous 640px (sinon le switch EN/FR déborde de l'écran)
 - CSS2DRenderer pour labels crisp (HTML au-dessus du WebGL)
+- **Pas de sons** (retirés le 2026-07-16 — ne pas les réintroduire)
 
 ## Lancer localement
 
@@ -95,17 +105,20 @@ const I18N = { en: {...}, fr: {...} }  // toutes les strings UI ; t(key, ...args
 2. `applyI18n()` → met à jour tous les textes statiques du DOM
 3. `restoreState()` → recharge la partie en cours depuis localStorage
 4. Guess soumis → `submitSemanticGuess()` (repli lemme) → `renderGuessCard()` → `addDotToScene()`
+5. Mot hors vocabulaire (rank & score null) → carte « ❓ Mot inconnu », message d'erreur,
+   JAMAIS de dot sur le radar (early return dans addDotToScene)
 
 ### Fonctions clés
 
 | Fonction | Rôle |
 |---|---|
-| `scoreToRadius(score, rank)` | **Distance radiale basée sur le SCORE** (pas le rang) : score=top1 → r=14, score=top1000 → r=100, plus froid → 100-150, inconnu → 155. Deux mots de similarité voisine ont des rayons voisins. |
+| `scoreToRadius(score, rank)` | **Distance radiale basée sur le SCORE**, ancrée sur les hints : ≥top10 → r 14-30 ; top1000..top10 → 30-130 (pow 0.8) ; plus froid → 130-240 ; inconnu → 250 |
 | `wordToSpherePosition(word, rank, score)` | Position 3D : rayon via scoreToRadius, angles par hash du mot |
-| `addDotToScene(entry)` | Dot + glow sprite + label CSS2D, highlight du dernier guess |
-| `initThreeScene()` | Scène, caméra (vue plongeante 0,120,320), anneaux top 10/100/500/1000 (même mapping score→rayon que les dots) |
+| `flyToDot(pos)` | Anime la caméra (lerp sphérique + easeInOutCubic dans la boucle animate) pour amener le dot au premier plan, un peu sous le centre (phi cible −0.30) |
+| `addDotToScene(entry)` | Dot + glow sprite + label CSS2D, highlight du dernier guess, déclenche flyToDot |
+| `initThreeScene()` | Scène, caméra (vue plongeante 0,150,420), étoiles rondes additives (texture glow), anneaux derrière `SHOW_RANK_RINGS=false` |
 | `renderGuessCard(entry)` | Carte de guess insérée triée par rang dans `#guess-list` + appelle `updateLastGuessSection` |
-| `setupGuessPanel()` | Toggle repli/dépli du panneau gauche |
+| `setupGuessPanel()` | Repli/dépli du panneau gauche via la languette `#guess-panel-handle` |
 | `toLemma(word)` / `loadFormsMap()` | Repli forme fléchie → lemme |
 | `handleWin(word)` | Victoire : win entry + `updateShareSection()` + fireworks + toast (pas de popup) |
 | `setupLangSwitcher()` | Switch EN/FR avec reload complet |
@@ -120,6 +133,8 @@ Autres clés : `semordle:lang`, `semordle:panel`.
 | ID | Rôle |
 |---|---|
 | `#guess-panel` | Panneau gauche (`.collapsed` = replié) |
+| `#guess-panel-handle` | Languette verticale « Parcours » qui ouvre/ferme le panneau |
+| `#ranked-title` | Caption « Classement » au-dessus de `#guess-list` |
 | `#last-guess-section` | Encart "Last Guess" (classe `hidden` jusqu'au 1er guess) |
 | `#share-section` | Encart partage — `display:none` inline, affiché par `updateShareSection()` après victoire |
 | `#guess-list` | Liste scrollable des cartes de guess |

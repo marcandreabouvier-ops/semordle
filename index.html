@@ -76,9 +76,11 @@
 
   <!-- Left panel: guess history (share section must stay BEFORE guess list) -->
   <aside id="guess-panel" aria-label="Guess history">
+    <button id="guess-panel-handle" aria-label="Toggle guess list" aria-expanded="true">
+      <span id="guess-panel-handle-label">Journey</span>
+    </button>
     <div id="guess-panel-header">
       <span class="caption" id="journey-title">Your journey</span>
-      <button id="guess-panel-toggle" aria-label="Toggle guess list" aria-expanded="true">◀</button>
     </div>
     <div id="guess-panel-body">
       <div id="last-guess-section" class="hidden">
@@ -91,6 +93,7 @@
         <button class="copy-btn" id="copy-share-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
         <div id="copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
       </section>
+      <div class="caption" id="ranked-title">Ranked guesses</div>
       <div class="guess-list" id="guess-list" role="list" aria-label="Semantic guess history">
         <div class="guess-list-empty" id="guess-empty-state">
           <p>Your guesses will appear here.</p>

@@ -315,13 +315,13 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   cursor: pointer;
   text-transform: none;
   letter-spacing: 0;
-  transition: background 0.15s, border-color 0.15s, bottom 0.38s cubic-bezier(0.22,1,0.36,1);
+  transition: background 0.15s, border-color 0.15s, opacity 0.25s, bottom 0.38s cubic-bezier(0.22,1,0.36,1);
   white-space: nowrap;
 }
+/* Hide the handle while the overlay is open (the ✕ button closes it) */
 #wordle-handle.overlay-open {
-  bottom: calc(100vh - 56px - 10px);
-  border-color: rgba(244,161,74,0.65);
-  background: rgba(244,161,74,0.12);
+  opacity: 0;
+  pointer-events: none;
 }
 #wordle-handle-label {
   font-size: 11px;
@@ -341,7 +341,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   left: 50%;
   transform: translateX(-50%) translateY(100%);
   width: min(600px, 100vw);
-  height: calc(100vh - 56px);
+  height: calc(100vh - 40px);
+  height: calc(100dvh - 40px);
   z-index: 50;
   background: rgba(8,14,11,0.97);
   backdrop-filter: blur(24px);
@@ -662,7 +663,20 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 .wordle-header p { color: var(--screen-muted); font-size: 12px; margin: 0; line-height: 1.55; font-style: italic; }
 
-.wordle-board { display: grid; gap: 5px; margin: 0 auto 16px; max-width: 280px; }
+/* Board width is capped by BOTH 280px and the height budget so the 6 rows
+   + keyboard always fit the viewport without scrolling. --word-len is set
+   inline by game.js; tile size = board width / word length. */
+.wordle-board {
+  display: grid;
+  gap: 5px;
+  margin: 0 auto 16px;
+  --word-len: 7;
+  /* vh fallback first — browsers without dvh drop the second line only */
+  max-width: min(280px, calc((100vh - 500px) / 6 * var(--word-len)));
+  max-width: min(280px, calc((100dvh - 500px) / 6 * var(--word-len)));
+  min-width: calc(120px / 7 * var(--word-len));
+  width: 100%;
+}
 .wordle-row { display: grid; gap: 4px; }
 
 .tile {
@@ -827,13 +841,21 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 /* =========================================================
    Mobile (≤ 600px)
    ========================================================= */
+/* Narrow screens: the top bar wraps onto two rows so the language
+   switcher and help button never overflow off-screen */
+@media (max-width: 640px) {
+  #top-bar { flex-wrap: wrap; row-gap: 4px; padding: 8px 10px; }
+  #top-bar-left { flex: 1 1 100%; }
+  #top-bar-right { margin-left: auto; }
+}
+
 @media (max-width: 600px) {
   :root {
     --input-bar-height: 80px;
   }
 
   #top-bar {
-    padding: 10px 12px;
+    padding: 8px 10px;
   }
 
   h1 { font-size: 15px; }
@@ -874,6 +896,34 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   #wordle-overlay.open ~ #wordle-handle,
   #wordle-handle.overlay-open {
     transform: translateX(-50%);
+  }
+}
+
+/* === Short viewports: compress the Wordle overlay so board + keyboard fit === */
+@media (max-height: 760px) {
+  .vkey { height: 42px; }
+  /* Keep the explanatory text, just tighter — it must stay readable */
+  .wordle-header p { font-size: 11px; line-height: 1.4; margin: 3px 0; }
+  .wordle-header h3 { font-size: 15px; margin: 2px 0; }
+  #wordle-overlay-header { padding: 10px 20px 8px; }
+  #wordle-overlay-body { padding-top: 10px; }
+  .wordle-board {
+    max-width: min(280px, calc((100vh - 475px) / 6 * var(--word-len)));
+    max-width: min(280px, calc((100dvh - 475px) / 6 * var(--word-len)));
+  }
+}
+@media (max-height: 600px) {
+  .vkey { height: 34px; min-width: 30px; font-size: 11px; }
+  .vkeyboard { gap: 4px; margin-top: 8px; }
+  .wordle-header .caption { display: none; }
+  .wordle-header p { font-size: 10px; line-height: 1.35; margin: 2px 0; }
+  #wordle-drag-handle { padding: 6px 0 2px; }
+  #wordle-overlay-body { padding-top: 6px; }
+  .partial-clues { margin-top: 6px; }
+  .wordle-board {
+    margin-bottom: 10px;
+    max-width: min(280px, calc((100vh - 390px) / 6 * var(--word-len)));
+    max-width: min(280px, calc((100dvh - 390px) / 6 * var(--word-len)));
   }
 }
 
@@ -918,18 +968,34 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   flex: none;
 }
 
-#guess-panel-toggle {
-  background: none;
-  border: 1px solid var(--glass-border);
-  color: var(--screen-muted);
-  border-radius: 6px;
-  width: 26px;
-  height: 26px;
+/* Vertical tab handle on the panel's right edge (mirrors the Wordle handle) */
+#guess-panel-handle {
+  position: absolute;
+  right: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  padding: 18px 8px 18px 6px;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid rgba(45,212,191,0.40);
+  border-left: none;
+  background: rgba(8,14,11,0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--phosphor);
   cursor: pointer;
-  font-size: 11px;
-  line-height: 1;
+  transition: background 0.15s, border-color 0.15s;
 }
-#guess-panel-toggle:hover { color: var(--screen-text); border-color: var(--phosphor); }
+#guess-panel-handle:hover {
+  background: rgba(45,212,191,0.10);
+  border-color: rgba(45,212,191,0.60);
+}
+#guess-panel-handle-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
 #guess-panel-body {
   flex: 1;
@@ -940,15 +1006,24 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   gap: 12px;
 }
 
-#guess-panel.collapsed { transform: translateX(calc(-100% + 48px)); }
+#guess-panel.collapsed { transform: translateX(calc(-100% - 14px)); }
 #guess-panel.collapsed #guess-panel-body { visibility: hidden; }
-#guess-panel.collapsed #journey-title { visibility: hidden; }
 
-#last-guess-section { flex: none; }
+/* Sharp break between the "last guess" spotlight and the ranked list below */
+#last-guess-section {
+  flex: none;
+  padding-bottom: 14px;
+  border-bottom: 2px solid rgba(45,212,191,0.30);
+}
 #last-guess-section .caption { margin-bottom: 6px; display: block; }
+#ranked-title { flex: none; }
 
 @media (max-width: 880px) {
   #guess-panel { width: min(300px, 80vw); top: 58px; bottom: 88px; }
+}
+/* Below 640px the top bar wraps onto two rows — push the panel down */
+@media (max-width: 640px) {
+  #guess-panel { top: 96px; }
 }
 
 /* === Dot label readability === */
