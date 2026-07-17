@@ -18,6 +18,10 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   compresse (`@media max-height 760/600px`) pour que grille + clavier tiennent
   TOUJOURS sans scroll, même sur écran court (zoom 250 %)
 - Top bar : passe sur 2 lignes sous 640px (sinon le switch EN/FR déborde de l'écran)
+- **Clavier mobile** : la scène 3D reste visible quand le clavier virtuel s'ouvre —
+  Android via `interactive-widget=resizes-content` (meta viewport) + `resize3D()` ;
+  iOS via `setupViewportKeyboardFix()` (API visualViewport : le stage 3D et l'input bar
+  sont recalés sur la zone visible au-dessus du clavier, classe `kb-open` sur body)
 - CSS2DRenderer pour labels crisp (HTML au-dessus du WebGL)
 - **Pas de sons** (retirés le 2026-07-16 — ne pas les réintroduire)
 

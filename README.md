@@ -98,5 +98,8 @@ data/{en,fr}/         Daily puzzle JSON files
 - **Pure vanilla JS**, no build step; Three.js r158 loaded via CDN importmap.
 - **Local storage**: progress saved per puzzle under `semordle:{lang}:{YYYY-MM-DD}`.
 - **3D radar**: dot distance from center is driven by the *similarity score* (not rank), so spacing is semantically consistent; reference rings use the same mapping.
-- **Responsive**: left guess panel collapses by default under 880px.
+- **Responsive**: left guess panel collapses by default under 880px; when the mobile
+  virtual keyboard opens, the 3D stage and input bar shrink to the visible area
+  (`interactive-widget=resizes-content` on Android, visualViewport API on iOS) so the
+  radar stays on screen while typing.
 - **Security note**: the secret word is stored in plain text in the served JSON. Fine for a hobby game; a production deployment should validate guesses server-side.

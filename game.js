@@ -1135,12 +1135,48 @@ function initThreeScene() {
   animate();
 
   // ── Resize handler ──
-  window.addEventListener('resize', () => {
-    _camera.aspect = window.innerWidth / window.innerHeight;
-    _camera.updateProjectionMatrix();
-    _renderer.setSize(window.innerWidth, window.innerHeight);
-    _labelRenderer.setSize(window.innerWidth, window.innerHeight);
-  });
+  window.addEventListener('resize', resize3D);
+  setupViewportKeyboardFix();
+}
+
+// Size the renderer from the stage container (not the window): the container
+// can be shrunk to the visual viewport while the mobile keyboard is open.
+function resize3D() {
+  if (!_camera || !_renderer) return;
+  const container = document.getElementById('three-canvas-container');
+  const w = container?.clientHeight ? container.clientWidth : window.innerWidth;
+  const h = container?.clientHeight ? container.clientHeight : window.innerHeight;
+  _camera.aspect = w / h;
+  _camera.updateProjectionMatrix();
+  _renderer.setSize(w, h);
+  _labelRenderer.setSize(w, h);
+}
+
+// Mobile keyboard handling (iOS overlays the keyboard instead of resizing the
+// page): track the visual viewport and pin both the 3D stage and the input
+// bar inside the area that remains visible above the keyboard. Android is
+// covered by <meta viewport interactive-widget=resizes-content> + resize3D.
+function setupViewportKeyboardFix() {
+  const vv = window.visualViewport;
+  if (!vv) return;
+  const stage = document.getElementById('three-canvas-container');
+  const labels = document.getElementById('css2d-container');
+  const inputBar = document.getElementById('input-bar');
+
+  const apply = () => {
+    const kbInset = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+    const kbOpen = kbInset > 80; // heuristic: anything smaller is browser chrome
+    document.body.classList.toggle('kb-open', kbOpen);
+    for (const el of [stage, labels]) {
+      if (!el) continue;
+      el.style.top = kbOpen ? `${Math.round(vv.offsetTop)}px` : '';
+      el.style.height = kbOpen ? `${Math.round(vv.height)}px` : '';
+    }
+    if (inputBar) inputBar.style.bottom = kbOpen ? `${kbInset}px` : '';
+    resize3D();
+  };
+  vv.addEventListener('resize', apply);
+  vv.addEventListener('scroll', apply);
 }
 
 // ─── Word → sphere position (3D) ─────────────────────────
