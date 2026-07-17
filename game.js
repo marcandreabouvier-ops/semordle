@@ -2099,7 +2099,7 @@ async function init() {
   const savedState = loadState(puzzle.date);
   gameState = savedState || createFreshState(puzzle.date);
 
-  document.getElementById('puzzle-pill').textContent = `Daily #${puzzle.puzzleNumber} · ${puzzle.wordLength} letters`;
+  document.getElementById('puzzle-pill').textContent = `Daily #${puzzle.puzzleNumber}`;
   document.title = `Semordle #${puzzle.puzzleNumber} – Daily semantic word hunt`;
 
   applyI18n();
@@ -2189,7 +2189,9 @@ function setupHowTo() {
   openBtn?.addEventListener('click', openModal);
   backdrop?.addEventListener('click', closeModal);
   modal?.addEventListener('click', e => {
-    if (e.target.classList.contains('how-to-close')) closeModal();
+    // Matches both the bottom "Got it" button (.how-to-close, re-rendered by
+    // applyI18n) and the ✕ in the corner (id how-to-close, class modal-close)
+    if (e.target.closest('.how-to-close, #how-to-close')) closeModal();
   });
 }
 
