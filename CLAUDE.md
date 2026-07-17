@@ -126,7 +126,7 @@ const I18N = { en: {...}, fr: {...} }  // toutes les strings UI ; t(key, ...args
 | `toLemma(word)` / `loadFormsMap()` | Repli forme fléchie → lemme |
 | `handleWin(word)` | Victoire : win entry + `updateShareSection()` + fireworks + toast (pas de popup) |
 | `launchFireworks()` / `startAmbientFireworks()` | Feux d'artifice en 2 actes : grosse salve à la victoire, puis show ambiant discret continu (petites salves toutes les 1,5-3,5 s ; aussi relancé au retour sur un puzzle résolu ; respecte prefers-reduced-motion) |
-| `setupLangSwitcher()` | Switch EN/FR avec reload complet |
+| `setupLangSwitcher()` | Switch EN/FR par ré-init EN PLACE (pas de reload page !) : reset DOM + clearScene + init(). Tout état global (timers, canvas, animations) doit être nettoyé dans restoreState() |
 
 ### État persisté (localStorage)
 

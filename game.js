@@ -487,6 +487,7 @@ const FW_COLORS = [
 ];
 
 let _fw = null; // { canvas, ctx, particles, rafId, ambientTimer }
+let _fwPending = []; // launch timeouts (volley + ambient handoff) not yet fired
 
 function _fwEnsure() {
   if (_fw) return _fw;
@@ -572,7 +573,21 @@ function _fwBurst(x, y, intensity = 1) {
   }
 }
 
-// Act 2: quiet ambient bursts every ~1.5-3.5 s, forever (page reload stops it)
+// Kill the whole show (canvas, ambient timer, raf loop). Called on every
+// game re-init: the language switcher re-initializes IN PLACE (no page
+// reload), so an EN win's ambient show must not leak into the FR game.
+function stopFireworks() {
+  // Pending launch timeouts would re-create the canvas after the cleanup
+  _fwPending.forEach(clearTimeout);
+  _fwPending = [];
+  if (!_fw) return;
+  clearTimeout(_fw.ambientTimer);
+  cancelAnimationFrame(_fw.rafId);
+  _fw.canvas.remove();
+  _fw = null;
+}
+
+// Act 2: quiet ambient bursts every ~1.5-3.5 s while the solved screen shows
 function startAmbientFireworks() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const fw = _fwEnsure();
@@ -605,9 +620,9 @@ function launchFireworks() {
     { x: W * 0.60, y: H * 0.15, delay: 800 },
     { x: W * 0.35, y: H * 0.20, delay: 950 },
   ];
-  bursts.forEach(b => setTimeout(() => _fwBurst(b.x, b.y, 1), b.delay));
+  bursts.forEach(b => _fwPending.push(setTimeout(() => _fwBurst(b.x, b.y, 1), b.delay)));
 
-  setTimeout(() => startAmbientFireworks(), 2200);
+  _fwPending.push(setTimeout(() => startAmbientFireworks(), 2200));
 }
 
 // ─── 3D Fireworks (Three.js particle burst) ──────────────
@@ -2035,6 +2050,10 @@ function setupKeyboardHandler() {
 
 function restoreState() {
   if (!gameState) return;
+
+  // A previous game's celebration must not survive a re-init (lang switch);
+  // the solved branch below restarts the ambient show when appropriate
+  stopFireworks();
 
   // Re-lookup ranks for entries missing them; preserve all entries (don't filter)
   gameState.semanticGuesses.forEach(g => {
