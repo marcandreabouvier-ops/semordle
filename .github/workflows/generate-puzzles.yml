@@ -1,3 +1,4 @@
+# Génère les puzzles des 10 prochains jours (cron hebdo + déclenchement manuel)
 name: Generate weekly puzzles
 
 on:
