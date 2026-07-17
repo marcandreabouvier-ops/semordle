@@ -775,7 +775,20 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 .share-card .journey { display: flex; gap: 4px; margin-top: 10px; font-size: 17px; }
 
-.copy-btn { margin-top: 10px; width: 100%; height: 44px; display: grid; place-items: center; font-size: 13px; border-radius: var(--radius-md); }
+/* Long labels (FR « Copier dans le presse-papier ») wrap instead of overflowing */
+.copy-btn {
+  margin-top: 10px;
+  width: 100%;
+  min-height: 44px;
+  height: auto;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: normal;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+}
 .copy-confirm { min-height: 18px; text-align: center; font-size: 11px; color: var(--phosphor); margin-top: 7px; font-weight: 600; font-style: italic; font-family: 'JetBrains Mono', monospace; }
 
 /* =========================================================

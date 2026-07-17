@@ -121,12 +121,28 @@ const I18N = { en: {...}, fr: {...} }  // toutes les strings UI ; t(key, ...args
 | `setupGuessPanel()` | Repli/dépli du panneau gauche via la languette `#guess-panel-handle` |
 | `toLemma(word)` / `loadFormsMap()` | Repli forme fléchie → lemme |
 | `handleWin(word)` | Victoire : win entry + `updateShareSection()` + fireworks + toast (pas de popup) |
+| `launchFireworks()` / `startAmbientFireworks()` | Feux d'artifice en 2 actes : grosse salve à la victoire, puis show ambiant discret continu (petites salves toutes les 1,5-3,5 s ; aussi relancé au retour sur un puzzle résolu ; respecte prefers-reduced-motion) |
 | `setupLangSwitcher()` | Switch EN/FR avec reload complet |
 
 ### État persisté (localStorage)
 
-Clé : `semordle:{lang}:{YYYY-MM-DD}` → `{ semanticGuesses, solved, stats, wordleState }`
+Clé : `semordle:{lang}:{YYYY-MM-DD}` → `{ semanticGuesses, solved, stats, unlocks }`
 Autres clés : `semordle:lang`, `semordle:panel`.
+⚠️ Le `wordleState` (défi en cours) n'est PAS persisté — un reload le perd (amélioration possible).
+
+### Affichage des rangs
+
+`displayRank(rank) = rank + 1` : le mot SECRET est affiché **#1**, son voisin le plus
+proche **#2**. Les rangs internes (fichiers data, bandes TEMP, bestRank, tri, localStorage)
+restent 0-décalés (voisin le plus proche = rank 1). N'appliquer le décalage QU'À l'affichage.
+
+### Wordle — règles spécifiques
+
+- Comparaison **insensible aux accents** : `deaccent()` replie guess ET cible
+  (« séjour » se joue « SEJOUR », le E compte pour É). L'écran de fin révèle le mot accentué.
+- Le handler « clic hors overlay → ferme » utilise `e.composedPath()` (PAS `contains(e.target)`) :
+  les boutons internes qui re-render l'overlay (ENTER du clavier virtuel, « Autre wordle »)
+  détachent la cible du DOM avant l'exécution du handler document.
 
 ## HTML — éléments importants
 

@@ -231,8 +231,22 @@ function normalizeScore(rawScore, hints) {
   return Math.min(100, Math.max(0, (rawScore / hints.top1) * 100));
 }
 
+// Fold diacritics for letter comparison: "séjour" → "sejour".
+// NFD splits base char + combining accent; stripping the combining marks
+// keeps the string length identical (œ/æ are untouched — single chars).
+function deaccent(str) {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 function clamp(val, min, max) {
   return Math.min(max, Math.max(min, val));
+}
+
+// Displayed ranks count the SECRET as #1: its closest neighbor shows #2.
+// Internal ranks stay 0-shifted (data files, TEMP bands, bestRank compare,
+// localStorage) — only apply this at render time, never in game logic.
+function displayRank(rank) {
+  return rank == null ? null : rank + 1;
 }
 
 // ─── Local Storage ───────────────────────────────────────
@@ -464,65 +478,39 @@ function handleWin(word) {
 }
 
 // ─── Fireworks (full-screen overlay canvas) ───────────────
+// Win celebration in two acts: a big opening volley, then a continuous
+// but subtle ambient show that keeps the solved screen alive.
 
-function launchFireworks() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+const FW_COLORS = [
+  '#2dd4bf', '#f4a14a', '#ff6b6b', '#f0ede4',
+  '#3db8e8', '#fbbf24', '#7dd96a', '#c084fc',
+];
+
+let _fw = null; // { canvas, ctx, particles, rafId, ambientTimer }
+
+function _fwEnsure() {
+  if (_fw) return _fw;
 
   const canvas = document.createElement('canvas');
   canvas.id = 'fireworks-canvas';
   canvas.style.cssText = [
     'position:fixed', 'inset:0', 'width:100%', 'height:100%',
-    'pointer-events:none', 'z-index:200',
+    // Above the game UI (20) but below the wordle overlay (50) and modals (100)
+    'pointer-events:none', 'z-index:40',
   ].join(';');
   document.body.appendChild(canvas);
-
   canvas.width  = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  const ctx = canvas.getContext('2d');
-  const particles = [];
+  _fw = { canvas, ctx: canvas.getContext('2d'), particles: [], rafId: null, ambientTimer: null };
 
-  const COLORS = [
-    '#2dd4bf', '#f4a14a', '#ff6b6b', '#f0ede4',
-    '#3db8e8', '#fbbf24', '#7dd96a', '#c084fc',
-  ];
-
-  function createBurst(x, y) {
-    const count = 80 + Math.floor(Math.random() * 40);
-    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
-    const color2 = COLORS[Math.floor(Math.random() * COLORS.length)];
-    for (let i = 0; i < count; i++) {
-      const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
-      const speed = 2 + Math.random() * 6;
-      particles.push({
-        x, y,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed,
-        alpha: 1,
-        radius: 2 + Math.random() * 3,
-        color: Math.random() < 0.5 ? color : color2,
-        decay: 0.012 + Math.random() * 0.010,
-        gravity: 0.12 + Math.random() * 0.08,
-        trail: [],
-      });
-    }
-  }
-
-  const W = canvas.width;
-  const H = canvas.height;
-  const bursts = [
-    { x: W * 0.25, y: H * 0.30, delay: 0   },
-    { x: W * 0.75, y: H * 0.25, delay: 180 },
-    { x: W * 0.50, y: H * 0.20, delay: 340 },
-    { x: W * 0.15, y: H * 0.45, delay: 520 },
-    { x: W * 0.85, y: H * 0.40, delay: 640 },
-    { x: W * 0.60, y: H * 0.15, delay: 800 },
-    { x: W * 0.35, y: H * 0.20, delay: 950 },
-  ];
-  bursts.forEach(b => setTimeout(() => createBurst(b.x, b.y), b.delay));
-
-  let animId;
   function frame() {
+    const { ctx, particles } = _fw;
+    // Follow window resizes (the ambient show can run for a long time)
+    if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = particles.length - 1; i >= 0; i--) {
@@ -555,16 +543,71 @@ function launchFireworks() {
       ctx.globalAlpha = 1;
     }
 
-    if (particles.length > 0) {
-      animId = requestAnimationFrame(frame);
-    } else {
-      canvas.remove();
-    }
+    _fw.rafId = requestAnimationFrame(frame);
   }
+  _fw.rafId = requestAnimationFrame(frame);
+  return _fw;
+}
 
-  // Start loop only after first burst has particles
-  setTimeout(() => { animId = requestAnimationFrame(frame); }, 50);
-  setTimeout(() => { cancelAnimationFrame(animId); canvas.remove(); }, 5500);
+// One explosion. intensity 1 = opening volley; ~0.3 = ambient spark.
+function _fwBurst(x, y, intensity = 1) {
+  const fw = _fwEnsure();
+  const count = Math.round((80 + Math.random() * 40) * intensity);
+  const color = FW_COLORS[Math.floor(Math.random() * FW_COLORS.length)];
+  const color2 = FW_COLORS[Math.floor(Math.random() * FW_COLORS.length)];
+  for (let i = 0; i < count; i++) {
+    const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
+    const speed = (2 + Math.random() * 6) * (0.5 + intensity * 0.5);
+    fw.particles.push({
+      x, y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      alpha: 0.5 + intensity * 0.5,
+      radius: (2 + Math.random() * 3) * (0.6 + intensity * 0.4),
+      color: Math.random() < 0.5 ? color : color2,
+      decay: 0.012 + Math.random() * 0.010,
+      gravity: 0.12 + Math.random() * 0.08,
+      trail: [],
+    });
+  }
+}
+
+// Act 2: quiet ambient bursts every ~1.5-3.5 s, forever (page reload stops it)
+function startAmbientFireworks() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const fw = _fwEnsure();
+  if (fw.ambientTimer) return; // already running
+
+  const schedule = () => {
+    fw.ambientTimer = setTimeout(() => {
+      const x = window.innerWidth  * (0.10 + Math.random() * 0.80);
+      const y = window.innerHeight * (0.10 + Math.random() * 0.45);
+      _fwBurst(x, y, 0.22 + Math.random() * 0.18);
+      schedule();
+    }, 1500 + Math.random() * 2000);
+  };
+  schedule();
+}
+
+// Act 1: the big win volley, then hand over to the ambient show
+function launchFireworks() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  _fwEnsure();
+
+  const W = window.innerWidth;
+  const H = window.innerHeight;
+  const bursts = [
+    { x: W * 0.25, y: H * 0.30, delay: 0   },
+    { x: W * 0.75, y: H * 0.25, delay: 180 },
+    { x: W * 0.50, y: H * 0.20, delay: 340 },
+    { x: W * 0.15, y: H * 0.45, delay: 520 },
+    { x: W * 0.85, y: H * 0.40, delay: 640 },
+    { x: W * 0.60, y: H * 0.15, delay: 800 },
+    { x: W * 0.35, y: H * 0.20, delay: 950 },
+  ];
+  bursts.forEach(b => setTimeout(() => _fwBurst(b.x, b.y, 1), b.delay));
+
+  setTimeout(() => startAmbientFireworks(), 2200);
 }
 
 // ─── 3D Fireworks (Three.js particle burst) ──────────────
@@ -751,8 +794,8 @@ function renderGuessCard(entry) {
   // rank == null && score == null → word absent from the vocabulary
   const isUnknown = !entry.isWin && entry.rank == null && entry.score == null;
 
-  const rankLabel = entry.isWin ? '🎯 Solved!'
-    : entry.rank != null ? `#${entry.rank}`
+  const rankLabel = entry.isWin ? '🎯 #1'
+    : entry.rank != null ? `#${displayRank(entry.rank)}`
     : isUnknown ? '?'
     : t('outsideTop');
   const tempLabel = entry.isWin ? t('youFoundIt') : isUnknown ? t('unknownWord') : temp.label;
@@ -840,7 +883,7 @@ function updateBestRankLabel() {
   if (!el) return;
   const best = gameState.stats.bestRank;
   if (best) {
-    el.textContent = `Best: #${best}`;
+    el.textContent = `Best: #${displayRank(best)}`;
   } else {
     el.textContent = '';
   }
@@ -1240,7 +1283,7 @@ function buildDotLabel(entry, temp) {
   const div = document.createElement('div');
   div.className = 'dot-label';
   div.style.color = rankToColor(entry.rank);
-  const rankStr = entry.isWin ? '🎯' : entry.rank != null ? `#${entry.rank}` : '+1000';
+  const rankStr = entry.isWin ? '🎯 #1' : entry.rank != null ? `#${displayRank(entry.rank)}` : '+1000';
   const wordStyle = entry.unlocked ? ' style="color:#f4a14a"' : '';
   div.innerHTML = `<span class="dot-label-word"${wordStyle}>${escapeHtml(entry.word)}</span><span class="dot-label-rank">${rankStr}</span>`;
   return div;
@@ -1324,6 +1367,14 @@ function updateScene() {
       labelDiv.style.color = '#00e676';
       const wordEl = labelDiv.querySelector('.dot-label-word');
       if (wordEl && puzzle) wordEl.textContent = puzzle.secret;
+      // The secret is #1 in the displayed ranking
+      let rankEl = labelDiv.querySelector('.dot-label-rank');
+      if (!rankEl) {
+        rankEl = document.createElement('span');
+        rankEl.className = 'dot-label-rank';
+        labelDiv.appendChild(rankEl);
+      }
+      rankEl.textContent = '#1';
     }
   }
 }
@@ -1353,11 +1404,16 @@ function setupWordleHandle() {
 
   closeBtn?.addEventListener('click', () => closeWordlePanel());
 
-  // Clic hors overlay → ferme
+  // Clic hors overlay → ferme.
+  // composedPath() (capturé au dispatch) plutôt que overlay.contains(e.target) :
+  // un clic sur un bouton interne qui re-render l'overlay (ENTER du clavier
+  // virtuel, « Autre wordle ») détache e.target du DOM avant que ce handler
+  // ne s'exécute, et contains() concluait à tort « clic extérieur ».
   document.addEventListener('click', (e) => {
     const overlay = document.getElementById('wordle-overlay');
     if (!overlay?.classList.contains('open')) return;
-    if (!overlay.contains(e.target) && e.target !== handle && !handle?.contains(e.target)) {
+    const path = e.composedPath();
+    if (!path.includes(overlay) && !path.includes(handle)) {
       closeWordlePanel();
     }
   });
@@ -1436,7 +1492,7 @@ function selectUnlockTarget() {
 function showWordleStartPrompt(container) {
   if (!container) return;
   const best = gameState && gameState.stats.bestRank;
-  const bestLine = best ? t('startBestRank', best) : t('startNoRank');
+  const bestLine = best ? t('startBestRank', displayRank(best)) : t('startNoRank');
   container.innerHTML = `
     <div style="text-align:center;padding:40px 20px 32px;">
       <div style="font-size:38px;margin-bottom:14px;">🔐</div>
@@ -1662,8 +1718,10 @@ function showWordleMessage(msg, type) {
 function submitWordleGuess() {
   if (!wordleState || wordleState.solved || wordleState.failed) return;
 
-  const rawGuess = wordleState.currentGuess.toUpperCase();
-  const targetWord = wordleState.target.word.toUpperCase();
+  // Accent-insensitive: the AZERTY/QWERTY vkeys type plain letters, so a
+  // target like "séjour" must match a typed "SEJOUR" (E counts for É).
+  const rawGuess = deaccent(wordleState.currentGuess).toUpperCase();
+  const targetWord = deaccent(wordleState.target.word).toUpperCase();
 
   if (!rawGuess) return;
   if (rawGuess.length !== targetWord.length) {
@@ -1962,7 +2020,11 @@ function restoreState() {
   renderPartialClues();
   rebuildScene();
 
-  if (gameState.solved) updateShareSection();
+  if (gameState.solved) {
+    updateShareSection();
+    // Returning to an already-solved puzzle: quiet celebration, no big volley
+    startAmbientFireworks();
+  }
 }
 
 // ─── Initialization ───────────────────────────────────────
