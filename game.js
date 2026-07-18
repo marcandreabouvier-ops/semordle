@@ -1,5 +1,5 @@
 /* =========================================================
-   Semordle – game.js
+   Galexical – game.js
    Full-screen 3D semantic radar (Three.js r158)
    ========================================================= */
 
@@ -58,7 +58,7 @@ const I18N = {
     youFoundIt:      "You found it!",
     solved:          '🎯 Solved',
     inProgress:      '🕹 In progress',
-    shareUrl:        'Play at https://semordle.game',
+    shareUrl:        'Play at https://galexical.com',
     howToTitle:      'How to play',
     howToBody: `
       <p>Every day there's a secret word. Your goal is to find it by guessing semantically related words.</p>
@@ -123,7 +123,7 @@ const I18N = {
     youFoundIt:      'Vous l\'avez trouvé !',
     solved:          '🎯 Résolu',
     inProgress:      '🕹 En cours',
-    shareUrl:        'Jouez sur https://semordle.game',
+    shareUrl:        'Jouez sur https://galexical.com',
     howToTitle:      'Comment jouer',
     howToBody: `
       <p>Chaque jour, il y a un mot secret. Votre objectif est de le trouver en devinant des mots sémantiquement proches.</p>
@@ -1923,7 +1923,7 @@ function buildShareText() {
   }).join(' ');
 
   return [
-    `Semordle #${num}`,
+    `Galexical #${num}`,
     t('shareGuessLine', stats.semanticGuessCount),
     t('shareUnlockLine', stats.unlockCount),
     gameState.solved ? t('solved') : t('inProgress'),
@@ -1943,7 +1943,7 @@ function buildShareCardHTML() {
   });
 
   return `
-    <strong>Semordle #${num}</strong>
+    <strong>Galexical #${num}</strong>
     <div>${t('shareGuessLine', stats.semanticGuessCount)}</div>
     <div>${t('shareUnlockLine', stats.unlockCount)}</div>
     <div>${gameState.solved ? t('solved') : t('inProgress')}</div>
@@ -2100,7 +2100,7 @@ async function init() {
   gameState = savedState || createFreshState(puzzle.date);
 
   document.getElementById('puzzle-pill').textContent = `Daily #${puzzle.puzzleNumber}`;
-  document.title = `Semordle #${puzzle.puzzleNumber} – Daily semantic word hunt`;
+  document.title = `Galexical #${puzzle.puzzleNumber} – Daily semantic word hunt`;
 
   applyI18n();
 

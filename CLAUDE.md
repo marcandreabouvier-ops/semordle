@@ -1,6 +1,12 @@
-# Semordle — Guide pour Claude
+# Galexical (ex-Semordle) — Guide pour Claude
 
-Jeu de mots sémantique quotidien (Semantle × Wordle), bilingue EN/FR. Hébergé sur GitHub Pages. Stack vanilla JS/HTML/CSS + Three.js r158 (CDN importmap), aucun build step.
+Jeu de mots sémantique quotidien (Semantle × Wordle), bilingue EN/FR, rebrandé
+**Galexical** le 2026-07-18 (domaine : https://galexical.com). Déployé sur Netlify
+(auto-deploy depuis GitHub `marcandreabouvier-ops/semordle` — le repo garde son
+ancien nom). Stack vanilla JS/HTML/CSS + Three.js r158 (CDN importmap), aucun build step.
+
+⚠️ Le préfixe localStorage reste `semordle:` — ne JAMAIS le renommer, ça effacerait
+la progression de tous les joueurs.
 
 ## Design (redesign 2026-07-09, ajusté 2026-07-15/16)
 

@@ -1,6 +1,8 @@
-# Semordle
+# Galexical
 
-A daily browser word game that combines Semantle-style semantic guessing with a Wordle-style unlock challenge. Bilingual (EN/FR), rendered as a full-screen 3D semantic radar (Three.js).
+A daily word riddle in a galaxy of meaning — Semantle-style semantic guessing meets a Wordle-style unlock challenge. Bilingual (EN/FR), rendered as a full-screen 3D "solar system" radar (Three.js).
+
+**Play it: [galexical.com](https://galexical.com)** *(formerly Semordle — the repo keeps the old name)*
 
 ---
 
