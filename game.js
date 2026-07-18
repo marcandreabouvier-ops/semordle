@@ -2099,7 +2099,7 @@ async function init() {
   const savedState = loadState(puzzle.date);
   gameState = savedState || createFreshState(puzzle.date);
 
-  document.getElementById('puzzle-pill').textContent = `Daily #${puzzle.puzzleNumber}`;
+  document.getElementById('puzzle-pill').textContent = `#${puzzle.puzzleNumber}`;
   document.title = `Galexical #${puzzle.puzzleNumber} – Daily semantic word hunt`;
 
   applyI18n();
