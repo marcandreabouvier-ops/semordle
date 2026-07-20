@@ -47,6 +47,14 @@ const I18N = {
     lemmaFolded:     (from, to) => `"${from}" counted as "${to}"`,
     tabJourney:      'Journey',
     rankedTitle:     'Ranked guesses',
+    tempScorch:      'Scorching',
+    tempHot:         'Hot',
+    tempWarm:        'Lukewarm',
+    tempCold:        'Cold',
+    similarityLabel: 'similarity',
+    bestRankShort:   (r) => `Best: #${r}`,
+    unlockedBadge:   '🔓 Unlocked',
+    guessCountLabel: (n) => `${n} ${n > 1 ? 'guesses' : 'guess'}`,
     alreadySolved:   "You already solved today's puzzle!",
     noClue:          'No stronger clue available — keep guessing!',
     needLetters:     (n) => `Need ${n} letters`,
@@ -112,6 +120,14 @@ const I18N = {
     lemmaFolded:     (from, to) => `« ${from} » compté comme « ${to} »`,
     tabJourney:      'Parcours',
     rankedTitle:     'Classement',
+    tempScorch:      'Brûlant',
+    tempHot:         'Chaud',
+    tempWarm:        'Tiède',
+    tempCold:        'Froid',
+    similarityLabel: 'similarité',
+    bestRankShort:   (r) => `Meilleur : #${r}`,
+    unlockedBadge:   '🔓 Débloqué',
+    guessCountLabel: (n) => `${n} proposition${n > 1 ? 's' : ''}`,
     alreadySolved:   'Vous avez déjà résolu le puzzle du jour !',
     noClue:          'Pas d\'indice plus fort disponible — continuez à deviner !',
     needLetters:     (n) => `${n} lettres requises`,
@@ -147,10 +163,10 @@ const I18N = {
 
 // Temperature band definitions (kept for labels/icons; color now computed continuously)
 const TEMP = {
-  SCORCH: { min: 1,    max: 100,  label: 'Scorching', icon: '🔥', cssClass: 'scorch', color: '#ff5722' },
-  HOT:    { min: 101,  max: 500,  label: 'Hot',       icon: '☀',  cssClass: 'hot',    color: '#ffc400' },
-  WARM:   { min: 501,  max: 1000, label: 'Lukewarm',  icon: '🌤', cssClass: 'warm',   color: '#40c4ff' },
-  COLD:   { min: 1001, max: Infinity, label: 'Cold',  icon: '❄',  cssClass: 'cold',   color: '#6b8fc2' },
+  SCORCH: { min: 1,    max: 100,  labelKey: 'tempScorch', icon: '🔥', cssClass: 'scorch', color: '#ff5722' },
+  HOT:    { min: 101,  max: 500,  labelKey: 'tempHot',    icon: '☀',  cssClass: 'hot',    color: '#ffc400' },
+  WARM:   { min: 501,  max: 1000, labelKey: 'tempWarm',   icon: '🌤', cssClass: 'warm',   color: '#40c4ff' },
+  COLD:   { min: 1001, max: Infinity, labelKey: 'tempCold', icon: '❄', cssClass: 'cold',  color: '#6b8fc2' },
 };
 
 // Heat gradient: rank 1 = bright green, 2-10 vivid red, …, 1000 light blue, +1000 steel blue
@@ -724,6 +740,7 @@ function applyI18n() {
   if (shareCaption) shareCaption.textContent = t('shareCaption');
 
   // Guess panel captions + tab handle
+  updateJourneyCount();
   const lastGuessTitle = document.getElementById('last-guess-title');
   if (lastGuessTitle) lastGuessTitle.textContent = t('lastGuess');
   const rankedTitle = document.getElementById('ranked-title');
@@ -813,11 +830,11 @@ function renderGuessCard(entry) {
     : entry.rank != null ? `#${displayRank(entry.rank)}`
     : isUnknown ? '?'
     : t('outsideTop');
-  const tempLabel = entry.isWin ? t('youFoundIt') : isUnknown ? t('unknownWord') : temp.label;
+  const tempLabel = entry.isWin ? t('youFoundIt') : isUnknown ? t('unknownWord') : t(temp.labelKey);
   const scoreLabel = entry.displayScore > 0 ? entry.displayScore.toFixed(1) : null;
 
   const unlockBadge = entry.unlocked
-    ? '<span class="unlock-badge" aria-label="unlocked via Wordle">🔓 Unlocked</span>'
+    ? `<span class="unlock-badge" aria-label="unlocked via Wordle">${t('unlockedBadge')}</span>`
     : '';
 
   const inTop1000 = !entry.isCold && entry.rank != null;
@@ -827,7 +844,7 @@ function renderGuessCard(entry) {
     : isUnknown
       ? `❓ ${tempLabel}`
       : hasRealRank && scoreLabel
-        ? `${temp.icon} ${tempLabel} · similarity ${scoreLabel} ${unlockBadge}`
+        ? `${temp.icon} ${tempLabel} · ${t('similarityLabel')} ${scoreLabel} ${unlockBadge}`
         : `${temp.icon} ${tempLabel}`;
 
   const barFill = entry.displayScore > 0 ? entry.displayScore : 0;
@@ -850,11 +867,19 @@ function renderGuessCard(entry) {
   // "Last guess" spotlight above the list (guesses arrive in chronological
   // order during restore, so the final call leaves the latest one showing)
   updateLastGuessSection(card);
+  updateJourneyCount();
 
   // Add the 3D dot (skipped during restore — rebuildScene handles that)
   if (!entry._restoring) {
     addDotToScene(entry);
   }
+}
+
+function updateJourneyCount() {
+  const el = document.getElementById('journey-count');
+  if (!el || !gameState) return;
+  const n = gameState.semanticGuesses.length;
+  el.textContent = n > 0 ? t('guessCountLabel', n) : '';
 }
 
 function updateLastGuessSection(sourceCard) {
@@ -898,7 +923,7 @@ function updateBestRankLabel() {
   if (!el) return;
   const best = gameState.stats.bestRank;
   if (best) {
-    el.textContent = `Best: #${displayRank(best)}`;
+    el.textContent = t('bestRankShort', displayRank(best));
   } else {
     el.textContent = '';
   }
@@ -932,17 +957,22 @@ function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-// Glide the camera so `pos` ends up in the foreground, slightly below the
-// screen center (camera aims a bit above the dot's direction).
+// Glide the camera so `pos` ends up in the foreground, slightly ABOVE the
+// screen center — readable on mobile where the input bar (and keyboard)
+// cover the bottom half. The camera also zooms to frame the dot: close
+// words pull it in, far/cold words push it out.
 function flyToDot(pos) {
   if (!_camera || !_controls || pos.lengthSq() === 0) return;
   const from = new THREE.Spherical().setFromVector3(_camera.position);
   const target = new THREE.Spherical().setFromVector3(pos);
-  const phi = clamp(target.phi - 0.30, 0.30, Math.PI - 0.30);
+  // Camera a bit BELOW the dot's direction → the dot lands above center
+  const phi = clamp(target.phi + 0.30, 0.30, Math.PI - 0.30);
+  // Adaptive distance: r=14 (top-1) → ~120, r=100 → ~310, cold 240 → 460
+  const dist = clamp(target.radius * 2.2 + 90, 110, 460);
   // Shortest angular path for the azimuth
   let dTheta = target.theta - from.theta;
   dTheta = ((dTheta + Math.PI) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2) - Math.PI;
-  const to = new THREE.Spherical(from.radius, phi, from.theta + dTheta);
+  const to = new THREE.Spherical(dist, phi, from.theta + dTheta);
 
   if (prefersReducedMotion()) {
     // Instant cut instead of a glide — same end state, no motion

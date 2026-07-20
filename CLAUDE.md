@@ -124,7 +124,8 @@ const I18N = { en: {...}, fr: {...} }  // toutes les strings UI ; t(key, ...args
 |---|---|
 | `scoreToRadius(score, rank)` | **Distance radiale basée sur le SCORE**, ancrée sur les hints : ≥top10 → r 14-30 ; top1000..top10 → 30-130 (pow 0.8) ; plus froid → 130-240 ; inconnu → 250 |
 | `wordToSpherePosition(word, rank, score)` | Position 3D : rayon via scoreToRadius, angles par hash du mot |
-| `flyToDot(pos)` | Anime la caméra (lerp sphérique + easeInOutCubic dans la boucle animate) pour amener le dot au premier plan, un peu sous le centre (phi cible −0.30) |
+| `flyToDot(pos)` | Anime la caméra (lerp sphérique + easeInOutCubic) : le dot atterrit AU-DESSUS du centre écran (phi cible +0.30 — lisible sur mobile), avec zoom adaptatif clamp(r×2.2+90, 110, 460) pour le mettre au premier plan |
+| `updateJourneyCount()` | Compteur « N propositions » dans l'en-tête du panneau (i18n guessCountLabel) |
 | `addDotToScene(entry)` | Dot + glow sprite + label CSS2D, highlight du dernier guess, déclenche flyToDot |
 | `initThreeScene()` | Scène, caméra (vue plongeante 0,150,420), étoiles rondes additives (texture glow), anneaux derrière `SHOW_RANK_RINGS=false` |
 | `renderGuessCard(entry)` | Carte de guess insérée triée par rang dans `#guess-list` + appelle `updateLastGuessSection` |
