@@ -55,6 +55,18 @@ const I18N = {
     bestRankShort:   (r) => `Best: #${r}`,
     unlockedBadge:   '🔓 Unlocked',
     guessCountLabel: (n) => `${n} ${n > 1 ? 'guesses' : 'guess'}`,
+    statsTitle:      'Your statistics',
+    statsPlayed:     'Played',
+    statsWon:        'Won',
+    statsWinRate:    'Win rate',
+    statsAvg:        'Avg. guesses per win',
+    statsBest:       'Best game',
+    statsStreak:     'Current streak',
+    statsDays:       (n) => `${n} day${n > 1 ? 's' : ''}`,
+    statsEmpty:      'Play your first game to fill these!',
+    yesterdayTitle:  "Yesterday's word",
+    yesterdayLine:   (num, w) => `Puzzle #${num} was`,
+    yesterdayNone:   'No previous puzzle found.',
     alreadySolved:   "You already solved today's puzzle!",
     noClue:          'No stronger clue available — keep guessing!',
     needLetters:     (n) => `Need ${n} letters`,
@@ -128,6 +140,18 @@ const I18N = {
     bestRankShort:   (r) => `Meilleur : #${r}`,
     unlockedBadge:   '🔓 Débloqué',
     guessCountLabel: (n) => `${n} proposition${n > 1 ? 's' : ''}`,
+    statsTitle:      'Vos statistiques',
+    statsPlayed:     'Parties jouées',
+    statsWon:        'Gagnées',
+    statsWinRate:    'Taux de victoire',
+    statsAvg:        'Moy. propositions / victoire',
+    statsBest:       'Meilleure partie',
+    statsStreak:     'Série en cours',
+    statsDays:       (n) => `${n} jour${n > 1 ? 's' : ''}`,
+    statsEmpty:      'Jouez votre première partie pour les remplir !',
+    yesterdayTitle:  "Le mot d'hier",
+    yesterdayLine:   (num, w) => `L'énigme #${num} était`,
+    yesterdayNone:   'Pas de puzzle précédent trouvé.',
     alreadySolved:   'Vous avez déjà résolu le puzzle du jour !',
     noClue:          'Pas d\'indice plus fort disponible — continuez à deviner !',
     needLetters:     (n) => `${n} lettres requises`,
@@ -2138,6 +2162,7 @@ async function init() {
     initThreeScene();
     setupGuessPanel();
     setupHowTo();
+    setupStatsModal();
     setupLangSwitcher();
     setupWordleHandle();
     setupKeyboardHandler();
@@ -2205,6 +2230,96 @@ function setupShareButtons() {
       clearTimeout(confirm._timer);
       confirm._timer = setTimeout(() => { confirm.textContent = ''; }, 3000);
     }
+  });
+}
+
+// ─── Player statistics modal ──────────────────────────────
+// All figures come from THIS browser's localStorage (per language) —
+// the site is static, there are no global/server-side stats.
+
+function computePlayerStats() {
+  const out = { played: 0, won: 0, totalGuessesWon: 0, best: null, streak: 0 };
+  const wonDays = new Set();
+  const keyRe = new RegExp(`^${STORAGE_PREFIX}${currentLang}:(\\d{4}-\\d{2}-\\d{2})$`);
+  for (let i = 0; i < localStorage.length; i++) {
+    const m = (localStorage.key(i) || '').match(keyRe);
+    if (!m) continue;
+    try {
+      const st = JSON.parse(localStorage.getItem(m[0]));
+      const n = st?.semanticGuesses?.length || 0;
+      if (n === 0) continue;
+      out.played++;
+      if (st.solved) {
+        out.won++;
+        out.totalGuessesWon += n;
+        if (out.best == null || n < out.best) out.best = n;
+        wonDays.add(m[1]);
+      }
+    } catch (e) { /* corrupted entry — skip */ }
+  }
+  // Streak: consecutive won days ending today (or yesterday if today is unplayed)
+  const fmt = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const d = new Date();
+  if (!wonDays.has(fmt(d))) d.setDate(d.getDate() - 1);
+  while (wonDays.has(fmt(d))) { out.streak++; d.setDate(d.getDate() - 1); }
+  return out;
+}
+
+async function openStatsModal() {
+  const modal = document.getElementById('stats-modal');
+  const content = document.getElementById('stats-content');
+  if (!modal || !content) return;
+
+  const s = computePlayerStats();
+  const winRate = s.played ? Math.round((s.won / s.played) * 100) + '%' : '–';
+  const avg = s.won ? (s.totalGuessesWon / s.won).toFixed(1) : '–';
+  const tiles = [
+    [s.played || '0', t('statsPlayed')],
+    [s.won || '0', t('statsWon')],
+    [winRate, t('statsWinRate')],
+    [avg, t('statsAvg')],
+    [s.best != null ? t('guessCountLabel', s.best) : '–', t('statsBest')],
+    [s.streak ? t('statsDays', s.streak) : '–', t('statsStreak')],
+  ];
+
+  // Yesterday's word — past puzzles are public files
+  const y = new Date(); y.setDate(y.getDate() - 1);
+  const yDate = `${y.getFullYear()}-${String(y.getMonth() + 1).padStart(2, '0')}-${String(y.getDate()).padStart(2, '0')}`;
+  let yesterdayHTML = `<p class="stats-yesterday-none">${t('yesterdayNone')}</p>`;
+  try {
+    const res = await fetch(`data/${currentLang}/${yDate}.json`);
+    if (res.ok) {
+      const p = await res.json();
+      yesterdayHTML = `<p>${t('yesterdayLine', p.puzzleNumber)} <span class="word">${escapeHtml(p.secret)}</span></p>`;
+    }
+  } catch (e) { /* offline — keep fallback */ }
+
+  content.innerHTML = `
+    <div class="how-to-content">
+      <h2>📊 ${t('statsTitle')}</h2>
+      ${s.played === 0 ? `<p class="stats-empty">${t('statsEmpty')}</p>` : ''}
+      <div class="stats-grid">
+        ${tiles.map(([v, l]) => `<div class="stat-tile"><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`).join('')}
+      </div>
+      <div class="stats-yesterday">
+        <div class="caption">${t('yesterdayTitle')}</div>
+        ${yesterdayHTML}
+      </div>
+    </div>`;
+
+  modal.classList.remove('hidden');
+  lockBodyScroll(true);
+}
+
+function setupStatsModal() {
+  const btn = document.getElementById('stats-btn');
+  const modal = document.getElementById('stats-modal');
+  const backdrop = document.getElementById('stats-backdrop');
+  const closeModal = () => { modal?.classList.add('hidden'); lockBodyScroll(false); };
+  btn?.addEventListener('click', openStatsModal);
+  backdrop?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', e => {
+    if (e.target.closest('#stats-close')) closeModal();
   });
 }
 

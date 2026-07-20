@@ -41,6 +41,7 @@
     </div>
     <div id="top-bar-right">
       <span class="best-rank-badge" id="best-rank-label" aria-live="polite"></span>
+      <button class="how-to-btn" id="stats-btn" aria-label="Statistics">📊</button>
       <button class="how-to-btn" id="how-to-btn" aria-label="How to play">?</button>
       <div class="lang-switcher" role="group" aria-label="Language">
         <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
@@ -125,6 +126,15 @@
       <button class="copy-btn" id="win-copy-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
       <div id="win-copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
       <button class="close-win-btn" id="close-win-btn" aria-label="Close win screen and continue">Keep playing</button>
+    </div>
+  </div>
+
+  <!-- Stats modal -->
+  <div id="stats-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Statistics">
+    <div class="modal-backdrop" id="stats-backdrop"></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="stats-close" aria-label="Close">✕</button>
+      <div id="stats-content"></div>
     </div>
   </div>
 

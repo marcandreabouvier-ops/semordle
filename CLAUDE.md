@@ -126,6 +126,7 @@ const I18N = { en: {...}, fr: {...} }  // toutes les strings UI ; t(key, ...args
 | `wordToSpherePosition(word, rank, score)` | Position 3D : rayon via scoreToRadius, angles par hash du mot |
 | `flyToDot(pos)` | Anime la caméra (lerp sphérique + easeInOutCubic) : le dot atterrit AU-DESSUS du centre écran (phi cible +0.30 — lisible sur mobile), avec zoom adaptatif clamp(r×2.2+90, 110, 460) pour le mettre au premier plan |
 | `updateJourneyCount()` | Compteur « N propositions » dans l'en-tête du panneau (i18n guessCountLabel) |
+| `openStatsModal()` / `computePlayerStats()` | Modal 📊 : stats PERSO calculées depuis le localStorage (par langue) + mot d'hier (fetch du JSON de la veille). PAS de stats globales — site statique, il faudrait une Netlify Function (idée en attente) |
 | `addDotToScene(entry)` | Dot + glow sprite + label CSS2D, highlight du dernier guess, déclenche flyToDot |
 | `initThreeScene()` | Scène, caméra (vue plongeante 0,150,420), étoiles rondes additives (texture glow), anneaux derrière `SHOW_RANK_RINGS=false` |
 | `renderGuessCard(entry)` | Carte de guess insérée triée par rang dans `#guess-list` + appelle `updateLastGuessSection` |
