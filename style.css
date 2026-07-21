@@ -292,11 +292,12 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .game-message.info  { color: var(--amber); }
 
 /* === Wordle handle (languette qui sort de derrière l'input bar) === */
+/* Two bottom tabs centered as a pair: Wordle left of center, Suggestions right */
 #wordle-handle {
   position: fixed;
   bottom: calc(var(--input-bar-height, 70px) - 4px);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-100% - 3px));
   z-index: 19;
   display: flex;
   flex-direction: row;
@@ -332,6 +333,147 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #wordle-handle:hover {
   background: rgba(244,161,74,0.10);
   border-color: rgba(244,161,74,0.60);
+}
+
+/* === Suggestions handle (right of center, violet accent) === */
+#suggest-handle {
+  position: fixed;
+  bottom: calc(var(--input-bar-height, 70px) - 4px);
+  left: 50%;
+  transform: translateX(3px);
+  z-index: 19;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8px 20px 18px;
+  border-radius: 10px 10px 0 0;
+  border-top: 1px solid rgba(192,132,252,0.40);
+  border-left: 1px solid rgba(192,132,252,0.20);
+  border-right: 1px solid rgba(192,132,252,0.20);
+  border-bottom: none;
+  background: rgba(8,14,11,0.95);
+  backdrop-filter: blur(16px);
+  color: #c084fc;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: background 0.15s, border-color 0.15s, opacity 0.25s;
+  white-space: nowrap;
+}
+#suggest-handle:hover {
+  background: rgba(192,132,252,0.10);
+  border-color: rgba(192,132,252,0.60);
+}
+#suggest-handle.panel-open {
+  opacity: 0;
+  pointer-events: none;
+}
+#suggest-handle-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* === Suggestions panel (compact popup above the input bar) === */
+#suggest-panel {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--input-bar-height, 70px) - 2px);
+  transform: translateX(-50%) translateY(115%);
+  width: min(420px, 92vw);
+  z-index: 45;
+  background: rgba(8,14,11,0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(192,132,252,0.30);
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  padding: 14px 16px 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), opacity 0.25s;
+}
+#suggest-panel.open {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+#suggest-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+#suggest-panel-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c084fc;
+}
+#suggest-close {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--screen-muted);
+  font-size: 12px;
+  display: grid; place-items: center;
+  padding: 0;
+  cursor: pointer;
+  text-transform: none; letter-spacing: 0;
+}
+#suggest-close:hover { color: var(--screen-text); border-color: #c084fc; }
+#suggest-hint {
+  font-size: 11px;
+  color: var(--screen-muted);
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+#suggest-words { display: grid; gap: 8px; }
+.suggest-word {
+  width: 100%;
+  text-align: center;
+  padding: 13px 10px;
+  background: rgba(192,132,252,0.08);
+  border: 1px solid rgba(192,132,252,0.25);
+  border-radius: 10px;
+  color: var(--screen-text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  text-transform: none;
+  transition: background 0.15s, border-color 0.15s, transform 0.06s;
+}
+.suggest-word:hover {
+  background: rgba(192,132,252,0.16);
+  border-color: rgba(192,132,252,0.55);
+}
+.suggest-word:active { transform: scale(0.97); }
+.suggest-empty {
+  text-align: center;
+  color: var(--screen-muted);
+  font-style: italic;
+  font-size: 13px;
+  padding: 12px 0;
+}
+#suggest-reroll {
+  width: 100%;
+  margin-top: 10px;
+  height: 40px;
+  font-size: 12px;
+  background: rgba(192,132,252,0.10);
+  border: 1px solid rgba(192,132,252,0.28);
+  color: #c084fc;
+  border-radius: 10px;
+}
+#suggest-reroll:hover {
+  background: rgba(192,132,252,0.18);
+  border-color: rgba(192,132,252,0.5);
 }
 
 /* === Wordle overlay (bottom sheet, quasi plein écran) === */
@@ -893,10 +1035,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
     padding: 10px 12px env(safe-area-inset-bottom, 12px);
   }
 
-  #wordle-handle {
-    transform: translateX(-50%);
-  }
-
   #wordle-overlay {
     left: 0;
     transform: translateY(100%);
@@ -905,10 +1043,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   }
   #wordle-overlay.open {
     transform: translateY(0);
-  }
-  #wordle-overlay.open ~ #wordle-handle,
-  #wordle-handle.overlay-open {
-    transform: translateX(-50%);
   }
 }
 

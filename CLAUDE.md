@@ -19,6 +19,13 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
 - **Recentrage caméra** : à chaque guess la caméra glisse (flyToDot) pour amener le nouveau dot au premier plan, ~un peu sous le centre écran ; annulé si l'utilisateur drag ; auto-rotation en pause 7 s
 - **Panneau gauche** ouvert/fermé par une **languette verticale « Parcours »** (même design que la languette Wordle) ; séparation nette entre « dernière proposition » et la liste « Classement » ; replié par défaut sur mobile ≤880px, état persisté dans `localStorage['semordle:panel']`
 - Input bar fixée en bas (glass effect)
+- **Suggestions** : languette ▲ Suggestions (violet #c084fc) à DROITE de Wordle
+  (Wordle décalée à gauche, les deux centrées en paire). Popup compact au-dessus
+  de l'input bar : 3 mots « dispersés » (`pickSuggestions` — un par bande égale sur
+  la plage éligible = tiède/moyen/lointain), toujours STRICTEMENT plus loin que
+  bestRank (floor = bestRank || 100) et non déjà joués → ne peuvent JAMAIS faire
+  gagner (le secret n'est pas dans puzzle.words). Cliquables (auto-submit + re-pick)
+  + bouton reroll 🎲. Fermeture via ✕ / clic-extérieur (composedPath) / switch langue.
 - Wordle : overlay slide-up quasi plein écran (languette ▲ Wordle) ; la grille se
   dimensionne via `--word-len` (inline) + budget hauteur en `dvh`, et le clavier se
   compresse (`@media max-height 760/600px`) pour que grille + clavier tiennent

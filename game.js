@@ -21,6 +21,10 @@ const I18N = {
     emptyState:      'Your guesses will appear here. Try a word that might be semantically related to the secret!',
     tabSemantic:     'Semantic',
     tabWordle:       'Wordle',
+    tabSuggest:      'Suggestions',
+    suggestHint:     'Three random leads, further than your best word — for inspiration when you’re stuck.',
+    suggestReroll:   '🎲 Other words',
+    suggestEmpty:    'You’ve already explored everything nearby!',
     startTitle:      'Unlock a clue word',
     startBestRank:   (r) => `Your current best rank is <strong style="color:var(--screen-text)">#${r}</strong> — the clue word will be closer than that.`,
     startNoRank:     'Make a semantic guess first to get a better starting clue.',
@@ -106,6 +110,10 @@ const I18N = {
     emptyState:      'Vos propositions apparaîtront ici. Essayez un mot sémantiquement proche du secret !',
     tabSemantic:     'Sémantique',
     tabWordle:       'Wordle',
+    tabSuggest:      'Suggestions',
+    suggestHint:     'Trois pistes au hasard, plus loin que ton meilleur mot — pour t’inspirer quand tu sèches.',
+    suggestReroll:   '🎲 D’autres mots',
+    suggestEmpty:    'Tu as déjà exploré tout ce qui est proche !',
     startTitle:      'Débloquer un indice',
     startBestRank:   (r) => `Votre meilleur rang actuel est <strong style="color:var(--screen-text)">#${r}</strong> — le mot indice sera plus proche que ça.`,
     startNoRank:     'Faites d\'abord une proposition sémantique pour obtenir un meilleur indice.',
@@ -748,6 +756,14 @@ function applyI18n() {
   // Wordle handle label
   const handleLabel = document.getElementById('wordle-handle-label');
   if (handleLabel) handleLabel.textContent = `▲ ${t('tabWordle')}`;
+  const suggestLabel = document.getElementById('suggest-handle-label');
+  if (suggestLabel) suggestLabel.textContent = `▲ ${t('tabSuggest')}`;
+  const suggestTitle = document.getElementById('suggest-panel-title');
+  if (suggestTitle) suggestTitle.textContent = t('tabSuggest');
+  const suggestHintEl = document.getElementById('suggest-hint');
+  if (suggestHintEl) suggestHintEl.textContent = t('suggestHint');
+  const suggestReroll = document.getElementById('suggest-reroll');
+  if (suggestReroll) suggestReroll.textContent = t('suggestReroll');
 
   // Win modal
   const winH2 = document.querySelector('.win-header h2');
@@ -1488,6 +1504,96 @@ function updateScene() {
 //  WORDLE OVERLAY
 // =========================================================
 
+// ─── Suggestions ("Saveur B" — dispersed inspiration) ─────
+// Picks `count` words that are STRICTLY further than the player's best rank
+// (so they can never improve the score or win — the secret isn't in the list
+// anyway) and NOT already guessed. Words are drawn one per equal band across
+// the eligible range, so the trio spans warm-ish → mid → cold: inspiration,
+// not a solution.
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function pickSuggestions(count = 3) {
+  if (!puzzle || !puzzle.words) return [];
+  // Floor = best rank found (never suggest at/above it). With no best yet,
+  // start past the top 100 so a stuck player isn't handed the hottest words.
+  const floor = gameState.stats.bestRank || 100;
+  const guessed = new Set(
+    gameState.semanticGuesses.map(g => g.word.toLowerCase().normalize('NFC'))
+  );
+  const eligible = [];
+  for (let i = floor; i < puzzle.words.length; i++) { // index i → rank i+1 > floor
+    const w = puzzle.words[i].word;
+    if (!guessed.has(w.toLowerCase().normalize('NFC'))) eligible.push(w);
+  }
+  if (eligible.length <= count) return shuffle(eligible.slice());
+
+  const picks = [];
+  const band = eligible.length / count;
+  for (let b = 0; b < count; b++) {
+    const start = Math.floor(b * band);
+    const end = Math.floor((b + 1) * band);
+    picks.push(eligible[start + Math.floor(Math.random() * (end - start))]);
+  }
+  return shuffle(picks);
+}
+
+function renderSuggestions() {
+  const box = document.getElementById('suggest-words');
+  if (!box) return;
+  const words = gameState && !gameState.solved ? pickSuggestions(3) : [];
+  if (words.length === 0) {
+    box.innerHTML = `<div class="suggest-empty">${t('suggestEmpty')}</div>`;
+    return;
+  }
+  box.innerHTML = words
+    .map(w => `<button class="suggest-word" type="button">${escapeHtml(w)}</button>`)
+    .join('');
+  box.querySelectorAll('.suggest-word').forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      submitSemanticGuess(words[i]); // rank > best & secret excluded → never wins
+      renderSuggestions();           // clicked word is now guessed → replace the trio
+    });
+  });
+}
+
+function openSuggestPanel() {
+  const panel = document.getElementById('suggest-panel');
+  if (!panel) return;
+  renderSuggestions();
+  panel.classList.add('open');
+  document.getElementById('suggest-handle')?.classList.add('panel-open');
+}
+
+function closeSuggestPanel() {
+  document.getElementById('suggest-panel')?.classList.remove('open');
+  document.getElementById('suggest-handle')?.classList.remove('panel-open');
+}
+
+function setupSuggestHandle() {
+  const handle = document.getElementById('suggest-handle');
+  const panel = document.getElementById('suggest-panel');
+  handle?.addEventListener('click', () => {
+    if (panel?.classList.contains('open')) closeSuggestPanel();
+    else openSuggestPanel();
+  });
+  document.getElementById('suggest-close')?.addEventListener('click', closeSuggestPanel);
+  document.getElementById('suggest-reroll')?.addEventListener('click', renderSuggestions);
+
+  // Click outside → close (composedPath: chips re-render and detach the target)
+  document.addEventListener('click', (e) => {
+    if (!panel?.classList.contains('open')) return;
+    const path = e.composedPath();
+    if (!path.includes(panel) && !path.includes(handle)) closeSuggestPanel();
+  });
+}
+
 function setupWordleHandle() {
   const handle = document.getElementById('wordle-handle');
   const closeBtn = document.getElementById('wordle-overlay-close');
@@ -2165,6 +2271,7 @@ async function init() {
     setupStatsModal();
     setupLangSwitcher();
     setupWordleHandle();
+    setupSuggestHandle();
     setupKeyboardHandler();
     setupModalCloseButtons();
     setupShareButtons();
@@ -2366,8 +2473,9 @@ function setupLangSwitcher() {
       // Clear 3D scene
       clearScene();
 
-      // Close overlay if open
+      // Close overlays if open
       closeWordlePanel();
+      closeSuggestPanel();
 
       init();
     });

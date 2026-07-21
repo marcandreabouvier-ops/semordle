@@ -56,10 +56,24 @@
     </div>
   </header>
 
-  <!-- Wordle handle tab (languette derrière l'input bar) -->
+  <!-- Bottom tabs (languettes derrière l'input bar) : Wordle à gauche, Suggestions à droite -->
   <button id="wordle-handle" aria-label="Open Wordle challenge">
     <span id="wordle-handle-label">Wordle</span>
   </button>
+  <button id="suggest-handle" aria-label="Open suggestions">
+    <span id="suggest-handle-label">Suggestions</span>
+  </button>
+
+  <!-- Suggestions panel (compact popup above the input bar) -->
+  <div id="suggest-panel" role="dialog" aria-modal="false" aria-label="Suggestions">
+    <div id="suggest-panel-header">
+      <span id="suggest-panel-title">Suggestions</span>
+      <button id="suggest-close" aria-label="Close suggestions">✕</button>
+    </div>
+    <p id="suggest-hint"></p>
+    <div id="suggest-words" aria-live="polite"></div>
+    <button id="suggest-reroll"></button>
+  </div>
 
   <!-- Input bar (fixed bottom) -->
   <div id="input-bar">
