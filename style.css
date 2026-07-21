@@ -850,26 +850,29 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 /* === Virtual keyboard === */
 .vkeyboard { display: grid; gap: 6px; margin-top: 14px; }
 .vkeyboard-row { display: flex; justify-content: center; gap: 5px; }
+/* Available keys glow teal with bright text; used/absent keys go dark and
+   faded so the two states read clearly apart, even in a dark room. */
 .vkey {
   min-width: 36px; height: 52px;
   border-radius: 6px;
-  background: rgba(45,212,191,0.06);
-  border: 1px solid rgba(45,212,191,0.18);
+  background: rgba(45,212,191,0.14);
+  border: 1px solid rgba(45,212,191,0.38);
   color: var(--screen-text);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px; font-weight: 600;
+  font-size: 13px; font-weight: 700;
   cursor: pointer;
   display: grid; place-items: center;
   padding: 0 4px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  transition: background 0.12s;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
 }
-.vkey:hover { background: rgba(45,212,191,0.12); }
+.vkey:hover { background: rgba(45,212,191,0.24); }
 .vkey:active { transform: scale(0.88); }
-.vkey.green  { background: rgba(45,212,191,0.22); border-color: var(--phosphor); color: var(--phosphor); }
-.vkey.yellow { background: rgba(244,161,74,0.22); border-color: var(--amber); color: var(--amber); }
-.vkey.gray   { background: rgba(0,0,0,0.35); border-color: rgba(255,255,255,0.12); color: var(--screen-muted); }
+.vkey.green  { background: rgba(45,212,191,0.30); border-color: var(--phosphor); color: var(--phosphor); }
+.vkey.yellow { background: rgba(244,161,74,0.30); border-color: var(--amber); color: var(--amber); }
+/* absent letter: clearly "eliminated" — nearly black, dim faded glyph */
+.vkey.gray   { background: rgba(0,0,0,0.55); border-color: rgba(255,255,255,0.06); color: rgba(212,237,232,0.28); }
 .vkey.wide   { min-width: 60px; font-size: 10px; }
 
 /* === Wordle message === */

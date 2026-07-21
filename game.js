@@ -1388,7 +1388,7 @@ function addDotToScene(entry) {
       clearTimeout(_autoRotateTimer);
       _autoRotateTimer = setTimeout(() => {
         if (_controls) _controls.autoRotate = !prefersReducedMotion();
-      }, 7000);
+      }, 3000);
     }
 
     // Bring the fresh guess to the foreground, slightly below center
