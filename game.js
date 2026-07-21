@@ -21,9 +21,8 @@ const I18N = {
     emptyState:      'Your guesses will appear here. Try a word that might be semantically related to the secret!',
     tabSemantic:     'Semantic',
     tabWordle:       'Wordle',
-    tabSuggest:      'Suggestions',
+    tabSuggest:      '3 words',
     suggestHint:     'Three random leads, further than your best word — for inspiration when you’re stuck.',
-    suggestReroll:   '🎲 Other words',
     suggestEmpty:    'You’ve already explored everything nearby!',
     startTitle:      'Unlock a clue word',
     startBestRank:   (r) => `Your current best rank is <strong style="color:var(--screen-text)">#${r}</strong> — the clue word will be closer than that.`,
@@ -110,9 +109,8 @@ const I18N = {
     emptyState:      'Vos propositions apparaîtront ici. Essayez un mot sémantiquement proche du secret !',
     tabSemantic:     'Sémantique',
     tabWordle:       'Wordle',
-    tabSuggest:      'Suggestions',
+    tabSuggest:      '3 mots',
     suggestHint:     'Trois pistes au hasard, plus loin que ton meilleur mot — pour t’inspirer quand tu sèches.',
-    suggestReroll:   '🎲 D’autres mots',
     suggestEmpty:    'Tu as déjà exploré tout ce qui est proche !',
     startTitle:      'Débloquer un indice',
     startBestRank:   (r) => `Votre meilleur rang actuel est <strong style="color:var(--screen-text)">#${r}</strong> — le mot indice sera plus proche que ça.`,
@@ -762,8 +760,6 @@ function applyI18n() {
   if (suggestTitle) suggestTitle.textContent = t('tabSuggest');
   const suggestHintEl = document.getElementById('suggest-hint');
   if (suggestHintEl) suggestHintEl.textContent = t('suggestHint');
-  const suggestReroll = document.getElementById('suggest-reroll');
-  if (suggestReroll) suggestReroll.textContent = t('suggestReroll');
 
   // Win modal
   const winH2 = document.querySelector('.win-header h2');
@@ -1519,48 +1515,68 @@ function shuffle(arr) {
   return arr;
 }
 
-function pickSuggestions(count = 3) {
+let _suggestWords = []; // currently displayed trio
+
+// Eligible words: strictly further than the best rank (floor = bestRank || 100,
+// so a stuck player isn't handed the hottest words) and not already guessed.
+function buildSuggestionPool() {
   if (!puzzle || !puzzle.words) return [];
-  // Floor = best rank found (never suggest at/above it). With no best yet,
-  // start past the top 100 so a stuck player isn't handed the hottest words.
   const floor = gameState.stats.bestRank || 100;
   const guessed = new Set(
     gameState.semanticGuesses.map(g => g.word.toLowerCase().normalize('NFC'))
   );
-  const eligible = [];
+  const pool = [];
   for (let i = floor; i < puzzle.words.length; i++) { // index i → rank i+1 > floor
     const w = puzzle.words[i].word;
-    if (!guessed.has(w.toLowerCase().normalize('NFC'))) eligible.push(w);
+    if (!guessed.has(w.toLowerCase().normalize('NFC'))) pool.push(w);
   }
-  if (eligible.length <= count) return shuffle(eligible.slice());
+  return pool;
+}
 
+// One word per equal band across the pool → dispersed (warm-ish / mid / cold).
+function pickSuggestions(count = 3) {
+  const pool = buildSuggestionPool();
+  if (pool.length <= count) return shuffle(pool.slice());
   const picks = [];
-  const band = eligible.length / count;
+  const band = pool.length / count;
   for (let b = 0; b < count; b++) {
     const start = Math.floor(b * band);
     const end = Math.floor((b + 1) * band);
-    picks.push(eligible[start + Math.floor(Math.random() * (end - start))]);
+    picks.push(pool[start + Math.floor(Math.random() * (end - start))]);
   }
   return shuffle(picks);
 }
 
-function renderSuggestions() {
+function pickOneSuggestion(exclude) {
+  const pool = buildSuggestionPool().filter(w => !exclude.has(w));
+  return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+}
+
+function drawSuggestions() {
   const box = document.getElementById('suggest-words');
   if (!box) return;
-  const words = gameState && !gameState.solved ? pickSuggestions(3) : [];
-  if (words.length === 0) {
+  if (_suggestWords.length === 0) {
     box.innerHTML = `<div class="suggest-empty">${t('suggestEmpty')}</div>`;
     return;
   }
-  box.innerHTML = words
+  box.innerHTML = _suggestWords
     .map(w => `<button class="suggest-word" type="button">${escapeHtml(w)}</button>`)
     .join('');
   box.querySelectorAll('.suggest-word').forEach((btn, i) => {
     btn.addEventListener('click', () => {
-      submitSemanticGuess(words[i]); // rank > best & secret excluded → never wins
-      renderSuggestions();           // clicked word is now guessed → replace the trio
+      const word = _suggestWords[i];
+      submitSemanticGuess(word); // rank > best & secret excluded → never wins
+      // Refill just this slot (the other two stay); full refresh = close/reopen
+      const repl = pickOneSuggestion(new Set(_suggestWords));
+      if (repl) _suggestWords[i] = repl; else _suggestWords.splice(i, 1);
+      drawSuggestions();
     });
   });
+}
+
+function renderSuggestions() {
+  _suggestWords = gameState && !gameState.solved ? pickSuggestions(3) : [];
+  drawSuggestions();
 }
 
 function openSuggestPanel() {
@@ -1584,7 +1600,6 @@ function setupSuggestHandle() {
     else openSuggestPanel();
   });
   document.getElementById('suggest-close')?.addEventListener('click', closeSuggestPanel);
-  document.getElementById('suggest-reroll')?.addEventListener('click', renderSuggestions);
 
   // Click outside → close (composedPath: chips re-render and detach the target)
   document.addEventListener('click', (e) => {
