@@ -379,9 +379,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #suggest-panel {
   position: fixed;
   left: 50%;
-  bottom: calc(var(--input-bar-height, 70px) - 2px);
-  transform: translateX(-50%) translateY(115%);
-  width: min(420px, 92vw);
+  /* Emerge from the top of the bottom tabs, not from the input bar */
+  bottom: calc(var(--input-bar-height, 70px) + 30px);
+  transform: translateX(-50%) translateY(130%);
+  width: min(440px, 94vw);
   z-index: 45;
   background: rgba(8,14,11,0.97);
   backdrop-filter: blur(24px);
@@ -432,19 +433,26 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   margin: 0 0 12px;
   line-height: 1.4;
 }
-#suggest-words { display: grid; gap: 8px; }
+#suggest-words {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
 .suggest-word {
   width: 100%;
   text-align: center;
-  padding: 13px 10px;
+  padding: 14px 6px;
   background: rgba(192,132,252,0.08);
   border: 1px solid rgba(192,132,252,0.25);
   border-radius: 10px;
   color: var(--screen-text);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 15px;
+  font-size: clamp(11px, 3.1vw, 14px);
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  min-width: 0; /* let long words wrap inside the 1fr column instead of overflowing */
+  overflow-wrap: anywhere;
   cursor: pointer;
   text-transform: none;
   transition: background 0.15s, border-color 0.15s, transform 0.06s;
