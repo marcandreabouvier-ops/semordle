@@ -2296,7 +2296,7 @@ async function openStatsModal() {
 
   content.innerHTML = `
     <div class="how-to-content">
-      <h2>📊 ${t('statsTitle')}</h2>
+      <h2>${t('statsTitle')}</h2>
       ${s.played === 0 ? `<p class="stats-empty">${t('statsEmpty')}</p>` : ''}
       <div class="stats-grid">
         ${tiles.map(([v, l]) => `<div class="stat-tile"><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`).join('')}

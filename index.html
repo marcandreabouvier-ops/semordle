@@ -41,8 +41,14 @@
     </div>
     <div id="top-bar-right">
       <span class="best-rank-badge" id="best-rank-label" aria-live="polite"></span>
-      <button class="how-to-btn" id="stats-btn" aria-label="Statistics">📊</button>
       <button class="how-to-btn" id="how-to-btn" aria-label="How to play">?</button>
+      <button class="how-to-btn" id="stats-btn" aria-label="Statistics">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+          <rect x="1"    y="8" width="3" height="5"  rx="1"/>
+          <rect x="5.5"  y="4" width="3" height="9"  rx="1"/>
+          <rect x="10"   y="1" width="3" height="12" rx="1"/>
+        </svg>
+      </button>
       <div class="lang-switcher" role="group" aria-label="Language">
         <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
         <button class="lang-btn" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
