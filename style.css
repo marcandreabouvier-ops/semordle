@@ -1077,6 +1077,81 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
+/* === Star collection modal === */
+.stars-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.stardust-balance {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffe08a;
+  white-space: nowrap;
+}
+.stars-hint {
+  font-size: 12px;
+  color: var(--screen-muted);
+  margin: 4px 0 14px;
+  line-height: 1.4;
+}
+.stars-grid { display: grid; gap: 8px; }
+.star-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+}
+.star-card.is-equipped {
+  border-color: rgba(255,224,138,0.5);
+  background: rgba(255,224,138,0.06);
+}
+.star-orb {
+  width: 30px; height: 30px;
+  flex: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--orb) 55%, rgba(0,0,0,0.4));
+  box-shadow: 0 0 14px var(--orb), 0 0 4px var(--orb);
+}
+.star-info { flex: 1; min-width: 0; }
+.star-name {
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--screen-text);
+  letter-spacing: 0.02em;
+}
+.star-fact {
+  font-size: 11px;
+  color: var(--screen-muted);
+  line-height: 1.3;
+}
+.star-action { flex: none; }
+.star-btn {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 11px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.star-btn.buy {
+  background: rgba(255,224,138,0.12);
+  border: 1px solid rgba(255,224,138,0.4);
+  color: #ffe08a;
+}
+.star-btn.buy:hover { background: rgba(255,224,138,0.22); }
+.star-state {
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.star-state.equipped { color: #ffe08a; }
+.star-state.locked { color: var(--screen-subtle); font-family: 'JetBrains Mono', monospace; }
+
 /* === Focus rings === */
 :focus-visible { outline: 2px solid rgba(45,212,191,0.5); outline-offset: 2px; }
 

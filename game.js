@@ -70,6 +70,11 @@ const I18N = {
     yesterdayTitle:  "Yesterday's word",
     yesterdayLine:   (num, w) => `Puzzle #${num} was`,
     yesterdayNone:   'No previous puzzle found.',
+    starsTitle:      'Star collection',
+    starsHint:       'Tap the sun anytime to open this. Win puzzles to earn stardust ✦ and unlock stars.',
+    starEquip:       'Equip',
+    starEquipped:    'Equipped',
+    starUnlock:      (p) => `Unlock · ${p} ✦`,
     alreadySolved:   "You already solved today's puzzle!",
     noClue:          'No stronger clue available — keep guessing!',
     needLetters:     (n) => `Need ${n} letters`,
@@ -158,6 +163,11 @@ const I18N = {
     yesterdayTitle:  "Le mot d'hier",
     yesterdayLine:   (num, w) => `L'énigme #${num} était`,
     yesterdayNone:   'Pas de puzzle précédent trouvé.',
+    starsTitle:      'Collection d’étoiles',
+    starsHint:       'Clique le soleil à tout moment pour l’ouvrir. Gagne des parties pour de la poussière d’étoile ✦ et débloque des étoiles.',
+    starEquip:       'Équiper',
+    starEquipped:    'Équipée',
+    starUnlock:      (p) => `Débloquer · ${p} ✦`,
     alreadySolved:   'Vous avez déjà résolu le puzzle du jour !',
     noClue:          'Pas d\'indice plus fort disponible — continuez à deviner !',
     needLetters:     (n) => `${n} lettres requises`,
@@ -293,6 +303,74 @@ function clamp(val, min, max) {
 // localStorage) — only apply this at render time, never in game logic.
 function displayRank(rank) {
   return rank == null ? null : rank + 1;
+}
+
+// ─── Sun skins (famous stars) + player profile ───────────
+// Each win grants 1 "stardust". Stardust unlocks skins for the central sun,
+// modelled on real named stars with their true colours. Colours are applied
+// to the target mesh in resetTarget(). Profile is GLOBAL (cross-day, cross-
+// language) — separate localStorage key from the per-puzzle state.
+
+const STAR_SKINS = [
+  { id: 'sun',        price: 0,  color: 0xffffff, emissive: 0xfff2cc, glow: 0xfff6e0, label: '#ffe9c2',
+    nameEn: 'Sol',        nameFr: 'Soleil',     factEn: 'Our home star — a yellow dwarf.',                    factFr: 'Notre étoile — une naine jaune.' },
+  { id: 'polaris',    price: 1,  color: 0xfff4d6, emissive: 0xffe08a, glow: 0xffe9b0, label: '#ffe9b0',
+    nameEn: 'Polaris',    nameFr: 'Polaris',    factEn: 'The North Star — the navigator’s guide.',            factFr: 'L’étoile Polaire — le guide des navigateurs.' },
+  { id: 'vega',       price: 2,  color: 0xeaf2ff, emissive: 0xbcd6ff, glow: 0xcfe3ff, label: '#cfe3ff',
+    nameEn: 'Vega',       nameFr: 'Véga',       factEn: 'A brightness standard for astronomers.',             factFr: 'Référence d’éclat des astronomes.' },
+  { id: 'arcturus',   price: 3,  color: 0xffe6c2, emissive: 0xffab5c, glow: 0xffb870, label: '#ffb870',
+    nameEn: 'Arcturus',   nameFr: 'Arcturus',   factEn: 'An orange giant, 25× the Sun’s size.',               factFr: 'Une géante orange, 25× la taille du Soleil.' },
+  { id: 'antares',    price: 5,  color: 0xffd0c0, emissive: 0xff5a3c, glow: 0xff6b4a, label: '#ff8a70',
+    nameEn: 'Antares',    nameFr: 'Antarès',    factEn: 'The heart of Scorpius — a red supergiant.',          factFr: 'Le cœur du Scorpion — une supergéante rouge.' },
+  { id: 'betelgeuse', price: 7,  color: 0xffc4b0, emissive: 0xff4a2c, glow: 0xff5533, label: '#ff7a5a',
+    nameEn: 'Betelgeuse', nameFr: 'Bételgeuse', factEn: 'A red supergiant ~700× the Sun.',                    factFr: 'Supergéante rouge ~700× le Soleil.' },
+  { id: 'sirius',     price: 10, color: 0xf0f6ff, emissive: 0xbcd8ff, glow: 0xdbe9ff, label: '#dbe9ff',
+    nameEn: 'Sirius',     nameFr: 'Sirius',     factEn: 'The brightest star in the night sky.',               factFr: 'L’étoile la plus brillante du ciel nocturne.' },
+];
+
+const PROFILE_KEY = STORAGE_PREFIX + 'profile';
+let _profile = null;
+
+function skinById(id) {
+  return STAR_SKINS.find(s => s.id === id) || STAR_SKINS[0];
+}
+
+// First-time profile seeds stardust from puzzles already solved on this device.
+function countPastWins() {
+  let n = 0;
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i) || '';
+    if (!/^semordle:(en|fr):\d{4}-\d{2}-\d{2}$/.test(k)) continue;
+    try { if (JSON.parse(localStorage.getItem(k)).solved) n++; } catch (e) { /* skip */ }
+  }
+  return n;
+}
+
+function loadProfile() {
+  try {
+    const raw = localStorage.getItem(PROFILE_KEY);
+    if (raw) {
+      const p = JSON.parse(raw);
+      if (!Array.isArray(p.unlocked)) p.unlocked = ['sun'];
+      if (!p.unlocked.includes('sun')) p.unlocked.unshift('sun');
+      if (!p.equipped) p.equipped = 'sun';
+      if (typeof p.tokens !== 'number') p.tokens = 0;
+      return p;
+    }
+  } catch (e) { /* fall through to fresh */ }
+  const p = { tokens: countPastWins(), unlocked: ['sun'], equipped: 'sun' };
+  saveProfile(p);
+  return p;
+}
+
+function saveProfile(p) {
+  try { localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); } catch (e) { /* quota */ }
+}
+
+function grantStardust(n = 1) {
+  _profile = _profile || loadProfile();
+  _profile.tokens = (_profile.tokens || 0) + n;
+  saveProfile(_profile);
 }
 
 // ─── Local Storage ───────────────────────────────────────
@@ -511,6 +589,7 @@ function handleWin(word) {
   gameState.solved = true;
   gameState.solvedAt = new Date().toISOString();
   saveState();
+  grantStardust(1); // reward: 1 stardust per win (handleWin runs once per solve)
 
   renderGuessCard(winEntry);
   updateBestRankLabel();
@@ -1218,6 +1297,42 @@ function initThreeScene() {
   // ── Resize handler ──
   window.addEventListener('resize', resize3D);
   setupViewportKeyboardFix();
+  setupSunClick();
+}
+
+// The central sun is clickable → opens the star collection. It sits at the
+// origin, so we project (0,0,0) to screen and test the pointer against it.
+// A drag (orbit) moves the pointer, so we only act on a near-still click.
+function sunScreenPos() {
+  if (!_camera || !_renderer) return null;
+  const v = new THREE.Vector3(0, 0, 0).project(_camera);
+  if (v.z >= 1) return null; // behind the camera
+  const rect = _renderer.domElement.getBoundingClientRect();
+  return {
+    x: rect.left + (v.x * 0.5 + 0.5) * rect.width,
+    y: rect.top + (-v.y * 0.5 + 0.5) * rect.height,
+  };
+}
+
+function isNearSun(clientX, clientY) {
+  const p = sunScreenPos();
+  return !!p && Math.hypot(clientX - p.x, clientY - p.y) < 46;
+}
+
+function setupSunClick() {
+  const dom = _renderer?.domElement;
+  if (!dom) return;
+  let down = null;
+  dom.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY }; });
+  dom.addEventListener('pointerup', e => {
+    if (!down) return;
+    const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y);
+    down = null;
+    if (moved <= 6 && isNearSun(e.clientX, e.clientY)) openStarsModal();
+  });
+  dom.addEventListener('mousemove', e => {
+    dom.style.cursor = isNearSun(e.clientX, e.clientY) ? 'pointer' : '';
+  });
 }
 
 // Size the renderer from the stage container (not the window): the container
@@ -1408,21 +1523,24 @@ function buildDotLabel(entry, temp) {
 
 function resetTarget() {
   if (!_targetMesh || !_targetLabel) return;
-  _targetMesh.material.color.set(0xf4a14a);
-  _targetMesh.material.emissive.set(0xf4a14a);
+  const s = skinById(_profile?.equipped || 'sun'); // the equipped star's colours
+  _targetMesh.material.color.setHex(s.color);
+  _targetMesh.material.emissive.setHex(s.emissive);
   _targetMesh.material.emissiveIntensity = 1.0;
   for (const c of _targetMesh.children) {
     if (c instanceof THREE.Sprite) {
-      c.material.color.set(0xf4a14a);
+      c.material.color.setHex(s.glow);
       c.material.opacity = 0.55;
       c.scale.setScalar(50);
     }
   }
   const labelDiv = _targetLabel.element;
   if (labelDiv) {
-    labelDiv.style.color = '#f4a14a';
+    labelDiv.style.color = s.label;
     const wordEl = labelDiv.querySelector('.dot-label-word');
     if (wordEl) wordEl.textContent = '?';
+    const rankEl = labelDiv.querySelector('.dot-label-rank');
+    if (rankEl) rankEl.remove(); // clear a leftover "#1" from a previous solved puzzle
   }
 }
 
@@ -2260,6 +2378,7 @@ function restoreState() {
 // ─── Initialization ───────────────────────────────────────
 
 async function init() {
+  _profile = loadProfile(); // global stardust/skins profile (before resetTarget runs)
   const formsPromise = loadFormsMap(); // non-blocking; awaited below
   puzzle = await loadPuzzle();
   await formsPromise;
@@ -2284,6 +2403,7 @@ async function init() {
     setupGuessPanel();
     setupHowTo();
     setupStatsModal();
+    setupStarsModal();
     setupLangSwitcher();
     setupWordleHandle();
     setupSuggestHandle();
@@ -2442,6 +2562,85 @@ function setupStatsModal() {
   backdrop?.addEventListener('click', closeModal);
   modal?.addEventListener('click', e => {
     if (e.target.closest('#stats-close')) closeModal();
+  });
+}
+
+// ─── Star collection (sun skins) modal ────────────────────
+
+function closeStarsModal() {
+  document.getElementById('stars-modal')?.classList.add('hidden');
+  lockBodyScroll(false);
+}
+
+function renderStarsModal() {
+  const content = document.getElementById('stars-content');
+  if (!content) return;
+  _profile = _profile || loadProfile();
+  const nameKey = currentLang === 'fr' ? 'nameFr' : 'nameEn';
+  const factKey = currentLang === 'fr' ? 'factFr' : 'factEn';
+
+  const cards = STAR_SKINS.map(s => {
+    const owned = _profile.unlocked.includes(s.id);
+    const equipped = _profile.equipped === s.id;
+    const affordable = _profile.tokens >= s.price;
+    let action;
+    if (equipped)      action = `<span class="star-state equipped">★ ${t('starEquipped')}</span>`;
+    else if (owned)    action = `<button class="star-btn equip" data-equip="${s.id}">${t('starEquip')}</button>`;
+    else if (affordable) action = `<button class="star-btn buy" data-buy="${s.id}">${t('starUnlock', s.price)}</button>`;
+    else               action = `<span class="star-state locked">🔒 ${s.price} ✦</span>`;
+    const swatch = '#' + s.glow.toString(16).padStart(6, '0');
+    return `
+      <div class="star-card${equipped ? ' is-equipped' : ''}">
+        <div class="star-orb" style="--orb:${swatch}"></div>
+        <div class="star-info">
+          <div class="star-name">${escapeHtml(s[nameKey])}</div>
+          <div class="star-fact">${escapeHtml(s[factKey])}</div>
+        </div>
+        <div class="star-action">${action}</div>
+      </div>`;
+  }).join('');
+
+  content.innerHTML = `
+    <div class="how-to-content">
+      <div class="stars-header">
+        <h2>${t('starsTitle')}</h2>
+        <span class="stardust-balance" aria-label="stardust">✦ ${_profile.tokens}</span>
+      </div>
+      <p class="stars-hint">${t('starsHint')}</p>
+      <div class="stars-grid">${cards}</div>
+    </div>`;
+
+  content.querySelectorAll('[data-buy]').forEach(b => b.addEventListener('click', () => {
+    const s = skinById(b.dataset.buy);
+    if (_profile.tokens < s.price) return;
+    _profile.tokens -= s.price;
+    _profile.unlocked.push(s.id);
+    _profile.equipped = s.id;      // auto-equip on unlock
+    saveProfile(_profile);
+    if (!(gameState && gameState.solved)) resetTarget();
+    renderStarsModal();
+  }));
+  content.querySelectorAll('[data-equip]').forEach(b => b.addEventListener('click', () => {
+    _profile.equipped = b.dataset.equip;
+    saveProfile(_profile);
+    if (!(gameState && gameState.solved)) resetTarget();
+    renderStarsModal();
+  }));
+}
+
+function openStarsModal() {
+  const modal = document.getElementById('stars-modal');
+  if (!modal) return;
+  renderStarsModal();
+  modal.classList.remove('hidden');
+  lockBodyScroll(true);
+}
+
+function setupStarsModal() {
+  const modal = document.getElementById('stars-modal');
+  document.getElementById('stars-backdrop')?.addEventListener('click', closeStarsModal);
+  modal?.addEventListener('click', e => {
+    if (e.target.closest('#stars-close')) closeStarsModal();
   });
 }
 

@@ -146,9 +146,21 @@ const I18N = { en: {...}, fr: {...} }  // toutes les strings UI ; t(key, ...args
 
 ### État persisté (localStorage)
 
-Clé : `semordle:{lang}:{YYYY-MM-DD}` → `{ semanticGuesses, solved, stats, unlocks }`
-Autres clés : `semordle:lang`, `semordle:panel`.
+Clé : `semordle:{lang}:{YYYY-MM-DD}` → `{ semanticGuesses, solved, solvedAt, stats, unlocks }`
+Autres clés : `semordle:lang`, `semordle:panel`, `semordle:profile`.
 ⚠️ Le `wordleState` (défi en cours) n'est PAS persisté — un reload le perd (amélioration possible).
+
+### Profil global (skins/jetons) — `semordle:profile`
+
+GLOBAL (cross-date, cross-langue) : `{ tokens, unlocked: [ids], equipped: id }`. 1 « poussière d'étoile » (stardust ✦)
+par victoire (`grantStardust(1)` dans `handleWin`, une seule fois par solve). Au 1er chargement, le profil
+est amorcé avec autant de jetons que de puzzles déjà résolus sur l'appareil (`countPastWins`).
+`STAR_SKINS` = étoiles réelles (Soleil/Polaris/Véga/Arcturus/Antarès/Bételgeuse/Sirius) avec vraies couleurs +
+prix croissants. Le skin équipé colore le soleil central via `resetTarget()` (couleur/emissive/glow/label) —
+c'est le hook « apparence live » appelé à chaque chargement de puzzle. Sur victoire, `updateScene()` passe le
+soleil au vert (le skin réapparaît au puzzle suivant). Accès : **clic sur le soleil** (`setupSunClick` → projette
+l'origine à l'écran, teste la proximité du pointeur ; ignore les drags OrbitControls) → modale `#stars-modal`
+(achat/équipement). Pas d'icône top-bar ajoutée.
 
 ### Affichage des rangs
 
