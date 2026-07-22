@@ -1281,6 +1281,35 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .dot-label-word { color: var(--screen-text); }
 .dot-label--target .dot-label-word { color: inherit; }
 
+/* Victory label — the secret + #1, made punchy in the star's own colour */
+.dot-label--won {
+  opacity: 1;
+  padding: 6px 14px;
+  border-width: 2px;
+  gap: 8px;
+  background: rgba(5,10,7,0.96);
+  box-shadow: 0 0 18px currentColor, 0 0 40px currentColor;
+  animation: won-pop 0.5s cubic-bezier(0.22,1.4,0.4,1) 1;
+}
+.dot-label--won .dot-label-word {
+  color: inherit;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px currentColor, 0 0 22px currentColor;
+}
+.dot-label--won .dot-label-rank {
+  opacity: 1;
+  font-size: 15px;
+  font-weight: 800;
+}
+@keyframes won-pop {
+  0%   { transform: scale(0.6); }
+  60%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
 /* === Rank ring labels === */
 .ring-label {
   font-family: 'JetBrains Mono', monospace;

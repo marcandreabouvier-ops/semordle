@@ -162,8 +162,10 @@ immense à pulsation lente, **Sirius = aigrettes de diffraction (`makeSpikeTextu
 scintillement**. Le skin équipé colore ET anime le soleil central via `resetTarget()` (couleur/emissive/glow/
 label + `_sunFx` lu par la boucle animate) — c'est le hook « apparence live » appelé à chaque chargement de puzzle.
 Les orbes de la modale rejouent ces effets en CSS (pulsation `orb-pulse`, halo via `--glow`, `.fx-spikes`
-pseudo-éléments, `.fx-twinkle`) pour prévisualiser avant achat. Sur victoire, `updateScene()` passe le
-soleil au vert (le skin réapparaît au puzzle suivant). Accès : **clic sur le soleil** (`setupSunClick` → projette
+pseudo-éléments, `.fx-twinkle`) pour prévisualiser avant achat. Sur victoire, le soleil **ne passe plus au vert** : il garde la couleur de son skin et fait une
+**supernova** (`_sunWon`/`_sunBloom`/`_sunFlash` lus par la boucle animate → bloom + éclat + aigrettes
+de victoire pour TOUTES les étoiles, dans leur propre couleur). Le label du mot secret + « #1 » prend
+la classe `.dot-label--won` (plus gros/gras/glow + pop). `resetTarget()` remet ces flags à zéro au puzzle suivant. Accès : **clic sur le soleil** (`setupSunClick` → projette
 l'origine à l'écran, teste la proximité du pointeur ; ignore les drags OrbitControls) → modale `#stars-modal`
 (achat/équipement). Pas d'icône top-bar ajoutée.
 

@@ -607,6 +607,7 @@ function handleWin(word) {
   updateShareSection();
 
   updateScene();
+  _sunFlash = 1; // bright supernova flash — only on the live win, not on restore
   launchFireworks();
   launchThreeFireworks();
   setTimeout(() => showWinToast(), 1400);
@@ -746,18 +747,25 @@ function launchFireworks() {
 
   const W = window.innerWidth;
   const H = window.innerHeight;
+  // Longer, more intense opening: two sustained waves before the ambient show
   const bursts = [
-    { x: W * 0.25, y: H * 0.30, delay: 0   },
-    { x: W * 0.75, y: H * 0.25, delay: 180 },
-    { x: W * 0.50, y: H * 0.20, delay: 340 },
-    { x: W * 0.15, y: H * 0.45, delay: 520 },
-    { x: W * 0.85, y: H * 0.40, delay: 640 },
-    { x: W * 0.60, y: H * 0.15, delay: 800 },
-    { x: W * 0.35, y: H * 0.20, delay: 950 },
+    { x: W * 0.25, y: H * 0.30, delay: 0,    i: 1.3 },
+    { x: W * 0.75, y: H * 0.25, delay: 160,  i: 1.3 },
+    { x: W * 0.50, y: H * 0.18, delay: 320,  i: 1.4 },
+    { x: W * 0.15, y: H * 0.45, delay: 480,  i: 1.2 },
+    { x: W * 0.85, y: H * 0.40, delay: 620,  i: 1.2 },
+    { x: W * 0.60, y: H * 0.15, delay: 780,  i: 1.3 },
+    { x: W * 0.35, y: H * 0.22, delay: 940,  i: 1.3 },
+    { x: W * 0.50, y: H * 0.30, delay: 1150, i: 1.5 }, // big centre burst
+    { x: W * 0.20, y: H * 0.28, delay: 1400, i: 1.2 },
+    { x: W * 0.80, y: H * 0.30, delay: 1600, i: 1.2 },
+    { x: W * 0.45, y: H * 0.16, delay: 1850, i: 1.3 },
+    { x: W * 0.65, y: H * 0.42, delay: 2100, i: 1.2 },
   ];
-  bursts.forEach(b => _fwPending.push(setTimeout(() => _fwBurst(b.x, b.y, 1), b.delay)));
+  bursts.forEach(b => _fwPending.push(setTimeout(() => _fwBurst(b.x, b.y, b.i), b.delay)));
 
-  _fwPending.push(setTimeout(() => startAmbientFireworks(), 2200));
+  // Hand over to the subtle ambient show only after the big volley settles
+  _fwPending.push(setTimeout(() => startAmbientFireworks(), 3600));
 }
 
 // ─── 3D Fireworks (Three.js particle burst) ──────────────
@@ -1069,6 +1077,9 @@ let _targetSpikes = null; // diffraction-spike sprite (Sirius etc.)
 let _targetLabel = null;
 let _targetPulse = 0;
 let _sunFx = { glowScale: 62, glowOp: 0.60, pulseSpeed: 1.0, pulseAmp: 0.12, spikes: false, twinkle: false };
+let _sunWon = false;   // solved → the star "goes supernova" in its own colour
+let _sunBloom = 0;     // eased 0→1 bloom factor while won
+let _sunFlash = 0;     // brief bright flash at the moment of victory
 let _dotObjects = [];   // { mesh, sprite, labelObj, word, proximity, dotR }
 let _latestDotWord = null;
 let _animationId = null;
@@ -1338,18 +1349,34 @@ function initThreeScene() {
 
     // Pulse + shimmer the target sun, with per-star personality (_sunFx):
     // rhythm/amplitude, plus optional fast twinkle and diffraction spikes.
+    // On victory the star "goes supernova" in its own colour (_sunBloom /
+    // _sunFlash) and every star sprouts diffraction rays.
     _targetPulse += 0.03;
     const fx = _sunFx;
     const ph = _targetPulse * fx.pulseSpeed;
     const tw = fx.twinkle ? 0.82 + 0.18 * Math.sin(_targetPulse * 9.0) * Math.sin(_targetPulse * 5.3) : 1;
-    _targetMesh.scale.setScalar(1 + fx.pulseAmp * Math.sin(ph));
-    _targetMesh.material.emissiveIntensity = (1.6 + 0.45 * Math.sin(ph * 1.7)) * tw;
+    _sunBloom += ((_sunWon ? 1 : 0) - _sunBloom) * 0.06; // ease toward win/idle
+    _sunFlash *= 0.93;                                    // decay the victory flash
+    const bloom = _sunBloom;
+
+    _targetMesh.scale.setScalar(1 + fx.pulseAmp * Math.sin(ph) + bloom * 0.22);
+    _targetMesh.material.emissiveIntensity =
+      (1.6 + 0.45 * Math.sin(ph * 1.7)) * tw * (1 + bloom * 1.1) + _sunFlash * 2.5;
     if (_targetGlow) {
-      _targetGlow.material.opacity = (fx.glowOp + 0.12 * Math.sin(ph * 1.3 + 1.2)) * tw;
+      _targetGlow.material.opacity =
+        Math.min(1, (fx.glowOp + 0.12 * Math.sin(ph * 1.3 + 1.2)) * tw * (1 + bloom * 0.5) + _sunFlash * 0.4);
+      _targetGlow.scale.setScalar(fx.glowScale * (1 + bloom * 0.55));
     }
-    if (_targetSpikes && _targetSpikes.visible) {
-      _targetSpikes.material.opacity = (0.7 + 0.3 * Math.sin(ph * 1.1)) * tw;
-      _targetSpikes.material.rotation += 0.0015;
+    if (_targetSpikes) {
+      const showSpikes = fx.spikes || _sunWon;
+      _targetSpikes.visible = showSpikes;
+      if (showSpikes) {
+        // native-spike stars stay full; others fade rays in with the bloom
+        const base = fx.spikes ? 1 : bloom;
+        _targetSpikes.material.opacity = (0.7 + 0.3 * Math.sin(ph * 1.1)) * tw * base + _sunFlash * 0.5;
+        _targetSpikes.scale.setScalar(fx.glowScale * 2.6 * (1 + bloom * 0.4));
+        _targetSpikes.material.rotation += 0.0015;
+      }
     }
 
     _renderer.render(_scene, _camera);
@@ -1602,7 +1629,9 @@ function resetTarget() {
   }
   _sunFx = { glowScale: s.glowScale, glowOp: s.glowOp, pulseSpeed: s.pulseSpeed,
              pulseAmp: s.pulseAmp, spikes: !!s.spikes, twinkle: !!s.twinkle };
+  _sunWon = false; _sunBloom = 0; _sunFlash = 0; // fresh puzzle: no supernova
   const labelDiv = _targetLabel.element;
+  if (labelDiv) labelDiv.classList.remove('dot-label--won');
   if (labelDiv) {
     labelDiv.style.color = s.label;
     const wordEl = labelDiv.querySelector('.dot-label-word');
@@ -1652,22 +1681,14 @@ function updateScene() {
   if (!_targetMesh || !_targetLabel) return;
 
   if (gameState && gameState.solved) {
-    _targetMesh.material.color.set(0x00e676);
-    _targetMesh.material.emissive.set(0x00e676);
-    _targetMesh.material.emissiveIntensity = 1.4;
-
-    const children = _targetMesh.children;
-    for (const c of children) {
-      if (c instanceof THREE.Sprite && !c.userData.isSpikes) {
-        c.material.color.set(0x00e676);
-        c.material.opacity = 0.7;
-        c.scale.setScalar(70);
-      }
-    }
+    // No more green: the equipped star (colours set by resetTarget) keeps its
+    // identity and "goes supernova" — the animate loop ramps _sunBloom and
+    // sprouts victory rays. Colours stay the skin's own.
+    _sunWon = true;
 
     const labelDiv = _targetLabel.element;
     if (labelDiv) {
-      labelDiv.style.color = '#00e676';
+      labelDiv.classList.add('dot-label--won'); // bigger, bolder secret + #1
       const wordEl = labelDiv.querySelector('.dot-label-word');
       if (wordEl && puzzle) wordEl.textContent = puzzle.secret;
       // The secret is #1 in the displayed ranking
