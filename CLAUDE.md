@@ -157,12 +157,12 @@ par victoire (`grantStardust(1)` dans `handleWin`, une seule fois par solve). Au
 est amorcé avec autant de jetons que de puzzles déjà résolus sur l'appareil (`countPastWins`).
 `STAR_SKINS` = étoiles réelles (Soleil/Polaris/Véga/Arcturus/Antarès/Bételgeuse/Sirius) avec vraies couleurs +
 prix croissants. **Chaque skin porte aussi des paramètres d'effet** (glowScale, glowOp, pulseSpeed, pulseAmp,
-spikes, twinkle) — la richesse visuelle monte avec la rareté : Véga = halo net et serré, Bételgeuse = couronne
-immense à pulsation lente, **Sirius = aigrettes de diffraction (`makeSpikeTexture`, sprite `_targetSpikes`) +
-scintillement**. Le skin équipé colore ET anime le soleil central via `resetTarget()` (couleur/emissive/glow/
-label + `_sunFx` lu par la boucle animate) — c'est le hook « apparence live » appelé à chaque chargement de puzzle.
-Les orbes de la modale rejouent ces effets en CSS (pulsation `orb-pulse`, halo via `--glow`, `.fx-spikes`
-pseudo-éléments, `.fx-twinkle`) pour prévisualiser avant achat. Sur victoire, le soleil **ne passe plus au vert** : il garde la couleur de son skin et fait une
+twinkle) — la richesse visuelle monte avec la rareté : Véga = halo net et serré, Bételgeuse = couronne
+immense à pulsation lente, **Sirius = scintillement (twinkle) + gros halo brillant**. (Les aigrettes de
+diffraction ont été retirées le 2026-07-22, jugées too much.) Le skin équipé colore ET anime le soleil
+central via `resetTarget()` (couleur/emissive/glow/label + `_sunFx` lu par la boucle animate) — hook
+« apparence live » appelé à chaque chargement de puzzle. Les orbes de la modale rejouent ces effets en CSS
+(pulsation `orb-pulse`, halo via `--glow`, `.fx-twinkle`) pour prévisualiser avant achat. Sur victoire, le soleil **ne passe plus au vert** : il garde la couleur de son skin et fait une
 **supernova** (`_sunWon`/`_sunBloom`/`_sunFlash` lus par la boucle animate → bloom + éclat + aigrettes
 de victoire pour TOUTES les étoiles, dans leur propre couleur). Le label du mot secret + « #1 » prend
 la classe `.dot-label--won` (plus gros/gras/glow + pop). `resetTarget()` remet ces flags à zéro au puzzle suivant. Accès : **clic sur le soleil** (`setupSunClick` → projette

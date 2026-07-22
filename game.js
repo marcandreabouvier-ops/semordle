@@ -312,29 +312,29 @@ function displayRank(rank) {
 // language) — separate localStorage key from the per-puzzle state.
 
 // fx per star: glowScale (corona size), glowOp (base halo opacity), pulseSpeed
-// & pulseAmp (breathing rhythm), spikes (diffraction rays), twinkle (fast flicker).
+// & pulseAmp (breathing rhythm), twinkle (fast flicker).
 // Richness scales with rarity — cheap stars are calm recolours, Sirius dazzles.
 const STAR_SKINS = [
   { id: 'sun',        price: 0,  color: 0xffffff, emissive: 0xffd873, glow: 0xffcf6a, label: '#ffdf8a',
-    glowScale: 62, glowOp: 0.60, pulseSpeed: 1.0, pulseAmp: 0.12, spikes: false, twinkle: false,
+    glowScale: 62, glowOp: 0.60, pulseSpeed: 1.0, pulseAmp: 0.12, twinkle: false,
     nameEn: 'Sol',        nameFr: 'Soleil',     factEn: 'Our home star — a warm yellow dwarf.',               factFr: 'Notre étoile — une naine jaune bien chaude.' },
   { id: 'polaris',    price: 1,  color: 0xfff4d6, emissive: 0xffe08a, glow: 0xffe9b0, label: '#ffe9b0',
-    glowScale: 52, glowOp: 0.55, pulseSpeed: 0.6, pulseAmp: 0.17, spikes: false, twinkle: false,
+    glowScale: 52, glowOp: 0.55, pulseSpeed: 0.6, pulseAmp: 0.17, twinkle: false,
     nameEn: 'Polaris',    nameFr: 'Polaris',    factEn: 'The North Star — a pulsating Cepheid.',              factFr: 'L’étoile Polaire — une céphéide qui pulse.' },
   { id: 'vega',       price: 2,  color: 0xeaf2ff, emissive: 0x9cc4ff, glow: 0xbcd8ff, label: '#cfe3ff',
-    glowScale: 42, glowOp: 0.50, pulseSpeed: 1.3, pulseAmp: 0.07, spikes: false, twinkle: false,
+    glowScale: 42, glowOp: 0.50, pulseSpeed: 1.3, pulseAmp: 0.07, twinkle: false,
     nameEn: 'Vega',       nameFr: 'Véga',       factEn: 'A crisp blue-white brightness standard.',            factFr: 'Une référence d’éclat, bleu-blanc et nette.' },
   { id: 'arcturus',   price: 3,  color: 0xffe6c2, emissive: 0xffab5c, glow: 0xffb870, label: '#ffb870',
-    glowScale: 68, glowOp: 0.60, pulseSpeed: 0.85, pulseAmp: 0.14, spikes: false, twinkle: false,
+    glowScale: 68, glowOp: 0.60, pulseSpeed: 0.85, pulseAmp: 0.14, twinkle: false,
     nameEn: 'Arcturus',   nameFr: 'Arcturus',   factEn: 'A warm orange giant, 25× the Sun.',                  factFr: 'Une géante orange chaude, 25× le Soleil.' },
   { id: 'antares',    price: 5,  color: 0xffd0c0, emissive: 0xff5a3c, glow: 0xff6b4a, label: '#ff8a70',
-    glowScale: 80, glowOp: 0.62, pulseSpeed: 0.55, pulseAmp: 0.18, spikes: false, twinkle: false,
+    glowScale: 80, glowOp: 0.62, pulseSpeed: 0.55, pulseAmp: 0.18, twinkle: false,
     nameEn: 'Antares',    nameFr: 'Antarès',    factEn: 'The heart of Scorpius — a red supergiant.',          factFr: 'Le cœur du Scorpion — une supergéante rouge.' },
   { id: 'betelgeuse', price: 7,  color: 0xffc4b0, emissive: 0xff4a2c, glow: 0xff5533, label: '#ff7a5a',
-    glowScale: 94, glowOp: 0.66, pulseSpeed: 0.4,  pulseAmp: 0.23, spikes: false, twinkle: false,
+    glowScale: 94, glowOp: 0.66, pulseSpeed: 0.4,  pulseAmp: 0.23, twinkle: false,
     nameEn: 'Betelgeuse', nameFr: 'Bételgeuse', factEn: 'A vast, slowly pulsing red supergiant.',             factFr: 'Une supergéante rouge immense qui pulse lentement.' },
   { id: 'sirius',     price: 10, color: 0xf4f8ff, emissive: 0xd0e2ff, glow: 0xeaf2ff, label: '#eaf2ff',
-    glowScale: 58, glowOp: 0.70, pulseSpeed: 1.6, pulseAmp: 0.10, spikes: true,  twinkle: true,
+    glowScale: 58, glowOp: 0.70, pulseSpeed: 1.6, pulseAmp: 0.10,  twinkle: true,
     nameEn: 'Sirius',     nameFr: 'Sirius',     factEn: 'The brightest star — it dazzles and twinkles.',      factFr: 'L’étoile la plus brillante — elle scintille et éblouit.' },
 ];
 
@@ -1073,10 +1073,9 @@ let _labelRenderer = null;
 let _controls = null;
 let _targetMesh = null;
 let _targetGlow = null;
-let _targetSpikes = null; // diffraction-spike sprite (Sirius etc.)
 let _targetLabel = null;
 let _targetPulse = 0;
-let _sunFx = { glowScale: 62, glowOp: 0.60, pulseSpeed: 1.0, pulseAmp: 0.12, spikes: false, twinkle: false };
+let _sunFx = { glowScale: 62, glowOp: 0.60, pulseSpeed: 1.0, pulseAmp: 0.12, twinkle: false };
 let _sunWon = false;   // solved → the star "goes supernova" in its own colour
 let _sunBloom = 0;     // eased 0→1 bloom factor while won
 let _sunFlash = 0;     // brief bright flash at the moment of victory
@@ -1133,37 +1132,6 @@ function makeCircleTexture(size = 128) {
   grd.addColorStop(1,   'rgba(255,255,255,0)');
   ctx.fillStyle = grd;
   ctx.fillRect(0, 0, size, size);
-  return new THREE.CanvasTexture(canvas);
-}
-
-// Four-point diffraction-spike texture (the "cross of light" of bright stars).
-function makeSpikeTexture(size = 256) {
-  const canvas = document.createElement('canvas');
-  canvas.width = canvas.height = size;
-  const ctx = canvas.getContext('2d');
-  const c = size / 2;
-  const drawBeam = (angle, halfLen, halfWidth) => {
-    ctx.save();
-    ctx.translate(c, c);
-    ctx.rotate(angle);
-    const grd = ctx.createLinearGradient(-halfLen, 0, halfLen, 0);
-    grd.addColorStop(0,    'rgba(255,255,255,0)');
-    grd.addColorStop(0.5,  'rgba(255,255,255,1)');
-    grd.addColorStop(1,    'rgba(255,255,255,0)');
-    ctx.fillStyle = grd;
-    ctx.beginPath();
-    ctx.moveTo(-halfLen, 0);
-    ctx.lineTo(0, -halfWidth);
-    ctx.lineTo(halfLen, 0);
-    ctx.lineTo(0, halfWidth);
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
-  };
-  drawBeam(0, c, size * 0.03);          // horizontal
-  drawBeam(Math.PI / 2, c, size * 0.03); // vertical
-  drawBeam(Math.PI / 4, c * 0.7, size * 0.015);  // faint diagonals
-  drawBeam(-Math.PI / 4, c * 0.7, size * 0.015);
   return new THREE.CanvasTexture(canvas);
 }
 
@@ -1271,20 +1239,6 @@ function initThreeScene() {
     _targetGlow.scale.setScalar(70); // clearly larger than any word-dot glow
     _targetMesh.add(_targetGlow);
 
-    // Diffraction spikes (only visible for stars with fx.spikes, e.g. Sirius)
-    const spikeMat = new THREE.SpriteMaterial({
-      map: makeSpikeTexture(256),
-      color: 0xffffff,
-      transparent: true,
-      opacity: 0,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false,
-    });
-    _targetSpikes = new THREE.Sprite(spikeMat);
-    _targetSpikes.scale.setScalar(150);
-    _targetSpikes.userData.isSpikes = true; // so resetTarget/updateScene skip it
-    _targetMesh.add(_targetSpikes);
-
     // Target label (? or secret word after win)
     const labelDiv = document.createElement('div');
     labelDiv.className = 'dot-label dot-label--target';
@@ -1348,9 +1302,8 @@ function initThreeScene() {
     _controls.update();
 
     // Pulse + shimmer the target sun, with per-star personality (_sunFx):
-    // rhythm/amplitude, plus optional fast twinkle and diffraction spikes.
-    // On victory the star "goes supernova" in its own colour (_sunBloom /
-    // _sunFlash) and every star sprouts diffraction rays.
+    // rhythm/amplitude, plus optional fast twinkle.
+    // On victory the star "goes supernova" in its own colour (_sunBloom / _sunFlash).
     _targetPulse += 0.03;
     const fx = _sunFx;
     const ph = _targetPulse * fx.pulseSpeed;
@@ -1366,17 +1319,6 @@ function initThreeScene() {
       _targetGlow.material.opacity =
         Math.min(1, (fx.glowOp + 0.12 * Math.sin(ph * 1.3 + 1.2)) * tw * (1 + bloom * 0.5) + _sunFlash * 0.4);
       _targetGlow.scale.setScalar(fx.glowScale * (1 + bloom * 0.55));
-    }
-    if (_targetSpikes) {
-      const showSpikes = fx.spikes || _sunWon;
-      _targetSpikes.visible = showSpikes;
-      if (showSpikes) {
-        // native-spike stars stay full; others fade rays in with the bloom
-        const base = fx.spikes ? 1 : bloom;
-        _targetSpikes.material.opacity = (0.7 + 0.3 * Math.sin(ph * 1.1)) * tw * base + _sunFlash * 0.5;
-        _targetSpikes.scale.setScalar(fx.glowScale * 2.6 * (1 + bloom * 0.4));
-        _targetSpikes.material.rotation += 0.0015;
-      }
     }
 
     _renderer.render(_scene, _camera);
@@ -1622,13 +1564,8 @@ function resetTarget() {
     _targetGlow.material.opacity = s.glowOp;
     _targetGlow.scale.setScalar(s.glowScale);
   }
-  if (_targetSpikes) {
-    _targetSpikes.material.color.setHex(s.glow);
-    _targetSpikes.scale.setScalar(s.glowScale * 2.6);
-    _targetSpikes.visible = !!s.spikes;
-  }
   _sunFx = { glowScale: s.glowScale, glowOp: s.glowOp, pulseSpeed: s.pulseSpeed,
-             pulseAmp: s.pulseAmp, spikes: !!s.spikes, twinkle: !!s.twinkle };
+             pulseAmp: s.pulseAmp, twinkle: !!s.twinkle };
   _sunWon = false; _sunBloom = 0; _sunFlash = 0; // fresh puzzle: no supernova
   const labelDiv = _targetLabel.element;
   if (labelDiv) labelDiv.classList.remove('dot-label--won');
@@ -2681,7 +2618,7 @@ function renderStarsModal() {
     // Preview the star's fx on the modal orb (CSS mirrors the 3D personality)
     const glowPx = Math.round(s.glowScale * 0.28);
     const pdur = (2.6 / s.pulseSpeed).toFixed(2);
-    const fxClass = `${s.spikes ? ' fx-spikes' : ''}${s.twinkle ? ' fx-twinkle' : ''}`;
+    const fxClass = `${s.twinkle ? ' fx-twinkle' : ''}`;
     const orbStyle = `--orb:${swatch};--glow:${glowPx}px;--pdur:${pdur}s;--pamp:${s.pulseAmp}`;
     return `
       <div class="star-card${equipped ? ' is-equipped' : ''}">
