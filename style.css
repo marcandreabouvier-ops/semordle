@@ -1112,11 +1112,41 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   background: rgba(255,224,138,0.06);
 }
 .star-orb {
+  position: relative;
   width: 30px; height: 30px;
   flex: none;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #fff, var(--orb) 55%, rgba(0,0,0,0.4));
-  box-shadow: 0 0 14px var(--orb), 0 0 4px var(--orb);
+  box-shadow: 0 0 var(--glow, 12px) var(--orb), 0 0 4px var(--orb);
+  animation: orb-pulse var(--pdur, 2.4s) ease-in-out infinite;
+}
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(calc(1 + var(--pamp, 0.12))); }
+}
+/* diffraction spikes (Sirius) */
+.star-orb.fx-spikes::before,
+.star-orb.fx-spikes::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.star-orb.fx-spikes::before {
+  width: 56px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--orb), transparent);
+}
+.star-orb.fx-spikes::after {
+  width: 2px; height: 56px;
+  background: linear-gradient(180deg, transparent, var(--orb), transparent);
+}
+/* fast twinkle (Sirius) — layered on top of the pulse */
+.star-orb.fx-twinkle { animation: orb-pulse var(--pdur, 2.4s) ease-in-out infinite, orb-twinkle 0.85s steps(5) infinite; }
+@keyframes orb-twinkle {
+  0%, 100% { opacity: 1; }
+  40%      { opacity: 0.62; }
+  70%      { opacity: 0.88; }
 }
 .star-info { flex: 1; min-width: 0; }
 .star-name {

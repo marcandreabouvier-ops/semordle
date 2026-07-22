@@ -156,8 +156,13 @@ GLOBAL (cross-date, cross-langue) : `{ tokens, unlocked: [ids], equipped: id }`.
 par victoire (`grantStardust(1)` dans `handleWin`, une seule fois par solve). Au 1er chargement, le profil
 est amorcé avec autant de jetons que de puzzles déjà résolus sur l'appareil (`countPastWins`).
 `STAR_SKINS` = étoiles réelles (Soleil/Polaris/Véga/Arcturus/Antarès/Bételgeuse/Sirius) avec vraies couleurs +
-prix croissants. Le skin équipé colore le soleil central via `resetTarget()` (couleur/emissive/glow/label) —
-c'est le hook « apparence live » appelé à chaque chargement de puzzle. Sur victoire, `updateScene()` passe le
+prix croissants. **Chaque skin porte aussi des paramètres d'effet** (glowScale, glowOp, pulseSpeed, pulseAmp,
+spikes, twinkle) — la richesse visuelle monte avec la rareté : Véga = halo net et serré, Bételgeuse = couronne
+immense à pulsation lente, **Sirius = aigrettes de diffraction (`makeSpikeTexture`, sprite `_targetSpikes`) +
+scintillement**. Le skin équipé colore ET anime le soleil central via `resetTarget()` (couleur/emissive/glow/
+label + `_sunFx` lu par la boucle animate) — c'est le hook « apparence live » appelé à chaque chargement de puzzle.
+Les orbes de la modale rejouent ces effets en CSS (pulsation `orb-pulse`, halo via `--glow`, `.fx-spikes`
+pseudo-éléments, `.fx-twinkle`) pour prévisualiser avant achat. Sur victoire, `updateScene()` passe le
 soleil au vert (le skin réapparaît au puzzle suivant). Accès : **clic sur le soleil** (`setupSunClick` → projette
 l'origine à l'écran, teste la proximité du pointeur ; ignore les drags OrbitControls) → modale `#stars-modal`
 (achat/équipement). Pas d'icône top-bar ajoutée.
