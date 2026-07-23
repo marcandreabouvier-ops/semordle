@@ -1,0 +1,16 @@
+# Files that must NOT be served publicly (Cloudflare Workers Static Assets).
+# Only the web app itself (index.html, game.js, style.css, data/*.json,
+# vocab/*_forms.json) should be reachable.
+#
+# schedule.csv in particular lists every future secret word — never serve it.
+.assetsignore
+wrangler.jsonc
+.gitignore
+.github/
+models/
+__pycache__/
+*.py
+*.md
+*.txt
+*.csv
+Semordle*

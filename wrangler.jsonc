@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers — static-assets-only deploy of the Galexical site.
+  // No Worker script: everything is served from the repo root as static files.
+  "name": "galexical",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./"
+  }
+}
