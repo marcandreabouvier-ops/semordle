@@ -1225,22 +1225,21 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #guess-panel-body {
   flex: 1;
   min-height: 0;
-  overflow: hidden;      /* the body itself no longer scrolls… */
+  overflow-y: auto;      /* share + ranked list scroll here */
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-/* …only the ranked list scrolls, so "last guess" stays pinned at the top */
-#guess-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
 
 #guess-panel.collapsed { transform: translateX(calc(-100% - 14px)); }
 #guess-panel.collapsed #guess-panel-body { visibility: hidden; }
 
-/* Sharp break between the "last guess" spotlight and the ranked list below */
+/* Pinned in the header zone (outside the scrollable body): the last guess
+   stays visible at the top while the ranked list scrolls underneath */
 #last-guess-section {
   flex: none;
-  padding-bottom: 14px;
+  padding: 0 12px 12px;
   border-bottom: 2px solid rgba(45,212,191,0.30);
 }
 #last-guess-section .caption { margin-bottom: 6px; display: block; }
