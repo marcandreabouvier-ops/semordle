@@ -1236,14 +1236,19 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #guess-panel.collapsed #guess-panel-body { visibility: hidden; }
 
 /* Pinned in the header zone (outside the scrollable body): the last guess
-   stays visible at the top while the ranked list scrolls underneath */
+   and the "ranked" title stay visible while the list scrolls underneath */
 #last-guess-section {
   flex: none;
-  padding: 0 12px 12px;
+  padding: 10px 12px 12px;
   border-bottom: 2px solid rgba(45,212,191,0.30);
 }
+#ranked-title {
+  flex: none;
+  padding: 12px 12px 0;
+}
+/* Share card lives in the fixed zone now — give it side margins & no shrink */
+#share-section { flex: none; margin: 12px 12px 0; }
 #last-guess-section .caption { margin-bottom: 6px; display: block; }
-#ranked-title { flex: none; }
 
 @media (max-width: 880px) {
   #guess-panel { width: min(300px, 80vw); top: 58px; bottom: 88px; }

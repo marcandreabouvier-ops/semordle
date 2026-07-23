@@ -117,14 +117,15 @@
       <div class="caption" id="last-guess-title">Last guess</div>
       <div id="last-guess-container"></div>
     </div>
+    <!-- Share card (post-win) sits above the ranked title, also in the fixed zone -->
+    <section class="share-section" id="share-section" aria-label="Share your result" style="display:none">
+      <div class="caption" id="share-caption">Share your result</div>
+      <div class="share-card" id="share-card-preview" aria-live="polite"></div>
+      <button class="copy-btn" id="copy-share-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
+      <div id="copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
+    </section>
+    <div class="caption" id="ranked-title">Ranked guesses</div>
     <div id="guess-panel-body">
-      <section class="share-section" id="share-section" aria-label="Share your result" style="display:none">
-        <div class="caption" id="share-caption">Share your result</div>
-        <div class="share-card" id="share-card-preview" aria-live="polite"></div>
-        <button class="copy-btn" id="copy-share-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
-        <div id="copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
-      </section>
-      <div class="caption" id="ranked-title">Ranked guesses</div>
       <div class="guess-list" id="guess-list" role="list" aria-label="Semantic guess history">
         <div class="guess-list-empty" id="guess-empty-state">
           <p>Your guesses will appear here.</p>
