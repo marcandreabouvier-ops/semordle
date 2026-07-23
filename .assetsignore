@@ -3,6 +3,7 @@
 # vocab/*_forms.json) should be reachable.
 #
 # schedule.csv in particular lists every future secret word — never serve it.
+.git
 .assetsignore
 wrangler.jsonc
 .gitignore
