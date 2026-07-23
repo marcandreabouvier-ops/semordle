@@ -19,8 +19,18 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
 - **Recentrage caméra** : à chaque guess la caméra glisse (flyToDot) pour amener le nouveau dot au premier plan, ~un peu sous le centre écran ; annulé si l'utilisateur drag ; auto-rotation en pause 7 s
 - **Panneau gauche** ouvert/fermé par une **languette verticale « Parcours »** (même design que la languette Wordle) ; séparation nette entre « dernière proposition » et la liste « Classement » ; replié par défaut sur mobile ≤880px, état persisté dans `localStorage['semordle:panel']`
 - Input bar fixée en bas (glass effect)
+- Les 3 languettes du bas (Wordle ambre · 3 mots violet · Roue dorée) sont dans
+  `#bottom-tabs` (flex row centrée). La languette **Roue** est cachée (`display:none`)
+  et n'apparaît (`.available`) que quand un spin est dispo (`updateWheelHandle`).
+- **Roue de la chance** (`#wheel-handle` → `#wheel-modal`) : 1 spin gagné toutes les
+  50 propositions (`WHEEL_SPIN_EVERY`, `gameState.stats.wheelSpinsUsed`). Roue SVG
+  12 segments (`buildWheelSvg`), tourne ~4,2 s (CSS transition ease-out sur `_wheelRotation`),
+  atterrit sur un segment tiré au hasard (fair). Le gain est TOUJOURS un mot plus proche
+  que bestRank (`eligibleWheelPool` trié, `pickWheelReward` par bande de rareté :
+  modest→jackpot). Le mot est ajouté via `applyWheelUnlock` (unlock marqué 🔓, compte
+  dans unlockCount du partage, dot sur le radar). Jackpot/great = feux d'artifice.
 - **3 mots** (ex-Suggestions) : languette ▲ 3 mots / ▲ 3 words (violet #c084fc) à
-  DROITE de Wordle (Wordle décalée à gauche, les deux centrées en paire). Carte
+  DROITE de Wordle, dans `#bottom-tabs`. Carte
   flottante au-dessus des languettes : 3 mots « dispersés » (`pickSuggestions` — un
   par bande égale sur la plage éligible = tiède/moyen/lointain), toujours STRICTEMENT
   plus loin que bestRank (floor = bestRank || 100) et non déjà joués → ne peuvent

@@ -22,6 +22,14 @@ const I18N = {
     tabSemantic:     'Semantic',
     tabWordle:       'Wordle',
     tabSuggest:      '3 words',
+    tabWheel:        'Wheel',
+    wheelTitle:      'Wheel of fortune',
+    wheelHint:       'You earn a spin every 50 guesses. The wheel always lands on a word closer than your best — and rarely, the jackpot.',
+    wheelSpinsLine:  (n) => n > 0 ? `${n} spin${n > 1 ? 's' : ''} ready` : 'No spin yet — keep going!',
+    wheelSpinBtn:    'SPIN',
+    wheelResult:     (r) => `Unlocked #${r} — closer to the secret!`,
+    wheelJackpot:    'JACKPOT! #',
+    wheelNoCloser:   'You’re already so close — nothing closer left to unlock!',
     suggestHint:     'Three random leads, further than your best word — for inspiration when you’re stuck.',
     suggestEmpty:    'You’ve already explored everything nearby!',
     startTitle:      'Unlock a clue word',
@@ -115,6 +123,14 @@ const I18N = {
     tabSemantic:     'Sémantique',
     tabWordle:       'Wordle',
     tabSuggest:      '3 mots',
+    tabWheel:        'Roue',
+    wheelTitle:      'Roue de la chance',
+    wheelHint:       'Tu gagnes un tour tous les 50 essais. La roue tombe toujours sur un mot plus proche que ton meilleur — et rarement, le jackpot.',
+    wheelSpinsLine:  (n) => n > 0 ? `${n} tour${n > 1 ? 's' : ''} dispo` : 'Pas encore de tour — continue !',
+    wheelSpinBtn:    'TOURNER',
+    wheelResult:     (r) => `Tu débloques le #${r} — plus proche du secret !`,
+    wheelJackpot:    'JACKPOT ! #',
+    wheelNoCloser:   'Tu es déjà tout proche — rien de plus proche à débloquer !',
     suggestHint:     'Trois pistes au hasard, plus loin que ton meilleur mot — pour t’inspirer quand tu sèches.',
     suggestEmpty:    'Tu as déjà exploré tout ce qui est proche !',
     startTitle:      'Débloquer un indice',
@@ -407,6 +423,7 @@ function createFreshState(puzzleDate) {
       semanticGuessCount: 0,
       unlockCount: 0,
       wordleWinCount: 0,
+      wheelSpinsUsed: 0,
       bestRank: null,
     },
   };
@@ -853,6 +870,8 @@ function applyI18n() {
   if (handleLabel) handleLabel.textContent = `▲ ${t('tabWordle')}`;
   const suggestLabel = document.getElementById('suggest-handle-label');
   if (suggestLabel) suggestLabel.textContent = `▲ ${t('tabSuggest')}`;
+  const wheelLabel = document.getElementById('wheel-handle-label');
+  if (wheelLabel) wheelLabel.textContent = `▲ ${t('tabWheel')}`;
   const suggestTitle = document.getElementById('suggest-panel-title');
   if (suggestTitle) suggestTitle.textContent = t('tabSuggest');
   const suggestHintEl = document.getElementById('suggest-hint');
@@ -1013,6 +1032,7 @@ function updateJourneyCount() {
   if (!el || !gameState) return;
   const n = gameState.semanticGuesses.length;
   el.textContent = n > 0 ? t('guessCountLabel', n) : '';
+  updateWheelHandle(); // reveal the Wheel tab once a spin has been earned
 }
 
 function updateLastGuessSection(sourceCard) {
@@ -1820,6 +1840,177 @@ function closeWordlePanel() {
   }
 }
 
+// ─── Wheel of fortune ─────────────────────────────────────
+// A spin is earned every WHEEL_SPIN_EVERY guesses (gated by struggle). The
+// wheel ALWAYS lands on a word closer than the player's best rank — never a
+// dead result — and rarity decides how close (jackpot = nearly the secret).
+
+const WHEEL_SPIN_EVERY = 50;
+const WHEEL_TIERS = {
+  modest:  { color: '#40c4ff', band: [0.40, 1.00] }, // just a bit better than best
+  good:    { color: '#ffc400', band: [0.12, 0.40] },
+  great:   { color: '#ff7a1a', band: [0.02, 0.12] },
+  jackpot: { color: '#ff3d3d', band: [0.00, 0.02] }, // nearly the secret!
+};
+// 12 segments (6 modest / 3 good / 2 great / 1 jackpot), interleaved for variety
+const WHEEL_SEGMENTS = ['modest','good','modest','great','modest','good','modest','jackpot','modest','good','modest','great'];
+
+let _wheelRotation = 0;
+let _wheelSpinning = false;
+
+function wheelSpinsEarned() { return Math.floor((gameState?.stats?.semanticGuessCount || 0) / WHEEL_SPIN_EVERY); }
+function wheelSpinsAvailable() { return Math.max(0, wheelSpinsEarned() - (gameState?.stats?.wheelSpinsUsed || 0)); }
+
+function eligibleWheelPool() {
+  const bestRank = gameState.stats.bestRank || 1001;
+  const guessed = new Set(gameState.semanticGuesses.map(g => g.word.toLowerCase()));
+  const unlocked = new Set(gameState.unlocks.map(w => w.toLowerCase()));
+  const secret = puzzle.secret.toLowerCase();
+  return puzzle.words
+    .filter(w => w.rank != null && w.rank < bestRank
+      && !guessed.has(w.word.toLowerCase())
+      && !unlocked.has(w.word.toLowerCase())
+      && w.word.toLowerCase() !== secret)
+    .sort((a, b) => a.rank - b.rank); // closest to the secret first
+}
+
+function pickWheelReward(tierKey, pool) {
+  if (!pool.length) return null;
+  const [lo, hi] = WHEEL_TIERS[tierKey].band;
+  const start = Math.floor(lo * pool.length);
+  const end = Math.max(start + 1, Math.floor(hi * pool.length));
+  const slice = pool.slice(start, end);
+  return slice[Math.floor(Math.random() * slice.length)] || pool[0];
+}
+
+// Show/hide the gold Wheel tab depending on whether a spin is available
+function updateWheelHandle() {
+  const h = document.getElementById('wheel-handle');
+  if (!h) return;
+  const show = wheelSpinsAvailable() > 0 && !(gameState && gameState.solved);
+  h.classList.toggle('available', show);
+}
+
+function buildWheelSvg() {
+  const cx = 50, cy = 50, r = 46;
+  const pt = (a) => [cx + r * Math.sin(a * Math.PI / 180), cy - r * Math.cos(a * Math.PI / 180)];
+  let paths = '';
+  for (let i = 0; i < 12; i++) {
+    const [x1, y1] = pt(i * 30), [x2, y2] = pt((i + 1) * 30);
+    const color = WHEEL_TIERS[WHEEL_SEGMENTS[i]].color;
+    paths += `<path d="M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z" fill="${color}" fill-opacity="0.82" stroke="rgba(5,10,7,0.85)" stroke-width="0.8"/>`;
+  }
+  return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true">${paths}<circle cx="50" cy="50" r="8" fill="#0a0f0c" stroke="rgba(255,255,255,0.25)" stroke-width="1"/></svg>`;
+}
+
+function renderWheel() {
+  const content = document.getElementById('wheel-content');
+  if (!content) return;
+  const avail = wheelSpinsAvailable();
+  content.innerHTML = `
+    <div class="how-to-content wheel-wrap">
+      <h2>🎡 ${t('wheelTitle')}</h2>
+      <p class="wheel-sub" id="wheel-sub">${t('wheelSpinsLine', avail)}</p>
+      <div class="wheel-stage">
+        <div class="wheel-pointer"></div>
+        ${buildWheelSvg()}
+        <div class="wheel-hub"></div>
+      </div>
+      <div id="wheel-result" class="wheel-result" aria-live="polite"></div>
+      <button id="wheel-spin-btn" ${avail > 0 ? '' : 'disabled'}>${t('wheelSpinBtn')}</button>
+      <p class="wheel-hint">${t('wheelHint')}</p>
+    </div>`;
+  const svg = content.querySelector('.wheel-svg');
+  if (svg) svg.style.transform = `rotate(${_wheelRotation}deg)`;
+  content.querySelector('#wheel-spin-btn')?.addEventListener('click', spinWheel);
+}
+
+function applyWheelUnlock(w) {
+  const displayScore = normalizeScore(w.score, puzzle.hints);
+  const entry = { word: w.word, rank: w.rank, score: w.score, displayScore, unlocked: true };
+  gameState.semanticGuesses.unshift(entry);
+  gameState.unlocks.push(w.word);
+  gameState.stats.unlockCount = (gameState.stats.unlockCount || 0) + 1; // marked in the share
+  if (gameState.stats.bestRank === null || w.rank < gameState.stats.bestRank) {
+    gameState.stats.bestRank = w.rank;
+  }
+  saveState();
+  renderGuessCard(entry);   // card + dot on the radar + last-guess spotlight
+  updateBestRankLabel();
+  hideEmptyState();
+}
+
+function spinWheel() {
+  if (_wheelSpinning || wheelSpinsAvailable() <= 0) return;
+  const pool = eligibleWheelPool();
+  const resultEl = document.getElementById('wheel-result');
+  if (pool.length === 0) { // already at the very top — nothing closer to give
+    if (resultEl) resultEl.innerHTML = `<span class="wheel-none">${t('wheelNoCloser')}</span>`;
+    return;
+  }
+  _wheelSpinning = true;
+  gameState.stats.wheelSpinsUsed = (gameState.stats.wheelSpinsUsed || 0) + 1;
+  saveState();
+
+  const seg = Math.floor(Math.random() * 12);        // fair: each segment equally likely
+  const tier = WHEEL_SEGMENTS[seg];
+  const reward = pickWheelReward(tier, pool);
+
+  // Rotate forward: several full turns, then land the chosen segment on top
+  const turns = 5;
+  const jitter = (Math.random() * 2 - 1) * 11;
+  const desired = (360 - (seg + 0.5) * 30) % 360;
+  const currentMod = ((_wheelRotation % 360) + 360) % 360;
+  let delta = desired - currentMod; if (delta < 0) delta += 360;
+  _wheelRotation += 360 * turns + delta + jitter;
+
+  const svg = document.querySelector('.wheel-svg');
+  const btn = document.getElementById('wheel-spin-btn');
+  if (btn) btn.disabled = true;
+  if (resultEl) resultEl.innerHTML = '';
+  if (svg) svg.style.transform = `rotate(${_wheelRotation}deg)`;
+
+  setTimeout(() => {
+    _wheelSpinning = false;
+    applyWheelUnlock(reward);
+    updateWheelHandle();
+    const stillAvail = wheelSpinsAvailable();
+    const sub = document.getElementById('wheel-sub');
+    if (sub) sub.textContent = t('wheelSpinsLine', stillAvail);
+    if (resultEl) {
+      const isJackpot = tier === 'jackpot';
+      const line = isJackpot
+        ? `<span class="wheel-win jackpot">${t('wheelJackpot')}${displayRank(reward.rank)}</span>`
+        : `<span class="wheel-win" style="color:${WHEEL_TIERS[tier].color}">${t('wheelResult', displayRank(reward.rank))}</span>`;
+      resultEl.innerHTML = line;
+    }
+    if (tier === 'jackpot' || tier === 'great') launchFireworks();
+    const btn2 = document.getElementById('wheel-spin-btn');
+    if (btn2) btn2.disabled = stillAvail <= 0;
+  }, 4300);
+}
+
+function openWheelModal() {
+  const modal = document.getElementById('wheel-modal');
+  if (!modal) return;
+  renderWheel();
+  modal.classList.remove('hidden');
+  lockBodyScroll(true);
+}
+
+function closeWheelModal() {
+  document.getElementById('wheel-modal')?.classList.add('hidden');
+  lockBodyScroll(false);
+}
+
+function setupWheelHandle() {
+  document.getElementById('wheel-handle')?.addEventListener('click', openWheelModal);
+  document.getElementById('wheel-backdrop')?.addEventListener('click', closeWheelModal);
+  document.getElementById('wheel-modal')?.addEventListener('click', e => {
+    if (e.target.closest('#wheel-close')) closeWheelModal();
+  });
+}
+
 // ─── Wordle unlock flow ───────────────────────────────────
 
 // Long targets get extra rows to stay fair (see wordleMaxAttempts).
@@ -2450,6 +2641,7 @@ async function init() {
     setupLangSwitcher();
     setupWordleHandle();
     setupSuggestHandle();
+    setupWheelHandle();
     setupKeyboardHandler();
     setupModalCloseButtons();
     setupShareButtons();

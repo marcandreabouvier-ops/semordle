@@ -56,13 +56,18 @@
     </div>
   </header>
 
-  <!-- Bottom tabs (languettes derrière l'input bar) : Wordle à gauche, Suggestions à droite -->
-  <button id="wordle-handle" aria-label="Open Wordle challenge">
-    <span id="wordle-handle-label">Wordle</span>
-  </button>
-  <button id="suggest-handle" aria-label="Open suggestions">
-    <span id="suggest-handle-label">Suggestions</span>
-  </button>
+  <!-- Bottom tabs (languettes derrière l'input bar) : Wordle · 3 mots · Wheel -->
+  <div id="bottom-tabs">
+    <button id="wordle-handle" aria-label="Open Wordle challenge">
+      <span id="wordle-handle-label">Wordle</span>
+    </button>
+    <button id="suggest-handle" aria-label="Open suggestions">
+      <span id="suggest-handle-label">Suggestions</span>
+    </button>
+    <button id="wheel-handle" aria-label="Open the wheel">
+      <span id="wheel-handle-label">Wheel</span>
+    </button>
+  </div>
 
   <!-- Suggestions panel (compact popup above the input bar) -->
   <div id="suggest-panel" role="dialog" aria-modal="false" aria-label="Suggestions">
@@ -72,6 +77,15 @@
     </div>
     <p id="suggest-hint"></p>
     <div id="suggest-words" aria-live="polite"></div>
+  </div>
+
+  <!-- Wheel modal (spin to unlock a closer word) -->
+  <div id="wheel-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Wheel of fortune">
+    <div class="modal-backdrop" id="wheel-backdrop"></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="wheel-close" aria-label="Close">✕</button>
+      <div id="wheel-content"></div>
+    </div>
   </div>
 
   <!-- Input bar (fixed bottom) -->
