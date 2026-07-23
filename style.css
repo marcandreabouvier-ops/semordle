@@ -1232,12 +1232,15 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 
 #guess-panel-body {
   flex: 1;
-  overflow-y: auto;
+  min-height: 0;
+  overflow: hidden;      /* the body itself no longer scrolls… */
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
+/* …only the ranked list scrolls, so "last guess" stays pinned at the top */
+#guess-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
 
 #guess-panel.collapsed { transform: translateX(calc(-100% - 14px)); }
 #guess-panel.collapsed #guess-panel-body { visibility: hidden; }

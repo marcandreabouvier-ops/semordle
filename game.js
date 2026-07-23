@@ -1822,20 +1822,33 @@ function closeWordlePanel() {
 
 // ─── Wordle unlock flow ───────────────────────────────────
 
+const MAX_WORDLE_LEN = 8; // keep the mini-game tractable — no brutal 10-12 letter grids
+
 function selectUnlockTarget() {
   const bestRank = gameState.stats.bestRank || 1001;
   const guessedWords = new Set(gameState.semanticGuesses.map(g => g.word.toLowerCase()));
   const unlockedWords = new Set(gameState.unlocks.map(w => w.toLowerCase()));
 
-  const pool = puzzle.words.filter(w => {
+  const eligible = (w) => {
     const lc = w.word.toLowerCase();
-    return w.rank < bestRank
+    return w.word.length <= MAX_WORDLE_LEN
       && !guessedWords.has(lc)
       && !unlockedWords.has(lc)
       && lc !== puzzle.secret.toLowerCase();
-  });
+  };
 
-  if (pool.length === 0) return null;
+  // Primary: a word CLOSER than your best rank — helps you progress.
+  const pool = puzzle.words.filter(w => w.rank < bestRank && eligible(w));
+
+  if (pool.length === 0) {
+    // Nothing closer left (e.g. you already found #2): unlock outward instead —
+    // the nearest ranked word you DON'T have yet (#3, then #4, …), so the
+    // Wordle never dead-ends once you've reached the closest neighbour.
+    const gaps = puzzle.words.filter(w => w.rank != null && eligible(w));
+    if (gaps.length === 0) return null;
+    gaps.sort((a, b) => a.rank - b.rank);
+    return gaps[0];
+  }
 
   const sorted = [...pool].sort((a, b) => a.rank - b.rank);
   const n = sorted.length;
