@@ -1846,17 +1846,20 @@ function closeWordlePanel() {
 // dead result — and rarity decides how close (jackpot = nearly the secret).
 
 const WHEEL_SPIN_EVERY = 50;
+// Colours echo the radar's temperature gradient (cold blue → scorching red),
+// each segment a planet-like disc (dark core → glowing rim).
 const WHEEL_TIERS = {
-  modest:  { color: '#40c4ff', band: [0.40, 1.00] }, // just a bit better than best
-  good:    { color: '#ffc400', band: [0.12, 0.40] },
-  great:   { color: '#ff7a1a', band: [0.02, 0.12] },
-  jackpot: { color: '#ff3d3d', band: [0.00, 0.02] }, // nearly the secret!
+  modest:  { color: '#3fa9e6', dark: '#0e2233', band: [0.40, 1.00] }, // a bit better than best
+  good:    { color: '#e6b23a', dark: '#33270a', band: [0.12, 0.40] },
+  great:   { color: '#ee7726', dark: '#331708', band: [0.02, 0.12] },
+  jackpot: { color: '#ff4a3a', dark: '#330a0a', band: [0.00, 0.02] }, // nearly the secret!
 };
 // 12 segments (6 modest / 3 good / 2 great / 1 jackpot), interleaved for variety
 const WHEEL_SEGMENTS = ['modest','good','modest','great','modest','good','modest','jackpot','modest','good','modest','great'];
 
 let _wheelRotation = 0;
 let _wheelSpinning = false;
+let _wheelRewards = []; // the 12 pre-drawn rewards (one per segment), shown as #ranks
 
 function wheelSpinsEarned() { return Math.floor((gameState?.stats?.semanticGuessCount || 0) / WHEEL_SPIN_EVERY); }
 function wheelSpinsAvailable() { return Math.max(0, wheelSpinsEarned() - (gameState?.stats?.wheelSpinsUsed || 0)); }
@@ -1874,15 +1877,6 @@ function eligibleWheelPool() {
     .sort((a, b) => a.rank - b.rank); // closest to the secret first
 }
 
-function pickWheelReward(tierKey, pool) {
-  if (!pool.length) return null;
-  const [lo, hi] = WHEEL_TIERS[tierKey].band;
-  const start = Math.floor(lo * pool.length);
-  const end = Math.max(start + 1, Math.floor(hi * pool.length));
-  const slice = pool.slice(start, end);
-  return slice[Math.floor(Math.random() * slice.length)] || pool[0];
-}
-
 // Show/hide the gold Wheel tab depending on whether a spin is available
 function updateWheelHandle() {
   const h = document.getElementById('wheel-handle');
@@ -1891,33 +1885,68 @@ function updateWheelHandle() {
   h.classList.toggle('available', show);
 }
 
-function buildWheelSvg() {
-  const cx = 50, cy = 50, r = 46;
-  const pt = (a) => [cx + r * Math.sin(a * Math.PI / 180), cy - r * Math.cos(a * Math.PI / 180)];
-  let paths = '';
-  for (let i = 0; i < 12; i++) {
-    const [x1, y1] = pt(i * 30), [x2, y2] = pt((i + 1) * 30);
-    const color = WHEEL_TIERS[WHEEL_SEGMENTS[i]].color;
-    paths += `<path d="M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z" fill="${color}" fill-opacity="0.82" stroke="rgba(5,10,7,0.85)" stroke-width="0.8"/>`;
-  }
-  return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true">${paths}<circle cx="50" cy="50" r="8" fill="#0a0f0c" stroke="rgba(255,255,255,0.25)" stroke-width="1"/></svg>`;
+// Draw 12 rewards, one per segment — pick a word from each segment's tier band,
+// distinct where possible. Returns array of {word, rank, tier} (or null if empty).
+function computeWheelRewards() {
+  const pool = eligibleWheelPool();
+  const used = new Set();
+  return WHEEL_SEGMENTS.map(tier => {
+    const [lo, hi] = WHEEL_TIERS[tier].band;
+    const start = Math.floor(lo * pool.length);
+    const end = Math.max(start + 1, Math.floor(hi * pool.length));
+    let cands = pool.slice(start, end).filter(w => !used.has(w.word));
+    if (!cands.length) cands = pool.filter(w => !used.has(w.word)); // fallback anywhere
+    if (!cands.length) return null;
+    const pick = cands[Math.floor(Math.random() * cands.length)];
+    used.add(pick.word);
+    return { word: pick.word, rank: pick.rank, tier };
+  });
 }
 
-function renderWheel() {
+function buildWheelSvg(rewards) {
+  const cx = 50, cy = 50, r = 46;
+  const pt = (a) => [cx + r * Math.sin(a * Math.PI / 180), cy - r * Math.cos(a * Math.PI / 180)];
+  const defs = Object.entries(WHEEL_TIERS).map(([k, t]) =>
+    `<radialGradient id="wg-${k}" gradientUnits="userSpaceOnUse" cx="${cx}" cy="${cy}" r="${r}">` +
+    `<stop offset="14%" stop-color="${t.dark}"/><stop offset="100%" stop-color="${t.color}"/></radialGradient>`).join('');
+  let segs = '', labels = '';
+  for (let i = 0; i < 12; i++) {
+    const [x1, y1] = pt(i * 30), [x2, y2] = pt((i + 1) * 30);
+    const tier = WHEEL_SEGMENTS[i];
+    segs += `<path d="M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z" fill="url(#wg-${tier})" stroke="rgba(5,10,7,0.9)" stroke-width="0.6"/>`;
+    const rw = rewards[i];
+    if (rw) {
+      const midA = (i + 0.5) * 30, lr = 32;
+      const lx = cx + lr * Math.sin(midA * Math.PI / 180);
+      const ly = cy - lr * Math.cos(midA * Math.PI / 180);
+      const rot = (midA > 90 && midA < 270) ? midA + 180 : midA; // keep numbers upright-ish
+      labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${rot.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="5" font-weight="700" fill="#fff" stroke="rgba(0,0,0,0.5)" stroke-width="0.5" paint-order="stroke" font-family="'JetBrains Mono', monospace">#${displayRank(rw.rank)}</text>`;
+    }
+  }
+  return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true"><defs>${defs}</defs>${segs}${labels}` +
+    `<circle cx="${cx}" cy="${cy}" r="11" fill="#05080a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/></svg>`;
+}
+
+function renderWheel(resultHtml) {
   const content = document.getElementById('wheel-content');
   if (!content) return;
   const avail = wheelSpinsAvailable();
+  _wheelRewards = computeWheelRewards();
+  const poolEmpty = _wheelRewards.every(r => !r);
+  const skin = skinById(_profile?.equipped || 'sun'); // the player's own star in the core
+  const hubHex = '#' + skin.glow.toString(16).padStart(6, '0');
+  const emptyMsg = poolEmpty ? `<span class="wheel-none">${t('wheelNoCloser')}</span>` : '';
   content.innerHTML = `
     <div class="how-to-content wheel-wrap">
       <h2>🎡 ${t('wheelTitle')}</h2>
       <p class="wheel-sub" id="wheel-sub">${t('wheelSpinsLine', avail)}</p>
       <div class="wheel-stage">
         <div class="wheel-pointer"></div>
-        ${buildWheelSvg()}
-        <div class="wheel-hub"></div>
+        ${buildWheelSvg(_wheelRewards)}
+        <div class="wheel-hub" style="--hub:${hubHex}"></div>
       </div>
-      <div id="wheel-result" class="wheel-result" aria-live="polite"></div>
-      <button id="wheel-spin-btn" ${avail > 0 ? '' : 'disabled'}>${t('wheelSpinBtn')}</button>
+      <div id="wheel-result" class="wheel-result" aria-live="polite">${resultHtml || emptyMsg}</div>
+      <button id="wheel-spin-btn" ${avail > 0 && !poolEmpty ? '' : 'disabled'}>${t('wheelSpinBtn')}</button>
       <p class="wheel-hint">${t('wheelHint')}</p>
     </div>`;
   const svg = content.querySelector('.wheel-svg');
@@ -1942,20 +1971,14 @@ function applyWheelUnlock(w) {
 
 function spinWheel() {
   if (_wheelSpinning || wheelSpinsAvailable() <= 0) return;
-  const pool = eligibleWheelPool();
-  const resultEl = document.getElementById('wheel-result');
-  if (pool.length === 0) { // already at the very top — nothing closer to give
-    if (resultEl) resultEl.innerHTML = `<span class="wheel-none">${t('wheelNoCloser')}</span>`;
-    return;
-  }
+  const seg = Math.floor(Math.random() * 12);   // fair: each segment equally likely
+  const reward = _wheelRewards[seg];
+  if (!reward) return;                            // nothing closer to give
   _wheelSpinning = true;
   gameState.stats.wheelSpinsUsed = (gameState.stats.wheelSpinsUsed || 0) + 1;
   saveState();
 
-  const seg = Math.floor(Math.random() * 12);        // fair: each segment equally likely
   const tier = WHEEL_SEGMENTS[seg];
-  const reward = pickWheelReward(tier, pool);
-
   // Rotate forward: several full turns, then land the chosen segment on top
   const turns = 5;
   const jitter = (Math.random() * 2 - 1) * 11;
@@ -1966,6 +1989,7 @@ function spinWheel() {
 
   const svg = document.querySelector('.wheel-svg');
   const btn = document.getElementById('wheel-spin-btn');
+  const resultEl = document.getElementById('wheel-result');
   if (btn) btn.disabled = true;
   if (resultEl) resultEl.innerHTML = '';
   if (svg) svg.style.transform = `rotate(${_wheelRotation}deg)`;
@@ -1974,19 +1998,12 @@ function spinWheel() {
     _wheelSpinning = false;
     applyWheelUnlock(reward);
     updateWheelHandle();
-    const stillAvail = wheelSpinsAvailable();
-    const sub = document.getElementById('wheel-sub');
-    if (sub) sub.textContent = t('wheelSpinsLine', stillAvail);
-    if (resultEl) {
-      const isJackpot = tier === 'jackpot';
-      const line = isJackpot
-        ? `<span class="wheel-win jackpot">${t('wheelJackpot')}${displayRank(reward.rank)}</span>`
-        : `<span class="wheel-win" style="color:${WHEEL_TIERS[tier].color}">${t('wheelResult', displayRank(reward.rank))}</span>`;
-      resultEl.innerHTML = line;
-    }
-    if (tier === 'jackpot' || tier === 'great') launchFireworks();
-    const btn2 = document.getElementById('wheel-spin-btn');
-    if (btn2) btn2.disabled = stillAvail <= 0;
+    const isJackpot = tier === 'jackpot';
+    const resultHtml = isJackpot
+      ? `<span class="wheel-win jackpot">${t('wheelJackpot')}${displayRank(reward.rank)}</span>`
+      : `<span class="wheel-win" style="color:${WHEEL_TIERS[tier].color}">${t('wheelResult', displayRank(reward.rank))}</span>`;
+    if (isJackpot || tier === 'great') launchFireworks();
+    renderWheel(resultHtml); // fresh numbers for the next spin + keep the result shown
   }, 4300);
 }
 
