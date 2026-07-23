@@ -1822,7 +1822,10 @@ function closeWordlePanel() {
 
 // ─── Wordle unlock flow ───────────────────────────────────
 
-const MAX_WORDLE_LEN = 8; // keep the mini-game tractable — no brutal 10-12 letter grids
+// Long targets get extra rows to stay fair (see wordleMaxAttempts).
+function wordleMaxAttempts(word) {
+  return WORDLE_MAX_ATTEMPTS + (word.length > 8 ? 1 : 0);
+}
 
 function selectUnlockTarget() {
   const bestRank = gameState.stats.bestRank || 1001;
@@ -1831,8 +1834,7 @@ function selectUnlockTarget() {
 
   const eligible = (w) => {
     const lc = w.word.toLowerCase();
-    return w.word.length <= MAX_WORDLE_LEN
-      && !guessedWords.has(lc)
+    return !guessedWords.has(lc)
       && !unlockedWords.has(lc)
       && lc !== puzzle.secret.toLowerCase();
   };
@@ -1909,6 +1911,7 @@ function startWordleChallenge() {
     solved: false,
     failed: false,
     keyStates: {},
+    maxAttempts: wordleMaxAttempts(target.word), // +1 bonus row for words > 8 letters
   };
 
   gameState.stats.unlockCount++;
@@ -1931,11 +1934,12 @@ function buildWordleHTML() {
 
   const { target, attempts, currentGuess, solved, failed } = wordleState;
   const wordLen = target.word.length;
+  const maxAttempts = wordleState.maxAttempts || WORDLE_MAX_ATTEMPTS;
   const activeRow = attempts.length;
   const isActive = !solved && !failed;
 
   let boardRows = '';
-  for (let i = 0; i < WORDLE_MAX_ATTEMPTS; i++) {
+  for (let i = 0; i < maxAttempts; i++) {
     const attempt = attempts[i] || null;
     const isCurrentRow = isActive && i === activeRow;
     const gridCols = `grid-template-columns: repeat(${wordLen}, 1fr)`;
@@ -1988,9 +1992,9 @@ function buildWordleHTML() {
       <div class="caption">${t('wordleHeader')}</div>
       <h3>${t('wordleTitle')}</h3>
       <p>${t('wordleDesc')}</p>
-      <p style="font-size:12px;color:var(--screen-muted)">${t('wordleLength', wordLen, WORDLE_MAX_ATTEMPTS - attempts.length)}</p>
+      <p style="font-size:12px;color:var(--screen-muted)">${t('wordleLength', wordLen, maxAttempts - attempts.length)}</p>
     </div>
-    <div class="wordle-board" role="grid" aria-label="Wordle guess board" style="--word-len:${wordLen}">
+    <div class="wordle-board" role="grid" aria-label="Wordle guess board" style="--word-len:${wordLen};--rows:${maxAttempts}">
       ${boardRows}
     </div>
     ${messageArea}
@@ -2131,7 +2135,7 @@ function submitWordleGuess() {
     wordleState.solved = true;
     renderWordleUI();
     handleWordleWin();
-  } else if (wordleState.attempts.length >= WORDLE_MAX_ATTEMPTS) {
+  } else if (wordleState.attempts.length >= (wordleState.maxAttempts || WORDLE_MAX_ATTEMPTS)) {
     wordleState.failed = true;
     renderWordleUI();
     handleWordleLoss();

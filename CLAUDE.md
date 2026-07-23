@@ -27,10 +27,13 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   JAMAIS faire gagner (le secret n'est pas dans puzzle.words). Cliquables : auto-submit
   puis SEUL le mot cliqué est remplacé (pickOneSuggestion) ; pour tout renouveler on
   ferme/rouvre. Pas de bouton reroll. Fermeture ✕ / clic-extérieur (composedPath) / switch langue.
-- Wordle : overlay slide-up quasi plein écran (languette ▲ Wordle) ; la grille se
-  dimensionne via `--word-len` (inline) + budget hauteur en `dvh`, et le clavier se
-  compresse (`@media max-height 760/600px`) pour que grille + clavier tiennent
-  TOUJOURS sans scroll, même sur écran court (zoom 250 %)
+- Wordle : overlay = **carte flottante** (coins arrondis 20px, ombre, marges — comme le
+  panneau « 3 mots »). La grille se dimensionne via `--word-len` + `--rows` (inline) et un
+  budget hauteur en `dvh` (`/ var(--rows) * var(--word-len)`), clavier compressé
+  (`@media max-height 760/600px`) → grille + clavier tiennent TOUJOURS sans scroll.
+  **Cibles > 8 lettres = +1 ligne bonus** (`wordleMaxAttempts` : 6 essais, 7 si >8 lettres,
+  stocké dans `wordleState.maxAttempts`). Le joueur peut taper n'importe quelles lettres
+  (pas de validation « mot réel » — choix assumé).
 - Top bar : passe sur 2 lignes sous 640px (sinon le switch EN/FR déborde de l'écran)
 - **Clavier mobile** : la scène 3D reste visible quand le clavier virtuel s'ouvre —
   Android via `interactive-widget=resizes-content` (meta viewport) + `resize3D()` ;

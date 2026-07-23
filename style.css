@@ -472,21 +472,21 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 
 /* === Wordle overlay (bottom sheet, quasi plein écran) === */
+/* Floating card (like the "3 words" panel): rounded all around, margins, shadow */
 #wordle-overlay {
   position: fixed;
-  bottom: 0;
+  bottom: 14px;
   left: 50%;
-  transform: translateX(-50%) translateY(100%);
-  width: min(600px, 100vw);
-  height: calc(100vh - 40px);
-  height: calc(100dvh - 40px);
+  transform: translateX(-50%) translateY(120%);
+  width: min(560px, calc(100vw - 28px));
+  height: calc(100vh - 68px);
+  height: calc(100dvh - 68px);
   z-index: 50;
   background: rgba(8,14,11,0.97);
   backdrop-filter: blur(24px);
-  border-top: 1px solid rgba(244,161,74,0.25);
-  border-left: 1px solid rgba(244,161,74,0.12);
-  border-right: 1px solid rgba(244,161,74,0.12);
-  border-radius: 20px 20px 0 0;
+  border: 1px solid rgba(244,161,74,0.22);
+  border-radius: 20px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.55);
   transition: transform 0.38s cubic-bezier(0.22,1,0.36,1);
   overflow-y: auto;
   display: flex;
@@ -809,8 +809,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   margin: 0 auto 16px;
   --word-len: 7;
   /* vh fallback first — browsers without dvh drop the second line only */
-  max-width: min(280px, calc((100vh - 500px) / 6 * var(--word-len)));
-  max-width: min(280px, calc((100dvh - 500px) / 6 * var(--word-len)));
+  max-width: min(280px, calc((100vh - 500px) / var(--rows, 6) * var(--word-len)));
+  max-width: min(280px, calc((100dvh - 500px) / var(--rows, 6) * var(--word-len)));
   min-width: calc(120px / 7 * var(--word-len));
   width: 100%;
 }
@@ -1033,15 +1033,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
     padding: 10px 12px env(safe-area-inset-bottom, 12px);
   }
 
-  #wordle-overlay {
-    left: 0;
-    transform: translateY(100%);
-    width: 100%;
-    border-radius: 16px 16px 0 0;
-  }
-  #wordle-overlay.open {
-    transform: translateY(0);
-  }
+  /* Wordle overlay keeps its floating-card style on mobile (base rule applies) */
 }
 
 /* === Short viewports: compress the Wordle overlay so board + keyboard fit === */
@@ -1053,8 +1045,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   #wordle-overlay-header { padding: 10px 20px 8px; }
   #wordle-overlay-body { padding-top: 10px; }
   .wordle-board {
-    max-width: min(280px, calc((100vh - 475px) / 6 * var(--word-len)));
-    max-width: min(280px, calc((100dvh - 475px) / 6 * var(--word-len)));
+    max-width: min(280px, calc((100vh - 475px) / var(--rows, 6) * var(--word-len)));
+    max-width: min(280px, calc((100dvh - 475px) / var(--rows, 6) * var(--word-len)));
   }
 }
 @media (max-height: 600px) {
@@ -1067,8 +1059,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   .partial-clues { margin-top: 6px; }
   .wordle-board {
     margin-bottom: 10px;
-    max-width: min(280px, calc((100vh - 390px) / 6 * var(--word-len)));
-    max-width: min(280px, calc((100dvh - 390px) / 6 * var(--word-len)));
+    max-width: min(280px, calc((100vh - 390px) / var(--rows, 6) * var(--word-len)));
+    max-width: min(280px, calc((100dvh - 390px) / var(--rows, 6) * var(--word-len)));
   }
 }
 
