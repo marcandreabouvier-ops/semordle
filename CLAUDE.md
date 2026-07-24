@@ -159,6 +159,15 @@ demande via `python generate_puzzle.py --manifest-only`. Le client filtre date �
 fenêtre glissante 10 j ; lister des dates proches du futur y est inoffensif (ni secret, et les
 JSON sont déjà URL-accessibles). Sert la liste du Mode Archives (bouton 🗓️).
 
+**Plomberie de chargement par date (J3)** : `_activeDate` (null = puzzle du jour ; sinon
+'YYYY-MM-DD' = rejeu d'archive) ; `activePuzzleDate()` = `_activeDate || getTodayDate()`, lu
+uniquement par `loadPuzzle()` (une archive charge sa date EXACTE, sans repli — un fichier
+manquant échoue proprement). `reloadForDate(dateStr|null)` sauvegarde l'état courant, pose
+`_activeDate`, réinitialise (`resetForReload()` — mutualisé avec le changement de langue) puis
+rappelle `init()`. La sauvegarde est par date (`semordle:{lang}:{date}`) → chaque archive a son
+propre état, aucune corruption du jour. Les météorites sont désactivées en archive
+(`isArchiveActive()`). Reste J4 : la liste + le bandeau « Archive #N ».
+
 **Règle anti-collision bilingue (depuis le 2026-07-24)** : les mots secrets EN et FR
 doivent former des **concepts disjoints** — jamais la traduction l'un de l'autre, même à
 des jours différents (sinon un joueur bilingue rejoue « lantern » 5 j après « lanterne »).

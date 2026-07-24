@@ -277,6 +277,11 @@ let gameState = null;
 let wordleState = null;
 let currentLang = localStorage.getItem('semordle:lang') || 'en';
 let _initialized = false;
+// null = the live puzzle (today). A 'YYYY-MM-DD' string = an Archive replay of a
+// past day. Only loadPuzzle() reads it; today's flow is unchanged when null.
+let _activeDate = null;
+function activePuzzleDate() { return _activeDate || getTodayDate(); }
+function isArchiveActive() { return _activeDate !== null && _activeDate !== getTodayDate(); }
 
 function t(key, ...args) {
   const val = I18N[currentLang]?.[key] ?? I18N.en[key];
@@ -458,13 +463,18 @@ function saveState() {
 // ─── Puzzle loading ───────────────────────────────────────
 
 async function loadPuzzle() {
-  const today = getTodayDate();
+  const target = activePuzzleDate();
   let loaded = null;
 
   try {
-    const res = await fetch(`data/${currentLang}/${today}.json`);
+    const res = await fetch(`data/${currentLang}/${target}.json`);
     if (res.ok) loaded = await res.json();
   } catch (e) { /* swallow */ }
+
+  // An Archive replay must load its exact date — no fallbacks (a missing archive
+  // file is a caller-visible failure). The fallbacks below are for the live puzzle
+  // only (e.g. today's file not generated yet → show the most recent day).
+  if (!loaded && _activeDate) return null;
 
   if (!loaded) {
     const d = new Date();
@@ -2138,6 +2148,7 @@ function meteorRandWait(range) { return range[0] + Math.random() * (range[1] - r
 // tab visible, no modal/overlay covering the cosmos, game unsolved, cap not hit.
 function meteorEligible() {
   if (!gameState || gameState.solved) return false;
+  if (isArchiveActive()) return false;   // meteors are a "today" mechanic, not for replays
   if ((gameState.stats.semanticGuessCount || 0) < METEOR_MIN_GUESSES) return false;
   if ((gameState.stats.meteorCatches || 0) >= METEOR_DAILY_CAP) return false;
   if (_meteors.length) return false;                  // one at a time
@@ -3158,6 +3169,8 @@ function setupArchiveModal() {
   modal?.addEventListener('click', e => {
     if (e.target.closest('#archive-close')) closeModal();
   });
+  // debug hook (gated) — used to test date-loading before the J4 list UI exists
+  if (localStorage.getItem('semordle:debug')) window._gxLoadDate = reloadForDate;
 }
 
 // ─── Star collection (sun skins) modal ────────────────────
@@ -3261,6 +3274,35 @@ function setupHowTo() {
   });
 }
 
+// Tear down the current game (state, hidden DOM, 3D scene, overlays) so init()
+// can rebuild it for a different language OR a different date. Shared by the
+// language switcher and the Archive date loader.
+function resetForReload() {
+  wordleState = null;
+  gameState   = null;
+  puzzle      = null;
+
+  const gl = document.getElementById('guess-list');
+  if (gl) gl.innerHTML = `<div class="guess-list-empty" id="guess-empty-state"><p>${t('emptyState')}</p></div>`;
+  const wc = document.getElementById('wordle-inline-content'); if (wc) wc.innerHTML = '';
+  const pc = document.getElementById('partial-clues');         if (pc) pc.innerHTML = '';
+  const ss = document.getElementById('share-section');         if (ss) ss.style.display = 'none';
+  const br = document.getElementById('best-rank-label');       if (br) br.textContent = '';
+
+  clearScene();
+  closeWordlePanel();
+  closeSuggestPanel();
+}
+
+// Switch the whole game to a given date. dateStr = 'YYYY-MM-DD' replays an
+// archived past day; dateStr = null returns to today's live puzzle.
+async function reloadForDate(dateStr) {
+  if (gameState) saveState();          // persist current day before leaving it
+  _activeDate = (dateStr && dateStr !== getTodayDate()) ? dateStr : null;
+  resetForReload();
+  await init();
+}
+
 function setupLangSwitcher() {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     if (btn._langBound) return;
@@ -3271,26 +3313,7 @@ function setupLangSwitcher() {
       saveState(); // persist current lang state before switching
       currentLang = lang;
       localStorage.setItem('semordle:lang', lang);
-
-      wordleState = null;
-      gameState   = null;
-      puzzle      = null;
-
-      // Reset hidden DOM
-      document.getElementById('guess-list').innerHTML =
-        `<div class="guess-list-empty" id="guess-empty-state"><p>${t('emptyState')}</p></div>`;
-      document.getElementById('wordle-inline-content').innerHTML = '';
-      document.getElementById('partial-clues').innerHTML = '';
-      document.getElementById('share-section').style.display = 'none';
-      document.getElementById('best-rank-label').textContent = '';
-
-      // Clear 3D scene
-      clearScene();
-
-      // Close overlays if open
-      closeWordlePanel();
-      closeSuggestPanel();
-
+      resetForReload();
       init();
     });
   });
