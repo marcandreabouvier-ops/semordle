@@ -71,6 +71,9 @@ const I18N = {
     bestRankShort:   (r) => `Best: #${r}`,
     unlockedBadge:   '🔓 Unlocked',
     guessCountLabel: (n) => `${n} ${n > 1 ? 'guesses' : 'guess'}`,
+    archiveAria:     'Archives — replay a recent day',
+    archiveTitle:    'Archives',
+    archiveSoon:     'Coming soon: replay any of the last 10 days you missed.',
     statsTitle:      'Your statistics',
     statsPlayed:     'Played',
     statsWon:        'Won',
@@ -177,6 +180,9 @@ const I18N = {
     bestRankShort:   (r) => `Meilleur : #${r}`,
     unlockedBadge:   '🔓 Débloqué',
     guessCountLabel: (n) => `${n} proposition${n > 1 ? 's' : ''}`,
+    archiveAria:     'Archives — rejouer un jour récent',
+    archiveTitle:    'Archives',
+    archiveSoon:     'Bientôt : rejoue un des 10 derniers jours que tu as manqués.',
     statsTitle:      'Vos statistiques',
     statsPlayed:     'Parties jouées',
     statsWon:        'Gagnées',
@@ -890,6 +896,9 @@ function applyI18n() {
   if (suggestTitle) suggestTitle.textContent = t('tabSuggest');
   const suggestHintEl = document.getElementById('suggest-hint');
   if (suggestHintEl) suggestHintEl.textContent = t('suggestHint');
+
+  const archiveBtn = document.getElementById('archive-btn');
+  if (archiveBtn) archiveBtn.setAttribute('aria-label', t('archiveAria'));
 
   // Win modal
   const winH2 = document.querySelector('.win-header h2');
@@ -2957,6 +2966,7 @@ async function init() {
     setupGuessPanel();
     setupHowTo();
     setupStatsModal();
+    setupArchiveModal();
     setupStarsModal();
     setupLangSwitcher();
     setupWordleHandle();
@@ -3118,6 +3128,35 @@ function setupStatsModal() {
   backdrop?.addEventListener('click', closeModal);
   modal?.addEventListener('click', e => {
     if (e.target.closest('#stats-close')) closeModal();
+  });
+}
+
+// ─── Archive modal (replay recent days) ───────────────────
+// Phase 1: styled 🗓️ button + modal shell. The scrollable day list + loading a
+// past date land in the next steps (manifest data/{lang}/archive.json, loadPuzzle
+// with an explicit date, "Archive #N" banner). See CLAUDE.md / roadmap.
+function openArchiveModal() {
+  const modal = document.getElementById('archive-modal');
+  const content = document.getElementById('archive-content');
+  if (!modal || !content) return;
+  content.innerHTML = `
+    <div class="how-to-content">
+      <h2>🗓️ ${t('archiveTitle')}</h2>
+      <p class="stats-empty">${t('archiveSoon')}</p>
+    </div>`;
+  modal.classList.remove('hidden');
+  lockBodyScroll(true);
+}
+
+function setupArchiveModal() {
+  const btn = document.getElementById('archive-btn');
+  const modal = document.getElementById('archive-modal');
+  const backdrop = document.getElementById('archive-backdrop');
+  const closeModal = () => { modal?.classList.add('hidden'); lockBodyScroll(false); };
+  btn?.addEventListener('click', openArchiveModal);
+  backdrop?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', e => {
+    if (e.target.closest('#archive-close')) closeModal();
   });
 }
 

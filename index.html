@@ -52,6 +52,13 @@
           <rect x="10"   y="1" width="3" height="12" rx="1"/>
         </svg>
       </button>
+      <button class="how-to-btn" id="archive-btn" aria-label="Archives">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="1.5" y="2.5" width="11" height="10" rx="1.6"/>
+          <path d="M1.5 5.5 H12.5"/>
+          <path d="M4.5 1 V3.5 M9.5 1 V3.5"/>
+        </svg>
+      </button>
       <div class="lang-switcher" role="group" aria-label="Language">
         <button class="lang-btn active" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
         <button class="lang-btn" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
@@ -173,6 +180,15 @@
     <div class="modal-content" role="document">
       <button class="modal-close" id="stars-close" aria-label="Close">✕</button>
       <div id="stars-content"></div>
+    </div>
+  </div>
+
+  <!-- Archive modal (replay recent past days) -->
+  <div id="archive-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Archives">
+    <div class="modal-backdrop" id="archive-backdrop"></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="archive-close" aria-label="Close">✕</button>
+      <div id="archive-content"></div>
     </div>
   </div>
 
