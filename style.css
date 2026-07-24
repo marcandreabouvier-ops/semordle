@@ -203,6 +203,35 @@ h1 {
 .how-to-btn:active {
   transform: scale(0.90);
 }
+/* Hover tooltip under the top-bar icons (mouse only — no sticky tips on touch) */
+@media (hover: hover) {
+  .how-to-btn[data-tip] { position: relative; }
+  .how-to-btn[data-tip]::after {
+    content: attr(data-tip);
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-3px);
+    padding: 4px 9px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    color: var(--screen-text);
+    font: 600 10px/1 'Inter', ui-sans-serif, sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 30;
+  }
+  .how-to-btn[data-tip]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
 
 /* === Language switcher === */
 .lang-switcher {

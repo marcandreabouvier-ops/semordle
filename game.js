@@ -79,6 +79,9 @@ const I18N = {
     archiveSolved:   'Solved',
     archiveProgress: 'In progress',
     archiveNew:      'Not started',
+    tipHowTo:        'About',
+    tipStats:        'Statistics',
+    tipArchive:      'Archives',
     statsTitle:      'Your statistics',
     statsPlayed:     'Played',
     statsWon:        'Won',
@@ -193,6 +196,9 @@ const I18N = {
     archiveSolved:   'Résolu',
     archiveProgress: 'En cours',
     archiveNew:      'À faire',
+    tipHowTo:        'À propos',
+    tipStats:        'Statistiques',
+    tipArchive:      'Archives',
     statsTitle:      'Vos statistiques',
     statsPlayed:     'Parties jouées',
     statsWon:        'Gagnées',
@@ -919,6 +925,9 @@ function applyI18n() {
 
   const archiveBtn = document.getElementById('archive-btn');
   if (archiveBtn) archiveBtn.setAttribute('aria-label', t('archiveAria'));
+  // Localized hover tooltips (mouse only — see CSS @media (hover: hover))
+  [['how-to-btn', 'tipHowTo'], ['stats-btn', 'tipStats'], ['archive-btn', 'tipArchive']]
+    .forEach(([id, key]) => document.getElementById(id)?.setAttribute('data-tip', t(key)));
   updatePuzzlePill();   // re-render the pill (its return label is localized)
 
   // Win modal
