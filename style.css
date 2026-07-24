@@ -1052,6 +1052,65 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 .close-win-btn:hover { color: var(--screen-text); border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); }
 
+/* === Archive mode (replay past days) === */
+#archive-banner {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 52px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 18;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 6px 5px 14px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--amber-dim);
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  max-width: calc(100vw - 24px);
+}
+#archive-banner-label {
+  color: var(--amber);
+  font: 800 12px/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+#archive-return-btn {
+  border: 1px solid var(--amber-dim);
+  background: rgba(244,161,74,0.12);
+  color: var(--amber);
+  font-weight: 700; font-size: 11px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+#archive-return-btn:hover { background: rgba(244,161,74,0.22); }
+
+.archive-intro { color: var(--screen-muted); font-size: 13px; margin: 0 0 14px; }
+.archive-empty { color: var(--screen-muted); font-size: 13px; text-align: center; padding: 22px 0; }
+.archive-list { display: flex; flex-direction: column; gap: 8px; }
+.archive-row {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 12px 14px;
+  background: rgba(45,212,191,0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  cursor: pointer; text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+.archive-row:hover { border-color: var(--phosphor); background: rgba(45,212,191,0.10); }
+.archive-row.is-active { border-color: var(--amber); background: rgba(244,161,74,0.08); }
+.archive-row-left { display: flex; align-items: baseline; gap: 10px; }
+.archive-row-num { font: 800 14px/1 'JetBrains Mono', monospace; color: var(--screen-text); }
+.archive-row-date { color: var(--screen-muted); font-size: 12px; text-transform: capitalize; }
+.archive-status { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.archive-status.s-solved   { color: #06120e; background: var(--phosphor); }
+.archive-status.s-progress { color: var(--amber); background: rgba(244,161,74,0.14); border: 1px solid var(--amber-dim); }
+.archive-status.s-new      { color: var(--screen-subtle); background: rgba(255,255,255,0.05); }
+
 /* === Utility === */
 .hidden { display: none !important; }
 

@@ -73,7 +73,13 @@ const I18N = {
     guessCountLabel: (n) => `${n} ${n > 1 ? 'guesses' : 'guess'}`,
     archiveAria:     'Archives — replay a recent day',
     archiveTitle:    'Archives',
-    archiveSoon:     'Coming soon: replay any of the last 10 days you missed.',
+    archiveIntro:    'Missed a day? Replay any of the last 10.',
+    archiveEmpty:    'No past days to replay yet — check back tomorrow!',
+    archiveReturn:   '← Back to today',
+    archiveBanner:   (n) => `Replaying #${n}`,
+    archiveSolved:   'Solved',
+    archiveProgress: 'In progress',
+    archiveNew:      'Not started',
     statsTitle:      'Your statistics',
     statsPlayed:     'Played',
     statsWon:        'Won',
@@ -182,7 +188,13 @@ const I18N = {
     guessCountLabel: (n) => `${n} proposition${n > 1 ? 's' : ''}`,
     archiveAria:     'Archives — rejouer un jour récent',
     archiveTitle:    'Archives',
-    archiveSoon:     'Bientôt : rejoue un des 10 derniers jours que tu as manqués.',
+    archiveIntro:    'Un jour manqué ? Rejoue un des 10 derniers.',
+    archiveEmpty:    'Aucun jour passé à rejouer pour l’instant — reviens demain !',
+    archiveReturn:   '← Revenir au jour J',
+    archiveBanner:   (n) => `Rejeu du #${n}`,
+    archiveSolved:   'Résolu',
+    archiveProgress: 'En cours',
+    archiveNew:      'À faire',
     statsTitle:      'Vos statistiques',
     statsPlayed:     'Parties jouées',
     statsWon:        'Gagnées',
@@ -909,6 +921,8 @@ function applyI18n() {
 
   const archiveBtn = document.getElementById('archive-btn');
   if (archiveBtn) archiveBtn.setAttribute('aria-label', t('archiveAria'));
+  const archiveReturn = document.getElementById('archive-return-btn');
+  if (archiveReturn) archiveReturn.textContent = t('archiveReturn');
 
   // Win modal
   const winH2 = document.querySelector('.win-header h2');
@@ -2992,6 +3006,7 @@ async function init() {
 
   setupSemanticInput();
   restoreState();
+  updateArchiveBanner();   // reflect live vs archive mode after (re)loading
 }
 
 function setupSemanticInput() {
@@ -3146,6 +3161,8 @@ function setupStatsModal() {
 // Phase 1: styled 🗓️ button + modal shell. The scrollable day list + loading a
 // past date land in the next steps (manifest data/{lang}/archive.json, loadPuzzle
 // with an explicit date, "Archive #N" banner). See CLAUDE.md / roadmap.
+const ARCHIVE_WINDOW_DAYS = 10;   // rolling window: the last N days are replayable
+
 function openArchiveModal() {
   const modal = document.getElementById('archive-modal');
   const content = document.getElementById('archive-content');
@@ -3153,10 +3170,92 @@ function openArchiveModal() {
   content.innerHTML = `
     <div class="how-to-content">
       <h2>🗓️ ${t('archiveTitle')}</h2>
-      <p class="stats-empty">${t('archiveSoon')}</p>
+      <p class="archive-intro">${t('archiveIntro')}</p>
+      <div id="archive-list" class="archive-list" aria-live="polite"></div>
     </div>`;
   modal.classList.remove('hidden');
   lockBodyScroll(true);
+  populateArchiveList();
+}
+
+// Status of a past day, read from its own saved state (no network).
+function archiveDayStatus(date) {
+  try {
+    const raw = localStorage.getItem(storageKey(date));
+    if (!raw) return 'new';
+    const s = JSON.parse(raw);
+    if (s.solved) return 'solved';
+    const played = (s.semanticGuesses && s.semanticGuesses.length)
+      || (s.stats && s.stats.semanticGuessCount);
+    return played ? 'progress' : 'new';
+  } catch (e) { return 'new'; }
+}
+
+function formatArchiveDate(date) {
+  const [y, m, d] = date.split('-').map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString(
+    currentLang === 'fr' ? 'fr-FR' : 'en-US',
+    { weekday: 'short', day: 'numeric', month: 'short' });
+}
+
+async function populateArchiveList() {
+  const listEl = document.getElementById('archive-list');
+  if (!listEl) return;
+  let manifest = [];
+  try {
+    const res = await fetch(`data/${currentLang}/archive.json`, { cache: 'no-store' });
+    if (res.ok) manifest = await res.json();
+  } catch (e) { /* offline — show empty */ }
+
+  const today = getTodayDate();
+  const c = new Date(); c.setDate(c.getDate() - ARCHIVE_WINDOW_DAYS);
+  const cutoff = `${c.getFullYear()}-${String(c.getMonth() + 1).padStart(2, '0')}-${String(c.getDate()).padStart(2, '0')}`;
+  // Past days only (today is the live puzzle), within the rolling window, newest first.
+  const days = manifest
+    .filter(e => e.date < today && e.date >= cutoff)
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .slice(0, ARCHIVE_WINDOW_DAYS);
+
+  if (!days.length) {
+    listEl.innerHTML = `<p class="archive-empty">${t('archiveEmpty')}</p>`;
+    return;
+  }
+  const statusKey = { solved: 'archiveSolved', progress: 'archiveProgress', new: 'archiveNew' };
+  listEl.innerHTML = days.map(e => {
+    const st = archiveDayStatus(e.date);
+    const active = _activeDate === e.date ? ' is-active' : '';
+    return `<button class="archive-row${active}" data-date="${e.date}">
+        <span class="archive-row-left">
+          <span class="archive-row-num">#${e.number}</span>
+          <span class="archive-row-date">${formatArchiveDate(e.date)}</span>
+        </span>
+        <span class="archive-status s-${st}">${t(statusKey[st])}</span>
+      </button>`;
+  }).join('');
+  listEl.querySelectorAll('.archive-row').forEach(row => {
+    row.addEventListener('click', () => {
+      document.getElementById('archive-modal')?.classList.add('hidden');
+      lockBodyScroll(false);
+      reloadForDate(row.dataset.date);
+    });
+  });
+}
+
+// The amber "you're in the past" banner, shown only during an archive replay.
+function updateArchiveBanner() {
+  const banner = document.getElementById('archive-banner');
+  if (!banner) return;
+  if (isArchiveActive() && puzzle) {
+    const label = document.getElementById('archive-banner-label');
+    if (label) label.textContent = t('archiveBanner', puzzle.puzzleNumber);
+    // Sit just below the top bar, whatever its height (1 row on desktop, 2 on
+    // narrow mobile) — dynamic positioning beats guessing a breakpoint.
+    const tb = document.getElementById('top-bar');
+    if (tb) banner.style.top = `${Math.round(tb.getBoundingClientRect().bottom) + 8}px`;
+    banner.classList.remove('hidden');
+  } else {
+    banner.classList.add('hidden');
+  }
 }
 
 function setupArchiveModal() {
@@ -3169,8 +3268,12 @@ function setupArchiveModal() {
   modal?.addEventListener('click', e => {
     if (e.target.closest('#archive-close')) closeModal();
   });
-  // debug hook (gated) — used to test date-loading before the J4 list UI exists
-  if (localStorage.getItem('semordle:debug')) window._gxLoadDate = reloadForDate;
+  document.getElementById('archive-return-btn')?.addEventListener('click', () => reloadForDate(null));
+  // Keep the banner glued under the top bar if the viewport changes (rotate/resize)
+  window.addEventListener('resize', () => {
+    if (!document.getElementById('archive-banner')?.classList.contains('hidden')) updateArchiveBanner();
+  });
+  if (localStorage.getItem('semordle:debug')) window._gxLoadDate = reloadForDate; // gated debug
 }
 
 // ─── Star collection (sun skins) modal ────────────────────
