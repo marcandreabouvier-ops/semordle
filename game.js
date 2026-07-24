@@ -75,8 +75,7 @@ const I18N = {
     archiveTitle:    'Archives',
     archiveIntro:    'Missed a day? Replay any of the last 10.',
     archiveEmpty:    'No past days to replay yet — check back tomorrow!',
-    archiveReturn:   '← Back to today',
-    archiveBanner:   (n) => `Replaying #${n}`,
+    archiveReturn:   'Back to today',
     archiveSolved:   'Solved',
     archiveProgress: 'In progress',
     archiveNew:      'Not started',
@@ -190,8 +189,7 @@ const I18N = {
     archiveTitle:    'Archives',
     archiveIntro:    'Un jour manqué ? Rejoue un des 10 derniers.',
     archiveEmpty:    'Aucun jour passé à rejouer pour l’instant — reviens demain !',
-    archiveReturn:   '← Revenir au jour J',
-    archiveBanner:   (n) => `Rejeu du #${n}`,
+    archiveReturn:   'Revenir au jour J',
     archiveSolved:   'Résolu',
     archiveProgress: 'En cours',
     archiveNew:      'À faire',
@@ -921,8 +919,7 @@ function applyI18n() {
 
   const archiveBtn = document.getElementById('archive-btn');
   if (archiveBtn) archiveBtn.setAttribute('aria-label', t('archiveAria'));
-  const archiveReturn = document.getElementById('archive-return-btn');
-  if (archiveReturn) archiveReturn.textContent = t('archiveReturn');
+  updatePuzzlePill();   // re-render the pill (its return label is localized)
 
   // Win modal
   const winH2 = document.querySelector('.win-header h2');
@@ -3006,7 +3003,7 @@ async function init() {
 
   setupSemanticInput();
   restoreState();
-  updateArchiveBanner();   // reflect live vs archive mode after (re)loading
+  updatePuzzlePill();   // teal today / amber "back to today" in archive mode
 }
 
 function setupSemanticInput() {
@@ -3241,20 +3238,23 @@ async function populateArchiveList() {
   });
 }
 
-// The amber "you're in the past" banner, shown only during an archive replay.
-function updateArchiveBanner() {
-  const banner = document.getElementById('archive-banner');
-  if (!banner) return;
-  if (isArchiveActive() && puzzle) {
-    const label = document.getElementById('archive-banner-label');
-    if (label) label.textContent = t('archiveBanner', puzzle.puzzleNumber);
-    // Sit just below the top bar, whatever its height (1 row on desktop, 2 on
-    // narrow mobile) — dynamic positioning beats guessing a breakpoint.
-    const tb = document.getElementById('top-bar');
-    if (tb) banner.style.top = `${Math.round(tb.getBoundingClientRect().bottom) + 8}px`;
-    banner.classList.remove('hidden');
+// The puzzle pill IS the archive indicator: teal "#202" when live, amber and
+// clickable ("🗓️ #199 · ← back to today") when replaying a past day.
+function updatePuzzlePill() {
+  const pill = document.getElementById('puzzle-pill');
+  if (!pill || !puzzle) return;
+  if (isArchiveActive()) {
+    pill.innerHTML = `🗓️ #${puzzle.puzzleNumber} · <span class="pill-return">← ${t('archiveReturn')}</span>`;
+    pill.classList.add('pill--archive');
+    pill.setAttribute('role', 'button');
+    pill.setAttribute('tabindex', '0');
+    pill.setAttribute('aria-label', t('archiveReturn'));
   } else {
-    banner.classList.add('hidden');
+    pill.textContent = `#${puzzle.puzzleNumber}`;
+    pill.classList.remove('pill--archive');
+    pill.removeAttribute('role');
+    pill.removeAttribute('tabindex');
+    pill.removeAttribute('aria-label');
   }
 }
 
@@ -3268,10 +3268,11 @@ function setupArchiveModal() {
   modal?.addEventListener('click', e => {
     if (e.target.closest('#archive-close')) closeModal();
   });
-  document.getElementById('archive-return-btn')?.addEventListener('click', () => reloadForDate(null));
-  // Keep the banner glued under the top bar if the viewport changes (rotate/resize)
-  window.addEventListener('resize', () => {
-    if (!document.getElementById('archive-banner')?.classList.contains('hidden')) updateArchiveBanner();
+  // The amber pill returns to today (click or keyboard) while in archive mode.
+  const pill = document.getElementById('puzzle-pill');
+  pill?.addEventListener('click', () => { if (isArchiveActive()) reloadForDate(null); });
+  pill?.addEventListener('keydown', e => {
+    if (isArchiveActive() && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); reloadForDate(null); }
   });
   if (localStorage.getItem('semordle:debug')) window._gxLoadDate = reloadForDate; // gated debug
 }

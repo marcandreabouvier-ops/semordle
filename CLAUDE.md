@@ -172,11 +172,11 @@ propre état, aucune corruption du jour. Les météorites sont désactivées en 
 manifeste `data/{lang}/archive.json`, garde les jours `date < aujourd'hui` ET dans la fenêtre
 `ARCHIVE_WINDOW_DAYS = 10`, du plus récent au plus ancien. Chaque ligne = #numéro + date
 localisée + pastille de statut (`archiveDayStatus` lit `semordle:{lang}:{date}` : résolu /
-en cours / à faire). Clic → `reloadForDate(date)`. Le bandeau ambre `#archive-banner`
-(« Rejeu du #N » + « ← Revenir au jour J » → `reloadForDate(null)`) s'affiche via
-`updateArchiveBanner()` (appelé en fin d'`init`), positionné **dynamiquement** sous la top-bar
-(hauteur variable : 1 rangée desktop / 2 mobile) + repositionné au resize. Reste J5 : streak
-qui ignore les archives + élagage des JSON > 10 j au workflow.
+en cours / à faire). Clic → `reloadForDate(date)`. **Pas de bandeau flottant** : c'est la **pilule `#puzzle-pill`**
+elle-même qui devient l'indicateur (`updatePuzzlePill()`, appelée en fin d'`init` et dans
+`applyI18n`) — teal `#202` aujourd'hui, **ambre** `🗓️ #199 · ← Revenir au jour J` cliquable en
+archive (classe `.pill--archive`, `role=button`, clic/Enter → `reloadForDate(null)`). Reste
+J5 : streak qui ignore les archives + élagage des JSON > 10 j au workflow.
 
 **Règle anti-collision bilingue (depuis le 2026-07-24)** : les mots secrets EN et FR
 doivent former des **concepts disjoints** — jamais la traduction l'un de l'autre, même à
