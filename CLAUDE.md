@@ -175,8 +175,15 @@ localisée + pastille de statut (`archiveDayStatus` lit `semordle:{lang}:{date}`
 en cours / à faire). Clic → `reloadForDate(date)`. **Pas de bandeau flottant** : c'est la **pilule `#puzzle-pill`**
 elle-même qui devient l'indicateur (`updatePuzzlePill()`, appelée en fin d'`init` et dans
 `applyI18n`) — teal `#202` aujourd'hui, **ambre** `🗓️ #199 · ← Revenir au jour J` cliquable en
-archive (classe `.pill--archive`, `role=button`, clic/Enter → `reloadForDate(null)`). Reste
-J5 : streak qui ignore les archives + élagage des JSON > 10 j au workflow.
+archive (classe `.pill--archive`, `role=button`, clic/Enter → `reloadForDate(null)`).
+
+**Streak vs archives (J5)** : `computePlayerStats` ne crédite la **série** qu'aux jours résolus
+LE JOUR MÊME (`fmt(new Date(st.solvedAt)) === date` du puzzle) — une archive résolue après coup
+a un `solvedAt` d'un autre jour et ne remplit donc pas la série. En revanche les archives
+comptent bien pour parties/victoires/moyenne/meilleure. **Élagage (J5)** : `prune_old(lang,
+keep_days)` supprime les JSON datés plus vieux que N jours (jamais archive.json/sample.json),
+appelé avant `build_manifest` ; le workflow passe `--prune-days 14` (marge > fenêtre 10 j) pour
+garder `data/` léger. Mode Archives = COMPLET.
 
 **Règle anti-collision bilingue (depuis le 2026-07-24)** : les mots secrets EN et FR
 doivent former des **concepts disjoints** — jamais la traduction l'un de l'autre, même à

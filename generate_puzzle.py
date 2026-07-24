@@ -169,6 +169,24 @@ def build_manifest(lang: str, outdir: str = None):
     print(f"Manifest: {manifest_path}  ({len(entries)} puzzles)")
 
 
+def prune_old(lang: str, keep_days: int, outdir: str = None):
+    """Delete dated puzzle files older than keep_days to keep data/ light for the
+    rolling Archives window. Never touches archive.json / sample.json. Run BEFORE
+    build_manifest so the manifest reflects what remains."""
+    directory = outdir or os.path.join("data", lang)
+    cutoff = (datetime.today().date() - timedelta(days=keep_days)).isoformat()
+    removed = 0
+    for path in glob.glob(os.path.join(directory, "*.json")):
+        name = os.path.basename(path)
+        if name in ("archive.json", "sample.json"):
+            continue
+        d = name[:-5]  # strip ".json" → 'YYYY-MM-DD'
+        if len(d) == 10 and d[:4].isdigit() and d < cutoff:
+            os.remove(path)
+            removed += 1
+    print(f"Pruned {removed} file(s) older than {cutoff} in {directory}")
+
+
 def save_puzzle(puzzle: dict, outdir: str = None):
     lang = puzzle.get("lang", "en")
     directory = outdir or os.path.join("data", lang)
@@ -204,6 +222,9 @@ def main():
                         help="With --schedule: regenerate even if the output file exists.")
     parser.add_argument("--manifest-only", action="store_true",
                         help="Rebuild data/<lang>/archive.json from existing files, generate nothing.")
+    parser.add_argument("--prune-days", type=int, default=None,
+                        help="After a --schedule batch, delete dated puzzle files older than N days "
+                             "(keeps data/ light for the rolling Archives window).")
 
     # Options
     parser.add_argument("--topn",   type=int, default=1000, help="Number of ranked neighbors (default 1000)")
@@ -249,10 +270,13 @@ def main():
                 model_path=args.model,
             )
             save_puzzle(puzzle, args.outdir)
-        # Keep the Archives manifests in sync after any batch run
+        # Prune old files first (if asked), then rebuild manifests to match
         for lang in ("en", "fr"):
-            if Path(os.path.join("data", lang)).is_dir():
-                build_manifest(lang, args.outdir)
+            if not Path(os.path.join("data", lang)).is_dir():
+                continue
+            if args.prune_days is not None:
+                prune_old(lang, args.prune_days, args.outdir)
+            build_manifest(lang, args.outdir)
     elif args.word:
         puzzle = generate_puzzle(
             secret=args.word,

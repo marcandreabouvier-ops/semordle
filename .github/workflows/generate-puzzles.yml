@@ -42,9 +42,9 @@ jobs:
       - name: Install dependencies
         run: pip install numpy --quiet
 
-      - name: Generate next 10 days of puzzles
+      - name: Generate next 10 days of puzzles (+ prune >14 days old, refresh manifests)
         run: |
-          python generate_puzzle.py --schedule schedule.csv --days-ahead 10
+          python generate_puzzle.py --schedule schedule.csv --days-ahead 10 --prune-days 14
 
       - name: Commit and push new puzzle files
         run: |

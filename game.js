@@ -3079,7 +3079,8 @@ function setupShareButtons() {
 
 function computePlayerStats() {
   const out = { played: 0, won: 0, totalGuessesWon: 0, best: null, streak: 0 };
-  const wonDays = new Set();
+  const fmt = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const wonDays = new Set();   // for the streak — SAME-DAY solves only
   const keyRe = new RegExp(`^${STORAGE_PREFIX}${currentLang}:(\\d{4}-\\d{2}-\\d{2})$`);
   for (let i = 0; i < localStorage.length; i++) {
     const m = (localStorage.key(i) || '').match(keyRe);
@@ -3088,17 +3089,19 @@ function computePlayerStats() {
       const st = JSON.parse(localStorage.getItem(m[0]));
       const n = st?.semanticGuesses?.length || 0;
       if (n === 0) continue;
-      out.played++;
+      out.played++;   // archives count toward played/won/avg/best…
       if (st.solved) {
         out.won++;
         out.totalGuessesWon += n;
         if (out.best == null || n < out.best) out.best = n;
-        wonDays.add(m[1]);
+        // …but the STREAK only credits days solved on that very day: an archive
+        // replayed later has solvedAt on a different date, so it doesn't fill it.
+        const solvedSameDay = !st.solvedAt || fmt(new Date(st.solvedAt)) === m[1];
+        if (solvedSameDay) wonDays.add(m[1]);
       }
     } catch (e) { /* corrupted entry — skip */ }
   }
-  // Streak: consecutive won days ending today (or yesterday if today is unplayed)
-  const fmt = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  // Streak: consecutive same-day wins ending today (or yesterday if today is unplayed)
   const d = new Date();
   if (!wonDays.has(fmt(d))) d.setDate(d.getDate() - 1);
   while (wonDays.has(fmt(d))) { out.streak++; d.setDate(d.getDate() - 1); }
