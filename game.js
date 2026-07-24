@@ -2318,6 +2318,7 @@ function setupMeteors() {
   if (localStorage.getItem('semordle:debug')) {
     window._gxMeteor = spawnMeteor;
     window._gxMeteors = () => _meteors;
+    window._gxSelectTarget = selectUnlockTarget;
   }
 }
 
@@ -2329,7 +2330,12 @@ function wordleMaxAttempts(word) {
 }
 
 function selectUnlockTarget() {
-  const bestRank = gameState.stats.bestRank || 1001;
+  // Solved? The secret (rank 0) becomes your "best", so every Wordle unlocks the
+  // next-closest word you're still missing (#2, #3, …) — same reverse path as
+  // having found #2, letting you complete the top ranks after winning.
+  // Unsolved: your real best rank (?? not ||, so a legit bestRank of 0 isn't
+  // silently turned into 1001).
+  const bestRank = gameState.solved ? 0 : (gameState.stats.bestRank ?? 1001);
   const guessedWords = new Set(gameState.semanticGuesses.map(g => g.word.toLowerCase()));
   const unlockedWords = new Set(gameState.unlocks.map(w => w.toLowerCase()));
 
@@ -2390,12 +2396,8 @@ function showWordleStartPrompt(container) {
 }
 
 function startWordleChallenge() {
-  if (gameState.solved) {
-    showSemanticMessage(t('alreadySolved'), 'info');
-    closeWordlePanel();
-    return;
-  }
-
+  // Still playable after the win: reverse Wordles let you complete the top ranks
+  // (selectUnlockTarget treats a solved puzzle as best = the secret).
   const target = selectUnlockTarget();
   if (!target) {
     const c = document.getElementById('wordle-inline-content');

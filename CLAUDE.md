@@ -222,6 +222,15 @@ restent 0-décalés (voisin le plus proche = rank 1). N'appliquer le décalage Q
 
 ### Wordle — règles spécifiques
 
+- **Choix du mot** (`selectUnlockTarget`) : normalement un mot **plus proche** que ton
+  meilleur rang (`w.rank < bestRank`, tirage pondéré vers les mots un peu plus loin pour ne
+  pas donner le top d'emblée). Bascule en **mode inverse** dès que ce pool est vide — ce qui
+  n'arrive que quand le #2 est trouvé (`bestRank` vaut alors 1, plus rien de plus proche) :
+  débloque alors le mot non-trouvé le plus proche vers l'extérieur (#2, puis #3…).
+- **Jouable après la victoire** (retour joueur 2026-07-24) : plus de blocage `gameState.solved`
+  dans `startWordleChallenge`. Une partie résolue force `bestRank = 0` dans `selectUnlockTarget`
+  → mode inverse depuis le secret, pour compléter le top des rangs. ⚠️ Utiliser `?? 1001` et NON
+  `|| 1001` (un `bestRank` de 0 = résolu serait sinon transformé en 1001 → mots lointains).
 - Comparaison **insensible aux accents** : `deaccent()` replie guess ET cible
   (« séjour » se joue « SEJOUR », le E compte pour É). L'écran de fin révèle le mot accentué.
 - Le handler « clic hors overlay → ferme » utilise `e.composedPath()` (PAS `contains(e.target)`) :
