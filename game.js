@@ -3244,7 +3244,7 @@ function updatePuzzlePill() {
   const pill = document.getElementById('puzzle-pill');
   if (!pill || !puzzle) return;
   if (isArchiveActive()) {
-    pill.innerHTML = `🗓️ #${puzzle.puzzleNumber} · <span class="pill-return">← ${t('archiveReturn')}</span>`;
+    pill.innerHTML = `#${puzzle.puzzleNumber} · <span class="pill-return">← ${t('archiveReturn')}</span>`;
     pill.classList.add('pill--archive');
     pill.setAttribute('role', 'button');
     pill.setAttribute('tabindex', '0');
