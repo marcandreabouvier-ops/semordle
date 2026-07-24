@@ -55,6 +55,7 @@ SECURITY NOTE
 import json
 import os
 import csv
+import glob
 import argparse
 import sys
 from datetime import datetime, timedelta
@@ -143,6 +144,31 @@ def generate_puzzle(secret: str, lang: str, date: str, puzzle_number: int,
     }
 
 
+def build_manifest(lang: str, outdir: str = None):
+    """Write data/<lang>/archive.json = [{date, number}] for the Archives list.
+    NO secrets — only date + puzzle number (safe to serve). Reads just each file's
+    head so it never loads the ~1 MB word arrays. The client filters to date <=
+    today and to the rolling window, so listing near-future files here is harmless
+    (dates/numbers aren't secret, and the JSONs are already URL-fetchable)."""
+    directory = outdir or os.path.join("data", lang)
+    entries = []
+    for path in sorted(glob.glob(os.path.join(directory, "*.json"))):
+        name = os.path.basename(path)
+        if name in ("archive.json", "sample.json"):
+            continue
+        try:
+            with open(path, encoding="utf-8") as f:
+                p = json.load(f)          # robust across every file format we've shipped
+            entries.append({"date": p["date"], "number": p["puzzleNumber"]})
+        except (json.JSONDecodeError, KeyError) as e:
+            print(f"  [manifest] skipping {name}: {e}")
+    entries.sort(key=lambda e: e["date"], reverse=True)  # most recent first
+    manifest_path = os.path.join(directory, "archive.json")
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(entries, f, separators=(",", ":"), ensure_ascii=False)
+    print(f"Manifest: {manifest_path}  ({len(entries)} puzzles)")
+
+
 def save_puzzle(puzzle: dict, outdir: str = None):
     lang = puzzle.get("lang", "en")
     directory = outdir or os.path.join("data", lang)
@@ -176,6 +202,8 @@ def main():
                              "the next N days AND whose output file does not already exist.")
     parser.add_argument("--force", action="store_true",
                         help="With --schedule: regenerate even if the output file exists.")
+    parser.add_argument("--manifest-only", action="store_true",
+                        help="Rebuild data/<lang>/archive.json from existing files, generate nothing.")
 
     # Options
     parser.add_argument("--topn",   type=int, default=1000, help="Number of ranked neighbors (default 1000)")
@@ -183,6 +211,12 @@ def main():
     parser.add_argument("--outdir", default=None, help="Output directory (overrides default data/<lang>/)")
 
     args = parser.parse_args()
+
+    if args.manifest_only:
+        for lang in ("en", "fr"):
+            if Path(os.path.join("data", lang)).is_dir():
+                build_manifest(lang, args.outdir)
+        return
 
     if args.schedule:
         with open(args.schedule, encoding="utf-8") as f:
@@ -215,6 +249,10 @@ def main():
                 model_path=args.model,
             )
             save_puzzle(puzzle, args.outdir)
+        # Keep the Archives manifests in sync after any batch run
+        for lang in ("en", "fr"):
+            if Path(os.path.join("data", lang)).is_dir():
+                build_manifest(lang, args.outdir)
     elif args.word:
         puzzle = generate_puzzle(
             secret=args.word,

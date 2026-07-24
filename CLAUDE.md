@@ -152,6 +152,13 @@ Temps : ~5 s par puzzle (chargement modèle amorti en batch). Sortie dans `data/
 Le mot secret DOIT exister dans le modèle (le script échoue sinon) — vérifier avant
 d'ajouter un mot au schedule.
 
+**Manifeste Archives** `data/{lang}/archive.json` = `[{date, number}]` trié du plus récent
+au plus ancien, **sans aucun mot secret** (sûr à servir). Reconstruit par `build_manifest()`
+à la fin de chaque batch `--schedule` (donc le cron du lundi le met à jour tout seul), ou à la
+demande via `python generate_puzzle.py --manifest-only`. Le client filtre date ≤ aujourd'hui +
+fenêtre glissante 10 j ; lister des dates proches du futur y est inoffensif (ni secret, et les
+JSON sont déjà URL-accessibles). Sert la liste du Mode Archives (bouton 🗓️).
+
 **Règle anti-collision bilingue (depuis le 2026-07-24)** : les mots secrets EN et FR
 doivent former des **concepts disjoints** — jamais la traduction l'un de l'autre, même à
 des jours différents (sinon un joueur bilingue rejoue « lantern » 5 j après « lanterne »).
