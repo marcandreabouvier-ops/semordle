@@ -1887,22 +1887,50 @@ function updateWheelHandle() {
   h.classList.toggle('available', show);
 }
 
-// Draw 12 rewards, one per segment — pick a word from each segment's tier band,
-// distinct where possible. Returns array of {word, rank, tier} (or null if empty).
+// Which tier lands on which of the 12 segments (interleaved for visual variety).
+// Rarity order, closest→farthest: jackpot → great → good → modest.
+const WHEEL_LAYOUT = [
+  { tier: 'jackpot', segs: [7] },
+  { tier: 'great',   segs: [3, 11] },
+  { tier: 'good',    segs: [1, 5, 9] },
+  { tier: 'modest',  segs: [0, 2, 4, 6, 8, 10] },
+];
+
+// Draw 12 rewards (one per segment). We pick 12 distinct words biased toward the
+// close end of the pool, sort them, then hand the CLOSEST to the rarest tier — so
+// the #rank is ALWAYS monotonic with the planet colour (red jackpot = smallest,
+// blue modest = largest). No more band-overlap inversions on a thin pool.
 function computeWheelRewards() {
-  const pool = eligibleWheelPool();
-  const used = new Set();
-  return WHEEL_SEGMENTS.map(tier => {
-    const [lo, hi] = WHEEL_TIERS[tier].band;
-    const start = Math.floor(lo * pool.length);
-    const end = Math.max(start + 1, Math.floor(hi * pool.length));
-    let cands = pool.slice(start, end).filter(w => !used.has(w.word));
-    if (!cands.length) cands = pool.filter(w => !used.has(w.word)); // fallback anywhere
-    if (!cands.length) return null;
-    const pick = cands[Math.floor(Math.random() * cands.length)];
-    used.add(pick.word);
-    return { word: pick.word, rank: pick.rank, tier };
-  });
+  const pool = eligibleWheelPool();           // ascending by rank (closest first)
+  const rewards = new Array(12).fill(null);
+  const n = pool.length;
+  if (!n) return rewards;
+
+  const NEED = 12;
+  const usedIdx = new Set();
+  const picks = [];
+  for (let k = 0; k < NEED; k++) {
+    const q = k / NEED;                        // 0 … ~0.92
+    const biased = Math.pow(q, 1.7);           // squash toward the close end
+    let idx = Math.min(n - 1, Math.floor(biased * n + Math.random() * (n / NEED)));
+    while (usedIdx.has(idx) && idx < n - 1) idx++;
+    while (usedIdx.has(idx) && idx > 0) idx--;
+    if (usedIdx.has(idx)) break;               // pool exhausted (very thin endgame)
+    usedIdx.add(idx);
+    picks.push(pool[idx]);
+  }
+  picks.sort((a, b) => a.rank - b.rank);       // closest first → rarest tiers
+  // thin endgame: pad with the farthest word so ordering (and colours) stay monotonic
+  while (picks.length && picks.length < NEED) picks.push(picks[picks.length - 1]);
+
+  let p = 0;
+  for (const { tier, segs } of WHEEL_LAYOUT) {
+    for (const s of segs) {
+      const w = picks[p++];
+      if (w) rewards[s] = { word: w.word, rank: w.rank, tier };
+    }
+  }
+  return rewards;
 }
 
 function buildWheelSvg(rewards) {
@@ -1932,23 +1960,23 @@ function buildWheelSvg(rewards) {
       bodies += `<circle cx="${px.toFixed(2)}" cy="${py.toFixed(2)}" r="${PLANET_R + (tier === 'jackpot' ? 2.0 : 1.5)}" fill="${WHEEL_TIERS[tier].color}" opacity="${tier === 'jackpot' ? 0.22 : 0.14}"/>`;
     }
     bodies += `<circle cx="${px.toFixed(2)}" cy="${py.toFixed(2)}" r="${PLANET_R}" fill="url(#wg-${tier})" stroke="rgba(0,0,0,0.35)" stroke-width="0.4"/>`;
-    // #rank just inside the planet, aligned along the slice axis (casino-roulette style),
-    // flipped on the lower half so it never reads upside down
+    // #rank just inside the planet, aligned along the slice axis (casino-roulette style)
     const lr = 22;
     const lx = cx + lr * Math.sin(midA * Math.PI / 180);
     const ly = cy - lr * Math.cos(midA * Math.PI / 180);
-    const rot = (midA > 90 && midA < 270) ? midA + 180 : midA;
-    labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${rot.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="4.4" font-weight="700" fill="#f2f5f8" stroke="rgba(0,0,0,0.6)" stroke-width="0.55" paint-order="stroke" font-family="'JetBrains Mono', monospace">#${displayRank(rw.rank)}</text>`;
+    labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${midA.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="4.4" font-weight="700" fill="#f2f5f8" stroke="rgba(0,0,0,0.6)" stroke-width="0.55" paint-order="stroke" font-family="'JetBrains Mono', monospace">#${displayRank(rw.rank)}</text>`;
   }
   return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true"><defs>${defs}</defs>${segs}${bodies}${labels}` +
     `<circle cx="${cx}" cy="${cy}" r="8" fill="#05080a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/></svg>`;
 }
 
+// Draws the current `_wheelRewards` — it does NOT redraw them, so the numbers the
+// player sees stay stable across a spin (what you land on = what you win).
+// Callers compute _wheelRewards when a fresh wheel is wanted (openWheelModal).
 function renderWheel(resultHtml) {
   const content = document.getElementById('wheel-content');
   if (!content) return;
   const avail = wheelSpinsAvailable();
-  _wheelRewards = computeWheelRewards();
   const poolEmpty = _wheelRewards.every(r => !r);
   const skin = skinById(_profile?.equipped || 'sun'); // the player's own star in the core
   const hubHex = '#' + skin.glow.toString(16).padStart(6, '0');
@@ -1987,9 +2015,17 @@ function applyWheelUnlock(w) {
 
 function spinWheel() {
   if (_wheelSpinning || wheelSpinsAvailable() <= 0) return;
-  const seg = Math.floor(Math.random() * 12);   // fair: each segment equally likely
+  // Land only on a segment that still holds a giveable word (skip empty slices and
+  // words already won earlier on this same open wheel) — no wasted spins, no dup wins.
+  const alreadyWon = new Set(gameState.unlocks.map(w => w.toLowerCase()));
+  const candSegs = [];
+  for (let i = 0; i < 12; i++) {
+    const rw = _wheelRewards[i];
+    if (rw && !alreadyWon.has(rw.word.toLowerCase())) candSegs.push(i);
+  }
+  if (!candSegs.length) return;                   // nothing closer left to give
+  const seg = candSegs[Math.floor(Math.random() * candSegs.length)]; // fair among giveable
   const reward = _wheelRewards[seg];
-  if (!reward) return;                            // nothing closer to give
   _wheelSpinning = true;
   gameState.stats.wheelSpinsUsed = (gameState.stats.wheelSpinsUsed || 0) + 1;
   saveState();
@@ -2019,13 +2055,14 @@ function spinWheel() {
       ? `<span class="wheel-win jackpot">${t('wheelJackpot')}${displayRank(reward.rank)}</span>`
       : `<span class="wheel-win" style="color:${WHEEL_TIERS[tier].color}">${t('wheelResult', displayRank(reward.rank))}</span>`;
     if (isJackpot || tier === 'great') launchFireworks();
-    renderWheel(resultHtml); // fresh numbers for the next spin + keep the result shown
+    renderWheel(resultHtml); // same wheel, pointer stays on the won slice + show result
   }, 4300);
 }
 
 function openWheelModal() {
   const modal = document.getElementById('wheel-modal');
   if (!modal) return;
+  _wheelRewards = computeWheelRewards(); // fresh draw each time the wheel is opened
   renderWheel();
   modal.classList.remove('hidden');
   lockBodyScroll(true);
