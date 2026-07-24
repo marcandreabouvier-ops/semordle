@@ -50,6 +50,11 @@ const I18N = {
     partialTitle:    'Partial clues from lost challenges',
     shareGuessLine:  (n) => `🧠 ${n} semantic guess${n !== 1 ? 'es' : ''}`,
     shareUnlockLine: (n) => `🔓 ${n} unlock${n !== 1 ? 's' : ''}`,
+    shareWordle:     (n) => `🎯 ${n} Wordle`,
+    shareWheel:      (n) => `🎡 ${n} wheel`,
+    shareMeteor:     (n) => `☄️ ${n} meteor${n !== 1 ? 's' : ''}`,
+    meteorCatch:     (r) => `☄️ Shooting star! Word #${r} unlocked`,
+    meteorCatchHot:  (r) => `🔥 Red meteor! #${r} — top 20!`,
     shareCaption:    'Share your result',
     copyBtn:         '📋 Copy to clipboard',
     copiedOk:        '✓ Copied to clipboard!',
@@ -151,6 +156,11 @@ const I18N = {
     partialTitle:    'Indices partiels des défis perdus',
     shareGuessLine:  (n) => `🧠 ${n} proposition${n !== 1 ? 's' : ''}`,
     shareUnlockLine: (n) => `🔓 ${n} indice${n !== 1 ? 's' : ''}`,
+    shareWordle:     (n) => `🎯 ${n} Wordle`,
+    shareWheel:      (n) => `🎡 ${n} roue`,
+    shareMeteor:     (n) => `☄️ ${n} météore${n !== 1 ? 's' : ''}`,
+    meteorCatch:     (r) => `☄️ Étoile filante ! Mot #${r} débloqué`,
+    meteorCatchHot:  (r) => `🔥 Météore rouge ! #${r} — top 20 !`,
     shareCaption:    'Partager votre résultat',
     copyBtn:         '📋 Copier dans le presse-papier',
     copiedOk:        '✓ Copié !',
@@ -424,6 +434,7 @@ function createFreshState(puzzleDate) {
       unlockCount: 0,
       wordleWinCount: 0,
       wheelSpinsUsed: 0,
+      meteorCatches: 0,
       bestRank: null,
     },
   };
@@ -2081,6 +2092,227 @@ function setupWheelHandle() {
   });
 }
 
+// ─── Shooting stars (meteors) ─────────────────────────────
+// A meteor streaks across the cosmos at rare, irregular intervals; click it
+// before it leaves the screen to unlock a word. Blue = frequent/cold word,
+// orange = warm, red = rare/top 20. Rewards attentive presence — the only
+// helper that turns the cosmos into a living place that can gift you.
+
+const METEOR_MIN_GUESSES = 15;              // no meteors until real play happened
+const METEOR_DAILY_CAP   = 3;               // catches per day (state is per-day)
+const METEOR_FIRST_MS    = [60e3, 150e3];   // discovery: first one comes quicker
+const METEOR_WAIT_MS     = [240e3, 600e3];  // then every 4–10 min of ACTIVE play
+const METEOR_TIERS = {
+  blue:   { weight: 0.60, color: '#4aa3e6', glow: '#8fd0ff', dur: 4000, band: [250, 10000] }, // cold word
+  orange: { weight: 0.30, color: '#ee7726', glow: '#ffc79a', dur: 3400, band: [20, 250] },    // warm word
+  red:    { weight: 0.10, color: '#ff4a3a', glow: '#ffb3ab', dur: 2800, band: [1, 20] },      // top 20!
+};
+
+let _meteors = [];            // in-flight meteors
+let _meteorParts = [];        // catch-burst particles
+let _meteorRAF = null;
+let _meteorActiveMs = 0;      // accumulated active-play ms since last spawn
+let _meteorNextAt = null;     // active-ms threshold for the next spawn
+let _meteorHadFirst = false;  // first-of-session uses the shorter window
+
+function meteorRandWait(range) { return range[0] + Math.random() * (range[1] - range[0]); }
+
+// Timer only runs while the player is actually here and the sky is clear:
+// tab visible, no modal/overlay covering the cosmos, game unsolved, cap not hit.
+function meteorEligible() {
+  if (!gameState || gameState.solved) return false;
+  if ((gameState.stats.semanticGuessCount || 0) < METEOR_MIN_GUESSES) return false;
+  if ((gameState.stats.meteorCatches || 0) >= METEOR_DAILY_CAP) return false;
+  if (_meteors.length) return false;                  // one at a time
+  if (document.visibilityState !== 'visible') return false;
+  if (document.querySelector('.modal:not(.hidden)')) return false;
+  if (document.getElementById('wordle-overlay')?.classList.contains('open')) return false;
+  return true;
+}
+
+function meteorPool(tier) {
+  const [lo, hi] = METEOR_TIERS[tier].band;
+  const guessed = new Set(gameState.semanticGuesses.map(g => g.word.toLowerCase()));
+  const unlocked = new Set(gameState.unlocks.map(w => w.toLowerCase()));
+  const secret = puzzle.secret.toLowerCase();
+  const free = (w) => w.rank != null && !guessed.has(w.word.toLowerCase())
+    && !unlocked.has(w.word.toLowerCase()) && w.word.toLowerCase() !== secret;
+  let cands = puzzle.words.filter(w => free(w) && w.rank >= lo && w.rank < hi);
+  if (!cands.length) {
+    // band exhausted (endgame): fall back to whatever is left, nearest the band
+    const center = (lo + Math.min(hi, 1000)) / 2;
+    cands = puzzle.words.filter(free)
+      .sort((a, b) => Math.abs(a.rank - center) - Math.abs(b.rank - center))
+      .slice(0, 5);
+  }
+  return cands;
+}
+
+function drawMeteorTier() {
+  const roll = Math.random();
+  let acc = 0;
+  for (const [k, tc] of Object.entries(METEOR_TIERS)) {
+    acc += tc.weight;
+    if (roll < acc) return k;
+  }
+  return 'blue';
+}
+
+function spawnMeteor(tierKey) {
+  const tier = tierKey || drawMeteorTier();
+  const pool = meteorPool(tier);
+  if (!pool.length) return;                           // nothing left to give
+  const word = pool[Math.floor(Math.random() * pool.length)];
+  const W = window.innerWidth, H = window.innerHeight;
+  const ltr = Math.random() < 0.5;
+  const y0 = H * (0.10 + Math.random() * 0.30);
+  const y1 = H * (0.35 + Math.random() * 0.35);      // stays in the upper 2/3
+  const p0 = { x: ltr ? -60 : W + 60, y: y0 };
+  const p1 = { x: ltr ? W + 60 : -60, y: y1 };
+  const cp = { x: (p0.x + p1.x) / 2, y: Math.min(y0, y1) - H * 0.12 };
+  _meteors.push({ tier, word, t0: performance.now(), dur: METEOR_TIERS[tier].dur, p0, p1, cp, trail: [] });
+  startMeteorLoop();
+}
+
+function meteorPos(m, t) {
+  const u = 1 - t;
+  return { x: u * u * m.p0.x + 2 * u * t * m.cp.x + t * t * m.p1.x,
+           y: u * u * m.p0.y + 2 * u * t * m.cp.y + t * t * m.p1.y };
+}
+
+function meteorCanvasCtx() {
+  const cv = document.getElementById('meteor-canvas');
+  if (!cv) return null;
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  if (cv.width !== innerWidth * dpr || cv.height !== innerHeight * dpr) {
+    cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
+  }
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return ctx;
+}
+
+function startMeteorLoop() {
+  if (_meteorRAF) return;
+  const frame = (now) => {
+    const ctx = meteorCanvasCtx();
+    if (!ctx) { _meteorRAF = null; return; }
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    for (let i = _meteors.length - 1; i >= 0; i--) {
+      const m = _meteors[i];
+      const t = (now - m.t0) / m.dur;
+      if (t >= 1) { _meteors.splice(i, 1); continue; } // missed — it just flies away
+      const pos = meteorPos(m, t);
+      m.trail.push(pos);
+      if (m.trail.length > 26) m.trail.shift();
+      const tc = METEOR_TIERS[m.tier];
+      for (let k = 1; k < m.trail.length; k++) {
+        const a = k / m.trail.length;
+        ctx.globalAlpha = a * 0.75;
+        ctx.strokeStyle = tc.color;
+        ctx.lineWidth = a * 4.2; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(m.trail[k - 1].x, m.trail[k - 1].y); ctx.lineTo(m.trail[k].x, m.trail[k].y); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      ctx.shadowColor = tc.color; ctx.shadowBlur = 14;
+      ctx.fillStyle = tc.glow;
+      ctx.beginPath(); ctx.arc(pos.x, pos.y, 3.4, 0, 6.28); ctx.fill();
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(pos.x, pos.y, 1.8, 0, 6.28); ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+    for (let i = _meteorParts.length - 1; i >= 0; i--) {
+      const p = _meteorParts[i];
+      p.x += p.vx; p.y += p.vy; p.vx *= 0.96; p.vy *= 0.96; p.life -= 0.025;
+      if (p.life <= 0) { _meteorParts.splice(i, 1); continue; }
+      ctx.globalAlpha = p.life; ctx.fillStyle = p.c;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 2.2 * p.life + 0.6, 0, 6.28); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    if (_meteors.length || _meteorParts.length) {
+      _meteorRAF = requestAnimationFrame(frame);
+    } else {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      _meteorRAF = null;
+    }
+  };
+  _meteorRAF = requestAnimationFrame(frame);
+}
+
+function showMeteorToast(html, color) {
+  const el = document.getElementById('meteor-toast');
+  if (!el) return;
+  el.innerHTML = html;
+  el.style.setProperty('--tc', color);
+  el.classList.add('show');
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+function catchMeteor(m, x, y) {
+  if ((gameState.stats.meteorCatches || 0) >= METEOR_DAILY_CAP) return;
+  _meteors = _meteors.filter(o => o !== m);
+  const tc = METEOR_TIERS[m.tier];
+  for (let i = 0; i < 26; i++) {
+    const a = Math.random() * 6.28, v = 1 + Math.random() * 3.2;
+    _meteorParts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1, c: i % 3 ? tc.color : tc.glow });
+  }
+  startMeteorLoop();
+  const w = m.word;
+  const displayScore = normalizeScore(w.score, puzzle.hints);
+  const entry = { word: w.word, rank: w.rank, score: w.score, displayScore, unlocked: true };
+  gameState.semanticGuesses.unshift(entry);
+  gameState.unlocks.push(w.word);
+  gameState.stats.meteorCatches = (gameState.stats.meteorCatches || 0) + 1;
+  if (gameState.stats.bestRank === null || w.rank < gameState.stats.bestRank) {
+    gameState.stats.bestRank = w.rank;
+  }
+  saveState();
+  renderGuessCard(entry);
+  updateBestRankLabel();
+  hideEmptyState();
+  const msg = m.tier === 'red' ? t('meteorCatchHot', displayRank(w.rank)) : t('meteorCatch', displayRank(w.rank));
+  showMeteorToast(msg, tc.color);
+  if (m.tier === 'red') launchFireworks();
+}
+
+function setupMeteors() {
+  // heartbeat: accumulate active-play time, spawn when the threshold is crossed
+  setInterval(() => {
+    if (!meteorEligible()) return;
+    if (_meteorNextAt === null) {
+      _meteorNextAt = meteorRandWait(_meteorHadFirst ? METEOR_WAIT_MS : METEOR_FIRST_MS);
+      _meteorHadFirst = true;
+    }
+    _meteorActiveMs += 1000;
+    if (_meteorActiveMs >= _meteorNextAt) {
+      _meteorActiveMs = 0;
+      _meteorNextAt = meteorRandWait(METEOR_WAIT_MS);
+      spawnMeteor();
+    }
+  }, 1000);
+
+  // generous invisible hitbox: head + recent trail, bigger on touch
+  window.addEventListener('pointerdown', (e) => {
+    if (!_meteors.length) return;
+    const hitR = e.pointerType === 'touch' ? 56 : 46;
+    for (const m of _meteors) {
+      const pts = m.trail.slice(-10);
+      if (pts.some(p => (p.x - e.clientX) ** 2 + (p.y - e.clientY) ** 2 < hitR * hitR)) {
+        e.preventDefault(); e.stopPropagation();
+        catchMeteor(m, e.clientX, e.clientY);
+        break;
+      }
+    }
+  }, true);
+
+  // debug hooks, only with localStorage flag (never advertised)
+  if (localStorage.getItem('semordle:debug')) {
+    window._gxMeteor = spawnMeteor;
+    window._gxMeteors = () => _meteors;
+  }
+}
+
 // ─── Wordle unlock flow ───────────────────────────────────
 
 // Long targets get extra rows to stay fair (see wordleMaxAttempts).
@@ -2510,21 +2742,30 @@ function renderPartialClues() {
 
 // ─── Share card ───────────────────────────────────────────
 
+// Words actually unlocked, split by source (won Wordles / wheel spins / meteor
+// catches). Failed Wordles only yield a partial clue, so they don't count here.
+function unlockBreakdown() {
+  const s = gameState.stats;
+  const parts = [
+    { n: s.wordleWinCount || 0, key: 'shareWordle' },
+    { n: s.wheelSpinsUsed || 0, key: 'shareWheel' },  // every spin lands a word
+    { n: s.meteorCatches || 0,  key: 'shareMeteor' },
+  ].filter(p => p.n > 0);
+  return { total: parts.reduce((a, p) => a + p.n, 0), parts };
+}
+
 function buildShareText() {
   const stats = gameState.stats;
   const num   = puzzle.puzzleNumber;
-  const journey = gameState.semanticGuesses.slice(0, 10).map(g => {
-    if (g.isWin) return '🎯';
-    if (!g.rank) return '❄';
-    return getTemperature(g.rank).icon;
-  }).join(' ');
+  const { total, parts } = unlockBreakdown();
+  const unlockLine = t('shareUnlockLine', total) +
+    (parts.length ? ` — ${parts.map(p => t(p.key, p.n)).join(' · ')}` : '');
 
   return [
     `Galexical #${num}`,
     t('shareGuessLine', stats.semanticGuessCount),
-    t('shareUnlockLine', stats.unlockCount),
+    unlockLine,
     gameState.solved ? t('solved') : t('inProgress'),
-    journey,
     '',
     t('shareUrl'),
   ].join('\n');
@@ -2533,18 +2774,17 @@ function buildShareText() {
 function buildShareCardHTML() {
   const stats = gameState.stats;
   const num   = puzzle.puzzleNumber;
-  const journey = gameState.semanticGuesses.slice(0, 10).map(g => {
-    if (g.isWin) return '🎯';
-    if (!g.rank) return '❄';
-    return getTemperature(g.rank).icon;
-  });
+  const { total, parts } = unlockBreakdown();
+  const breakdown = parts.length
+    ? `<div class="unlock-breakdown">${parts.map(p => t(p.key, p.n)).join(' · ')}</div>`
+    : '';
 
   return `
     <strong>Galexical #${num}</strong>
     <div>${t('shareGuessLine', stats.semanticGuessCount)}</div>
-    <div>${t('shareUnlockLine', stats.unlockCount)}</div>
+    <div>${t('shareUnlockLine', total)}</div>
+    ${breakdown}
     <div>${gameState.solved ? t('solved') : t('inProgress')}</div>
-    <div class="journey" aria-label="Your guessing journey">${journey.join('')}</div>
   `;
 }
 
@@ -2712,6 +2952,7 @@ async function init() {
     setupWordleHandle();
     setupSuggestHandle();
     setupWheelHandle();
+    setupMeteors();
     setupKeyboardHandler();
     setupModalCloseButtons();
     setupShareButtons();
