@@ -152,6 +152,15 @@ Temps : ~5 s par puzzle (chargement modèle amorti en batch). Sortie dans `data/
 Le mot secret DOIT exister dans le modèle (le script échoue sinon) — vérifier avant
 d'ajouter un mot au schedule.
 
+**Règle anti-collision bilingue (depuis le 2026-07-24)** : les mots secrets EN et FR
+doivent former des **concepts disjoints** — jamais la traduction l'un de l'autre, même à
+des jours différents (sinon un joueur bilingue rejoue « lantern » 5 j après « lanterne »).
+L'ancien planning était en fait la même liste traduite et décalée de 5 jours ; il a été
+assaini pour tout le **futur** (le passé ≤ 2026-07-24 reste figé, il est rejouable en
+Archives). En ajoutant des mots au schedule : puiser dans des concepts neufs, non déjà
+utilisés dans l'autre langue. **Runway actuel : jusqu'au 2026-08-31** (#240) — à prolonger
+avant cette date (banques de concepts frais dans le script de build, cf. session du 24/07).
+
 ## Architecture game.js
 
 ### Constantes importantes
