@@ -1848,11 +1848,13 @@ function closeWordlePanel() {
 const WHEEL_SPIN_EVERY = 50;
 // Colours echo the radar's temperature gradient (cold blue → scorching red),
 // each segment a planet-like disc (dark core → glowing rim).
+// Slices stay neutral grey; the tier colour rides on a little shaded "planet"
+// (the very body that will orbit on the radar once won). light→color→rim = sphere shading.
 const WHEEL_TIERS = {
-  modest:  { color: '#3fa9e6', dark: '#0e2233', band: [0.40, 1.00] }, // a bit better than best
-  good:    { color: '#e6b23a', dark: '#33270a', band: [0.12, 0.40] },
-  great:   { color: '#ee7726', dark: '#331708', band: [0.02, 0.12] },
-  jackpot: { color: '#ff4a3a', dark: '#330a0a', band: [0.00, 0.02] }, // nearly the secret!
+  modest:  { color: '#4aa3e6', light: '#bfe3ff', rim: '#123047', band: [0.40, 1.00] }, // a bit better than best
+  good:    { color: '#e6b23a', light: '#ffe6a3', rim: '#4d3708', band: [0.12, 0.40] },
+  great:   { color: '#ee7726', light: '#ffc79a', rim: '#4a1f06', band: [0.02, 0.12] },
+  jackpot: { color: '#ff4a3a', light: '#ffb3ab', rim: '#4d0f0a', band: [0.00, 0.02] }, // nearly the secret!
 };
 // 12 segments (6 modest / 3 good / 2 great / 1 jackpot), interleaved for variety
 const WHEEL_SEGMENTS = ['modest','good','modest','great','modest','good','modest','jackpot','modest','good','modest','great'];
@@ -1905,26 +1907,41 @@ function computeWheelRewards() {
 
 function buildWheelSvg(rewards) {
   const cx = 50, cy = 50, r = 46;
+  const PLANET_R = 4.1;                       // same size for every tier (< the central sun)
+  const HALO_TIERS = { great: 1, jackpot: 1 }; // faint glow only on the rare bodies
   const pt = (a) => [cx + r * Math.sin(a * Math.PI / 180), cy - r * Math.cos(a * Math.PI / 180)];
+  // one shaded-sphere gradient per tier (specular highlight → base colour → dark rim)
   const defs = Object.entries(WHEEL_TIERS).map(([k, t]) =>
-    `<radialGradient id="wg-${k}" gradientUnits="userSpaceOnUse" cx="${cx}" cy="${cy}" r="${r}">` +
-    `<stop offset="14%" stop-color="${t.dark}"/><stop offset="100%" stop-color="${t.color}"/></radialGradient>`).join('');
-  let segs = '', labels = '';
+    `<radialGradient id="wg-${k}" cx="36%" cy="32%" r="72%">` +
+    `<stop offset="0%" stop-color="${t.light}"/><stop offset="42%" stop-color="${t.color}"/>` +
+    `<stop offset="100%" stop-color="${t.rim}"/></radialGradient>`).join('');
+  let segs = '', bodies = '', labels = '';
   for (let i = 0; i < 12; i++) {
     const [x1, y1] = pt(i * 30), [x2, y2] = pt((i + 1) * 30);
     const tier = WHEEL_SEGMENTS[i];
-    segs += `<path d="M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z" fill="url(#wg-${tier})" stroke="rgba(5,10,7,0.9)" stroke-width="0.6"/>`;
+    // neutral slice — alternating greys so adjacent parts stay distinct
+    const fill = i % 2 ? '#242a33' : '#1a1f26';
+    segs += `<path d="M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z" fill="${fill}" stroke="rgba(255,205,110,0.22)" stroke-width="0.5"/>`;
     const rw = rewards[i];
-    if (rw) {
-      const midA = (i + 0.5) * 30, lr = 32;
-      const lx = cx + lr * Math.sin(midA * Math.PI / 180);
-      const ly = cy - lr * Math.cos(midA * Math.PI / 180);
-      const rot = (midA > 90 && midA < 270) ? midA + 180 : midA; // keep numbers upright-ish
-      labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${rot.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="5" font-weight="700" fill="#fff" stroke="rgba(0,0,0,0.5)" stroke-width="0.5" paint-order="stroke" font-family="'JetBrains Mono', monospace">#${displayRank(rw.rank)}</text>`;
+    if (!rw) continue;
+    const midA = (i + 0.5) * 30;
+    // planet sits in the outer half of the slice, the #rank just inside it
+    const px = cx + 34 * Math.sin(midA * Math.PI / 180);
+    const py = cy - 34 * Math.cos(midA * Math.PI / 180);
+    if (HALO_TIERS[tier]) {
+      bodies += `<circle cx="${px.toFixed(2)}" cy="${py.toFixed(2)}" r="${PLANET_R + (tier === 'jackpot' ? 2.0 : 1.5)}" fill="${WHEEL_TIERS[tier].color}" opacity="${tier === 'jackpot' ? 0.22 : 0.14}"/>`;
     }
+    bodies += `<circle cx="${px.toFixed(2)}" cy="${py.toFixed(2)}" r="${PLANET_R}" fill="url(#wg-${tier})" stroke="rgba(0,0,0,0.35)" stroke-width="0.4"/>`;
+    // #rank just inside the planet, aligned along the slice axis (casino-roulette style),
+    // flipped on the lower half so it never reads upside down
+    const lr = 22;
+    const lx = cx + lr * Math.sin(midA * Math.PI / 180);
+    const ly = cy - lr * Math.cos(midA * Math.PI / 180);
+    const rot = (midA > 90 && midA < 270) ? midA + 180 : midA;
+    labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${rot.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="4.4" font-weight="700" fill="#f2f5f8" stroke="rgba(0,0,0,0.6)" stroke-width="0.55" paint-order="stroke" font-family="'JetBrains Mono', monospace">#${displayRank(rw.rank)}</text>`;
   }
-  return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true"><defs>${defs}</defs>${segs}${labels}` +
-    `<circle cx="${cx}" cy="${cy}" r="11" fill="#05080a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/></svg>`;
+  return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true"><defs>${defs}</defs>${segs}${bodies}${labels}` +
+    `<circle cx="${cx}" cy="${cy}" r="8" fill="#05080a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/></svg>`;
 }
 
 function renderWheel(resultHtml) {
@@ -1939,7 +1956,6 @@ function renderWheel(resultHtml) {
   content.innerHTML = `
     <div class="how-to-content wheel-wrap">
       <h2>🎡 ${t('wheelTitle')}</h2>
-      <p class="wheel-sub" id="wheel-sub">${t('wheelSpinsLine', avail)}</p>
       <div class="wheel-stage">
         <div class="wheel-pointer"></div>
         ${buildWheelSvg(_wheelRewards)}

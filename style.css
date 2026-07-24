@@ -1222,16 +1222,16 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 26px; height: 26px;
+  width: 42px; height: 42px;   /* biggest body — mirrors the sun on the main radar */
   border-radius: 50%;
   background: radial-gradient(circle at 36% 34%, #fff, var(--hub, #ffc840) 58%, rgba(0,0,0,0.55));
-  box-shadow: 0 0 16px var(--hub, #ffc840), 0 0 5px var(--hub, #ffc840);
+  box-shadow: 0 0 20px var(--hub, #ffc840), 0 0 7px var(--hub, #ffc840);
   pointer-events: none;
   animation: wheel-hub-pulse 2.4s ease-in-out infinite;
 }
 @keyframes wheel-hub-pulse {
-  0%, 100% { box-shadow: 0 0 14px var(--hub, #ffc840), 0 0 5px var(--hub, #ffc840); }
-  50%      { box-shadow: 0 0 22px var(--hub, #ffc840), 0 0 8px var(--hub, #ffc840); }
+  0%, 100% { box-shadow: 0 0 18px var(--hub, #ffc840), 0 0 6px var(--hub, #ffc840); }
+  50%      { box-shadow: 0 0 28px var(--hub, #ffc840), 0 0 10px var(--hub, #ffc840); }
 }
 .wheel-result { min-height: 26px; margin: 16px 0 2px; }
 .wheel-win { font-size: 16px; font-weight: 900; letter-spacing: 0.02em; }
