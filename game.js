@@ -24,12 +24,12 @@ const I18N = {
     tabSuggest:      '3 words',
     tabWheel:        'Wheel',
     wheelTitle:      'Wheel of fortune',
-    wheelHint:       'You earn a spin every 50 guesses. The wheel always lands on a word closer than your best — and rarely, the jackpot.',
+    wheelHint:       'You earn a spin every 50 guesses. Each slice shows the word at stake: the redder the planet, the closer it orbits the secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} spin${n > 1 ? 's' : ''} ready` : 'No spin yet — keep going!',
     wheelSpinBtn:    'SPIN',
-    wheelResult:     (r) => `Unlocked #${r} — closer to the secret!`,
+    wheelResult:     (r) => `Unlocked word #${r}!`,
     wheelJackpot:    'JACKPOT! #',
-    wheelNoCloser:   'You’re already so close — nothing closer left to unlock!',
+    wheelNoCloser:   'Nothing left to unlock — the whole galaxy is yours!',
     suggestHint:     'Three random leads, further than your best word — for inspiration when you’re stuck.',
     suggestEmpty:    'You’ve already explored everything nearby!',
     startTitle:      'Unlock a clue word',
@@ -130,12 +130,12 @@ const I18N = {
     tabSuggest:      '3 mots',
     tabWheel:        'Roue',
     wheelTitle:      'Roue de la chance',
-    wheelHint:       'Tu gagnes un tour tous les 50 essais. La roue tombe toujours sur un mot plus proche que ton meilleur — et rarement, le jackpot.',
+    wheelHint:       'Tu gagnes un tour tous les 50 essais. Chaque part montre le mot à gagner : plus la planète est rouge, plus il orbite près du secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} tour${n > 1 ? 's' : ''} dispo` : 'Pas encore de tour — continue !',
     wheelSpinBtn:    'TOURNER',
-    wheelResult:     (r) => `Tu débloques le #${r} — plus proche du secret !`,
+    wheelResult:     (r) => `Tu débloques le mot #${r} !`,
     wheelJackpot:    'JACKPOT ! #',
-    wheelNoCloser:   'Tu es déjà tout proche — rien de plus proche à débloquer !',
+    wheelNoCloser:   'Plus rien à débloquer — toute la galaxie est à toi !',
     suggestHint:     'Trois pistes au hasard, plus loin que ton meilleur mot — pour t’inspirer quand tu sèches.',
     suggestEmpty:    'Tu as déjà exploré tout ce qui est proche !',
     startTitle:      'Débloquer un indice',
@@ -769,7 +769,10 @@ function startAmbientFireworks() {
 }
 
 // Act 1: the big win volley, then hand over to the ambient show
-function launchFireworks() {
+// withAmbient: victory keeps the endless ambient show afterwards; short
+// celebrations (wheel jackpot, red meteor) fire the volley only — otherwise
+// the ambient show never stops on an unsolved game (player bug 2026-07-24).
+function launchFireworks(withAmbient = true) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   _fwEnsure();
 
@@ -793,7 +796,7 @@ function launchFireworks() {
   bursts.forEach(b => _fwPending.push(setTimeout(() => _fwBurst(b.x, b.y, b.i), b.delay)));
 
   // Hand over to the subtle ambient show only after the big volley settles
-  _fwPending.push(setTimeout(() => startAmbientFireworks(), 3600));
+  if (withAmbient) _fwPending.push(setTimeout(() => startAmbientFireworks(), 3600));
 }
 
 // ─── 3D Fireworks (Three.js particle burst) ──────────────
@@ -1861,11 +1864,13 @@ const WHEEL_SPIN_EVERY = 50;
 // each segment a planet-like disc (dark core → glowing rim).
 // Slices stay neutral grey; the tier colour rides on a little shaded "planet"
 // (the very body that will orbit on the radar once won). light→color→rim = sphere shading.
+// Bands are ABSOLUTE ranks (player feedback 2026-07-24): the wheel no longer
+// guarantees better-than-best — the tier says where the word orbits, full stop.
 const WHEEL_TIERS = {
-  modest:  { color: '#4aa3e6', light: '#bfe3ff', rim: '#123047', band: [0.40, 1.00] }, // a bit better than best
-  good:    { color: '#e6b23a', light: '#ffe6a3', rim: '#4d3708', band: [0.12, 0.40] },
-  great:   { color: '#ee7726', light: '#ffc79a', rim: '#4a1f06', band: [0.02, 0.12] },
-  jackpot: { color: '#ff4a3a', light: '#ffb3ab', rim: '#4d0f0a', band: [0.00, 0.02] }, // nearly the secret!
+  modest:  { color: '#4aa3e6', light: '#bfe3ff', rim: '#123047', band: [250, Infinity] }, // cold word
+  good:    { color: '#e6b23a', light: '#ffe6a3', rim: '#4d3708', band: [50, 250] },
+  great:   { color: '#ee7726', light: '#ffc79a', rim: '#4a1f06', band: [10, 50] },
+  jackpot: { color: '#ff4a3a', light: '#ffb3ab', rim: '#4d0f0a', band: [1, 10] },         // top 10!
 };
 // 12 segments (6 modest / 3 good / 2 great / 1 jackpot), interleaved for variety
 const WHEEL_SEGMENTS = ['modest','good','modest','great','modest','good','modest','jackpot','modest','good','modest','great'];
@@ -1877,13 +1882,14 @@ let _wheelRewards = []; // the 12 pre-drawn rewards (one per segment), shown as 
 function wheelSpinsEarned() { return Math.floor((gameState?.stats?.semanticGuessCount || 0) / WHEEL_SPIN_EVERY); }
 function wheelSpinsAvailable() { return Math.max(0, wheelSpinsEarned() - (gameState?.stats?.wheelSpinsUsed || 0)); }
 
+// Every ranked word not yet found — the wheel draws from the WHOLE galaxy,
+// not just words better than the player's best (feedback 2026-07-24).
 function eligibleWheelPool() {
-  const bestRank = gameState.stats.bestRank || 1001;
   const guessed = new Set(gameState.semanticGuesses.map(g => g.word.toLowerCase()));
   const unlocked = new Set(gameState.unlocks.map(w => w.toLowerCase()));
   const secret = puzzle.secret.toLowerCase();
   return puzzle.words
-    .filter(w => w.rank != null && w.rank < bestRank
+    .filter(w => w.rank != null
       && !guessed.has(w.word.toLowerCase())
       && !unlocked.has(w.word.toLowerCase())
       && w.word.toLowerCase() !== secret)
@@ -1907,28 +1913,28 @@ const WHEEL_LAYOUT = [
   { tier: 'modest',  segs: [0, 2, 4, 6, 8, 10] },
 ];
 
-// Draw 12 rewards (one per segment). We pick 12 distinct words biased toward the
-// close end of the pool, sort them, then hand the CLOSEST to the rarest tier — so
-// the #rank is ALWAYS monotonic with the planet colour (red jackpot = smallest,
-// blue modest = largest). No more band-overlap inversions on a thin pool.
+// Draw 12 rewards (one per segment), each from its tier's ABSOLUTE rank band.
+// We then sort the picks and deal the closest to the rarest tier, so the #rank
+// stays monotonic with the planet colour (red jackpot = smallest, blue modest =
+// largest) even when a band ran dry and fell back on the leftovers.
 function computeWheelRewards() {
   const pool = eligibleWheelPool();           // ascending by rank (closest first)
   const rewards = new Array(12).fill(null);
-  const n = pool.length;
-  if (!n) return rewards;
+  if (!pool.length) return rewards;
 
   const NEED = 12;
-  const usedIdx = new Set();
+  const used = new Set();
   const picks = [];
-  for (let k = 0; k < NEED; k++) {
-    const q = k / NEED;                        // 0 … ~0.92
-    const biased = Math.pow(q, 1.7);           // squash toward the close end
-    let idx = Math.min(n - 1, Math.floor(biased * n + Math.random() * (n / NEED)));
-    while (usedIdx.has(idx) && idx < n - 1) idx++;
-    while (usedIdx.has(idx) && idx > 0) idx--;
-    if (usedIdx.has(idx)) break;               // pool exhausted (very thin endgame)
-    usedIdx.add(idx);
-    picks.push(pool[idx]);
+  for (const { tier, segs } of WHEEL_LAYOUT) {
+    const [lo, hi] = WHEEL_TIERS[tier].band;
+    for (let k = 0; k < segs.length; k++) {
+      let cands = pool.filter(w => !used.has(w.word) && w.rank >= lo && w.rank < hi);
+      if (!cands.length) cands = pool.filter(w => !used.has(w.word)); // band empty: anything left
+      if (!cands.length) break;               // pool exhausted (very thin endgame)
+      const pick = cands[Math.floor(Math.random() * cands.length)];
+      used.add(pick.word);
+      picks.push(pick);
+    }
   }
   picks.sort((a, b) => a.rank - b.rank);       // closest first → rarest tiers
   // thin endgame: pad with the farthest word so ordering (and colours) stay monotonic
@@ -1938,7 +1944,9 @@ function computeWheelRewards() {
   for (const { tier, segs } of WHEEL_LAYOUT) {
     for (const s of segs) {
       const w = picks[p++];
-      if (w) rewards[s] = { word: w.word, rank: w.rank, tier };
+      // keep the score: the radar places dots by score (a missing score used to
+      // strand a #2 word at the far edge until the next reload)
+      if (w) rewards[s] = { word: w.word, rank: w.rank, score: w.score, tier };
     }
   }
   return rewards;
@@ -2065,7 +2073,7 @@ function spinWheel() {
     const resultHtml = isJackpot
       ? `<span class="wheel-win jackpot">${t('wheelJackpot')}${displayRank(reward.rank)}</span>`
       : `<span class="wheel-win" style="color:${WHEEL_TIERS[tier].color}">${t('wheelResult', displayRank(reward.rank))}</span>`;
-    if (isJackpot || tier === 'great') launchFireworks();
+    if (isJackpot || tier === 'great') launchFireworks(false); // volley only, no endless ambient
     renderWheel(resultHtml); // same wheel, pointer stays on the won slice + show result
   }, 4300);
 }
@@ -2273,7 +2281,7 @@ function catchMeteor(m, x, y) {
   hideEmptyState();
   const msg = m.tier === 'red' ? t('meteorCatchHot', displayRank(w.rank)) : t('meteorCatch', displayRank(w.rank));
   showMeteorToast(msg, tc.color);
-  if (m.tier === 'red') launchFireworks();
+  if (m.tier === 'red') launchFireworks(false); // volley only, no endless ambient
 }
 
 function setupMeteors() {
