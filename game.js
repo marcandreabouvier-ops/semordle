@@ -2035,10 +2035,14 @@ function renderWheel(resultHtml) {
   const content = document.getElementById('wheel-content');
   if (!content) return;
   const avail = wheelSpinsAvailable();
-  const poolEmpty = _wheelRewards.every(r => !r);
+  // "giveable" = a segment whose word isn't null and isn't already won this session.
+  // Disabling on this (not just all-null) avoids a dead spin button once every
+  // remaining reward has been claimed but spins are still banked.
+  const won = new Set((gameState?.unlocks || []).map(w => w.toLowerCase()));
+  const noneGiveable = !_wheelRewards.some(r => r && !won.has(r.word.toLowerCase()));
   const skin = skinById(_profile?.equipped || 'sun'); // the player's own star in the core
   const hubHex = '#' + skin.glow.toString(16).padStart(6, '0');
-  const emptyMsg = poolEmpty ? `<span class="wheel-none">${t('wheelNoCloser')}</span>` : '';
+  const emptyMsg = noneGiveable ? `<span class="wheel-none">${t('wheelNoCloser')}</span>` : '';
   content.innerHTML = `
     <div class="how-to-content wheel-wrap">
       <h2>🎡 ${t('wheelTitle')}</h2>
@@ -2048,7 +2052,7 @@ function renderWheel(resultHtml) {
         <div class="wheel-hub" style="--hub:${hubHex}"></div>
       </div>
       <div id="wheel-result" class="wheel-result" aria-live="polite">${resultHtml || emptyMsg}</div>
-      <button id="wheel-spin-btn" ${avail > 0 && !poolEmpty ? '' : 'disabled'}>${t('wheelSpinBtn')}</button>
+      <button id="wheel-spin-btn" ${avail > 0 && !noneGiveable ? '' : 'disabled'}>${t('wheelSpinBtn')}</button>
       <p class="wheel-hint">${t('wheelHint')}</p>
     </div>`;
   const svg = content.querySelector('.wheel-svg');
@@ -2120,7 +2124,10 @@ function spinWheel() {
 function openWheelModal() {
   const modal = document.getElementById('wheel-modal');
   if (!modal) return;
-  _wheelRewards = computeWheelRewards(); // fresh draw each time the wheel is opened
+  // Fresh draw when opening — but NEVER mid-spin: recomputing while the wheel is
+  // turning would change the numbers under the pointer and desync them from the
+  // word actually being awarded when the landing fires.
+  if (!_wheelSpinning) _wheelRewards = computeWheelRewards();
   renderWheel();
   modal.classList.remove('hidden');
   lockBodyScroll(true);
