@@ -911,9 +911,9 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 /* Look-up links accordion (Thesaurus / Wikipedia), revealed on card click */
 .guess-caret {
-  display: inline-block;
+  display: inline-flex;
+  vertical-align: middle;
   margin-left: 6px;
-  font-size: 9px;
   opacity: 0.45;
   transition: transform 0.2s ease;
 }
@@ -1144,8 +1144,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   width: 100%;
   min-height: 44px;
   height: auto;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-size: 12px;
   line-height: 1.3;
   white-space: normal;
@@ -1197,7 +1199,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 /* === Win modal === */
 .win-modal-content { text-align: center; }
 .win-header { margin-bottom: 20px; }
-.win-icon { font-size: 48px; margin-bottom: 10px; display: block; }
+.win-icon { margin-bottom: 10px; display: flex; justify-content: center; color: var(--amber); }
 .win-header h2 { margin: 0 0 6px; font-family: var(--font-mono); font-size: 16px; line-height: 1.5; letter-spacing: 0.08em; text-transform: uppercase; color: var(--screen-text); }
 .win-subtitle { font-family: var(--font-flavor); color: var(--screen-muted); font-size: 13px; margin: 0; font-style: italic; }
 .win-share-card { text-align: left; }
@@ -1233,6 +1235,14 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .archive-status.s-solved   { color: #06120e; background: var(--phosphor); }
 .archive-status.s-progress { color: var(--amber); background: rgba(244,161,74,0.14); border: 1px solid var(--amber-dim); }
 .archive-status.s-new      { color: var(--screen-subtle); background: rgba(255,255,255,0.05); }
+
+/* === Iconographie (refonte « Observatoire ») === */
+/* Grille 16 px, trait 1,3, currentColor : l'icône suit la couleur du texte.
+   Remplace les emojis d'INTERFACE — ceux du partage et de la température
+   restent, là ils sont la donnée. */
+.gx-icon { flex: none; display: block; }
+#win-card-title { display: inline-flex; align-items: center; gap: 8px; }
+#win-card-title .gx-icon { color: var(--amber); }
 
 /* === Utility === */
 .hidden { display: none !important; }

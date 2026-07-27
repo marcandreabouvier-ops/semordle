@@ -56,7 +56,7 @@ const I18N = {
     meteorCatch:     (r) => `☄️ Shooting star! Word #${r} unlocked`,
     meteorCatchHot:  (r) => `🔥 Red meteor! #${r} — top 20!`,
     shareCaption:    'Share your result',
-    copyBtn:         '📋 Copy to clipboard',
+    copyBtn:         'Copy to clipboard',
     copiedOk:        '✓ Copied to clipboard!',
     copiedFail:      'Could not copy — try manually',
     alreadyGuessed:  (w) => `You already guessed "${w}"`,
@@ -127,7 +127,7 @@ const I18N = {
       <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle</strong><br>Tap ▲ Wordle to unlock a hidden clue word. Even if you fail, you keep the green letters.</div></div>
       <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Win</strong><br>Type the exact secret word to solve the puzzle. Share your result!</div></div>`,
     howToClose:      'Got it!',
-    wellDone:        '🎯 Well done!',
+    wellDone:        'Well done!',
     winCollapse:     'Collapse (reveal the sun)',
     winExpand:       'Show result',
     winTitle:        'You solved it!',
@@ -177,7 +177,7 @@ const I18N = {
     meteorCatch:     (r) => `☄️ Étoile filante ! Mot #${r} débloqué`,
     meteorCatchHot:  (r) => `🔥 Météore rouge ! #${r} — top 20 !`,
     shareCaption:    'Partager votre résultat',
-    copyBtn:         '📋 Copier dans le presse-papier',
+    copyBtn:         'Copier dans le presse-papier',
     copiedOk:        '✓ Copié !',
     copiedFail:      'Impossible de copier — essayez manuellement',
     alreadyGuessed:  (w) => `Vous avez déjà proposé "${w}"`,
@@ -248,7 +248,7 @@ const I18N = {
       <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle</strong><br>Appuyez sur ▲ Wordle pour débloquer un mot indice caché. Même si vous échouez, vous gardez les lettres vertes.</div></div>
       <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Gagner</strong><br>Tapez le mot secret exact pour résoudre le puzzle. Partagez votre résultat !</div></div>`,
     howToClose:      'Compris !',
-    wellDone:        '🎯 Bien joué !',
+    wellDone:        'Bien joué !',
     winCollapse:     'Réduire (voir le soleil)',
     winExpand:       'Voir le résultat',
     winTitle:        'Résolu !',
@@ -364,6 +364,25 @@ function clamp(val, min, max) {
 // localStorage) — only apply this at render time, never in game logic.
 function displayRank(rank) {
   return rank == null ? null : rank + 1;
+}
+
+// ─── Icon set (refonte « Observatoire ») ──────────────────
+// Grille 16 px, trait 1,3, bouts arrondis, `currentColor` → l'icône hérite de la
+// couleur du texte. Remplace les emojis d'INTERFACE ; les emojis du partage et
+// de la température restent (là, ils sont la donnée).
+const ICONS = {
+  target:  '<circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/>',
+  copy:    '<rect x="5.5" y="2.5" width="8" height="10" rx="1.6"/><path d="M10.5 13.5H4a1.5 1.5 0 0 1-1.5-1.5V5"/>',
+  close:   '<path d="M4 4l8 8M12 4l-8 8"/>',
+  share:   '<path d="M8 2.5v11M8 2.5l4.6 2.6M8 2.5L3.4 5.1M8 13.5l4.6-2.6M8 13.5l-4.6-2.6"/>',
+  chevron: '<path d="M4 6.5l4 4 4-4"/>',
+  spark:   '<path d="M8 2.2l1.5 4.3 4.3 1.5-4.3 1.5L8 13.8l-1.5-4.3L2.2 8l4.3-1.5z"/>',
+};
+
+function icon(name, size = 16) {
+  return `<svg class="gx-icon" width="${size}" height="${size}" viewBox="0 0 16 16" fill="none" ` +
+    `stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" ` +
+    `aria-hidden="true">${ICONS[name] || ''}</svg>`;
 }
 
 // ─── Sun skins (famous stars) + player profile ───────────
@@ -934,7 +953,7 @@ function applyI18n() {
   const archiveBtn = document.getElementById('archive-btn');
   if (archiveBtn) archiveBtn.setAttribute('aria-label', t('archiveAria'));
   const winCopy = document.getElementById('win-card-copy');
-  if (winCopy) winCopy.textContent = t('copyBtn');
+  if (winCopy) winCopy.innerHTML = `${icon('copy')}<span>${t('copyBtn')}</span>`;
   // Localized hover tooltips (mouse only — see CSS @media (hover: hover))
   [['how-to-btn', 'tipHowTo'], ['stats-btn', 'tipStats'], ['archive-btn', 'tipArchive']]
     .forEach(([id, key]) => document.getElementById(id)?.setAttribute('data-tip', t(key)));
@@ -946,7 +965,7 @@ function applyI18n() {
   const closeWin = document.getElementById('close-win-btn');
   if (closeWin) closeWin.textContent = t('keepPlaying');
   const winCopyBtn = document.getElementById('win-copy-btn');
-  if (winCopyBtn) winCopyBtn.textContent = t('copyBtn');
+  if (winCopyBtn) winCopyBtn.innerHTML = `${icon('copy')}<span>${t('copyBtn')}</span>`;
 
   // Share section caption
   const shareCaption = document.getElementById('share-caption');
@@ -1085,7 +1104,7 @@ function renderGuessCard(entry) {
       <div class="guess-meta">${metaLine}</div>
       ${showBar ? `<div class="bar" aria-hidden="true"><div class="fill" style="width:${barFill}%"></div></div>` : ''}
     </div>
-    <div class="guess-rank" style="color: ${cardColor}" aria-label="${rankLabel}">${rankLabel}<span class="guess-caret" aria-hidden="true">▾</span></div>
+    <div class="guess-rank" style="color: ${cardColor}" aria-label="${rankLabel}">${rankLabel}<span class="guess-caret">${icon('chevron', 11)}</span></div>
     ${wordLinksHtml(entry.word)}
   `;
 
@@ -2986,7 +3005,7 @@ function showWinCard() {
   const card = document.getElementById('win-card');
   if (!card) return;
   const title = document.getElementById('win-card-title');
-  if (title) title.textContent = t('wellDone');
+  if (title) title.innerHTML = `${icon('target', 18)}<span>${t('wellDone')}</span>`;
   const sub = document.getElementById('win-card-subtitle');
   if (sub) sub.textContent = t('winSubtitle', gameState.stats.semanticGuessCount);
   const share = document.getElementById('win-card-share');
