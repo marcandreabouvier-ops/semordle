@@ -2064,7 +2064,7 @@ function buildWheelSvg(rewards) {
     const lr = 22;
     const lx = cx + lr * Math.sin(midA * Math.PI / 180);
     const ly = cy - lr * Math.cos(midA * Math.PI / 180);
-    labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${midA.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="4.4" font-weight="700" fill="#f2f5f8" stroke="rgba(0,0,0,0.6)" stroke-width="0.55" paint-order="stroke" font-family="'JetBrains Mono', monospace">#${displayRank(rw.rank)}</text>`;
+    labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${midA.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="4.4" font-weight="700" fill="#f2f5f8" stroke="rgba(0,0,0,0.6)" stroke-width="0.55" paint-order="stroke" font-family="'IBM Plex Mono', ui-monospace, monospace">#${displayRank(rw.rank)}</text>`;
   }
   return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true"><defs>${defs}</defs>${segs}${bodies}${labels}` +
     `<circle cx="${cx}" cy="${cy}" r="8" fill="#05080a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/></svg>`;

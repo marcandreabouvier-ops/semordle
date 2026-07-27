@@ -51,7 +51,12 @@
   --input-bar-height: 72px;
   --handle-height: 38px;
 
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* Typographie : interface / données / saveur */
+  --font-ui:     'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-mono:   'IBM Plex Mono', ui-monospace, monospace;
+  --font-flavor: 'Newsreader', Georgia, serif;   /* italique : messages, savoir stellaire */
+
+  font-family: var(--font-ui);
 }
 
 /* === Reset === */
@@ -102,7 +107,7 @@ body {
   transform: translateX(-50%) translateY(-10px);
   padding: 8px 16px;
   border-radius: 999px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 13px; font-weight: 700;
   color: #f2f5f8;
   background: rgba(10,14,18,0.92);
@@ -147,7 +152,7 @@ body {
 /* Title wordmark */
 h1 {
   margin: 0;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: clamp(15px, 3.5vw, 20px);
   letter-spacing: 0.14em;
@@ -168,7 +173,7 @@ h1 {
   color: var(--phosphor);
   font-weight: 500;
   font-size: 11px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   white-space: nowrap;
   letter-spacing: 0.08em;
 }
@@ -186,7 +191,7 @@ h1 {
 
 /* Best rank badge */
 .best-rank-badge {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
   color: var(--screen-muted);
@@ -231,7 +236,7 @@ h1 {
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
     color: var(--screen-text);
-    font: 600 10px/1 'Inter', ui-sans-serif, sans-serif;
+    font: 600 10px/1 var(--font-ui);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     white-space: nowrap;
@@ -317,7 +322,7 @@ input[type="text"] {
   color: var(--screen-text);
   outline: none;
   font-size: 16px;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-family: var(--font-mono);
   letter-spacing: 0.06em;
   transition: border-color 0.2s, background 0.2s;
   box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
@@ -371,14 +376,12 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #semantic-submit:hover { background: #4fe0ce; border-color: #4fe0ce; }
 
 /* === Game message === */
-.game-message {
+.game-message { font-family: var(--font-flavor);
   min-height: 18px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--screen-muted);
-  font-weight: 600;
   text-align: center;
   font-style: italic;
-  font-family: 'JetBrains Mono', monospace;
   transition: color 0.2s;
 }
 .game-message.error { color: var(--burn-c); }
@@ -528,7 +531,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   margin-bottom: 6px;
 }
 #suggest-panel-title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -567,7 +570,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border: 1px solid var(--glass-border);
   border-radius: 10px;
   color: var(--screen-text);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: clamp(11px, 3.1vw, 14px);
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -645,7 +648,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 
 #wordle-overlay-title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -689,7 +692,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border-radius: 4px;
   background: rgba(5,10,7,0.90);
   border: 1px solid currentColor;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
   white-space: nowrap;
@@ -752,7 +755,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 #win-card.collapsed #win-card-bar { padding: 9px 42px; }
 #win-card-title {
-  font: 800 16px/1.2 'Inter', ui-sans-serif, sans-serif;
+  font: 800 16px/1.2 var(--font-ui);
   color: var(--amber);
   letter-spacing: 0.01em;
   text-align: center;
@@ -809,7 +812,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-size: 9px;
   color: var(--screen-muted);
   font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 
 /* =========================================================
@@ -823,7 +826,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   text-align: center;
   padding: 22px 0;
   margin: 0;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 
 /* === Guess card (hidden DOM, also used for last-guess clone in share) === */
@@ -871,7 +874,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
     0 0 12px var(--latest-glow, rgba(255,255,255,0.08));
 }
 .guess-word {
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 0.06em;
@@ -899,7 +902,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-style: normal;
 }
 .guess-rank {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 13px;
   text-align: right;
@@ -934,7 +937,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.03);
   color: var(--phosphor);
-  font: 600 11px/1 'Inter', ui-sans-serif, sans-serif;
+  font: 600 11px/1 var(--font-ui);
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: background 0.15s, border-color 0.15s;
@@ -966,7 +969,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   justify-content: space-between;
   align-items: center;
   margin: 22px 0 12px;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.01em;
@@ -998,7 +1001,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-size: 12px;
 }
 .partial-clue-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 15px; font-weight: 500;
   letter-spacing: 0.22em;
   color: var(--amber);
@@ -1010,11 +1013,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .wordle-header { margin-bottom: 16px; }
 .wordle-header h3 {
   margin: 4px 0 6px;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-family: var(--font-ui);
   font-size: 16px; font-weight: 700; letter-spacing: 0.01em;
   color: var(--screen-text);
 }
-.wordle-header p { color: var(--screen-muted); font-size: 12px; margin: 0; line-height: 1.55; font-style: italic; }
+.wordle-header p { font-family: var(--font-flavor); color: var(--screen-muted); font-size: 12px; margin: 0; line-height: 1.55; font-style: italic; }
 
 /* Board width is capped by BOTH 280px and the height budget so the 6 rows
    + keyboard always fit the viewport without scrolling. --word-len is set
@@ -1036,7 +1039,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   aspect-ratio: 1;
   border-radius: 4px;
   display: grid; place-items: center;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500; font-size: 14px;
   color: var(--screen-text);
   background: rgba(0,0,0,0.45);
@@ -1074,7 +1077,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.17);
   color: var(--screen-text);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 13px; font-weight: 700;
   cursor: pointer;
   display: grid; place-items: center;
@@ -1092,7 +1095,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .vkey.wide   { min-width: 60px; font-size: 10px; }
 
 /* === Wordle message === */
-.wordle-message { min-height: 18px; font-size: 12px; color: var(--screen-muted); text-align: center; margin-top: 7px; font-weight: 600; font-style: italic; font-family: 'JetBrains Mono', monospace; }
+.wordle-message { font-family: var(--font-flavor); min-height: 18px; font-size: 13px; color: var(--screen-muted); text-align: center; margin-top: 7px; font-style: italic; }
 .wordle-message.error { color: var(--burn-c); }
 .wordle-message.success { color: var(--phosphor); }
 
@@ -1102,12 +1105,12 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .wordle-result.lost { background: rgba(244,161,74,0.07); border: 1px solid rgba(244,161,74,0.18); }
 .wordle-result h4 {
   margin: 0 0 8px;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-family: var(--font-ui);
   font-size: 15px; font-weight: 700; color: var(--screen-text);
 }
-.wordle-result p { color: var(--screen-muted); font-size: 12px; margin: 0 0 10px; line-height: 1.5; font-style: italic; }
+.wordle-result p { font-family: var(--font-flavor); color: var(--screen-muted); font-size: 12px; margin: 0 0 10px; line-height: 1.5; font-style: italic; }
 .wordle-result .revealed-word {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 20px; font-weight: 500;
   letter-spacing: 0.24em; color: var(--amber);
   margin-bottom: 10px;
@@ -1125,7 +1128,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 .share-card strong {
   display: block;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-family: var(--font-ui);
   font-size: 15px; font-weight: 700; letter-spacing: 0.01em;
   margin-bottom: 4px; color: var(--screen-text);
 }
@@ -1149,7 +1152,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   padding: 8px 12px;
   border-radius: var(--radius-md);
 }
-.copy-confirm { min-height: 18px; text-align: center; font-size: 11px; color: var(--phosphor); margin-top: 7px; font-weight: 600; font-style: italic; font-family: 'JetBrains Mono', monospace; }
+.copy-confirm { font-family: var(--font-flavor); min-height: 18px; text-align: center; font-size: 12px; color: var(--phosphor); margin-top: 7px; font-style: italic; }
 
 /* =========================================================
    Modals
@@ -1184,7 +1187,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .modal-close:hover { border-color: var(--burn-c); color: var(--burn-c); }
 
 /* === How-to modal === */
-.how-to-content h2 { margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; letter-spacing: 0.08em; text-transform: uppercase; color: var(--phosphor); }
+.how-to-content h2 { margin: 0 0 14px; font-family: var(--font-mono); font-size: 14px; line-height: 1.6; letter-spacing: 0.08em; text-transform: uppercase; color: var(--phosphor); }
 .how-to-content p  { color: var(--screen-text); font-size: 13px; line-height: 1.65; margin: 0 0 16px; opacity: 0.85; }
 .how-to-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; padding: 12px; border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-size: 13px; line-height: 1.6; color: var(--screen-text); }
 .how-to-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
@@ -1195,8 +1198,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .win-modal-content { text-align: center; }
 .win-header { margin-bottom: 20px; }
 .win-icon { font-size: 48px; margin-bottom: 10px; display: block; }
-.win-header h2 { margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 16px; line-height: 1.5; letter-spacing: 0.08em; text-transform: uppercase; color: var(--screen-text); }
-.win-subtitle { color: var(--screen-muted); font-size: 13px; margin: 0; font-style: italic; }
+.win-header h2 { margin: 0 0 6px; font-family: var(--font-mono); font-size: 16px; line-height: 1.5; letter-spacing: 0.08em; text-transform: uppercase; color: var(--screen-text); }
+.win-subtitle { font-family: var(--font-flavor); color: var(--screen-muted); font-size: 13px; margin: 0; font-style: italic; }
 .win-share-card { text-align: left; }
 .close-win-btn {
   margin-top: 10px; width: 100%; height: 44px;
@@ -1224,7 +1227,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .archive-row:hover { border-color: var(--phosphor); background: rgba(45,212,191,0.10); }
 .archive-row.is-active { border-color: var(--amber); background: rgba(244,161,74,0.08); }
 .archive-row-left { display: flex; align-items: baseline; gap: 10px; }
-.archive-row-num { font: 800 14px/1 'JetBrains Mono', monospace; color: var(--screen-text); }
+.archive-row-num { font: 800 14px/1 var(--font-mono); color: var(--screen-text); }
 .archive-row-date { color: var(--screen-muted); font-size: 12px; text-transform: capitalize; }
 .archive-status { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
 .archive-status.s-solved   { color: #06120e; background: var(--phosphor); }
@@ -1320,7 +1323,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   gap: 10px;
 }
 .stardust-balance {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 15px;
   font-weight: 800;
   color: var(--amber);
@@ -1373,10 +1376,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   color: var(--screen-text);
   letter-spacing: 0.02em;
 }
-.star-fact {
-  font-size: 11px;
+.star-fact { font-family: var(--font-flavor);
+  font-size: 12px;
+  font-style: italic;
   color: var(--screen-muted);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 .star-action { flex: none; }
 .star-btn {
@@ -1398,7 +1402,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   white-space: nowrap;
 }
 .star-state.equipped { color: var(--amber); }
-.star-state.locked { color: var(--screen-subtle); font-family: 'JetBrains Mono', monospace; }
+.star-state.locked { color: var(--screen-subtle); font-family: var(--font-mono); }
 
 /* === Wheel of fortune modal === */
 .wheel-wrap { text-align: center; }
@@ -1407,7 +1411,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-size: 13px;
   font-weight: 700;
   margin: 2px 0 16px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 .wheel-stage {
   position: relative;
@@ -1597,7 +1601,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 
 /* === Rank ring labels === */
 .ring-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1625,7 +1629,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-size: 22px;
   font-weight: 900;
   color: var(--phosphor);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 .stat-label {
   font-size: 10px;
@@ -1647,7 +1651,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .stats-yesterday .word {
   color: var(--amber);
   font-weight: 800;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
