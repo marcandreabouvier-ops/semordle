@@ -26,7 +26,7 @@ const I18N = {
     wheelTitle:      'Wheel of fortune',
     wheelHint:       'You earn a spin every 50 guesses. Each slice shows the word at stake: the redder the planet, the closer it orbits the secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} spin${n > 1 ? 's' : ''} ready` : 'No spin yet — keep going!',
-    wheelSpinBtn:    'SPIN',
+    wheelSpinBtn:    'Spin',
     wheelResult:     (r) => `Unlocked word #${r}!`,
     wheelJackpot:    'JACKPOT! #',
     wheelNoCloser:   'Nothing left to unlock — the whole galaxy is yours!',
@@ -56,7 +56,7 @@ const I18N = {
     meteorCatch:     (r) => `☄️ Shooting star! Word #${r} unlocked`,
     meteorCatchHot:  (r) => `🔥 Red meteor! #${r} — top 20!`,
     shareCaption:    'Share your result',
-    copyBtn:         '📋 Copy to clipboard',
+    copyBtn:         'Copy to clipboard',
     copiedOk:        '✓ Copied to clipboard!',
     copiedFail:      'Could not copy — try manually',
     alreadyGuessed:  (w) => `You already guessed "${w}"`,
@@ -82,6 +82,8 @@ const I18N = {
     tipHowTo:        'About',
     tipStats:        'Statistics',
     tipArchive:      'Archives',
+    tipLangEn:       'Play the English puzzle — a different word',
+    tipLangFr:       'Play the French puzzle — a different word',
     linkThesaurus:   'Thesaurus',
     linkWikipedia:   'Wikipedia',
     statsTitle:      'Your statistics',
@@ -114,20 +116,18 @@ const I18N = {
     inProgress:      '🕹 In progress',
     shareUrl:        'Play at https://galexical.com',
     howToTitle:      'How to play',
-    howToBody: `
-      <p>Every day there's a secret word. Your goal is to find it by guessing semantically related words.</p>
-      <div class="how-to-step"><span class="how-to-icon">🧠</span><div><strong>Semantic search</strong><br>Type any word. You'll see how <em>semantically close</em> it is to the secret — ranked from #1 (closest) down.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🔥</span><div><strong>Temperature</strong><br>Words are color-coded by rank:<br>
-        <span style="color:#ff6b6b">■ Scorching</span> top 100 &nbsp;
-        <span style="color:#f4a14a">■ Hot</span> top 500 &nbsp;
-        <span style="color:#2dd4bf">■ Warm</span> top 1000 &nbsp;
-        <span style="color:#6b8fc2">■ Cold</span> beyond
-      </div></div>
-      <div class="how-to-step"><span class="how-to-icon">🌐</span><div><strong>3D radar</strong><br>Your guesses appear as glowing dots on a semantic sphere. Closer words orbit nearer the center. Drag to rotate, scroll to zoom.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle</strong><br>Tap ▲ Wordle to unlock a hidden clue word. Even if you fail, you keep the green letters.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Win</strong><br>Type the exact secret word to solve the puzzle. Share your result!</div></div>`,
+    onbPromise:      'One secret word a day. Meaning, not letters.',
+    onbPlay:         'Play',
+    onbStep1Title:   'Guess a word',
+    onbStep1Body:    'Galexical compares <em>meaning</em>, not spelling. Every guess gets a rank — #1 is the secret word itself.',
+    onbStep2Title:   'Read the heat',
+    onbStep2Body:    'The closer a word sits to the secret, the hotter it runs.',
+    onbScaleFar:     'far',
+    onbScaleHot:     'scorching',
+    onbStep3Title:   'Find the secret',
+    onbStep3Body:    'Close words orbit near the sun. Type the exact word to solve it — then share your result.',
     howToClose:      'Got it!',
-    wellDone:        '🎯 Well done!',
+    wellDone:        'Well done!',
     winCollapse:     'Collapse (reveal the sun)',
     winExpand:       'Show result',
     winTitle:        'You solved it!',
@@ -147,7 +147,7 @@ const I18N = {
     wheelTitle:      'Roue de la chance',
     wheelHint:       'Tu gagnes un tour tous les 50 essais. Chaque part montre le mot à gagner : plus la planète est rouge, plus il orbite près du secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} tour${n > 1 ? 's' : ''} dispo` : 'Pas encore de tour — continue !',
-    wheelSpinBtn:    'TOURNER',
+    wheelSpinBtn:    'Tourner',
     wheelResult:     (r) => `Tu débloques le mot #${r} !`,
     wheelJackpot:    'JACKPOT ! #',
     wheelNoCloser:   'Plus rien à débloquer — toute la galaxie est à toi !',
@@ -177,7 +177,7 @@ const I18N = {
     meteorCatch:     (r) => `☄️ Étoile filante ! Mot #${r} débloqué`,
     meteorCatchHot:  (r) => `🔥 Météore rouge ! #${r} — top 20 !`,
     shareCaption:    'Partager votre résultat',
-    copyBtn:         '📋 Copier dans le presse-papier',
+    copyBtn:         'Copier dans le presse-papier',
     copiedOk:        '✓ Copié !',
     copiedFail:      'Impossible de copier — essayez manuellement',
     alreadyGuessed:  (w) => `Vous avez déjà proposé "${w}"`,
@@ -203,6 +203,8 @@ const I18N = {
     tipHowTo:        'À propos',
     tipStats:        'Statistiques',
     tipArchive:      'Archives',
+    tipLangEn:       'Jouer la grille anglaise — un autre mot',
+    tipLangFr:       'Jouer la grille française — un autre mot',
     linkThesaurus:   'Synonymes',
     linkWikipedia:   'Wikipédia',
     statsTitle:      'Vos statistiques',
@@ -235,20 +237,18 @@ const I18N = {
     inProgress:      '🕹 En cours',
     shareUrl:        'Jouez sur https://galexical.com',
     howToTitle:      'Comment jouer',
-    howToBody: `
-      <p>Chaque jour, il y a un mot secret. Votre objectif est de le trouver en devinant des mots sémantiquement proches.</p>
-      <div class="how-to-step"><span class="how-to-icon">🧠</span><div><strong>Recherche sémantique</strong><br>Entrez n'importe quel mot. Vous verrez à quel point il est <em>sémantiquement proche</em> du secret — classé du #1 (le plus proche) vers le bas.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🔥</span><div><strong>Température</strong><br>Les mots sont colorés selon leur rang :<br>
-        <span style="color:#ff6b6b">■ Brûlant</span> top 100 &nbsp;
-        <span style="color:#f4a14a">■ Chaud</span> top 500 &nbsp;
-        <span style="color:#2dd4bf">■ Tiède</span> top 1000 &nbsp;
-        <span style="color:#6b8fc2">■ Froid</span> au-delà
-      </div></div>
-      <div class="how-to-step"><span class="how-to-icon">🌐</span><div><strong>Radar 3D</strong><br>Vos propositions apparaissent comme des points lumineux sur une sphère sémantique. Les mots proches orbitent près du centre. Faites glisser pour tourner, défilez pour zoomer.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle</strong><br>Appuyez sur ▲ Wordle pour débloquer un mot indice caché. Même si vous échouez, vous gardez les lettres vertes.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Gagner</strong><br>Tapez le mot secret exact pour résoudre le puzzle. Partagez votre résultat !</div></div>`,
+    onbPromise:      'Un mot secret par jour. Le sens, pas les lettres.',
+    onbPlay:         'Jouer',
+    onbStep1Title:   'Proposez un mot',
+    onbStep1Body:    'Galexical compare le <em>sens</em>, pas l’orthographe. Chaque proposition reçoit un rang — le #1, c’est le mot secret lui-même.',
+    onbStep2Title:   'Lisez la chaleur',
+    onbStep2Body:    'Plus un mot est proche du secret, plus il est chaud.',
+    onbScaleFar:     'loin',
+    onbScaleHot:     'brûlant',
+    onbStep3Title:   'Trouvez le secret',
+    onbStep3Body:    'Les mots proches orbitent près du soleil. Tapez le mot exact pour résoudre — puis partagez votre résultat.',
     howToClose:      'Compris !',
-    wellDone:        '🎯 Bien joué !',
+    wellDone:        'Bien joué !',
     winCollapse:     'Réduire (voir le soleil)',
     winExpand:       'Voir le résultat',
     winTitle:        'Résolu !',
@@ -364,6 +364,28 @@ function clamp(val, min, max) {
 // localStorage) — only apply this at render time, never in game logic.
 function displayRank(rank) {
   return rank == null ? null : rank + 1;
+}
+
+// ─── Icon set (refonte « Observatoire ») ──────────────────
+// Grille 16 px, trait 1,3, bouts arrondis, `currentColor` → l'icône hérite de la
+// couleur du texte. Remplace les emojis d'INTERFACE ; les emojis du partage et
+// de la température restent (là, ils sont la donnée).
+const ICONS = {
+  target:  '<circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/>',
+  copy:    '<rect x="5.5" y="2.5" width="8" height="10" rx="1.6"/><path d="M10.5 13.5H4a1.5 1.5 0 0 1-1.5-1.5V5"/>',
+  close:   '<path d="M4 4l8 8M12 4l-8 8"/>',
+  share:   '<path d="M8 2.5v11M8 2.5l4.6 2.6M8 2.5L3.4 5.1M8 13.5l4.6-2.6M8 13.5l-4.6-2.6"/>',
+  chevron: '<path d="M4 6.5l4 4 4-4"/>',
+  spark:   '<path d="M8 2.2l1.5 4.3 4.3 1.5-4.3 1.5L8 13.8l-1.5-4.3L2.2 8l4.3-1.5z"/>',
+  tiles:   '<rect x="1.8" y="5.5" width="12.4" height="5" rx="1.2"/><path d="M5.9 5.5v5M10.1 5.5v5"/>',
+  wheel:   '<circle cx="8" cy="8" r="6"/><path d="M8 2v12M2 8h12"/>',
+  calendar:'<rect x="2" y="3" width="12" height="11" rx="1.6"/><path d="M2 6.4h12M5.2 1.6V4M10.8 1.6V4"/>',
+};
+
+function icon(name, size = 16) {
+  return `<svg class="gx-icon" width="${size}" height="${size}" viewBox="0 0 16 16" fill="none" ` +
+    `stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" ` +
+    `aria-hidden="true">${ICONS[name] || ''}</svg>`;
 }
 
 // ─── Sun skins (famous stars) + player profile ───────────
@@ -920,12 +942,13 @@ function applyI18n() {
   }
 
   // Wordle handle label
+  // Les trois languettes partagent le même gris : c'est l'icône qui les distingue
   const handleLabel = document.getElementById('wordle-handle-label');
-  if (handleLabel) handleLabel.textContent = `▲ ${t('tabWordle')}`;
+  if (handleLabel) handleLabel.innerHTML = `${icon('tiles', 14)}<span>${t('tabWordle')}</span>`;
   const suggestLabel = document.getElementById('suggest-handle-label');
-  if (suggestLabel) suggestLabel.textContent = `▲ ${t('tabSuggest')}`;
+  if (suggestLabel) suggestLabel.innerHTML = `${icon('spark', 14)}<span>${t('tabSuggest')}</span>`;
   const wheelLabel = document.getElementById('wheel-handle-label');
-  if (wheelLabel) wheelLabel.textContent = `▲ ${t('tabWheel')}`;
+  if (wheelLabel) wheelLabel.innerHTML = `${icon('wheel', 14)}<span>${t('tabWheel')}</span>`;
   const suggestTitle = document.getElementById('suggest-panel-title');
   if (suggestTitle) suggestTitle.textContent = t('tabSuggest');
   const suggestHintEl = document.getElementById('suggest-hint');
@@ -934,9 +957,12 @@ function applyI18n() {
   const archiveBtn = document.getElementById('archive-btn');
   if (archiveBtn) archiveBtn.setAttribute('aria-label', t('archiveAria'));
   const winCopy = document.getElementById('win-card-copy');
-  if (winCopy) winCopy.textContent = t('copyBtn');
+  if (winCopy) winCopy.innerHTML = `${icon('copy')}<span>${t('copyBtn')}</span>`;
   // Localized hover tooltips (mouse only — see CSS @media (hover: hover))
-  [['how-to-btn', 'tipHowTo'], ['stats-btn', 'tipStats'], ['archive-btn', 'tipArchive']]
+  // Les langues portent aussi une infobulle : beaucoup de joueurs croyaient que
+  // le sélecteur traduisait la page, alors que c'est une AUTRE grille.
+  [['how-to-btn', 'tipHowTo'], ['stats-btn', 'tipStats'], ['archive-btn', 'tipArchive'],
+   ['lang-en', 'tipLangEn'], ['lang-fr', 'tipLangFr']]
     .forEach(([id, key]) => document.getElementById(id)?.setAttribute('data-tip', t(key)));
   updatePuzzlePill();   // re-render the pill (its return label is localized)
 
@@ -946,7 +972,7 @@ function applyI18n() {
   const closeWin = document.getElementById('close-win-btn');
   if (closeWin) closeWin.textContent = t('keepPlaying');
   const winCopyBtn = document.getElementById('win-copy-btn');
-  if (winCopyBtn) winCopyBtn.textContent = t('copyBtn');
+  if (winCopyBtn) winCopyBtn.innerHTML = `${icon('copy')}<span>${t('copyBtn')}</span>`;
 
   // Share section caption
   const shareCaption = document.getElementById('share-caption');
@@ -968,11 +994,17 @@ function applyI18n() {
     btn.setAttribute('aria-pressed', String(active));
   });
 
-  // How-to modal content
+  // Modale « ? » — MÊME contenu que l'écran d'accueil (buildHowToSteps)
   const htContent = document.getElementById('how-to-content');
   if (htContent) {
-    htContent.innerHTML = `<div class="how-to-content"><h2>${t('howToTitle')}</h2>${t('howToBody')}<button class="how-to-close-btn how-to-close" aria-label="Close">${t('howToClose')}</button></div>`;
+    htContent.innerHTML = `<div class="how-to-content">` +
+      `<h2>${t('howToTitle')}</h2>` +
+      `<p class="how-to-promise">${t('onbPromise')}</p>` +
+      buildHowToSteps() +
+      `<button class="how-to-close-btn how-to-close btn-primary" aria-label="Close">${t('howToClose')}</button>` +
+      `</div>`;
   }
+  renderOnboarding();   // garde l'écran d'accueil traduit s'il est visible
 }
 
 // ─── Guess panel (left side) ──────────────────────────────
@@ -1085,7 +1117,7 @@ function renderGuessCard(entry) {
       <div class="guess-meta">${metaLine}</div>
       ${showBar ? `<div class="bar" aria-hidden="true"><div class="fill" style="width:${barFill}%"></div></div>` : ''}
     </div>
-    <div class="guess-rank" style="color: ${cardColor}" aria-label="${rankLabel}">${rankLabel}<span class="guess-caret" aria-hidden="true">▾</span></div>
+    <div class="guess-rank" style="color: ${cardColor}" aria-label="${rankLabel}">${rankLabel}<span class="guess-caret">${icon('chevron', 11)}</span></div>
     ${wordLinksHtml(entry.word)}
   `;
 
@@ -1172,8 +1204,10 @@ function updateBestRankLabel() {
   const best = gameState.stats.bestRank;
   if (best) {
     el.textContent = t('bestRankShort', displayRank(best));
+    el.style.color = rankToColor(best);   // le meilleur rang est une DONNÉE : il porte sa chaleur
   } else {
     el.textContent = '';
+    el.style.removeProperty('color');
   }
 }
 
@@ -2064,7 +2098,7 @@ function buildWheelSvg(rewards) {
     const lr = 22;
     const lx = cx + lr * Math.sin(midA * Math.PI / 180);
     const ly = cy - lr * Math.cos(midA * Math.PI / 180);
-    labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${midA.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="4.4" font-weight="700" fill="#f2f5f8" stroke="rgba(0,0,0,0.6)" stroke-width="0.55" paint-order="stroke" font-family="'JetBrains Mono', monospace">#${displayRank(rw.rank)}</text>`;
+    labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${midA.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="4.4" font-weight="700" fill="#f2f5f8" stroke="rgba(0,0,0,0.6)" stroke-width="0.55" paint-order="stroke" font-family="'IBM Plex Mono', ui-monospace, monospace">#${displayRank(rw.rank)}</text>`;
   }
   return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true"><defs>${defs}</defs>${segs}${bodies}${labels}` +
     `<circle cx="${cx}" cy="${cy}" r="8" fill="#05080a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/></svg>`;
@@ -2087,7 +2121,7 @@ function renderWheel(resultHtml) {
   const emptyMsg = noneGiveable ? `<span class="wheel-none">${t('wheelNoCloser')}</span>` : '';
   content.innerHTML = `
     <div class="how-to-content wheel-wrap">
-      <h2>🎡 ${t('wheelTitle')}</h2>
+      <h2>${icon('wheel')}<span>${t('wheelTitle')}</span></h2>
       <div class="wheel-stage">
         <div class="wheel-pointer"></div>
         ${buildWheelSvg(_wheelRewards)}
@@ -2986,7 +3020,7 @@ function showWinCard() {
   const card = document.getElementById('win-card');
   if (!card) return;
   const title = document.getElementById('win-card-title');
-  if (title) title.textContent = t('wellDone');
+  if (title) title.innerHTML = `${icon('target', 18)}<span>${t('wellDone')}</span>`;
   const sub = document.getElementById('win-card-subtitle');
   if (sub) sub.textContent = t('winSubtitle', gameState.stats.semanticGuessCount);
   const share = document.getElementById('win-card-share');
@@ -3139,6 +3173,7 @@ async function init() {
     setupModalCloseButtons();
     setupShareButtons();
     setupWinCard();
+    setupOnboarding();
     _initialized = true;
   }
 
@@ -3257,28 +3292,15 @@ async function openStatsModal() {
     [s.streak ? t('statsDays', s.streak) : '–', t('statsStreak')],
   ];
 
-  // Yesterday's word — past puzzles are public files
-  const y = new Date(); y.setDate(y.getDate() - 1);
-  const yDate = `${y.getFullYear()}-${String(y.getMonth() + 1).padStart(2, '0')}-${String(y.getDate()).padStart(2, '0')}`;
-  let yesterdayHTML = `<p class="stats-yesterday-none">${t('yesterdayNone')}</p>`;
-  try {
-    const res = await fetch(`data/${currentLang}/${yDate}.json`);
-    if (res.ok) {
-      const p = await res.json();
-      yesterdayHTML = `<p>${t('yesterdayLine', p.puzzleNumber)} <span class="word">${escapeHtml(p.secret)}</span></p>`;
-    }
-  } catch (e) { /* offline — keep fallback */ }
-
+  // Le « mot d'hier » a été retiré (2026-07-27) : depuis le Mode Archives, la
+  // veille est une grille qu'on peut encore vouloir jouer — la révéler ici la
+  // gâchait. Les clés i18n yesterday* sont conservées au cas où on le remette.
   content.innerHTML = `
     <div class="how-to-content">
       <h2>${t('statsTitle')}</h2>
       ${s.played === 0 ? `<p class="stats-empty">${t('statsEmpty')}</p>` : ''}
       <div class="stats-grid">
         ${tiles.map(([v, l]) => `<div class="stat-tile"><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`).join('')}
-      </div>
-      <div class="stats-yesterday">
-        <div class="caption">${t('yesterdayTitle')}</div>
-        ${yesterdayHTML}
       </div>
     </div>`;
 
@@ -3310,7 +3332,7 @@ function openArchiveModal() {
   if (!modal || !content) return;
   content.innerHTML = `
     <div class="how-to-content">
-      <h2>🗓️ ${t('archiveTitle')}</h2>
+      <h2>${icon('calendar')}<span>${t('archiveTitle')}</span></h2>
       <p class="archive-intro">${t('archiveIntro')}</p>
       <div id="archive-list" class="archive-list" aria-live="polite"></div>
     </div>`;
@@ -3503,6 +3525,71 @@ function setupStarsModal() {
   modal?.addEventListener('click', e => {
     if (e.target.closest('#stars-close')) closeStarsModal();
   });
+}
+
+// ─── Onboarding & « Comment jouer » ───────────────────────
+// UNE seule source pour les deux surfaces : l'écran d'accueil du premier
+// lancement et la modale « ? » affichent exactement le même contenu.
+function buildHowToSteps() {
+  const step = (n, titleKey, bodyKey, extra = '') => `
+    <div class="how-to-step">
+      <span class="how-to-num">${n}</span>
+      <div><strong>${t(titleKey)}</strong>${t(bodyKey)}${extra}</div>
+    </div>`;
+  // L'échelle de chaleur en exemple : la même rampe que les barres et le radar
+  const scale = `
+    <div class="how-to-scale" aria-hidden="true"><span></span></div>
+    <div class="how-to-scale-legend"><span>${t('onbScaleFar')}</span><span>${t('onbScaleHot')}</span></div>`;
+  return step('01', 'onbStep1Title', 'onbStep1Body')
+       + step('02', 'onbStep2Title', 'onbStep2Body', scale)
+       + step('03', 'onbStep3Title', 'onbStep3Body');
+}
+
+// Un « nouveau » joueur n'a encore aucune partie ni profil : inutile d'imposer
+// l'écran d'accueil à quelqu'un qui joue déjà depuis des semaines.
+function isFirstVisit() {
+  try {
+    if (localStorage.getItem('semordle:seen-intro')) return false;
+    // Une partie déjà enregistrée (n'importe quel jour, n'importe quelle langue)
+    for (let i = 0; i < localStorage.length; i++) {
+      if (/^semordle:(en|fr):\d{4}-\d{2}-\d{2}$/.test(localStorage.key(i) || '')) return false;
+    }
+    // Le profil est créé d'office au chargement : ne pas se fier à son existence,
+    // mais à sa PROGRESSION (jetons gagnés ou étoile achetée au-delà du Soleil).
+    const raw = localStorage.getItem(PROFILE_KEY);
+    if (raw) {
+      const p = JSON.parse(raw);
+      if ((p.tokens || 0) > 0 || (p.unlocked || []).length > 1) return false;
+    }
+    return true;
+  } catch (e) { return false; }
+}
+
+function renderOnboarding() {
+  const el = document.getElementById('onboarding');
+  if (!el) return;
+  const promise = document.getElementById('onb-promise');
+  if (promise) promise.textContent = t('onbPromise');
+  const steps = document.getElementById('onb-steps');
+  if (steps) steps.innerHTML = buildHowToSteps();
+  const play = document.getElementById('onb-play');
+  if (play) play.textContent = t('onbPlay');
+}
+
+function setupOnboarding() {
+  const el = document.getElementById('onboarding');
+  if (!el) return;
+  renderOnboarding();
+  document.getElementById('onb-play')?.addEventListener('click', () => {
+    try { localStorage.setItem('semordle:seen-intro', '1'); } catch (e) { /* ignore */ }
+    el.classList.add('hidden');
+    lockBodyScroll(false);
+    document.getElementById('semantic-input')?.focus();
+  });
+  if (isFirstVisit()) {
+    el.classList.remove('hidden');
+    lockBodyScroll(true);
+  }
 }
 
 function setupHowTo() {

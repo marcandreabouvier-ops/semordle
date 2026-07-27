@@ -3,42 +3,60 @@
    Full-screen 3D semantic radar redesign
    ========================================================= */
 
+/* Thème « Observatoire » (refonte 2026-07-27) : l'UI est neutre, la couleur
+   ne décore plus — elle mesure. Deux accents seulement (phosphore = signal /
+   marque / état actif, ambre = soleil & victoire) ; le dégradé de chaleur est
+   réservé aux DONNÉES (orbites, points, barres, rangs). */
 :root {
-  /* Temperature bands */
-  --scorch-c:  #ff6b6b;
-  --hot-c:     #f4a14a;
-  --warm-c:    #2dd4bf;
-  --cold-c:    #4a7a76;
+  /* Bandes de température — DONNÉES UNIQUEMENT.
+     Recopient rankToColor() de game.js pour que la barre des cartes se lise
+     exactement comme les points du radar (les deux échelles divergeaient). */
+  --scorch-c:  #ff1744;
+  --hot-c:     #ff9100;
+  --warm-c:    #ffc400;
+  --cool-c:    #40c4ff;
+  --cold-c:    #6b8fc2;
+  --burn-c:    #ff7a6b;   /* erreurs uniquement — plus jamais --scorch-c */
 
-  /* Phosphor / amber accents */
+  /* Accents : DEUX, pas cinq */
   --phosphor:     #2dd4bf;
-  --phosphor-dim: #1a8a7e;
-  --amber:        #f4a14a;
-  --amber-dim:    #b07030;
+  --phosphor-dim: rgba(45,212,191,0.13);
+  --amber:        #f2a65a;
+  --amber-dim:    rgba(242,166,90,0.22);
+  --on-phosphor:  #04120e;   /* texte sur bouton plein */
 
-  /* Space background */
-  --space-bg:  #050a07;
-  --screen-bg: #080e0b;
+  /* Fonds */
+  --space-bg:  #05080c;
+  --screen-bg: #0a0f15;
+  --raise:     #141c24;      /* surface élevée (hover, tuile) */
 
-  /* Screen text */
-  --screen-text:   #d4ede8;
-  --screen-muted:  #8abfb8;
-  --screen-subtle: #5a8a84;
+  /* Texte */
+  --screen-text:   #e8eef2;
+  --screen-muted:  #93a3ae;
+  --screen-subtle: #5d6c77;
 
-  /* Glass overlay */
-  --glass:        rgba(5,10,7,0.80);
-  --glass-border: rgba(45,212,191,0.18);
+  /* Verre & filets — NEUTRES (plus de teinte turquoise) */
+  --glass:            rgba(13,18,25,0.86);
+  --glass-border:     rgba(255,255,255,0.08);
+  --hairline-strong:  rgba(255,255,255,0.17);
+  --glass-blur:       blur(28px) saturate(140%);
+  --glass-shadow:     0 24px 64px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.06);
 
-  /* Radii */
-  --radius-xl: 18px;
-  --radius-lg: 10px;
+  /* Rayons : 3 valeurs */
   --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
 
   /* Layout */
   --input-bar-height: 72px;
   --handle-height: 38px;
 
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* Typographie : interface / données / saveur */
+  --font-ui:     'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-mono:   'IBM Plex Mono', ui-monospace, monospace;
+  --font-flavor: 'Newsreader', Georgia, serif;   /* italique : messages, savoir stellaire */
+
+  font-family: var(--font-ui);
 }
 
 /* === Reset === */
@@ -89,7 +107,7 @@ body {
   transform: translateX(-50%) translateY(-10px);
   padding: 8px 16px;
   border-radius: 999px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 13px; font-weight: 700;
   color: #f2f5f8;
   background: rgba(10,14,18,0.92);
@@ -134,7 +152,7 @@ body {
 /* Title wordmark */
 h1 {
   margin: 0;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: clamp(15px, 3.5vw, 20px);
   letter-spacing: 0.14em;
@@ -148,14 +166,14 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 4px 10px;
-  border-radius: 5px;
-  background: rgba(45,212,191,0.08);
-  border: 1px solid rgba(45,212,191,0.22);
-  color: var(--phosphor);
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--screen-muted);
   font-weight: 500;
   font-size: 11px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   white-space: nowrap;
   letter-spacing: 0.08em;
 }
@@ -173,7 +191,7 @@ h1 {
 
 /* Best rank badge */
 .best-rank-badge {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
   color: var(--screen-muted);
@@ -203,10 +221,10 @@ h1 {
 .how-to-btn:active {
   transform: scale(0.90);
 }
-/* Hover tooltip under the top-bar icons (mouse only — no sticky tips on touch) */
+/* Hover tooltip under the top-bar controls (mouse only — no sticky tips on touch) */
 @media (hover: hover) {
-  .how-to-btn[data-tip] { position: relative; }
-  .how-to-btn[data-tip]::after {
+  [data-tip] { position: relative; }
+  [data-tip]::after {
     content: attr(data-tip);
     position: absolute;
     top: calc(100% + 6px);
@@ -218,7 +236,7 @@ h1 {
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
     color: var(--screen-text);
-    font: 600 10px/1 'Inter', ui-sans-serif, sans-serif;
+    font: 600 10px/1 var(--font-ui);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     white-space: nowrap;
@@ -227,10 +245,21 @@ h1 {
     transition: opacity 0.15s ease, transform 0.15s ease;
     z-index: 30;
   }
-  .how-to-btn[data-tip]:hover::after {
+  [data-tip]:hover::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
+  /* Le sélecteur de langue est collé au bord droit : on ancre l'infobulle à
+     droite, sinon une phrase entière déborderait de l'écran. Casse normale,
+     c'est une phrase et non une étiquette. */
+  .lang-btn[data-tip]::after {
+    left: auto; right: 0;
+    transform: translateX(0) translateY(-3px);
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+  }
+  .lang-btn[data-tip]:hover::after { transform: translateX(0) translateY(0); }
 }
 
 /* === Language switcher === */
@@ -278,11 +307,11 @@ h1 {
   padding: 12px 16px env(safe-area-inset-bottom, 12px);
   background: rgba(5,10,7,0.92);
   backdrop-filter: blur(32px);
-  border-top: 1px solid rgba(45,212,191,0.35);
-  border-left: 1px solid rgba(45,212,191,0.18);
-  border-right: 1px solid rgba(45,212,191,0.18);
+  border-top: 1px solid rgba(255,255,255,0.17);
+  border-left: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px 16px 0 0;
-  box-shadow: 0 -4px 32px rgba(45,212,191,0.10), 0 -1px 0 rgba(45,212,191,0.08);
+  box-shadow: 0 -4px 32px rgba(255,255,255,0.05), 0 -1px 0 rgba(255,255,255,0.05);
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
@@ -297,14 +326,14 @@ h1 {
 
 input[type="text"] {
   width: 100%;
-  border: 1px solid rgba(45,212,191,0.2);
+  border: 1px solid rgba(255,255,255,0.11);
   border-radius: 999px;
   padding: 13px 20px;
   background: rgba(0,0,0,0.50);
   color: var(--screen-text);
   outline: none;
   font-size: 16px;
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-family: var(--font-mono);
   letter-spacing: 0.06em;
   transition: border-color 0.2s, background 0.2s;
   box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
@@ -317,16 +346,18 @@ input[type="text"]:focus {
 input[type="text"]::placeholder { color: var(--screen-subtle); }
 
 /* === Buttons (global dark style) === */
+/* Casse normale (le tout-majuscule global disparaît — il ne reste que sur
+   .caption et les libellés de languettes), et un seul bouton plein par écran. */
 button {
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 999px;
   padding: 0 20px;
-  font-size: 14px; font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(45,212,191,0.12);
-  border: 1px solid rgba(45,212,191,0.25);
-  color: var(--phosphor);
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--hairline-strong);
+  color: var(--screen-text);
   cursor: pointer;
   font-family: inherit;
   transition: background 0.15s, border-color 0.15s;
@@ -334,8 +365,8 @@ button {
   position: relative; isolation: isolate;
 }
 button:hover {
-  background: rgba(45,212,191,0.20);
-  border-color: rgba(45,212,191,0.45);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.24);
 }
 button:active {
   transform: scale(0.94);
@@ -343,24 +374,28 @@ button:active {
 }
 button:disabled { opacity: 0.35; cursor: not-allowed; }
 
+/* LE bouton plein de l'interface — le seul */
 #semantic-submit {
   height: 46px;
   border-radius: 999px;
   font-size: 14px;
+  background: var(--phosphor);
+  border-color: var(--phosphor);
+  color: var(--on-phosphor);
+  font-weight: 700;
 }
+#semantic-submit:hover { background: #4fe0ce; border-color: #4fe0ce; }
 
 /* === Game message === */
-.game-message {
+.game-message { font-family: var(--font-flavor);
   min-height: 18px;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--screen-muted);
-  font-weight: 600;
   text-align: center;
   font-style: italic;
-  font-family: 'JetBrains Mono', monospace;
   transition: color 0.2s;
 }
-.game-message.error { color: var(--scorch-c); }
+.game-message.error { color: var(--burn-c); }
 .game-message.info  { color: var(--amber); }
 
 /* === Bottom tabs (Wordle / 3 words / Wheel) — a centered row of languettes === */
@@ -374,95 +409,66 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   gap: 6px;
   align-items: flex-end;
 }
-#wordle-handle {
+/* === Languettes : un seul gris pour les trois, l'icône SVG les distingue === */
+#bottom-tabs button {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: 8px 20px 18px;
-  border-radius: 10px 10px 0 0;
-  border-top: 1px solid rgba(244,161,74,0.40);
-  border-left: 1px solid rgba(244,161,74,0.20);
-  border-right: 1px solid rgba(244,161,74,0.20);
+  gap: 7px;
+  padding: 8px 18px 18px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border: 1px solid var(--glass-border);
   border-bottom: none;
-  background: rgba(8,14,11,0.95);
+  background: rgba(20,28,36,0.90);
   backdrop-filter: blur(16px);
-  color: var(--amber);
+  color: var(--screen-muted);
   cursor: pointer;
   text-transform: none;
   letter-spacing: 0;
-  transition: background 0.15s, border-color 0.15s, opacity 0.25s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.25s;
   white-space: nowrap;
 }
-/* Hide the handle while the overlay is open (the ✕ button closes it) */
-#wordle-handle.overlay-open {
-  opacity: 0;
-  pointer-events: none;
+#bottom-tabs button:hover {
+  background: var(--raise);
+  border-color: var(--hairline-strong);
+  color: var(--screen-text);
 }
-#wordle-handle-label {
+#wordle-handle-label, #suggest-handle-label, #wheel-handle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-#wordle-handle:hover {
-  background: rgba(244,161,74,0.10);
-  border-color: rgba(244,161,74,0.60);
+/* Masquées pendant que leur panneau est ouvert (la croix referme) */
+#wordle-handle.overlay-open,
+#suggest-handle.panel-open,
+#wheel-handle.panel-open {
+  opacity: 0;
+  pointer-events: none;
 }
-
-/* === Suggestions handle (violet accent) === */
-#suggest-handle {
+/* La Roue reste cachée tant qu'aucun tour n'est gagné ; sa disponibilité n'est
+   plus une lueur dorée permanente mais un simple point de signal qui respire. */
+/* Sélecteurs qualifiés par #bottom-tabs : la règle partagée « #bottom-tabs button »
+   (spécificité 1,0,1) écraserait sinon ce display:none et la languette resterait
+   visible en permanence. */
+#bottom-tabs #wheel-handle { display: none; }
+#bottom-tabs #wheel-handle.available {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 8px 20px 18px;
-  border-radius: 10px 10px 0 0;
-  border-top: 1px solid rgba(192,132,252,0.40);
-  border-left: 1px solid rgba(192,132,252,0.20);
-  border-right: 1px solid rgba(192,132,252,0.20);
-  border-bottom: none;
-  background: rgba(8,14,11,0.95);
-  backdrop-filter: blur(16px);
-  color: #c084fc;
-  cursor: pointer;
-  text-transform: none;
-  letter-spacing: 0;
-  transition: background 0.15s, border-color 0.15s, opacity 0.25s;
-  white-space: nowrap;
+  border-color: rgba(45,212,191,0.30);
+  color: var(--phosphor);
 }
-#suggest-handle:hover {
-  background: rgba(192,132,252,0.10);
-  border-color: rgba(192,132,252,0.60);
+#wheel-handle.available::after {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--phosphor);
+  box-shadow: 0 0 8px var(--phosphor);
+  animation: gx-pulse 1.8s ease-in-out infinite;
 }
-
-/* === Wheel handle (gold accent) — hidden until a spin is available === */
-#wheel-handle {
-  display: none; /* JS shows it (flex) when the player has a spin */
-  align-items: flex-start;
-  justify-content: center;
-  padding: 8px 18px 18px;
-  border-radius: 10px 10px 0 0;
-  border-top: 1px solid rgba(255,200,64,0.55);
-  border-left: 1px solid rgba(255,200,64,0.28);
-  border-right: 1px solid rgba(255,200,64,0.28);
-  border-bottom: none;
-  background: rgba(8,14,11,0.95);
-  backdrop-filter: blur(16px);
-  color: #ffc840;
-  cursor: pointer;
-  text-transform: none;
-  letter-spacing: 0;
-  transition: background 0.15s, border-color 0.15s, opacity 0.25s;
-  white-space: nowrap;
-  animation: wheel-tab-glow 1.8s ease-in-out infinite;
-}
-#wheel-handle.available { display: flex; }
-#wheel-handle.panel-open { opacity: 0; pointer-events: none; }
-#wheel-handle:hover { background: rgba(255,200,64,0.12); border-color: rgba(255,200,64,0.7); }
-#wheel-handle-label { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
-@keyframes wheel-tab-glow {
-  0%, 100% { box-shadow: 0 -2px 12px rgba(255,200,64,0.15); }
-  50%      { box-shadow: 0 -2px 20px rgba(255,200,64,0.45); }
+@keyframes gx-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
 }
 #suggest-handle.panel-open {
   opacity: 0;
@@ -487,7 +493,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   background: rgba(8,14,11,0.97);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(192,132,252,0.30);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 14px 16px 16px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.45);
@@ -507,12 +513,12 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   margin-bottom: 6px;
 }
 #suggest-panel-title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #c084fc;
+  color: var(--screen-muted);
 }
 #suggest-close {
   width: 28px; height: 28px;
@@ -526,7 +532,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   cursor: pointer;
   text-transform: none; letter-spacing: 0;
 }
-#suggest-close:hover { color: var(--screen-text); border-color: #c084fc; }
+#suggest-close:hover { color: var(--screen-text); border-color: var(--hairline-strong); }
 #suggest-hint {
   font-size: 11px;
   color: var(--screen-muted);
@@ -542,11 +548,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   width: 100%;
   text-align: center;
   padding: 14px 6px;
-  background: rgba(192,132,252,0.08);
-  border: 1px solid rgba(192,132,252,0.25);
+  background: var(--glass-border);
+  border: 1px solid var(--glass-border);
   border-radius: 10px;
   color: var(--screen-text);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: clamp(11px, 3.1vw, 14px);
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -558,8 +564,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   transition: background 0.15s, border-color 0.15s, transform 0.06s;
 }
 .suggest-word:hover {
-  background: rgba(192,132,252,0.16);
-  border-color: rgba(192,132,252,0.55);
+  background: var(--glass-border);
+  border-color: var(--glass-border);
 }
 .suggest-word:active { transform: scale(0.97); }
 .suggest-empty {
@@ -596,20 +602,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   transform: translateX(-50%) translateY(0);
 }
 
-#wordle-drag-handle {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0 4px;
-  flex-shrink: 0;
-  cursor: grab;
-}
-#wordle-drag-handle span {
-  width: 36px;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(244,161,74,0.35);
-}
-
 #wordle-overlay-header {
   display: flex;
   justify-content: space-between;
@@ -624,7 +616,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 
 #wordle-overlay-title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -647,8 +639,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   transition: border-color 0.15s, color 0.15s;
 }
 #wordle-overlay-close:hover {
-  border-color: var(--scorch-c);
-  color: var(--scorch-c);
+  border-color: var(--burn-c);
+  color: var(--burn-c);
 }
 
 #wordle-overlay-body {
@@ -668,7 +660,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border-radius: 4px;
   background: rgba(5,10,7,0.90);
   border: 1px solid currentColor;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
   white-space: nowrap;
@@ -731,7 +723,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 #win-card.collapsed #win-card-bar { padding: 9px 42px; }
 #win-card-title {
-  font: 800 16px/1.2 'Inter', ui-sans-serif, sans-serif;
+  font: 800 16px/1.2 var(--font-ui);
   color: var(--amber);
   letter-spacing: 0.01em;
   text-align: center;
@@ -788,7 +780,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-size: 9px;
   color: var(--screen-muted);
   font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 
 /* =========================================================
@@ -802,7 +794,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   text-align: center;
   padding: 22px 0;
   margin: 0;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 
 /* === Guess card (hidden DOM, also used for last-guess clone in share) === */
@@ -814,14 +806,14 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   padding: 11px 14px;
   border-radius: var(--radius-md);
   background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(45,212,191,0.12);
+  border: 1px solid rgba(255,255,255,0.08);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
   animation: slideIn 0.25s cubic-bezier(0.22,1,0.36,1);
   position: relative;
   overflow: hidden;
   cursor: pointer;   /* click to reveal Thesaurus / Wikipedia links */
 }
-.guess-card:hover { border-color: rgba(45,212,191,0.28); }
+.guess-card:hover { border-color: rgba(255,255,255,0.17); }
 .guess-card::before {
   content: '';
   position: absolute;
@@ -843,14 +835,14 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border-color: rgba(244,161,74,0.22);
 }
 .guess-card.latest-guess {
-  border-color: var(--latest-color, rgba(45,212,191,0.6));
+  border-color: var(--latest-color, rgba(255,255,255,0.17));
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.05),
-    0 0 0 1px var(--latest-color, rgba(45,212,191,0.25)),
-    0 0 12px var(--latest-glow, rgba(45,212,191,0.18));
+    0 0 0 1px var(--latest-color, rgba(255,255,255,0.12)),
+    0 0 12px var(--latest-glow, rgba(255,255,255,0.08));
 }
 .guess-word {
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 0.06em;
@@ -878,7 +870,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-style: normal;
 }
 .guess-rank {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   font-size: 13px;
   text-align: right;
@@ -887,9 +879,9 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 /* Look-up links accordion (Thesaurus / Wikipedia), revealed on card click */
 .guess-caret {
-  display: inline-block;
+  display: inline-flex;
+  vertical-align: middle;
   margin-left: 6px;
-  font-size: 9px;
   opacity: 0.45;
   transition: transform 0.2s ease;
 }
@@ -910,10 +902,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   text-align: center;
   padding: 7px 8px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(45,212,191,0.25);
-  background: rgba(45,212,191,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
   color: var(--phosphor);
-  font: 600 11px/1 'Inter', ui-sans-serif, sans-serif;
+  font: 600 11px/1 var(--font-ui);
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: background 0.15s, border-color 0.15s;
@@ -927,10 +919,15 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   margin-top: 8px;
   overflow: hidden;
 }
+/* Le dégradé est calé sur la largeur de la PISTE (background-size), pas sur la
+   partie remplie : sans ça chaque barre affichait tout l'arc-en-ciel, même un
+   mot glacé. Là, seul un mot brûlant atteint le rouge — la barre mesure. */
 .fill {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--cold-c), var(--warm-c), var(--hot-c), var(--scorch-c));
+  background-image: linear-gradient(90deg, var(--cold-c), var(--cool-c), var(--warm-c), var(--hot-c), var(--scorch-c));
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
   transition: width 0.5s cubic-bezier(0.22,1,0.36,1);
 }
 
@@ -940,7 +937,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   justify-content: space-between;
   align-items: center;
   margin: 22px 0 12px;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.01em;
@@ -972,7 +969,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-size: 12px;
 }
 .partial-clue-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 15px; font-weight: 500;
   letter-spacing: 0.22em;
   color: var(--amber);
@@ -984,11 +981,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .wordle-header { margin-bottom: 16px; }
 .wordle-header h3 {
   margin: 4px 0 6px;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-family: var(--font-ui);
   font-size: 16px; font-weight: 700; letter-spacing: 0.01em;
   color: var(--screen-text);
 }
-.wordle-header p { color: var(--screen-muted); font-size: 12px; margin: 0; line-height: 1.55; font-style: italic; }
+.wordle-header p { font-family: var(--font-flavor); color: var(--screen-muted); font-size: 12px; margin: 0; line-height: 1.55; font-style: italic; }
 
 /* Board width is capped by BOTH 280px and the height budget so the 6 rows
    + keyboard always fit the viewport without scrolling. --word-len is set
@@ -1010,19 +1007,19 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   aspect-ratio: 1;
   border-radius: 4px;
   display: grid; place-items: center;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 500; font-size: 14px;
   color: var(--screen-text);
   background: rgba(0,0,0,0.45);
-  border: 1px solid rgba(45,212,191,0.3);
+  border: 1px solid rgba(255,255,255,0.17);
   text-transform: uppercase;
   transition: background 0.15s, border-color 0.15s;
   user-select: none;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
 }
 .tile.filled {
-  border-color: rgba(45,212,191,0.6);
-  background: rgba(45,212,191,0.09);
+  border-color: rgba(255,255,255,0.17);
+  background: rgba(255,255,255,0.05);
   transform: scale(1.04);
 }
 @keyframes shake {
@@ -1042,13 +1039,24 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .vkeyboard-row { display: flex; justify-content: center; gap: 5px; }
 /* Available keys glow teal with bright text; used/absent keys go dark and
    faded so the two states read clearly apart, even in a dark room. */
+/* Cible tactile : la touche peut rétrécir visuellement sur petit écran, mais sa
+   zone cliquable reste >= 44 px grâce au ::after (accessibilité du brief). */
+.vkey { position: relative; }
+.vkey::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 44px; min-height: 44px;
+  width: 100%; height: 100%;
+}
 .vkey {
   min-width: 36px; height: 52px;
   border-radius: 6px;
-  background: rgba(45,212,191,0.14);
-  border: 1px solid rgba(45,212,191,0.38);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.17);
   color: var(--screen-text);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 13px; font-weight: 700;
   cursor: pointer;
   display: grid; place-items: center;
@@ -1057,7 +1065,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   letter-spacing: 0.03em;
   transition: background 0.12s, border-color 0.12s, color 0.12s;
 }
-.vkey:hover { background: rgba(45,212,191,0.24); }
+.vkey:hover { background: rgba(255,255,255,0.12); }
 .vkey:active { transform: scale(0.88); }
 .vkey.green  { background: rgba(45,212,191,0.30); border-color: var(--phosphor); color: var(--phosphor); }
 .vkey.yellow { background: rgba(244,161,74,0.30); border-color: var(--amber); color: var(--amber); }
@@ -1066,8 +1074,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .vkey.wide   { min-width: 60px; font-size: 10px; }
 
 /* === Wordle message === */
-.wordle-message { min-height: 18px; font-size: 12px; color: var(--screen-muted); text-align: center; margin-top: 7px; font-weight: 600; font-style: italic; font-family: 'JetBrains Mono', monospace; }
-.wordle-message.error { color: var(--scorch-c); }
+.wordle-message { font-family: var(--font-flavor); min-height: 18px; font-size: 13px; color: var(--screen-muted); text-align: center; margin-top: 7px; font-style: italic; }
+.wordle-message.error { color: var(--burn-c); }
 .wordle-message.success { color: var(--phosphor); }
 
 /* === Wordle result === */
@@ -1076,12 +1084,12 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .wordle-result.lost { background: rgba(244,161,74,0.07); border: 1px solid rgba(244,161,74,0.18); }
 .wordle-result h4 {
   margin: 0 0 8px;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-family: var(--font-ui);
   font-size: 15px; font-weight: 700; color: var(--screen-text);
 }
-.wordle-result p { color: var(--screen-muted); font-size: 12px; margin: 0 0 10px; line-height: 1.5; font-style: italic; }
+.wordle-result p { font-family: var(--font-flavor); color: var(--screen-muted); font-size: 12px; margin: 0 0 10px; line-height: 1.5; font-style: italic; }
 .wordle-result .revealed-word {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 20px; font-weight: 500;
   letter-spacing: 0.24em; color: var(--amber);
   margin-bottom: 10px;
@@ -1093,13 +1101,13 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border-radius: var(--radius-md);
   padding: 16px 18px;
   background: rgba(0,0,0,0.45);
-  border: 1px solid rgba(45,212,191,0.12);
+  border: 1px solid rgba(255,255,255,0.08);
   color: var(--screen-text);
   font-size: 13px; line-height: 1.8;
 }
 .share-card strong {
   display: block;
-  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-family: var(--font-ui);
   font-size: 15px; font-weight: 700; letter-spacing: 0.01em;
   margin-bottom: 4px; color: var(--screen-text);
 }
@@ -1115,15 +1123,17 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   width: 100%;
   min-height: 44px;
   height: auto;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-size: 12px;
   line-height: 1.3;
   white-space: normal;
   padding: 8px 12px;
   border-radius: var(--radius-md);
 }
-.copy-confirm { min-height: 18px; text-align: center; font-size: 11px; color: var(--phosphor); margin-top: 7px; font-weight: 600; font-style: italic; font-family: 'JetBrains Mono', monospace; }
+.copy-confirm { font-family: var(--font-flavor); min-height: 18px; text-align: center; font-size: 12px; color: var(--phosphor); margin-top: 7px; font-style: italic; }
 
 /* =========================================================
    Modals
@@ -1155,22 +1165,98 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   transition: border-color 0.15s, color 0.15s;
   text-transform: none; letter-spacing: 0;
 }
-.modal-close:hover { border-color: var(--scorch-c); color: var(--scorch-c); }
+.modal-close:hover { border-color: var(--burn-c); color: var(--burn-c); }
 
 /* === How-to modal === */
-.how-to-content h2 { margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; letter-spacing: 0.08em; text-transform: uppercase; color: var(--phosphor); }
+.how-to-content h2 {
+  display: flex; align-items: center; gap: 10px;
+  margin: 0 0 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--glass-border);
+  font-family: var(--font-mono); font-size: 14px; line-height: 1.6;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--screen-text);
+}
+.how-to-content h2 .gx-icon { color: var(--screen-subtle); }
 .how-to-content p  { color: var(--screen-text); font-size: 13px; line-height: 1.65; margin: 0 0 16px; opacity: 0.85; }
-.how-to-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; padding: 12px; border-radius: var(--radius-md); background: rgba(45,212,191,0.05); border: 1px solid rgba(45,212,191,0.18); font-size: 13px; line-height: 1.6; color: var(--screen-text); }
+.how-to-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; padding: 12px; border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-size: 13px; line-height: 1.6; color: var(--screen-text); }
 .how-to-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-.how-to-step strong { display: block; margin-bottom: 2px; font-size: 13px; color: var(--phosphor); }
-.how-to-close-btn { margin-top: 10px; width: 100%; height: 44px; display: grid; place-items: center; font-size: 13px; border-radius: var(--radius-md); }
+/* Étapes numérotées (fin des pictogrammes emoji) */
+.how-to-num {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--phosphor);
+  margin-top: 2px;
+}
+.how-to-step strong { display: block; margin-bottom: 2px; font-size: 13px; color: var(--screen-text); }
+.how-to-promise {
+  font-family: var(--font-flavor);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--screen-muted);
+  margin: 0 0 18px;
+}
+/* L'échelle de chaleur en exemple : exactement la rampe des barres et du radar */
+.how-to-scale {
+  height: 4px;
+  border-radius: 999px;
+  margin: 10px 0 5px;
+  background: linear-gradient(90deg, var(--cold-c), var(--cool-c), var(--warm-c), var(--hot-c), var(--scorch-c));
+}
+.how-to-scale-legend {
+  display: flex; justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--screen-subtle);
+}
+.how-to-close-btn { margin-top: 16px; width: 100%; height: 44px; display: grid; place-items: center; font-size: 14px; border-radius: 999px; }
+.btn-primary { background: var(--phosphor); border-color: var(--phosphor); color: var(--on-phosphor); font-weight: 700; }
+.btn-primary:hover { background: #4fe0ce; border-color: #4fe0ce; }
+
+/* === Écran d'accueil (premier lancement uniquement) === */
+#onboarding {
+  position: fixed; inset: 0; z-index: 200;
+  display: grid; place-items: center;
+  padding: 24px;
+  background: rgba(2,4,7,0.86);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+}
+#onboarding-inner {
+  width: min(440px, 100%);
+  padding: 32px 28px 28px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow);
+}
+#onb-brand {
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--phosphor);
+  text-shadow: 0 0 22px rgba(45,212,191,0.5);
+}
+#onb-promise {
+  font-family: var(--font-flavor);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--screen-muted);
+  margin: 0 0 22px;
+}
+#onb-play { margin-top: 18px; width: 100%; height: 48px; font-size: 15px; border-radius: 999px; }
 
 /* === Win modal === */
 .win-modal-content { text-align: center; }
 .win-header { margin-bottom: 20px; }
-.win-icon { font-size: 48px; margin-bottom: 10px; display: block; }
-.win-header h2 { margin: 0 0 6px; font-family: 'JetBrains Mono', monospace; font-size: 16px; line-height: 1.5; letter-spacing: 0.08em; text-transform: uppercase; color: var(--screen-text); }
-.win-subtitle { color: var(--screen-muted); font-size: 13px; margin: 0; font-style: italic; }
+.win-icon { margin-bottom: 10px; display: flex; justify-content: center; color: var(--amber); }
+.win-header h2 { margin: 0 0 6px; font-family: var(--font-mono); font-size: 16px; line-height: 1.5; letter-spacing: 0.08em; text-transform: uppercase; color: var(--screen-text); }
+.win-subtitle { font-family: var(--font-flavor); color: var(--screen-muted); font-size: 13px; margin: 0; font-style: italic; }
 .win-share-card { text-align: left; }
 .close-win-btn {
   margin-top: 10px; width: 100%; height: 44px;
@@ -1189,7 +1275,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .archive-row {
   display: flex; align-items: center; justify-content: space-between;
   width: 100%; padding: 12px 14px;
-  background: rgba(45,212,191,0.05);
+  background: rgba(255,255,255,0.03);
   border: 1px solid var(--glass-border);
   border-radius: 10px;
   cursor: pointer; text-align: left;
@@ -1198,12 +1284,20 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .archive-row:hover { border-color: var(--phosphor); background: rgba(45,212,191,0.10); }
 .archive-row.is-active { border-color: var(--amber); background: rgba(244,161,74,0.08); }
 .archive-row-left { display: flex; align-items: baseline; gap: 10px; }
-.archive-row-num { font: 800 14px/1 'JetBrains Mono', monospace; color: var(--screen-text); }
+.archive-row-num { font: 800 14px/1 var(--font-mono); color: var(--screen-text); }
 .archive-row-date { color: var(--screen-muted); font-size: 12px; text-transform: capitalize; }
 .archive-status { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
 .archive-status.s-solved   { color: #06120e; background: var(--phosphor); }
 .archive-status.s-progress { color: var(--amber); background: rgba(244,161,74,0.14); border: 1px solid var(--amber-dim); }
 .archive-status.s-new      { color: var(--screen-subtle); background: rgba(255,255,255,0.05); }
+
+/* === Iconographie (refonte « Observatoire ») === */
+/* Grille 16 px, trait 1,3, currentColor : l'icône suit la couleur du texte.
+   Remplace les emojis d'INTERFACE — ceux du partage et de la température
+   restent, là ils sont la donnée. */
+.gx-icon { flex: none; display: block; }
+#win-card-title { display: inline-flex; align-items: center; gap: 8px; }
+#win-card-title .gx-icon { color: var(--amber); }
 
 /* === Utility === */
 .hidden { display: none !important; }
@@ -1271,7 +1365,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   .vkeyboard { gap: 4px; margin-top: 8px; }
   .wordle-header .caption { display: none; }
   .wordle-header p { font-size: 10px; line-height: 1.35; margin: 2px 0; }
-  #wordle-drag-handle { padding: 6px 0 2px; }
   #wordle-overlay-body { padding-top: 6px; }
   .partial-clues { margin-top: 6px; }
   .wordle-board {
@@ -1294,10 +1387,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   gap: 10px;
 }
 .stardust-balance {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 15px;
   font-weight: 800;
-  color: #ffe08a;
+  color: var(--amber);
   white-space: nowrap;
 }
 .stars-hint {
@@ -1347,10 +1440,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   color: var(--screen-text);
   letter-spacing: 0.02em;
 }
-.star-fact {
-  font-size: 11px;
+.star-fact { font-family: var(--font-flavor);
+  font-size: 12px;
+  font-style: italic;
   color: var(--screen-muted);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 .star-action { flex: none; }
 .star-btn {
@@ -1363,7 +1457,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .star-btn.buy {
   background: rgba(255,224,138,0.12);
   border: 1px solid rgba(255,224,138,0.4);
-  color: #ffe08a;
+  color: var(--amber);
 }
 .star-btn.buy:hover { background: rgba(255,224,138,0.22); }
 .star-state {
@@ -1371,17 +1465,17 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-weight: 700;
   white-space: nowrap;
 }
-.star-state.equipped { color: #ffe08a; }
-.star-state.locked { color: var(--screen-subtle); font-family: 'JetBrains Mono', monospace; }
+.star-state.equipped { color: var(--amber); }
+.star-state.locked { color: var(--screen-subtle); font-family: var(--font-mono); }
 
 /* === Wheel of fortune modal === */
 .wheel-wrap { text-align: center; }
 .wheel-sub {
-  color: #ffc840;
+  color: var(--amber);
   font-size: 13px;
   font-weight: 700;
   margin: 2px 0 16px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 .wheel-stage {
   position: relative;
@@ -1402,7 +1496,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   width: 0; height: 0;
   border-left: 11px solid transparent;
   border-right: 11px solid transparent;
-  border-top: 19px solid #ffe08a;   /* points DOWN into the wheel */
+  border-top: 19px solid var(--amber);   /* points DOWN into the wheel */
   z-index: 2;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
 }
@@ -1413,14 +1507,14 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   transform: translate(-50%, -50%);
   width: 42px; height: 42px;   /* biggest body — mirrors the sun on the main radar */
   border-radius: 50%;
-  background: radial-gradient(circle at 36% 34%, #fff, var(--hub, #ffc840) 58%, rgba(0,0,0,0.55));
-  box-shadow: 0 0 20px var(--hub, #ffc840), 0 0 7px var(--hub, #ffc840);
+  background: radial-gradient(circle at 36% 34%, #fff, var(--hub, var(--amber)) 58%, rgba(0,0,0,0.55));
+  box-shadow: 0 0 20px var(--hub, var(--amber)), 0 0 7px var(--hub, var(--amber));
   pointer-events: none;
   animation: wheel-hub-pulse 2.4s ease-in-out infinite;
 }
 @keyframes wheel-hub-pulse {
-  0%, 100% { box-shadow: 0 0 18px var(--hub, #ffc840), 0 0 6px var(--hub, #ffc840); }
-  50%      { box-shadow: 0 0 28px var(--hub, #ffc840), 0 0 10px var(--hub, #ffc840); }
+  0%, 100% { box-shadow: 0 0 18px var(--hub, var(--amber)), 0 0 6px var(--hub, var(--amber)); }
+  50%      { box-shadow: 0 0 28px var(--hub, var(--amber)), 0 0 10px var(--hub, var(--amber)); }
 }
 .wheel-result { min-height: 26px; margin: 16px 0 2px; }
 .wheel-win { font-size: 16px; font-weight: 900; letter-spacing: 0.02em; }
@@ -1432,27 +1526,29 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 @keyframes jackpot-pop { 0% { transform: scale(0.5); } 60% { transform: scale(1.2); } 100% { transform: scale(1); } }
 .wheel-none { color: var(--screen-muted); font-style: italic; font-size: 13px; }
+/* L'action unique de la modale : pleine, ambre solaire */
 #wheel-spin-btn {
   width: 100%;
   height: 48px;
   font-size: 15px;
-  border-radius: 10px;
-  background: rgba(255,200,64,0.16);
-  border: 1px solid rgba(255,200,64,0.45);
-  color: #ffc840;
+  border-radius: 999px;
+  background: var(--amber);
+  border: 1px solid var(--amber);
+  color: #180e04;
+  font-weight: 700;
   margin-top: 4px;
 }
-#wheel-spin-btn:hover:not(:disabled) { background: rgba(255,200,64,0.26); border-color: rgba(255,200,64,0.7); }
+#wheel-spin-btn:hover:not(:disabled) { background: #f7b877; border-color: #f7b877; }
 .wheel-hint { font-size: 11px; color: var(--screen-muted); line-height: 1.4; margin: 12px 0 0; }
 
 /* === Focus rings === */
-:focus-visible { outline: 2px solid rgba(45,212,191,0.5); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--phosphor); outline-offset: 2px; }
 
 /* === Scrollbar === */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(45,212,191,0.18); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(45,212,191,0.3); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.17); }
 
 /* === Guess panel (left side) === */
 #guess-panel {
@@ -1490,7 +1586,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   writing-mode: vertical-rl;
   padding: 18px 8px 18px 6px;
   border-radius: 0 10px 10px 0;
-  border: 1px solid rgba(45,212,191,0.40);
+  border: 1px solid rgba(255,255,255,0.17);
   border-left: none;
   background: rgba(8,14,11,0.95);
   backdrop-filter: blur(16px);
@@ -1500,8 +1596,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   transition: background 0.15s, border-color 0.15s;
 }
 #guess-panel-handle:hover {
-  background: rgba(45,212,191,0.10);
-  border-color: rgba(45,212,191,0.60);
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.17);
 }
 #guess-panel-handle-label {
   font-size: 11px;
@@ -1528,7 +1624,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #last-guess-section {
   flex: none;
   padding: 10px 12px 12px;
-  border-bottom: 2px solid rgba(45,212,191,0.30);
+  border-bottom: 2px solid rgba(255,255,255,0.17);
 }
 #ranked-title {
   flex: none;
@@ -1571,7 +1667,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 
 /* === Rank ring labels === */
 .ring-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1589,7 +1685,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   margin: 16px 0;
 }
 .stat-tile {
-  background: rgba(45,212,191,0.06);
+  background: rgba(255,255,255,0.03);
   border: 1px solid var(--glass-border);
   border-radius: 10px;
   padding: 14px 10px;
@@ -1599,7 +1695,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-size: 22px;
   font-weight: 900;
   color: var(--phosphor);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 .stat-label {
   font-size: 10px;
@@ -1621,7 +1717,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .stats-yesterday .word {
   color: var(--amber);
   font-weight: 800;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }

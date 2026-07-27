@@ -8,6 +8,43 @@ ancien nom). Stack vanilla JS/HTML/CSS + Three.js r158 (CDN importmap), aucun bu
 ⚠️ Le préfixe localStorage reste `semordle:` — ne JAMAIS le renommer, ça effacerait
 la progression de tous les joueurs.
 
+## Direction artistique « Observatoire » (refonte 2026-07-27)
+
+Refonte visuelle issue du projet Claude Design `510eb626` (`REDESIGN.md` +
+`galexical-theme.css`). **Le système solaire 3D n'a pas été touché** — `rankToColor()`
+et les points du radar sont inchangés ; seule l'interface autour a changé.
+
+**La règle unique : la couleur ne décore plus, elle mesure.**
+1. **Neutre par défaut** — les filets et fonds turquoise ont laissé place à du blanc
+   translucide (`--glass-border` .08, `--hairline-strong` .17). Le turquoise ne marque plus
+   que **la marque et l'état actif** (h1, langue active, focus, tuiles vertes du Wordle).
+2. **La chaleur est une donnée** — le dégradé froid→brûlant est réservé aux orbites, points,
+   barres et rangs. Les variables `--cold-c/--cool-c/--warm-c/--hot-c/--scorch-c` **recopient
+   désormais `rankToColor()`** : les deux échelles divergeaient, la barre des cartes ne disait
+   pas la même chose que le radar. Les erreurs ont leur propre `--burn-c`.
+3. **Deux accents, pas cinq** — phosphore (signal) et ambre (soleil/victoire). Le violet des
+   suggestions et l'or de la roue ont disparu.
+4. **Zéro emoji dans l'UI** — jeu d'icônes SVG 16 px (`ICONS` + `icon()` dans game.js, trait
+   1,3, `currentColor`). Les emojis restent **uniquement** dans le texte de partage (ils
+   partent dans le presse-papier) et sur les températures des cartes (c'est de la donnée).
+
+Typographie : `--font-ui` **Instrument Sans** (interface) · `--font-mono` **IBM Plex Mono**
+(marque, mots, rangs, captions) · `--font-flavor` **Newsreader italique** (messages, faits
+stellaires). Plus aucune police codée en dur hors du `:root`.
+
+Un seul **bouton plein** sur l'écran de jeu (« Deviner ») ; dans une modale, l'action
+principale est pleine (roue = ambre). Rayons ramenés à 6 / 12 / 20 / 999.
+
+**Écran d'accueil** (`#onboarding`) au premier lancement : marque, promesse en Newsreader,
+3 étapes numérotées avec l'échelle de chaleur en exemple. `buildHowToSteps()` est la **source
+unique** partagée avec la modale « ? » — elles ne peuvent pas diverger. `isFirstVisit()` ne
+l'impose qu'aux vrais nouveaux joueurs : ⚠️ ne pas tester l'existence de `semordle:profile`,
+`loadProfile()` en écrit un à chaque chargement — on teste sa **progression** (jetons/étoiles).
+
+⚠️ **Piège CSS à retenir** : la règle partagée `#bottom-tabs button` (spécificité 1,0,1) écrase
+un `#wheel-handle { display:none }` (1,0,0) — la languette Roue restait visible en permanence.
+D'où les sélecteurs qualifiés `#bottom-tabs #wheel-handle`.
+
 ## Design (redesign 2026-07-09, ajusté 2026-07-15/16)
 
 Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro — tout l'ancien design system (shell aluminium, phosphor screen) a été supprimé du CSS.
@@ -19,7 +56,7 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
 - **Recentrage caméra** : à chaque guess la caméra glisse (flyToDot) pour amener le nouveau dot au premier plan, ~un peu sous le centre écran ; annulé si l'utilisateur drag ; auto-rotation en pause 7 s
 - **Panneau gauche** ouvert/fermé par une **languette verticale « Parcours »** (même design que la languette Wordle) ; séparation nette entre « dernière proposition » et la liste « Classement » ; replié par défaut sur mobile ≤880px, état persisté dans `localStorage['semordle:panel']`
 - Input bar fixée en bas (glass effect)
-- Les 3 languettes du bas (Wordle ambre · 3 mots violet · Roue dorée) sont dans
+- Les 3 languettes du bas (même gris depuis la refonte, distinguées par leur icône SVG) sont dans
   `#bottom-tabs` (flex row centrée). La languette **Roue** est cachée (`display:none`)
   et n'apparaît (`.available`) que quand un spin est dispo (`updateWheelHandle`).
 - **Roue de la chance** (`#wheel-handle` → `#wheel-modal`) : 1 spin gagné toutes les
@@ -70,7 +107,7 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   (🎯 Wordle · 🎡 roue · ☄️ météores, sources non nulles seulement). La ligne d'émojis
   « journey » a été retirée (demande de Marc). Les Wordle perdus (indice partiel) ne comptent
   plus dans le total affiché ; `stats.unlockCount` existe toujours mais n'est plus affiché.
-- **3 mots** (ex-Suggestions) : languette ▲ 3 mots / ▲ 3 words (violet #c084fc) à
+- **3 mots** (ex-Suggestions) : languette « 3 mots » (icône étincelle, neutre) à
   DROITE de Wordle, dans `#bottom-tabs`. Carte
   flottante au-dessus des languettes : 3 mots « dispersés » (`pickSuggestions` — un
   par bande égale sur la plage éligible = tiède/moyen/lointain), toujours STRICTEMENT
@@ -239,7 +276,7 @@ const I18N = { en: {...}, fr: {...} }  // toutes les strings UI ; t(key, ...args
 | `wordToSpherePosition(word, rank, score)` | Position 3D : rayon via scoreToRadius, angles par hash du mot |
 | `flyToDot(pos)` | Anime la caméra (lerp sphérique + easeInOutCubic) : le dot atterrit AU-DESSUS du centre écran (phi cible +0.30 — lisible sur mobile), avec zoom adaptatif clamp(r×2.2+90, 110, 460) pour le mettre au premier plan |
 | `updateJourneyCount()` | Compteur « N propositions » dans l'en-tête du panneau (i18n guessCountLabel) |
-| `openStatsModal()` / `computePlayerStats()` | Modal 📊 : stats PERSO calculées depuis le localStorage (par langue) + mot d'hier (fetch du JSON de la veille). PAS de stats globales — site statique, il faudrait une Netlify Function (idée en attente) |
+| `openStatsModal()` / `computePlayerStats()` | Modal stats : stats PERSO calculées depuis le localStorage (par langue). Le « mot d'hier » a été RETIRÉ le 2026-07-27 (avec le Mode Archives, la veille reste jouable — la révéler la gâchait ; clés i18n yesterday* conservées). PAS de stats globales — site statique, il faudrait une Netlify Function (idée en attente) |
 | `addDotToScene(entry)` | Dot + glow sprite + label CSS2D, highlight du dernier guess, déclenche flyToDot |
 | `initThreeScene()` | Scène, caméra (vue plongeante 0,150,420), étoiles rondes additives (texture glow), anneaux derrière `SHOW_RANK_RINGS=false` |
 | `renderGuessCard(entry)` | Carte de guess insérée triée par rang dans `#guess-list` + appelle `updateLastGuessSection` |
