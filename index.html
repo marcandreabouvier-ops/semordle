@@ -36,6 +36,20 @@
   <canvas id="meteor-canvas" aria-hidden="true"></canvas>
   <div id="meteor-toast" role="alert" aria-live="polite"></div>
 
+  <!-- Persistent victory card over the sun (covers the secret; collapsible) -->
+  <div id="win-card" class="hidden" role="region" aria-label="Victory">
+    <div id="win-card-bar">
+      <span id="win-card-title">🎯</span>
+      <button id="win-card-toggle" aria-expanded="true">▾</button>
+    </div>
+    <div id="win-card-body">
+      <p id="win-card-subtitle"></p>
+      <div class="share-card" id="win-card-share" aria-live="polite"></div>
+      <button class="copy-btn" id="win-card-copy" aria-label="Copy result to clipboard">📋 Copy</button>
+      <div id="win-card-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
+    </div>
+  </div>
+
   <!-- Top bar: logo + controls -->
   <header id="top-bar">
     <div id="top-bar-left">
@@ -141,13 +155,6 @@
       <div class="caption" id="last-guess-title">Last guess</div>
       <div id="last-guess-container"></div>
     </div>
-    <!-- Share card (post-win) sits above the ranked title, also in the fixed zone -->
-    <section class="share-section" id="share-section" aria-label="Share your result" style="display:none">
-      <div class="caption" id="share-caption">Share your result</div>
-      <div class="share-card" id="share-card-preview" aria-live="polite"></div>
-      <button class="copy-btn" id="copy-share-btn" aria-label="Copy result to clipboard">📋 Copy to clipboard</button>
-      <div id="copy-confirm" class="copy-confirm" role="alert" aria-live="polite"></div>
-    </section>
     <div class="caption" id="ranked-title">Ranked guesses</div>
     <div id="guess-panel-body">
       <div class="guess-list" id="guess-list" role="list" aria-label="Semantic guess history">

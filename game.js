@@ -128,6 +128,8 @@ const I18N = {
       <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Win</strong><br>Type the exact secret word to solve the puzzle. Share your result!</div></div>`,
     howToClose:      'Got it!',
     wellDone:        '🎯 Well done!',
+    winCollapse:     'Collapse (reveal the sun)',
+    winExpand:       'Show result',
     winTitle:        'You solved it!',
     winSubtitle:     (n) => `You found the word in ${n} guess${n !== 1 ? 'es' : ''}!`,
     keepPlaying:     'Keep playing',
@@ -247,6 +249,8 @@ const I18N = {
       <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Gagner</strong><br>Tapez le mot secret exact pour résoudre le puzzle. Partagez votre résultat !</div></div>`,
     howToClose:      'Compris !',
     wellDone:        '🎯 Bien joué !',
+    winCollapse:     'Réduire (voir le soleil)',
+    winExpand:       'Voir le résultat',
     winTitle:        'Résolu !',
     winSubtitle:     (n) => `Vous avez trouvé le mot en ${n} proposition${n !== 1 ? 's' : ''} !`,
     keepPlaying:     'Continuer à jouer',
@@ -646,7 +650,7 @@ function submitSemanticGuess(rawWord) {
 
 function handleWin(word) {
   if (gameState.solved) {
-    showWinToast();
+    showWinCard();
     return;
   }
 
@@ -668,13 +672,12 @@ function handleWin(word) {
   renderGuessCard(winEntry);
   updateBestRankLabel();
   hideEmptyState();
-  updateShareSection();
 
   updateScene();
   _sunFlash = 1; // bright supernova flash — only on the live win, not on restore
   launchFireworks();
   launchThreeFireworks();
-  setTimeout(() => showWinToast(), 1400);
+  setTimeout(() => showWinCard(), 1000); // persistent card after the supernova beat
 }
 
 // ─── Fireworks (full-screen overlay canvas) ───────────────
@@ -929,6 +932,8 @@ function applyI18n() {
 
   const archiveBtn = document.getElementById('archive-btn');
   if (archiveBtn) archiveBtn.setAttribute('aria-label', t('archiveAria'));
+  const winCopy = document.getElementById('win-card-copy');
+  if (winCopy) winCopy.textContent = t('copyBtn');
   // Localized hover tooltips (mouse only — see CSS @media (hover: hover))
   [['how-to-btn', 'tipHowTo'], ['stats-btn', 'tipStats'], ['archive-btn', 'tipArchive']]
     .forEach(([id, key]) => document.getElementById(id)?.setAttribute('data-tip', t(key)));
@@ -939,8 +944,6 @@ function applyI18n() {
   if (winH2) winH2.textContent = t('winTitle');
   const closeWin = document.getElementById('close-win-btn');
   if (closeWin) closeWin.textContent = t('keepPlaying');
-  const copyShareBtn = document.getElementById('copy-share-btn');
-  if (copyShareBtn) copyShareBtn.textContent = t('copyBtn');
   const winCopyBtn = document.getElementById('win-copy-btn');
   if (winCopyBtn) winCopyBtn.textContent = t('copyBtn');
 
@@ -2909,30 +2912,66 @@ function lockBodyScroll(lock) {
   document.body.style.overflow = lock ? 'hidden' : '';
 }
 
-function showWinToast() {
-  updateShareSection();
-  const existing = document.getElementById('win-toast');
-  if (existing) return;
+// ─── Victory card (persistent, centered over the sun; collapsible) ────────────
+// Replaces the old fleeting toast + left-panel share: a "Bien joué !" card with
+// the share glued below, covering the sun so the secret isn't spoiled (e.g. in a
+// screenshot). Collapse it to admire the sun. Collapsed state is remembered.
+let _winCardCollapsed = localStorage.getItem('semordle:winCardCollapsed') === '1';
 
-  const toast = document.createElement('div');
-  toast.id = 'win-toast';
-  toast.textContent = t('wellDone');
-  document.body.appendChild(toast);
-
-  // Trigger animation
-  requestAnimationFrame(() => toast.classList.add('visible'));
-  setTimeout(() => {
-    toast.classList.remove('visible');
-    toast.addEventListener('transitionend', () => toast.remove(), { once: true });
-  }, 4000);
+// Belt-and-suspenders anti-spoiler: also hide the secret's 3D label while the card
+// is expanded, so nothing leaks even if the card doesn't perfectly cover it.
+function setSecretLabelHidden(hidden) {
+  if (_targetLabel?.element) _targetLabel.element.style.visibility = hidden ? 'hidden' : '';
 }
 
-function updateShareSection() {
-  if (!gameState.solved) return;
-  const section = document.getElementById('share-section');
-  if (section) section.style.display = 'block';
-  const preview = document.getElementById('share-card-preview');
-  if (preview) preview.innerHTML = buildShareCardHTML();
+function applyWinCardState() {
+  const card = document.getElementById('win-card');
+  if (!card) return;
+  card.classList.toggle('collapsed', _winCardCollapsed);
+  const toggle = document.getElementById('win-card-toggle');
+  if (toggle) {
+    toggle.setAttribute('aria-expanded', _winCardCollapsed ? 'false' : 'true');
+    toggle.setAttribute('aria-label', t(_winCardCollapsed ? 'winExpand' : 'winCollapse'));
+  }
+  setSecretLabelHidden(!_winCardCollapsed && !card.classList.contains('hidden'));
+}
+
+function showWinCard() {
+  if (!gameState?.solved) return;
+  const card = document.getElementById('win-card');
+  if (!card) return;
+  const title = document.getElementById('win-card-title');
+  if (title) title.textContent = t('wellDone');
+  const sub = document.getElementById('win-card-subtitle');
+  if (sub) sub.textContent = t('winSubtitle', gameState.stats.semanticGuessCount);
+  const share = document.getElementById('win-card-share');
+  if (share) share.innerHTML = buildShareCardHTML();
+  card.classList.remove('hidden');
+  applyWinCardState();
+}
+
+function hideWinCard() {
+  document.getElementById('win-card')?.classList.add('hidden');
+  setSecretLabelHidden(false);
+}
+
+function toggleWinCard() {
+  _winCardCollapsed = !_winCardCollapsed;
+  try { localStorage.setItem('semordle:winCardCollapsed', _winCardCollapsed ? '1' : '0'); } catch (e) { /* ignore */ }
+  applyWinCardState();
+}
+
+function setupWinCard() {
+  document.getElementById('win-card-toggle')?.addEventListener('click', toggleWinCard);
+  document.getElementById('win-card-copy')?.addEventListener('click', async () => {
+    const ok = await copyShareText();
+    const confirm = document.getElementById('win-card-confirm');
+    if (confirm) {
+      confirm.textContent = ok ? t('copiedOk') : t('copiedFail');
+      clearTimeout(confirm._timer);
+      confirm._timer = setTimeout(() => { confirm.textContent = ''; }, 3000);
+    }
+  });
 }
 
 function updateWinModal() {
@@ -3008,9 +3047,11 @@ function restoreState() {
   rebuildScene();
 
   if (gameState.solved) {
-    updateShareSection();
+    showWinCard();
     // Returning to an already-solved puzzle: quiet celebration, no big volley
     startAmbientFireworks();
+  } else {
+    hideWinCard();
   }
 }
 
@@ -3052,6 +3093,7 @@ async function init() {
     setupKeyboardHandler();
     setupModalCloseButtons();
     setupShareButtons();
+    setupWinCard();
     _initialized = true;
   }
 
@@ -3447,12 +3489,12 @@ function resetForReload() {
   if (gl) gl.innerHTML = `<div class="guess-list-empty" id="guess-empty-state"><p>${t('emptyState')}</p></div>`;
   const wc = document.getElementById('wordle-inline-content'); if (wc) wc.innerHTML = '';
   const pc = document.getElementById('partial-clues');         if (pc) pc.innerHTML = '';
-  const ss = document.getElementById('share-section');         if (ss) ss.style.display = 'none';
   const br = document.getElementById('best-rank-label');       if (br) br.textContent = '';
 
   clearScene();
   closeWordlePanel();
   closeSuggestPanel();
+  hideWinCard();   // don't let a solved-day card linger when switching lang/date
 }
 
 // Switch the whole game to a given date. dateStr = 'YYYY-MM-DD' replays an

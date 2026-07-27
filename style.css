@@ -708,6 +708,59 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+/* Persistent victory card, centered over the sun (covers the secret; collapsible) */
+#win-card {
+  position: fixed;
+  top: clamp(56px, 11vh, 104px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  width: min(360px, 92vw);
+  background: linear-gradient(170deg, rgba(26,24,22,0.97) 0%, rgba(18,14,12,0.97) 100%);
+  border: 1px solid rgba(244,161,74,0.35);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+#win-card-bar {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px 42px;
+}
+#win-card.collapsed #win-card-bar { padding: 9px 42px; }
+#win-card-title {
+  font: 800 16px/1.2 'Inter', ui-sans-serif, sans-serif;
+  color: var(--amber);
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+#win-card-toggle {
+  position: absolute; right: 8px; top: 50%;
+  transform: translateY(-50%);
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--screen-muted);
+  cursor: pointer;
+  display: grid; place-items: center;
+  font-size: 12px;
+  transition: transform 0.2s ease, background 0.15s;
+}
+#win-card-toggle:hover { background: rgba(255,255,255,0.1); color: var(--screen-text); }
+#win-card.collapsed #win-card-toggle { transform: translateY(-50%) rotate(180deg); }
+#win-card-body { padding: 0 18px 18px; }
+#win-card.collapsed #win-card-body { display: none; }
+#win-card-subtitle {
+  margin: 0 0 4px;
+  text-align: center;
+  color: var(--screen-muted);
+  font-size: 12px;
+}
+#win-card .share-card { margin-top: 12px; }
+#win-card-confirm { text-align: center; }
 .dot-label--latest {
   opacity: 1;
   border-width: 2px;
