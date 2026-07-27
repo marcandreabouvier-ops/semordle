@@ -98,6 +98,14 @@ body {
 #meteor-canvas {
   position: fixed;
   inset: 0;
+  /* width/height OBLIGATOIRES : un <canvas> est un élément remplacé, donc avec
+     width:auto il s'affiche à sa taille INTRINSÈQUE (ses attributs width/height,
+     = innerWidth × dpr) au lieu de s'étirer avec inset:0. Sans ça, sur un écran
+     HiDPI (dpr 2 ou 2.5) le canvas fait le double du viewport et les météorites
+     sont dessinées au double de leurs coordonnées logiques : on cliquait à côté
+     sans jamais rien attraper. Le canvas des feux d'artifice, lui, les déclare. */
+  width: 100%;
+  height: 100%;
   z-index: 30;
   pointer-events: none;
 }
