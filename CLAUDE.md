@@ -271,6 +271,25 @@ l'origine à l'écran, teste la proximité du pointeur ; ignore les drags OrbitC
 proche **#2**. Les rangs internes (fichiers data, bandes TEMP, bestRank, tri, localStorage)
 restent 0-décalés (voisin le plus proche = rank 1). N'appliquer le décalage QU'À l'affichage.
 
+### Victoire & partage (`#win-card`)
+
+À la résolution, une **carte persistante centrée** `#win-card` s'affiche (`showWinCard`,
+appelée dans `handleWin` ~1 s après la supernova, et au `restoreState` d'un jour résolu) :
+titre « Bien joué ! » + sous-titre + carte de partage (`buildShareCardHTML`) + bouton copier.
+Elle **couvre le soleil** pour ne pas spoiler le mot secret (screenshots). Bouton ▾ **Réduire**
+(`toggleWinCard`) → replie le corps et révèle le soleil ; préférence mémorisée
+(`semordle:winCardCollapsed`). Anti-spoiler robuste : dépliée, elle masque AUSSI le label 3D du
+secret (`setSecretLabelHidden`, indépendant du zoom caméra). Remplace l'ancien toast fugace +
+la carte de partage du panneau gauche (retirée). `hideWinCard()` au changement de langue/date.
+
+### Liens de recherche par mot (`wordLinksHtml`)
+
+Chaque carte du classement est un **accordéon** : clic/Enter (`role=button`) déplie 2 liens
+ouvrant un nouvel onglet — EN : thesaurus.com + en.wikipedia ; FR : cnrtl.fr/synonymie +
+fr.wikipedia (mot en `encodeURIComponent`, `rel=noopener noreferrer`). Aide le joueur qui sèche
+à chercher synonymes/définition sans quitter le jeu. Le clone « dernière proposition » est
+nettoyé de ses liens/caret (`updateLastGuessSection`).
+
 ### Wordle — règles spécifiques
 
 - **Choix du mot** (`selectUnlockTarget`) : normalement un mot **plus proche** que ton
