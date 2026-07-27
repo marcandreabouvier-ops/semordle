@@ -82,6 +82,8 @@ const I18N = {
     tipHowTo:        'About',
     tipStats:        'Statistics',
     tipArchive:      'Archives',
+    linkThesaurus:   'Thesaurus',
+    linkWikipedia:   'Wikipedia',
     statsTitle:      'Your statistics',
     statsPlayed:     'Played',
     statsWon:        'Won',
@@ -199,6 +201,8 @@ const I18N = {
     tipHowTo:        'À propos',
     tipStats:        'Statistiques',
     tipArchive:      'Archives',
+    linkThesaurus:   'Synonymes',
+    linkWikipedia:   'Wikipédia',
     statsTitle:      'Vos statistiques',
     statsPlayed:     'Parties jouées',
     statsWon:        'Gagnées',
@@ -1004,6 +1008,19 @@ function clearSemanticMessage() {
 
 // ─── Render guess card (guess panel list) ─────────────────
 
+// Look-up links for a guessed word (new tab). EN → thesaurus.com; FR → CNRTL
+// (synonymie, la référence). Wikipedia in the current language. Lets a stuck
+// player check synonyms/definition without leaving the game.
+function wordLinksHtml(word) {
+  const w = encodeURIComponent(word);
+  const wiki = `https://${currentLang === 'fr' ? 'fr' : 'en'}.wikipedia.org/wiki/${w}`;
+  const thes = currentLang === 'fr'
+    ? `https://www.cnrtl.fr/synonymie/${w}`
+    : `https://www.thesaurus.com/browse/${w}`;
+  const a = (href, label) => `<a href="${href}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`;
+  return `<div class="guess-links">${a(thes, t('linkThesaurus'))}${a(wiki, t('linkWikipedia'))}</div>`;
+}
+
 function renderGuessCard(entry) {
   const list = document.getElementById('guess-list');
   if (list.querySelector(`[data-word="${CSS.escape(entry.word)}"]`)) return;
@@ -1064,8 +1081,23 @@ function renderGuessCard(entry) {
       <div class="guess-meta">${metaLine}</div>
       ${showBar ? `<div class="bar" aria-hidden="true"><div class="fill" style="width:${barFill}%"></div></div>` : ''}
     </div>
-    <div class="guess-rank" style="color: ${cardColor}" aria-label="${rankLabel}">${rankLabel}</div>
+    <div class="guess-rank" style="color: ${cardColor}" aria-label="${rankLabel}">${rankLabel}<span class="guess-caret" aria-hidden="true">▾</span></div>
+    ${wordLinksHtml(entry.word)}
   `;
+
+  // Click/Enter toggles the look-up links (Thesaurus + Wikipedia) for this word.
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('aria-expanded', 'false');
+  const toggle = (e) => {
+    if (e.target.closest('a')) return; // let the links open normally
+    const open = card.classList.toggle('expanded');
+    card.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+  card.addEventListener('click', toggle);
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(e); }
+  });
 
   insertCardSorted(list, card, sortKey);
 
@@ -1092,10 +1124,16 @@ function updateLastGuessSection(sourceCard) {
   const section = document.getElementById('last-guess-section');
   const container = document.getElementById('last-guess-container');
   const clone = sourceCard.cloneNode(true);
-  clone.classList.remove('latest-guess');
+  clone.classList.remove('latest-guess', 'expanded');
   clone.style.removeProperty('--latest-color');
   clone.style.removeProperty('--latest-glow');
   clone.style.animation = 'none';
+  // The spotlight is a static preview: drop the interactive look-up links + caret
+  clone.removeAttribute('role');
+  clone.removeAttribute('tabindex');
+  clone.removeAttribute('aria-expanded');
+  clone.querySelector('.guess-links')?.remove();
+  clone.querySelector('.guess-caret')?.remove();
   container.replaceChildren(clone);
   section.classList.remove('hidden');
 }

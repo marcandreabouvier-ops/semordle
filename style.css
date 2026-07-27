@@ -766,7 +766,9 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   animation: slideIn 0.25s cubic-bezier(0.22,1,0.36,1);
   position: relative;
   overflow: hidden;
+  cursor: pointer;   /* click to reveal Thesaurus / Wikipedia links */
 }
+.guess-card:hover { border-color: rgba(45,212,191,0.28); }
 .guess-card::before {
   content: '';
   position: absolute;
@@ -830,6 +832,41 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   white-space: nowrap;
   opacity: 0.9;
 }
+/* Look-up links accordion (Thesaurus / Wikipedia), revealed on card click */
+.guess-caret {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 9px;
+  opacity: 0.45;
+  transition: transform 0.2s ease;
+}
+.guess-card.expanded .guess-caret { transform: rotate(180deg); opacity: 0.8; }
+.guess-links {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 8px;
+  max-height: 0;
+  margin-top: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease, opacity 0.2s ease, margin-top 0.2s ease;
+}
+.guess-card.expanded .guess-links { max-height: 44px; margin-top: 9px; opacity: 1; }
+.guess-links a {
+  flex: 1;
+  text-align: center;
+  padding: 7px 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(45,212,191,0.25);
+  background: rgba(45,212,191,0.06);
+  color: var(--phosphor);
+  font: 600 11px/1 'Inter', ui-sans-serif, sans-serif;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, border-color 0.15s;
+}
+.guess-links a:hover { background: rgba(45,212,191,0.16); border-color: var(--phosphor); }
+
 .bar {
   height: 2px;
   background: rgba(255,255,255,0.06);
