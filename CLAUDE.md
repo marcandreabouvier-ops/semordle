@@ -194,6 +194,15 @@ Archives). En ajoutant des mots au schedule : puiser dans des concepts neufs, no
 utilisés dans l'autre langue. **Runway actuel : jusqu'au 2026-08-31** (#240) — à prolonger
 avant cette date (banques de concepts frais dans le script de build, cf. session du 24/07).
 
+**Règle anti-cluster thématique (depuis le 2026-07-27)** : au sein d'une langue, des jours
+CONSÉCUTIFS ne doivent pas tomber sur des mots du même thème (retour joueur : brume→givre→rosée,
+similarité word2vec ~0.46). Le futur a été **réordonné** (glouton : chaque jour minimise la
+similarité word2vec pondérée aux 2 jours précédents, `LOOKBACK=2` / `WEIGHT=[1.0, 0.45]`, ancré
+sur le dernier jour figé) → FR : 23→3 paires proches (max 0.69→0.37) ; EN : 18→0 (max 0.71→0.28).
+Le passé ≤ aujourd'hui reste figé. Cible : similarité adjacente < ~0.30. Quand on régénère/étend
+le planning, **relancer ce réordonnancement** (script `reorder_schedule.py` de la session, jetable)
+avant de committer, sinon les runs thématiques reviennent.
+
 ## Architecture game.js
 
 ### Constantes importantes
