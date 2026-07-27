@@ -26,7 +26,7 @@ const I18N = {
     wheelTitle:      'Wheel of fortune',
     wheelHint:       'You earn a spin every 50 guesses. Each slice shows the word at stake: the redder the planet, the closer it orbits the secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} spin${n > 1 ? 's' : ''} ready` : 'No spin yet — keep going!',
-    wheelSpinBtn:    'SPIN',
+    wheelSpinBtn:    'Spin',
     wheelResult:     (r) => `Unlocked word #${r}!`,
     wheelJackpot:    'JACKPOT! #',
     wheelNoCloser:   'Nothing left to unlock — the whole galaxy is yours!',
@@ -147,7 +147,7 @@ const I18N = {
     wheelTitle:      'Roue de la chance',
     wheelHint:       'Tu gagnes un tour tous les 50 essais. Chaque part montre le mot à gagner : plus la planète est rouge, plus il orbite près du secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} tour${n > 1 ? 's' : ''} dispo` : 'Pas encore de tour — continue !',
-    wheelSpinBtn:    'TOURNER',
+    wheelSpinBtn:    'Tourner',
     wheelResult:     (r) => `Tu débloques le mot #${r} !`,
     wheelJackpot:    'JACKPOT ! #',
     wheelNoCloser:   'Plus rien à débloquer — toute la galaxie est à toi !',
@@ -377,6 +377,9 @@ const ICONS = {
   share:   '<path d="M8 2.5v11M8 2.5l4.6 2.6M8 2.5L3.4 5.1M8 13.5l4.6-2.6M8 13.5l-4.6-2.6"/>',
   chevron: '<path d="M4 6.5l4 4 4-4"/>',
   spark:   '<path d="M8 2.2l1.5 4.3 4.3 1.5-4.3 1.5L8 13.8l-1.5-4.3L2.2 8l4.3-1.5z"/>',
+  tiles:   '<rect x="1.8" y="5.5" width="12.4" height="5" rx="1.2"/><path d="M5.9 5.5v5M10.1 5.5v5"/>',
+  wheel:   '<circle cx="8" cy="8" r="6"/><path d="M8 2v12M2 8h12"/>',
+  calendar:'<rect x="2" y="3" width="12" height="11" rx="1.6"/><path d="M2 6.4h12M5.2 1.6V4M10.8 1.6V4"/>',
 };
 
 function icon(name, size = 16) {
@@ -939,12 +942,13 @@ function applyI18n() {
   }
 
   // Wordle handle label
+  // Les trois languettes partagent le même gris : c'est l'icône qui les distingue
   const handleLabel = document.getElementById('wordle-handle-label');
-  if (handleLabel) handleLabel.textContent = `▲ ${t('tabWordle')}`;
+  if (handleLabel) handleLabel.innerHTML = `${icon('tiles', 14)}<span>${t('tabWordle')}</span>`;
   const suggestLabel = document.getElementById('suggest-handle-label');
-  if (suggestLabel) suggestLabel.textContent = `▲ ${t('tabSuggest')}`;
+  if (suggestLabel) suggestLabel.innerHTML = `${icon('spark', 14)}<span>${t('tabSuggest')}</span>`;
   const wheelLabel = document.getElementById('wheel-handle-label');
-  if (wheelLabel) wheelLabel.textContent = `▲ ${t('tabWheel')}`;
+  if (wheelLabel) wheelLabel.innerHTML = `${icon('wheel', 14)}<span>${t('tabWheel')}</span>`;
   const suggestTitle = document.getElementById('suggest-panel-title');
   if (suggestTitle) suggestTitle.textContent = t('tabSuggest');
   const suggestHintEl = document.getElementById('suggest-hint');
@@ -1191,8 +1195,10 @@ function updateBestRankLabel() {
   const best = gameState.stats.bestRank;
   if (best) {
     el.textContent = t('bestRankShort', displayRank(best));
+    el.style.color = rankToColor(best);   // le meilleur rang est une DONNÉE : il porte sa chaleur
   } else {
     el.textContent = '';
+    el.style.removeProperty('color');
   }
 }
 
@@ -2106,7 +2112,7 @@ function renderWheel(resultHtml) {
   const emptyMsg = noneGiveable ? `<span class="wheel-none">${t('wheelNoCloser')}</span>` : '';
   content.innerHTML = `
     <div class="how-to-content wheel-wrap">
-      <h2>🎡 ${t('wheelTitle')}</h2>
+      <h2>${icon('wheel')}<span>${t('wheelTitle')}</span></h2>
       <div class="wheel-stage">
         <div class="wheel-pointer"></div>
         ${buildWheelSvg(_wheelRewards)}
@@ -3329,7 +3335,7 @@ function openArchiveModal() {
   if (!modal || !content) return;
   content.innerHTML = `
     <div class="how-to-content">
-      <h2>🗓️ ${t('archiveTitle')}</h2>
+      <h2>${icon('calendar')}<span>${t('archiveTitle')}</span></h2>
       <p class="archive-intro">${t('archiveIntro')}</p>
       <div id="archive-list" class="archive-list" aria-live="polite"></div>
     </div>`;
