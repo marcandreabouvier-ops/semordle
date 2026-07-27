@@ -221,10 +221,10 @@ h1 {
 .how-to-btn:active {
   transform: scale(0.90);
 }
-/* Hover tooltip under the top-bar icons (mouse only — no sticky tips on touch) */
+/* Hover tooltip under the top-bar controls (mouse only — no sticky tips on touch) */
 @media (hover: hover) {
-  .how-to-btn[data-tip] { position: relative; }
-  .how-to-btn[data-tip]::after {
+  [data-tip] { position: relative; }
+  [data-tip]::after {
     content: attr(data-tip);
     position: absolute;
     top: calc(100% + 6px);
@@ -245,10 +245,21 @@ h1 {
     transition: opacity 0.15s ease, transform 0.15s ease;
     z-index: 30;
   }
-  .how-to-btn[data-tip]:hover::after {
+  [data-tip]:hover::after {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
   }
+  /* Le sélecteur de langue est collé au bord droit : on ancre l'infobulle à
+     droite, sinon une phrase entière déborderait de l'écran. Casse normale,
+     c'est une phrase et non une étiquette. */
+  .lang-btn[data-tip]::after {
+    left: auto; right: 0;
+    transform: translateX(0) translateY(-3px);
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+  }
+  .lang-btn[data-tip]:hover::after { transform: translateX(0) translateY(0); }
 }
 
 /* === Language switcher === */
@@ -440,8 +451,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 /* La Roue reste cachée tant qu'aucun tour n'est gagné ; sa disponibilité n'est
    plus une lueur dorée permanente mais un simple point de signal qui respire. */
-#wheel-handle { display: none; }
-#wheel-handle.available {
+/* Sélecteurs qualifiés par #bottom-tabs : la règle partagée « #bottom-tabs button »
+   (spécificité 1,0,1) écraserait sinon ce display:none et la languette resterait
+   visible en permanence. */
+#bottom-tabs #wheel-handle { display: none; }
+#bottom-tabs #wheel-handle.available {
   display: flex;
   border-color: rgba(45,212,191,0.30);
   color: var(--phosphor);
@@ -586,20 +600,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 #wordle-overlay.open {
   transform: translateX(-50%) translateY(0);
-}
-
-#wordle-drag-handle {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0 4px;
-  flex-shrink: 0;
-  cursor: grab;
-}
-#wordle-drag-handle span {
-  width: 36px;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(244,161,74,0.35);
 }
 
 #wordle-overlay-header {
@@ -1365,7 +1365,6 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   .vkeyboard { gap: 4px; margin-top: 8px; }
   .wordle-header .caption { display: none; }
   .wordle-header p { font-size: 10px; line-height: 1.35; margin: 2px 0; }
-  #wordle-drag-handle { padding: 6px 0 2px; }
   #wordle-overlay-body { padding-top: 6px; }
   .partial-clues { margin-top: 6px; }
   .wordle-board {

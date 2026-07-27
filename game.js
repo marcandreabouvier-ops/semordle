@@ -82,6 +82,8 @@ const I18N = {
     tipHowTo:        'About',
     tipStats:        'Statistics',
     tipArchive:      'Archives',
+    tipLangEn:       'Play the English puzzle — a different word',
+    tipLangFr:       'Play the French puzzle — a different word',
     linkThesaurus:   'Thesaurus',
     linkWikipedia:   'Wikipedia',
     statsTitle:      'Your statistics',
@@ -201,6 +203,8 @@ const I18N = {
     tipHowTo:        'À propos',
     tipStats:        'Statistiques',
     tipArchive:      'Archives',
+    tipLangEn:       'Jouer la grille anglaise — un autre mot',
+    tipLangFr:       'Jouer la grille française — un autre mot',
     linkThesaurus:   'Synonymes',
     linkWikipedia:   'Wikipédia',
     statsTitle:      'Vos statistiques',
@@ -955,7 +959,10 @@ function applyI18n() {
   const winCopy = document.getElementById('win-card-copy');
   if (winCopy) winCopy.innerHTML = `${icon('copy')}<span>${t('copyBtn')}</span>`;
   // Localized hover tooltips (mouse only — see CSS @media (hover: hover))
-  [['how-to-btn', 'tipHowTo'], ['stats-btn', 'tipStats'], ['archive-btn', 'tipArchive']]
+  // Les langues portent aussi une infobulle : beaucoup de joueurs croyaient que
+  // le sélecteur traduisait la page, alors que c'est une AUTRE grille.
+  [['how-to-btn', 'tipHowTo'], ['stats-btn', 'tipStats'], ['archive-btn', 'tipArchive'],
+   ['lang-en', 'tipLangEn'], ['lang-fr', 'tipLangFr']]
     .forEach(([id, key]) => document.getElementById(id)?.setAttribute('data-tip', t(key)));
   updatePuzzlePill();   // re-render the pill (its return label is localized)
 
@@ -3285,28 +3292,15 @@ async function openStatsModal() {
     [s.streak ? t('statsDays', s.streak) : '–', t('statsStreak')],
   ];
 
-  // Yesterday's word — past puzzles are public files
-  const y = new Date(); y.setDate(y.getDate() - 1);
-  const yDate = `${y.getFullYear()}-${String(y.getMonth() + 1).padStart(2, '0')}-${String(y.getDate()).padStart(2, '0')}`;
-  let yesterdayHTML = `<p class="stats-yesterday-none">${t('yesterdayNone')}</p>`;
-  try {
-    const res = await fetch(`data/${currentLang}/${yDate}.json`);
-    if (res.ok) {
-      const p = await res.json();
-      yesterdayHTML = `<p>${t('yesterdayLine', p.puzzleNumber)} <span class="word">${escapeHtml(p.secret)}</span></p>`;
-    }
-  } catch (e) { /* offline — keep fallback */ }
-
+  // Le « mot d'hier » a été retiré (2026-07-27) : depuis le Mode Archives, la
+  // veille est une grille qu'on peut encore vouloir jouer — la révéler ici la
+  // gâchait. Les clés i18n yesterday* sont conservées au cas où on le remette.
   content.innerHTML = `
     <div class="how-to-content">
       <h2>${t('statsTitle')}</h2>
       ${s.played === 0 ? `<p class="stats-empty">${t('statsEmpty')}</p>` : ''}
       <div class="stats-grid">
         ${tiles.map(([v, l]) => `<div class="stat-tile"><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`).join('')}
-      </div>
-      <div class="stats-yesterday">
-        <div class="caption">${t('yesterdayTitle')}</div>
-        ${yesterdayHTML}
       </div>
     </div>`;
 
