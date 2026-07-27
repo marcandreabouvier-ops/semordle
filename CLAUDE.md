@@ -46,15 +46,24 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   (sinon il ne s'arrêtait jamais sur une partie non résolue, bug joueur 2026-07-24).
 - **Météorites** (`#meteor-canvas` + `setupMeteors`) : étoile filante cliquable qui traverse
   le haut de l'écran. Éligibilité (`meteorEligible`) : ≥ 15 propositions (`METEOR_MIN_GUESSES`),
-  onglet visible, aucune modale/overlay ouvert, partie non résolue, < 3 captures/jour
-  (`METEOR_DAILY_CAP`, `stats.meteorCatches`). Heartbeat 1 s qui n'accumule que du temps de
-  jeu ACTIF ; 1re météorite après 1-2,5 min (`METEOR_FIRST_MS`, découverte), ensuite 4-10 min
-  (`METEOR_WAIT_MS`). 3 paliers (`METEOR_TIERS`) : bleue 60 % → mot froid (rang ≥ 250),
-  orange 30 % → tiède (20-250), rouge 10 % → TOP 20 + feux d'artifice. Vitesses 4 s/3,4 s/2,8 s.
-  Hitbox généreuse invisible : 46 px souris / 56 px tactile sur la tête + traînée récente
-  (listener `pointerdown` capture sur window ; le canvas est en `pointer-events:none`, z 30).
-  Capture → burst de particules + toast (`#meteor-toast`) + mot ajouté comme la roue
-  (compté dans `meteorCatches`). Ratée = elle s'envole, aucune pénalité. Debug : flag
+  onglet visible, aucune modale/overlay ouvert, partie non résolue, au moins un palier non
+  plafonné (`availableMeteorTiers`). Heartbeat 1 s qui n'accumule que du temps de jeu ACTIF ;
+  1re météorite après 45 s-1,5 min (`METEOR_FIRST_MS`, découverte), ensuite 2,5-6 min
+  (`METEOR_WAIT_MS`). 3 paliers (`METEOR_TIERS`), **caps PAR PALIER et par jour**
+  (`stats.meteorByTier`, retour joueurs 2026-07-27) : bleue 72 % → mot froid (rang ≥ 250),
+  **illimitée** ; orange 21 % → tiède (20-250), **5 max** ; rouge 7 % → TOP 20 + feux
+  d'artifice, **3 max**. Un palier plafonné **ne spawne plus** (`drawMeteorTier` renormalise
+  les poids sur les paliers restants) — jamais de météorite inattrapable. Vitesses
+  5,4 s/4,6 s/3,8 s (le mockup était calibré sur une petite fenêtre : mêmes ms = bien plus de
+  px/s en plein écran). Hitbox invisible **60 px souris / 76 px tactile autour de TOUTE la
+  traînée**, mesurée en distance point-**segment** (`meteorHitDistSq`) : cliquer n'importe où
+  sur le trait lumineux attrape. `METEOR_TRAIL_MAX = 34` points (ralentir raccourcit la traînée
+  en px, donc on l'allonge pour garder la cible large). Le listener `pointerdown` (capture sur
+  window) **ne vole jamais un clic destiné à un contrôle** (`button, a, input, …`) — important
+  vu la taille de la hitbox. Le canvas est en `pointer-events:none`, z 30. Trajectoire bornée
+  aux ~2/3 hauts (vérifié : max ~61 % de la hauteur, jamais sur les languettes/barre de saisie).
+  Capture → burst de particules + toast (`#meteor-toast`) + mot ajouté comme la roue (total dans
+  `meteorCatches` pour le partage). Ratée = elle s'envole, aucune pénalité. Debug : flag
   localStorage `semordle:debug` expose `window._gxMeteor(tier)` / `_gxMeteors()`.
 - **Partage** : la ligne 🔓 affiche le total de mots réellement débloqués =
   `wordleWinCount + wheelSpinsUsed + meteorCatches` (`unlockBreakdown()`) avec la répartition

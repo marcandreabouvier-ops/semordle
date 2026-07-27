@@ -470,6 +470,7 @@ function createFreshState(puzzleDate) {
       wordleWinCount: 0,
       wheelSpinsUsed: 0,
       meteorCatches: 0,
+      meteorByTier: {},   // per-tier counts drive the per-tier daily caps
       bestRank: null,
     },
   };
@@ -2194,13 +2195,17 @@ function setupWheelHandle() {
 // helper that turns the cosmos into a living place that can gift you.
 
 const METEOR_MIN_GUESSES = 15;              // no meteors until real play happened
-const METEOR_DAILY_CAP   = 3;               // catches per day (state is per-day)
-const METEOR_FIRST_MS    = [60e3, 150e3];   // discovery: first one comes quicker
-const METEOR_WAIT_MS     = [240e3, 600e3];  // then every 4–10 min of ACTIVE play
+const METEOR_FIRST_MS    = [45e3, 100e3];   // discovery: first one comes quicker
+const METEOR_WAIT_MS     = [150e3, 360e3];  // then every 2.5–6 min of ACTIVE play
+const METEOR_TRAIL_MAX   = 34;              // trail points kept — also the click target (see hitbox)
+// Durations are a full screen crossing: slower than the mockup, which was tuned
+// in a small window (same ms = far more px/s on a real full-screen radar).
+// `cap` = catches allowed per day and per tier: blue is free (cold words, low
+// value), orange/warm and red/top-20 stay scarce.
 const METEOR_TIERS = {
-  blue:   { weight: 0.60, color: '#4aa3e6', glow: '#8fd0ff', dur: 4000, band: [250, 10000] }, // cold word
-  orange: { weight: 0.30, color: '#ee7726', glow: '#ffc79a', dur: 3400, band: [20, 250] },    // warm word
-  red:    { weight: 0.10, color: '#ff4a3a', glow: '#ffb3ab', dur: 2800, band: [1, 20] },      // top 20!
+  blue:   { weight: 0.72, cap: Infinity, color: '#4aa3e6', glow: '#8fd0ff', dur: 5400, band: [250, 10000] }, // cold word
+  orange: { weight: 0.21, cap: 5,        color: '#ee7726', glow: '#ffc79a', dur: 4600, band: [20, 250] },    // warm word
+  red:    { weight: 0.07, cap: 3,        color: '#ff4a3a', glow: '#ffb3ab', dur: 3800, band: [1, 20] },      // top 20!
 };
 
 let _meteors = [];            // in-flight meteors
@@ -2212,13 +2217,21 @@ let _meteorHadFirst = false;  // first-of-session uses the shorter window
 
 function meteorRandWait(range) { return range[0] + Math.random() * (range[1] - range[0]); }
 
+function meteorTierCount(tier) { return gameState?.stats?.meteorByTier?.[tier] || 0; }
+
+// Tiers the player can still earn today. A capped tier must never spawn again —
+// an uncatchable meteor would be pure frustration.
+function availableMeteorTiers() {
+  return Object.keys(METEOR_TIERS).filter(k => meteorTierCount(k) < METEOR_TIERS[k].cap);
+}
+
 // Timer only runs while the player is actually here and the sky is clear:
-// tab visible, no modal/overlay covering the cosmos, game unsolved, cap not hit.
+// tab visible, no modal/overlay covering the cosmos, game unsolved, tier left.
 function meteorEligible() {
   if (!gameState || gameState.solved) return false;
   if (isArchiveActive()) return false;   // meteors are a "today" mechanic, not for replays
   if ((gameState.stats.semanticGuessCount || 0) < METEOR_MIN_GUESSES) return false;
-  if ((gameState.stats.meteorCatches || 0) >= METEOR_DAILY_CAP) return false;
+  if (!availableMeteorTiers().length) return false;   // everything capped (blue is uncapped, so ~never)
   if (_meteors.length) return false;                  // one at a time
   if (document.visibilityState !== 'visible') return false;
   if (document.querySelector('.modal:not(.hidden)')) return false;
@@ -2244,18 +2257,23 @@ function meteorPool(tier) {
   return cands;
 }
 
+// Weighted draw among the tiers still available, weights renormalized so a
+// capped orange/red simply gives its share back to the commoner tiers.
 function drawMeteorTier() {
-  const roll = Math.random();
-  let acc = 0;
-  for (const [k, tc] of Object.entries(METEOR_TIERS)) {
-    acc += tc.weight;
-    if (roll < acc) return k;
+  const tiers = availableMeteorTiers();
+  if (!tiers.length) return null;
+  const total = tiers.reduce((s, k) => s + METEOR_TIERS[k].weight, 0);
+  let roll = Math.random() * total;
+  for (const k of tiers) {
+    roll -= METEOR_TIERS[k].weight;
+    if (roll < 0) return k;
   }
-  return 'blue';
+  return tiers[tiers.length - 1];
 }
 
 function spawnMeteor(tierKey) {
   const tier = tierKey || drawMeteorTier();
+  if (!tier) return;                                  // every tier capped
   const pool = meteorPool(tier);
   if (!pool.length) return;                           // nothing left to give
   const word = pool[Math.floor(Math.random() * pool.length)];
@@ -2274,6 +2292,26 @@ function meteorPos(m, t) {
   const u = 1 - t;
   return { x: u * u * m.p0.x + 2 * u * t * m.cp.x + t * t * m.p1.x,
            y: u * u * m.p0.y + 2 * u * t * m.cp.y + t * t * m.p1.y };
+}
+
+// Squared distance from (x,y) to the meteor's trail, treated as a polyline —
+// distance to each SEGMENT, so the gaps between sampled points are covered too.
+function meteorHitDistSq(m, x, y) {
+  const pts = m.trail;
+  if (!pts.length) return Infinity;
+  let best = Infinity;
+  for (let i = 0; i < pts.length; i++) {
+    const a = pts[i];
+    if (i === 0) { best = Math.min(best, (a.x - x) ** 2 + (a.y - y) ** 2); continue; }
+    const p = pts[i - 1];
+    const dx = a.x - p.x, dy = a.y - p.y;
+    const len2 = dx * dx + dy * dy;
+    // project the click onto the segment, clamped to its ends
+    const u = len2 ? Math.max(0, Math.min(1, ((x - p.x) * dx + (y - p.y) * dy) / len2)) : 0;
+    const qx = p.x + u * dx, qy = p.y + u * dy;
+    best = Math.min(best, (qx - x) ** 2 + (qy - y) ** 2);
+  }
+  return best;
 }
 
 function meteorCanvasCtx() {
@@ -2300,19 +2338,19 @@ function startMeteorLoop() {
       if (t >= 1) { _meteors.splice(i, 1); continue; } // missed — it just flies away
       const pos = meteorPos(m, t);
       m.trail.push(pos);
-      if (m.trail.length > 26) m.trail.shift();
+      if (m.trail.length > METEOR_TRAIL_MAX) m.trail.shift();
       const tc = METEOR_TIERS[m.tier];
       for (let k = 1; k < m.trail.length; k++) {
         const a = k / m.trail.length;
         ctx.globalAlpha = a * 0.75;
         ctx.strokeStyle = tc.color;
-        ctx.lineWidth = a * 4.2; ctx.lineCap = 'round';
+        ctx.lineWidth = a * 5; ctx.lineCap = 'round';
         ctx.beginPath(); ctx.moveTo(m.trail[k - 1].x, m.trail[k - 1].y); ctx.lineTo(m.trail[k].x, m.trail[k].y); ctx.stroke();
       }
       ctx.globalAlpha = 1;
-      ctx.shadowColor = tc.color; ctx.shadowBlur = 14;
+      ctx.shadowColor = tc.color; ctx.shadowBlur = 16;
       ctx.fillStyle = tc.glow;
-      ctx.beginPath(); ctx.arc(pos.x, pos.y, 3.4, 0, 6.28); ctx.fill();
+      ctx.beginPath(); ctx.arc(pos.x, pos.y, 4.2, 0, 6.28); ctx.fill();
       ctx.fillStyle = '#fff';
       ctx.beginPath(); ctx.arc(pos.x, pos.y, 1.8, 0, 6.28); ctx.fill();
       ctx.shadowBlur = 0;
@@ -2346,7 +2384,7 @@ function showMeteorToast(html, color) {
 }
 
 function catchMeteor(m, x, y) {
-  if ((gameState.stats.meteorCatches || 0) >= METEOR_DAILY_CAP) return;
+  if (meteorTierCount(m.tier) >= METEOR_TIERS[m.tier].cap) return;
   _meteors = _meteors.filter(o => o !== m);
   const tc = METEOR_TIERS[m.tier];
   for (let i = 0; i < 26; i++) {
@@ -2359,7 +2397,9 @@ function catchMeteor(m, x, y) {
   const entry = { word: w.word, rank: w.rank, score: w.score, displayScore, unlocked: true };
   gameState.semanticGuesses.unshift(entry);
   gameState.unlocks.push(w.word);
-  gameState.stats.meteorCatches = (gameState.stats.meteorCatches || 0) + 1;
+  gameState.stats.meteorCatches = (gameState.stats.meteorCatches || 0) + 1; // total, for the share
+  const byTier = gameState.stats.meteorByTier || (gameState.stats.meteorByTier = {});
+  byTier[m.tier] = (byTier[m.tier] || 0) + 1;                                // per-tier, for the caps
   if (gameState.stats.bestRank === null || w.rank < gameState.stats.bestRank) {
     gameState.stats.bestRank = w.rank;
   }
@@ -2388,13 +2428,18 @@ function setupMeteors() {
     }
   }, 1000);
 
-  // generous invisible hitbox: head + recent trail, bigger on touch
+  // Generous invisible hitbox: the WHOLE trail counts, measured as distance to
+  // each trail SEGMENT (not just to sampled points), so clicking anywhere along
+  // the glowing streak catches it — that's how players actually aim.
   window.addEventListener('pointerdown', (e) => {
     if (!_meteors.length) return;
-    const hitR = e.pointerType === 'touch' ? 56 : 46;
+    // Never steal a click meant for a real control (the hitbox is wide now).
+    // target isn't guaranteed to be an Element (window/document), hence ?.
+    if (e.target?.closest?.('button, a, input, textarea, select, [role="button"]')) return;
+    const hitR = e.pointerType === 'touch' ? 76 : 60;
+    const r2 = hitR * hitR;
     for (const m of _meteors) {
-      const pts = m.trail.slice(-10);
-      if (pts.some(p => (p.x - e.clientX) ** 2 + (p.y - e.clientY) ** 2 < hitR * hitR)) {
+      if (meteorHitDistSq(m, e.clientX, e.clientY) < r2) {
         e.preventDefault(); e.stopPropagation();
         catchMeteor(m, e.clientX, e.clientY);
         break;
