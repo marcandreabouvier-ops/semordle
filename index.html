@@ -36,6 +36,16 @@
   <canvas id="meteor-canvas" aria-hidden="true"></canvas>
   <div id="meteor-toast" role="alert" aria-live="polite"></div>
 
+  <!-- Onboarding: first visit only. Same content as the "?" modal (buildHowToSteps). -->
+  <div id="onboarding" class="hidden" role="dialog" aria-modal="true" aria-labelledby="onb-brand">
+    <div id="onboarding-inner">
+      <h2 id="onb-brand">Galexical</h2>
+      <p id="onb-promise"></p>
+      <div id="onb-steps"></div>
+      <button id="onb-play" class="btn-primary"></button>
+    </div>
+  </div>
+
   <!-- Persistent victory card over the sun (covers the secret; collapsible) -->
   <div id="win-card" class="hidden" role="region" aria-label="Victory">
     <div id="win-card-bar">

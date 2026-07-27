@@ -114,18 +114,16 @@ const I18N = {
     inProgress:      '🕹 In progress',
     shareUrl:        'Play at https://galexical.com',
     howToTitle:      'How to play',
-    howToBody: `
-      <p>Every day there's a secret word. Your goal is to find it by guessing semantically related words.</p>
-      <div class="how-to-step"><span class="how-to-icon">🧠</span><div><strong>Semantic search</strong><br>Type any word. You'll see how <em>semantically close</em> it is to the secret — ranked from #1 (closest) down.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🔥</span><div><strong>Temperature</strong><br>Words are color-coded by rank:<br>
-        <span style="color:#ff6b6b">■ Scorching</span> top 100 &nbsp;
-        <span style="color:#f4a14a">■ Hot</span> top 500 &nbsp;
-        <span style="color:#2dd4bf">■ Warm</span> top 1000 &nbsp;
-        <span style="color:#6b8fc2">■ Cold</span> beyond
-      </div></div>
-      <div class="how-to-step"><span class="how-to-icon">🌐</span><div><strong>3D radar</strong><br>Your guesses appear as glowing dots on a semantic sphere. Closer words orbit nearer the center. Drag to rotate, scroll to zoom.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle</strong><br>Tap ▲ Wordle to unlock a hidden clue word. Even if you fail, you keep the green letters.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Win</strong><br>Type the exact secret word to solve the puzzle. Share your result!</div></div>`,
+    onbPromise:      'One secret word a day. Meaning, not letters.',
+    onbPlay:         'Play',
+    onbStep1Title:   'Guess a word',
+    onbStep1Body:    'Galexical compares <em>meaning</em>, not spelling. Every guess gets a rank — #1 is the secret word itself.',
+    onbStep2Title:   'Read the heat',
+    onbStep2Body:    'The closer a word sits to the secret, the hotter it runs.',
+    onbScaleFar:     'far',
+    onbScaleHot:     'scorching',
+    onbStep3Title:   'Find the secret',
+    onbStep3Body:    'Close words orbit near the sun. Type the exact word to solve it — then share your result.',
     howToClose:      'Got it!',
     wellDone:        'Well done!',
     winCollapse:     'Collapse (reveal the sun)',
@@ -235,18 +233,16 @@ const I18N = {
     inProgress:      '🕹 En cours',
     shareUrl:        'Jouez sur https://galexical.com',
     howToTitle:      'Comment jouer',
-    howToBody: `
-      <p>Chaque jour, il y a un mot secret. Votre objectif est de le trouver en devinant des mots sémantiquement proches.</p>
-      <div class="how-to-step"><span class="how-to-icon">🧠</span><div><strong>Recherche sémantique</strong><br>Entrez n'importe quel mot. Vous verrez à quel point il est <em>sémantiquement proche</em> du secret — classé du #1 (le plus proche) vers le bas.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🔥</span><div><strong>Température</strong><br>Les mots sont colorés selon leur rang :<br>
-        <span style="color:#ff6b6b">■ Brûlant</span> top 100 &nbsp;
-        <span style="color:#f4a14a">■ Chaud</span> top 500 &nbsp;
-        <span style="color:#2dd4bf">■ Tiède</span> top 1000 &nbsp;
-        <span style="color:#6b8fc2">■ Froid</span> au-delà
-      </div></div>
-      <div class="how-to-step"><span class="how-to-icon">🌐</span><div><strong>Radar 3D</strong><br>Vos propositions apparaissent comme des points lumineux sur une sphère sémantique. Les mots proches orbitent près du centre. Faites glisser pour tourner, défilez pour zoomer.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🔡</span><div><strong>Wordle</strong><br>Appuyez sur ▲ Wordle pour débloquer un mot indice caché. Même si vous échouez, vous gardez les lettres vertes.</div></div>
-      <div class="how-to-step"><span class="how-to-icon">🎯</span><div><strong>Gagner</strong><br>Tapez le mot secret exact pour résoudre le puzzle. Partagez votre résultat !</div></div>`,
+    onbPromise:      'Un mot secret par jour. Le sens, pas les lettres.',
+    onbPlay:         'Jouer',
+    onbStep1Title:   'Proposez un mot',
+    onbStep1Body:    'Galexical compare le <em>sens</em>, pas l’orthographe. Chaque proposition reçoit un rang — le #1, c’est le mot secret lui-même.',
+    onbStep2Title:   'Lisez la chaleur',
+    onbStep2Body:    'Plus un mot est proche du secret, plus il est chaud.',
+    onbScaleFar:     'loin',
+    onbScaleHot:     'brûlant',
+    onbStep3Title:   'Trouvez le secret',
+    onbStep3Body:    'Les mots proches orbitent près du soleil. Tapez le mot exact pour résoudre — puis partagez votre résultat.',
     howToClose:      'Compris !',
     wellDone:        'Bien joué !',
     winCollapse:     'Réduire (voir le soleil)',
@@ -991,11 +987,17 @@ function applyI18n() {
     btn.setAttribute('aria-pressed', String(active));
   });
 
-  // How-to modal content
+  // Modale « ? » — MÊME contenu que l'écran d'accueil (buildHowToSteps)
   const htContent = document.getElementById('how-to-content');
   if (htContent) {
-    htContent.innerHTML = `<div class="how-to-content"><h2>${t('howToTitle')}</h2>${t('howToBody')}<button class="how-to-close-btn how-to-close" aria-label="Close">${t('howToClose')}</button></div>`;
+    htContent.innerHTML = `<div class="how-to-content">` +
+      `<h2>${t('howToTitle')}</h2>` +
+      `<p class="how-to-promise">${t('onbPromise')}</p>` +
+      buildHowToSteps() +
+      `<button class="how-to-close-btn how-to-close btn-primary" aria-label="Close">${t('howToClose')}</button>` +
+      `</div>`;
   }
+  renderOnboarding();   // garde l'écran d'accueil traduit s'il est visible
 }
 
 // ─── Guess panel (left side) ──────────────────────────────
@@ -3164,6 +3166,7 @@ async function init() {
     setupModalCloseButtons();
     setupShareButtons();
     setupWinCard();
+    setupOnboarding();
     _initialized = true;
   }
 
@@ -3528,6 +3531,71 @@ function setupStarsModal() {
   modal?.addEventListener('click', e => {
     if (e.target.closest('#stars-close')) closeStarsModal();
   });
+}
+
+// ─── Onboarding & « Comment jouer » ───────────────────────
+// UNE seule source pour les deux surfaces : l'écran d'accueil du premier
+// lancement et la modale « ? » affichent exactement le même contenu.
+function buildHowToSteps() {
+  const step = (n, titleKey, bodyKey, extra = '') => `
+    <div class="how-to-step">
+      <span class="how-to-num">${n}</span>
+      <div><strong>${t(titleKey)}</strong>${t(bodyKey)}${extra}</div>
+    </div>`;
+  // L'échelle de chaleur en exemple : la même rampe que les barres et le radar
+  const scale = `
+    <div class="how-to-scale" aria-hidden="true"><span></span></div>
+    <div class="how-to-scale-legend"><span>${t('onbScaleFar')}</span><span>${t('onbScaleHot')}</span></div>`;
+  return step('01', 'onbStep1Title', 'onbStep1Body')
+       + step('02', 'onbStep2Title', 'onbStep2Body', scale)
+       + step('03', 'onbStep3Title', 'onbStep3Body');
+}
+
+// Un « nouveau » joueur n'a encore aucune partie ni profil : inutile d'imposer
+// l'écran d'accueil à quelqu'un qui joue déjà depuis des semaines.
+function isFirstVisit() {
+  try {
+    if (localStorage.getItem('semordle:seen-intro')) return false;
+    // Une partie déjà enregistrée (n'importe quel jour, n'importe quelle langue)
+    for (let i = 0; i < localStorage.length; i++) {
+      if (/^semordle:(en|fr):\d{4}-\d{2}-\d{2}$/.test(localStorage.key(i) || '')) return false;
+    }
+    // Le profil est créé d'office au chargement : ne pas se fier à son existence,
+    // mais à sa PROGRESSION (jetons gagnés ou étoile achetée au-delà du Soleil).
+    const raw = localStorage.getItem(PROFILE_KEY);
+    if (raw) {
+      const p = JSON.parse(raw);
+      if ((p.tokens || 0) > 0 || (p.unlocked || []).length > 1) return false;
+    }
+    return true;
+  } catch (e) { return false; }
+}
+
+function renderOnboarding() {
+  const el = document.getElementById('onboarding');
+  if (!el) return;
+  const promise = document.getElementById('onb-promise');
+  if (promise) promise.textContent = t('onbPromise');
+  const steps = document.getElementById('onb-steps');
+  if (steps) steps.innerHTML = buildHowToSteps();
+  const play = document.getElementById('onb-play');
+  if (play) play.textContent = t('onbPlay');
+}
+
+function setupOnboarding() {
+  const el = document.getElementById('onboarding');
+  if (!el) return;
+  renderOnboarding();
+  document.getElementById('onb-play')?.addEventListener('click', () => {
+    try { localStorage.setItem('semordle:seen-intro', '1'); } catch (e) { /* ignore */ }
+    el.classList.add('hidden');
+    lockBodyScroll(false);
+    document.getElementById('semantic-input')?.focus();
+  });
+  if (isFirstVisit()) {
+    el.classList.remove('hidden');
+    lockBodyScroll(true);
+  }
 }
 
 function setupHowTo() {

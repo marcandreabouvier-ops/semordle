@@ -1039,6 +1039,17 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .vkeyboard-row { display: flex; justify-content: center; gap: 5px; }
 /* Available keys glow teal with bright text; used/absent keys go dark and
    faded so the two states read clearly apart, even in a dark room. */
+/* Cible tactile : la touche peut rétrécir visuellement sur petit écran, mais sa
+   zone cliquable reste >= 44 px grâce au ::after (accessibilité du brief). */
+.vkey { position: relative; }
+.vkey::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 44px; min-height: 44px;
+  width: 100%; height: 100%;
+}
 .vkey {
   min-width: 36px; height: 52px;
   border-radius: 6px;
@@ -1168,8 +1179,77 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .how-to-content p  { color: var(--screen-text); font-size: 13px; line-height: 1.65; margin: 0 0 16px; opacity: 0.85; }
 .how-to-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; padding: 12px; border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); font-size: 13px; line-height: 1.6; color: var(--screen-text); }
 .how-to-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-.how-to-step strong { display: block; margin-bottom: 2px; font-size: 13px; color: var(--phosphor); }
-.how-to-close-btn { margin-top: 10px; width: 100%; height: 44px; display: grid; place-items: center; font-size: 13px; border-radius: var(--radius-md); }
+/* Étapes numérotées (fin des pictogrammes emoji) */
+.how-to-num {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--phosphor);
+  margin-top: 2px;
+}
+.how-to-step strong { display: block; margin-bottom: 2px; font-size: 13px; color: var(--screen-text); }
+.how-to-promise {
+  font-family: var(--font-flavor);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--screen-muted);
+  margin: 0 0 18px;
+}
+/* L'échelle de chaleur en exemple : exactement la rampe des barres et du radar */
+.how-to-scale {
+  height: 4px;
+  border-radius: 999px;
+  margin: 10px 0 5px;
+  background: linear-gradient(90deg, var(--cold-c), var(--cool-c), var(--warm-c), var(--hot-c), var(--scorch-c));
+}
+.how-to-scale-legend {
+  display: flex; justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--screen-subtle);
+}
+.how-to-close-btn { margin-top: 16px; width: 100%; height: 44px; display: grid; place-items: center; font-size: 14px; border-radius: 999px; }
+.btn-primary { background: var(--phosphor); border-color: var(--phosphor); color: var(--on-phosphor); font-weight: 700; }
+.btn-primary:hover { background: #4fe0ce; border-color: #4fe0ce; }
+
+/* === Écran d'accueil (premier lancement uniquement) === */
+#onboarding {
+  position: fixed; inset: 0; z-index: 200;
+  display: grid; place-items: center;
+  padding: 24px;
+  background: rgba(2,4,7,0.86);
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+}
+#onboarding-inner {
+  width: min(440px, 100%);
+  padding: 32px 28px 28px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow);
+}
+#onb-brand {
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--phosphor);
+  text-shadow: 0 0 22px rgba(45,212,191,0.5);
+}
+#onb-promise {
+  font-family: var(--font-flavor);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--screen-muted);
+  margin: 0 0 22px;
+}
+#onb-play { margin-top: 18px; width: 100%; height: 48px; font-size: 15px; border-radius: 999px; }
 
 /* === Win modal === */
 .win-modal-content { text-align: center; }
