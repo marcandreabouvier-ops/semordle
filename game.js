@@ -23,6 +23,15 @@ const I18N = {
     tabWordle:       'Wordle',
     tabSuggest:      '3 words',
     tabWheel:        'Wheel',
+    tabTransit:      'Probe',
+    transitTitle:    'Probe launch',
+    transitHint:     'One probe every 20 guesses. The closer the planet you hit orbits the sun, the better the word — but a miss burns the probe.',
+    transitReady:    'Tap to launch',
+    transitFlying:   'probe in flight…',
+    transitLost:     'Probe lost — only a cold word drifts back',
+    transitUnlocked: (r) => `Word #${r} unlocked`,
+    transitNone:     'Nothing left to unlock — the whole galaxy is yours!',
+    transitSpent:    'No probe ready — keep guessing',
     wheelTitle:      'Wheel of fortune',
     wheelHint:       'You earn a spin every 50 guesses. Each slice shows the word at stake: the redder the planet, the closer it orbits the secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} spin${n > 1 ? 's' : ''} ready` : 'No spin yet — keep going!',
@@ -146,6 +155,15 @@ const I18N = {
     tabWordle:       'Wordle',
     tabSuggest:      '3 mots',
     tabWheel:        'Roue',
+    tabTransit:      'Sonde',
+    transitTitle:    'Lancement de sonde',
+    transitHint:     'Une sonde toutes les 20 propositions. Plus la planète touchée orbite près du soleil, meilleur est le mot — mais un tir manqué consume la sonde.',
+    transitReady:    'Appuie pour lancer',
+    transitFlying:   'sonde en vol…',
+    transitLost:     'Sonde perdue — il ne revient qu’un mot froid',
+    transitUnlocked: (r) => `Mot #${r} débloqué`,
+    transitNone:     'Plus rien à débloquer — toute la galaxie est à toi !',
+    transitSpent:    'Aucune sonde prête — continue à jouer',
     wheelTitle:      'Roue de la chance',
     wheelHint:       'Tu gagnes un tour tous les 50 essais. Chaque part montre le mot à gagner : plus la planète est rouge, plus il orbite près du secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} tour${n > 1 ? 's' : ''} dispo` : 'Pas encore de tour — continue !',
@@ -384,6 +402,7 @@ const ICONS = {
   tiles:   '<rect x="1.8" y="5.5" width="12.4" height="5" rx="1.2"/><path d="M5.9 5.5v5M10.1 5.5v5"/>',
   wheel:   '<circle cx="8" cy="8" r="6"/><path d="M8 2v12M2 8h12"/>',
   calendar:'<rect x="2" y="3" width="12" height="11" rx="1.6"/><path d="M2 6.4h12M5.2 1.6V4M10.8 1.6V4"/>',
+  probe:   '<circle cx="8" cy="8" r="2.2"/><ellipse cx="8" cy="8" rx="6.4" ry="3" transform="rotate(-28 8 8)"/><circle cx="13" cy="5" r="1.1" fill="currentColor" stroke="none"/>',
 };
 
 function icon(name, size = 16) {
@@ -497,6 +516,7 @@ function createFreshState(puzzleDate) {
       wheelSpinsUsed: 0,
       meteorCatches: 0,
       meteorByTier: {},   // per-tier counts drive the per-tier daily caps
+      transitShotsUsed: 0,
       bestRank: null,
     },
   };
@@ -953,6 +973,8 @@ function applyI18n() {
   if (suggestLabel) suggestLabel.innerHTML = `${icon('spark', 14)}<span>${t('tabSuggest')}</span>`;
   const wheelLabel = document.getElementById('wheel-handle-label');
   if (wheelLabel) wheelLabel.innerHTML = `${icon('wheel', 14)}<span>${t('tabWheel')}</span>`;
+  const transitLabel = document.getElementById('transit-handle-label');
+  if (transitLabel) transitLabel.innerHTML = `${icon('probe', 14)}<span>${t('tabTransit')}</span>`;
   const suggestTitle = document.getElementById('suggest-panel-title');
   if (suggestTitle) suggestTitle.textContent = t('tabSuggest');
   const suggestHintEl = document.getElementById('suggest-hint');
@@ -1153,6 +1175,7 @@ function renderGuessCard(entry) {
 }
 
 function updateJourneyCount() {
+  updateTransitHandle();
   const el = document.getElementById('journey-count');
   if (!el || !gameState) return;
   const n = gameState.semanticGuesses.length;
@@ -2496,6 +2519,250 @@ function setupMeteors() {
   }
 }
 
+// ─── Transit : lancer une sonde à travers les orbites ─────
+// 5e bouée, axe ADRESSE. Une sonde toutes les 20 propositions, un seul tir.
+// Les anneaux tournent TOUS dans le même sens (comme le vrai système solaire)
+// et leur vitesse suit la 3e loi de Kepler (ω ∝ r^-1.5) : la planète la plus
+// proche du soleil est la plus rapide, donc la plus dure à toucher — la
+// difficulté découle de l'astronomie au lieu d'être arbitraire.
+// Toucher = un mot de la bande correspondante. Rater (soleil ou hors-champ) =
+// la sonde est perdue, il ne reste qu'un mot froid en consolation.
+
+const TRANSIT_EVERY = 20;
+const TRANSIT_TIERS = {
+  blue:   { n: 10, rf: 1.00, pf: 0.055, band: [100, 400],   color: '#4aa3e6', light: '#bfe3ff', rim: '#123047' },
+  orange: { n: 7,  rf: 0.66, pf: 0.060, band: [20, 100],    color: '#ee7726', light: '#ffc79a', rim: '#4a1f06' },
+  red:    { n: 1,  rf: 0.34, pf: 0.077, band: [1, 20],      color: '#ff4a3a', light: '#ffb3ab', rim: '#4d0f0a' },
+};
+const TRANSIT_LOST_BAND = [1000, 100000];   // consolation : un mot froid
+const TRANSIT_OVAL = 0.82;                  // orbites légèrement elliptiques
+const TRANSIT_BASE_SP = 0.0087;             // vitesse de l'anneau extérieur (réglage « rapide »)
+
+let _trPhase = {}, _trProbe = null, _trTrail = [], _trRAF = null, _trResult = null, _trFired = false;
+
+function transitShotsAvailable() {
+  const earned = Math.floor((gameState?.stats?.semanticGuessCount || 0) / TRANSIT_EVERY);
+  return Math.max(0, earned - (gameState?.stats?.transitShotsUsed || 0));
+}
+
+function updateTransitHandle() {
+  const h = document.getElementById('transit-handle');
+  if (!h) return;
+  const show = transitShotsAvailable() > 0 && !(gameState && gameState.solved) && !isArchiveActive();
+  h.classList.toggle('available', show);
+  updateTabsLayout();
+}
+
+// Un mot non trouvé dans une bande de rangs donnée (même principe que la roue).
+function pickWordInBand(lo, hi) {
+  const guessed = new Set(gameState.semanticGuesses.map(g => g.word.toLowerCase()));
+  const unlocked = new Set(gameState.unlocks.map(w => w.toLowerCase()));
+  const secret = puzzle.secret.toLowerCase();
+  const free = (w) => w.rank != null && !guessed.has(w.word.toLowerCase())
+    && !unlocked.has(w.word.toLowerCase()) && w.word.toLowerCase() !== secret;
+  let pool = puzzle.words.filter(w => free(w) && w.rank >= lo && w.rank < hi);
+  if (!pool.length) {                      // bande épuisée : le plus proche de la bande
+    const center = (lo + Math.min(hi, 1000)) / 2;
+    pool = puzzle.words.filter(free).sort((a, b) => Math.abs(a.rank - center) - Math.abs(b.rank - center)).slice(0, 6);
+  }
+  return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+}
+
+// Géométrie recalculée à chaque frame : la modale peut changer de taille.
+function transitGeom(w, h) {
+  const R = Math.min(w * 0.42, h * 0.40);
+  return { cx: w / 2, cy: h * 0.46, R, sun: R * 0.13, launch: { x: w / 2, y: h - 14 }, speed: R * 0.019 };
+}
+function transitPlanets(g, key) {
+  const T = TRANSIT_TIERS[key], out = [], r = g.R * T.rf;
+  for (let k = 0; k < T.n; k++) {
+    const a = (_trPhase[key] || 0) + k * 6.283 / T.n;
+    out.push({ x: g.cx + Math.cos(a) * r, y: g.cy + Math.sin(a) * r * TRANSIT_OVAL, r: g.R * T.pf });
+  }
+  return out;
+}
+
+function transitCanvas() {
+  const cv = document.getElementById('transit-cv');
+  if (!cv) return null;
+  const rect = cv.getBoundingClientRect();
+  const w = Math.round(rect.width), h = Math.round(rect.height);
+  if (!w || !h) return null;
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  if (cv.width !== w * dpr || cv.height !== h * dpr) { cv.width = w * dpr; cv.height = h * dpr; }
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return { ctx, w, h };
+}
+
+function transitLand(key) {
+  _trProbe = null;
+  const won = !!key;
+  const band = won ? TRANSIT_TIERS[key].band : TRANSIT_LOST_BAND;
+  const w = pickWordInBand(band[0], band[1]);
+  gameState.stats.transitShotsUsed = (gameState.stats.transitShotsUsed || 0) + 1;
+  if (w) {
+    const displayScore = normalizeScore(w.score, puzzle.hints);
+    const entry = { word: w.word, rank: w.rank, score: w.score, displayScore, unlocked: true };
+    gameState.semanticGuesses.unshift(entry);
+    gameState.unlocks.push(w.word);
+    if (gameState.stats.bestRank === null || w.rank < gameState.stats.bestRank) gameState.stats.bestRank = w.rank;
+    renderGuessCard(entry);
+    updateBestRankLabel();
+    hideEmptyState();
+  }
+  saveState();
+  updateTransitHandle();
+  _trResult = {
+    won, key,
+    color: won ? TRANSIT_TIERS[key].color : '#6b8fc2',
+    text: w ? t('transitUnlocked', displayRank(w.rank)) : t('transitNone'),
+    sub: won ? '' : t('transitLost'),
+  };
+  if (won && key === 'red') launchFireworks(false);
+  renderTransitStatus();
+}
+
+function transitStep(g) {
+  for (const k of Object.keys(TRANSIT_TIERS)) {
+    // ω ∝ r^-1.5 : même sens pour tous, l'intérieur va plus vite
+    _trPhase[k] = (_trPhase[k] || 0) + TRANSIT_BASE_SP * Math.pow(1 / TRANSIT_TIERS[k].rf, 1.5);
+  }
+  if (!_trProbe) return;
+  for (let s = 0; s < 2; s++) {
+    _trProbe.y -= g.speed * 0.5;
+    for (const k of Object.keys(TRANSIT_TIERS)) {
+      for (const p of transitPlanets(g, k)) {
+        if (Math.hypot(_trProbe.x - p.x, _trProbe.y - p.y) < p.r + 3.2) return transitLand(k);
+      }
+    }
+    if (Math.hypot(_trProbe.x - g.cx, _trProbe.y - g.cy) < g.sun + 3) return transitLand(null);
+    if (_trProbe.y < -30) return transitLand(null);
+  }
+  _trTrail.push({ x: _trProbe.x, y: _trProbe.y });
+  if (_trTrail.length > 240) _trTrail.shift();
+}
+
+function transitDraw(c, g) {
+  const { ctx, w, h } = c;
+  ctx.clearRect(0, 0, w, h);
+  for (const k of Object.keys(TRANSIT_TIERS)) {
+    const T = TRANSIT_TIERS[k], r = g.R * T.rf;
+    ctx.beginPath(); ctx.ellipse(g.cx, g.cy, r, r * TRANSIT_OVAL, 0, 0, 6.28);
+    ctx.strokeStyle = T.color; ctx.globalAlpha = 0.13; ctx.lineWidth = 1; ctx.setLineDash([3, 7]); ctx.stroke();
+  }
+  ctx.setLineDash([]); ctx.globalAlpha = 1;
+  ctx.beginPath(); ctx.moveTo(g.launch.x, g.launch.y); ctx.lineTo(g.cx, g.cy);
+  ctx.strokeStyle = 'rgba(45,212,191,0.20)'; ctx.lineWidth = 1; ctx.setLineDash([2, 8]); ctx.stroke(); ctx.setLineDash([]);
+  const skin = skinById(_profile?.equipped || 'sun');
+  const hub = '#' + skin.glow.toString(16).padStart(6, '0');
+  const rg = ctx.createRadialGradient(g.cx, g.cy, 2, g.cx, g.cy, g.sun * 2.7);
+  rg.addColorStop(0, '#fff'); rg.addColorStop(0.34, hub); rg.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(g.cx, g.cy, g.sun * 2.7, 0, 6.28); ctx.fill();
+  ctx.fillStyle = hub; ctx.beginPath(); ctx.arc(g.cx, g.cy, g.sun, 0, 6.28); ctx.fill();
+  for (const k of Object.keys(TRANSIT_TIERS)) {
+    const T = TRANSIT_TIERS[k];
+    for (const p of transitPlanets(g, k)) {
+      if (k === 'red') { ctx.globalAlpha = 0.20; ctx.fillStyle = T.color; ctx.beginPath(); ctx.arc(p.x, p.y, p.r + 7, 0, 6.28); ctx.fill(); ctx.globalAlpha = 1; }
+      const pg = ctx.createRadialGradient(p.x - p.r * 0.35, p.y - p.r * 0.35, 1, p.x, p.y, p.r);
+      pg.addColorStop(0, T.light); pg.addColorStop(0.44, T.color); pg.addColorStop(1, T.rim);
+      ctx.fillStyle = pg; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fill();
+    }
+  }
+  if (_trTrail.length > 1) {
+    ctx.beginPath(); ctx.moveTo(_trTrail[0].x, _trTrail[0].y);
+    for (let i = 1; i < _trTrail.length; i++) ctx.lineTo(_trTrail[i].x, _trTrail[i].y);
+    ctx.strokeStyle = 'rgba(45,212,191,0.6)'; ctx.lineWidth = 1.8; ctx.stroke();
+  }
+  if (_trProbe) {
+    ctx.shadowColor = 'var(--phosphor)'; ctx.shadowColor = '#2dd4bf'; ctx.shadowBlur = 10;
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(_trProbe.x, _trProbe.y, 3.4, 0, 6.28); ctx.fill(); ctx.shadowBlur = 0;
+  }
+  ctx.fillStyle = _trFired ? 'rgba(45,212,191,0.30)' : '#2dd4bf';
+  ctx.beginPath(); ctx.arc(g.launch.x, g.launch.y, 6, 0, 6.28); ctx.fill();
+  if (!_trFired) {
+    ctx.globalAlpha = 0.3; ctx.beginPath(); ctx.arc(g.launch.x, g.launch.y, 11, 0, 6.28);
+    ctx.strokeStyle = '#2dd4bf'; ctx.lineWidth = 1; ctx.stroke(); ctx.globalAlpha = 1;
+  }
+}
+
+function transitLoop() {
+  const c = transitCanvas();
+  if (!c || document.getElementById('transit-modal')?.classList.contains('hidden')) { _trRAF = null; return; }
+  const g = transitGeom(c.w, c.h);
+  transitStep(g);
+  transitDraw(c, g);
+  _trRAF = requestAnimationFrame(transitLoop);
+}
+
+function renderTransitStatus() {
+  const el = document.getElementById('transit-status');
+  if (!el) return;
+  if (_trResult) {
+    el.innerHTML = `<span class="transit-res" style="color:${_trResult.color}">${_trResult.text}</span>` +
+      (_trResult.sub ? `<span class="transit-sub">${_trResult.sub}</span>` : '');
+  } else {
+    el.innerHTML = `<span class="transit-sub">${_trFired ? t('transitFlying') : t('transitReady')}</span>`;
+  }
+}
+
+function transitFire() {
+  if (_trFired || _trResult) return;
+  const c = transitCanvas(); if (!c) return;
+  const g = transitGeom(c.w, c.h);
+  _trFired = true;
+  _trProbe = { x: g.launch.x, y: g.launch.y };
+  _trTrail = [];
+  renderTransitStatus();
+}
+
+function openTransitModal() {
+  const modal = document.getElementById('transit-modal');
+  const content = document.getElementById('transit-content');
+  if (!modal || !content) return;
+  const ready = transitShotsAvailable() > 0;
+  _trPhase = {}; Object.keys(TRANSIT_TIERS).forEach(k => { _trPhase[k] = Math.random() * 6.283; });
+  _trProbe = null; _trTrail = []; _trResult = null; _trFired = !ready;
+  content.innerHTML = `
+    <div class="how-to-content transit-wrap">
+      <h2>${icon('probe')}<span>${t('transitTitle')}</span></h2>
+      <div class="transit-stage"><canvas id="transit-cv" aria-hidden="true"></canvas></div>
+      <div id="transit-status" class="transit-status" aria-live="polite"></div>
+      <p class="wheel-hint">${ready ? t('transitHint') : t('transitSpent')}</p>
+    </div>`;
+  modal.classList.remove('hidden');
+  lockBodyScroll(true);
+  renderTransitStatus();
+  document.getElementById('transit-cv')?.addEventListener('pointerdown', () => { if (ready) transitFire(); });
+  if (!_trRAF) _trRAF = requestAnimationFrame(transitLoop);
+}
+
+function closeTransitModal() {
+  document.getElementById('transit-modal')?.classList.add('hidden');
+  if (_trRAF) { cancelAnimationFrame(_trRAF); _trRAF = null; }
+  _trProbe = null; _trTrail = [];
+  lockBodyScroll(false);
+}
+
+function setupTransitHandle() {
+  document.getElementById('transit-handle')?.addEventListener('click', openTransitModal);
+  document.getElementById('transit-backdrop')?.addEventListener('click', closeTransitModal);
+  document.getElementById('transit-modal')?.addEventListener('click', e => {
+    if (e.target.closest('#transit-close')) closeTransitModal();
+  });
+  window.addEventListener('resize', updateTabsLayout);
+}
+
+// Les languettes passent en ICÔNES SEULES quand la rangée déborderait — on
+// mesure au lieu de compter, pour garder les libellés sur desktop où il y a
+// la place, et ne compacter que là où c'est nécessaire (mobile à 4 onglets).
+function updateTabsLayout() {
+  const tabs = document.getElementById('bottom-tabs');
+  if (!tabs) return;
+  tabs.classList.remove('compact');
+  if (tabs.getBoundingClientRect().width > window.innerWidth - 24) tabs.classList.add('compact');
+}
+
 // ─── Wordle unlock flow ───────────────────────────────────
 
 // Long targets get extra rows to stay fair (see wordleMaxAttempts).
@@ -3214,6 +3481,7 @@ async function init() {
     setupWordleHandle();
     setupSuggestHandle();
     setupWheelHandle();
+    setupTransitHandle();
     setupMeteors();
     setupKeyboardHandler();
     setupModalCloseButtons();

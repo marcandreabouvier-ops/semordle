@@ -477,17 +477,31 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   animation: gx-pulse 1.8s ease-in-out infinite;
 }
 @keyframes gx-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+/* Languette Sonde — mêmes règles que la Roue, sélecteurs qualifiés par
+   #bottom-tabs pour battre la spécificité de « #bottom-tabs button ». */
+#bottom-tabs #transit-handle { display: none; }
+#bottom-tabs #transit-handle.available {
+  display: flex;
+  border-color: rgba(45,212,191,0.30);
+  color: var(--phosphor);
 }
-#suggest-handle.panel-open {
-  opacity: 0;
-  pointer-events: none;
+#transit-handle.available::after {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--phosphor);
+  box-shadow: 0 0 8px var(--phosphor);
+  animation: gx-pulse 1.8s ease-in-out infinite;
 }
-#suggest-handle-label {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
+#transit-handle.panel-open { opacity: 0; pointer-events: none; }
+
+/* À 4 languettes la rangée déborde sur mobile : on ne garde que les icônes.
+   Déclenché par MESURE (updateTabsLayout) et non par un compte arbitraire, pour
+   conserver les libellés sur desktop où la place ne manque pas. */
+#bottom-tabs.compact button { padding-left: 14px; padding-right: 14px; }
+#bottom-tabs.compact [id$="-handle-label"] > span { display: none; }
+#bottom-tabs.compact [id$="-handle-label"] { gap: 0; }
 
 /* === Suggestions panel (compact popup above the input bar) === */
 #suggest-panel {
@@ -1572,6 +1586,33 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 #wheel-spin-btn:hover:not(:disabled) { background: #f7b877; border-color: #f7b877; }
 .wheel-hint { font-size: 11px; color: var(--screen-muted); line-height: 1.4; margin: 12px 0 0; }
+
+/* === Mini-jeu Sonde === */
+.transit-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 700 / 470;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 46%, #0b1119 0%, #05080c 74%);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  touch-action: none;
+}
+/* width/height OBLIGATOIRES : sans taille CSS, un <canvas> s'affiche à sa
+   taille intrinsèque (ses attributs = px × dpr) et tout serait dessiné au
+   double sur écran HiDPI — le bug qui rendait les météorites inattrapables. */
+.transit-stage canvas { display: block; width: 100%; height: 100%; }
+.transit-status { min-height: 34px; margin-top: 12px; text-align: center; }
+.transit-res { display: block; font-family: var(--font-mono); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; }
+.transit-sub {
+  display: block;
+  font-family: var(--font-flavor);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--screen-muted);
+  margin-top: 2px;
+}
 
 /* === Focus rings === */
 :focus-visible { outline: 2px solid var(--phosphor); outline-offset: 2px; }

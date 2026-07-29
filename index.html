@@ -101,6 +101,9 @@
     <button id="wheel-handle" aria-label="Open the wheel">
       <span id="wheel-handle-label">Wheel</span>
     </button>
+    <button id="transit-handle" aria-label="Open the probe launch">
+      <span id="transit-handle-label">Probe</span>
+    </button>
   </div>
 
   <!-- Suggestions panel (compact popup above the input bar) -->
@@ -119,6 +122,15 @@
     <div class="modal-content" role="document">
       <button class="modal-close" id="wheel-close" aria-label="Close"><svg class="gx-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
       <div id="wheel-content"></div>
+    </div>
+  </div>
+
+  <!-- Transit modal (launch a probe through the orbiting planets) -->
+  <div id="transit-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Probe launch">
+    <div class="modal-backdrop" id="transit-backdrop"></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="transit-close" aria-label="Close"><svg class="gx-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+      <div id="transit-content"></div>
     </div>
   </div>
 
