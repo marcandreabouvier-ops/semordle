@@ -40,6 +40,8 @@ const I18N = {
     wordleTitle:     'Unlock target',
     wordleDesc:      "Guess this hidden semantic clue — it's closer to the answer than your best word so far.",
     wordleLength:    (n, r) => `Word length: <strong style="color:var(--screen-text)">${n} letters</strong> · ${r} attempts left`,
+    legendGreen:     'right spot',
+    legendYellow:    'in the word, wrong spot',
     wonTitle:        '🎉 You got it!',
     wonBody:         (w) => `"${w}" has been added to your semantic history.`,
     lostTitle:       'Not this time',
@@ -161,6 +163,8 @@ const I18N = {
     wordleTitle:     'Débloquer la cible',
     wordleDesc:      'Devinez cet indice caché — il est plus proche de la réponse que votre meilleur mot.',
     wordleLength:    (n, r) => `Longueur : <strong style="color:var(--screen-text)">${n} lettres</strong> · ${r} essais restants`,
+    legendGreen:     'bien placée',
+    legendYellow:    'dans le mot, mal placée',
     wonTitle:        '🎉 Trouvé !',
     wonBody:         (w) => `"${w}" a été ajouté à votre historique sémantique.`,
     lostTitle:       'Pas cette fois',
@@ -1914,6 +1918,7 @@ function setupWordleHandle() {
     }
     const inlineContainer = document.getElementById('wordle-inline-content');
     if (wordleState) {
+      ensureFreshWordleTarget();   // le bestRank a pu s'améliorer pendant que c'était fermé
       if (!inlineContainer?.innerHTML?.trim()) renderWordleUI();
       openWordlePanel();
     } else {
@@ -2486,6 +2491,8 @@ function setupMeteors() {
     window._gxMeteor = spawnMeteor;
     window._gxMeteors = () => _meteors;
     window._gxSelectTarget = selectUnlockTarget;
+    window._gxWordle = () => wordleState;
+    window._gxState = () => gameState;
   }
 }
 
@@ -2546,6 +2553,41 @@ function selectUnlockTarget() {
   }
 
   return chosen;
+}
+
+// La cible est choisie UNE fois puis stockée dans wordleState. Or le bestRank
+// peut s'améliorer pendant que le Wordle est fermé (proposition, roue, météorite)
+// — la cible devenait alors plus LOINTAINE que le meilleur mot, ce qui casse la
+// promesse « le Wordle rapproche toujours » (bug remonté par les joueurs).
+// On revalide à la réouverture, mais UNIQUEMENT si la grille est encore vierge :
+// hors de question de jeter des essais que le joueur a déjà investis.
+function ensureFreshWordleTarget() {
+  if (!wordleState || wordleState.solved || wordleState.failed) return;
+  if (wordleState.attempts.length || wordleState.currentGuess) return;
+
+  const tw = wordleState.target.word.toLowerCase();
+  const owned = gameState.semanticGuesses.some(g => g.word.toLowerCase() === tw)
+             || gameState.unlocks.some(w => w.toLowerCase() === tw);
+  const best = gameState.solved ? 0 : (gameState.stats.bestRank ?? 1001);
+  // Périmée = déjà obtenue autrement, ou plus meilleure que le meilleur rang
+  if (!owned && wordleState.target.rank < best) return;
+
+  const candidate = selectUnlockTarget();
+  if (!candidate) return;
+  // Sans ce garde, rouvrir la modale permettrait de « relancer les dés »
+  // jusqu'à tomber sur un mot court.
+  if (!owned && candidate.rank >= wordleState.target.rank) return;
+
+  wordleState = {
+    target: candidate,
+    attempts: [],
+    currentGuess: '',
+    solved: false,
+    failed: false,
+    keyStates: {},
+    maxAttempts: wordleMaxAttempts(candidate.word),
+  };
+  renderWordleUI();
 }
 
 function showWordleStartPrompt(container) {
@@ -2663,6 +2705,10 @@ function buildWordleHTML() {
       <h3>${t('wordleTitle')}</h3>
       <p>${t('wordleDesc')}</p>
       <p style="font-size:12px;color:var(--screen-muted)">${t('wordleLength', wordLen, maxAttempts - attempts.length)}</p>
+      <div class="wordle-legend">
+        <span><i class="wl-swatch wl-green"></i>${t('legendGreen')}</span>
+        <span><i class="wl-swatch wl-yellow"></i>${t('legendYellow')}</span>
+      </div>
     </div>
     <div class="wordle-board" role="grid" aria-label="Wordle guess board" style="--word-len:${wordLen};--rows:${maxAttempts}">
       ${boardRows}
