@@ -17,8 +17,7 @@ const I18N = {
     subtitle:        'A daily word hunt through meaning and letters.',
     inputPlaceholder:'Type a word…',
     guessBtn:        'Guess',
-    kbShow:          'Show keyboard',
-    kbHide:          'Hide keyboard',
+    kbClose:         'Close',
     journeyTitle:    'Your journey',
     emptyState:      'Your guesses will appear here. Try a word that might be semantically related to the secret!',
     tabSemantic:     'Semantic',
@@ -163,8 +162,7 @@ const I18N = {
     subtitle:        'Une chasse aux mots quotidienne entre sens et lettres.',
     inputPlaceholder:'Entrez un mot…',
     guessBtn:        'Deviner',
-    kbShow:          'Afficher le clavier',
-    kbHide:          'Réduire le clavier',
+    kbClose:         'Fermer',
     journeyTitle:    'Votre parcours',
     emptyState:      'Vos propositions apparaîtront ici. Essayez un mot sémantiquement proche du secret !',
     tabSemantic:     'Sémantique',
@@ -3222,8 +3220,10 @@ function buildPartialMask(word, attempts) {
 // Le clavier système mobile occupait plus de la moitié de l'écran (barre
 // d'autofill Android + barre d'outils Gboard, dont AUCUNE n'est contrôlable
 // depuis une page web). Celui-ci est dans le thème, deux fois plus court, et
-// reste ancré en bas pour laisser le système solaire respirer.
-const KB_COLLAPSED_KEY = 'semordle:kb-collapsed';
+// reste ancré en bas pour laisser le système solaire respirer. Il n'apparaît
+// qu'au TOUCHER du champ et se referme par sa propre touche : il n'y a donc
+// qu'un seul « Deviner » à l'écran, celui de la barre de saisie.
+let _kbOpen = false;
 
 // Tactile uniquement : sur un ordinateur le clavier physique fait déjà le
 // travail. `semordle:kb` force l'un ou l'autre (test en preview).
@@ -3233,8 +3233,6 @@ function useCustomKeyboard() {
   if (forced === 'off') return false;
   return window.matchMedia('(pointer: coarse)').matches;
 }
-
-function kbCollapsed() { return localStorage.getItem(KB_COLLAPSED_KEY) === '1'; }
 
 function renderGuessKeyboard() {
   const el = document.getElementById('gx-keyboard');
@@ -3246,24 +3244,43 @@ function renderGuessKeyboard() {
     input?.removeAttribute('inputmode');
     return;
   }
-  el.classList.remove('hidden');
-  document.body.classList.add('gx-kb');
   // `inputmode="none"` plutôt que `readonly` : le champ garde son curseur et
   // reste modifiable par nos touches, mais le clavier système ne s'ouvre plus.
+  // Posé même clavier fermé, sinon le tout premier toucher le ferait surgir.
   input?.setAttribute('inputmode', 'none');
-  const collapsed = kbCollapsed();
-  el.classList.toggle('collapsed', collapsed);
+  if (!_kbOpen) {
+    el.classList.add('hidden');
+    document.body.classList.remove('gx-kb');
+    return;
+  }
+  el.classList.remove('hidden');
+  document.body.classList.add('gx-kb');
+  // La rangée partagée porte ENTER (pour le Wordle) ; ici cette place sert à
+  // FERMER — valider se fait avec le bouton « Deviner », juste au-dessus.
   const rows = keyboardRows().map(row =>
     `<div class="gxk-row">${row.map(k => {
-      const wide = k === 'ENTER' || k === '⌫';
-      const label = k === 'ENTER' ? t('guessBtn') : k;
-      return `<button type="button" class="gxk-key${wide ? ' wide' : ''}${k === 'ENTER' ? ' enter' : ''}" data-key="${k}">${label}</button>`;
+      if (k === 'ENTER') {
+        return `<button type="button" class="gxk-key wide close" data-key="CLOSE" aria-label="${t('kbClose')}">`
+          + `${icon('chevron', 14)}<span>${t('kbClose')}</span></button>`;
+      }
+      return `<button type="button" class="gxk-key${k === '⌫' ? ' wide' : ''}" data-key="${k}">${k}</button>`;
     }).join('')}</div>`).join('');
-  el.innerHTML =
-    `<button type="button" class="gxk-toggle" data-kb-toggle aria-expanded="${!collapsed}" aria-label="${t(collapsed ? 'kbShow' : 'kbHide')}">
-       ${icon('chevron', 14)}<span>${t(collapsed ? 'kbShow' : 'kbHide')}</span>
-     </button>
-     <div class="gxk-keys">${rows}</div>`;
+  el.innerHTML = `<div class="gxk-keys">${rows}</div>`;
+}
+
+function openGuessKeyboard() {
+  if (!useCustomKeyboard() || _kbOpen) return;
+  _kbOpen = true;
+  renderGuessKeyboard();
+  resize3D();
+}
+
+function closeGuessKeyboard() {
+  if (!_kbOpen) return;
+  _kbOpen = false;
+  renderGuessKeyboard();
+  resize3D();
+  document.getElementById('semantic-input')?.blur();
 }
 
 function setupGuessKeyboard() {
@@ -3273,27 +3290,28 @@ function setupGuessKeyboard() {
   // pour purger ses écouteurs. Le capturer ici donnerait une référence détachée :
   // on le relit donc à chaque frappe.
   const field = () => document.getElementById('semantic-input');
-  // Un seul écouteur délégué : le contenu est reconstruit à chaque langue et à
-  // chaque repli, des écouteurs par touche fuiraient à chaque rendu.
+
+  // Ouverture au TOUCHER du champ, délégué depuis #input-bar : le champ est
+  // remplacé par un clone, un écouteur posé dessus serait perdu. Sur pointerdown
+  // et non sur `focus`, pour que les focus PROGRAMMÉS (après chaque proposition,
+  // au chargement sur grand écran) ne rouvrent pas un clavier volontairement fermé.
+  document.getElementById('input-bar')?.addEventListener('pointerdown', (e) => {
+    if (e.target.closest('#semantic-input')) openGuessKeyboard();
+  });
+
+  // Un seul écouteur délégué pour les touches : le contenu est reconstruit à
+  // chaque langue et à chaque ouverture, des écouteurs par touche fuiraient.
   el.addEventListener('pointerdown', (e) => {
-    const toggle = e.target.closest('[data-kb-toggle]');
-    if (toggle) {
-      e.preventDefault();
-      localStorage.setItem(KB_COLLAPSED_KEY, kbCollapsed() ? '0' : '1');
-      renderGuessKeyboard();
-      resize3D();
-      return;
-    }
     const key = e.target.closest('.gxk-key');
     if (!key) return;
     // preventDefault : sans lui le focus quitte le champ et, sur iOS, l'input
     // perd son curseur entre deux touches.
     e.preventDefault();
+    const k = key.dataset.key;
+    if (k === 'CLOSE') { closeGuessKeyboard(); return; }
     const input = field();
     if (!input) return;
-    const k = key.dataset.key;
-    if (k === 'ENTER') document.getElementById('semantic-submit')?.click();
-    else if (k === '⌫') input.value = input.value.slice(0, -1);
+    if (k === '⌫') input.value = input.value.slice(0, -1);
     else input.value += k.toLowerCase();
   });
 }

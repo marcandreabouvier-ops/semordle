@@ -309,14 +309,15 @@ h1 {
    système solaire garde tout ce qui reste. --gxk-h est la hauteur réservée,
    basculée par la classe `collapsed`. */
 :root { --gxk-h: 0px; }
-body.gx-kb { --gxk-h: 186px; }
-body.gx-kb:has(#gx-keyboard.collapsed) { --gxk-h: 38px; }
+/* Réservée uniquement quand le clavier est OUVERT : fermé, il n'occupe rien et
+   le système solaire reprend toute la place. */
+body.gx-kb { --gxk-h: 162px; }
 
 #gx-keyboard {
   position: fixed;
   left: 0; right: 0; bottom: 0;
   z-index: 21;                       /* au-dessus de la barre de saisie (20) */
-  padding: 0 6px calc(6px + env(safe-area-inset-bottom, 0px));
+  padding: 8px 6px calc(6px + env(safe-area-inset-bottom, 0px));
   background: rgba(5,10,7,0.96);
   backdrop-filter: blur(32px);
   border-top: 1px solid var(--hairline-strong);
@@ -324,19 +325,6 @@ body.gx-kb:has(#gx-keyboard.collapsed) { --gxk-h: 38px; }
   touch-action: manipulation;
 }
 #gx-keyboard.hidden { display: none; }
-
-.gxk-toggle {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  width: 100%; height: 30px; padding: 0;
-  background: none; border: none;
-  color: var(--screen-subtle);
-  font-family: var(--font-ui); font-size: 10px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  cursor: pointer;
-}
-.gxk-toggle .gx-icon { transition: transform 0.2s ease; }
-#gx-keyboard.collapsed .gxk-toggle .gx-icon { transform: rotate(180deg); }
-#gx-keyboard.collapsed .gxk-keys { display: none; }
 
 .gxk-keys { display: grid; gap: 6px; padding-bottom: 2px; }
 .gxk-row { display: flex; justify-content: center; gap: 5px; }
@@ -353,14 +341,15 @@ body.gx-kb:has(#gx-keyboard.collapsed) { --gxk-h: 38px; }
 }
 .gxk-key:active { background: rgba(255,255,255,0.20); }
 .gxk-key.wide { flex: 1.6 1 0; font-size: 12px; }
-/* Enter en phosphore : c'est la même action que le bouton « Deviner ». */
-.gxk-key.enter {
-  background: var(--phosphor);
-  border-color: var(--phosphor);
-  color: var(--on-phosphor);
-  font-family: var(--font-ui); font-weight: 700;
+/* La touche « Fermer » remplace Entrée : valider se fait avec « Deviner », qui
+   est juste au-dessus — deux boutons pour la même action prêtaient à confusion.
+   Neutre et non phosphore : ce n'est PAS l'action principale. */
+.gxk-key.close {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  font-family: var(--font-ui); font-size: 11px; font-weight: 600;
+  color: var(--screen-muted);
 }
-.gxk-key.enter:active { background: #4fe0ce; }
+.gxk-key.close .gx-icon { transform: rotate(180deg); }   /* chevron vers le bas */
 @media (max-width: 380px) {
   .gxk-key { height: 42px; font-size: 14px; }
   .gxk-row { gap: 4px; }

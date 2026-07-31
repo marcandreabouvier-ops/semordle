@@ -419,10 +419,16 @@ suffit et rien ne change. `localStorage['semordle:kb']` = `on`/`off` force l'un 
 système ne s'ouvre plus.
 
 Rangées partagées avec le Wordle via `keyboardRows()` (AZERTY en FR, QWERTY en EN) — les deux
-claviers ne peuvent pas diverger. Touche Entrée en **phosphore**, comme « Deviner » : c'est la
-même action. Repli persistant (`semordle:kb-collapsed`) : 177 px → 37 px, soit ~148 px rendus
-au système solaire. Le clavier est ancré en bas ; `--gxk-h` fait remonter `#input-bar` ET
-`#bottom-tabs`, sinon les languettes passent derrière lui.
+claviers ne peuvent pas diverger.
+
+**Il n'apparaît qu'au TOUCHER du champ** et se referme par sa propre touche. La place d'Entrée
+sert donc à FERMER, pas à valider : il n'y a qu'un seul « Deviner » à l'écran, celui de la
+barre de saisie (retour de Marc — deux boutons pour la même action prêtaient à confusion). Elle
+est neutre et non phosphore, ce n'est pas l'action principale. ⚠️ L'ouverture est branchée sur
+`pointerdown`, **pas sur `focus`** : `fire()` refocalise le champ après chaque proposition et
+un clavier volontairement fermé se serait rouvert tout seul. Le clavier fermé n'occupe rien
+(`--gxk-h` n'est posé que par `body.gx-kb`), soit 162 px rendus au système solaire ; ouvert, il
+fait remonter `#input-bar` ET `#bottom-tabs`, sinon les languettes passent derrière lui.
 
 ⚠️ **Écouteur délégué + champ relu à chaque frappe** : `setupInputBar` fait un
 `cloneNode`/`replaceChild` sur `#semantic-input` APRÈS `setupGuessKeyboard()`. Capturer le
