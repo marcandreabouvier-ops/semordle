@@ -404,6 +404,20 @@ la classe `.dot-label--won` (plus gros/gras/glow + pop). `resetTarget()` remet c
 l'origine à l'écran, teste la proximité du pointeur ; ignore les drags OrbitControls) → modale `#stars-modal`
 (achat/équipement). Pas d'icône top-bar ajoutée.
 
+### Accents — tolérance à la saisie
+
+Le vocabulaire FR est accentué, pas les claviers de tout le monde. Les **trois** portes
+d'entrée d'un mot tolèrent donc l'absence d'accent, via `deaccent()` (NFD + retrait des
+diacritiques) : `lookupWord`, `isSecretWord` et `toLemma`. ⚠️ Les trois, pas une :
+`isSecretWord` est le SEUL chemin qui reconnaît la bonne réponse (le secret n'est pas dans
+`puzzle.words`) — sans lui, taper la solution sans accent répondait « Mot inconnu ».
+
+Règle : **la correspondance exacte garde toujours la priorité**, le repêchage sans accent
+n'intervient qu'après un échec — sinon « cote » volerait la place de « côte ». Le mot est
+enregistré sous sa graphie CORRECTE (« melanger » → carte « mélanger »). Pour `toLemma`,
+l'index aplati `flatFormsMap()` est construit une seule fois : un balayage linéaire du
+formsMap à chaque mot inconnu coûterait des dizaines de milliers de normalisations.
+
 ### Affichage des rangs
 
 `displayRank(rank) = rank + 1` : le mot SECRET est affiché **#1**, son voisin le plus

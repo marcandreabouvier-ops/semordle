@@ -616,7 +616,16 @@ async function loadPuzzle() {
 function lookupWord(word) {
   if (!puzzle || !puzzle.words) return null;
   const lc = word.toLowerCase().trim().normalize('NFC');
-  const idx = puzzle.words.findIndex(w => w.word.toLowerCase().normalize('NFC') === lc);
+  let idx = puzzle.words.findIndex(w => w.word.toLowerCase().normalize('NFC') === lc);
+  // Repêchage SANS accent, uniquement si la correspondance exacte a échoué :
+  // l'exact garde la priorité, donc « cote » ne peut pas voler la place de
+  // « côte ». Sur un clavier mobile, taper « melanger » renvoyait « Mot inconnu »
+  // alors que « mélanger » est au vocabulaire — le Wordle tolérait déjà
+  // l'absence d'accent (`deaccent`), la proposition sémantique non.
+  if (idx === -1) {
+    const flat = deaccent(lc);
+    idx = puzzle.words.findIndex(w => deaccent(w.word.toLowerCase().normalize('NFC')) === flat);
+  }
   if (idx === -1) return null;
   const entry = puzzle.words[idx];
   if (entry.rank == null) return { ...entry, rank: idx + 1 };
@@ -625,7 +634,13 @@ function lookupWord(word) {
 
 function isSecretWord(word) {
   if (!puzzle) return false;
-  return word.toLowerCase().trim().normalize('NFC') === puzzle.secret.toLowerCase().normalize('NFC');
+  const lc = word.toLowerCase().trim().normalize('NFC');
+  const secret = puzzle.secret.toLowerCase().normalize('NFC');
+  // Le secret n'est PAS dans puzzle.words : c'est le seul chemin qui le
+  // reconnaît. Sans tolérance aux accents ici, un joueur qui tape la bonne
+  // réponse sans accent se voyait répondre « Mot inconnu » — le pire échec
+  // possible pour ce jeu.
+  return lc === secret || deaccent(lc) === deaccent(secret);
 }
 
 // ─── Form → lemma map (chevaux → cheval, cats → cat) ─────
@@ -642,10 +657,28 @@ async function loadFormsMap() {
   } catch (e) { /* map is optional — exact lookups still work without it */ }
 }
 
+// Index sans accent du formsMap, construit UNE SEULE FOIS à la première
+// retombée. Un balayage linéaire à chaque mot inconnu coûterait des dizaines de
+// milliers de normalisations sur le fil principal, à chaque frappe malheureuse.
+let _flatForms = null;
+function flatFormsMap() {
+  if (_flatForms) return _flatForms;
+  _flatForms = Object.create(null);
+  for (const k in formsMap) {
+    const f = deaccent(k);
+    if (!(f in _flatForms)) _flatForms[f] = formsMap[k]; // 1re graphie gagne, stable
+  }
+  return _flatForms;
+}
+
 function toLemma(word) {
   if (!formsMap) return null;
-  const lemma = formsMap[word.toLowerCase().trim().normalize('NFC')];
-  return lemma || null;
+  const lc = word.toLowerCase().trim().normalize('NFC');
+  if (formsMap[lc]) return formsMap[lc];
+  // Repêchage sans accent : le cas courant est le joueur qui tape « decrasses »
+  // alors que la clé de la table est « décrasses » — donc on interroge TOUJOURS
+  // l'index aplati, sans présumer que le mot saisi porte des accents.
+  return flatFormsMap()[deaccent(lc)] || null;
 }
 
 // ─── Semantic guess submission ────────────────────────────
