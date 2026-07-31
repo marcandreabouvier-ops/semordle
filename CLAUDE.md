@@ -404,6 +404,31 @@ la classe `.dot-label--won` (plus gros/gras/glow + pop). `resetTarget()` remet c
 l'origine à l'écran, teste la proximité du pointeur ; ignore les drags OrbitControls) → modale `#stars-modal`
 (achat/équipement). Pas d'icône top-bar ajoutée.
 
+### Clavier maison de saisie (`#gx-keyboard`, 2026-07-31)
+
+Sur mobile le clavier système mangeait **plus de la moitié de l'écran** : la barre
+d'autofill Android (clé/carte/localisation) + la barre d'outils Gboard. ⚠️ **Ni l'une ni
+l'autre n'est contrôlable depuis une page web** — la barre Gboard appartient à l'application
+clavier, et Chrome ignore largement `autocomplete="off"` pour la barre d'autofill. D'où un
+clavier maison.
+
+`useCustomKeyboard()` : `(pointer: coarse)` uniquement — sur ordinateur le clavier physique
+suffit et rien ne change. `localStorage['semordle:kb']` = `on`/`off` force l'un ou l'autre
+(indispensable pour tester en preview). Le champ passe en **`inputmode="none"`** et non
+`readonly` : il garde son curseur et reste modifiable par nos touches, mais le clavier
+système ne s'ouvre plus.
+
+Rangées partagées avec le Wordle via `keyboardRows()` (AZERTY en FR, QWERTY en EN) — les deux
+claviers ne peuvent pas diverger. Touche Entrée en **phosphore**, comme « Deviner » : c'est la
+même action. Repli persistant (`semordle:kb-collapsed`) : 177 px → 37 px, soit ~148 px rendus
+au système solaire. Le clavier est ancré en bas ; `--gxk-h` fait remonter `#input-bar` ET
+`#bottom-tabs`, sinon les languettes passent derrière lui.
+
+⚠️ **Écouteur délégué + champ relu à chaque frappe** : `setupInputBar` fait un
+`cloneNode`/`replaceChild` sur `#semantic-input` APRÈS `setupGuessKeyboard()`. Capturer le
+champ à l'initialisation donne une référence détachée — les touches semblent mortes alors que
+l'événement arrive bien.
+
 ### Accents — tolérance à la saisie
 
 Le vocabulaire FR est accentué, pas les claviers de tout le monde. Les **trois** portes

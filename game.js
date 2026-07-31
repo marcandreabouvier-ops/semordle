@@ -17,6 +17,8 @@ const I18N = {
     subtitle:        'A daily word hunt through meaning and letters.',
     inputPlaceholder:'Type a word…',
     guessBtn:        'Guess',
+    kbShow:          'Show keyboard',
+    kbHide:          'Hide keyboard',
     journeyTitle:    'Your journey',
     emptyState:      'Your guesses will appear here. Try a word that might be semantically related to the secret!',
     tabSemantic:     'Semantic',
@@ -161,6 +163,8 @@ const I18N = {
     subtitle:        'Une chasse aux mots quotidienne entre sens et lettres.',
     inputPlaceholder:'Entrez un mot…',
     guessBtn:        'Deviner',
+    kbShow:          'Afficher le clavier',
+    kbHide:          'Réduire le clavier',
     journeyTitle:    'Votre parcours',
     emptyState:      'Vos propositions apparaîtront ici. Essayez un mot sémantiquement proche du secret !',
     tabSemantic:     'Sémantique',
@@ -1080,6 +1084,7 @@ function applyI18n() {
   if (input) input.placeholder = t('inputPlaceholder');
   const submit = document.getElementById('semantic-submit');
   if (submit) submit.textContent = t('guessBtn');
+  renderGuessKeyboard();   // AZERTY/QWERTY + libellés suivent la langue
   const journeyTitle = document.getElementById('journey-title');
   if (journeyTitle) journeyTitle.textContent = t('journeyTitle');
   const emptyState = document.getElementById('guess-empty-state');
@@ -3213,8 +3218,90 @@ function buildPartialMask(word, attempts) {
   return mask.join(' ');
 }
 
-function buildKeyboardHTML() {
-  const rows = currentLang === 'fr' ? [
+// ─── Clavier maison de saisie ─────────────────────────────
+// Le clavier système mobile occupait plus de la moitié de l'écran (barre
+// d'autofill Android + barre d'outils Gboard, dont AUCUNE n'est contrôlable
+// depuis une page web). Celui-ci est dans le thème, deux fois plus court, et
+// reste ancré en bas pour laisser le système solaire respirer.
+const KB_COLLAPSED_KEY = 'semordle:kb-collapsed';
+
+// Tactile uniquement : sur un ordinateur le clavier physique fait déjà le
+// travail. `semordle:kb` force l'un ou l'autre (test en preview).
+function useCustomKeyboard() {
+  const forced = localStorage.getItem('semordle:kb');
+  if (forced === 'on') return true;
+  if (forced === 'off') return false;
+  return window.matchMedia('(pointer: coarse)').matches;
+}
+
+function kbCollapsed() { return localStorage.getItem(KB_COLLAPSED_KEY) === '1'; }
+
+function renderGuessKeyboard() {
+  const el = document.getElementById('gx-keyboard');
+  const input = document.getElementById('semantic-input');
+  if (!el) return;
+  if (!useCustomKeyboard()) {
+    el.classList.add('hidden');
+    document.body.classList.remove('gx-kb');
+    input?.removeAttribute('inputmode');
+    return;
+  }
+  el.classList.remove('hidden');
+  document.body.classList.add('gx-kb');
+  // `inputmode="none"` plutôt que `readonly` : le champ garde son curseur et
+  // reste modifiable par nos touches, mais le clavier système ne s'ouvre plus.
+  input?.setAttribute('inputmode', 'none');
+  const collapsed = kbCollapsed();
+  el.classList.toggle('collapsed', collapsed);
+  const rows = keyboardRows().map(row =>
+    `<div class="gxk-row">${row.map(k => {
+      const wide = k === 'ENTER' || k === '⌫';
+      const label = k === 'ENTER' ? t('guessBtn') : k;
+      return `<button type="button" class="gxk-key${wide ? ' wide' : ''}${k === 'ENTER' ? ' enter' : ''}" data-key="${k}">${label}</button>`;
+    }).join('')}</div>`).join('');
+  el.innerHTML =
+    `<button type="button" class="gxk-toggle" data-kb-toggle aria-expanded="${!collapsed}" aria-label="${t(collapsed ? 'kbShow' : 'kbHide')}">
+       ${icon('chevron', 14)}<span>${t(collapsed ? 'kbShow' : 'kbHide')}</span>
+     </button>
+     <div class="gxk-keys">${rows}</div>`;
+}
+
+function setupGuessKeyboard() {
+  const el = document.getElementById('gx-keyboard');
+  if (!el) return;
+  // ⚠️ Le champ est CLONÉ puis remplacé par setupInputBar (cloneNode + replaceChild)
+  // pour purger ses écouteurs. Le capturer ici donnerait une référence détachée :
+  // on le relit donc à chaque frappe.
+  const field = () => document.getElementById('semantic-input');
+  // Un seul écouteur délégué : le contenu est reconstruit à chaque langue et à
+  // chaque repli, des écouteurs par touche fuiraient à chaque rendu.
+  el.addEventListener('pointerdown', (e) => {
+    const toggle = e.target.closest('[data-kb-toggle]');
+    if (toggle) {
+      e.preventDefault();
+      localStorage.setItem(KB_COLLAPSED_KEY, kbCollapsed() ? '0' : '1');
+      renderGuessKeyboard();
+      resize3D();
+      return;
+    }
+    const key = e.target.closest('.gxk-key');
+    if (!key) return;
+    // preventDefault : sans lui le focus quitte le champ et, sur iOS, l'input
+    // perd son curseur entre deux touches.
+    e.preventDefault();
+    const input = field();
+    if (!input) return;
+    const k = key.dataset.key;
+    if (k === 'ENTER') document.getElementById('semantic-submit')?.click();
+    else if (k === '⌫') input.value = input.value.slice(0, -1);
+    else input.value += k.toLowerCase();
+  });
+}
+
+// Source unique des rangées : le Wordle et le clavier de saisie s'en servent
+// tous les deux, ils ne peuvent donc pas diverger sur l'AZERTY/QWERTY.
+function keyboardRows() {
+  return currentLang === 'fr' ? [
     ['A','Z','E','R','T','Y','U','I','O','P'],
     ['Q','S','D','F','G','H','J','K','L','M'],
     ['ENTER','W','X','C','V','B','N','⌫'],
@@ -3223,6 +3310,10 @@ function buildKeyboardHTML() {
     ['A','S','D','F','G','H','J','K','L'],
     ['ENTER','Z','X','C','V','B','N','M','⌫'],
   ];
+}
+
+function buildKeyboardHTML() {
+  const rows = keyboardRows();
 
   let html = '<div class="vkeyboard" aria-label="Virtual keyboard">';
   rows.forEach(row => {
@@ -3702,6 +3793,7 @@ async function init() {
     setupWheelHandle();
     setupTransitHandle();
     setupMeteors();
+    setupGuessKeyboard();     // écouteur délégué, posé une seule fois
     setupKeyboardHandler();
     setupModalCloseButtons();
     setupShareButtons();
