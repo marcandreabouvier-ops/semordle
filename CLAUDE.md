@@ -102,6 +102,25 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   Capture → burst de particules + toast (`#meteor-toast`) + mot ajouté comme la roue (total dans
   `meteorCatches` pour le partage). Ratée = elle s'envole, aucune pénalité. Debug : flag
   localStorage `semordle:debug` expose `window._gxMeteor(tier)` / `_gxMeteors()`.
+- **Grammaire commune aux modales de jeu** (Roue + Sonde, 2026-07-31) : en-tête `h2` avec
+  `.gx-badge` (jetons dispo, ou message « rien de prêt » en gris), intro `.gx-lede` en
+  Newsreader italique alignée à gauche, plateau, ligne de repère, résultat, `.gx-cta`
+  (**pilule phosphore identique à `#semantic-submit`** + `.gx-kbd` « ESPACE ») et `.gx-foot`
+  en mono. **L'ambre n'est plus une couleur de bouton** — il reste au soleil et à la victoire.
+  Espace = action principale, écouteur posé à l'ouverture et **retiré à la fermeture**.
+  Sizing : `max-height: calc(100dvh - 24px)`, `overflow:hidden`, chaîne flex continue jusqu'au
+  plateau (`.modal-content` → `#*-content` → `.*-wrap`) — un div intermédiaire resté en bloc
+  fige la hauteur et le bouton sort de la carte.
+- **Roue** : 12 parts (`WHEEL_SEGMENTS`, 1 jackpot / 2 great / 3 good / 6 modest). Parts
+  sourdes avec un **voile de palier** (`TINT`, 5-17 %) : lisible d'un coup d'œil sans redevenir
+  l'arc-en-ciel écarté en 2026-07-24. **Rang à l'extérieur (r=37), planète à l'intérieur
+  (r=23)** — dans l'autre ordre les douze étiquettes convergent vers le moyeu et se
+  télescopent sur petit écran. Orientation radiale « roulette » demandée par Marc le
+  2026-07-24 : les parts du bas se lisent donc à l'envers, c'est voulu. Le **cadran**
+  (`wheelDialHtml`) affiche l'étendue réelle des rangs posés sur la roue sur la rampe de
+  chaleur. Le moyeu est l'étoile équipée via `skinVars()` (`--sk-core/--sk-mid/--sk-glow`).
+  Le plateau est borné par sa LARGEUR (`min(260px, 68vw, 42dvh)`) : il est carré, et
+  `aspect-ratio` l'emporterait sur `flex-shrink`.
 - **Sonde** (mini-jeu, languette `#transit-handle`) : une sonde tous les `TRANSIT_EVERY` = 20
   mots. **Elle part TOUJOURS tout droit vers le haut** depuis un pas de tir fixe en bas au
   centre : le joueur choisit l'INSTANT, jamais la cible — toute formulation du type « touchez

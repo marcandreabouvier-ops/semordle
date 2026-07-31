@@ -43,10 +43,13 @@ const I18N = {
     transitTierOrange: 'Mid',
     transitTierBlue:   'High',
     transitTop:      (n) => `top ${n}`,
-    wheelTitle:      'Wheel of fortune',
-    wheelHint:       'You earn a spin every 50 guesses. Each slice shows the word at stake: the redder the planet, the closer it orbits the secret.',
-    wheelSpinsLine:  (n) => n > 0 ? `${n} spin${n > 1 ? 's' : ''} ready` : 'No spin yet — keep going!',
-    wheelSpinBtn:    'Spin',
+    wheelTitle:      'Orbit wheel',
+    wheelLede:       (n, tot) => `A word is offered at random. ${n} slice out of ${tot} lands you on the red orbit.`,
+    wheelBadge:      (n) => `${n} spin${n > 1 ? 's' : ''}`,
+    wheelSpent:      'No spin ready — keep guessing',
+    wheelDial:       'Dial',
+    wheelFoot:       (n, every) => `${n} spin${n > 1 ? 's' : ''} in stock · next one in ${every} guesses`,
+    wheelSpinBtn:    'Spin the wheel',
     wheelResult:     (r) => `Unlocked word #${r}!`,
     wheelJackpot:    'JACKPOT! #',
     wheelNoCloser:   'Nothing left to unlock — the whole galaxy is yours!',
@@ -184,10 +187,13 @@ const I18N = {
     transitTierOrange: 'Médiane',
     transitTierBlue:   'Haute',
     transitTop:      (n) => `top ${n}`,
-    wheelTitle:      'Roue de la chance',
-    wheelHint:       'Tu gagnes un tour tous les 50 essais. Chaque part montre le mot à gagner : plus la planète est rouge, plus il orbite près du secret.',
-    wheelSpinsLine:  (n) => n > 0 ? `${n} tour${n > 1 ? 's' : ''} dispo` : 'Pas encore de tour — continue !',
-    wheelSpinBtn:    'Tourner',
+    wheelTitle:      'Roue des orbites',
+    wheelLede:       (n, tot) => `Un mot vous est offert au hasard. ${n} part sur ${tot} vous place sur l’orbite rouge.`,
+    wheelBadge:      (n) => `${n} tour${n > 1 ? 's' : ''}`,
+    wheelSpent:      'Aucun tour prêt — continue à jouer',
+    wheelDial:       'Cadran',
+    wheelFoot:       (n, every) => `${n} tour${n > 1 ? 's' : ''} en stock · le prochain dans ${every} mots`,
+    wheelSpinBtn:    'Tourner la roue',
     wheelResult:     (r) => `Tu débloques le mot #${r} !`,
     wheelJackpot:    'JACKPOT ! #',
     wheelNoCloser:   'Plus rien à débloquer — toute la galaxie est à toi !',
@@ -467,6 +473,13 @@ let _profile = null;
 
 function skinById(id) {
   return STAR_SKINS.find(s => s.id === id) || STAR_SKINS[0];
+}
+
+// Les trois couleurs d'une étoile en variables CSS, pour que le HTML rende la
+// même étoile que la scène 3D (color = cœur, emissive = manteau, glow = halo).
+function skinVars(skin) {
+  const hex = (v) => '#' + v.toString(16).padStart(6, '0');
+  return `--sk-core:${hex(skin.color)};--sk-mid:${hex(skin.emissive)};--sk-glow:${hex(skin.glow)}`;
 }
 
 // First-time profile seeds stardust from puzzles already solved on this device.
@@ -2058,30 +2071,39 @@ function buildWheelSvg(rewards) {
     `<radialGradient id="wg-${k}" cx="36%" cy="32%" r="72%">` +
     `<stop offset="0%" stop-color="${t.light}"/><stop offset="42%" stop-color="${t.color}"/>` +
     `<stop offset="100%" stop-color="${t.rim}"/></radialGradient>`).join('');
+  // Voile de palier : la part reste sourde (gris alternés) mais prend une teinte
+  // de sa famille. Assez pour lire la roue d'un coup d'œil, pas assez pour
+  // redevenir l'arc-en-ciel que Marc avait écarté.
+  const TINT = { jackpot: 0.17, great: 0.12, good: 0.08, modest: 0.05 };
   let segs = '', bodies = '', labels = '';
   for (let i = 0; i < 12; i++) {
     const [x1, y1] = pt(i * 30), [x2, y2] = pt((i + 1) * 30);
     const tier = WHEEL_SEGMENTS[i];
     // neutral slice — alternating greys so adjacent parts stay distinct
     const fill = i % 2 ? '#242a33' : '#1a1f26';
-    segs += `<path d="M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z" fill="${fill}" stroke="rgba(255,205,110,0.22)" stroke-width="0.5"/>`;
+    const d = `M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`;
+    segs += `<path d="${d}" fill="${fill}"/>`;
+    segs += `<path d="${d}" fill="${WHEEL_TIERS[tier].color}" opacity="${TINT[tier]}" stroke="rgba(255,255,255,0.10)" stroke-width="0.5"/>`;
     const rw = rewards[i];
     if (!rw) continue;
     const midA = (i + 0.5) * 30;
-    // planet sits in the outer half of the slice, the #rank just inside it
-    const px = cx + 34 * Math.sin(midA * Math.PI / 180);
-    const py = cy - 34 * Math.cos(midA * Math.PI / 180);
+    // Rang à l'EXTÉRIEUR, planète à l'intérieur (comme la maquette). Dans
+    // l'autre ordre les douze étiquettes convergeaient vers le moyeu, là où la
+    // part est la plus étroite, et se télescopaient sur un petit écran.
+    const px = cx + 23 * Math.sin(midA * Math.PI / 180);
+    const py = cy - 23 * Math.cos(midA * Math.PI / 180);
     if (HALO_TIERS[tier]) {
       bodies += `<circle cx="${px.toFixed(2)}" cy="${py.toFixed(2)}" r="${PLANET_R + (tier === 'jackpot' ? 2.0 : 1.5)}" fill="${WHEEL_TIERS[tier].color}" opacity="${tier === 'jackpot' ? 0.22 : 0.14}"/>`;
     }
     bodies += `<circle cx="${px.toFixed(2)}" cy="${py.toFixed(2)}" r="${PLANET_R}" fill="url(#wg-${tier})" stroke="rgba(0,0,0,0.35)" stroke-width="0.4"/>`;
-    // #rank just inside the planet, aligned along the slice axis (casino-roulette style)
-    const lr = 22;
+    // #rang aligné sur l'axe de la part (comme à la roulette), côté jante
+    const lr = 37;
     const lx = cx + lr * Math.sin(midA * Math.PI / 180);
     const ly = cy - lr * Math.cos(midA * Math.PI / 180);
     labels += `<text x="${lx.toFixed(2)}" y="${ly.toFixed(2)}" transform="rotate(${midA.toFixed(1)} ${lx.toFixed(2)} ${ly.toFixed(2)})" text-anchor="middle" dominant-baseline="central" font-size="4.4" font-weight="700" fill="#f2f5f8" stroke="rgba(0,0,0,0.6)" stroke-width="0.55" paint-order="stroke" font-family="'IBM Plex Mono', ui-monospace, monospace">#${displayRank(rw.rank)}</text>`;
   }
   return `<svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true"><defs>${defs}</defs>${segs}${bodies}${labels}` +
+    `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="0.7"/>` +
     `<circle cx="${cx}" cy="${cy}" r="8" fill="#05080a" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/></svg>`;
 }
 
@@ -2098,23 +2120,42 @@ function renderWheel(resultHtml) {
   const won = new Set((gameState?.unlocks || []).map(w => w.toLowerCase()));
   const noneGiveable = !_wheelRewards.some(r => r && !won.has(r.word.toLowerCase()));
   const skin = skinById(_profile?.equipped || 'sun'); // the player's own star in the core
-  const hubHex = '#' + skin.glow.toString(16).padStart(6, '0');
   const emptyMsg = noneGiveable ? `<span class="wheel-none">${t('wheelNoCloser')}</span>` : '';
+  const jackpotSegs = (WHEEL_LAYOUT.find(l => l.tier === 'jackpot')?.segs || []).length;
   content.innerHTML = `
     <div class="how-to-content wheel-wrap">
-      <h2>${icon('wheel')}<span>${t('wheelTitle')}</span></h2>
+      <h2>${icon('wheel')}<span>${t('wheelTitle')}</span>
+        <span class="gx-badge${avail > 0 ? '' : ' spent'}">${avail > 0 ? t('wheelBadge', avail) : t('wheelSpent')}</span>
+      </h2>
+      <p class="gx-lede">${t('wheelLede', jackpotSegs, WHEEL_SEGMENTS.length)}</p>
       <div class="wheel-stage">
         <div class="wheel-pointer"></div>
         ${buildWheelSvg(_wheelRewards)}
-        <div class="wheel-hub" style="--hub:${hubHex}"></div>
+        <div class="wheel-hub" style="${skinVars(skin)}"></div>
       </div>
+      ${wheelDialHtml()}
       <div id="wheel-result" class="wheel-result" aria-live="polite">${resultHtml || emptyMsg}</div>
-      <button id="wheel-spin-btn" ${avail > 0 && !noneGiveable ? '' : 'disabled'}>${t('wheelSpinBtn')}</button>
-      <p class="wheel-hint">${t('wheelHint')}</p>
+      <button id="wheel-spin-btn" class="gx-cta" ${avail > 0 && !noneGiveable ? '' : 'disabled'}>
+        <span>${t('wheelSpinBtn')}</span><span class="gx-kbd">${t('transitKbd')}</span>
+      </button>
+      <p class="gx-foot">${t('wheelFoot', avail, WHEEL_SPIN_EVERY)}</p>
     </div>`;
   const svg = content.querySelector('.wheel-svg');
   if (svg) svg.style.transform = `rotate(${_wheelRotation}deg)`;
   content.querySelector('#wheel-spin-btn')?.addEventListener('click', spinWheel);
+}
+
+// Cadran : l'étendue des rangs RÉELLEMENT posés sur la roue, sur la rampe de
+// chaleur. D'un coup d'œil le joueur voit ce qui est en jeu ce tour-ci.
+function wheelDialHtml() {
+  const ranks = _wheelRewards.filter(Boolean).map(r => r.rank).sort((a, b) => a - b);
+  if (!ranks.length) return '';
+  const lo = displayRank(ranks[0]), hi = displayRank(ranks[ranks.length - 1]);
+  return `<div class="wheel-dial">
+      <span class="wd-label">${t('wheelDial')}</span>
+      <span class="wd-bar"></span>
+      <span class="wd-range">#${lo} → #${hi}</span>
+    </div>`;
 }
 
 function applyWheelUnlock(w) {
@@ -2178,6 +2219,14 @@ function spinWheel() {
   }, 4300);
 }
 
+// Espace = lancer la roue. Même contrat que la Sonde : posé à l'ouverture,
+// RETIRÉ à la fermeture, sinon il avalerait les espaces pendant la saisie.
+function wheelKeyHandler(e) {
+  if (e.code !== 'Space' && e.key !== ' ') return;
+  e.preventDefault();
+  spinWheel();
+}
+
 function openWheelModal() {
   const modal = document.getElementById('wheel-modal');
   if (!modal) return;
@@ -2188,10 +2237,12 @@ function openWheelModal() {
   renderWheel();
   modal.classList.remove('hidden');
   lockBodyScroll(true);
+  window.addEventListener('keydown', wheelKeyHandler);
 }
 
 function closeWheelModal() {
   document.getElementById('wheel-modal')?.classList.add('hidden');
+  window.removeEventListener('keydown', wheelKeyHandler);
   lockBodyScroll(false);
 }
 
@@ -2759,19 +2810,19 @@ function openTransitModal() {
   content.innerHTML = `
     <div class="how-to-content transit-wrap">
       <h2>${icon('probe')}<span>${t('transitTitle')}</span>
-        <span class="transit-badge${ready ? '' : ' spent'}">${ready ? t('transitBadge', shots) : t('transitSpent')}</span>
+        <span class="gx-badge${ready ? '' : ' spent'}">${ready ? t('transitBadge', shots) : t('transitSpent')}</span>
       </h2>
-      <p class="transit-lede">${t('transitLede')}</p>
+      <p class="gx-lede">${t('transitLede')}</p>
       <div class="transit-legend">${transitLegendHtml()}</div>
       <div class="transit-stage">
         <span class="transit-stage-tag">${t('transitTag')}</span>
         <canvas id="transit-cv" aria-hidden="true"></canvas>
       </div>
       <div id="transit-status" class="transit-status" aria-live="polite"></div>
-      <button id="transit-fire" class="transit-fire" type="button">
-        <span>${t('transitFireBtn')}</span><span class="transit-kbd">${t('transitKbd')}</span>
+      <button id="transit-fire" class="gx-cta" type="button">
+        <span>${t('transitFireBtn')}</span><span class="gx-kbd">${t('transitKbd')}</span>
       </button>
-      <p class="transit-foot">${t('transitFoot')}</p>
+      <p class="gx-foot">${t('transitFoot')}</p>
     </div>`;
   modal.classList.remove('hidden');
   lockBodyScroll(true);

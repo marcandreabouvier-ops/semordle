@@ -1417,7 +1417,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .star-state.locked { color: var(--screen-subtle); font-family: var(--font-mono); }
 
 /* === Wheel of fortune modal === */
-.wheel-wrap { text-align: center; }
+/* Titre, intro et cadran s'alignent à gauche comme dans la Sonde ; seuls le
+   résultat et le pied de page restent centrés. */
+.wheel-wrap { text-align: left; }
+.wheel-result, .wheel-wrap .gx-foot { text-align: center; }
 .wheel-sub {
   color: var(--amber);
   font-size: 13px;
@@ -1427,9 +1430,12 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 .wheel-stage {
   position: relative;
-  width: min(260px, 68vw);
+  /* Le plafond en dvh remplace le flex-shrink : le plateau est carré, on le
+     borne donc par sa LARGEUR (aspect-ratio l'emporterait sur flex-shrink). */
+  width: min(260px, 68vw, 42dvh);
   aspect-ratio: 1;
   margin: 0 auto;
+  flex: none;
 }
 .wheel-svg {
   width: 100%; height: 100%;
@@ -1455,16 +1461,51 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   transform: translate(-50%, -50%);
   width: 42px; height: 42px;   /* biggest body — mirrors the sun on the main radar */
   border-radius: 50%;
-  background: radial-gradient(circle at 36% 34%, #fff, var(--hub, var(--amber)) 58%, rgba(0,0,0,0.55));
-  box-shadow: 0 0 20px var(--hub, var(--amber)), 0 0 7px var(--hub, var(--amber));
+  background: radial-gradient(circle at 38% 34%, #fff 0%, var(--sk-core, #fff) 20%, var(--sk-mid, var(--amber)) 60%, var(--sk-glow, var(--amber)) 100%);
+  box-shadow: 0 0 20px var(--sk-glow, var(--amber)), 0 0 7px var(--sk-glow, var(--amber));
   pointer-events: none;
   animation: wheel-hub-pulse 2.4s ease-in-out infinite;
 }
 @keyframes wheel-hub-pulse {
-  0%, 100% { box-shadow: 0 0 18px var(--hub, var(--amber)), 0 0 6px var(--hub, var(--amber)); }
-  50%      { box-shadow: 0 0 28px var(--hub, var(--amber)), 0 0 10px var(--hub, var(--amber)); }
+  0%, 100% { box-shadow: 0 0 18px var(--sk-glow, var(--amber)), 0 0 6px var(--sk-glow, var(--amber)); }
+  50%      { box-shadow: 0 0 28px var(--sk-glow, var(--amber)), 0 0 10px var(--sk-glow, var(--amber)); }
 }
-.wheel-result { min-height: 26px; margin: 16px 0 2px; }
+/* La Roue suit la même grammaire que la Sonde : chaîne flex CONTINUE jusqu'au
+   plateau, aucun scroll, le plateau est le seul élément qui cède. */
+#wheel-modal .modal-content {
+  display: flex; flex-direction: column;
+  max-height: calc(100dvh - 24px);
+  padding: 22px;
+  overflow: hidden;
+}
+#wheel-modal #wheel-content,
+.wheel-wrap { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.wheel-wrap h2 { padding-right: 40px; margin-bottom: 12px; }
+
+/* Cadran : l'étendue des rangs posés sur la roue, lue sur la rampe de chaleur. */
+.wheel-dial {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 12px; padding: 7px 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  flex: none;
+}
+.wd-label {
+  font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--screen-subtle); flex: none;
+}
+.wd-bar {
+  flex: 1 1 auto; height: 5px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--scorch-c), var(--hot-c), var(--warm-c), var(--cool-c), var(--cold-c));
+}
+.wd-range {
+  font-family: var(--font-mono); font-size: 10.5px;
+  color: var(--screen-muted); white-space: nowrap; flex: none;
+}
+
+.wheel-result { min-height: 26px; margin: 12px 0 2px; flex: none; }
 .wheel-win { font-size: 16px; font-weight: 900; letter-spacing: 0.02em; }
 .wheel-win.jackpot {
   color: #ffd24a;
@@ -1474,20 +1515,9 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 @keyframes jackpot-pop { 0% { transform: scale(0.5); } 60% { transform: scale(1.2); } 100% { transform: scale(1); } }
 .wheel-none { color: var(--screen-muted); font-style: italic; font-size: 13px; }
-/* L'action unique de la modale : pleine, ambre solaire */
-#wheel-spin-btn {
-  width: 100%;
-  height: 48px;
-  font-size: 15px;
-  border-radius: 999px;
-  background: var(--amber);
-  border: 1px solid var(--amber);
-  color: #180e04;
-  font-weight: 700;
-  margin-top: 4px;
-}
-#wheel-spin-btn:hover:not(:disabled) { background: #f7b877; border-color: #f7b877; }
-.wheel-hint { font-size: 11px; color: var(--screen-muted); line-height: 1.4; margin: 12px 0 0; }
+/* Le bouton hérite de .gx-cta (phosphore, comme « Deviner » et « Lancer la
+   sonde ») : l'ambre redevient réservé au soleil et à la victoire. */
+#wheel-spin-btn { margin-top: 2px; }
 
 /* === Mini-jeu Sonde === */
 /* La modale se comporte comme le Wordle : hauteur bornée au viewport, AUCUN
@@ -1508,8 +1538,9 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #transit-modal #transit-content,
 .transit-wrap { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
 .transit-wrap h2 { padding-right: 40px; margin-bottom: 12px; }
-/* Compteur de sondes disponibles, aligné à droite du titre */
-.transit-badge {
+/* Compteur de jetons disponibles, aligné à droite du titre — partagé par la
+   Sonde et la Roue pour que les deux modales aient le même en-tête. */
+.gx-badge {
   margin-left: auto;
   display: inline-flex; align-items: center; gap: 6px;
   padding: 4px 11px;
@@ -1520,16 +1551,16 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   letter-spacing: 0.04em; text-transform: none;
   color: var(--phosphor);
 }
-.transit-badge::before {
+.gx-badge::before {
   content: ''; width: 6px; height: 6px; border-radius: 50%;
   background: var(--phosphor); box-shadow: 0 0 7px var(--phosphor);
 }
-.transit-badge.spent { border-color: var(--hairline-strong); background: none; color: var(--screen-muted); }
-.transit-badge.spent::before { background: var(--screen-subtle); box-shadow: none; }
+.gx-badge.spent { border-color: var(--hairline-strong); background: none; color: var(--screen-muted); }
+.gx-badge.spent::before { background: var(--screen-subtle); box-shadow: none; }
 
 /* Sélecteurs qualifiés : « .how-to-content p » (0,1,1) écraserait sinon la
    taille et les marges définies ici (0,1,0). */
-.transit-wrap .transit-lede {
+.how-to-content .gx-lede {
   font-family: var(--font-flavor); font-style: italic;
   font-size: 15px; line-height: 1.5;
   color: var(--screen-text); opacity: 0.9;
@@ -1592,7 +1623,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 
 /* Aligné sur #semantic-submit (« Deviner ») : même pilule, même phosphore, même
    survol — c'est le même geste, il doit avoir la même forme. */
-.transit-fire {
+.gx-cta {
   flex: none;
   display: flex; align-items: center; justify-content: center; gap: 10px;
   width: 100%; height: 46px; padding: 0 15px;
@@ -1603,16 +1634,16 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s, opacity 0.15s;
 }
-.transit-fire:hover:not(:disabled) { background: #4fe0ce; border-color: #4fe0ce; }
-.transit-fire:disabled { opacity: 0.35; cursor: default; }
-.transit-kbd {
+.gx-cta:hover:not(:disabled) { background: #4fe0ce; border-color: #4fe0ce; }
+.gx-cta:disabled { opacity: 0.35; cursor: default; }
+.gx-kbd {
   font-family: var(--font-mono); font-size: 10px; font-weight: 600;
   letter-spacing: 0.08em;
   padding: 3px 7px; border-radius: 5px;
   background: rgba(0,0,0,0.16); color: rgba(4,33,29,0.72);
 }
-@media (hover: none) { .transit-kbd { display: none; } }
-.transit-wrap .transit-foot {
+@media (hover: none) { .gx-kbd { display: none; } }
+.how-to-content .gx-foot {
   flex: none; margin: 10px 0 0; text-align: center;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.03em;
   color: var(--screen-subtle); line-height: 1.5;
@@ -1620,8 +1651,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 /* Écrans très courts uniquement : on sacrifie le texte d'intro en dernier
    recours — c'est lui qui explique que le tir part tout droit. */
 @media (max-height: 560px) {
-  .transit-wrap .transit-lede { display: none; }
-  .transit-fire { height: 42px; }
+  .how-to-content .gx-lede { display: none; }
+  .gx-cta { height: 42px; }
 }
 @media (max-width: 420px) {
   .transit-legend { gap: 4px 10px; }
