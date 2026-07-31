@@ -441,7 +441,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border-color: var(--hairline-strong);
   color: var(--screen-text);
 }
-#wordle-handle-label, #wheel-handle-label {
+/* Les TROIS labels doivent être listés ici : .gx-icon est en display:block, donc
+   dans un span resté inline le SVG force un retour à la ligne et le libellé passe
+   sous l'icône. C'est ce qui arrivait à la Sonde, oubliée dans cette règle. */
+#wordle-handle-label, #wheel-handle-label, #transit-handle-label {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -1487,10 +1490,61 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 .wheel-hint { font-size: 11px; color: var(--screen-muted); line-height: 1.4; margin: 12px 0 0; }
 
 /* === Mini-jeu Sonde === */
+/* La modale se comporte comme le Wordle : hauteur bornée au viewport, AUCUN
+   scroll, et c'est le terrain de jeu qui absorbe la place restante (flex:1).
+   Un mini-jeu qui scrolle pendant que les planètes tournent est injouable. */
+#transit-modal .modal-content {
+  display: flex;
+  flex-direction: column;
+  /* max-height SEULEMENT, jamais height : la carte épouse son contenu sur un
+     grand écran (sinon un vide sous le bouton) et se comprime en dessous. */
+  max-height: calc(100dvh - 24px);
+  padding: 22px;
+  overflow: hidden;
+}
+/* Chaîne flex CONTINUE jusqu'au terrain : #transit-content est un div
+   intermédiaire, s'il reste en bloc il fige la hauteur de son contenu et le
+   flex-shrink du terrain n'est jamais appliqué (bouton clippé hors carte). */
+#transit-modal #transit-content,
+.transit-wrap { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.transit-wrap h2 { padding-right: 40px; margin-bottom: 12px; }
+/* Compteur de sondes disponibles, aligné à droite du titre */
+.transit-badge {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 11px;
+  border: 1px solid rgba(45,212,191,0.32);
+  border-radius: 999px;
+  background: rgba(45,212,191,0.08);
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: none;
+  color: var(--phosphor);
+}
+.transit-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--phosphor); box-shadow: 0 0 7px var(--phosphor);
+}
+.transit-badge.spent { border-color: var(--hairline-strong); background: none; color: var(--screen-muted); }
+.transit-badge.spent::before { background: var(--screen-subtle); box-shadow: none; }
+
+/* Sélecteurs qualifiés : « .how-to-content p » (0,1,1) écraserait sinon la
+   taille et les marges définies ici (0,1,0). */
+.transit-wrap .transit-lede {
+  font-family: var(--font-flavor); font-style: italic;
+  font-size: 15px; line-height: 1.5;
+  color: var(--screen-text); opacity: 0.9;
+  margin: 0 0 14px;
+}
+
 .transit-stage {
   position: relative;
+  /* Hauteur SOUHAITÉE compressible : le terrain est le seul élément qui cède
+     quand la fenêtre est courte. Pas d'aspect-ratio ici — il l'emporte sur
+     flex-shrink et le bouton passait sous le bord de la carte. */
+  flex: 1 1 auto;
+  height: min(340px, 44dvh);
+  min-height: 150px;          /* plancher : en dessous le jeu n'est plus lisible */
   width: 100%;
-  aspect-ratio: 700 / 470;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: radial-gradient(ellipse at 50% 46%, #0b1119 0%, #05080c 74%);
@@ -1498,11 +1552,40 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   cursor: pointer;
   touch-action: none;
 }
+.transit-stage-tag {
+  position: absolute; top: 10px; left: 13px;
+  font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--screen-subtle); opacity: 0.75;
+  pointer-events: none;
+}
 /* width/height OBLIGATOIRES : sans taille CSS, un <canvas> s'affiche à sa
    taille intrinsèque (ses attributs = px × dpr) et tout serait dessiné au
    double sur écran HiDPI — le bug qui rendait les météorites inattrapables. */
 .transit-stage canvas { display: block; width: 100%; height: 100%; }
-.transit-status { min-height: 34px; margin-top: 12px; text-align: center; }
+
+.transit-legend {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  margin-top: 12px; flex: none;
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'dot name' 'dot sub';
+  align-items: center;
+  column-gap: 8px;
+  padding: 9px 11px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.02);
+}
+.tl-dot { grid-area: dot; width: 9px; height: 9px; border-radius: 50%; background: var(--tl-c); box-shadow: 0 0 8px var(--tl-c); }
+.tl-name { grid-area: name; font-size: 12px; font-weight: 700; color: var(--screen-text); }
+.tl-sub  { grid-area: sub; font-family: var(--font-mono); font-size: 10px; color: var(--screen-muted); letter-spacing: 0.02em; }
+.tl-item.tl-best { border-color: color-mix(in srgb, var(--tl-c) 40%, transparent); background: color-mix(in srgb, var(--tl-c) 9%, transparent); }
+.tl-item.tl-best .tl-name { color: var(--tl-c); }
+
+.transit-status { min-height: 30px; margin-top: 10px; text-align: center; flex: none; }
 .transit-res { display: block; font-family: var(--font-mono); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; }
 .transit-sub {
   display: block;
@@ -1511,6 +1594,45 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   font-size: 13px;
   color: var(--screen-muted);
   margin-top: 2px;
+}
+
+.transit-fire {
+  flex: none;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 15px;
+  border: none; border-radius: var(--radius-lg);
+  background: var(--phosphor); color: #04211d;
+  font-family: var(--font-ui); font-size: 15px; font-weight: 700;
+  letter-spacing: 0; text-transform: none;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.transit-fire:hover:not(:disabled) { background: #4fe3d0; }
+.transit-fire:disabled { opacity: 0.35; cursor: default; }
+.transit-kbd {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 3px 7px; border-radius: 5px;
+  background: rgba(0,0,0,0.16); color: rgba(4,33,29,0.72);
+}
+@media (hover: none) { .transit-kbd { display: none; } }
+.transit-wrap .transit-foot {
+  flex: none; margin: 10px 0 0; text-align: center;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.03em;
+  color: var(--screen-subtle); line-height: 1.5;
+}
+/* Écrans très courts uniquement : on sacrifie le texte d'intro en dernier
+   recours — c'est lui qui explique que le tir part tout droit. */
+@media (max-height: 560px) {
+  .transit-wrap .transit-lede { display: none; }
+  .transit-legend { gap: 6px; }
+  .tl-item { padding: 7px 9px; }
+  .transit-fire { padding: 12px; }
+}
+@media (max-width: 420px) {
+  .tl-name { font-size: 11px; }
+  .tl-sub  { font-size: 9px; }
+  .tl-item { padding: 8px; column-gap: 6px; }
 }
 
 /* === Focus rings === */

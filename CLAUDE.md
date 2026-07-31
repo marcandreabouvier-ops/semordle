@@ -102,6 +102,27 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   Capture → burst de particules + toast (`#meteor-toast`) + mot ajouté comme la roue (total dans
   `meteorCatches` pour le partage). Ratée = elle s'envole, aucune pénalité. Debug : flag
   localStorage `semordle:debug` expose `window._gxMeteor(tier)` / `_gxMeteors()`.
+- **Sonde** (mini-jeu, languette `#transit-handle`) : une sonde tous les `TRANSIT_EVERY` = 20
+  mots. **Elle part TOUJOURS tout droit vers le haut** depuis un pas de tir fixe en bas au
+  centre : le joueur choisit l'INSTANT, jamais la cible — toute formulation du type « touchez
+  une planète » est fausse et a été écartée. Trois anneaux de planètes (`TRANSIT_TIERS`,
+  orbites ovales `TRANSIT_OVAL`, ω ∝ r^-1,5 donc l'intérieur va plus vite, toutes dans le même
+  sens comme dans un vrai système solaire) : rouge (1 seule, orbite basse) → top 20 + feux
+  d'artifice ; orange → #20-100 ; bleue → #100-400. Toucher le soleil ou sortir par le haut =
+  sonde perdue, lot de consolation `TRANSIT_LOST_BAND` (mot froid). Tir par clic sur le cadre,
+  par le bouton, ou par **la barre d'espace** — cet écouteur est posé à l'ouverture et
+  **retiré à la fermeture**, sinon il avalerait les espaces pendant la saisie d'un mot.
+  Refonte visuelle du 2026-07-31 (d'après un mockup de Marc) : badge de sondes dispo, texte
+  d'intro en Newsreader, légende construite **depuis `TRANSIT_TIERS`** (`transitLegendHtml`)
+  pour que les rangs affichés ne puissent pas mentir, et **anneaux de croisement** dessinés
+  sur la trajectoire en `y = cy + r·OVAL` — ils montrent où amener une planète, c'est
+  l'information utile du jeu. Dimensionnement type Wordle, **aucun scroll** : la chaîne flex
+  doit être CONTINUE (`.modal-content` → `#transit-content` → `.transit-wrap` → terrain),
+  sinon le div intermédiaire fige la hauteur et le bouton est clippé hors carte. Le terrain
+  est le seul élément qui cède (`height: min(340px, 44dvh)` + `flex-shrink`, plancher 150px) ;
+  **pas d'`aspect-ratio`** ici, il l'emporte sur `flex-shrink`. Les `<p>` de la modale doivent
+  être qualifiés `.transit-wrap .transit-lede/.transit-foot` : `.how-to-content p` (0,1,1)
+  écrase sinon leur taille et leurs marges.
 - **Partage** : la ligne 🔓 affiche le total de mots réellement débloqués =
   `wordleWinCount + wheelSpinsUsed + meteorCatches` (`unlockBreakdown()`) avec la répartition
   (🎯 Wordle · 🎡 roue · ☄️ météores, sources non nulles seulement). La ligne d'émojis

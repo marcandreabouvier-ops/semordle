@@ -25,14 +25,24 @@ const I18N = {
     tabTransit:      'Probe',
     randomSent:      'Random word',
     shareRandom:     (n) => `🎲 ${n} random`,
-    transitTitle:    'Probe launch',
-    transitHint:     'One probe every 20 guesses. The closer the planet you hit orbits the sun, the better the word — but a miss burns the probe.',
-    transitReady:    'Tap to launch',
+    transitTitle:    'Launch window',
+    // La sonde part TOUJOURS tout droit : le joueur choisit l'instant, pas la cible.
+    transitLede:     'Launch at the right moment. The lower the orbit you hit, the closer to the secret the word you win.',
+    transitTag:      'Trajectory locked · vertical',
+    transitBadge:    (n) => `${n} probe${n > 1 ? 's' : ''}`,
+    transitFireBtn:  'Launch the probe',
+    transitKbd:      'SPACE',
+    transitFoot:     'A miss burns the probe · next one in 20 guesses',
+    transitReady:    'Tap the stage or press space',
     transitFlying:   'probe in flight…',
     transitLost:     'Probe lost — only a cold word drifts back',
     transitUnlocked: (r) => `Word #${r} unlocked`,
     transitNone:     'Nothing left to unlock — the whole galaxy is yours!',
     transitSpent:    'No probe ready — keep guessing',
+    transitTierRed:    'Low orbit',
+    transitTierOrange: 'Mid',
+    transitTierBlue:   'High',
+    transitTop:      (n) => `top ${n}`,
     wheelTitle:      'Wheel of fortune',
     wheelHint:       'You earn a spin every 50 guesses. Each slice shows the word at stake: the redder the planet, the closer it orbits the secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} spin${n > 1 ? 's' : ''} ready` : 'No spin yet — keep going!',
@@ -156,14 +166,24 @@ const I18N = {
     tabTransit:      'Sonde',
     randomSent:      'Mot au hasard',
     shareRandom:     (n) => `🎲 ${n} au hasard`,
-    transitTitle:    'Lancement de sonde',
-    transitHint:     'Une sonde toutes les 20 propositions. Plus la planète touchée orbite près du soleil, meilleur est le mot — mais un tir manqué consume la sonde.',
-    transitReady:    'Appuie pour lancer',
+    transitTitle:    'Fenêtre de tir',
+    // La sonde part TOUJOURS tout droit : le joueur choisit l'instant, pas la cible.
+    transitLede:     'Lancez au bon moment. Plus l’orbite touchée est basse, plus le mot offert est proche du secret.',
+    transitTag:      'Trajectoire verrouillée · verticale',
+    transitBadge:    (n) => `${n} sonde${n > 1 ? 's' : ''}`,
+    transitFireBtn:  'Lancer la sonde',
+    transitKbd:      'ESPACE',
+    transitFoot:     'Tir manqué = sonde perdue · la suivante dans 20 mots',
+    transitReady:    'Touchez le cadre ou pressez espace',
     transitFlying:   'sonde en vol…',
     transitLost:     'Sonde perdue — il ne revient qu’un mot froid',
     transitUnlocked: (r) => `Mot #${r} débloqué`,
     transitNone:     'Plus rien à débloquer — toute la galaxie est à toi !',
     transitSpent:    'Aucune sonde prête — continue à jouer',
+    transitTierRed:    'Orbite basse',
+    transitTierOrange: 'Médiane',
+    transitTierBlue:   'Haute',
+    transitTop:      (n) => `top ${n}`,
     wheelTitle:      'Roue de la chance',
     wheelHint:       'Tu gagnes un tour tous les 50 essais. Chaque part montre le mot à gagner : plus la planète est rouge, plus il orbite près du secret.',
     wheelSpinsLine:  (n) => n > 0 ? `${n} tour${n > 1 ? 's' : ''} dispo` : 'Pas encore de tour — continue !',
@@ -2504,7 +2524,7 @@ function pickWordInBand(lo, hi) {
 // Géométrie recalculée à chaque frame : la modale peut changer de taille.
 function transitGeom(w, h) {
   const R = Math.min(w * 0.42, h * 0.40);
-  return { cx: w / 2, cy: h * 0.46, R, sun: R * 0.13, launch: { x: w / 2, y: h - 14 }, speed: R * 0.019 };
+  return { cx: w / 2, cy: h * 0.46, R, sun: R * 0.13, launch: { x: w / 2, y: h - 20 }, speed: R * 0.019 };
 }
 function transitPlanets(g, key) {
   const T = TRANSIT_TIERS[key], out = [], r = g.R * T.rf;
@@ -2585,8 +2605,19 @@ function transitDraw(c, g) {
     ctx.strokeStyle = T.color; ctx.globalAlpha = 0.13; ctx.lineWidth = 1; ctx.setLineDash([3, 7]); ctx.stroke();
   }
   ctx.setLineDash([]); ctx.globalAlpha = 1;
-  ctx.beginPath(); ctx.moveTo(g.launch.x, g.launch.y); ctx.lineTo(g.cx, g.cy);
+  // La trajectoire s'arrête au bord du soleil, qui détruit la sonde : la
+  // prolonger au-delà laisserait croire qu'on peut le traverser.
+  ctx.beginPath(); ctx.moveTo(g.launch.x, g.launch.y); ctx.lineTo(g.cx, g.cy + g.sun);
   ctx.strokeStyle = 'rgba(45,212,191,0.20)'; ctx.lineWidth = 1; ctx.setLineDash([2, 8]); ctx.stroke(); ctx.setLineDash([]);
+  // Points de croisement : la trajectoire étant verticale en x = cx, elle coupe
+  // chaque ellipse en y = cy + r·OVAL. Ces anneaux disent exactement où amener
+  // une planète — c'est l'information utile d'un jeu de timing.
+  for (const k of Object.keys(TRANSIT_TIERS)) {
+    const T = TRANSIT_TIERS[k];
+    ctx.beginPath(); ctx.arc(g.cx, g.cy + g.R * T.rf * TRANSIT_OVAL, g.R * T.pf * 0.62, 0, 6.28);
+    ctx.strokeStyle = T.color; ctx.globalAlpha = 0.5; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.globalAlpha = 1;
+  }
   const skin = skinById(_profile?.equipped || 'sun');
   const hub = '#' + skin.glow.toString(16).padStart(6, '0');
   const rg = ctx.createRadialGradient(g.cx, g.cy, 2, g.cx, g.cy, g.sun * 2.7);
@@ -2611,11 +2642,14 @@ function transitDraw(c, g) {
     ctx.shadowColor = 'var(--phosphor)'; ctx.shadowColor = '#2dd4bf'; ctx.shadowBlur = 10;
     ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(_trProbe.x, _trProbe.y, 3.4, 0, 6.28); ctx.fill(); ctx.shadowBlur = 0;
   }
+  // Pas de tir : disque phosphore + anneau, tant que la sonde est armée.
+  if (!_trFired) { ctx.shadowColor = '#2dd4bf'; ctx.shadowBlur = 14; }
   ctx.fillStyle = _trFired ? 'rgba(45,212,191,0.30)' : '#2dd4bf';
-  ctx.beginPath(); ctx.arc(g.launch.x, g.launch.y, 6, 0, 6.28); ctx.fill();
+  ctx.beginPath(); ctx.arc(g.launch.x, g.launch.y, 7, 0, 6.28); ctx.fill();
+  ctx.shadowBlur = 0;
   if (!_trFired) {
-    ctx.globalAlpha = 0.3; ctx.beginPath(); ctx.arc(g.launch.x, g.launch.y, 11, 0, 6.28);
-    ctx.strokeStyle = '#2dd4bf'; ctx.lineWidth = 1; ctx.stroke(); ctx.globalAlpha = 1;
+    ctx.globalAlpha = 0.32; ctx.beginPath(); ctx.arc(g.launch.x, g.launch.y, 13, 0, 6.28);
+    ctx.strokeStyle = '#2dd4bf'; ctx.lineWidth = 1.2; ctx.stroke(); ctx.globalAlpha = 1;
   }
 }
 
@@ -2637,6 +2671,7 @@ function renderTransitStatus() {
   } else {
     el.innerHTML = `<span class="transit-sub">${_trFired ? t('transitFlying') : t('transitReady')}</span>`;
   }
+  updateTransitFireBtn();
 }
 
 function transitFire() {
@@ -2649,30 +2684,72 @@ function transitFire() {
   renderTransitStatus();
 }
 
+// Légende construite DEPUIS TRANSIT_TIERS : les rangs affichés ne peuvent pas
+// mentir sur les bandes réellement tirées, même si on les rééquilibre plus tard.
+function transitLegendHtml() {
+  return ['red', 'orange', 'blue'].map(k => {
+    const T = TRANSIT_TIERS[k], [lo, hi] = T.band;
+    const sub = lo <= 1 ? t('transitTop', hi) : `#${lo}–#${hi}`;
+    return `<div class="tl-item${k === 'red' ? ' tl-best' : ''}" style="--tl-c:${T.color}">
+        <span class="tl-dot"></span>
+        <span class="tl-name">${t('transitTier' + k[0].toUpperCase() + k.slice(1))}</span>
+        <span class="tl-sub">${sub}</span>
+      </div>`;
+  }).join('');
+}
+
+function updateTransitFireBtn() {
+  const btn = document.getElementById('transit-fire');
+  if (btn) btn.disabled = _trFired || !!_trResult;
+}
+
+// Espace = tirer. Écouteur posé à l'ouverture et RETIRÉ à la fermeture, sinon
+// la barre d'espace resterait captée pendant la saisie d'un mot.
+function transitKeyHandler(e) {
+  if (e.code !== 'Space' && e.key !== ' ') return;
+  e.preventDefault();
+  transitFire();
+}
+
 function openTransitModal() {
   const modal = document.getElementById('transit-modal');
   const content = document.getElementById('transit-content');
   if (!modal || !content) return;
-  const ready = transitShotsAvailable() > 0;
+  const shots = transitShotsAvailable();
+  const ready = shots > 0;
   _trPhase = {}; Object.keys(TRANSIT_TIERS).forEach(k => { _trPhase[k] = Math.random() * 6.283; });
   _trProbe = null; _trTrail = []; _trResult = null; _trFired = !ready;
   content.innerHTML = `
     <div class="how-to-content transit-wrap">
-      <h2>${icon('probe')}<span>${t('transitTitle')}</span></h2>
-      <div class="transit-stage"><canvas id="transit-cv" aria-hidden="true"></canvas></div>
+      <h2>${icon('probe')}<span>${t('transitTitle')}</span>
+        <span class="transit-badge${ready ? '' : ' spent'}">${ready ? t('transitBadge', shots) : t('transitSpent')}</span>
+      </h2>
+      <p class="transit-lede">${t('transitLede')}</p>
+      <div class="transit-stage">
+        <span class="transit-stage-tag">${t('transitTag')}</span>
+        <canvas id="transit-cv" aria-hidden="true"></canvas>
+      </div>
+      <div class="transit-legend">${transitLegendHtml()}</div>
       <div id="transit-status" class="transit-status" aria-live="polite"></div>
-      <p class="wheel-hint">${ready ? t('transitHint') : t('transitSpent')}</p>
+      <button id="transit-fire" class="transit-fire" type="button">
+        <span>${t('transitFireBtn')}</span><span class="transit-kbd">${t('transitKbd')}</span>
+      </button>
+      <p class="transit-foot">${t('transitFoot')}</p>
     </div>`;
   modal.classList.remove('hidden');
   lockBodyScroll(true);
   renderTransitStatus();
-  document.getElementById('transit-cv')?.addEventListener('pointerdown', () => { if (ready) transitFire(); });
+  updateTransitFireBtn();
+  document.getElementById('transit-cv')?.addEventListener('pointerdown', transitFire);
+  document.getElementById('transit-fire')?.addEventListener('click', transitFire);
+  window.addEventListener('keydown', transitKeyHandler);
   if (!_trRAF) _trRAF = requestAnimationFrame(transitLoop);
 }
 
 function closeTransitModal() {
   document.getElementById('transit-modal')?.classList.add('hidden');
   if (_trRAF) { cancelAnimationFrame(_trRAF); _trRAF = null; }
+  window.removeEventListener('keydown', transitKeyHandler);
   _trProbe = null; _trTrail = [];
   lockBodyScroll(false);
 }
