@@ -21,9 +21,10 @@ const I18N = {
     emptyState:      'Your guesses will appear here. Try a word that might be semantically related to the secret!',
     tabSemantic:     'Semantic',
     tabWordle:       'Wordle',
-    tabSuggest:      '3 words',
     tabWheel:        'Wheel',
     tabTransit:      'Probe',
+    randomSent:      'Random word',
+    shareRandom:     (n) => `🎲 ${n} random`,
     transitTitle:    'Probe launch',
     transitHint:     'One probe every 20 guesses. The closer the planet you hit orbits the sun, the better the word — but a miss burns the probe.',
     transitReady:    'Tap to launch',
@@ -39,8 +40,6 @@ const I18N = {
     wheelResult:     (r) => `Unlocked word #${r}!`,
     wheelJackpot:    'JACKPOT! #',
     wheelNoCloser:   'Nothing left to unlock — the whole galaxy is yours!',
-    suggestHint:     'Three random leads, further than your best word — for inspiration when you’re stuck.',
-    suggestEmpty:    'You’ve already explored everything nearby!',
     startTitle:      'Unlock a clue word',
     startBestRank:   (r) => `Your current best rank is <strong style="color:var(--screen-text)">#${r}</strong> — the clue word will be closer than that.`,
     startNoRank:     'Make a semantic guess first to get a better starting clue.',
@@ -153,9 +152,10 @@ const I18N = {
     emptyState:      'Vos propositions apparaîtront ici. Essayez un mot sémantiquement proche du secret !',
     tabSemantic:     'Sémantique',
     tabWordle:       'Wordle',
-    tabSuggest:      '3 mots',
     tabWheel:        'Roue',
     tabTransit:      'Sonde',
+    randomSent:      'Mot au hasard',
+    shareRandom:     (n) => `🎲 ${n} au hasard`,
     transitTitle:    'Lancement de sonde',
     transitHint:     'Une sonde toutes les 20 propositions. Plus la planète touchée orbite près du soleil, meilleur est le mot — mais un tir manqué consume la sonde.',
     transitReady:    'Appuie pour lancer',
@@ -171,8 +171,6 @@ const I18N = {
     wheelResult:     (r) => `Tu débloques le mot #${r} !`,
     wheelJackpot:    'JACKPOT ! #',
     wheelNoCloser:   'Plus rien à débloquer — toute la galaxie est à toi !',
-    suggestHint:     'Trois pistes au hasard, plus loin que ton meilleur mot — pour t’inspirer quand tu sèches.',
-    suggestEmpty:    'Tu as déjà exploré tout ce qui est proche !',
     startTitle:      'Débloquer un indice',
     startBestRank:   (r) => `Votre meilleur rang actuel est <strong style="color:var(--screen-text)">#${r}</strong> — le mot indice sera plus proche que ça.`,
     startNoRank:     'Faites d\'abord une proposition sémantique pour obtenir un meilleur indice.',
@@ -517,6 +515,7 @@ function createFreshState(puzzleDate) {
       meteorCatches: 0,
       meteorByTier: {},   // per-tier counts drive the per-tier daily caps
       transitShotsUsed: 0,
+      randomGuesses: 0,
       bestRank: null,
     },
   };
@@ -618,7 +617,54 @@ function toLemma(word) {
 
 // ─── Semantic guess submission ────────────────────────────
 
-function submitSemanticGuess(rawWord) {
+// ─── Proposition au hasard (champ vide) ───────────────────
+// Remplace l'ancienne languette « 3 mots », peu utilisée : cliquer « Deviner »
+// sans rien saisir envoie un mot tiré au sort. Le secret est exclu, et les mots
+// utiles sont très rares — c'est de l'INSPIRATION (un mot auquel on n'aurait pas
+// pensé), pas une aide au classement.
+const RANDOM_ODDS = { top10: 0.0001, top100: 0.001, top1000: 0.01 };
+// Le commun n'est PAS tiré dans tout le vocabulaire : au-delà du rang ~8000 les
+// mots n'ont plus aucun rapport avec le secret (« trombone », « pamplemousse »)
+// et n'inspirent rien. On reste dans le voisinage froid mais thématique.
+const RANDOM_COLD_FROM = 1000, RANDOM_COLD_TO = 8000;
+const RANDOM_COOLDOWN_MS = 250;   // anti-rafale : évite de noyer radar et panneau
+let _lastRandomAt = 0;
+
+function pickRandomGuessWord() {
+  const guessed = new Set(gameState.semanticGuesses.map(g => g.word.toLowerCase()));
+  const unlocked = new Set(gameState.unlocks.map(w => w.toLowerCase()));
+  const secret = puzzle.secret.toLowerCase();
+  const free = (w) => !guessed.has(w.word.toLowerCase())
+    && !unlocked.has(w.word.toLowerCase()) && w.word.toLowerCase() !== secret;
+  const inRank = (lo, hi) => puzzle.words.filter(w => w.rank != null && w.rank > lo && w.rank <= hi && free(w));
+  const cold = () => puzzle.words.slice(RANDOM_COLD_FROM, RANDOM_COLD_TO).filter(free);
+
+  const r = Math.random();
+  let pool;
+  if      (r < RANDOM_ODDS.top10)   pool = inRank(0, 10);
+  else if (r < RANDOM_ODDS.top100)  pool = inRank(10, 100);
+  else if (r < RANDOM_ODDS.top1000) pool = inRank(100, 1000);
+  else                              pool = cold();
+  if (!pool.length) pool = cold();                       // bande épuisée
+  if (!pool.length) pool = puzzle.words.filter(free);    // fin de partie extrême
+  return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+}
+
+// Envoie un mot au hasard. Ne compte PAS dans semanticGuessCount : ce compteur
+// pilote la Roue (1/50), la Sonde (1/20), les météorites et le partage — laisser
+// le spam l'alimenter viderait de leur sens toutes les autres bouées.
+function submitRandomGuess() {
+  if (!gameState || gameState.solved || !puzzle) return;
+  const now = Date.now();
+  if (now - _lastRandomAt < RANDOM_COOLDOWN_MS) return;
+  _lastRandomAt = now;
+  const w = pickRandomGuessWord();
+  if (!w) return;
+  submitSemanticGuess(w.word, true);
+  showSemanticMessage(t('randomSent'), 'info');
+}
+
+function submitSemanticGuess(rawWord, isRandom = false) {
   let word = rawWord.toLowerCase().trim();
   if (!word) return;
 
@@ -682,7 +728,9 @@ function submitSemanticGuess(rawWord) {
   }
 
   gameState.semanticGuesses.push(guessEntry);
-  gameState.stats.semanticGuessCount++;
+  // Compteur SÉPARÉ pour les tirages au sort (voir submitRandomGuess)
+  if (isRandom) gameState.stats.randomGuesses = (gameState.stats.randomGuesses || 0) + 1;
+  else gameState.stats.semanticGuessCount++;
   saveState();
 
   clearSemanticMessage();
@@ -969,16 +1017,10 @@ function applyI18n() {
   // Les trois languettes partagent le même gris : c'est l'icône qui les distingue
   const handleLabel = document.getElementById('wordle-handle-label');
   if (handleLabel) handleLabel.innerHTML = `${icon('tiles', 14)}<span>${t('tabWordle')}</span>`;
-  const suggestLabel = document.getElementById('suggest-handle-label');
-  if (suggestLabel) suggestLabel.innerHTML = `${icon('spark', 14)}<span>${t('tabSuggest')}</span>`;
   const wheelLabel = document.getElementById('wheel-handle-label');
   if (wheelLabel) wheelLabel.innerHTML = `${icon('wheel', 14)}<span>${t('tabWheel')}</span>`;
   const transitLabel = document.getElementById('transit-handle-label');
   if (transitLabel) transitLabel.innerHTML = `${icon('probe', 14)}<span>${t('tabTransit')}</span>`;
-  const suggestTitle = document.getElementById('suggest-panel-title');
-  if (suggestTitle) suggestTitle.textContent = t('tabSuggest');
-  const suggestHintEl = document.getElementById('suggest-hint');
-  if (suggestHintEl) suggestHintEl.textContent = t('suggestHint');
 
   const archiveBtn = document.getElementById('archive-btn');
   if (archiveBtn) archiveBtn.setAttribute('aria-label', t('archiveAria'));
@@ -1819,115 +1861,6 @@ function updateScene() {
 // =========================================================
 //  WORDLE OVERLAY
 // =========================================================
-
-// ─── Suggestions ("Saveur B" — dispersed inspiration) ─────
-// Picks `count` words that are STRICTLY further than the player's best rank
-// (so they can never improve the score or win — the secret isn't in the list
-// anyway) and NOT already guessed. Words are drawn one per equal band across
-// the eligible range, so the trio spans warm-ish → mid → cold: inspiration,
-// not a solution.
-
-function shuffle(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-let _suggestWords = []; // currently displayed trio
-
-// Eligible words: strictly further than the best rank (floor = bestRank || 100,
-// so a stuck player isn't handed the hottest words) and not already guessed.
-function buildSuggestionPool() {
-  if (!puzzle || !puzzle.words) return [];
-  const floor = gameState.stats.bestRank || 100;
-  const guessed = new Set(
-    gameState.semanticGuesses.map(g => g.word.toLowerCase().normalize('NFC'))
-  );
-  const pool = [];
-  for (let i = floor; i < puzzle.words.length; i++) { // index i → rank i+1 > floor
-    const w = puzzle.words[i].word;
-    if (!guessed.has(w.toLowerCase().normalize('NFC'))) pool.push(w);
-  }
-  return pool;
-}
-
-// One word per equal band across the pool → dispersed (warm-ish / mid / cold).
-function pickSuggestions(count = 3) {
-  const pool = buildSuggestionPool();
-  if (pool.length <= count) return shuffle(pool.slice());
-  const picks = [];
-  const band = pool.length / count;
-  for (let b = 0; b < count; b++) {
-    const start = Math.floor(b * band);
-    const end = Math.floor((b + 1) * band);
-    picks.push(pool[start + Math.floor(Math.random() * (end - start))]);
-  }
-  return shuffle(picks);
-}
-
-function pickOneSuggestion(exclude) {
-  const pool = buildSuggestionPool().filter(w => !exclude.has(w));
-  return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
-}
-
-function drawSuggestions() {
-  const box = document.getElementById('suggest-words');
-  if (!box) return;
-  if (_suggestWords.length === 0) {
-    box.innerHTML = `<div class="suggest-empty">${t('suggestEmpty')}</div>`;
-    return;
-  }
-  box.innerHTML = _suggestWords
-    .map(w => `<button class="suggest-word" type="button">${escapeHtml(w)}</button>`)
-    .join('');
-  box.querySelectorAll('.suggest-word').forEach((btn, i) => {
-    btn.addEventListener('click', () => {
-      const word = _suggestWords[i];
-      submitSemanticGuess(word); // rank > best & secret excluded → never wins
-      // Refill just this slot (the other two stay); full refresh = close/reopen
-      const repl = pickOneSuggestion(new Set(_suggestWords));
-      if (repl) _suggestWords[i] = repl; else _suggestWords.splice(i, 1);
-      drawSuggestions();
-    });
-  });
-}
-
-function renderSuggestions() {
-  _suggestWords = gameState && !gameState.solved ? pickSuggestions(3) : [];
-  drawSuggestions();
-}
-
-function openSuggestPanel() {
-  const panel = document.getElementById('suggest-panel');
-  if (!panel) return;
-  renderSuggestions();
-  panel.classList.add('open');
-  document.getElementById('suggest-handle')?.classList.add('panel-open');
-}
-
-function closeSuggestPanel() {
-  document.getElementById('suggest-panel')?.classList.remove('open');
-  document.getElementById('suggest-handle')?.classList.remove('panel-open');
-}
-
-function setupSuggestHandle() {
-  const handle = document.getElementById('suggest-handle');
-  const panel = document.getElementById('suggest-panel');
-  handle?.addEventListener('click', () => {
-    if (panel?.classList.contains('open')) closeSuggestPanel();
-    else openSuggestPanel();
-  });
-  document.getElementById('suggest-close')?.addEventListener('click', closeSuggestPanel);
-
-  // Click outside → close (composedPath: chips re-render and detach the target)
-  document.addEventListener('click', (e) => {
-    if (!panel?.classList.contains('open')) return;
-    const path = e.composedPath();
-    if (!path.includes(panel) && !path.includes(handle)) closeSuggestPanel();
-  });
-}
 
 function setupWordleHandle() {
   const handle = document.getElementById('wordle-handle');
@@ -3254,6 +3187,9 @@ function buildShareText() {
   return [
     `Galexical #${num}`,
     t('shareGuessLine', stats.semanticGuessCount),
+    // Les tirages au sort ont leur propre ligne : ils ne gonflent pas le compte
+    // de propositions, mais les taire serait malhonnête.
+    ...(stats.randomGuesses ? [t('shareRandom', stats.randomGuesses)] : []),
     unlockLine,
     gameState.solved ? t('solved') : t('inProgress'),
     '',
@@ -3272,6 +3208,7 @@ function buildShareCardHTML() {
   return `
     <strong>Galexical #${num}</strong>
     <div>${t('shareGuessLine', stats.semanticGuessCount)}</div>
+    ${stats.randomGuesses ? `<div>${t('shareRandom', stats.randomGuesses)}</div>` : ''}
     <div>${t('shareUnlockLine', total)}</div>
     ${breakdown}
     <div>${gameState.solved ? t('solved') : t('inProgress')}</div>
@@ -3479,7 +3416,6 @@ async function init() {
     setupStarsModal();
     setupLangSwitcher();
     setupWordleHandle();
-    setupSuggestHandle();
     setupWheelHandle();
     setupTransitHandle();
     setupMeteors();
@@ -3507,10 +3443,14 @@ function setupSemanticInput() {
   const newInput = input.cloneNode(true);
   input.parentNode.replaceChild(newInput, input);
 
-  newSubmit.addEventListener('click', () => {
+  // Champ vide = tirage au sort (remplace l'ancienne languette « 3 mots »)
+  const fire = () => {
     const word = newInput.value.trim();
-    if (word) { submitSemanticGuess(word); newInput.value = ''; newInput.focus(); }
-  });
+    if (word) { submitSemanticGuess(word); newInput.value = ''; }
+    else submitRandomGuess();
+    newInput.focus();
+  };
+  newSubmit.addEventListener('click', fire);
   newInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -3939,7 +3879,6 @@ function resetForReload() {
 
   clearScene();
   closeWordlePanel();
-  closeSuggestPanel();
   hideWinCard();   // don't let a solved-day card linger when switching lang/date
 }
 
