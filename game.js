@@ -2491,7 +2491,10 @@ const TRANSIT_LOST_BAND = [1000, 100000];   // consolation : un mot froid
 const TRANSIT_OVAL = 0.82;                  // orbites légèrement elliptiques
 const TRANSIT_BASE_SP = 0.0087;             // vitesse de l'anneau extérieur (réglage « rapide »)
 
+const TRANSIT_CLOSE_MS = 1100;              // battement avant de rendre la main au radar
+
 let _trPhase = {}, _trProbe = null, _trTrail = [], _trRAF = null, _trResult = null, _trFired = false;
+let _trCloseT = null, _trToast = null;
 
 function transitShotsAvailable() {
   const earned = Math.floor((gameState?.stats?.semanticGuessCount || 0) / TRANSIT_EVERY);
@@ -2572,8 +2575,14 @@ function transitLand(key) {
     text: w ? t('transitUnlocked', displayRank(w.rank)) : t('transitNone'),
     sub: won ? '' : t('transitLost'),
   };
-  if (won && key === 'red') launchFireworks(false);
   renderTransitStatus();
+  // On rend la main au système solaire : le joueur doit VOIR sa planète
+  // apparaître. Court battement pour lire l'impact, puis fermeture + toast (le
+  // même que les météorites, déjà connu du joueur). Les feux d'artifice du
+  // palier rouge sont déclenchés APRÈS la fermeture, sinon la modale les cache.
+  _trToast = { msg: _trResult.text, color: _trResult.color, fireworks: won && key === 'red' };
+  clearTimeout(_trCloseT);
+  _trCloseT = setTimeout(closeTransitModal, TRANSIT_CLOSE_MS);
 }
 
 function transitStep(g) {
@@ -2618,12 +2627,36 @@ function transitDraw(c, g) {
     ctx.strokeStyle = T.color; ctx.globalAlpha = 0.5; ctx.lineWidth = 1.2; ctx.stroke();
     ctx.globalAlpha = 1;
   }
+  // Le soleil du mini-jeu EST l'étoile équipée : mêmes rôles de couleur que la
+  // scène 3D (color = cœur, emissive = halo interne, glow = couronne) et mêmes
+  // fx (glowScale, glowOp, pulsation, scintillement). Seule la COURONNE pulse :
+  // le disque garde le rayon g.sun, qui sert aussi de zone de collision.
   const skin = skinById(_profile?.equipped || 'sun');
-  const hub = '#' + skin.glow.toString(16).padStart(6, '0');
-  const rg = ctx.createRadialGradient(g.cx, g.cy, 2, g.cx, g.cy, g.sun * 2.7);
-  rg.addColorStop(0, '#fff'); rg.addColorStop(0.34, hub); rg.addColorStop(1, 'rgba(0,0,0,0)');
-  ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(g.cx, g.cy, g.sun * 2.7, 0, 6.28); ctx.fill();
-  ctx.fillStyle = hub; ctx.beginPath(); ctx.arc(g.cx, g.cy, g.sun, 0, 6.28); ctx.fill();
+  const rgba = (v, a) => `rgba(${(v >> 16) & 255},${(v >> 8) & 255},${v & 255},${a})`;
+  const now = performance.now() / 1000;
+  const tw = skin.twinkle ? 0.82 + 0.18 * Math.sin(now * 9.0) * Math.sin(now * 5.3) : 1;
+  const k = (skin.glowOp / 0.6) * tw;
+  // Couronne PLAFONNÉE sous l'orbite basse (0,34·R) : sans ce plafond une étoile
+  // à grande couronne (Bételgeuse, Antarès) noie la planète rouge, qui est la
+  // cible la plus payante. La lisibilité du jeu passe avant le spectacle du skin.
+  const corona = Math.min(g.sun * (1.5 + skin.glowScale / 90), g.R * 0.26)
+    * (1 + skin.pulseAmp * 0.5 * Math.sin(now * skin.pulseSpeed));
+  const rg = ctx.createRadialGradient(g.cx, g.cy, 1, g.cx, g.cy, corona);
+  rg.addColorStop(0, `rgba(255,255,255,${Math.min(1, k)})`);
+  rg.addColorStop(0.15, rgba(skin.color, Math.min(1, k)));
+  rg.addColorStop(0.36, rgba(skin.emissive, Math.min(1, 0.9 * k)));
+  // La couronne s'éteint vers sa PROPRE couleur transparente : viser le noir
+  // transparent creuserait un anneau sombre autour de l'étoile.
+  rg.addColorStop(0.66, rgba(skin.glow, 0.40 * k));
+  rg.addColorStop(1, rgba(skin.glow, 0));
+  ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(g.cx, g.cy, corona, 0, 6.28); ctx.fill();
+  // Disque : cœur en `color`, bord en `emissive` — comme le matériau 3D, dont la
+  // couleur blanche du Soleil n'est chaude que grâce à son émissif.
+  const core = ctx.createRadialGradient(g.cx, g.cy, 0, g.cx, g.cy, g.sun);
+  core.addColorStop(0, rgba(skin.color, 1));
+  core.addColorStop(0.55, rgba(skin.color, 1));
+  core.addColorStop(1, rgba(skin.emissive, 1));
+  ctx.fillStyle = core; ctx.beginPath(); ctx.arc(g.cx, g.cy, g.sun, 0, 6.28); ctx.fill();
   for (const k of Object.keys(TRANSIT_TIERS)) {
     const T = TRANSIT_TIERS[k];
     for (const p of transitPlanets(g, k)) {
@@ -2631,6 +2664,9 @@ function transitDraw(c, g) {
       const pg = ctx.createRadialGradient(p.x - p.r * 0.35, p.y - p.r * 0.35, 1, p.x, p.y, p.r);
       pg.addColorStop(0, T.light); pg.addColorStop(0.44, T.color); pg.addColorStop(1, T.rim);
       ctx.fillStyle = pg; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.28); ctx.fill();
+      // Liseré sombre : détache la planète d'une couronne de la même famille de
+      // couleur (une rouge sur Antarès se confondrait sans lui).
+      ctx.strokeStyle = 'rgba(0,0,0,0.5)'; ctx.lineWidth = 1.1; ctx.stroke();
     }
   }
   if (_trTrail.length > 1) {
@@ -2690,10 +2726,11 @@ function transitLegendHtml() {
   return ['red', 'orange', 'blue'].map(k => {
     const T = TRANSIT_TIERS[k], [lo, hi] = T.band;
     const sub = lo <= 1 ? t('transitTop', hi) : `#${lo}–#${hi}`;
-    return `<div class="tl-item${k === 'red' ? ' tl-best' : ''}" style="--tl-c:${T.color}">
-        <span class="tl-dot"></span>
-        <span class="tl-name">${t('transitTier' + k[0].toUpperCase() + k.slice(1))}</span>
-        <span class="tl-sub">${sub}</span>
+    // Le rang suffit ; le nom du palier ne survit qu'en aria-label, pour que la
+    // légende ne repose pas uniquement sur la couleur.
+    const name = t('transitTier' + k[0].toUpperCase() + k.slice(1));
+    return `<div class="tl-item${k === 'red' ? ' tl-best' : ''}" style="--tl-c:${T.color}" aria-label="${name} — ${sub}">
+        <span class="tl-dot"></span><span class="tl-sub">${sub}</span>
       </div>`;
   }).join('');
 }
@@ -2718,7 +2755,7 @@ function openTransitModal() {
   const shots = transitShotsAvailable();
   const ready = shots > 0;
   _trPhase = {}; Object.keys(TRANSIT_TIERS).forEach(k => { _trPhase[k] = Math.random() * 6.283; });
-  _trProbe = null; _trTrail = []; _trResult = null; _trFired = !ready;
+  _trProbe = null; _trTrail = []; _trResult = null; _trFired = !ready; _trToast = null;
   content.innerHTML = `
     <div class="how-to-content transit-wrap">
       <h2>${icon('probe')}<span>${t('transitTitle')}</span>
@@ -2749,9 +2786,17 @@ function openTransitModal() {
 function closeTransitModal() {
   document.getElementById('transit-modal')?.classList.add('hidden');
   if (_trRAF) { cancelAnimationFrame(_trRAF); _trRAF = null; }
+  clearTimeout(_trCloseT); _trCloseT = null;
   window.removeEventListener('keydown', transitKeyHandler);
   _trProbe = null; _trTrail = [];
   lockBodyScroll(false);
+  // Le résultat est annoncé à la fermeture, d'où qu'elle vienne : si le joueur
+  // ferme lui-même avant le délai, il ne perd pas l'annonce de son gain.
+  if (_trToast) {
+    showMeteorToast(_trToast.msg, _trToast.color);
+    if (_trToast.fireworks) launchFireworks(false);
+    _trToast = null;
+  }
 }
 
 function setupTransitHandle() {

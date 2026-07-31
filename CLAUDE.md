@@ -112,9 +112,23 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   sonde perdue, lot de consolation `TRANSIT_LOST_BAND` (mot froid). Tir par clic sur le cadre,
   par le bouton, ou par **la barre d'espace** — cet écouteur est posé à l'ouverture et
   **retiré à la fermeture**, sinon il avalerait les espaces pendant la saisie d'un mot.
+  **Le tir est suivi d'une fermeture automatique** (`TRANSIT_CLOSE_MS` = 1,1 s) : le joueur
+  doit voir sa planète apparaître dans le système solaire. Le résultat est annoncé par le
+  toast des météorites, émis dans `closeTransitModal` — donc **aussi si le joueur ferme
+  lui-même** avant le délai, sinon il perdrait l'annonce de son gain. Les feux d'artifice du
+  palier rouge sont déclenchés APRÈS la fermeture, sinon la modale les cache.
+  **Le soleil du mini-jeu est l'étoile équipée** : mêmes rôles de couleur que la scène 3D
+  (`color` = cœur, `emissive` = bord du disque, `glow` = couronne) et mêmes fx (`glowScale`,
+  `glowOp`, pulsation, `twinkle`). Deux garde-fous : la couronne est **plafonnée à 0,26·R**,
+  sous l'orbite basse (0,34·R) — sans ça Bételgeuse ou Antarès noient la planète rouge, qui
+  est la cible la plus payante ; et seule la couronne pulse, le disque garde le rayon `g.sun`
+  qui sert aussi de zone de collision. Les planètes ont un liseré sombre pour se détacher
+  d'une couronne de la même famille de couleur.
   Refonte visuelle du 2026-07-31 (d'après un mockup de Marc) : badge de sondes dispo, texte
   d'intro en Newsreader, légende construite **depuis `TRANSIT_TIERS`** (`transitLegendHtml`)
-  pour que les rangs affichés ne puissent pas mentir, et **anneaux de croisement** dessinés
+  pour que les rangs affichés ne puissent pas mentir — pastille + rang seulement, le nom du
+  palier ne survit qu'en `aria-label` pour ne pas reposer uniquement sur la couleur —, et
+  **anneaux de croisement** dessinés
   sur la trajectoire en `y = cy + r·OVAL` — ils montrent où amener une planète, c'est
   l'information utile du jeu. Dimensionnement type Wordle, **aucun scroll** : la chaîne flex
   doit être CONTINUE (`.modal-content` → `#transit-content` → `.transit-wrap` → terrain),
