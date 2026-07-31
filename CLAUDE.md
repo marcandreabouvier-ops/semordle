@@ -127,13 +127,16 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   Refonte visuelle du 2026-07-31 (d'après un mockup de Marc) : badge de sondes dispo, texte
   d'intro en Newsreader, légende construite **depuis `TRANSIT_TIERS`** (`transitLegendHtml`)
   pour que les rangs affichés ne puissent pas mentir — pastille + rang seulement, le nom du
-  palier ne survit qu'en `aria-label` pour ne pas reposer uniquement sur la couleur —, et
-  **anneaux de croisement** dessinés
+  palier ne survit qu'en `aria-label` pour ne pas reposer uniquement sur la couleur ; elle est
+  calquée sur `.wordle-legend` (rangée discrète 10,5 px alignée à gauche **au-dessus** du
+  terrain, pas d'encadré) —, et **anneaux de croisement** dessinés
   sur la trajectoire en `y = cy + r·OVAL` — ils montrent où amener une planète, c'est
   l'information utile du jeu. Dimensionnement type Wordle, **aucun scroll** : la chaîne flex
   doit être CONTINUE (`.modal-content` → `#transit-content` → `.transit-wrap` → terrain),
   sinon le div intermédiaire fige la hauteur et le bouton est clippé hors carte. Le terrain
   est le seul élément qui cède (`height: min(340px, 44dvh)` + `flex-shrink`, plancher 150px) ;
+  le bouton de tir reprend exactement `#semantic-submit` (pilule 999px, 46px, phosphore) —
+  c'est le même geste que « Deviner », il doit avoir la même forme ;
   **pas d'`aspect-ratio`** ici, il l'emporte sur `flex-shrink`. Les `<p>` de la modale doivent
   être qualifiés `.transit-wrap .transit-lede/.transit-foot` : `.how-to-content p` (0,1,1)
   écrase sinon leur taille et leurs marges.

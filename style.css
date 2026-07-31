@@ -1564,23 +1564,20 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
    double sur écran HiDPI — le bug qui rendait les météorites inattrapables. */
 .transit-stage canvas { display: block; width: 100%; height: 100%; }
 
+/* Calquée sur .wordle-legend : une rangée discrète alignée à gauche, au-dessus
+   du terrain. Les encadrés coûtaient 35 px de hauteur pour une information qui
+   tient en une pastille et un rang. */
 .transit-legend {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-  margin-top: 12px; flex: none;
+  display: flex; flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0 0 8px; flex: none;
 }
-/* Une seule ligne : pastille + rang. Le nom du palier n'apportait rien que la
-   couleur et le rang ne disent déjà, et il coûtait de la hauteur. */
-.tl-item {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 9px 8px;
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  background: rgba(255,255,255,0.02);
+.tl-item { display: inline-flex; align-items: center; gap: 6px; }
+.tl-dot { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--tl-c); box-shadow: 0 0 7px var(--tl-c); }
+.tl-sub {
+  font-family: var(--font-mono); font-size: 10.5px;
+  color: var(--screen-subtle); letter-spacing: 0.01em; white-space: nowrap;
 }
-.tl-dot { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--tl-c); box-shadow: 0 0 8px var(--tl-c); }
-.tl-sub { font-family: var(--font-mono); font-size: 12px; color: var(--screen-text); letter-spacing: 0.02em; white-space: nowrap; }
-.tl-item.tl-best { border-color: color-mix(in srgb, var(--tl-c) 40%, transparent); background: color-mix(in srgb, var(--tl-c) 9%, transparent); }
-.tl-item.tl-best .tl-sub { color: var(--tl-c); font-weight: 600; }
 
 .transit-status { min-height: 30px; margin-top: 10px; text-align: center; flex: none; }
 .transit-res { display: block; font-family: var(--font-mono); font-weight: 600; font-size: 14px; letter-spacing: 0.04em; }
@@ -1593,18 +1590,20 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   margin-top: 2px;
 }
 
+/* Aligné sur #semantic-submit (« Deviner ») : même pilule, même phosphore, même
+   survol — c'est le même geste, il doit avoir la même forme. */
 .transit-fire {
   flex: none;
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  width: 100%; padding: 15px;
-  border: none; border-radius: var(--radius-lg);
-  background: var(--phosphor); color: #04211d;
-  font-family: var(--font-ui); font-size: 15px; font-weight: 700;
+  width: 100%; height: 46px; padding: 0 15px;
+  border: 1px solid var(--phosphor); border-radius: 999px;
+  background: var(--phosphor); color: var(--on-phosphor);
+  font-family: var(--font-ui); font-size: 14px; font-weight: 700;
   letter-spacing: 0; text-transform: none;
   cursor: pointer;
-  transition: background 0.15s, opacity 0.15s;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
 }
-.transit-fire:hover:not(:disabled) { background: #4fe3d0; }
+.transit-fire:hover:not(:disabled) { background: #4fe0ce; border-color: #4fe0ce; }
 .transit-fire:disabled { opacity: 0.35; cursor: default; }
 .transit-kbd {
   font-family: var(--font-mono); font-size: 10px; font-weight: 600;
@@ -1622,13 +1621,10 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
    recours — c'est lui qui explique que le tir part tout droit. */
 @media (max-height: 560px) {
   .transit-wrap .transit-lede { display: none; }
-  .transit-legend { gap: 6px; }
-  .tl-item { padding: 7px 9px; }
-  .transit-fire { padding: 12px; }
+  .transit-fire { height: 42px; }
 }
 @media (max-width: 420px) {
-  .tl-sub  { font-size: 11px; }
-  .tl-item { padding: 8px 6px; gap: 6px; }
+  .transit-legend { gap: 4px 10px; }
 }
 
 /* === Focus rings === */

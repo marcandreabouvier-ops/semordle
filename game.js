@@ -2729,9 +2729,9 @@ function transitLegendHtml() {
     // Le rang suffit ; le nom du palier ne survit qu'en aria-label, pour que la
     // légende ne repose pas uniquement sur la couleur.
     const name = t('transitTier' + k[0].toUpperCase() + k.slice(1));
-    return `<div class="tl-item${k === 'red' ? ' tl-best' : ''}" style="--tl-c:${T.color}" aria-label="${name} — ${sub}">
+    return `<span class="tl-item" style="--tl-c:${T.color}" aria-label="${name} — ${sub}">
         <span class="tl-dot"></span><span class="tl-sub">${sub}</span>
-      </div>`;
+      </span>`;
   }).join('');
 }
 
@@ -2762,11 +2762,11 @@ function openTransitModal() {
         <span class="transit-badge${ready ? '' : ' spent'}">${ready ? t('transitBadge', shots) : t('transitSpent')}</span>
       </h2>
       <p class="transit-lede">${t('transitLede')}</p>
+      <div class="transit-legend">${transitLegendHtml()}</div>
       <div class="transit-stage">
         <span class="transit-stage-tag">${t('transitTag')}</span>
         <canvas id="transit-cv" aria-hidden="true"></canvas>
       </div>
-      <div class="transit-legend">${transitLegendHtml()}</div>
       <div id="transit-status" class="transit-status" aria-live="polite"></div>
       <button id="transit-fire" class="transit-fire" type="button">
         <span>${t('transitFireBtn')}</span><span class="transit-kbd">${t('transitKbd')}</span>
