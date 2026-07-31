@@ -128,9 +128,18 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   L'annonce passe par `_pendingToast` + `flushPendingToast()`, **partagés** par les deux :
   le toast est émis À LA FERMETURE, donc aussi quand le joueur ferme lui-même avant le délai,
   et les feux d'artifice partent après (la modale les cachait).
-  Sizing : `max-height: calc(100dvh - 24px)`, `overflow:hidden`, chaîne flex continue jusqu'au
-  plateau (`.modal-content` → `#*-content` → `.*-wrap`) — un div intermédiaire resté en bloc
-  fige la hauteur et le bouton sort de la carte.
+  Sizing : `max-height: calc(100dvh - 24px)` + chaîne flex continue jusqu'au plateau
+  (`.modal-content` → `#*-content` → `.*-wrap`) — un div intermédiaire resté en bloc fige la
+  hauteur et le bouton sort de la carte. ⚠️ `overflow:hidden` n'est légitime QUE si un élément
+  peut se comprimer : c'est le cas du terrain de la Sonde (`flex-shrink`), pas du plateau de la
+  Roue (carré, borné par sa largeur) — la Roue est donc en `overflow-y:auto`, sinon une fenêtre
+  très basse rognait le bouton et le pied de page.
+  ⚠️ **Un tour de roue ou un tir en cours appartient au puzzle qu'on quitte.** `resetForReload()`
+  doit annuler `_wheelSpinT` / `_wheelCloseT` / `_trCloseT`, remettre `_wheelSpinning` à false,
+  vider `_wheelRewards` et `_pendingToast` — sinon l'atterrissage tombe dans la sauvegarde du
+  nouveau puzzle. `spinWheel` fige en plus la date et la langue visées et abandonne si elles ont
+  changé. **Le jeton est débité au LANCEMENT, jamais à l'arrivée** : compté à l'atterrissage, il
+  suffisait de refermer la modale en plein vol pour récupérer sa sonde et rejouer à l'infini.
 - **Roue** : 12 parts (`WHEEL_SEGMENTS`, 1 jackpot / 2 great / 3 good / 6 modest). Parts
   sourdes avec un **voile de palier** (`TINT`, 5-17 %) : lisible d'un coup d'œil sans redevenir
   l'arc-en-ciel écarté en 2026-07-24. **Rang à l'extérieur (r=37), planète à l'intérieur
@@ -176,9 +185,9 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   est le seul élément qui cède (`height: min(340px, 44dvh)` + `flex-shrink`, plancher 150px) ;
   le bouton de tir reprend exactement `#semantic-submit` (pilule 999px, 46px, phosphore) —
   c'est le même geste que « Deviner », il doit avoir la même forme ;
-  **pas d'`aspect-ratio`** ici, il l'emporte sur `flex-shrink`. Les `<p>` de la modale doivent
-  être qualifiés `.transit-wrap .transit-lede/.transit-foot` : `.how-to-content p` (0,1,1)
-  écrase sinon leur taille et leurs marges.
+  **pas d'`aspect-ratio`** ici, il l'emporte sur `flex-shrink`. Les `<p>` des modales doivent
+  être qualifiés `.how-to-content .gx-lede` / `.how-to-content .gx-foot` : `.how-to-content p`
+  (0,1,1) écrase sinon leur taille et leurs marges.
 - **Partage** : la ligne 🔓 affiche le total de mots réellement débloqués =
   `wordleWinCount + wheelSpinsUsed + meteorCatches` (`unlockBreakdown()`) avec la répartition
   (🎯 Wordle · 🎡 roue · ☄️ météores, sources non nulles seulement). La ligne d'émojis

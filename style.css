@@ -453,11 +453,15 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-/* Masquées pendant que leur panneau est ouvert (la croix referme) */
-#wordle-handle.overlay-open,
+/* Masquée pendant que son overlay est ouvert (la croix referme). ⚠️ Doit rester
+   une règle SÉPARÉE : un commentaire ne termine pas une liste de sélecteurs, donc
+   laisser « #wordle-handle.overlay-open, » suivi de commentaires la soudait à la
+   règle suivante et la languette Wordle héritait de display:none — elle sortait
+   du flux et les autres languettes sautaient de côté. */
+#wordle-handle.overlay-open { opacity: 0; pointer-events: none; }
 /* La Roue reste cachée tant qu'aucun tour n'est gagné ; sa disponibilité n'est
-   plus une lueur dorée permanente mais un simple point de signal qui respire. */
-/* Sélecteurs qualifiés par #bottom-tabs : la règle partagée « #bottom-tabs button »
+   plus une lueur dorée permanente mais un simple point de signal qui respire.
+   Sélecteurs qualifiés par #bottom-tabs : la règle partagée « #bottom-tabs button »
    (spécificité 1,0,1) écraserait sinon ce display:none et la languette resterait
    visible en permanence. */
 #bottom-tabs #wheel-handle { display: none; }
@@ -492,7 +496,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   box-shadow: 0 0 8px var(--phosphor);
   animation: gx-pulse 1.8s ease-in-out infinite;
 }
-#transit-handle.panel-open { opacity: 0; pointer-events: none; }
+/* (la classe `panel-open` est morte depuis le retrait du panneau « 3 mots » —
+   plus aucun JS ne la pose, la règle a été supprimée) */
 
 /* À 4 languettes la rangée déborde sur mobile : on ne garde que les icônes.
    Déclenché par MESURE (updateTabsLayout) et non par un compte arbitraire, pour
@@ -1432,7 +1437,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   position: relative;
   /* Le plafond en dvh remplace le flex-shrink : le plateau est carré, on le
      borne donc par sa LARGEUR (aspect-ratio l'emporterait sur flex-shrink). */
-  width: min(260px, 68vw, 42dvh);
+  width: min(260px, 68vw, 34dvh);
   aspect-ratio: 1;
   margin: 0 auto;
   flex: none;
@@ -1476,7 +1481,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   display: flex; flex-direction: column;
   max-height: calc(100dvh - 24px);
   padding: 22px;
-  overflow: hidden;
+  /* auto, PAS hidden : contrairement au terrain de la Sonde, rien ici ne peut
+     se comprimer (le plateau est carré et borné par sa largeur). Avec `hidden`,
+     une fenêtre très basse rognait le bouton et le pied — action inatteignable.
+     Une barre de défilement vaut mieux qu'un bouton coupé. */
+  overflow-y: auto;
 }
 #wheel-modal #wheel-content,
 .wheel-wrap { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }

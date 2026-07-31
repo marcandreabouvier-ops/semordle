@@ -1998,6 +1998,7 @@ const WHEEL_CLOSE_MS = 1600;        // battement avant de rendre la main au rada
 let _wheelRotation = 0;
 let _wheelSpinning = false;
 let _wheelCloseT = null;
+let _wheelSpinT = null;             // atterrissage en attente (4,2 s de rotation)
 let _wheelRewards = []; // the 12 pre-drawn rewards (one per segment), shown as #ranks
 
 function wheelSpinsEarned() { return Math.floor((gameState?.stats?.semanticGuessCount || 0) / WHEEL_SPIN_EVERY); }
@@ -2201,6 +2202,15 @@ function spinWheel() {
   _wheelSpinning = true;
   gameState.stats.wheelSpinsUsed = (gameState.stats.wheelSpinsUsed || 0) + 1;
   saveState();
+  // Un tour déjà lancé ne doit pas être coupé par la fermeture auto du tour
+  // PRÉCÉDENT : sans ça, relancer dans la fenêtre de 1,6 s fait disparaître la
+  // roue en pleine rotation.
+  clearTimeout(_wheelCloseT); _wheelCloseT = null;
+  // Le puzzle visé est figé ici : si le joueur change de langue ou de date
+  // pendant les 4,2 s de rotation, l'atterrissage doit être abandonné, pas
+  // appliqué à l'autre puzzle (même piège que les météorites en vol).
+  const forDate = activePuzzleDate();
+  const forLang = currentLang;
 
   const tier = WHEEL_SEGMENTS[seg];
   // Rotate forward: several full turns, then land the chosen segment on top
@@ -2218,8 +2228,13 @@ function spinWheel() {
   if (resultEl) resultEl.innerHTML = '';
   if (svg) svg.style.transform = `rotate(${_wheelRotation}deg)`;
 
-  setTimeout(() => {
+  _wheelSpinT = setTimeout(() => {
+    _wheelSpinT = null;
     _wheelSpinning = false;
+    // Le joueur a changé de puzzle en cours de rotation : on abandonne. Le tour
+    // est perdu, mais c'est infiniment préférable à injecter un mot de l'ancien
+    // puzzle (voire de l'autre langue) dans la sauvegarde du nouveau.
+    if (!gameState || !puzzle || activePuzzleDate() !== forDate || currentLang !== forLang) return;
     applyWheelUnlock(reward);
     updateWheelHandle();
     const isJackpot = tier === 'jackpot';
@@ -2656,7 +2671,6 @@ function transitLand(key) {
   const won = !!key;
   const band = won ? TRANSIT_TIERS[key].band : TRANSIT_LOST_BAND;
   const w = pickWordInBand(band[0], band[1]);
-  gameState.stats.transitShotsUsed = (gameState.stats.transitShotsUsed || 0) + 1;
   if (w) {
     const displayScore = normalizeScore(w.score, puzzle.hints);
     const entry = { word: w.word, rank: w.rank, score: w.score, displayScore, unlocked: true };
@@ -2680,7 +2694,14 @@ function transitLand(key) {
   // apparaître. Court battement pour lire l'impact, puis fermeture + toast (le
   // même que les météorites, déjà connu du joueur). Les feux d'artifice du
   // palier rouge sont déclenchés APRÈS la fermeture, sinon la modale les cache.
-  _pendingToast = { msg: _trResult.text, color: _trResult.color, fireworks: won && key === 'red' };
+  // Le `sub` porte le « sonde perdue » : sans lui, un tir raté était annoncé
+  // par le toast comme un déblocage réussi et le joueur ne savait jamais qu'il
+  // venait de griller sa sonde pour un lot de consolation.
+  _pendingToast = {
+    msg: _trResult.sub ? `${_trResult.sub} — ${_trResult.text}` : _trResult.text,
+    color: _trResult.color,
+    fireworks: won && key === 'red',
+  };
   clearTimeout(_trCloseT);
   _trCloseT = setTimeout(closeTransitModal, TRANSIT_CLOSE_MS);
 }
@@ -2815,6 +2836,13 @@ function transitFire() {
   const c = transitCanvas(); if (!c) return;
   const g = transitGeom(c.w, c.h);
   _trFired = true;
+  // La sonde est consommée AU TIR, pas à l'atterrissage. Comptée à l'arrivée,
+  // il suffisait de refermer la modale en plein vol dès que la trajectoire
+  // était perdue pour la récupérer et recommencer à l'infini — ce qui vidait de
+  // son sens le « tir manqué = sonde perdue » annoncé au joueur.
+  gameState.stats.transitShotsUsed = (gameState.stats.transitShotsUsed || 0) + 1;
+  saveState();
+  updateTransitHandle();
   _trProbe = { x: g.launch.x, y: g.launch.y };
   _trTrail = [];
   renderTransitStatus();
@@ -2825,7 +2853,10 @@ function transitFire() {
 function transitLegendHtml() {
   return ['red', 'orange', 'blue'].map(k => {
     const T = TRANSIT_TIERS[k], [lo, hi] = T.band;
-    const sub = lo <= 1 ? t('transitTop', hi) : `#${lo}–#${hi}`;
+    // `band` est en rangs INTERNES et `pickWordInBand` prend [lo, hi[ ; le rang
+    // montré au joueur est décalé de +1. Sans displayRank la légende promettait
+    // un #20 que la bande orange ne peut jamais donner.
+    const sub = lo <= 1 ? t('transitTop', hi) : `#${displayRank(lo)}–#${hi}`;
     // Le rang suffit ; le nom du palier ne survit qu'en aria-label, pour que la
     // légende ne repose pas uniquement sur la couleur.
     const name = t('transitTier' + k[0].toUpperCase() + k.slice(1));
@@ -2855,7 +2886,10 @@ function openTransitModal() {
   const shots = transitShotsAvailable();
   const ready = shots > 0;
   _trPhase = {}; Object.keys(TRANSIT_TIERS).forEach(k => { _trPhase[k] = Math.random() * 6.283; });
-  _trProbe = null; _trTrail = []; _trResult = null; _trFired = !ready; _pendingToast = null;
+  // Une annonce encore en attente (roue fermée juste avant) est ÉMISE, jamais
+  // jetée : le joueur a gagné le mot, il doit l'apprendre.
+  flushPendingToast();
+  _trProbe = null; _trTrail = []; _trResult = null; _trFired = !ready;
   content.innerHTML = `
     <div class="how-to-content transit-wrap">
       <h2>${icon('probe')}<span>${t('transitTitle')}</span>
@@ -4102,6 +4136,17 @@ function resetForReload() {
   _meteorActiveMs = 0;
   _meteorNextAt = null;
   _meteorHadFirst = false;   // chaque puzzle a droit à sa fenêtre de découverte
+
+  // Même raisonnement pour la Roue et la Sonde : un atterrissage en attente, une
+  // annonce non encore émise ou des récompenses pré-tirées appartiennent AU
+  // PUZZLE QU'ON QUITTE. `_wheelSpinning` doit aussi retomber, sinon la
+  // réouverture de la roue réutiliserait les 12 récompenses de l'autre puzzle.
+  clearTimeout(_wheelSpinT);  _wheelSpinT = null;
+  clearTimeout(_wheelCloseT); _wheelCloseT = null;
+  clearTimeout(_trCloseT);    _trCloseT = null;
+  _wheelSpinning = false;
+  _wheelRewards = [];
+  _pendingToast = null;
 
   clearScene();
   closeWordlePanel();
