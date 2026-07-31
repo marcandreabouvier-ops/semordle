@@ -3636,8 +3636,12 @@ function lockBodyScroll(lock) {
 // ─── Victory card (persistent, centered over the sun; collapsible) ────────────
 // Replaces the old fleeting toast + left-panel share: a "Bien joué !" card with
 // the share glued below, covering the sun so the secret isn't spoiled (e.g. in a
-// screenshot). Collapse it to admire the sun. Collapsed state is remembered.
-let _winCardCollapsed = localStorage.getItem('semordle:winCardCollapsed') === '1';
+// screenshot). Collapse it to admire the sun.
+// ⚠️ Le repli est VOLATILE, jamais persisté. Il l'était, et le réglage était lu
+// une seule fois au chargement du module : un joueur qui repliait la carte une
+// fois ne revoyait plus jamais son résultat, à AUCUNE victoire suivante. Le
+// repli ne vaut donc que pour la partie en cours.
+let _winCardCollapsed = false;
 
 // Belt-and-suspenders anti-spoiler: also hide the secret's 3D label while the card
 // is expanded, so nothing leaks even if the card doesn't perfectly cover it.
@@ -3661,6 +3665,10 @@ function showWinCard() {
   if (!gameState?.solved) return;
   const card = document.getElementById('win-card');
   if (!card) return;
+  // Toujours DÉPLIÉE à l'affichage : trouver le mot est l'aboutissement de la
+  // partie, le résultat doit se voir sans rien avoir à rouvrir. Un repli
+  // hérité d'une partie précédente ne doit pas le masquer.
+  _winCardCollapsed = false;
   const title = document.getElementById('win-card-title');
   if (title) title.innerHTML = `${icon('target', 18)}<span>${t('wellDone')}</span>`;
   const sub = document.getElementById('win-card-subtitle');
@@ -3678,7 +3686,6 @@ function hideWinCard() {
 
 function toggleWinCard() {
   _winCardCollapsed = !_winCardCollapsed;
-  try { localStorage.setItem('semordle:winCardCollapsed', _winCardCollapsed ? '1' : '0'); } catch (e) { /* ignore */ }
   applyWinCardState();
 }
 

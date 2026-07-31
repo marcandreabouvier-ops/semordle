@@ -461,8 +461,13 @@ restent 0-décalés (voisin le plus proche = rank 1). N'appliquer le décalage Q
 appelée dans `handleWin` ~1 s après la supernova, et au `restoreState` d'un jour résolu) :
 titre « Bien joué ! » + sous-titre + carte de partage (`buildShareCardHTML`) + bouton copier.
 Elle **couvre le soleil** pour ne pas spoiler le mot secret (screenshots). Bouton ▾ **Réduire**
-(`toggleWinCard`) → replie le corps et révèle le soleil ; préférence mémorisée
-(`semordle:winCardCollapsed`). Anti-spoiler robuste : dépliée, elle masque AUSSI le label 3D du
+(`toggleWinCard`) → replie le corps et révèle le soleil.
+⚠️ **Le repli est VOLATILE, ne jamais le persister.** Il l'a été (`semordle:winCardCollapsed`),
+et la valeur n'était lue qu'une fois au chargement du module : un joueur qui repliait la carte
+une seule fois ne revoyait plus jamais son résultat, à aucune victoire suivante ni sur aucun
+appareil. `showWinCard()` remet donc `_winCardCollapsed = false` à chaque affichage — trouver
+le mot est l'aboutissement de la partie, le résultat doit se voir sans rien avoir à rouvrir.
+Anti-spoiler robuste : dépliée, elle masque AUSSI le label 3D du
 secret (`setSecretLabelHidden`, indépendant du zoom caméra). Remplace l'ancien toast fugace +
 la carte de partage du panneau gauche (retirée). `hideWinCard()` au changement de langue/date.
 

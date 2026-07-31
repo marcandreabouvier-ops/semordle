@@ -1078,6 +1078,18 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 /* absent letter: clearly "eliminated" — nearly black, dim faded glyph */
 .vkey.gray   { background: rgba(0,0,0,0.55); border-color: rgba(255,255,255,0.06); color: rgba(212,237,232,0.28); }
 .vkey.wide   { min-width: 60px; font-size: 10px; }
+/* Entrée en phosphore PLEIN, comme « Deviner » et « Lancer la sonde » : c'est
+   l'action principale du clavier. Le plein la distingue de `.vkey.green`, qui
+   est un phosphore translucide sur fond sombre et signale une lettre trouvée —
+   les deux ne peuvent pas être confondus. */
+.vkey[data-key="ENTER"] {
+  background: var(--phosphor);
+  border-color: var(--phosphor);
+  color: var(--on-phosphor);
+  font-family: var(--font-ui);
+  font-weight: 700;
+}
+.vkey[data-key="ENTER"]:active { background: #4fe0ce; border-color: #4fe0ce; }
 
 /* === Wordle message === */
 .wordle-message { font-family: var(--font-flavor); min-height: 18px; font-size: 13px; color: var(--screen-muted); text-align: center; margin-top: 7px; font-style: italic; }
