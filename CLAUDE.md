@@ -107,16 +107,23 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   (🎯 Wordle · 🎡 roue · ☄️ météores, sources non nulles seulement). La ligne d'émojis
   « journey » a été retirée (demande de Marc). Les Wordle perdus (indice partiel) ne comptent
   plus dans le total affiché ; `stats.unlockCount` existe toujours mais n'est plus affiché.
-- **3 mots** (ex-Suggestions) : languette « 3 mots » (icône étincelle, neutre) à
-  DROITE de Wordle, dans `#bottom-tabs`. Carte
-  flottante au-dessus des languettes : 3 mots « dispersés » (`pickSuggestions` — un
-  par bande égale sur la plage éligible = tiède/moyen/lointain), toujours STRICTEMENT
-  plus loin que bestRank (floor = bestRank || 100) et non déjà joués → ne peuvent
-  JAMAIS faire gagner (le secret n'est pas dans puzzle.words). Cliquables : auto-submit
-  puis SEUL le mot cliqué est remplacé (pickOneSuggestion) ; pour tout renouveler on
-  ferme/rouvre. Pas de bouton reroll. Fermeture ✕ / clic-extérieur (composedPath) / switch langue.
-- Wordle : overlay = **carte flottante** (coins arrondis 20px, ombre, marges — comme le
-  panneau « 3 mots »). La grille se dimensionne via `--word-len` + `--rows` (inline) et un
+- **Mot au hasard** (remplace la languette « 3 mots », retirée le 2026-07-31 — elle
+  n'était pas utilisée). Cliquer **« Deviner » avec le champ vide** envoie un mot tiré
+  au sort (`submitRandomGuess` → `pickRandomGuessWord`). Paliers (`RANDOM_ODDS`) :
+  1/10 000 rangs 1-10 · 1/1 000 rangs 10-100 · 1/100 rangs 100-1 000 · sinon ~99 % dans
+  la bande `RANDOM_COLD_FROM/TO` = index 1000-8000 (au-delà les mots n'ont plus aucun
+  rapport avec le secret, donc n'inspirent rien). Le secret et les mots déjà joués sont
+  exclus. Anti-rafale `RANDOM_COOLDOWN_MS` = 250 ms. **Seul le CLIC déclenche un tirage** :
+  la touche Entrée sur un champ vide ne fait rien (envois accidentels).
+  ⚠️ **Compteur séparé, ne jamais fusionner** : les tirages incrémentent
+  `stats.randomGuesses` et **pas** `semanticGuessCount` — ce dernier pilote la Sonde (1/20),
+  la roue (1/50), les météores, le partage et les stats ; les compter donnerait des
+  jetons gratuits en boucle. Partagé sur sa propre ligne (🎲) via `shareRandom`.
+  À savoir : `lookupWord` attribue `rank: idx + 1` quand le JSON n'a pas de rang, donc
+  **même un mot froid affiche un rang** (#2071…) — spammer cartographie grossièrement la
+  bande 1000-8000. Assumé (identique à taper le mot soi-même).
+- Wordle : overlay = **carte flottante** (coins arrondis 20px, ombre, marges). La grille
+  se dimensionne via `--word-len` + `--rows` (inline) et un
   budget hauteur en `dvh` (`/ var(--rows) * var(--word-len)`), clavier compressé
   (`@media max-height 760/600px`) → grille + clavier tiennent TOUJOURS sans scroll.
   **Cibles > 8 lettres = +1 ligne bonus** (`wordleMaxAttempts` : 6 essais, 7 si >8 lettres,
