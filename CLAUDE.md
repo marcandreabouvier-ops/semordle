@@ -33,7 +33,7 @@ Typographie : `--font-ui` **Instrument Sans** (interface) · `--font-mono` **IBM
 stellaires). Plus aucune police codée en dur hors du `:root`.
 
 Un seul **bouton plein** sur l'écran de jeu (« Deviner ») ; dans une modale, l'action
-principale est pleine (roue = ambre). Rayons ramenés à 6 / 12 / 20 / 999.
+principale est pleine et **phosphore** (`.gx-cta`) — l'ambre est réservé au soleil et à la victoire. Rayons ramenés à 6 / 12 / 20 / 999.
 
 **Écran d'accueil** (`#onboarding`) au premier lancement : marque, promesse en Newsreader,
 3 étapes numérotées avec l'échelle de chaleur en exemple. `buildHowToSteps()` est la **source
@@ -72,24 +72,33 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   a un fond **gris neutre** (deux nuances alternées) et porte une petite **planète ombrée**
   (dégradé sphère `light→color→rim` de `WHEEL_TIERS`, taille égale, halo sur great/jackpot) = le
   corps qui gravitera sur le radar une fois gagné, avec le **#rang à gagner** dessous (aligné
-  radialement, non retourné). Le noyau (`.wheel-hub`, `--hub`, le plus gros corps) montre
-  l'étoile équipée du joueur (`skinById(_profile.equipped)`). **La roue ne se recalcule PAS
+  radialement, non retourné). Le noyau (`.wheel-hub`, le plus gros corps) montre l'étoile
+  équipée via `skinVars()` (`--sk-core/--sk-mid/--sk-glow`). **La roue ne se recalcule PAS
   après un spin** : `computeWheelRewards` n'est appelé qu'à l'ouverture (`openWheelModal`),
   `renderWheel` ne fait que dessiner `_wheelRewards` → ce qu'on voit sous le pointeur = ce qu'on
   gagne. `spinWheel` n'atterrit que sur un segment encore donnable (pas de mot déjà gagné, pas
   de slice vide → pas de spin gâché). Le mot est ajouté via `applyWheelUnlock` (unlock marqué 🔓,
   compte dans unlockCount du partage, dot sur le radar). Jackpot/great = feux d'artifice en
-  **volley seul** (`launchFireworks(false)`) — le show ambiant infini est réservé à la victoire
-  (sinon il ne s'arrêtait jamais sur une partie non résolue, bug joueur 2026-07-24).
+  **volée réduite** (`launchFireworks(false)`, voir « deux régimes » plus bas) — le show ambiant
+  infini est réservé à la victoire (sinon il ne s'arrêtait jamais sur une partie non résolue,
+  bug joueur 2026-07-24).
 - **Météorites** (`#meteor-canvas` + `setupMeteors`) : étoile filante cliquable qui traverse
-  le haut de l'écran. Éligibilité (`meteorEligible`) : ≥ 15 propositions (`METEOR_MIN_GUESSES`),
+  le haut de l'écran. Éligibilité (`meteorEligible`) : ≥ 5 propositions (`METEOR_MIN_GUESSES`),
   onglet visible, aucune modale/overlay ouvert, partie non résolue, au moins un palier non
   plafonné (`availableMeteorTiers`). Heartbeat 1 s qui n'accumule que du temps de jeu ACTIF ;
-  1re météorite après 45 s-1,5 min (`METEOR_FIRST_MS`, découverte), ensuite 2,5-6 min
+  1re météorite après ~1 min (`METEOR_FIRST_MS` 40-70 s, découverte), ensuite 2,5-6 min
   (`METEOR_WAIT_MS`). 3 paliers (`METEOR_TIERS`), **caps PAR PALIER et par jour**
   (`stats.meteorByTier`, retour joueurs 2026-07-27) : bleue 72 % → mot froid (rang ≥ 250),
   **illimitée** ; orange 21 % → tiède (20-250), **5 max** ; rouge 7 % → TOP 20 + feux
-  d'artifice, **3 max**. Un palier plafonné **ne spawne plus** (`drawMeteorTier` renormalise
+  d'artifice, **3 max**.
+  **Actives aussi en ARCHIVES** depuis le 2026-07-31 (demande de Marc). Pas de farm possible :
+  les plafonds vivent dans `stats.meteorByTier` de CHAQUE état de puzzle (vérifié : une prise
+  en archive n'entame pas le quota du jour) et les mots gagnés ne valent que pour ce jour-là.
+  Le seuil `METEOR_MIN_GUESSES` est passé de **15 à 5** — c'était lui le vrai frein à la
+  découverte, pas le chrono, qui était déjà à ~1 min.
+  ⚠️ `resetForReload()` **doit vider `_meteors`** : une météorite en vol porte un mot du puzzle
+  qu'on quitte, et l'attraper après coup l'injecterait dans l'état du nouveau. Le bug existait
+  déjà pour le changement de langue ; les archives l'ont rendu atteignable. Un palier plafonné **ne spawne plus** (`drawMeteorTier` renormalise
   les poids sur les paliers restants) — jamais de météorite inattrapable. Vitesses
   5,4 s/4,6 s/3,8 s (le mockup était calibré sur une petite fenêtre : mêmes ms = bien plus de
   px/s en plein écran). Hitbox invisible **60 px souris / 76 px tactile autour de TOUTE la
@@ -99,6 +108,11 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   window) **ne vole jamais un clic destiné à un contrôle** (`button, a, input, …`) — important
   vu la taille de la hitbox. Le canvas est en `pointer-events:none`, z 30. Trajectoire bornée
   aux ~2/3 hauts (vérifié : max ~61 % de la hauteur, jamais sur les languettes/barre de saisie).
+  **Feux d'artifice : deux régimes**, distingués par `withAmbient` dans `launchFireworks()` —
+  `true` = découverte du MOT SECRET (12 salves + spectacle ambiant), `false` = gain de
+  mini-jeu (3 salves brèves). Mesuré : ~10x moins intense et 3x plus court, pour que la
+  vraie victoire reste distincte (retour de Marc 2026-07-31). Debug : `_gxFireworks(bool)`
+  permet de comparer les deux SANS résoudre le puzzle du jour.
   Capture → burst de particules + toast (`#meteor-toast`) + mot ajouté comme la roue (total dans
   `meteorCatches` pour le partage). Ratée = elle s'envole, aucune pénalité. Debug : flag
   localStorage `semordle:debug` expose `window._gxMeteor(tier)` / `_gxMeteors()`.

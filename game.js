@@ -939,14 +939,18 @@ function startAmbientFireworks() {
 // withAmbient: victory keeps the endless ambient show afterwards; short
 // celebrations (wheel jackpot, red meteor) fire the volley only — otherwise
 // the ambient show never stops on an unsolved game (player bug 2026-07-24).
+// Deux régimes seulement, et `withAmbient` les distingue :
+//  - true  = découverte du MOT SECRET : 12 salves nourries puis le spectacle ambiant ;
+//  - false = gain d'un mini-jeu (roue, sonde, météorite rouge) : 3 salves brèves.
+// Un mot débloqué ne doit pas avoir le même poids que la fin de la partie —
+// sinon la vraie victoire ne se distingue plus (retour de Marc, 2026-07-31).
 function launchFireworks(withAmbient = true) {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   _fwEnsure();
 
   const W = window.innerWidth;
   const H = window.innerHeight;
-  // Longer, more intense opening: two sustained waves before the ambient show
-  const bursts = [
+  const bursts = withAmbient ? [
     { x: W * 0.25, y: H * 0.30, delay: 0,    i: 1.3 },
     { x: W * 0.75, y: H * 0.25, delay: 160,  i: 1.3 },
     { x: W * 0.50, y: H * 0.18, delay: 320,  i: 1.4 },
@@ -959,6 +963,11 @@ function launchFireworks(withAmbient = true) {
     { x: W * 0.80, y: H * 0.30, delay: 1600, i: 1.2 },
     { x: W * 0.45, y: H * 0.16, delay: 1850, i: 1.3 },
     { x: W * 0.65, y: H * 0.42, delay: 2100, i: 1.2 },
+  ] : [
+    // Volée courte, plus haute et resserrée : on félicite sans occuper l'écran.
+    { x: W * 0.36, y: H * 0.26, delay: 0,   i: 0.55 },
+    { x: W * 0.64, y: H * 0.22, delay: 190, i: 0.55 },
+    { x: W * 0.50, y: H * 0.31, delay: 400, i: 0.7  },
   ];
   bursts.forEach(b => _fwPending.push(setTimeout(() => _fwBurst(b.x, b.y, b.i), b.delay)));
 
@@ -2277,8 +2286,12 @@ function setupWheelHandle() {
 // orange = warm, red = rare/top 20. Rewards attentive presence — the only
 // helper that turns the cosmos into a living place that can gift you.
 
-const METEOR_MIN_GUESSES = 15;              // no meteors until real play happened
-const METEOR_FIRST_MS    = [45e3, 100e3];   // discovery: first one comes quicker
+// Seuil d'entrée : assez pour que le joueur soit engagé, assez bas pour que la
+// découverte arrive tôt. C'était 15, et c'était LUI le vrai frein, pas le
+// chrono — la première météorite n'arrivait qu'après une longue mise en route
+// (retour joueurs 2026-07-31 : « il faut les inclure plus tôt »).
+const METEOR_MIN_GUESSES = 5;
+const METEOR_FIRST_MS    = [40e3, 70e3];    // discovery: ~1 min of ACTIVE play
 const METEOR_WAIT_MS     = [150e3, 360e3];  // then every 2.5–6 min of ACTIVE play
 const METEOR_TRAIL_MAX   = 34;              // trail points kept — also the click target (see hitbox)
 // Durations are a full screen crossing: slower than the mockup, which was tuned
@@ -2312,7 +2325,9 @@ function availableMeteorTiers() {
 // tab visible, no modal/overlay covering the cosmos, game unsolved, tier left.
 function meteorEligible() {
   if (!gameState || gameState.solved) return false;
-  if (isArchiveActive()) return false;   // meteors are a "today" mechanic, not for replays
+  // Les archives ont droit aux météorites (demande de Marc, 2026-07-31). Aucun
+  // risque de farm : les plafonds vivent dans `stats.meteorByTier`, propre à
+  // CHAQUE état de puzzle, et les mots gagnés ne valent que pour ce jour-là.
   if ((gameState.stats.semanticGuessCount || 0) < METEOR_MIN_GUESSES) return false;
   if (!availableMeteorTiers().length) return false;   // everything capped (blue is uncapped, so ~never)
   if (_meteors.length) return false;                  // one at a time
@@ -2548,6 +2563,9 @@ function setupMeteors() {
   if (localStorage.getItem('semordle:debug')) {
     window._gxMeteor = spawnMeteor;
     window._gxMeteors = () => _meteors;
+    // Permet de comparer les deux régimes de feux d'artifice sans résoudre le
+    // puzzle du jour — c'est-à-dire sans se spoiler le mot secret.
+    window._gxFireworks = launchFireworks;
     window._gxSelectTarget = selectUnlockTarget;
     window._gxWordle = () => wordleState;
     window._gxState = () => gameState;
@@ -4074,6 +4092,16 @@ function resetForReload() {
   const wc = document.getElementById('wordle-inline-content'); if (wc) wc.innerHTML = '';
   const pc = document.getElementById('partial-clues');         if (pc) pc.innerHTML = '';
   const br = document.getElementById('best-rank-label');       if (br) br.textContent = '';
+
+  // Une météorite EN VOL porte un mot du puzzle qu'on quitte : l'attraper après
+  // le changement l'injecterait dans l'état du nouveau. Le bug existait déjà
+  // pour le changement de langue ; il devient atteignable par les archives
+  // maintenant qu'elles ont droit aux météorites.
+  _meteors = [];
+  _meteorParts = [];
+  _meteorActiveMs = 0;
+  _meteorNextAt = null;
+  _meteorHadFirst = false;   // chaque puzzle a droit à sa fenêtre de découverte
 
   clearScene();
   closeWordlePanel();
