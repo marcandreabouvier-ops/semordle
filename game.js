@@ -1984,8 +1984,11 @@ const WHEEL_TIERS = {
 // 12 segments (6 modest / 3 good / 2 great / 1 jackpot), interleaved for variety
 const WHEEL_SEGMENTS = ['modest','good','modest','great','modest','good','modest','jackpot','modest','good','modest','great'];
 
+const WHEEL_CLOSE_MS = 1600;        // battement avant de rendre la main au radar
+
 let _wheelRotation = 0;
 let _wheelSpinning = false;
+let _wheelCloseT = null;
 let _wheelRewards = []; // the 12 pre-drawn rewards (one per segment), shown as #ranks
 
 function wheelSpinsEarned() { return Math.floor((gameState?.stats?.semanticGuessCount || 0) / WHEEL_SPIN_EVERY); }
@@ -2211,11 +2214,23 @@ function spinWheel() {
     applyWheelUnlock(reward);
     updateWheelHandle();
     const isJackpot = tier === 'jackpot';
+    const label = isJackpot
+      ? `${t('wheelJackpot')}${displayRank(reward.rank)}`
+      : t('wheelResult', displayRank(reward.rank));
     const resultHtml = isJackpot
-      ? `<span class="wheel-win jackpot">${t('wheelJackpot')}${displayRank(reward.rank)}</span>`
-      : `<span class="wheel-win" style="color:${WHEEL_TIERS[tier].color}">${t('wheelResult', displayRank(reward.rank))}</span>`;
-    if (isJackpot || tier === 'great') launchFireworks(false); // volley only, no endless ambient
+      ? `<span class="wheel-win jackpot">${label}</span>`
+      : `<span class="wheel-win" style="color:${WHEEL_TIERS[tier].color}">${label}</span>`;
     renderWheel(resultHtml); // same wheel, pointer stays on the won slice + show result
+    // Puis on rend la main au système solaire, comme la Sonde. Délai plus long
+    // qu'elle (1,6 s) : après 4,2 s d'attente le résultat mérite d'être lu, et
+    // l'animation « jackpot-pop » dure 0,5 s.
+    _pendingToast = {
+      msg: label,
+      color: WHEEL_TIERS[tier].color, // la couleur de la planète qui va apparaître
+      fireworks: isJackpot || tier === 'great',
+    };
+    clearTimeout(_wheelCloseT);
+    _wheelCloseT = setTimeout(closeWheelModal, WHEEL_CLOSE_MS);
   }, 4300);
 }
 
@@ -2243,7 +2258,9 @@ function openWheelModal() {
 function closeWheelModal() {
   document.getElementById('wheel-modal')?.classList.add('hidden');
   window.removeEventListener('keydown', wheelKeyHandler);
+  clearTimeout(_wheelCloseT); _wheelCloseT = null;
   lockBodyScroll(false);
+  flushPendingToast();
 }
 
 function setupWheelHandle() {
@@ -2439,6 +2456,20 @@ function startMeteorLoop() {
   _meteorRAF = requestAnimationFrame(frame);
 }
 
+// Annonce différée d'un gain, partagée par la Roue et la Sonde : la modale se
+// referme pour laisser voir la planète apparaître, et le toast prend le relais.
+// Elle est vidée À LA FERMETURE, d'où qu'elle vienne — si le joueur ferme
+// lui-même avant le délai, il ne perd pas l'annonce de son gain.
+let _pendingToast = null;
+
+function flushPendingToast() {
+  if (!_pendingToast) return;
+  const p = _pendingToast;
+  _pendingToast = null;
+  showMeteorToast(p.msg, p.color);
+  if (p.fireworks) launchFireworks(false); // après fermeture : la modale les cachait
+}
+
 function showMeteorToast(html, color) {
   const el = document.getElementById('meteor-toast');
   if (!el) return;
@@ -2545,7 +2576,7 @@ const TRANSIT_BASE_SP = 0.0087;             // vitesse de l'anneau extérieur (r
 const TRANSIT_CLOSE_MS = 1100;              // battement avant de rendre la main au radar
 
 let _trPhase = {}, _trProbe = null, _trTrail = [], _trRAF = null, _trResult = null, _trFired = false;
-let _trCloseT = null, _trToast = null;
+let _trCloseT = null;
 
 function transitShotsAvailable() {
   const earned = Math.floor((gameState?.stats?.semanticGuessCount || 0) / TRANSIT_EVERY);
@@ -2631,7 +2662,7 @@ function transitLand(key) {
   // apparaître. Court battement pour lire l'impact, puis fermeture + toast (le
   // même que les météorites, déjà connu du joueur). Les feux d'artifice du
   // palier rouge sont déclenchés APRÈS la fermeture, sinon la modale les cache.
-  _trToast = { msg: _trResult.text, color: _trResult.color, fireworks: won && key === 'red' };
+  _pendingToast = { msg: _trResult.text, color: _trResult.color, fireworks: won && key === 'red' };
   clearTimeout(_trCloseT);
   _trCloseT = setTimeout(closeTransitModal, TRANSIT_CLOSE_MS);
 }
@@ -2806,7 +2837,7 @@ function openTransitModal() {
   const shots = transitShotsAvailable();
   const ready = shots > 0;
   _trPhase = {}; Object.keys(TRANSIT_TIERS).forEach(k => { _trPhase[k] = Math.random() * 6.283; });
-  _trProbe = null; _trTrail = []; _trResult = null; _trFired = !ready; _trToast = null;
+  _trProbe = null; _trTrail = []; _trResult = null; _trFired = !ready; _pendingToast = null;
   content.innerHTML = `
     <div class="how-to-content transit-wrap">
       <h2>${icon('probe')}<span>${t('transitTitle')}</span>
@@ -2841,13 +2872,7 @@ function closeTransitModal() {
   window.removeEventListener('keydown', transitKeyHandler);
   _trProbe = null; _trTrail = [];
   lockBodyScroll(false);
-  // Le résultat est annoncé à la fermeture, d'où qu'elle vienne : si le joueur
-  // ferme lui-même avant le délai, il ne perd pas l'annonce de son gain.
-  if (_trToast) {
-    showMeteorToast(_trToast.msg, _trToast.color);
-    if (_trToast.fireworks) launchFireworks(false);
-    _trToast = null;
-  }
+  flushPendingToast();
 }
 
 function setupTransitHandle() {

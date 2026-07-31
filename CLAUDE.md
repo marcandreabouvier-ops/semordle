@@ -108,6 +108,12 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
   (**pilule phosphore identique à `#semantic-submit`** + `.gx-kbd` « ESPACE ») et `.gx-foot`
   en mono. **L'ambre n'est plus une couleur de bouton** — il reste au soleil et à la victoire.
   Espace = action principale, écouteur posé à l'ouverture et **retiré à la fermeture**.
+  **Le gain referme la modale** pour laisser voir la planète apparaître sur le radar
+  (`WHEEL_CLOSE_MS` 1,6 s après le résultat — la roue a 4,2 s de montée et 0,5 s de
+  « jackpot-pop » à laisser jouer ; `TRANSIT_CLOSE_MS` 1,1 s, l'impact est instantané).
+  L'annonce passe par `_pendingToast` + `flushPendingToast()`, **partagés** par les deux :
+  le toast est émis À LA FERMETURE, donc aussi quand le joueur ferme lui-même avant le délai,
+  et les feux d'artifice partent après (la modale les cachait).
   Sizing : `max-height: calc(100dvh - 24px)`, `overflow:hidden`, chaîne flex continue jusqu'au
   plateau (`.modal-content` → `#*-content` → `.*-wrap`) — un div intermédiaire resté en bloc
   fige la hauteur et le bouton sort de la carte.
