@@ -308,10 +308,12 @@ h1 {
 /* Ancré en bas de l'écran, la barre de saisie remonte juste au-dessus : le
    système solaire garde tout ce qui reste. --gxk-h est la hauteur réservée,
    basculée par la classe `collapsed`. */
-:root { --gxk-h: 0px; }
 /* Réservée uniquement quand le clavier est OUVERT : fermé, il n'occupe rien et
-   le système solaire reprend toute la place. */
-body.gx-kb { --gxk-h: 162px; }
+   le système solaire reprend toute la place. ⚠️ La valeur est POSÉE PAR JS
+   (`syncKeyboardHeight`) depuis la hauteur réellement rendue : en la codant en
+   dur on laissait un filet vide entre la barre de saisie et le clavier dès que
+   les deux ne coïncidaient pas au pixel près. */
+:root { --gxk-h: 0px; }
 
 #gx-keyboard {
   position: fixed;
@@ -480,9 +482,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   border: 1px solid var(--glass-border);
   border-bottom: none;
-  background: rgba(20,28,36,0.90);
+  /* Même habillage que la languette « Parcours » : fond sombre translucide et
+     texte phosphore, pour que les quatre languettes du jeu se ressemblent. */
+  background: rgba(8,14,11,0.95);
   backdrop-filter: blur(16px);
-  color: var(--screen-muted);
+  color: var(--phosphor);
   cursor: pointer;
   text-transform: none;
   letter-spacing: 0;
@@ -490,9 +494,8 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   white-space: nowrap;
 }
 #bottom-tabs button:hover {
-  background: var(--raise);
+  background: rgba(255,255,255,0.05);
   border-color: var(--hairline-strong);
-  color: var(--screen-text);
 }
 /* Les TROIS labels doivent être listés ici : .gx-icon est en display:block, donc
    dans un span resté inline le SVG force un retour à la ligne et le libellé passe
@@ -706,7 +709,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #win-card.collapsed #win-card-bar { padding: 9px 42px; }
 #win-card-title {
   font: 800 16px/1.2 var(--font-ui);
-  color: var(--amber);
+  color: var(--phosphor);
   letter-spacing: 0.01em;
   text-align: center;
 }
@@ -1315,7 +1318,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
    restent, là ils sont la donnée. */
 .gx-icon { flex: none; display: block; }
 #win-card-title { display: inline-flex; align-items: center; gap: 8px; }
-#win-card-title .gx-icon { color: var(--amber); }
+#win-card-title .gx-icon { color: var(--phosphor); }
 
 /* === Utility === */
 .hidden { display: none !important; }
@@ -1771,7 +1774,11 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 /* Vertical tab handle on the panel's right edge (mirrors the Wordle handle) */
 #guess-panel-handle {
   position: absolute;
-  right: -35px;
+  /* Collée au panneau quelle que soit sa largeur : `right: -35px` supposait une
+     languette de 35 px alors qu'elle en fait 33, d'où un filet de 2 px — et il
+     se serait redécalé au moindre changement de graisse ou de police. */
+  left: 100%;
+  right: auto;
   top: 50%;
   transform: translateY(-50%);
   writing-mode: vertical-rl;

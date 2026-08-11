@@ -1092,7 +1092,8 @@ function applyI18n() {
   }
 
   // Wordle handle label
-  // Les trois languettes partagent le même gris : c'est l'icône qui les distingue
+  // Les quatre languettes du jeu partagent l'habillage de « Parcours » (fond
+  // sombre translucide + phosphore) ; c'est l'icône SVG qui les distingue.
   const handleLabel = document.getElementById('wordle-handle-label');
   if (handleLabel) handleLabel.innerHTML = `${icon('tiles', 14)}<span>${t('tabWordle')}</span>`;
   const wheelLabel = document.getElementById('wheel-handle-label');
@@ -3242,6 +3243,7 @@ function renderGuessKeyboard() {
     el.classList.add('hidden');
     document.body.classList.remove('gx-kb');
     input?.removeAttribute('inputmode');
+    syncKeyboardHeight();
     return;
   }
   // `inputmode="none"` plutôt que `readonly` : le champ garde son curseur et
@@ -3251,6 +3253,7 @@ function renderGuessKeyboard() {
   if (!_kbOpen) {
     el.classList.add('hidden');
     document.body.classList.remove('gx-kb');
+    syncKeyboardHeight();
     return;
   }
   el.classList.remove('hidden');
@@ -3266,6 +3269,17 @@ function renderGuessKeyboard() {
       return `<button type="button" class="gxk-key${k === '⌫' ? ' wide' : ''}" data-key="${k}">${k}</button>`;
     }).join('')}</div>`).join('');
   el.innerHTML = `<div class="gxk-keys">${rows}</div>`;
+  syncKeyboardHeight();
+}
+
+// Hauteur réservée = hauteur RÉELLEMENT rendue. Posée sur <body> et non sur
+// <html> : `--gxk-h` est héritée, une valeur sur la racine serait masquée par
+// toute règle portant sur body. Sans cette mesure, un écart d'un pixel entre la
+// valeur codée en dur et le rendu laissait un filet vide au-dessus du clavier.
+function syncKeyboardHeight() {
+  const el = document.getElementById('gx-keyboard');
+  const open = el && !el.classList.contains('hidden');
+  document.body.style.setProperty('--gxk-h', open ? `${el.offsetHeight}px` : '0px');
 }
 
 function openGuessKeyboard() {
@@ -3298,6 +3312,9 @@ function setupGuessKeyboard() {
   document.getElementById('input-bar')?.addEventListener('pointerdown', (e) => {
     if (e.target.closest('#semantic-input')) openGuessKeyboard();
   });
+
+  // La hauteur des touches change au point de rupture 380 px : on re-mesure.
+  window.addEventListener('resize', syncKeyboardHeight);
 
   // Un seul écouteur délégué pour les touches : le contenu est reconstruit à
   // chaque langue et à chaque ouverture, des écouteurs par touche fuiraient.

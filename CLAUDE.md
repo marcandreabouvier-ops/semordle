@@ -32,6 +32,12 @@ Typographie : `--font-ui` **Instrument Sans** (interface) · `--font-mono` **IBM
 (marque, mots, rangs, captions) · `--font-flavor` **Newsreader italique** (messages, faits
 stellaires). Plus aucune police codée en dur hors du `:root`.
 
+**Les quatre languettes** (Parcours, Wordle, Roue, Sonde) partagent un seul habillage :
+fond `rgba(8,14,11,0.95)` + texte phosphore. ⚠️ `#guess-panel-handle` est collée au panneau
+par `left: 100%` et NON par un `right: -35px` : la valeur en dur supposait une largeur de
+35 px alors que la languette en fait 33, d'où un filet de 2 px qui se serait redécalé au
+moindre changement de police.
+
 Un seul **bouton plein** sur l'écran de jeu (« Deviner ») ; dans une modale, l'action
 principale est pleine et **phosphore** (`.gx-cta`) — l'ambre est réservé au soleil et à la victoire. Rayons ramenés à 6 / 12 / 20 / 999.
 
@@ -56,7 +62,8 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
 - **Recentrage caméra** : à chaque guess la caméra glisse (flyToDot) pour amener le nouveau dot au premier plan, ~un peu sous le centre écran ; annulé si l'utilisateur drag ; auto-rotation en pause 7 s
 - **Panneau gauche** ouvert/fermé par une **languette verticale « Parcours »** (même design que la languette Wordle) ; séparation nette entre « dernière proposition » et la liste « Classement » ; replié par défaut sur mobile ≤880px, état persisté dans `localStorage['semordle:panel']`
 - Input bar fixée en bas (glass effect)
-- Les 3 languettes du bas (même gris depuis la refonte, distinguées par leur icône SVG) sont dans
+- Les 3 languettes du bas (habillage de « Parcours » depuis le 2026-08-11 : fond `rgba(8,14,11,0.95)`
+  + texte phosphore, distinguées par leur icône SVG) sont dans
   `#bottom-tabs` (flex row centrée). La languette **Roue** est cachée (`display:none`)
   et n'apparaît (`.available`) que quand un spin est dispo (`updateWheelHandle`).
 - **Roue de la chance** (`#wheel-handle` → `#wheel-modal`) : 1 spin gagné toutes les
