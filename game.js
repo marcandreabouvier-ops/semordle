@@ -154,6 +154,8 @@ const I18N = {
     wellDone:        'Well done!',
     winCollapse:     'Collapse (reveal the sun)',
     winExpand:       'Show result',
+    winCollapseShort: 'Hide',
+    winExpandShort:   'Result',
     winTitle:        'You solved it!',
     winSubtitle:     (n) => `You found the word in ${n} guess${n !== 1 ? 'es' : ''}!`,
     keepPlaying:     'Keep playing',
@@ -299,6 +301,8 @@ const I18N = {
     wellDone:        'Bien joué !',
     winCollapse:     'Réduire (voir le soleil)',
     winExpand:       'Voir le résultat',
+    winCollapseShort: 'Réduire',
+    winExpandShort:   'Résultat',
     winTitle:        'Résolu !',
     winSubtitle:     (n) => `Vous avez trouvé le mot en ${n} proposition${n !== 1 ? 's' : ''} !`,
     keepPlaying:     'Continuer à jouer',
@@ -3674,6 +3678,17 @@ function applyWinCardState() {
   if (toggle) {
     toggle.setAttribute('aria-expanded', _winCardCollapsed ? 'false' : 'true');
     toggle.setAttribute('aria-label', t(_winCardCollapsed ? 'winExpand' : 'winCollapse'));
+    // Deux tracés SYMÉTRIQUES autour de y=8 plutôt qu'une rotation de 180° : le
+    // chevron d'origine s'étendait de 6,5 à 10,5, donc centré sur 8,5 dans une
+    // boîte centrée sur 8 — le retourner rendait ce demi-pixel visible.
+    // Et le sens était inversé : chevron BAS = « déplier », il pointait donc
+    // vers le bas alors que la carte était déjà ouverte.
+    const chevron = _winCardCollapsed ? 'M4 6l4 4 4-4' : 'M4 10l4-4 4 4';
+    toggle.innerHTML =
+      `<svg class="gx-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor"`
+      + ` stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">`
+      + `<path d="${chevron}"/></svg>`
+      + `<span>${t(_winCardCollapsed ? 'winExpandShort' : 'winCollapseShort')}</span>`;
   }
   setSecretLabelHidden(!_winCardCollapsed && !card.classList.contains('hidden'));
 }

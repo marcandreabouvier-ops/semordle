@@ -695,7 +695,7 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   z-index: 40;
   width: min(360px, 92vw);
   background: linear-gradient(170deg, rgba(26,24,22,0.97) 0%, rgba(18,14,12,0.97) 100%);
-  border: 1px solid rgba(244,161,74,0.35);
+  border: 1px solid #2a2624;   /* même filet que .modal-content : pas de contour ambre */
   border-radius: var(--radius-xl);
   box-shadow: 0 12px 48px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.06);
   backdrop-filter: blur(8px);
@@ -704,30 +704,39 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 #win-card-bar {
   position: relative;
   display: flex; align-items: center; justify-content: center;
-  padding: 12px 42px;
+  /* Symétrique pour que « Bien joué ! » reste optiquement centré malgré le
+     bouton posé à droite en absolu. */
+  padding: 12px 88px;
 }
-#win-card.collapsed #win-card-bar { padding: 9px 42px; }
+#win-card.collapsed #win-card-bar { padding: 9px 88px; }
 #win-card-title {
   font: 800 16px/1.2 var(--font-ui);
   color: var(--phosphor);
   letter-spacing: 0.01em;
   text-align: center;
 }
+/* Bouton LIBELLÉ : une flèche seule ne disait pas si elle décrivait l'état
+   courant ou l'action à venir. Le mot lève l'ambiguïté, le chevron ne fait plus
+   que l'appuyer. Pas de rotation : les deux tracés sont fournis par le JS. */
 #win-card-toggle {
-  position: absolute; right: 8px; top: 50%;
+  position: absolute; right: 10px; top: 50%;
   transform: translateY(-50%);
-  width: 30px; height: 30px;
-  border-radius: 8px;
+  height: 28px; padding: 0 10px;
+  border-radius: 999px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
   color: var(--screen-muted);
   cursor: pointer;
-  display: grid; place-items: center;
-  font-size: 12px;
-  transition: transform 0.2s ease, background 0.15s;
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-ui); font-size: 11px; font-weight: 600;
+  letter-spacing: 0; text-transform: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
-#win-card-toggle:hover { background: rgba(255,255,255,0.1); color: var(--screen-text); }
-#win-card.collapsed #win-card-toggle { transform: translateY(-50%) rotate(180deg); }
+#win-card-toggle:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--hairline-strong);
+  color: var(--screen-text);
+}
 #win-card-body { padding: 0 18px 18px; }
 #win-card.collapsed #win-card-body { display: none; }
 #win-card-subtitle {

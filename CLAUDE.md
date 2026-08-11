@@ -467,8 +467,16 @@ restent 0-décalés (voisin le plus proche = rank 1). N'appliquer le décalage Q
 À la résolution, une **carte persistante centrée** `#win-card` s'affiche (`showWinCard`,
 appelée dans `handleWin` ~1 s après la supernova, et au `restoreState` d'un jour résolu) :
 titre « Bien joué ! » + sous-titre + carte de partage (`buildShareCardHTML`) + bouton copier.
-Elle **couvre le soleil** pour ne pas spoiler le mot secret (screenshots). Bouton ▾ **Réduire**
-(`toggleWinCard`) → replie le corps et révèle le soleil.
+Elle **couvre le soleil** pour ne pas spoiler le mot secret (screenshots). Bouton **libellé**
+(`toggleWinCard`) → replie le corps et révèle le soleil : « Réduire » quand elle est ouverte,
+« Résultat » quand elle est repliée. ⚠️ Une flèche seule ne disait pas si elle décrivait
+l'état courant ou l'action à venir — et elle pointait vers le bas carte OUVERTE, alors qu'un
+chevron bas veut dire « déplier ». Le sens est donc inversé par rapport à l'origine. Les deux
+chevrons sont **deux tracés symétriques autour de y=8** fournis par le JS, jamais une rotation
+de 180° : le tracé d'origine allait de 6,5 à 10,5, donc centré sur 8,5 dans une boîte centrée
+sur 8, et le retourner rendait ce demi-pixel visible. La barre garde un padding SYMÉTRIQUE
+(88 px) pour que le titre reste centré malgré le bouton posé à droite en absolu.
+Filet de la carte : `#2a2624`, le même que `.modal-content` — plus de contour ambre.
 ⚠️ **Le repli est VOLATILE, ne jamais le persister.** Il l'a été (`semordle:winCardCollapsed`),
 et la valeur n'était lue qu'une fois au chargement du module : un joueur qui repliait la carte
 une seule fois ne revoyait plus jamais son résultat, à aucune victoire suivante ni sur aucun
