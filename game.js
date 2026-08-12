@@ -72,7 +72,9 @@ const I18N = {
     backBtn:         '← Back',
     anotherBtn:      'Another Wordle',
     partialTitle:    'Partial clues from lost challenges',
+    shareMovesLine:  (n) => `🕹️ ${n} move${n !== 1 ? 's' : ''}`,
     shareGuessLine:  (n) => `🧠 ${n} semantic guess${n !== 1 ? 'es' : ''}`,
+    shareProbe:      (n) => `🛰️ ${n} probe${n !== 1 ? 's' : ''}`,
     shareUnlockLine: (n) => `🔓 ${n} unlock${n !== 1 ? 's' : ''}`,
     shareWordle:     (n) => `🎯 ${n} Wordle`,
     shareWheel:      (n) => `🎡 ${n} wheel`,
@@ -157,7 +159,7 @@ const I18N = {
     winCollapseShort: 'Hide',
     winExpandShort:   'Result',
     winTitle:        'You solved it!',
-    winSubtitle:     (n) => `You found the word in ${n} guess${n !== 1 ? 'es' : ''}!`,
+    winSubtitle:     (n) => `You found the word in ${n} move${n !== 1 ? 's' : ''}!`,
     keepPlaying:     'Keep playing',
   },
   fr: {
@@ -219,7 +221,9 @@ const I18N = {
     backBtn:         '← Retour',
     anotherBtn:      'Autre Wordle',
     partialTitle:    'Indices partiels des défis perdus',
+    shareMovesLine:  (n) => `🕹️ ${n} coup${n !== 1 ? 's' : ''}`,
     shareGuessLine:  (n) => `🧠 ${n} proposition${n !== 1 ? 's' : ''}`,
+    shareProbe:      (n) => `🛰️ ${n} sonde${n !== 1 ? 's' : ''}`,
     shareUnlockLine: (n) => `🔓 ${n} indice${n !== 1 ? 's' : ''}`,
     shareWordle:     (n) => `🎯 ${n} Wordle`,
     shareWheel:      (n) => `🎡 ${n} roue`,
@@ -304,7 +308,7 @@ const I18N = {
     winCollapseShort: 'Réduire',
     winExpandShort:   'Résultat',
     winTitle:        'Résolu !',
-    winSubtitle:     (n) => `Vous avez trouvé le mot en ${n} proposition${n !== 1 ? 's' : ''} !`,
+    winSubtitle:     (n) => `Vous avez trouvé le mot en ${n} coup${n !== 1 ? 's' : ''} !`,
     keepPlaying:     'Continuer à jouer',
   },
 };
@@ -550,6 +554,7 @@ function createFreshState(puzzleDate) {
       semanticGuessCount: 0,
       unlockCount: 0,
       wordleWinCount: 0,
+      wordlePlayCount: 0,   // gagnés ET perdus : un Wordle perdu reste un coup joué
       wheelSpinsUsed: 0,
       meteorCatches: 0,
       meteorByTier: {},   // per-tier counts drive the per-tier daily caps
@@ -2042,7 +2047,7 @@ let _wheelCloseT = null;
 let _wheelSpinT = null;             // atterrissage en attente (4,2 s de rotation)
 let _wheelRewards = []; // the 12 pre-drawn rewards (one per segment), shown as #ranks
 
-function wheelSpinsEarned() { return Math.floor((gameState?.stats?.semanticGuessCount || 0) / WHEEL_SPIN_EVERY); }
+function wheelSpinsEarned() { return Math.floor(totalMoves() / WHEEL_SPIN_EVERY); }
 function wheelSpinsAvailable() { return Math.max(0, wheelSpinsEarned() - (gameState?.stats?.wheelSpinsUsed || 0)); }
 
 // Every ranked word not yet found — the wheel draws from the WHOLE galaxy,
@@ -2384,7 +2389,9 @@ function meteorEligible() {
   // Les archives ont droit aux météorites (demande de Marc, 2026-07-31). Aucun
   // risque de farm : les plafonds vivent dans `stats.meteorByTier`, propre à
   // CHAQUE état de puzzle, et les mots gagnés ne valent que pour ce jour-là.
-  if ((gameState.stats.semanticGuessCount || 0) < METEOR_MIN_GUESSES) return false;
+  // Même unité que la Sonde et la Roue : un joueur qui n'a fait que des Wordle
+  // a bel et bien commencé à jouer, il doit voir passer des météorites.
+  if (totalMoves() < METEOR_MIN_GUESSES) return false;
   if (!availableMeteorTiers().length) return false;   // everything capped (blue is uncapped, so ~never)
   if (_meteors.length) return false;                  // one at a time
   if (document.visibilityState !== 'visible') return false;
@@ -2653,7 +2660,7 @@ let _trPhase = {}, _trProbe = null, _trTrail = [], _trRAF = null, _trResult = nu
 let _trCloseT = null;
 
 function transitShotsAvailable() {
-  const earned = Math.floor((gameState?.stats?.semanticGuessCount || 0) / TRANSIT_EVERY);
+  const earned = Math.floor(totalMoves() / TRANSIT_EVERY);
   return Math.max(0, earned - (gameState?.stats?.transitShotsUsed || 0));
 }
 
@@ -3529,6 +3536,7 @@ function handleWordleWin() {
   gameState.semanticGuesses.unshift(unlockEntry);
   gameState.unlocks.push(target.word);
   gameState.stats.wordleWinCount++;
+  gameState.stats.wordlePlayCount = (gameState.stats.wordlePlayCount || 0) + 1;
 
   if (gameState.stats.bestRank === null || target.rank < gameState.stats.bestRank) {
     gameState.stats.bestRank = target.rank;
@@ -3547,6 +3555,7 @@ function handleWordleWin() {
 function handleWordleLoss() {
   const target = wordleState.target;
   const mask = buildPartialMask(target.word, wordleState.attempts);
+  gameState.stats.wordlePlayCount = (gameState.stats.wordlePlayCount || 0) + 1;
   gameState.partialUnlockClues.push({ target: target.word, mask, rank: target.rank });
   saveState();
   renderPartialClues();
@@ -3578,6 +3587,28 @@ function renderPartialClues() {
 
 // ─── Share card ───────────────────────────────────────────
 
+// ─── Coups joués ──────────────────────────────────────────
+// Un « coup » = TOUTE tentative du joueur, quelle qu'en soit la nature. C'est
+// lui qui arme la Sonde (1/20) et la Roue (1/50) depuis le 2026-08-11 : vingt
+// Wordle sans une seule proposition tapée doivent suffire (demande de Marc).
+// ⚠️ Pas d'emballement : `transitShotsUsed` et `wheelSpinsUsed` comptent eux
+// aussi comme des coups, mais tirer consomme un jeton entier et n'en rend au
+// mieux qu'un vingtième — le nombre disponible ne peut jamais remonter en jouant.
+function movesBreakdown() {
+  const s = gameState?.stats || {};
+  const parts = [
+    { n: s.semanticGuessCount || 0, key: 'shareGuessLine' },
+    { n: s.randomGuesses      || 0, key: 'shareRandom' },
+    { n: s.wordlePlayCount    || 0, key: 'shareWordle' },
+    { n: s.meteorCatches      || 0, key: 'shareMeteor' },
+    { n: s.transitShotsUsed   || 0, key: 'shareProbe' },
+    { n: s.wheelSpinsUsed     || 0, key: 'shareWheel' },
+  ];
+  return { total: parts.reduce((a, p) => a + p.n, 0), parts: parts.filter(p => p.n > 0) };
+}
+
+function totalMoves() { return movesBreakdown().total; }
+
 // Words actually unlocked, split by source (won Wordles / wheel spins / meteor
 // catches). Failed Wordles only yield a partial clue, so they don't count here.
 function unlockBreakdown() {
@@ -3591,18 +3622,22 @@ function unlockBreakdown() {
 }
 
 function buildShareText() {
-  const stats = gameState.stats;
-  const num   = puzzle.puzzleNumber;
-  const { total, parts } = unlockBreakdown();
-  const unlockLine = t('shareUnlockLine', total) +
-    (parts.length ? ` — ${parts.map(p => t(p.key, p.n)).join(' · ')}` : '');
+  const num = puzzle.puzzleNumber;
+  // Seulement le TOTAL débloqué : sa composition (Wordle · roue · météores)
+  // est déjà dans la ligne de coups juste au-dessus, la répéter n'apprendrait
+  // rien de plus.
+  const unlockLine = t('shareUnlockLine', unlockBreakdown().total);
+
+  // Une seule ligne de COUPS, détaillée par nature : le total est l'unité de
+  // mesure de la partie (c'est lui qui arme la Sonde et la Roue), la
+  // composition dit comment il a été atteint.
+  const moves = movesBreakdown();
+  const movesLine = t('shareMovesLine', moves.total) +
+    (moves.parts.length ? ` — ${moves.parts.map(p => t(p.key, p.n)).join(' · ')}` : '');
 
   return [
     `Galexical #${num}`,
-    t('shareGuessLine', stats.semanticGuessCount),
-    // Les tirages au sort ont leur propre ligne : ils ne gonflent pas le compte
-    // de propositions, mais les taire serait malhonnête.
-    ...(stats.randomGuesses ? [t('shareRandom', stats.randomGuesses)] : []),
+    movesLine,
     unlockLine,
     gameState.solved ? t('solved') : t('inProgress'),
     '',
@@ -3611,19 +3646,19 @@ function buildShareText() {
 }
 
 function buildShareCardHTML() {
-  const stats = gameState.stats;
-  const num   = puzzle.puzzleNumber;
-  const { total, parts } = unlockBreakdown();
-  const breakdown = parts.length
-    ? `<div class="unlock-breakdown">${parts.map(p => t(p.key, p.n)).join(' · ')}</div>`
+  const num = puzzle.puzzleNumber;
+  const unlocked = unlockBreakdown().total;
+
+  const moves = movesBreakdown();
+  const movesDetail = moves.parts.length
+    ? `<div class="unlock-breakdown">${moves.parts.map(p => t(p.key, p.n)).join(' · ')}</div>`
     : '';
 
   return `
     <strong>Galexical #${num}</strong>
-    <div>${t('shareGuessLine', stats.semanticGuessCount)}</div>
-    ${stats.randomGuesses ? `<div>${t('shareRandom', stats.randomGuesses)}</div>` : ''}
-    <div>${t('shareUnlockLine', total)}</div>
-    ${breakdown}
+    <div>${t('shareMovesLine', moves.total)}</div>
+    ${movesDetail}
+    <div>${t('shareUnlockLine', unlocked)}</div>
     <div>${gameState.solved ? t('solved') : t('inProgress')}</div>
   `;
 }
@@ -3704,7 +3739,7 @@ function showWinCard() {
   const title = document.getElementById('win-card-title');
   if (title) title.innerHTML = `${icon('target', 18)}<span>${t('wellDone')}</span>`;
   const sub = document.getElementById('win-card-subtitle');
-  if (sub) sub.textContent = t('winSubtitle', gameState.stats.semanticGuessCount);
+  if (sub) sub.textContent = t('winSubtitle', totalMoves());
   const share = document.getElementById('win-card-share');
   if (share) share.innerHTML = buildShareCardHTML();
   card.classList.remove('hidden');
@@ -3736,7 +3771,7 @@ function setupWinCard() {
 
 function updateWinModal() {
   const subtitle = document.getElementById('win-subtitle');
-  if (subtitle) subtitle.textContent = t('winSubtitle', gameState.stats.semanticGuessCount);
+  if (subtitle) subtitle.textContent = t('winSubtitle', totalMoves());
   const winShareCard = document.getElementById('win-share-card');
   if (winShareCard) winShareCard.innerHTML = buildShareCardHTML();
 }

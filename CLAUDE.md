@@ -442,6 +442,32 @@ fait remonter `#input-bar` ET `#bottom-tabs`, sinon les languettes passent derri
 champ à l'initialisation donne une référence détachée — les touches semblent mortes alors que
 l'événement arrive bien.
 
+### Coups joués — l'unité de mesure de la partie (2026-08-11)
+
+Un **coup** = TOUTE tentative du joueur. `movesBreakdown()` / `totalMoves()` somment
+`semanticGuessCount` + `randomGuesses` + `wordlePlayCount` + `meteorCatches` +
+`transitShotsUsed` + `wheelSpinsUsed`. C'est ce total — et non les seules propositions
+tapées — qui arme la **Sonde** (1/20), la **Roue** (1/50) et le seuil d'entrée des
+**météorites** : vingt Wordle sans une seule proposition doivent suffire (demande de Marc).
+
+`wordlePlayCount` compte les Wordle **gagnés ET perdus** (`wordleWinCount` ne comptait que
+les gagnés) : un défi perdu reste un coup joué, il ne rapporte qu'un indice partiel.
+
+⚠️ **Pas d'emballement** : `transitShotsUsed` et `wheelSpinsUsed` sont eux-mêmes des coups,
+mais tirer consomme un jeton entier et n'en rend qu'un vingtième — vérifié, les sondes
+disponibles font 2 → 1 → 0 → 0 en tirant à la suite, jamais l'inverse.
+
+⚠️ **Les tirages au sort comptent désormais** (`randomGuesses`), ce qui ANNULE la séparation
+mise en place le 2026-07-31. Conséquence assumée par Marc : un clic sur « Deviner » à vide est
+gratuit et limité au seul anti-rafale de 250 ms, donc **20 clics ≈ 5 s = 1 sonde** et
+**50 clics ≈ 13 s = 1 tour de roue**. Si des joueurs en abusent, le correctif est un plafond
+quotidien de tirages, sur le modèle de `METEOR_TIERS.cap`.
+
+Affichage : **une seule composition à l'écran**, celle des coups
+(`🕹️ 28 coups — 🧠 10 · 🎲 3 · 🎯 10 · ☄️ 1 · 🛰️ 2 · 🎡 2`). La ligne 🔓 ne garde que son
+total, sa répartition étant déjà contenue dans celle des coups. Les états sauvegardés d'avant
+n'ont pas `wordlePlayCount` : le `|| 0` les gère, leurs Wordle passés ne sont pas rattrapés.
+
 ### Accents — tolérance à la saisie
 
 Le vocabulaire FR est accentué, pas les claviers de tout le monde. Les **trois** portes
