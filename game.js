@@ -725,9 +725,11 @@ function pickRandomGuessWord() {
   return pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
 }
 
-// Envoie un mot au hasard. Ne compte PAS dans semanticGuessCount : ce compteur
-// pilote la Roue (1/50), la Sonde (1/20), les météorites et le partage — laisser
-// le spam l'alimenter viderait de leur sens toutes les autres bouées.
+// Envoie un mot au hasard. Compté à part dans `randomGuesses`, mais ce compteur
+// entre bel et bien dans `totalMoves()` depuis le 2026-08-11 (demande de Marc :
+// toutes les tentatives comptent). ⚠️ Un tirage ne coûte qu'un clic : c'est le
+// seul chemin par lequel on peut alimenter la Roue et la Sonde sans effort. Si
+// des joueurs en abusent, plafonner ici, pas ailleurs.
 function submitRandomGuess() {
   if (!gameState || gameState.solved || !puzzle) return;
   const now = Date.now();
@@ -2729,6 +2731,9 @@ function transitLand(key) {
   }
   saveState();
   updateTransitHandle();
+  // Un tir est un coup : il peut franchir le palier des 50 de la Roue. Le cas
+  // `w === null` (plus rien à débloquer) ne passe pas par renderGuessCard.
+  updateWheelHandle();
   _trResult = {
     won, key,
     color: won ? TRANSIT_TIERS[key].color : '#6b8fc2',
@@ -3557,6 +3562,13 @@ function handleWordleLoss() {
   gameState.partialUnlockClues.push({ target: target.word, mask, rank: target.rank });
   saveState();
   renderPartialClues();
+  // ⚠️ Un Wordle PERDU n'ajoute aucune carte, donc ne passe pas par
+  // renderGuessCard → updateJourneyCount, le seul endroit qui rafraîchit les
+  // languettes. Depuis qu'il compte comme un coup, il peut franchir le palier
+  // des 20 ou des 50 : sans ces deux appels la languette gagnée restait cachée
+  // jusqu'au prochain mot joué.
+  updateTransitHandle();
+  updateWheelHandle();
 }
 
 function renderPartialClues() {
