@@ -726,7 +726,7 @@ function pickRandomGuessWord() {
 }
 
 // Envoie un mot au hasard. Compté à part dans `randomGuesses`, mais ce compteur
-// entre bel et bien dans `totalMoves()` depuis le 2026-08-11 (demande de Marc :
+// entre bel et bien dans `totalMoves()` depuis le 2026-08-12 (demande de Marc :
 // toutes les tentatives comptent). ⚠️ Un tirage ne coûte qu'un clic : c'est le
 // seul chemin par lequel on peut alimenter la Roue et la Sonde sans effort. Si
 // des joueurs en abusent, plafonner ici, pas ailleurs.
@@ -3599,7 +3599,7 @@ function renderPartialClues() {
 
 // ─── Coups joués ──────────────────────────────────────────
 // Un « coup » = TOUTE tentative du joueur, quelle qu'en soit la nature. C'est
-// lui qui arme la Sonde (1/20) et la Roue (1/50) depuis le 2026-08-11 : vingt
+// lui qui arme la Sonde (1/20) et la Roue (1/50) depuis le 2026-08-12 : vingt
 // Wordle sans une seule proposition tapée doivent suffire (demande de Marc).
 // ⚠️ Pas d'emballement : `transitShotsUsed` et `wheelSpinsUsed` comptent eux
 // aussi comme des coups, mais tirer consomme un jeton entier et n'en rend au

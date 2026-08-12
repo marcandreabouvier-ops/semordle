@@ -62,7 +62,7 @@ Radar sémantique **3D plein écran** (Three.js). Fini le shell GameBoy rétro �
 - **Recentrage caméra** : à chaque guess la caméra glisse (flyToDot) pour amener le nouveau dot au premier plan, ~un peu sous le centre écran ; annulé si l'utilisateur drag ; auto-rotation en pause 7 s
 - **Panneau gauche** ouvert/fermé par une **languette verticale « Parcours »** (même design que la languette Wordle) ; séparation nette entre « dernière proposition » et la liste « Classement » ; replié par défaut sur mobile ≤880px, état persisté dans `localStorage['semordle:panel']`
 - Input bar fixée en bas (glass effect)
-- Les 3 languettes du bas (habillage de « Parcours » depuis le 2026-08-11 : fond `rgba(8,14,11,0.95)`
+- Les 3 languettes du bas (habillage de « Parcours » depuis le 2026-08-12 : fond `rgba(8,14,11,0.95)`
   + texte phosphore, distinguées par leur icône SVG) sont dans
   `#bottom-tabs` (flex row centrée). La languette **Roue** est cachée (`display:none`)
   et n'apparaît (`.available`) que quand un spin est dispo (`updateWheelHandle`).
@@ -442,7 +442,7 @@ fait remonter `#input-bar` ET `#bottom-tabs`, sinon les languettes passent derri
 champ à l'initialisation donne une référence détachée — les touches semblent mortes alors que
 l'événement arrive bien.
 
-### Coups joués — l'unité de mesure de la partie (2026-08-11)
+### Coups joués — l'unité de mesure de la partie (2026-08-12)
 
 Un **coup** = TOUTE tentative du joueur. `movesBreakdown()` / `totalMoves()` somment
 `semanticGuessCount` + `randomGuesses` + `wordlePlayCount` + `meteorCatches` +
@@ -465,7 +465,7 @@ quotidien de tirages, sur le modèle de `METEOR_TIERS.cap`.
 
 Affichage : **une seule ligne chiffrée**, celle des coups
 (`🕹️ 28 coups — 🧠 10 · 🎲 3 · 🎯 10 · ☄️ 1 · 🛰️ 2 · 🎡 2`). La ligne 🔓 des mots débloqués a
-été **entièrement retirée** du partage et de la carte (2026-08-11) : sa composition répétait
+été **entièrement retirée** du partage et de la carte (2026-08-12) : sa composition répétait
 celle des coups et son total n'apportait rien de plus. `unlockBreakdown()` et la clé
 `shareUnlockLine` ont disparu avec elle ; `stats.unlockCount` est toujours incrémenté mais
 n'est plus affiché nulle part. Les états sauvegardés d'avant
