@@ -463,9 +463,12 @@ gratuit et limité au seul anti-rafale de 250 ms, donc **20 clics ≈ 5 s = 1 so
 **50 clics ≈ 13 s = 1 tour de roue**. Si des joueurs en abusent, le correctif est un plafond
 quotidien de tirages, sur le modèle de `METEOR_TIERS.cap`.
 
-Affichage : **une seule composition à l'écran**, celle des coups
-(`🕹️ 28 coups — 🧠 10 · 🎲 3 · 🎯 10 · ☄️ 1 · 🛰️ 2 · 🎡 2`). La ligne 🔓 ne garde que son
-total, sa répartition étant déjà contenue dans celle des coups. Les états sauvegardés d'avant
+Affichage : **une seule ligne chiffrée**, celle des coups
+(`🕹️ 28 coups — 🧠 10 · 🎲 3 · 🎯 10 · ☄️ 1 · 🛰️ 2 · 🎡 2`). La ligne 🔓 des mots débloqués a
+été **entièrement retirée** du partage et de la carte (2026-08-11) : sa composition répétait
+celle des coups et son total n'apportait rien de plus. `unlockBreakdown()` et la clé
+`shareUnlockLine` ont disparu avec elle ; `stats.unlockCount` est toujours incrémenté mais
+n'est plus affiché nulle part. Les états sauvegardés d'avant
 n'ont pas `wordlePlayCount` : le `|| 0` les gère, leurs Wordle passés ne sont pas rattrapés.
 
 ### Accents — tolérance à la saisie

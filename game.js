@@ -75,7 +75,6 @@ const I18N = {
     shareMovesLine:  (n) => `🕹️ ${n} move${n !== 1 ? 's' : ''}`,
     shareGuessLine:  (n) => `🧠 ${n} semantic guess${n !== 1 ? 'es' : ''}`,
     shareProbe:      (n) => `🛰️ ${n} probe${n !== 1 ? 's' : ''}`,
-    shareUnlockLine: (n) => `🔓 ${n} unlock${n !== 1 ? 's' : ''}`,
     shareWordle:     (n) => `🎯 ${n} Wordle`,
     shareWheel:      (n) => `🎡 ${n} wheel`,
     shareMeteor:     (n) => `☄️ ${n} meteor${n !== 1 ? 's' : ''}`,
@@ -224,7 +223,6 @@ const I18N = {
     shareMovesLine:  (n) => `🕹️ ${n} coup${n !== 1 ? 's' : ''}`,
     shareGuessLine:  (n) => `🧠 ${n} proposition${n !== 1 ? 's' : ''}`,
     shareProbe:      (n) => `🛰️ ${n} sonde${n !== 1 ? 's' : ''}`,
-    shareUnlockLine: (n) => `🔓 ${n} indice${n !== 1 ? 's' : ''}`,
     shareWordle:     (n) => `🎯 ${n} Wordle`,
     shareWheel:      (n) => `🎡 ${n} roue`,
     shareMeteor:     (n) => `☄️ ${n} météore${n !== 1 ? 's' : ''}`,
@@ -3609,25 +3607,8 @@ function movesBreakdown() {
 
 function totalMoves() { return movesBreakdown().total; }
 
-// Words actually unlocked, split by source (won Wordles / wheel spins / meteor
-// catches). Failed Wordles only yield a partial clue, so they don't count here.
-function unlockBreakdown() {
-  const s = gameState.stats;
-  const parts = [
-    { n: s.wordleWinCount || 0, key: 'shareWordle' },
-    { n: s.wheelSpinsUsed || 0, key: 'shareWheel' },  // every spin lands a word
-    { n: s.meteorCatches || 0,  key: 'shareMeteor' },
-  ].filter(p => p.n > 0);
-  return { total: parts.reduce((a, p) => a + p.n, 0), parts };
-}
-
 function buildShareText() {
   const num = puzzle.puzzleNumber;
-  // Seulement le TOTAL débloqué : sa composition (Wordle · roue · météores)
-  // est déjà dans la ligne de coups juste au-dessus, la répéter n'apprendrait
-  // rien de plus.
-  const unlockLine = t('shareUnlockLine', unlockBreakdown().total);
-
   // Une seule ligne de COUPS, détaillée par nature : le total est l'unité de
   // mesure de la partie (c'est lui qui arme la Sonde et la Roue), la
   // composition dit comment il a été atteint.
@@ -3638,7 +3619,6 @@ function buildShareText() {
   return [
     `Galexical #${num}`,
     movesLine,
-    unlockLine,
     gameState.solved ? t('solved') : t('inProgress'),
     '',
     t('shareUrl'),
@@ -3647,18 +3627,15 @@ function buildShareText() {
 
 function buildShareCardHTML() {
   const num = puzzle.puzzleNumber;
-  const unlocked = unlockBreakdown().total;
-
   const moves = movesBreakdown();
   const movesDetail = moves.parts.length
-    ? `<div class="unlock-breakdown">${moves.parts.map(p => t(p.key, p.n)).join(' · ')}</div>`
+    ? `<div class="share-breakdown">${moves.parts.map(p => t(p.key, p.n)).join(' · ')}</div>`
     : '';
 
   return `
     <strong>Galexical #${num}</strong>
     <div>${t('shareMovesLine', moves.total)}</div>
     ${movesDetail}
-    <div>${t('shareUnlockLine', unlocked)}</div>
     <div>${gameState.solved ? t('solved') : t('inProgress')}</div>
   `;
 }
