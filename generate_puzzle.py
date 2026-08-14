@@ -215,6 +215,9 @@ def main():
 
     # Batch mode
     parser.add_argument("--schedule", help="CSV file: date,lang,word,number")
+    parser.add_argument("--min-runway", type=int, default=None,
+                        help="With --schedule: fail the run if any language has fewer than N "
+                             "days of puzzles left (silent-cliff guard).")
     parser.add_argument("--days-ahead", type=int, default=None,
                         help="With --schedule: only generate puzzles whose date falls within "
                              "the next N days AND whose output file does not already exist.")
@@ -242,6 +245,7 @@ def main():
     if args.schedule:
         with open(args.schedule, encoding="utf-8") as f:
             rows = list(csv.DictReader(f))
+        all_rows = rows            # `rows` est ensuite reduit aux 10 jours a venir
 
         if args.days_ahead is not None:
             today = datetime.today().date()
@@ -277,6 +281,30 @@ def main():
             if args.prune_days is not None:
                 prune_old(lang, args.prune_days, args.outdir)
             build_manifest(lang, args.outdir)
+
+        # Garde-fou : le cron ne fabrique que ce que schedule.csv contient déjà.
+        # Quand le planning s'épuise, il ne produit plus rien SANS RIEN DIRE et
+        # le job reste vert — puis un matin le site affiche « Failed to load
+        # puzzle » et le jeu ne s'ouvre plus. On échoue donc bruyamment tant
+        # qu'il reste de la marge pour réagir.
+        if args.min_runway is not None:
+            today = datetime.today().date()
+            last = {}
+            for row in all_rows:
+                lang = row["lang"].strip()
+                d = datetime.strptime(row["date"].strip(), "%Y-%m-%d").date()
+                if d > last.get(lang, today - timedelta(days=1)):
+                    last[lang] = d
+            short = {l: (d - today).days for l, d in last.items()
+                     if (d - today).days < args.min_runway}
+            if short or not last:
+                print("\n" + "=" * 62)
+                print("PLANNING BIENTÔT ÉPUISÉ — prolongez schedule.csv")
+                for lang, days in sorted(short.items()):
+                    print(f"  {lang} : plus que {days} jour(s) de puzzles")
+                print(f"  (seuil d'alerte : {args.min_runway} jours)")
+                print("=" * 62)
+                sys.exit(1)
     elif args.word:
         puzzle = generate_puzzle(
             secret=args.word,

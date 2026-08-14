@@ -44,7 +44,9 @@ jobs:
 
       - name: Generate next 10 days of puzzles (+ prune >14 days old, refresh manifests)
         run: |
-          python generate_puzzle.py --schedule schedule.csv --days-ahead 10 --prune-days 14
+          # --min-runway : le job ÉCHOUE (et GitHub envoie un mail) tant qu'il reste
+          # 3 semaines de marge, au lieu de se taire jusqu'au jour où le site casse.
+          python generate_puzzle.py --schedule schedule.csv --days-ahead 10 --prune-days 14 --min-runway 21
 
       - name: Commit and push new puzzle files
         run: |
