@@ -571,6 +571,36 @@ autres via leur position.
 
 ## Schedule — règles importantes
 
+**Réserve actuelle : jusqu'au 2027-08-31** (n° 605), prolongée le 2026-08-14 de 365 jours.
+⚠️ Le cron **n'invente pas les mots** : il matérialise les lignes de `schedule.csv` tombant
+dans les 10 prochains jours. Quand le CSV s'épuise il ne produit plus rien, sans rien dire —
+et le site affiche « Failed to load puzzle » avec la saisie désactivée. D'où
+`--min-runway 21` dans le workflow : le job **échoue** (mail GitHub) tant qu'il reste trois
+semaines de marge.
+
+Méthode pour prolonger (les modèles word2vec sont dans `models/`, donc tout est vérifiable
+localement — un mot absent du modèle fait `sys.exit(1)` et casse la génération du jour) :
+1. Constituer un vivier **groupé par thème**, mots concrets et courants. Pour le FR,
+   `models/Lexique383.tsv` donne les fréquences (`cgram == NOM`, `ortho == lemme`) ;
+   ~1 700 noms au-dessus de fréquence 30, soit des années de réserve — la limite est le tri
+   qualitatif, pas le vocabulaire. Écarter adjectifs mal classés, interjections, vulgaire et
+   abstrait peu jouable.
+2. Vérifier chaque mot avec `w in get_model(lang)` et exclure ceux déjà utilisés.
+3. Attribuer les dates avec **tirage pondéré par le stock restant** de chaque thème, sous
+   trois contraintes : jamais 3 jours de suite sur le même thème, thèmes **différents entre
+   FR et EN le même jour**, aucun mot répété.
+
+💡 **L'astuce qui résout l'anti-collision** : deux mots traduisibles partagent forcément un
+thème, donc imposer des thèmes différents le même jour interdit mécaniquement qu'un joueur
+bilingue trouve le même concept des deux côtés. Inutile de comparer les traductions.
+⚠️ Ne pas prendre « thème le plus fourni » : ça produit un cycle A-B-C-A-B-C parfaitement
+visible. Le tirage pondéré (poids = stock²) épuise les gros thèmes au même rythme sans motif.
+
+Vestige connu : **13 mots FR et 12 EN sont utilisés deux fois** entre juin et juillet 2026
+(« hiver » les 05/06 et 10/07, etc.), avant la mise en place de ces règles. Tout est dans le
+passé ; ne pas y toucher, les JSON sont générés et les sauvegardes des joueurs y sont liées.
+
+
 - EN et FR ont des mots **intentionnellement différents** (décalage de 5 positions).
   Ne jamais remettre des traductions directes EN/FR sur la même date.
 - Pas de doublons de mots à venir dans une même langue (vérifier avant d'ajouter).
