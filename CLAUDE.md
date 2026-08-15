@@ -494,6 +494,15 @@ palier refloute** : le joueur re-choisit à chaque cran. Couleur = `rankToColor(
 la pastille chauffe à mesure que le thème se resserre — le puriste qui ne clique jamais voit
 quand même qu'un cran s'est ouvert, sans apprendre lequel.
 
+**Infobulle au survol** (`data-tip`, souris uniquement — le mécanisme existant sous
+`@media (hover: hover)`). Trois textes selon l'état : verrouillée annonce le palier d'entrée,
+floutée invite au clic, révélée annonce **le prochain palier** (« s'affine à #300 ») — c'est
+ce qui apprend au joueur que l'indice se précise, sans aucun tutoriel. ⚠️ Ancrée à GAUCHE
+(`left: 0`) car la pastille est à ~184 px du bord sur un écran de 375, et surtout
+**`width: max-content` obligatoire** : un `::after` en position absolue se dimensionne sur son
+bloc conteneur — la pastille, 69 px — donc un simple `max-width` écrasait la phrase sur cinq
+lignes. Vérifié à 375 px : 173 px sur deux lignes, aucun débordement.
+
 Données : `schedule.csv` a une colonne **`theme`** (une des 20 familles) ; `generate_puzzle.py`
 la recopie dans le JSON sous la clé `theme`. Le JSON ne transporte **que la clé** — les
 libellés vivent dans `THEME_LABELS` de game.js, donc modifiables sans régénérer les puzzles.

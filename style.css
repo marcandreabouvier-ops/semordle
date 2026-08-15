@@ -297,6 +297,28 @@ h1 {
     font-weight: 500;
   }
   .lang-btn[data-tip]:hover::after { transform: translateX(0) translateY(0); }
+  /* La pastille de thème est collée au bord GAUCHE : centrer l'infobulle la
+     ferait sortir de l'écran. On l'ancre à gauche, et en casse normale — c'est
+     une phrase (« s'affine à #300 »), pas une étiquette. */
+  #theme-pill[data-tip]::after {
+    left: 0; right: auto;
+    transform: translateX(0) translateY(-3px);
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    /* La pastille est à ~184 px du bord sur un écran de 375 : une infobulle
+       d'un seul tenant finissait à 381 px, donc rognée. On la laisse passer sur
+       deux lignes plutôt que de perdre la fin de la phrase. */
+    white-space: normal;
+    /* ⚠️ `width: max-content` est indispensable : un ::after en position absolue
+       se dimensionne sur son bloc conteneur — la pastille, 69 px — donc un simple
+       max-width écrasait la phrase sur cinq lignes. max-content donne la largeur
+       naturelle, que max-width vient ensuite plafonner. */
+    width: max-content;
+    max-width: min(190px, 46vw);
+    line-height: 1.35;
+  }
+  #theme-pill[data-tip]:hover::after { transform: translateX(0) translateY(0); }
 }
 
 /* === Language switcher === */

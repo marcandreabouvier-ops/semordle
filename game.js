@@ -97,6 +97,8 @@ const I18N = {
     themeLocked:     (r) => `Theme hint at #${r}`,
     themeReveal:     'Reveal the theme',
     themeShown:      (t) => `Theme: ${t}`,
+    tipThemeNext:    (r) => `Theme of the secret word · sharpens at #${r}`,
+    tipThemeFinal:   'Theme of the secret word',
     unlockedBadge:   '🔓 Unlocked',
     guessCountLabel: (n) => `${n} ${n > 1 ? 'guesses' : 'guess'}`,
     archiveAria:     'Archives — replay a recent day',
@@ -248,6 +250,8 @@ const I18N = {
     themeLocked:     (r) => `Indice de thème à #${r}`,
     themeReveal:     'Révéler le thème',
     themeShown:      (t) => `Thème : ${t}`,
+    tipThemeNext:    (r) => `Thème du mot secret · s’affine à #${r}`,
+    tipThemeFinal:   'Thème du mot secret',
     unlockedBadge:   '🔓 Débloqué',
     guessCountLabel: (n) => `${n} proposition${n > 1 ? 's' : ''}`,
     archiveAria:     'Archives — rejouer un jour récent',
@@ -1426,6 +1430,7 @@ function updateThemePill() {
     el.disabled = true;
     el.textContent = '▨▨▨▨';
     el.setAttribute('aria-label', t('themeLocked', THEME_STEPS[0]));
+    el.setAttribute('data-tip', t('themeLocked', THEME_STEPS[0]));
     return;
   }
   el.classList.remove('locked');
@@ -1434,10 +1439,15 @@ function updateThemePill() {
     el.classList.remove('blurred');
     el.textContent = themeLabel(niveau);
     el.setAttribute('aria-label', t('themeShown', themeLabel(niveau)));
+    // Une fois révélé, l'infobulle annonce le PROCHAIN palier : c'est ce qui
+    // apprend au joueur que l'indice se précise, sans aucun tutoriel.
+    const suivant = THEME_STEPS[niveau];
+    el.setAttribute('data-tip', suivant ? t('tipThemeNext', suivant) : t('tipThemeFinal'));
   } else {                                   // un cran s'est ouvert : on refloute
     el.classList.add('blurred');
     el.textContent = themeLabel(niveau);     // le texte EST là, seul le flou le masque
     el.setAttribute('aria-label', t('themeReveal'));
+    el.setAttribute('data-tip', t('themeReveal'));
   }
 }
 
