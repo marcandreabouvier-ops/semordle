@@ -471,6 +471,36 @@ celle des coups et son total n'apportait rien de plus. `unlockBreakdown()` et la
 n'est plus affiché nulle part. Les états sauvegardés d'avant
 n'ont pas `wordlePlayCount` : le `|| 0` les gère, leurs Wordle passés ne sont pas rattrapés.
 
+### Indice de thème (`#theme-pill`, lot 1 — 2026-08-14)
+
+Réponse au reproche de fond fait aux jeux sémantiques (retour Reddit) : **on cherche à
+l'aveugle**. Un mot débloqué ne réduit pas l'espace de recherche ; un thème si. Il se
+**précise** au lieu d'arriver d'un bloc.
+
+Pastille à GAUCHE, collée au numéro de puzzle — vérifié : n'ajoute aucune ligne à la barre du
+haut et tient à 375 px (`GALEXICAL 100` + `#224 54` + `thème 58` = 232 px). Surtout **pas** à
+droite : « Meilleur : #XXX » y occupe déjà les 109 px disponibles.
+
+**Flouté par défaut, révélé au clic** (demande de Marc : les joueurs qui veulent chercher seuls
+ne doivent pas subir l'aide). ⚠️ Le flou est un `color: transparent` + `text-shadow`, **pas un
+`filter`** : la largeur reste rigoureusement identique avant/après, donc la barre ne bouge pas
+d'un pixel à la révélation. ⚠️ **Ne jamais animer `color` ni `text-shadow`** ici — la
+révélation passe par `transparent` et l'état intermédiaire rend le mot à moitié lisible ; seuls
+le cadre et le fond sont en transition.
+
+Paliers (`THEME_STEPS`) sur le MEILLEUR rang, donc monotones et infarmables : < 1000 → niveau 1
+(famille : monde/vivant/lieu/objet/esprit), < 300 → niveau 2 (le thème). **Chaque nouveau
+palier refloute** : le joueur re-choisit à chaque cran. Couleur = `rankToColor(bestRank)`, donc
+la pastille chauffe à mesure que le thème se resserre — le puriste qui ne clique jamais voit
+quand même qu'un cran s'est ouvert, sans apprendre lequel.
+
+Données : `schedule.csv` a une colonne **`theme`** (une des 20 familles) ; `generate_puzzle.py`
+la recopie dans le JSON sous la clé `theme`. Le JSON ne transporte **que la clé** — les
+libellés vivent dans `THEME_LABELS` de game.js, donc modifiables sans régénérer les puzzles.
+Couverture : 2026-08-14 → 2027-08-31. Les puzzles antérieurs n'ont pas de thème et la pastille
+se cache d'elle-même. **Lot 2 restant** : paliers 3 et 4 (< 100, < 30), un mot précis PAR
+PUZZLE — ceux-là devront aller dans le JSON, pas dans la table des thèmes.
+
 ### Accents — tolérance à la saisie
 
 Le vocabulaire FR est accentué, pas les claviers de tout le monde. Les **trois** portes

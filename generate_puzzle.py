@@ -107,7 +107,7 @@ def load_vocab(lang: str, secret: str, model) -> list[str]:
 
 
 def generate_puzzle(secret: str, lang: str, date: str, puzzle_number: int,
-                    topn: int = 1000, model_path: str = None) -> dict:
+                    topn: int = 1000, model_path: str = None, theme: str = "") -> dict:
     model = get_model(lang, model_path)
     secret_lower = secret.lower()
 
@@ -133,7 +133,7 @@ def generate_puzzle(secret: str, lang: str, date: str, puzzle_number: int,
     top10 = words[9]["score"] if len(words) >= 10 else top1
     top1k = words[topn - 1]["score"] if len(words) >= topn else words[-1]["score"]
 
-    return {
+    out = {
         "date": date,
         "puzzleNumber": puzzle_number,
         "lang": lang,
@@ -142,6 +142,12 @@ def generate_puzzle(secret: str, lang: str, date: str, puzzle_number: int,
         "hints": {"top1": round(top1, 4), "top10": round(top10, 4), "top1000": round(top1k, 4)},
         "words": words,
     }
+    # Thème canonique (une des 20 familles de schedule.csv). Le client le traduit
+    # en libellés par palier ; on n'expédie que la clé, pas le texte, pour que le
+    # libellé reste modifiable sans régénérer les puzzles.
+    if theme:
+        out["theme"] = theme
+    return out
 
 
 def build_manifest(lang: str, outdir: str = None):
@@ -272,6 +278,7 @@ def main():
                 puzzle_number=int(row["number"]),
                 topn=args.topn,
                 model_path=args.model,
+                theme=row.get("theme", "").strip(),
             )
             save_puzzle(puzzle, args.outdir)
         # Prune old files first (if asked), then rebuild manifests to match

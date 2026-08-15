@@ -187,6 +187,35 @@ h1 {
 }
 /* Archive replay: the puzzle pill itself turns amber and becomes the
    "back to today" control (no separate floating banner). */
+/* === Pastille de thème === */
+/* Le flou est un `color: transparent` + `text-shadow` et NON un filter :
+   la largeur reste rigoureusement identique avant et après révélation, donc
+   la barre du haut ne bouge pas d'un pixel quand le joueur clique. */
+#theme-pill {
+  cursor: pointer;
+  text-transform: none;
+  color: var(--th-c, var(--screen-subtle));
+  border-color: color-mix(in srgb, var(--th-c, var(--screen-subtle)) 40%, transparent);
+  background: color-mix(in srgb, var(--th-c, var(--screen-subtle)) 10%, transparent);
+  /* ⚠️ NE PAS animer `color` ni `text-shadow` : la révélation les fait passer
+     par `transparent`, et une transition vers une couleur transparente rend
+     l'état intermédiaire illisible — le mot apparaissait à moitié pendant un
+     quart de seconde. Seuls le cadre et le fond s'animent. */
+  transition: border-color 0.25s, background 0.25s;
+}
+#theme-pill[hidden] { display: none; }
+#theme-pill.blurred {
+  color: transparent;
+  text-shadow: 0 0 7px var(--th-c, var(--screen-subtle));
+}
+#theme-pill.blurred:hover { text-shadow: 0 0 5px var(--th-c, var(--screen-subtle)); }
+/* Verrouillée : aucun indice disponible, on ne peut pas cliquer. */
+#theme-pill.locked {
+  cursor: default;
+  opacity: 0.45;
+  letter-spacing: 0.02em;
+}
+
 .pill.pill--archive {
   background: rgba(244,161,74,0.12);
   border-color: var(--amber-dim);

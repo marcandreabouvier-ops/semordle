@@ -94,6 +94,9 @@ const I18N = {
     tempCold:        'Cold',
     similarityLabel: 'similarity',
     bestRankShort:   (r) => `Best: #${r}`,
+    themeLocked:     (r) => `Theme hint at #${r}`,
+    themeReveal:     'Reveal the theme',
+    themeShown:      (t) => `Theme: ${t}`,
     unlockedBadge:   '🔓 Unlocked',
     guessCountLabel: (n) => `${n} ${n > 1 ? 'guesses' : 'guess'}`,
     archiveAria:     'Archives — replay a recent day',
@@ -242,6 +245,9 @@ const I18N = {
     tempCold:        'Froid',
     similarityLabel: 'similarité',
     bestRankShort:   (r) => `Meilleur : #${r}`,
+    themeLocked:     (r) => `Indice de thème à #${r}`,
+    themeReveal:     'Révéler le thème',
+    themeShown:      (t) => `Thème : ${t}`,
     unlockedBadge:   '🔓 Débloqué',
     guessCountLabel: (n) => `${n} proposition${n > 1 ? 's' : ''}`,
     archiveAria:     'Archives — rejouer un jour récent',
@@ -548,6 +554,7 @@ function createFreshState(puzzleDate) {
     partialUnlockClues: [],
     solved: false,
     solvedAt: null,
+    themeRevealed: 0,     // plus haut palier de thème que le joueur a choisi de voir
     stats: {
       semanticGuessCount: 0,
       unlockCount: 0,
@@ -557,6 +564,7 @@ function createFreshState(puzzleDate) {
       meteorCatches: 0,
       meteorByTier: {},   // per-tier counts drive the per-tier daily caps
       transitShotsUsed: 0,
+      // (themeRevealed vit à la racine de l'état, pas dans stats)
       randomGuesses: 0,
       bestRank: null,
     },
@@ -1121,6 +1129,7 @@ function applyI18n() {
    ['lang-en', 'tipLangEn'], ['lang-fr', 'tipLangFr']]
     .forEach(([id, key]) => document.getElementById(id)?.setAttribute('data-tip', t(key)));
   updatePuzzlePill();   // re-render the pill (its return label is localized)
+  updateThemePill();    // libellés du thème traduits
 
   // Win modal
   const winH2 = document.querySelector('.win-header h2');
@@ -1355,6 +1364,92 @@ function escapeHtml(str) {
 
 // ─── Best rank labels ─────────────────────────────────────
 
+// ─── Indice de thème ──────────────────────────────────────
+// Réponse au reproche de fond fait aux jeux sémantiques : on cherche à l'aveugle.
+// Un mot débloqué ne réduit pas l'espace de recherche ; un thème si. Il se
+// PRÉCISE à mesure qu'on approche, plutôt que d'arriver d'un bloc.
+// Flouté par défaut et révélé au clic : le joueur qui veut chercher seul ne le
+// lit jamais, mais voit la pastille chauffer — il sait qu'un cran s'est ouvert
+// sans apprendre lequel. Chaque nouveau palier refloute (choix de Marc).
+const THEME_STEPS = [1000, 300];      // paliers de meilleur rang → niveau 1, 2
+const THEME_LABELS = {
+  nature:   { fr: ['monde',  'paysage'],   en: ['world',  'landscape'] },
+  geo:      { fr: ['monde',  'relief'],    en: ['world',  'terrain'] },
+  meteo:    { fr: ['monde',  'météo'],     en: ['world',  'weather'] },
+  astre:    { fr: ['monde',  'ciel'],      en: ['world',  'sky'] },
+  animal:   { fr: ['vivant', 'animal'],    en: ['living', 'animal'] },
+  plante:   { fr: ['vivant', 'plante'],    en: ['living', 'plant'] },
+  corps:    { fr: ['vivant', 'corps'],     en: ['living', 'body'] },
+  maison:   { fr: ['lieu',   'maison'],    en: ['place',  'home'] },
+  ville:    { fr: ['lieu',   'ville'],     en: ['place',  'city'] },
+  transport:{ fr: ['lieu',   'transport'], en: ['place',  'travel'] },
+  cuisine:  { fr: ['objet',  'cuisine'],   en: ['object', 'kitchen'] },
+  outil:    { fr: ['objet',  'outil'],     en: ['object', 'tool'] },
+  textile:  { fr: ['objet',  'tissu'],     en: ['object', 'cloth'] },
+  papier:   { fr: ['objet',  'papier'],    en: ['object', 'paper'] },
+  musique:  { fr: ['objet',  'musique'],   en: ['object', 'music'] },
+  jeu:      { fr: ['objet',  'jeu'],       en: ['object', 'game'] },
+  abstrait: { fr: ['esprit', 'idée'],      en: ['mind',   'idea'] },
+  temps:    { fr: ['esprit', 'temps'],     en: ['mind',   'time'] },
+  science:  { fr: ['esprit', 'science'],   en: ['mind',   'science'] },
+  metier:   { fr: ['esprit', 'métier'],    en: ['mind',   'trade'] },
+};
+
+// Niveau atteint = nombre de paliers franchis par le MEILLEUR rang. Monotone,
+// donc infarmable : seul le fait de se rapprocher paie.
+function themeLevel() {
+  const best = gameState?.stats?.bestRank;
+  if (best == null) return 0;
+  return THEME_STEPS.filter(seuil => best < seuil).length;
+}
+
+function themeLabel(niveau) {
+  const table = THEME_LABELS[puzzle?.theme];
+  if (!table || niveau < 1) return null;
+  const par = table[currentLang] || table.en;
+  return par[Math.min(niveau, par.length) - 1];
+}
+
+function updateThemePill() {
+  const el = document.getElementById('theme-pill');
+  if (!el) return;
+  // Pas de thème sur les puzzles d'avant la mécanique : on cache tout.
+  if (!puzzle?.theme || !THEME_LABELS[puzzle.theme] || !gameState) { el.hidden = true; return; }
+  el.hidden = false;
+  const niveau = themeLevel();
+  const vu = gameState.themeRevealed || 0;
+  const best = gameState.stats.bestRank;
+  el.style.setProperty('--th-c', niveau ? rankToColor(best) : 'var(--screen-subtle)');
+
+  if (niveau === 0) {
+    el.classList.add('locked'); el.classList.remove('blurred');
+    el.disabled = true;
+    el.textContent = '▨▨▨▨';
+    el.setAttribute('aria-label', t('themeLocked', THEME_STEPS[0]));
+    return;
+  }
+  el.classList.remove('locked');
+  el.disabled = false;
+  if (vu >= niveau) {                       // déjà révélé à ce palier
+    el.classList.remove('blurred');
+    el.textContent = themeLabel(niveau);
+    el.setAttribute('aria-label', t('themeShown', themeLabel(niveau)));
+  } else {                                   // un cran s'est ouvert : on refloute
+    el.classList.add('blurred');
+    el.textContent = themeLabel(niveau);     // le texte EST là, seul le flou le masque
+    el.setAttribute('aria-label', t('themeReveal'));
+  }
+}
+
+function setupThemePill() {
+  document.getElementById('theme-pill')?.addEventListener('click', () => {
+    if (!gameState || themeLevel() === 0) return;
+    gameState.themeRevealed = themeLevel();
+    saveState();
+    updateThemePill();
+  });
+}
+
 function updateBestRankLabel() {
   const el = document.getElementById('best-rank-label');
   if (!el) return;
@@ -1366,6 +1461,7 @@ function updateBestRankLabel() {
     el.textContent = '';
     el.style.removeProperty('color');
   }
+  updateThemePill();   // même déclencheur : le thème suit le meilleur rang
 }
 
 // =========================================================
@@ -3875,6 +3971,7 @@ async function init() {
     setupTransitHandle();
     setupMeteors();
     setupGuessKeyboard();     // écouteur délégué, posé une seule fois
+    setupThemePill();
     setupKeyboardHandler();
     setupModalCloseButtons();
     setupShareButtons();
