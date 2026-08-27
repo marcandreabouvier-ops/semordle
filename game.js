@@ -99,6 +99,15 @@ const I18N = {
     themeShown:      (t) => `Theme: ${t}`,
     tipThemeNext:    (r) => `Theme of the secret word · sharpens at #${r}`,
     tipThemeFinal:   'Theme of the secret word',
+    tipAbout:        'About',
+    aboutTitle:      'About',
+    aboutLede:       'A daily word riddle where meaning has a shape.',
+    aboutStory:      'My colleagues and I got hooked on Wordle and Semantle, and I wanted the two in one game — guessing a word by its meaning, but with something to look at. So the words became planets: the closer one is in meaning, the closer and hotter it orbits the sun.',
+    aboutBy:         'Made by',
+    aboutContactT:   'A thought, a bug, a word that should have been closer?',
+    aboutSupportT:   'Buy me a coffee',
+    aboutSupportB:   'Support Galexical',
+    aboutFree:       'Free to play · no account · no sign-up',
     unlockedBadge:   '🔓 Unlocked',
     guessCountLabel: (n) => `${n} ${n > 1 ? 'guesses' : 'guess'}`,
     archiveAria:     'Archives — replay a recent day',
@@ -252,6 +261,15 @@ const I18N = {
     themeShown:      (t) => `Thème : ${t}`,
     tipThemeNext:    (r) => `Thème du mot secret · s’affine à #${r}`,
     tipThemeFinal:   'Thème du mot secret',
+    tipAbout:        'À propos',
+    aboutTitle:      'À propos',
+    aboutLede:       'Une énigme quotidienne où le sens a une forme.',
+    aboutStory:      'Mes collègues et moi étions accros à Wordle et à Semantle, et je voulais les deux dans un seul jeu — deviner un mot par son sens, mais avec quelque chose à regarder. Les mots sont donc devenus des planètes : plus un mot est proche par le sens, plus sa planète orbite près du soleil, et plus elle est chaude.',
+    aboutBy:         'Créé par',
+    aboutContactT:   'Une remarque, un bug, un mot qui aurait dû être plus proche ?',
+    aboutSupportT:   'Offrez-moi un café',
+    aboutSupportB:   'Soutenir Galexical',
+    aboutFree:       'Gratuit · sans compte · sans inscription',
     unlockedBadge:   '🔓 Débloqué',
     guessCountLabel: (n) => `${n} proposition${n > 1 ? 's' : ''}`,
     archiveAria:     'Archives — rejouer un jour récent',
@@ -1130,7 +1148,7 @@ function applyI18n() {
   // Les langues portent aussi une infobulle : beaucoup de joueurs croyaient que
   // le sélecteur traduisait la page, alors que c'est une AUTRE grille.
   [['how-to-btn', 'tipHowTo'], ['stats-btn', 'tipStats'], ['archive-btn', 'tipArchive'],
-   ['lang-en', 'tipLangEn'], ['lang-fr', 'tipLangFr']]
+   ['lang-en', 'tipLangEn'], ['lang-fr', 'tipLangFr'], ['about-btn', 'tipAbout']]
     .forEach(([id, key]) => document.getElementById(id)?.setAttribute('data-tip', t(key)));
   updatePuzzlePill();   // re-render the pill (its return label is localized)
   updateThemePill();    // libellés du thème traduits
@@ -3972,6 +3990,7 @@ async function init() {
     initThreeScene();
     setupGuessPanel();
     setupHowTo();
+    setupAbout();
     setupStatsModal();
     setupArchiveModal();
     setupStarsModal();
@@ -4407,6 +4426,49 @@ function setupOnboarding() {
     el.classList.remove('hidden');
     lockBodyScroll(true);
   }
+}
+
+const ABOUT_EMAIL = 'contact@galexical.com';
+const ABOUT_KOFI  = 'https://ko-fi.com/galexical';
+const ABOUT_NAME  = 'Marc-Andréa Bouvier';
+
+// « Gratuit · sans compte · sans inscription » — formulation volontairement
+// PRUDENTE : Marc envisage d'ajouter de la publicité un jour. Promettre « sans
+// pub » ou « sans traqueur » ici, ce serait gravé pour longtemps et se
+// retournerait contre lui le jour venu. Ces trois affirmations-là resteront
+// vraies quoi qu'il arrive.
+function buildAboutHTML() {
+  return `
+    <div class="how-to-content about-wrap">
+      <h2 id="about-title">${icon('target', 16)}<span>${t('aboutTitle')}</span></h2>
+      <p class="gx-lede">${t('aboutLede')}</p>
+      <p class="about-story">${t('aboutStory')}</p>
+      <p class="about-by">${t('aboutBy')} <strong>${ABOUT_NAME}</strong></p>
+      <div class="about-row">
+        <span class="about-row-t">${t('aboutContactT')}</span>
+        <a class="about-link" href="mailto:${ABOUT_EMAIL}">${icon('copy', 14)}<span>${ABOUT_EMAIL}</span></a>
+      </div>
+      <div class="about-row">
+        <span class="about-row-t">${t('aboutSupportT')}</span>
+        <a class="gx-cta" href="${ABOUT_KOFI}" target="_blank" rel="noopener noreferrer">
+          <span>${t('aboutSupportB')}</span>
+        </a>
+      </div>
+      <p class="gx-foot">${t('aboutFree')}</p>
+    </div>`;
+}
+
+function setupAbout() {
+  const modal    = document.getElementById('about-modal');
+  const backdrop = document.getElementById('about-backdrop');
+  const open  = () => {
+    document.getElementById('about-content').innerHTML = buildAboutHTML();
+    modal.classList.remove('hidden'); lockBodyScroll(true);
+  };
+  const close = () => { modal.classList.add('hidden'); lockBodyScroll(false); };
+  document.getElementById('about-btn')?.addEventListener('click', open);
+  backdrop?.addEventListener('click', close);
+  modal?.addEventListener('click', e => { if (e.target.closest('#about-close')) close(); });
 }
 
 function setupHowTo() {

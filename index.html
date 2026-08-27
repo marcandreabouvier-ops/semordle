@@ -63,7 +63,7 @@
   <!-- Top bar: logo + controls -->
   <header id="top-bar">
     <div id="top-bar-left">
-      <h1>Galexical</h1>
+      <h1><button id="about-btn" type="button">Galexical</button></h1>
       <div class="pill" id="puzzle-pill" aria-live="polite">Loading…</div>
       <!-- Indice de thème : flouté par défaut, révélé au clic. Volontairement
            opt-in — un joueur qui veut chercher seul ne le lit jamais. -->
@@ -229,6 +229,15 @@
     <div class="modal-content" role="document">
       <button class="modal-close" id="how-to-close" aria-label="Close"><svg class="gx-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
       <div id="how-to-content"></div>
+    </div>
+  </div>
+
+  <!-- À propos : qui a fait le jeu, comment le joindre, comment le soutenir -->
+  <div id="about-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="about-title">
+    <div class="modal-backdrop" id="about-backdrop"></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="about-close" aria-label="Close"><svg class="gx-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+      <div id="about-content"></div>
     </div>
   </div>
 

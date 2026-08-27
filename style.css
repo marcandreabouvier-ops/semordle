@@ -158,6 +158,54 @@ body {
 }
 
 /* Title wordmark */
+/* La marque EST le bouton « À propos » : elle occupait déjà la place et ne
+   servait à rien. Le bouton doit donc être totalement transparent — sans les
+   règles ci-dessous il hérite du fond, du cadre et de la police des boutons. */
+#about-btn {
+  all: unset;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-shadow: inherit;
+}
+#about-btn:focus-visible { outline: 2px solid var(--phosphor); outline-offset: 3px; }
+
+/* === Modale À propos === */
+.about-wrap .about-story {
+  font-size: 13px; line-height: 1.7;
+  color: var(--screen-text); opacity: 0.85;
+  margin: 0 0 14px;
+}
+.about-wrap .about-by {
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--screen-muted); margin: 0 0 18px;
+}
+.about-wrap .about-by strong { color: var(--screen-text); font-weight: 600; }
+.about-row {
+  padding: 13px 0;
+  border-top: 1px solid var(--glass-border);
+}
+.about-row-t {
+  display: block; margin-bottom: 9px;
+  font-size: 12px; color: var(--screen-muted); line-height: 1.5;
+}
+.about-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 13px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 999px;
+  color: var(--phosphor);
+  font-family: var(--font-mono); font-size: 12px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+.about-link:hover { background: rgba(45,212,191,0.08); border-color: var(--phosphor); }
+/* Le lien de soutien réutilise .gx-cta : c'est un <a>, pas un <button>, donc il
+   lui manque le centrage et la hauteur que le bouton tenait de sa nature. */
+.about-wrap a.gx-cta { text-decoration: none; box-sizing: border-box; }
+
 h1 {
   margin: 0;
   font-family: var(--font-mono);

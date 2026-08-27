@@ -471,6 +471,28 @@ celle des coups et son total n'apportait rien de plus. `unlockBreakdown()` et la
 n'est plus affiché nulle part. Les états sauvegardés d'avant
 n'ont pas `wordlePlayCount` : le `|| 0` les gère, leurs Wordle passés ne sont pas rattrapés.
 
+### Modale « À propos » (`#about-modal`, 2026-08-14)
+
+Le site n'indiquait nulle part qui l'avait fait ni comment le joindre. **La marque
+`GALEXICAL` est le bouton d'accès** (`#about-btn`) : elle occupait déjà 100 px en haut à
+gauche sans rien faire, et un logo qui ouvre « à propos » est une convention connue.
+⚠️ Il n'y avait **aucune place pour un 4e bouton** dans la barre : mesuré à 375 px avec une
+partie en cours, le groupe de droite fait déjà 332 px (dont 109 pour « Meilleur : #XXX ») et
+un bouton de plus le portait à 374 px, débordant de 9 px.
+⚠️ `#about-btn { all: unset }` puis ré-héritage explicite de la police, de la couleur et de
+l'ombre : sans ça le `<button>` ramène son fond, son cadre et sa police et la marque change
+d'aspect. Vérifié identique à l'ancien `<h1>` : 100 px, phosphore, IBM Plex Mono, sans padding.
+
+Contenu : nom (**Marc-Andréa Bouvier**), origine du jeu, `contact@galexical.com`, lien Ko-fi
+(`ABOUT_*` en tête de section), et la mention **« Gratuit · sans compte · sans inscription »**.
+⚠️ Cette formulation est **délibérément prudente** : Marc envisage d'ajouter de la publicité si
+le trafic décolle. Ne JAMAIS écrire ici « sans pub » ni « sans traqueur » — ce serait gravé
+durablement et se retournerait contre lui, d'autant que son post Reddit promet déjà « no ads ».
+Ces trois affirmations-là restent vraies quoi qu'il advienne.
+
+Le lien de soutien réutilise `.gx-cta` sur un `<a>` : il lui faut `text-decoration: none` et
+`box-sizing: border-box`, que le `<button>` tenait de sa nature.
+
 ### Indice de thème (`#theme-pill`, lot 1 — 2026-08-14)
 
 Réponse au reproche de fond fait aux jeux sémantiques (retour Reddit) : **on cherche à
