@@ -490,6 +490,17 @@ le trafic décolle. Ne JAMAIS écrire ici « sans pub » ni « sans traqueur » 
 durablement et se retournerait contre lui, d'autant que son post Reddit promet déjà « no ads ».
 Ces trois affirmations-là restent vraies quoi qu'il advienne.
 
+**Ligne d'auteur dans la carte de victoire** (`#win-card-credit`, lot 2) : nom + « Écrire »
+(mailto) + « Offrir un café » (Ko-fi), avec les mêmes constantes `ABOUT_*`. Volontairement
+**en retrait** — 10,5 px, gris subtil, séparée par un filet : le joueur vient de gagner, la
+carte parle de lui, un appel au don appuyé à cet instant ressemblerait à une quête.
+⚠️ Cet ajout a fait passer la carte de 318 à 348 px et elle **débordait de 4 px à 400 px de
+haut**, sans possibilité de défiler puisque `#win-card` est en `overflow: hidden` (pour ses
+coins arrondis) : le contenu était ROGNÉ, pas scrollable. D'où
+`#win-card-body { max-height: calc(100dvh - 160px); overflow-y: auto }` — on plafonne le CORPS
+et non la carte, ce qui garde le titre toujours visible. Vérifié : défile à 740x400, ne défile
+pas à 375x812.
+
 Le lien de soutien réutilise `.gx-cta` sur un `<a>` : il lui faut `text-decoration: none` et
 `box-sizing: border-box`, que le `<button>` tenait de sa nature.
 

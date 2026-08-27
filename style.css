@@ -836,7 +836,16 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
   border-color: var(--hairline-strong);
   color: var(--screen-text);
 }
-#win-card-body { padding: 0 18px 18px; }
+#win-card-body {
+  padding: 0 18px 18px;
+  /* ⚠️ La carte est en position fixe et son parent est en `overflow: hidden`
+     (pour les coins arrondis) : sans plafond, tout ce qui dépasse est ROGNÉ, pas
+     scrollable. L'ajout de la ligne d'auteur l'a fait passer de 318 à 348 px et
+     elle sortait de l'écran à 400 px de haut. On plafonne donc le CORPS, ce qui
+     laisse le titre toujours visible. */
+  max-height: calc(100dvh - 160px);
+  overflow-y: auto;
+}
 #win-card.collapsed #win-card-body { display: none; }
 #win-card-subtitle {
   margin: 0 0 4px;
@@ -846,6 +855,27 @@ button:disabled { opacity: 0.35; cursor: not-allowed; }
 }
 #win-card .share-card { margin-top: 12px; }
 #win-card-confirm { text-align: center; }
+/* Ligne d'auteur : le joueur vient de gagner, la carte parle de LUI. Ce crédit
+   doit rester en retrait — un appel au don appuyé à cet instant ressemblerait à
+   une quête. D'où le filet de séparation, le 10,5 px et les liens sans fond. */
+#win-card-credit {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  gap: 4px 10px;
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid var(--glass-border);
+  font-size: 10.5px; line-height: 1.5;
+  color: var(--screen-subtle);
+}
+#win-card-credit .wcc-by { color: var(--screen-muted); }
+#win-card-credit .wcc-by strong { color: var(--screen-text); font-weight: 600; }
+#win-card-credit a {
+  color: var(--phosphor);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+#win-card-credit a:hover { border-bottom-color: var(--phosphor); }
 .dot-label--latest {
   opacity: 1;
   border-width: 2px;

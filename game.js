@@ -108,6 +108,9 @@ const I18N = {
     aboutSupportT:   'Buy me a coffee',
     aboutSupportB:   'Support Galexical',
     aboutFree:       'Free to play · no account · no sign-up',
+    winBy:           'A game by',
+    winWrite:        'Say hello',
+    winCoffee:       'Buy me a coffee',
     unlockedBadge:   '🔓 Unlocked',
     guessCountLabel: (n) => `${n} ${n > 1 ? 'guesses' : 'guess'}`,
     archiveAria:     'Archives — replay a recent day',
@@ -270,6 +273,9 @@ const I18N = {
     aboutSupportT:   'Offrez-moi un café',
     aboutSupportB:   'Soutenir Galexical',
     aboutFree:       'Gratuit · sans compte · sans inscription',
+    winBy:           'Un jeu de',
+    winWrite:        'Écrire',
+    winCoffee:       'Offrir un café',
     unlockedBadge:   '🔓 Débloqué',
     guessCountLabel: (n) => `${n} proposition${n > 1 ? 's' : ''}`,
     archiveAria:     'Archives — rejouer un jour récent',
@@ -3855,6 +3861,11 @@ function showWinCard() {
   if (sub) sub.textContent = t('winSubtitle', totalMoves());
   const share = document.getElementById('win-card-share');
   if (share) share.innerHTML = buildShareCardHTML();
+  const credit = document.getElementById('win-card-credit');
+  if (credit) credit.innerHTML =
+    `<span class="wcc-by">${t('winBy')} <strong>${ABOUT_NAME}</strong></span>`
+    + `<a href="mailto:${ABOUT_EMAIL}">${t('winWrite')}</a>`
+    + `<a href="${ABOUT_KOFI}" target="_blank" rel="noopener noreferrer">${t('winCoffee')}</a>`;
   card.classList.remove('hidden');
   applyWinCardState();
 }
