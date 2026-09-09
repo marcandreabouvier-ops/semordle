@@ -48,10 +48,15 @@ jobs:
           # 3 semaines de marge, au lieu de se taire jusqu'au jour où le site casse.
           python generate_puzzle.py --schedule schedule.csv --days-ahead 10 --prune-days 14 --min-runway 21
 
+      # ⚠️ PAS de [skip ci] dans le message : Cloudflare l'honore et SAUTE le
+      # déploiement, donc les puzzles restaient dans GitHub sans jamais partir
+      # en production. Ça ne se voyait pas tant qu'un commit normal passait
+      # derrière et les emportait. Ce workflow ne se déclenche que sur schedule
+      # et workflow_dispatch, jamais sur push : [skip ci] ne servait à rien.
       - name: Commit and push new puzzle files
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/
           git diff --cached --quiet && echo "No new puzzles to commit" || \
-            git commit -m "chore: add puzzles for the next 10 days [skip ci]" && git push
+            git commit -m "chore: add puzzles for the next 10 days" && git push
